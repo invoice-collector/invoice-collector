@@ -29,7 +29,7 @@ export class MixpanelCollector extends SketchCollector {
         loginUrl: "https://mixpanel.com/login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

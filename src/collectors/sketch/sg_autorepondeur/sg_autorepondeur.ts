@@ -29,7 +29,7 @@ export class SgAutorepondeurCollector extends SketchCollector {
         loginUrl: "https://sg-autorepondeur.com/app/invoices.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class WurthEFactureCollector extends SketchCollector {
         loginUrl: "https://wurth.e-facture.net/index.php?set_lang=en",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

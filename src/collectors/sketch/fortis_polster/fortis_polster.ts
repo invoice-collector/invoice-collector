@@ -29,7 +29,7 @@ export class FortisPolsterCollector extends SketchCollector {
         loginUrl: "https://www.fortispolster.de/user/loginUser",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

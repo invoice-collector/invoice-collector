@@ -29,7 +29,7 @@ export class PortaKosmetikCollector extends SketchCollector {
         loginUrl: "https://www.porta-kosmetik.de/customer/account/login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

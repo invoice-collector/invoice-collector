@@ -29,7 +29,7 @@ export class RheinbahnAboonlineBusinessCollector extends SketchCollector {
         loginUrl: "https://aboonline.rheinbahn.de/en/company/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

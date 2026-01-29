@@ -29,7 +29,7 @@ export class UnitedDomainsResellingGmbhCollector extends SketchCollector {
         loginUrl: "https://domainreselling.de/index.php?p=finance",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class WerbetechnikerShopCollector extends SketchCollector {
         loginUrl: "https://www.werbetechniker-shop.de/index.php?cl=account_order",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

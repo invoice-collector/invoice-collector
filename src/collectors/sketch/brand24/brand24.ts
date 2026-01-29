@@ -29,7 +29,7 @@ export class Brand24Collector extends SketchCollector {
         loginUrl: "https://brand24.recurly.com/account/invoices/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

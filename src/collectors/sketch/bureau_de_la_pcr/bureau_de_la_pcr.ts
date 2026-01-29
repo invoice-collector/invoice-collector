@@ -29,7 +29,7 @@ export class BureauDeLaPcrCollector extends SketchCollector {
         loginUrl: "https://clients.bureaupcr.fr/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

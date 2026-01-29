@@ -29,7 +29,7 @@ export class AkademieFurSteuerUndWirtschaftsrechtCollector extends SketchCollect
         loginUrl: "https://www.akademie-stuw.de/eportal",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

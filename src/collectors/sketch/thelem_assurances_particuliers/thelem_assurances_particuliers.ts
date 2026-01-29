@@ -29,7 +29,7 @@ export class ThelemAssurancesParticuliersCollector extends SketchCollector {
         loginUrl: "https://www.thelem-assurances.fr/#",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

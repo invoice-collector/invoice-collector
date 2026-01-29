@@ -29,7 +29,7 @@ export class TarifcheckCollector extends SketchCollector {
         loginUrl: "https://www.versicherungspartnerprogramm.de/berichte/gutschriften/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

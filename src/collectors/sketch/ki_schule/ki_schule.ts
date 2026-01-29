@@ -29,7 +29,7 @@ export class KiSchuleCollector extends SketchCollector {
         loginUrl: "https://app.ki-hochschule.de/account/billing?tab=billingHistory",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

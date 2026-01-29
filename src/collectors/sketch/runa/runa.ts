@@ -29,7 +29,7 @@ export class RunaCollector extends SketchCollector {
         loginUrl: "https://connect.runa.io/connect/invoices/?customer=C-ZAWVJJEQ",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

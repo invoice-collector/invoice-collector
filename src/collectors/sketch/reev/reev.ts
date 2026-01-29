@@ -29,7 +29,7 @@ export class ReevCollector extends SketchCollector {
         loginUrl: "https://dashboard.reev.com/app/my-invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

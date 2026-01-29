@@ -29,7 +29,7 @@ export class AdyenCollector extends SketchCollector {
         loginUrl: "https://ca-live.adyen.com/ca/ca/login.shtml",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

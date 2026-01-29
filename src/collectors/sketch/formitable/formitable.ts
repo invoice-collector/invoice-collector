@@ -29,7 +29,7 @@ export class FormitableCollector extends SketchCollector {
         loginUrl: "https://app.formitable.com/billing/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

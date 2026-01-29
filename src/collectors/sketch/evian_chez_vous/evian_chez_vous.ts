@@ -29,7 +29,7 @@ export class EvianChezVousCollector extends SketchCollector {
         loginUrl: "https://www.evianchezvous.com/customer/account/login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class RicohBusinessSystemsCollector extends SketchCollector {
         loginUrl: "https://www.customerfinancing.com/Home/Auth/pl",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

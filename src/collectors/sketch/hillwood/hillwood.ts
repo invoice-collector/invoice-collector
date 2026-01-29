@@ -29,7 +29,7 @@ export class HillwoodCollector extends SketchCollector {
         loginUrl: "https://hillwood.secure.munibilling.com/customers/sign_in",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class SmartboxCollector extends SketchCollector {
         loginUrl: "https://www.smartbox.com/fr/voucher/beneficiary/registerlogin/panel/accountLoginPanel/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class ItRechtKanzleiDeCollector extends SketchCollector {
         loginUrl: "https://www.it-recht-kanzlei.de/Portal/rechnungen.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

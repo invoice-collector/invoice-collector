@@ -29,7 +29,7 @@ export class YbugCollector extends SketchCollector {
         loginUrl: "https://ybug.io/dashboard/teamaccount#billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

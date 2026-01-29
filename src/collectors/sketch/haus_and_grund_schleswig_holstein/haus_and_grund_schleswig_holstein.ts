@@ -29,7 +29,7 @@ export class HausAndGrundSchleswigHolsteinCollector extends SketchCollector {
         loginUrl: "https://ssl.hugform-sh.de/login.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

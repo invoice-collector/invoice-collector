@@ -29,7 +29,7 @@ export class RomamobilitaItCollector extends SketchCollector {
         loginUrl: "https://busturistici2019.romamobilita.it/ListaFatture",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

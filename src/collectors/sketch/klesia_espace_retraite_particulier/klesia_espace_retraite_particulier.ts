@@ -29,7 +29,7 @@ export class KlesiaEspaceRetraiteParticulierCollector extends SketchCollector {
         loginUrl: "https://particuliers.klesia.fr/web/particuliers/espace-client",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

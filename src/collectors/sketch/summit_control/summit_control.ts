@@ -29,7 +29,7 @@ export class SummitControlCollector extends SketchCollector {
         loginUrl: "https://summitcontrol.com/admin/account-info.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

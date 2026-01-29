@@ -29,7 +29,7 @@ export class ECigFactoryFrCollector extends SketchCollector {
         loginUrl: "http://e-cig-factory.fr/shop/fr/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

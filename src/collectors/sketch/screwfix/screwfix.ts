@@ -29,7 +29,7 @@ export class ScrewfixCollector extends SketchCollector {
         loginUrl: "https://www.screwfix.com/loginpage/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

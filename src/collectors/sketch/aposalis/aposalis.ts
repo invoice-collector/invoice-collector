@@ -29,7 +29,7 @@ export class AposalisCollector extends SketchCollector {
         loginUrl: "https://www.aposalis.de/myOrders",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

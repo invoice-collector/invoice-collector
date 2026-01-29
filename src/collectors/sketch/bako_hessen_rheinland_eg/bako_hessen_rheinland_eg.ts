@@ -29,7 +29,7 @@ export class BakoHessenRheinlandEgCollector extends SketchCollector {
         loginUrl: "https://15515.gwsshop.de/de/winfo/doc_types/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

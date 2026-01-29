@@ -29,7 +29,7 @@ export class AdobeSignCollector extends SketchCollector {
         loginUrl: "https://secure.echosign.com/public/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

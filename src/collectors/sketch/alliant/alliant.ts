@@ -29,7 +29,7 @@ export class AlliantCollector extends SketchCollector {
         loginUrl: "https://www.alliantcreditunion.com/onlinebanking/Accounts/Statements/Estatement.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

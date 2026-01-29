@@ -29,7 +29,7 @@ export class SchwarzwaldEnergyCollector extends SketchCollector {
         loginUrl: "https://kundencenter.schwarzwald-energy.de/csit/action/csShowInvoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

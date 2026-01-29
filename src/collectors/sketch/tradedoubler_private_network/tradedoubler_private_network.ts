@@ -29,7 +29,7 @@ export class TradedoublerPrivateNetworkCollector extends SketchCollector {
         loginUrl: "https://pvn.tradedoubler.com/de/publisher/payments/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

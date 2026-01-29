@@ -29,7 +29,7 @@ export class NamebrightCollector extends SketchCollector {
         loginUrl: "https://www.namebright.com/Settings#Billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

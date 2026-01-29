@@ -29,7 +29,7 @@ export class ENetElmshornCollector extends SketchCollector {
         loginUrl: "https://mein.epunktnet.de/group/myenet/meinvertrag/rechnungsarchiv",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

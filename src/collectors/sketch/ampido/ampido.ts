@@ -29,7 +29,7 @@ export class AmpidoCollector extends SketchCollector {
         loginUrl: "https://www.ampido.com/myRents",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

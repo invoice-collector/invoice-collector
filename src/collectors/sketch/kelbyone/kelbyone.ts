@@ -29,7 +29,7 @@ export class KelbyoneCollector extends SketchCollector {
         loginUrl: "https://members.kelbyone.com/account/orders/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

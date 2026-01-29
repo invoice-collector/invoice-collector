@@ -29,7 +29,7 @@ export class CityOfRanchoCucamongaCollector extends SketchCollector {
         loginUrl: "https://rcmu.cityofrc.us/my-account/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class DeutschePostEfilialeCollector extends SketchCollector {
         loginUrl: "https://shop.deutschepost.de/shop/login_page.jsp",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

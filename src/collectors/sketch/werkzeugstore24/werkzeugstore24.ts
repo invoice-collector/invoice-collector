@@ -29,7 +29,7 @@ export class Werkzeugstore24Collector extends SketchCollector {
         loginUrl: "https://werkzeugstore24.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

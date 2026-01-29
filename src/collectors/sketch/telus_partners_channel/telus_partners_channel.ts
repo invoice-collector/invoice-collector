@@ -29,7 +29,7 @@ export class TelusPartnersChannelCollector extends SketchCollector {
         loginUrl: "https://channelpartners.telus.com/cws/orderManager#!/search",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

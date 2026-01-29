@@ -29,7 +29,7 @@ export class DxComDealextremeCollector extends SketchCollector {
         loginUrl: "https://passport.dx.com/?redirect=http%3A%2F%2Fwww.dx.com%2F",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

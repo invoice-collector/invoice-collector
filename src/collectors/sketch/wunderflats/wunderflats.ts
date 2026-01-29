@@ -29,7 +29,7 @@ export class WunderflatsCollector extends SketchCollector {
         loginUrl: "https://wunderflats.com/en/login?redirect=%2Fen%2Fabout",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

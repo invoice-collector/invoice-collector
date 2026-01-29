@@ -29,7 +29,7 @@ export class HamburgWasserCollector extends SketchCollector {
         loginUrl: "https://onlineservice.hamburgwasser.de/sap/bc/ui5_ui5/sap/ZUMCUI5_MOBILE/#/Logon",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

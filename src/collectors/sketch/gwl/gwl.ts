@@ -29,7 +29,7 @@ export class GwlCollector extends SketchCollector {
         loginUrl: "https://shop.gwl.eu/index.php?cur=1&cl=account_invoice",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

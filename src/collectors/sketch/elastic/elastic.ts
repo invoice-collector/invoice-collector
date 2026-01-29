@@ -29,7 +29,7 @@ export class ElasticCollector extends SketchCollector {
         loginUrl: "https://cloud.elastic.co/#/account/billing-history/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class PhonetastikCollector extends SketchCollector {
         loginUrl: "https://phonetastik.de/account/order-transactions",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

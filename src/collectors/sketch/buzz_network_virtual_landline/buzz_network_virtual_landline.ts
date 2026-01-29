@@ -29,7 +29,7 @@ export class BuzzNetworkVirtualLandlineCollector extends SketchCollector {
         loginUrl: "https://www.virtuallandline.co.uk/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

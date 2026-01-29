@@ -29,7 +29,7 @@ export class DegDachdeckerEinkaufSudCollector extends SketchCollector {
         loginUrl: "https://www.deg-sued.de/dde/de/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

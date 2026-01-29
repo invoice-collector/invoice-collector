@@ -29,7 +29,7 @@ export class TimebutlerCollector extends SketchCollector {
         loginUrl: "https://timebutler.de/login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

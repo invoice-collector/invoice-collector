@@ -29,7 +29,7 @@ export class BoxtalCollector extends SketchCollector {
         loginUrl: "https://www.boxtal.com/fr/fr/app/utilisateur/connexion",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

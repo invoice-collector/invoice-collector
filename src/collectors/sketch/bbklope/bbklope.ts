@@ -29,7 +29,7 @@ export class BbklopeCollector extends SketchCollector {
         loginUrl: "http://bbklope.fr/index.php?",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

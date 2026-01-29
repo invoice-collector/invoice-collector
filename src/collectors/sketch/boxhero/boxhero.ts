@@ -29,7 +29,7 @@ export class BoxheroCollector extends SketchCollector {
         loginUrl: "https://www.boxhero.io",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

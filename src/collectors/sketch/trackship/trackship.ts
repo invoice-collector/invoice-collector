@@ -29,7 +29,7 @@ export class TrackshipCollector extends SketchCollector {
         loginUrl: "https://my.trackship.com/settings/#billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

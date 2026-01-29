@@ -29,7 +29,7 @@ export class OneboxCollector extends SketchCollector {
         loginUrl: "https://www.onebox.com/signup/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class AquarelleClubCollector extends SketchCollector {
         loginUrl: "https://www.aquarelle.com/info/account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class SnapaddyCollector extends SketchCollector {
         loginUrl: "https://app.snapaddy.com/login?redirect_url=%252F%253Flocale%253Den",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

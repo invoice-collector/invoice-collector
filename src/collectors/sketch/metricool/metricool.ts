@@ -29,7 +29,7 @@ export class MetricoolCollector extends SketchCollector {
         loginUrl: "https://app.metricool.com/settings-payments",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class LaPosteProCollector extends SketchCollector {
         loginUrl: "https://www.laposte.fr/professionnel/espaceclient/factures",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

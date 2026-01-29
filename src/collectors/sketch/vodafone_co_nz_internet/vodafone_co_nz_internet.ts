@@ -29,7 +29,7 @@ export class VodafoneCoNzInternetCollector extends SketchCollector {
         loginUrl: "https://www.vodafone.co.nz/#sign-in#sign-in-internet",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

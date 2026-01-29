@@ -29,7 +29,7 @@ export class JochenHeilOnlineShopCollector extends SketchCollector {
         loginUrl: "https://jh-products.jochenheil.de/account/order",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

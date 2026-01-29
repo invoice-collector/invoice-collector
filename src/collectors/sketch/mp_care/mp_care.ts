@@ -29,7 +29,7 @@ export class MpCareCollector extends SketchCollector {
         loginUrl: "www.mpcare.de/account/order",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

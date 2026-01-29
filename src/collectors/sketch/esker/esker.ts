@@ -29,7 +29,7 @@ export class EskerCollector extends SketchCollector {
         loginUrl: "https://as1.ondemand.esker.com/ondemand/webaccess/logon.aspx?lang=en&TestCookie=1",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

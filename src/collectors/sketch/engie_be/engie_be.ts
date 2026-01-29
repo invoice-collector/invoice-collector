@@ -28,7 +28,7 @@ export class EngieBeCollector extends SketchCollector {
         loginUrl: "https://account.engie.be/u/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

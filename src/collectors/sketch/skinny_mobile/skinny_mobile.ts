@@ -29,7 +29,7 @@ export class SkinnyMobileCollector extends SketchCollector {
         loginUrl: "https://www.skinny.co.nz/Security/login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

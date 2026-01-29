@@ -29,7 +29,7 @@ export class EasternPropaneAndOilCollector extends SketchCollector {
         loginUrl: "https://myaccount.eastern.com/accountSummary",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

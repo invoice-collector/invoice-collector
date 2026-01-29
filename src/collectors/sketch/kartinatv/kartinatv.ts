@@ -29,7 +29,7 @@ export class KartinatvCollector extends SketchCollector {
         loginUrl: "https://account.kartina.tv/orders/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

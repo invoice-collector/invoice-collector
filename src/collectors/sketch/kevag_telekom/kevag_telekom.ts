@@ -29,7 +29,7 @@ export class KevagTelekomCollector extends SketchCollector {
         loginUrl: "https://kundencenter.kevag-telekom.de/documents/invoices/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

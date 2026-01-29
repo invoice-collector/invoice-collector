@@ -29,7 +29,7 @@ export class SavviiCollector extends SketchCollector {
         loginUrl: "https://billing.savvii.nl/index.php?/clientarea/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

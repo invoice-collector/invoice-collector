@@ -29,7 +29,7 @@ export class PluralsightCollector extends SketchCollector {
         loginUrl: "https://app.pluralsight.com/id",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

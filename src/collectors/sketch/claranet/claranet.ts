@@ -29,7 +29,7 @@ export class ClaranetCollector extends SketchCollector {
         loginUrl: "http://www.claranet.pt",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

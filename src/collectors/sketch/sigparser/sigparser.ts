@@ -29,7 +29,7 @@ export class SigparserCollector extends SketchCollector {
         loginUrl: "https://app.sigparser.com/Account/App#/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

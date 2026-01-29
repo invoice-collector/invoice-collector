@@ -29,7 +29,7 @@ export class ClickmeetingCollector extends SketchCollector {
         loginUrl: "https://account-panel.clickmeeting.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

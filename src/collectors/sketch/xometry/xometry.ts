@@ -29,7 +29,7 @@ export class XometryCollector extends SketchCollector {
         loginUrl: "https://get.xometry.eu/sign_in",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

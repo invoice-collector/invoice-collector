@@ -29,7 +29,7 @@ export class LandkreisRostockEigenbetriebAbfallwirtschaftCollector extends Sketc
         loginUrl: "https://www.landkreis-rostock.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

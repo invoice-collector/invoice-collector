@@ -29,7 +29,7 @@ export class DirectadminCollector extends SketchCollector {
         loginUrl: "https://www.directadmin.com/clients/invoices.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

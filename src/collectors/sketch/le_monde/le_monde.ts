@@ -29,7 +29,7 @@ export class LeMondeCollector extends SketchCollector {
         loginUrl: "https://moncompte.lemonde.fr/sales/order/history/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

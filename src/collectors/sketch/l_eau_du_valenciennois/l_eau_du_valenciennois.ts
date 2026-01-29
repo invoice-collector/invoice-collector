@@ -29,7 +29,7 @@ export class LEauDuValenciennoisCollector extends SketchCollector {
         loginUrl: "https://leauduvalenciennois.toutsurmoneau.fr/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

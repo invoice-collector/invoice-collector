@@ -29,7 +29,7 @@ export class AtrigaCollector extends SketchCollector {
         loginUrl: "https://www.atriga.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

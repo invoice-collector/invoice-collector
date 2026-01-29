@@ -29,7 +29,7 @@ export class Alphabet360Collector extends SketchCollector {
         loginUrl: "https://360fp.alphabet.com/portal-app/en-US/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class SabeeappCollector extends SketchCollector {
         loginUrl: "https://chm.sabeeapp.com/subscription/subscription",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

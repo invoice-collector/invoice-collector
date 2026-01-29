@@ -29,7 +29,7 @@ export class MutuelleIpecaParticulierCollector extends SketchCollector {
         loginUrl: "https://participants.ipeca.fr/particulier/Pages/Particulier-home-actualite.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

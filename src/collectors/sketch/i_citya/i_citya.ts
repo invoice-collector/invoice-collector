@@ -29,7 +29,7 @@ export class ICityaCollector extends SketchCollector {
         loginUrl: "https://www.citya.com/i-citya/coproprietaire",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

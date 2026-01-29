@@ -29,7 +29,7 @@ export class GeneralMotorsCollector extends SketchCollector {
         loginUrl: "https://pwbplus-saml.autopartners.net/reports-tools/custom/active-Partsinvoices/creditnotes",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

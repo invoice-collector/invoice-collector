@@ -29,7 +29,7 @@ export class ElfsightCollector extends SketchCollector {
         loginUrl: "https://dash.elfsight.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

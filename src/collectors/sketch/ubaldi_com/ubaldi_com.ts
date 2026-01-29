@@ -29,7 +29,7 @@ export class UbaldiComCollector extends SketchCollector {
         loginUrl: "https://www.ubaldi.com/espace-perso/identification.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class HypetrainCollector extends SketchCollector {
         loginUrl: "https://thesissbliss.hypetrain.io/workspace-settings/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

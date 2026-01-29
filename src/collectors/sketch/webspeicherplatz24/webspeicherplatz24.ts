@@ -29,7 +29,7 @@ export class Webspeicherplatz24Collector extends SketchCollector {
         loginUrl: "https://www.webspeicherplatz24.de/cis/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

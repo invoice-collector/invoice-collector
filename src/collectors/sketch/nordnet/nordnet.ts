@@ -29,7 +29,7 @@ export class NordnetCollector extends SketchCollector {
         loginUrl: "https://client.nordnet.com/identification",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

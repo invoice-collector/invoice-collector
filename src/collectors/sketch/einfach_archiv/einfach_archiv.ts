@@ -29,7 +29,7 @@ export class EinfachArchivCollector extends SketchCollector {
         loginUrl: "https://www.einfacharchiv.app/kaffeerosterei-elbe455/documents",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

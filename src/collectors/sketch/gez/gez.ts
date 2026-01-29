@@ -29,7 +29,7 @@ export class GezCollector extends SketchCollector {
         loginUrl: "https://portal.rundfunkbeitrag.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

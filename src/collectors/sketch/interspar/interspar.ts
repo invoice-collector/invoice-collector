@@ -29,7 +29,7 @@ export class IntersparCollector extends SketchCollector {
         loginUrl: "https://www.interspar.at/shop/lebensmittel/my-account/orders/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

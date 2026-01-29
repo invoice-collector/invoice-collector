@@ -29,7 +29,7 @@ export class WestbahnCollector extends SketchCollector {
         loginUrl: "http://www.westbahn.at",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

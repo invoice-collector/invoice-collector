@@ -29,7 +29,7 @@ export class Lox24Collector extends SketchCollector {
         loginUrl: "https://www.lox24.eu/account/index.php?page=accounting",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

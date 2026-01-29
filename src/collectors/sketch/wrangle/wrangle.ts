@@ -29,7 +29,7 @@ export class WrangleCollector extends SketchCollector {
         loginUrl: "https://slack.wrangle.io/auth/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

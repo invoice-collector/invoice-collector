@@ -29,7 +29,7 @@ export class NordzuckerAgriportalCollector extends SketchCollector {
         loginUrl: "https://agriportal.nordzucker.de/irj/portal/nordzucker/de?NavigationTarget=navurl://1a1036045e41dd5bf93fef0cc32b91c2",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

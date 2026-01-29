@@ -29,7 +29,7 @@ export class SucEnergieUndH2oGmbhCollector extends SketchCollector {
         loginUrl: "https://kundenportal.suec.de/powercommerce/csit3/fo/portal/start",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

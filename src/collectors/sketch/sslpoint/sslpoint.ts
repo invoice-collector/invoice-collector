@@ -29,7 +29,7 @@ export class SslpointCollector extends SketchCollector {
         loginUrl: "https://www.sslpoint.com/myorder/clientarea.php?action=invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

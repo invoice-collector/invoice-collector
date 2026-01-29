@@ -29,7 +29,7 @@ export class SuezFrEntreprisesCollector extends SketchCollector {
         loginUrl: "https://espace-entreprises-rv.suez.fr/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

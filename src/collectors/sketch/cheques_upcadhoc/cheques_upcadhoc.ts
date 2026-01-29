@@ -29,7 +29,7 @@ export class ChequesUpcadhocCollector extends SketchCollector {
         loginUrl: "https://docup.up-group.coop/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class EnterpriseCarshareCollector extends SketchCollector {
         loginUrl: "https://www.enterprisecarshare.com/us/en/login.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

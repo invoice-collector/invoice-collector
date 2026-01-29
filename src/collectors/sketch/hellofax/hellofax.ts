@@ -29,7 +29,7 @@ export class HellofaxCollector extends SketchCollector {
         loginUrl: "https://app.hellofax.com/account/logIn",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

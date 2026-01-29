@@ -29,7 +29,7 @@ export class AdidasClickABillCollector extends SketchCollector {
         loginUrl: "https://click-a-bill.adidas-group.com/irj/portal/bd-we",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

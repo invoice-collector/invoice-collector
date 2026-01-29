@@ -29,7 +29,7 @@ export class EuromobilecompanyCollector extends SketchCollector {
         loginUrl: "https://euromobilecompany.de/de/konto/rechnungen",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

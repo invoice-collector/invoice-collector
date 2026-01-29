@@ -29,7 +29,7 @@ export class TermlabsCollector extends SketchCollector {
         loginUrl: "https://login.termlabs.io/account/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

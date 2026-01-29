@@ -29,7 +29,7 @@ export class JoanCollector extends SketchCollector {
         loginUrl: "https://master.joan.vnct.xyz/settings/subscriptions/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

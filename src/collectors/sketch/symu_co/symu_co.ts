@@ -29,7 +29,7 @@ export class SymuCoCollector extends SketchCollector {
         loginUrl: "https://symu.co/panel/settings/invoices/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

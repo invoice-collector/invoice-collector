@@ -29,7 +29,7 @@ export class RetailadsCollector extends SketchCollector {
         loginUrl: "https://login.retailads.net",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

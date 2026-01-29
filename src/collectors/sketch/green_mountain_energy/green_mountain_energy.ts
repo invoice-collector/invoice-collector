@@ -29,7 +29,7 @@ export class GreenMountainEnergyCollector extends SketchCollector {
         loginUrl: "https://www.businessportal.greenmountain.com/resources/protected/previousBills.htm",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

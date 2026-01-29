@@ -29,7 +29,7 @@ export class JImprimeEnFranceCollector extends SketchCollector {
         loginUrl: "https://www.jimprimeenfrance.fr/Orders",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

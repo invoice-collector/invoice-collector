@@ -29,7 +29,7 @@ export class HemTankstelleCollector extends SketchCollector {
         loginUrl: "https://www.hem-tankstelle.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class DigitaldruckFabrikCollector extends SketchCollector {
         loginUrl: "https://www.digitaldruck-fabrik.de/login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

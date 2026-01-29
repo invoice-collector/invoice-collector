@@ -29,7 +29,7 @@ export class OwntagCollector extends SketchCollector {
         loginUrl: "https://console.owntag.eu/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

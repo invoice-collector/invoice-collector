@@ -29,7 +29,7 @@ export class RemoteItCollector extends SketchCollector {
         loginUrl: "https://app.remote.it/#/account/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

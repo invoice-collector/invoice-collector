@@ -29,7 +29,7 @@ export class CompleadlyCollector extends SketchCollector {
         loginUrl: "https://compleadly.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

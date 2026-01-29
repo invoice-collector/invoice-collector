@@ -29,7 +29,7 @@ export class MintEnergieCollector extends SketchCollector {
         loginUrl: "https://www.mint-energie.com/Pages/Compte/informations_paiement.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class RepurposeCollector extends SketchCollector {
         loginUrl: "https://my.repurpose.io",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

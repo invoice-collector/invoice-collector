@@ -29,7 +29,7 @@ export class UscreenIoCollector extends SketchCollector {
         loginUrl: "https://www.uscreen.io/admin/billings",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

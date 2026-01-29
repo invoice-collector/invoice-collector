@@ -29,7 +29,7 @@ export class EnsoDatendiensteCollector extends SketchCollector {
         loginUrl: "https://enso.plusportal.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

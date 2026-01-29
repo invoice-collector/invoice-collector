@@ -29,7 +29,7 @@ export class Druckdiscount24DeCollector extends SketchCollector {
         loginUrl: "https://www.druckdiscount24.de/de/ShoppingCart/ShowOrder/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

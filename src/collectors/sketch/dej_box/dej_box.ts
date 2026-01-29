@@ -29,7 +29,7 @@ export class DejBoxCollector extends SketchCollector {
         loginUrl: "https://www.dejbox.fr/account.jsp?to=solde",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

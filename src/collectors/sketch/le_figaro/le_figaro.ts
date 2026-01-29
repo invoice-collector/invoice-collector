@@ -29,7 +29,7 @@ export class LeFigaroCollector extends SketchCollector {
         loginUrl: "https://connect.lefigaro.fr/login?client=horizon_web&redirect_uri=https://www.lefigaro.fr/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

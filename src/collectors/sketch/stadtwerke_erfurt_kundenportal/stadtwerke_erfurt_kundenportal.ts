@@ -29,7 +29,7 @@ export class StadtwerkeErfurtKundenportalCollector extends SketchCollector {
         loginUrl: "https://kundenportal.stadtwerke-erfurt.de/powercommerce/swe/fo/portal/invoiceDetails",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

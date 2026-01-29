@@ -29,7 +29,7 @@ export class OctikaCollector extends SketchCollector {
         loginUrl: "https://www.octika.com/module/bms_customer_account/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

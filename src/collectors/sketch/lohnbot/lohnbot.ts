@@ -29,7 +29,7 @@ export class LohnbotCollector extends SketchCollector {
         loginUrl: "https://app.lohnbot.at/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

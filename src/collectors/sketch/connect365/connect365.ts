@@ -29,7 +29,7 @@ export class Connect365Collector extends SketchCollector {
         loginUrl: "http://app.connect365.io",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

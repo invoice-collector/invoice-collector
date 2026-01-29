@@ -29,7 +29,7 @@ export class EvpassCollector extends SketchCollector {
         loginUrl: "https://www.evpass.ch/Transaction/Transaction",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

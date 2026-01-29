@@ -29,7 +29,7 @@ export class GreenboxCollector extends SketchCollector {
         loginUrl: "https://www.biologischverpacken.de/account/order",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class ScaleInsightsCollector extends SketchCollector {
         loginUrl: "https://portal.scaleinsights.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

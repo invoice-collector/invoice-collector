@@ -29,7 +29,7 @@ export class EasystampDeCollector extends SketchCollector {
         loginUrl: "https://www.easystamp.de/einloggen",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

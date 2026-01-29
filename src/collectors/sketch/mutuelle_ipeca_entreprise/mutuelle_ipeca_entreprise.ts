@@ -29,7 +29,7 @@ export class MutuelleIpecaEntrepriseCollector extends SketchCollector {
         loginUrl: "https://adherents.ipeca.fr/Entreprise/Pages/entreprise-home-actu.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

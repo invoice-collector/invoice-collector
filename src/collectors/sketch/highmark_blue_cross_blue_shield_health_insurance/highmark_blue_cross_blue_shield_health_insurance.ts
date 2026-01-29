@@ -29,7 +29,7 @@ export class HighmarkBlueCrossBlueShieldHealthInsuranceCollector extends SketchC
         loginUrl: "https://employer.highmark.com/billing/group/invoice",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

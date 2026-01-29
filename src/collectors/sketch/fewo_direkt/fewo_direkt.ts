@@ -29,7 +29,7 @@ export class FewoDirektCollector extends SketchCollector {
         loginUrl: "https://www.fewo-direkt.de/gd/payments/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

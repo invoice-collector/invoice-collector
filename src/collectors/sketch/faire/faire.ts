@@ -29,7 +29,7 @@ export class FaireCollector extends SketchCollector {
         loginUrl: "https://www.faire.com/?signIn=1",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

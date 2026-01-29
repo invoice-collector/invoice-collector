@@ -29,7 +29,7 @@ export class _360comsBillingCollector extends SketchCollector {
         loginUrl: "https://360coms.enlighten-online.net/EnlightenInvoice",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class StadtwerkeHanauCollector extends SketchCollector {
         loginUrl: "https://csc.stadtwerke-hanau.de/rechnungen",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

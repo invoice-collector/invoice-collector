@@ -29,7 +29,7 @@ export class SeedLegalsCollector extends SketchCollector {
         loginUrl: "https://app.seedlegals.com/companies/c_7RMdan0CP0/settings/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

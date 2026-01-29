@@ -29,7 +29,7 @@ export class As24ByTotalCollector extends SketchCollector {
         loginUrl: "https://extranet.as24.com/extranet/login?langue=fr",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

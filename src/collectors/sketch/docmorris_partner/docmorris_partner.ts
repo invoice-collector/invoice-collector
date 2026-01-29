@@ -29,7 +29,7 @@ export class DocmorrisPartnerCollector extends SketchCollector {
         loginUrl: "https://partner.docmorris.de/phw/my-account/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

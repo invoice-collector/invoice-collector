@@ -29,7 +29,7 @@ export class WwwZrkPortalDeCollector extends SketchCollector {
         loginUrl: "https://www.zrk-portal.de/azh_oc/noc/pt/rezeptAbrechnung",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

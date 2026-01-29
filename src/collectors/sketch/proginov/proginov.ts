@@ -29,7 +29,7 @@ export class ProginovCollector extends SketchCollector {
         loginUrl: "https://www.proginov.fr/ProginovDemat/liste-ged/xdoc-xclasschapfactures.html?keycnx=183-C-329613&variante=Vfactures",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

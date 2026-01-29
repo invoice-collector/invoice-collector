@@ -29,7 +29,7 @@ export class GeocaptureAppCollector extends SketchCollector {
         loginUrl: "https://app.geocapture.net/receipts",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

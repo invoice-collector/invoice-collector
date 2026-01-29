@@ -29,7 +29,7 @@ export class IziviaCollector extends SketchCollector {
         loginUrl: "https://pro.izivia-ig.fr/#/main/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

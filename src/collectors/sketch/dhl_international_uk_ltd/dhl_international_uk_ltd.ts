@@ -29,7 +29,7 @@ export class DhlInternationalUkLtdCollector extends SketchCollector {
         loginUrl: "https://send.dhlparcel.co.uk/login?returnurl=~",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

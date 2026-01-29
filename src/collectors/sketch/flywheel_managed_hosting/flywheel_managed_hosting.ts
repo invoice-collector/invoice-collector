@@ -29,7 +29,7 @@ export class FlywheelManagedHostingCollector extends SketchCollector {
         loginUrl: "https://app.getflywheel.com/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

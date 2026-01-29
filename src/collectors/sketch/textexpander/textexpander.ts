@@ -29,7 +29,7 @@ export class TextexpanderCollector extends SketchCollector {
         loginUrl: "https://app.textexpander.com/sign-in?_ga=2.163229436.17416616.1524109530-703412389.1524109530",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

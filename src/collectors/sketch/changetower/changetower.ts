@@ -29,7 +29,7 @@ export class ChangetowerCollector extends SketchCollector {
         loginUrl: "https://app.changetower.com/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

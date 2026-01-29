@@ -29,7 +29,7 @@ export class LokalesMarkethingCollector extends SketchCollector {
         loginUrl: "https://ergo.ergo-mein-lokales-marketing.de/marcapo_platform//OrderStart.cms",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

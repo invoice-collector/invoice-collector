@@ -29,7 +29,7 @@ export class SdgAndECollector extends SketchCollector {
         loginUrl: "https://myaccount.sdge.com/portal/PreLogin/Validate",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

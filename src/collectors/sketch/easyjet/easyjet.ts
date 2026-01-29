@@ -29,7 +29,7 @@ export class EasyjetCollector extends SketchCollector {
         loginUrl: "https://www.easyjet.com/DE/secure/MyEasyJet.mvc/ViewBooking",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

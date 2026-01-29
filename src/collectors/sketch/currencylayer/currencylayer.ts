@@ -29,7 +29,7 @@ export class CurrencylayerCollector extends SketchCollector {
         loginUrl: "https://currencylayer.com/invoice-dl?invoice_id=",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

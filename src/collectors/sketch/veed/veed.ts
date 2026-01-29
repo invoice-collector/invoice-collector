@@ -29,7 +29,7 @@ export class VeedCollector extends SketchCollector {
         loginUrl: "https://www.veed.io/workspaces/d3757d68-f1f3-446f-8783-7b635bd00103/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

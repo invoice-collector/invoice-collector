@@ -29,7 +29,7 @@ export class DiFmCollector extends SketchCollector {
         loginUrl: "https://www.di.fm/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

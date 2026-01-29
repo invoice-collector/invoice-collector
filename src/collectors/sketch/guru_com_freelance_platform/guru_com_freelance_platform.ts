@@ -29,7 +29,7 @@ export class GuruComFreelancePlatformCollector extends SketchCollector {
         loginUrl: "https://www.guru.com/pay/invoices/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

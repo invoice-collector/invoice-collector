@@ -29,7 +29,7 @@ export class GptTrainerCollector extends SketchCollector {
         loginUrl: "https://app.gpt-trainer.com/site/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

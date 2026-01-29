@@ -29,7 +29,7 @@ export class SwelloCollector extends SketchCollector {
         loginUrl: "https://swello.com/fr/connexion",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class OctopushCollector extends SketchCollector {
         loginUrl: "https://www.octopush-dm.com/connectez-vous",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

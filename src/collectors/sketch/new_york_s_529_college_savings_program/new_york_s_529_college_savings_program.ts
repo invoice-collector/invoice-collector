@@ -29,7 +29,7 @@ export class NewYorkS529CollegeSavingsProgramCollector extends SketchCollector {
         loginUrl: "https://www.nysaves.org/nytpl/auth/ll.cs",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

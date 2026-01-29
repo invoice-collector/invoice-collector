@@ -29,7 +29,7 @@ export class ParcelloGmbhCollector extends SketchCollector {
         loginUrl: "https://www.parcello.org/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

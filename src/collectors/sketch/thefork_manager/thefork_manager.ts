@@ -29,7 +29,7 @@ export class TheforkManagerCollector extends SketchCollector {
         loginUrl: "https://manager.thefork.com/fr/booking",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

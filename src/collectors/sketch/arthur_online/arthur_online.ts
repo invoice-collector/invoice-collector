@@ -29,7 +29,7 @@ export class ArthurOnlineCollector extends SketchCollector {
         loginUrl: "https://system.arthuronline.co.uk/johnwilson/charges/index",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class _3dcollectiveCollector extends SketchCollector {
         loginUrl: "https://3dcollective.es/en/s/my-account/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

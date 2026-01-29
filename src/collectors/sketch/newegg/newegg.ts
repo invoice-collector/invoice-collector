@@ -29,7 +29,7 @@ export class NeweggCollector extends SketchCollector {
         loginUrl: "https://secure.newegg.com/NewMyAccount/AccountLogin.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

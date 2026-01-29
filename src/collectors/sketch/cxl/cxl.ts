@@ -29,7 +29,7 @@ export class CxlCollector extends SketchCollector {
         loginUrl: "https://conversionxl.com/institute/my-account/orders/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

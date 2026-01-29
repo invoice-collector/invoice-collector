@@ -29,7 +29,7 @@ export class MockupsDirectoryCollector extends SketchCollector {
         loginUrl: "https://mockups.directory/account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

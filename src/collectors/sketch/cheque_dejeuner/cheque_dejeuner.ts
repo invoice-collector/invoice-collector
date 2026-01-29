@@ -29,7 +29,7 @@ export class ChequeDejeunerCollector extends SketchCollector {
         loginUrl: "https://clients.cheque-dejeuner.com/accueil/gerer/mes-factures-et-documents/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

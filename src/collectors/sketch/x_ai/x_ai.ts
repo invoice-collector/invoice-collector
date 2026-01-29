@@ -29,7 +29,7 @@ export class XAiCollector extends SketchCollector {
         loginUrl: "https://accounts.x.ai/sign-in?redirect=grok-com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class SpamdrainCollector extends SketchCollector {
         loginUrl: "https://spamdrain.com/en/login.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

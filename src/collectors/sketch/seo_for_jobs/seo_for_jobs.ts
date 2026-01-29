@@ -29,7 +29,7 @@ export class SeoForJobsCollector extends SketchCollector {
         loginUrl: "https://app.seo-for-jobs.com/clients/1752/subscription",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

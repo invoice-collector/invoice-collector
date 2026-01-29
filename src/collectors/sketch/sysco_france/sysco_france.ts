@@ -29,7 +29,7 @@ export class SyscoFranceCollector extends SketchCollector {
         loginUrl: "https://shop.sysco.fr/my-account/orders",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

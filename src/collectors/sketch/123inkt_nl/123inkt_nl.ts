@@ -29,7 +29,7 @@ export class _123inktNlCollector extends SketchCollector {
         loginUrl: "https://www.123inkt.nl/customer/login.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class KickofflabsCollector extends SketchCollector {
         loginUrl: "https://app.kickofflabs.com/users/account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

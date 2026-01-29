@@ -29,7 +29,7 @@ export class VrBankLahnDillEgCollector extends SketchCollector {
         loginUrl: "https://www.vrbank-lahndill.de/services_cloud/portal",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

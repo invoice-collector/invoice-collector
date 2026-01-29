@@ -29,7 +29,7 @@ export class DirectEnergieComCollector extends SketchCollector {
         loginUrl: "https://clients.direct-energie.com/mes-factures/ma-facture/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class WeeklyUpdateCollector extends SketchCollector {
         loginUrl: "https://app.getweeklyupdate.com/settings/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class ChargepointCollector extends SketchCollector {
         loginUrl: "https://driver.chargepoint.com/monthly-statements",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

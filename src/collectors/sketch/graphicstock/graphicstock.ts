@@ -29,7 +29,7 @@ export class GraphicstockCollector extends SketchCollector {
         loginUrl: "https://www.storyblocks.com/login?redirect=%2Fstock-image",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

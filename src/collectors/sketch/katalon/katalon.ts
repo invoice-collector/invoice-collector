@@ -29,7 +29,7 @@ export class KatalonCollector extends SketchCollector {
         loginUrl: "https://www.katalon.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

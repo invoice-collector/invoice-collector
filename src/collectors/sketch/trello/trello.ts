@@ -29,7 +29,7 @@ export class TrelloCollector extends SketchCollector {
         loginUrl: "https://trello.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

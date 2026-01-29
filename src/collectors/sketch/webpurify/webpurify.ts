@@ -29,7 +29,7 @@ export class WebpurifyCollector extends SketchCollector {
         loginUrl: "https://www.webpurify.com/account/invoices/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

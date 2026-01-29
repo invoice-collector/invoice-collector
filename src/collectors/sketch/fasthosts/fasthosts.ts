@@ -29,7 +29,7 @@ export class FasthostsCollector extends SketchCollector {
         loginUrl: "https://admin.fasthosts.co.uk/Auth/Login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

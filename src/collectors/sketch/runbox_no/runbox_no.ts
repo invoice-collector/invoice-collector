@@ -29,7 +29,7 @@ export class RunboxNoCollector extends SketchCollector {
         loginUrl: "https://runbox.com/mail",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

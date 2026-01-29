@@ -29,7 +29,7 @@ export class MediamarktsaturnCollector extends SketchCollector {
         loginUrl: "https://mediamarktsaturn.mirakl.net/sellerpayment/shop/accounting-document/list?limit=25",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

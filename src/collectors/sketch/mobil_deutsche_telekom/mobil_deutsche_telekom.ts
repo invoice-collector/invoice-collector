@@ -29,7 +29,7 @@ export class MobilDeutscheTelekomCollector extends SketchCollector {
         loginUrl: "https://rechnungonline.geschaeftskunden.telekom.de/gk/ben_ges_dok_ueb",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

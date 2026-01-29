@@ -29,7 +29,7 @@ export class InternetnordCollector extends SketchCollector {
         loginUrl: "https://subscriptions.zoho.eu/portal/internetnord/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

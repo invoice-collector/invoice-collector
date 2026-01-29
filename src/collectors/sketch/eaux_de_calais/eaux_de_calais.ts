@@ -29,7 +29,7 @@ export class EauxDeCalaisCollector extends SketchCollector {
         loginUrl: "https://www.eaux-de-calais.com/mon-compte-en-ligne/je-me-connecte",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

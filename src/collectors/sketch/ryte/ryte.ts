@@ -29,7 +29,7 @@ export class RyteCollector extends SketchCollector {
         loginUrl: "https://login.ryte.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

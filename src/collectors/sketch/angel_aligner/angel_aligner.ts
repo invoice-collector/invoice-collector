@@ -29,7 +29,7 @@ export class AngelAlignerCollector extends SketchCollector {
         loginUrl: "https://payments.angelalign.com/ecp/?language=de#/paid/detail",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

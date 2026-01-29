@@ -29,7 +29,7 @@ export class AirBalticCollector extends SketchCollector {
         loginUrl: "https://www.airbaltic.com/en/bookings",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

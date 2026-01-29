@@ -29,7 +29,7 @@ export class MakitaDealerzoneCollector extends SketchCollector {
         loginUrl: "https://www.makita.de/dealerzone-ordering-invoices.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

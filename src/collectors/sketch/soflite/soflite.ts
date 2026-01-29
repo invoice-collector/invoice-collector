@@ -29,7 +29,7 @@ export class SofliteCollector extends SketchCollector {
         loginUrl: "https://softlite.io/checkout/order-history/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

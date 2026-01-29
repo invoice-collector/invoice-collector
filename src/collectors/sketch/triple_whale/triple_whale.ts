@@ -29,7 +29,7 @@ export class TripleWhaleCollector extends SketchCollector {
         loginUrl: "https://app.triplewhale.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

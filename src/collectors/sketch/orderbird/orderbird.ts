@@ -29,7 +29,7 @@ export class OrderbirdCollector extends SketchCollector {
         loginUrl: "https://my.orderbird.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

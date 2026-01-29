@@ -29,7 +29,7 @@ export class DochubCollector extends SketchCollector {
         loginUrl: "https://dochub.com/settings/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

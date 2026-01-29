@@ -29,7 +29,7 @@ export class LvmVersicherungCollector extends SketchCollector {
         loginUrl: "http://www.lvm.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

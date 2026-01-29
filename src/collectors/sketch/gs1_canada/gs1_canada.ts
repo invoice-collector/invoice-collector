@@ -29,7 +29,7 @@ export class Gs1CanadaCollector extends SketchCollector {
         loginUrl: "https://www.gs1ca.org/app_invoices/onlinePayment/Display.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

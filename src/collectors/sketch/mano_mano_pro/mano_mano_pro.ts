@@ -29,7 +29,7 @@ export class ManoManoProCollector extends SketchCollector {
         loginUrl: "https://pro.manomano.fr/mes-factures",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class UnitedHosterCollector extends SketchCollector {
         loginUrl: "https://portal.united-hoster.de/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

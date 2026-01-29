@@ -29,7 +29,7 @@ export class WashworldCollector extends SketchCollector {
         loginUrl: "https://washworld.de/my-account/payment",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

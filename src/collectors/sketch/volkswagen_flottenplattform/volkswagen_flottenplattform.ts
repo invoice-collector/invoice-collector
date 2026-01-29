@@ -29,7 +29,7 @@ export class VolkswagenFlottenplattformCollector extends SketchCollector {
         loginUrl: "https://fleetonline.vwfs.com/FleetOnline/postbox?startDate=2020-05-28&endDate=2020-08-26",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

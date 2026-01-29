@@ -29,7 +29,7 @@ export class ChannelengineCollector extends SketchCollector {
         loginUrl: "https://wwww.channelengine.net/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class BaserowCollector extends SketchCollector {
         loginUrl: "https://baserow.io/subscriptions/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -28,7 +28,7 @@ export class IdexCollector extends SketchCollector {
         loginUrl: "https://espaceclient.idex.fr/web/guest/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

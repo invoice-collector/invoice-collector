@@ -29,7 +29,7 @@ export class DoccleCollector extends SketchCollector {
         loginUrl: "https://secure.doccle.be/doccle-euui/archive/index",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

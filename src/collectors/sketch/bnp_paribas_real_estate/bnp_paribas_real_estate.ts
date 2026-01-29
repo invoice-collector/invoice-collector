@@ -29,7 +29,7 @@ export class BnpParibasRealEstateCollector extends SketchCollector {
         loginUrl: "https://extranetclients.repmfrance.bnpparibas.fr/fr/account/statement",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

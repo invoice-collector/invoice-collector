@@ -29,7 +29,7 @@ export class SpinupwpCollector extends SketchCollector {
         loginUrl: "https://spinupwp.app/billing#invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

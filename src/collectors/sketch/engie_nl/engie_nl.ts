@@ -29,7 +29,7 @@ export class EngieNlCollector extends SketchCollector {
         loginUrl: "https://mijn.engie.nl/betalingen",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

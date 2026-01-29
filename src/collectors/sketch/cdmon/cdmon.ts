@@ -29,7 +29,7 @@ export class CdmonCollector extends SketchCollector {
         loginUrl: "https://admin.cdmon.com/ca/facturacio/llistat-factures",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

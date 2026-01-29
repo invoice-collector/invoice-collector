@@ -29,7 +29,7 @@ export class MyhammerCollector extends SketchCollector {
         loginUrl: "https://www.my-hammer.de/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

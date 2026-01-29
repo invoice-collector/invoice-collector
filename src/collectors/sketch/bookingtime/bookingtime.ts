@@ -29,7 +29,7 @@ export class BookingtimeCollector extends SketchCollector {
         loginUrl: "http://www.booking-time.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

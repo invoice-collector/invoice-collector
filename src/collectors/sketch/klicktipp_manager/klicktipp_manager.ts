@@ -29,7 +29,7 @@ export class KlicktippManagerCollector extends SketchCollector {
         loginUrl: "https://www.digistore24.com/receipt/3A4YFYVP/YS9R3NMX",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

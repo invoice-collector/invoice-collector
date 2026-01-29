@@ -29,7 +29,7 @@ export class OpticaCollector extends SketchCollector {
         loginUrl: "https://www.optica.de/meinoptica",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

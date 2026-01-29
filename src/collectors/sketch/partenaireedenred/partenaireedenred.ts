@@ -29,7 +29,7 @@ export class PartenaireedenredCollector extends SketchCollector {
         loginUrl: "https://partenaire.edenred.fr/s/connexion",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

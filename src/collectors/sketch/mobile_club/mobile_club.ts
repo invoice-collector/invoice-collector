@@ -29,7 +29,7 @@ export class MobileClubCollector extends SketchCollector {
         loginUrl: "https://www.mobile.club/espace-membre/paiement-et-factures",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

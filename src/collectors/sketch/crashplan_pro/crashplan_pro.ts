@@ -29,7 +29,7 @@ export class CrashplanProCollector extends SketchCollector {
         loginUrl: "https://www.crashplanpro.com/login/#/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

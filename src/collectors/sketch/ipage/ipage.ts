@@ -29,7 +29,7 @@ export class IpageCollector extends SketchCollector {
         loginUrl: "https://www1.ipage.com/secure/login.bml",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

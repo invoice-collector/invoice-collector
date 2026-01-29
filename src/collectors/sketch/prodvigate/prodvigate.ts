@@ -29,7 +29,7 @@ export class ProdvigateCollector extends SketchCollector {
         loginUrl: "https://id.prodvigate.com/de/auth",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

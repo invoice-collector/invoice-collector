@@ -29,7 +29,7 @@ export class OriginalEnergieCollector extends SketchCollector {
         loginUrl: "https://portal.originalenergie.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

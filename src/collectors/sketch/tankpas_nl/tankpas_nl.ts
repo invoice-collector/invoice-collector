@@ -29,7 +29,7 @@ export class TankpasNlCollector extends SketchCollector {
         loginUrl: "https://www.tankpas.nl/Portaal/Passen",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

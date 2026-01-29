@@ -29,7 +29,7 @@ export class OptimiseCollector extends SketchCollector {
         loginUrl: "https://dashboard.optimisemedia.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

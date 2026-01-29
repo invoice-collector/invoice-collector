@@ -29,7 +29,7 @@ export class RheinEnergieCollector extends SketchCollector {
         loginUrl: "https://www.rheinenergie.com/onlineservice/de/index.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

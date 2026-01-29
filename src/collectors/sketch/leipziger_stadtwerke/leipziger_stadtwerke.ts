@@ -29,7 +29,7 @@ export class LeipzigerStadtwerkeCollector extends SketchCollector {
         loginUrl: "https://kundenportal-stadtwerke.l.de/swlkunden-portal-frontend/postbox/11534186/contract/86412155",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

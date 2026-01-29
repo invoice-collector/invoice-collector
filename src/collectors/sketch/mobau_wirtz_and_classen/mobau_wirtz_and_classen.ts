@@ -29,7 +29,7 @@ export class MobauWirtzAndClassenCollector extends SketchCollector {
         loginUrl: "https://www.mobau-wirtz-classen.de/beratung-service/kundenportal/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

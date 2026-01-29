@@ -29,7 +29,7 @@ export class EloviewCollector extends SketchCollector {
         loginUrl: "https://manage.eloview.com/3.56.50/accountSettings",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

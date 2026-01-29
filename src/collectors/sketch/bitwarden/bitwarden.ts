@@ -29,7 +29,7 @@ export class BitwardenCollector extends SketchCollector {
         loginUrl: "https://vault.bitwarden.com/#/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

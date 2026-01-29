@@ -29,7 +29,7 @@ export class CloudnsCollector extends SketchCollector {
         loginUrl: "https://www.cloudns.net/invoices/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

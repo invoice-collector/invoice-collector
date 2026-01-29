@@ -29,7 +29,7 @@ export class WithlacoocheeRiverElectricCoopCollector extends SketchCollector {
         loginUrl: "https://withlacoochee.smarthub.coop/Login.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

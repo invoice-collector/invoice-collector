@@ -29,7 +29,7 @@ export class SalonizedCollector extends SketchCollector {
         loginUrl: "https://app.salonized.com/c/15716/l/15795/register/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

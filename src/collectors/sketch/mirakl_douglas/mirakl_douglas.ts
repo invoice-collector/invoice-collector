@@ -29,7 +29,7 @@ export class MiraklDouglasCollector extends SketchCollector {
         loginUrl: "https://douglas-prod.mirakl.net/sellerpayment/shop/accounting-document/list/to-sellers?limit=25&sort=issueDate%2CDESC",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

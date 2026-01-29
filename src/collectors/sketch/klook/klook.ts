@@ -29,7 +29,7 @@ export class KlookCollector extends SketchCollector {
         loginUrl: "https://merchant.klook.com/booking_report?t=1583932326549",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

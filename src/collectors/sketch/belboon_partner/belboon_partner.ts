@@ -29,7 +29,7 @@ export class BelboonPartnerCollector extends SketchCollector {
         loginUrl: "https://partner.service.belboon.com/app/index.html#/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

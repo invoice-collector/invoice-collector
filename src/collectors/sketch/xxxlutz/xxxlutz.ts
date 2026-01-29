@@ -29,7 +29,7 @@ export class XxxlutzCollector extends SketchCollector {
         loginUrl: "https://www.xxxlutz.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

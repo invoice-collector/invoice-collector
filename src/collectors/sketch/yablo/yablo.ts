@@ -29,7 +29,7 @@ export class YabloCollector extends SketchCollector {
         loginUrl: "https://app.yablo.io/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

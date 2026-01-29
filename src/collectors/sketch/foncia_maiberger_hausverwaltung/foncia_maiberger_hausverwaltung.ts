@@ -29,7 +29,7 @@ export class FonciaMaibergerHausverwaltungCollector extends SketchCollector {
         loginUrl: "https://fonciamaiberger.mycasavi.com/app/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class ApetizCollector extends SketchCollector {
         loginUrl: "https://www.apetiz.com/connexion/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

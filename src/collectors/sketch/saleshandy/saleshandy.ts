@@ -29,7 +29,7 @@ export class SaleshandyCollector extends SketchCollector {
         loginUrl: "https://app.saleshandy.com/billing/history",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class ShortCmCollector extends SketchCollector {
         loginUrl: "https://app.short.cm/users/dashboard/links",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

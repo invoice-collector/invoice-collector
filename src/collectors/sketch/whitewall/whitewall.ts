@@ -29,7 +29,7 @@ export class WhitewallCollector extends SketchCollector {
         loginUrl: "https://www.whitewall.com/de/user/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

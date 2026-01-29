@@ -29,7 +29,7 @@ export class FoodiCollector extends SketchCollector {
         loginUrl: "https://login.foodi.fr/login?state=hKFo2SBIZkNDd01aWVg1Qkg0OUp0N2RybWk5STZkVVFKZnh2R6FupWxvZ2luo3RpZNkgV3NHaEhsTUFXc19ZaWJmcG9MWDdMS1RTZVoxeGZRaVGjY2lk2SBrYldHUnM1enFGYnJJQ3dMYTF4cWd2cVRoclRkeVVTag&client=kbWGRs5zqFbrICwLa1xqgvqThrTdyUSj&protocol=oauth2&p",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

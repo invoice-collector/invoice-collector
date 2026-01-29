@@ -29,7 +29,7 @@ export class PrincipalCollector extends SketchCollector {
         loginUrl: "https://employers-groupbenefits.principal.com/GroupBenefitsEmployerUI/memberInformation/1171505/10001/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

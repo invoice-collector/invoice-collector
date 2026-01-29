@@ -29,7 +29,7 @@ export class CenpacCollector extends SketchCollector {
         loginUrl: "https://www.cenpac.fr/espace-client/mes-commandes",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

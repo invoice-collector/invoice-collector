@@ -29,7 +29,7 @@ export class FuturumshopNlCollector extends SketchCollector {
         loginUrl: "https://www.futurumshop.nl/?action=auth/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

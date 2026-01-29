@@ -29,7 +29,7 @@ export class StadtwerkeMunsterBispingenCollector extends SketchCollector {
         loginUrl: "https://kundenportal.ihr-stadtwerk.de/powercommerce/ivu/fo/portal/invoiceView?",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

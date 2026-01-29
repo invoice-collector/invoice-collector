@@ -29,7 +29,7 @@ export class CloudmersiveCollector extends SketchCollector {
         loginUrl: "https://portal.cloudmersive.com/manageproduct?ProductSelection=6de154e2-31ef-4d69-b1b4-f1af413d69ea",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class EcsWebhostingCollector extends SketchCollector {
         loginUrl: "https://admin.fritz.gmbh/?lang=de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

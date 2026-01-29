@@ -29,7 +29,7 @@ export class MeroltCollector extends SketchCollector {
         loginUrl: "https://www.merolt.de/my-account-2/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

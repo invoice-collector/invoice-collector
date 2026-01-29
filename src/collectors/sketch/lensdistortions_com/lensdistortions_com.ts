@@ -29,7 +29,7 @@ export class LensdistortionsComCollector extends SketchCollector {
         loginUrl: "https://lensdistortions.com/my-account/orders/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

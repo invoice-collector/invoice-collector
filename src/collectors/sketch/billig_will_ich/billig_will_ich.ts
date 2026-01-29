@@ -29,7 +29,7 @@ export class BilligWillIchCollector extends SketchCollector {
         loginUrl: "https://onlineservice.billig-will-ich.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

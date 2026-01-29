@@ -29,7 +29,7 @@ export class QqtubeCollector extends SketchCollector {
         loginUrl: "https://www.qqtube.com/order-history",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

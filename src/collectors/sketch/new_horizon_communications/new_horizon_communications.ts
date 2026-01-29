@@ -29,7 +29,7 @@ export class NewHorizonCommunicationsCollector extends SketchCollector {
         loginUrl: "https://apps.nhcgrp.com/map/invoices.cfm",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

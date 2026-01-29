@@ -29,7 +29,7 @@ export class NilDatabaseCollector extends SketchCollector {
         loginUrl: "https://nilmanager.nil-database.com/accounts/login/?next=/accounts/launchpad/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

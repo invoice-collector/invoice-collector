@@ -29,7 +29,7 @@ export class FtnirdcCollector extends SketchCollector {
         loginUrl: "https://portal2.ftnirdc.com/en/210793",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

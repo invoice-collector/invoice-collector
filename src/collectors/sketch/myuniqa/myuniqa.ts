@@ -29,7 +29,7 @@ export class MyuniqaCollector extends SketchCollector {
         loginUrl: "https://myuniqa.at/main/dashboard/documents",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class O2BusinessEasyAccessCollector extends SketchCollector {
         loginUrl: "https://easyaccess.o2business.de/eCare/s/Rechnungsubersicht",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

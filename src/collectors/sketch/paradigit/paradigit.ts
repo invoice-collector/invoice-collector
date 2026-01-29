@@ -29,7 +29,7 @@ export class ParadigitCollector extends SketchCollector {
         loginUrl: "http://www.paradigit.nl",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

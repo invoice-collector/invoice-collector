@@ -29,7 +29,7 @@ export class DesignPickleCollector extends SketchCollector {
         loginUrl: "https://jar.designpickle.com/users/sign_in",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

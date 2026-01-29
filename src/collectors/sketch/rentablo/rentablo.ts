@@ -29,7 +29,7 @@ export class RentabloCollector extends SketchCollector {
         loginUrl: "https://rentablo.de/app#!/cashbackSubscriptionDashboard",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

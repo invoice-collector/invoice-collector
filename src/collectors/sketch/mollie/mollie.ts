@@ -29,7 +29,7 @@ export class MollieCollector extends SketchCollector {
         loginUrl: "https://www.mollie.com/dashboard/login?lang=en",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

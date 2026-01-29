@@ -29,7 +29,7 @@ export class BellaliantSmallBusinessCollector extends SketchCollector {
         loginUrl: "https://productsandservice.bellaliant.ca/BillPresenter/BusinessBill",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

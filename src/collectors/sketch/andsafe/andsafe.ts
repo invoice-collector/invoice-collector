@@ -29,7 +29,7 @@ export class AndsafeCollector extends SketchCollector {
         loginUrl: "https://andsafe.de/portal/kunden/vertraege",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

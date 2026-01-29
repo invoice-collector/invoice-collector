@@ -29,7 +29,7 @@ export class DeVolkskrantCollector extends SketchCollector {
         loginUrl: "https://mijnomgeving.volkskrant.nl/facturen",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

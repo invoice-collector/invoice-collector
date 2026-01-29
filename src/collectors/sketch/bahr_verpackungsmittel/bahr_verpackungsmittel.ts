@@ -29,7 +29,7 @@ export class BahrVerpackungsmittelCollector extends SketchCollector {
         loginUrl: "https://www.baehr-verpackung.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

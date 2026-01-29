@@ -29,7 +29,7 @@ export class JitterCollector extends SketchCollector {
         loginUrl: "https://jitter.video/join/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

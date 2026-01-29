@@ -29,7 +29,7 @@ export class StempelFabrikDeCollector extends SketchCollector {
         loginUrl: "https://www.stempel-fabrik.de/account/orders",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

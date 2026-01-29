@@ -29,7 +29,7 @@ export class PrepperCollector extends SketchCollector {
         loginUrl: "https://preppr.com/app/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

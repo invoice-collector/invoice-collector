@@ -29,7 +29,7 @@ export class GtranslateCollector extends SketchCollector {
         loginUrl: "https://my.gtranslate.io/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

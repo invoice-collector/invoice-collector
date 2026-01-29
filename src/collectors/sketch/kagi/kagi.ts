@@ -29,7 +29,7 @@ export class KagiCollector extends SketchCollector {
         loginUrl: "https://kagi.com/settings?p=billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

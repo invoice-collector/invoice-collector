@@ -29,7 +29,7 @@ export class MijnHostingPartnerCollector extends SketchCollector {
         loginUrl: "https://www.mijnhostingpartner.nl/client/clientarea.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

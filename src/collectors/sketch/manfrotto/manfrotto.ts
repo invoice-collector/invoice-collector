@@ -29,7 +29,7 @@ export class ManfrottoCollector extends SketchCollector {
         loginUrl: "https://www.manfrotto.com/de-de/customer/account/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class HpInstantIncCollector extends SketchCollector {
         loginUrl: "https://instantink.hpconnected.com/users/signin?redirect=isep_or_same_origin&theme=RWD",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class SolocalCollector extends SketchCollector {
         loginUrl: "https://manager.solocal.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class SpareroomCollector extends SketchCollector {
         loginUrl: "http://www.spareroom.co.uk",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

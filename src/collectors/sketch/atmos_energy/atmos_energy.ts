@@ -29,7 +29,7 @@ export class AtmosEnergyCollector extends SketchCollector {
         loginUrl: "https://www.atmosenergy.com/accountcenter/finance/FinancialTransaction.html?activeTab=2",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

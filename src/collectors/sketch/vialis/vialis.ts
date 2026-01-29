@@ -29,7 +29,7 @@ export class VialisCollector extends SketchCollector {
         loginUrl: "https://espaceclient.vialis.net/pages/Connexion/login.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

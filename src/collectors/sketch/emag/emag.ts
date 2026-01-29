@@ -29,7 +29,7 @@ export class EmagCollector extends SketchCollector {
         loginUrl: "https://auth.emag.net/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

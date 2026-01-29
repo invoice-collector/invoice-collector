@@ -29,7 +29,7 @@ export class LogMyTimeCollector extends SketchCollector {
         loginUrl: "https://dynamic.logmytime.de/Profile/Logon",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

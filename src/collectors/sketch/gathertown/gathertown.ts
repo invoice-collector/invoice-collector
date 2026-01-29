@@ -29,7 +29,7 @@ export class GathertownCollector extends SketchCollector {
         loginUrl: "https://app.gather.town/dashboard/AqChriOPbROCovtx/konzepthaus%20Web%20Solutions/reservations/subscription",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

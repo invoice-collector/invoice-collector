@@ -29,7 +29,7 @@ export class VapiAiCollector extends SketchCollector {
         loginUrl: "https://dashboard.vapi.ai/settings/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

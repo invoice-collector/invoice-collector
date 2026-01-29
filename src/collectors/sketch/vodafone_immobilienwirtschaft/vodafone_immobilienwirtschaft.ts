@@ -29,7 +29,7 @@ export class VodafoneImmobilienwirtschaftCollector extends SketchCollector {
         loginUrl: "https://wowi.unitymedia.de/PWRKP/faces/KP",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class EversourceCollector extends SketchCollector {
         loginUrl: "http://www.eversource.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

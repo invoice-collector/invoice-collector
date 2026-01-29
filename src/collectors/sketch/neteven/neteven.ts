@@ -29,7 +29,7 @@ export class NetevenCollector extends SketchCollector {
         loginUrl: "https://evenmarketplaces.neteven.com/neteven",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

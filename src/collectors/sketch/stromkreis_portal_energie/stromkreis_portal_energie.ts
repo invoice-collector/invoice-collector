@@ -29,7 +29,7 @@ export class StromkreisPortalEnergieCollector extends SketchCollector {
         loginUrl: "https://portal-energie.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

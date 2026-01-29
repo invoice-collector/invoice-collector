@@ -29,7 +29,7 @@ export class StuartCollector extends SketchCollector {
         loginUrl: "https://dashboard.stuart.com/history",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class AsanaGetnaveCollector extends SketchCollector {
         loginUrl: "https://asana.getnave.com/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class MailchimpCollector extends SketchCollector {
         loginUrl: "https://www.mailchimp.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

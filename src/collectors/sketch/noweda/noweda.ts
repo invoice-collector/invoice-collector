@@ -29,7 +29,7 @@ export class NowedaCollector extends SketchCollector {
         loginUrl: "https://www.noweda.de/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

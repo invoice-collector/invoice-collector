@@ -29,7 +29,7 @@ export class BaywaCollector extends SketchCollector {
         loginUrl: "https://www.baywa-baustoffe.de/b2b/de/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

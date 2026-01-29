@@ -29,7 +29,7 @@ export class ConfluentCollector extends SketchCollector {
         loginUrl: "https://login.confluent.io/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

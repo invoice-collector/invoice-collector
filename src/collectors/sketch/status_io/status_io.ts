@@ -29,7 +29,7 @@ export class StatusIoCollector extends SketchCollector {
         loginUrl: "https://app.status.io/dashboard/6013c4514fe4a10537f38d98/subscription",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

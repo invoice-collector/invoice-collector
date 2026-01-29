@@ -29,7 +29,7 @@ export class CounterpathCollector extends SketchCollector {
         loginUrl: "https://secure.counterpath.com/Store/CounterPath/Members/Account/OrderHistory.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

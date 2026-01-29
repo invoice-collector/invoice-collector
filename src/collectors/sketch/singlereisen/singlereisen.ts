@@ -29,7 +29,7 @@ export class SinglereisenCollector extends SketchCollector {
         loginUrl: "https://partner.singlereisen.de/user-billings.do",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

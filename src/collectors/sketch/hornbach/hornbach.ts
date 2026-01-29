@@ -29,7 +29,7 @@ export class HornbachCollector extends SketchCollector {
         loginUrl: "https://www.hornbach.de/shop/account/login.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

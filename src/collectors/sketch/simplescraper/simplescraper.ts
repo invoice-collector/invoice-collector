@@ -29,7 +29,7 @@ export class SimplescraperCollector extends SketchCollector {
         loginUrl: "https://simplescraper.io/dashboard",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

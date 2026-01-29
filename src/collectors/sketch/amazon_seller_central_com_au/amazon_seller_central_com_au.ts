@@ -29,7 +29,7 @@ export class AmazonSellerCentralComAuCollector extends SketchCollector {
         loginUrl: "https://sellercentral.amazon.com.au/tax/seller-fee-invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class LoadboosterCollector extends SketchCollector {
         loginUrl: "http://www.loadbooster.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

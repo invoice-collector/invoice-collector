@@ -29,7 +29,7 @@ export class SoftCarrierCollector extends SketchCollector {
         loginUrl: "https://www.softcarrier.de/hbdb/vshop/index.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

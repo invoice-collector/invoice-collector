@@ -29,7 +29,7 @@ export class BewBerlinerEnergieUndWarmeCollector extends SketchCollector {
         loginUrl: "https://xn--wrme-service-berlin-gwb.vattenfall.de/cost/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

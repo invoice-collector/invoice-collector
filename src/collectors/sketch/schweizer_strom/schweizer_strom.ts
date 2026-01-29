@@ -29,7 +29,7 @@ export class SchweizerStromCollector extends SketchCollector {
         loginUrl: "https://mein.schweizstrom.de/dashboard/3000738205",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

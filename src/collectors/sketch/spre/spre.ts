@@ -29,7 +29,7 @@ export class SpreCollector extends SketchCollector {
         loginUrl: "https://portail.spre.fr/invoice/index",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

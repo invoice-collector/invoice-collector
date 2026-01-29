@@ -29,7 +29,7 @@ export class EnvoyerIoCollector extends SketchCollector {
         loginUrl: "https://envoyer.io/user/profile",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class MammouthAiCollector extends SketchCollector {
         loginUrl: "https://mammouth.ai/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

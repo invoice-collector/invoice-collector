@@ -29,7 +29,7 @@ export class MarkupIoCollector extends SketchCollector {
         loginUrl: "https://app.markup.io/w/jenniferaries/settings/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class ShippoCollector extends SketchCollector {
         loginUrl: "https://app.goshippo.com/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

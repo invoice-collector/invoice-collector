@@ -29,7 +29,7 @@ export class LetsCastCollector extends SketchCollector {
         loginUrl: "https://letscast.fm/user/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

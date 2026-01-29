@@ -29,7 +29,7 @@ export class EasyftpCollector extends SketchCollector {
         loginUrl: "https://www.easyftp.io/[user-name-placeholder]/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

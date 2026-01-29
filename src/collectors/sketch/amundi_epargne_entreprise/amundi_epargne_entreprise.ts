@@ -29,7 +29,7 @@ export class AmundiEpargneEntrepriseCollector extends SketchCollector {
         loginUrl: "https://www.amundi-ee.com/psf/#login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

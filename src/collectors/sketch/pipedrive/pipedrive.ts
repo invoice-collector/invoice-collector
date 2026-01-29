@@ -29,7 +29,7 @@ export class PipedriveCollector extends SketchCollector {
         loginUrl: "https://app.pipedrive.com/auth/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

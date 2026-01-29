@@ -29,7 +29,7 @@ export class AgentyCollector extends SketchCollector {
         loginUrl: "https://cloud.agenty.com/signin.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

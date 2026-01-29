@@ -29,7 +29,7 @@ export class AndorraTelecomCollector extends SketchCollector {
         loginUrl: "https://www.andorratelecom.ad/botiga/#/factures",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

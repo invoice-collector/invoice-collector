@@ -29,7 +29,7 @@ export class ElbphilharmonieAndLaeiszhalleHamburgCollector extends SketchCollect
         loginUrl: "https://shop.elbphilharmonie.de/de/meine-daten/#/my-orders",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

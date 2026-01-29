@@ -29,7 +29,7 @@ export class HrmtPortalDerDgGruppeCollector extends SketchCollector {
         loginUrl: "https://portal.hrmt.de/Dokumente/Arbeitgeber",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

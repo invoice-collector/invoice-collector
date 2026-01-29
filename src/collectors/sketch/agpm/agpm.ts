@@ -29,7 +29,7 @@ export class AgpmCollector extends SketchCollector {
         loginUrl: "https://www.agpm.fr/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

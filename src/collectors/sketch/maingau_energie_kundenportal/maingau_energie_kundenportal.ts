@@ -29,7 +29,7 @@ export class MaingauEnergieKundenportalCollector extends SketchCollector {
         loginUrl: "https://kundenportal-internet.maingau-energie.de/DocumentArc/DocumentArchive",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

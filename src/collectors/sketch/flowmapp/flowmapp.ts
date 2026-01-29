@@ -29,7 +29,7 @@ export class FlowmappCollector extends SketchCollector {
         loginUrl: "https://app.flowmapp.com/profile",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

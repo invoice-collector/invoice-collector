@@ -29,7 +29,7 @@ export class DstvSaCollector extends SketchCollector {
         loginUrl: "https://www.dstv.co.za/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

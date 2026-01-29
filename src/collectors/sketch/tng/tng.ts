@@ -29,7 +29,7 @@ export class TngCollector extends SketchCollector {
         loginUrl: "https://www.mytng.de/group/mytng/mein-vertrag/rechnungsarchiv",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

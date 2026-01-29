@@ -29,7 +29,7 @@ export class HrsGroupOnlineInvoicePortalCollector extends SketchCollector {
         loginUrl: "https://hotelservice.hrs.com/hpp/Account/Login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

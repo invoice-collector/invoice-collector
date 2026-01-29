@@ -29,7 +29,7 @@ export class CorelDrawCollector extends SketchCollector {
         loginUrl: "https://account.corel.com/accounts/user/accountOrderHistory",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

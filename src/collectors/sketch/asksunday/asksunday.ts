@@ -29,7 +29,7 @@ export class AsksundayCollector extends SketchCollector {
         loginUrl: "https://asksunday.com/portal/Account/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

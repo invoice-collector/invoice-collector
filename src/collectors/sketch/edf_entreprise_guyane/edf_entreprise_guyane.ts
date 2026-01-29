@@ -29,7 +29,7 @@ export class EdfEntrepriseGuyaneCollector extends SketchCollector {
         loginUrl: "https://sei-ael-guyane.edf.com/aelEDF/jsp/arc/habilitation/acteur.ZoomerDossierClient.go",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class RjmetricsCollector extends SketchCollector {
         loginUrl: "https://dashboard.rjmetrics.com/v2/session/create",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

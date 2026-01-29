@@ -29,7 +29,7 @@ export class NoreadeCollector extends SketchCollector {
         loginUrl: "https://agenceenligne.noreade.fr/espace-personnel/historique-facturation",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

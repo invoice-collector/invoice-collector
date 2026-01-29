@@ -29,7 +29,7 @@ export class VerizonWirelessCollector extends SketchCollector {
         loginUrl: "https://myvpostpay.verizonwireless.com/ui/bill/ao/viewbill#!/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

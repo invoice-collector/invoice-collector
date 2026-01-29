@@ -29,7 +29,7 @@ export class MulticardEniInvoicingCollector extends SketchCollector {
         loginUrl: "https://selfcare.multicard.eni.com/apex/PortalVisualforce?country=de_DE",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

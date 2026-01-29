@@ -29,7 +29,7 @@ export class MhzShopCollector extends SketchCollector {
         loginUrl: "https://mhz.pickmill.com/extranet/factures?s=1&t=c4ce0247d24b9891f75ac2aee7cd1215386d99b3&redirected=1",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

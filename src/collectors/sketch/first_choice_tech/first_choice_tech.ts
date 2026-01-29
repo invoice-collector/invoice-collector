@@ -29,7 +29,7 @@ export class FirstChoiceTechCollector extends SketchCollector {
         loginUrl: "https://www.precisebillonline.com/FirstChoice/V35/Portals/Customer/Profile.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

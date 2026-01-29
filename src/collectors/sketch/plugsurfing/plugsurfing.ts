@@ -29,7 +29,7 @@ export class PlugsurfingCollector extends SketchCollector {
         loginUrl: "https://new.plugsurfing.com/sign-in?lang=en",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

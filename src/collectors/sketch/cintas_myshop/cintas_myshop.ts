@@ -29,7 +29,7 @@ export class CintasMyshopCollector extends SketchCollector {
         loginUrl: "https://shop.mycintas.com/site/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

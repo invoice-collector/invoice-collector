@@ -29,7 +29,7 @@ export class VisualpingCollector extends SketchCollector {
         loginUrl: "https://visualping.io/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

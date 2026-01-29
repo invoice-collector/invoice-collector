@@ -29,7 +29,7 @@ export class AvazaCollector extends SketchCollector {
         loginUrl: "https://mobilemind.avaza.com/subscription",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

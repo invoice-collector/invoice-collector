@@ -29,7 +29,7 @@ export class BackwpupCollector extends SketchCollector {
         loginUrl: "https://backwpup.de/mein-account/orders/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class EuroshellCardCollector extends SketchCollector {
         loginUrl: "https://simplyui-sme.azurewebsites.net/reports",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class DomainfactoryCollector extends SketchCollector {
         loginUrl: "https://sso.df.eu/?app=cp&path=%2Fkunde%2Findex.php5&realm=idp",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class TransacomCollector extends SketchCollector {
         loginUrl: "https://compta-transacom.bluerocktel.net/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

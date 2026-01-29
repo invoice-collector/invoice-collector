@@ -29,7 +29,7 @@ export class StadtwerkeEmdenCollector extends SketchCollector {
         loginUrl: "https://csit.sw-emden.de/powercommerce/csit3/fo/portal/start",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

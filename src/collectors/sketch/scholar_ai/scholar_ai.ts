@@ -29,7 +29,7 @@ export class ScholarAiCollector extends SketchCollector {
         loginUrl: "https://scholarai.io/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

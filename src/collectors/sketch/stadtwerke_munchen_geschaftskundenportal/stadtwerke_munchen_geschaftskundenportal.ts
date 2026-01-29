@@ -29,7 +29,7 @@ export class StadtwerkeMunchenGeschaftskundenportalCollector extends SketchColle
         loginUrl: "https://geschaeftskundenportal.swm.de/secure/rechnungsuebersicht.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

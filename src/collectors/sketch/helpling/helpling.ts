@@ -29,7 +29,7 @@ export class HelplingCollector extends SketchCollector {
         loginUrl: "https://www.helpling.de/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

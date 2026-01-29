@@ -29,7 +29,7 @@ export class TntFrCollector extends SketchCollector {
         loginUrl: "https://www.tnt.fr/mytnt/index.do",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

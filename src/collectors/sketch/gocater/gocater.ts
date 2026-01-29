@@ -29,7 +29,7 @@ export class GocaterCollector extends SketchCollector {
         loginUrl: "https://gocater.de/office/orders/past",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

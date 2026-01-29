@@ -29,7 +29,7 @@ export class DentaurumCollector extends SketchCollector {
         loginUrl: "https://shop.dentaurum.de/login.php?source=&ch=c12a5c",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

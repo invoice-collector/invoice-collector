@@ -29,7 +29,7 @@ export class DeeplCollector extends SketchCollector {
         loginUrl: "https://www.deepl.com/pro-account.html?page=category_invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

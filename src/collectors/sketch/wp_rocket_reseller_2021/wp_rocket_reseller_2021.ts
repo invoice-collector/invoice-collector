@@ -29,7 +29,7 @@ export class WpRocketReseller2021Collector extends SketchCollector {
         loginUrl: "https://wprocket.hpress.de/dashboard.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

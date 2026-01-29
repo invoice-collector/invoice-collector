@@ -29,7 +29,7 @@ export class OnlineprohsSchmidtMgDeCollector extends SketchCollector {
         loginUrl: "https://onlineprohs.schmidt-mg.de/hs/kontoauszug.csp?getPerfacto=1",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

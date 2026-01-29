@@ -29,7 +29,7 @@ export class VyroCollector extends SketchCollector {
         loginUrl: "https://billing.vyro.ai/p/session/live_YWNjdF8xTjFUNWFKc0FuQ3RNcU4yLF9QZnVVM1NQbGxPbXZsQXhVUlRIMTBlbjQyS1pNSDh00100YSlVk2jI",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

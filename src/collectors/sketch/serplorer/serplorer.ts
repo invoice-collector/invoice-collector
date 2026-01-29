@@ -29,7 +29,7 @@ export class SerplorerCollector extends SketchCollector {
         loginUrl: "https://tool.serplorer.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

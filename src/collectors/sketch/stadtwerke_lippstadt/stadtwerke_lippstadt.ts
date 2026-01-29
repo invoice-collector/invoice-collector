@@ -29,7 +29,7 @@ export class StadtwerkeLippstadtCollector extends SketchCollector {
         loginUrl: "https://kundenportal.stadtwerke-lippstadt.de:8082/bkp/rechnungen",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

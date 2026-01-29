@@ -29,7 +29,7 @@ export class FlashRcCollector extends SketchCollector {
         loginUrl: "https://www.flashrc.com/clients/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class UnionGasCollector extends SketchCollector {
         loginUrl: "https://myaccount.uniongas.com/billHistory.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

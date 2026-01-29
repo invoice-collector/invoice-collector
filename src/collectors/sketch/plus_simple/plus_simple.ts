@@ -29,7 +29,7 @@ export class PlusSimpleCollector extends SketchCollector {
         loginUrl: "https://app.plussimple.fr/client/espace/factures",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

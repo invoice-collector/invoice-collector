@@ -29,7 +29,7 @@ export class LinxeaCollector extends SketchCollector {
         loginUrl: "https://www.linxea.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

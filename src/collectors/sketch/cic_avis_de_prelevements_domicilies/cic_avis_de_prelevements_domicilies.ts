@@ -29,7 +29,7 @@ export class CicAvisDePrelevementsDomiciliesCollector extends SketchCollector {
         loginUrl: "https://www.cic.fr/fr/particulier/devenir-client/index.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class MotionvfxCollector extends SketchCollector {
         loginUrl: "https://www.motionvfx.com/account,order_history.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

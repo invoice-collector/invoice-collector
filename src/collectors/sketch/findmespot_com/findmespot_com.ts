@@ -29,7 +29,7 @@ export class FindmespotComCollector extends SketchCollector {
         loginUrl: "https://login.findmespot.com/spot-main-web/auth/login.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

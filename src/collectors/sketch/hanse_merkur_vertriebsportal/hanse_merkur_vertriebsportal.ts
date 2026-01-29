@@ -29,7 +29,7 @@ export class HanseMerkurVertriebsportalCollector extends SketchCollector {
         loginUrl: "https://secure.hansemerkur-vertriebsportal.de/service/anwendungen/dokumentencenter",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

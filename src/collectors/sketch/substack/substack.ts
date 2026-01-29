@@ -29,7 +29,7 @@ export class SubstackCollector extends SketchCollector {
         loginUrl: "https://substack.com/account/login?redirect=%2F&email=&with_password=",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

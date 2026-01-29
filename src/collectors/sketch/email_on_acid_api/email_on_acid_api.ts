@@ -29,7 +29,7 @@ export class EmailOnAcidApiCollector extends SketchCollector {
         loginUrl: "https://billing.emailonacid.com/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

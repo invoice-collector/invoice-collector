@@ -29,7 +29,7 @@ export class TactiqIoCollector extends SketchCollector {
         loginUrl: "https://app.tactiq.io/#/signin",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

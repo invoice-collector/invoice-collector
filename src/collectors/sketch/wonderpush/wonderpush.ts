@@ -29,7 +29,7 @@ export class WonderpushCollector extends SketchCollector {
         loginUrl: "https://dashboard.wonderpush.com/billing/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class OrangeEsCollector extends SketchCollector {
         loginUrl: "https://www.orange.es/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

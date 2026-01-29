@@ -29,7 +29,7 @@ export class AwrCloudCollector extends SketchCollector {
         loginUrl: "https://www.awrcloud.com/invoices.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

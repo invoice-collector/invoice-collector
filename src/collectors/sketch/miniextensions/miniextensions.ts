@@ -29,7 +29,7 @@ export class MiniextensionsCollector extends SketchCollector {
         loginUrl: "https://web.miniextensions.com/login?",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

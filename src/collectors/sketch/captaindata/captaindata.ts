@@ -29,7 +29,7 @@ export class CaptaindataCollector extends SketchCollector {
         loginUrl: "https://app.captaindata.co/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

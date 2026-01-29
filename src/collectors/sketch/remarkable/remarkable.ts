@@ -29,7 +29,7 @@ export class RemarkableCollector extends SketchCollector {
         loginUrl: "https://pay.stripe.com/receipts/invoices/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

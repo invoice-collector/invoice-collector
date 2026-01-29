@@ -29,7 +29,7 @@ export class AllInklCollector extends SketchCollector {
         loginUrl: "https://all-inkl.com/members/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class MotionmailCollector extends SketchCollector {
         loginUrl: "https://motionmailapp.com/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

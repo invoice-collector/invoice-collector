@@ -29,7 +29,7 @@ export class DetectifyCollector extends SketchCollector {
         loginUrl: "https://detectify.com/dashboard/billing/history",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

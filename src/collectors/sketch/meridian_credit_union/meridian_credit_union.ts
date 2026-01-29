@@ -29,7 +29,7 @@ export class MeridianCreditUnionCollector extends SketchCollector {
         loginUrl: "https://www.meridiancu.ca",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

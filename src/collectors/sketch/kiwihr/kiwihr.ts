@@ -29,7 +29,7 @@ export class KiwihrCollector extends SketchCollector {
         loginUrl: "https://kiwihr.com/de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

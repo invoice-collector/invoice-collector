@@ -29,7 +29,7 @@ export class IdealoPartnerCollector extends SketchCollector {
         loginUrl: "https://partner.net.idealo-partner.com/app/index.html#/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

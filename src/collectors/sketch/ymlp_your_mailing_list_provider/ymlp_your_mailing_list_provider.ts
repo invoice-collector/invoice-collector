@@ -29,7 +29,7 @@ export class YmlpYourMailingListProviderCollector extends SketchCollector {
         loginUrl: "https://www.ymlp.com/app/payments.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class CheapcargoComCollector extends SketchCollector {
         loginUrl: "https://www.cheapcargo.com/Users/Login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

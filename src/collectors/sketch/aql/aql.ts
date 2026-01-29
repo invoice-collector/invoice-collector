@@ -29,7 +29,7 @@ export class AqlCollector extends SketchCollector {
         loginUrl: "https://portal.aql.com/login-required/?login_redirect=%2Faccount%2F",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class LidlFranceCollector extends SketchCollector {
         loginUrl: "https://www.lidl.fr/css/order-history",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

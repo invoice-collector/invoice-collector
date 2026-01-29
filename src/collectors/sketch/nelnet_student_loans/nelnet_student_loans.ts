@@ -29,7 +29,7 @@ export class NelnetStudentLoansCollector extends SketchCollector {
         loginUrl: "https://nelnet.studentaid.gov/documents/statements",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

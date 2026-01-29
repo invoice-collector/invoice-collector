@@ -28,7 +28,7 @@ export class AtlanterraCollector extends SketchCollector {
         loginUrl: "https://www.atlanterra.fr/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

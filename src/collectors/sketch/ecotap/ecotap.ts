@@ -29,7 +29,7 @@ export class EcotapCollector extends SketchCollector {
         loginUrl: "https://ecotap.evc-net.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

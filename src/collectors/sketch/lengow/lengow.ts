@@ -29,7 +29,7 @@ export class LengowCollector extends SketchCollector {
         loginUrl: "https://www.lengow.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

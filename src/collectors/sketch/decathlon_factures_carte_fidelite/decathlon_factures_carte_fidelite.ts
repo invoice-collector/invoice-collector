@@ -29,7 +29,7 @@ export class DecathlonFacturesCarteFideliteCollector extends SketchCollector {
         loginUrl: "https://www.decathlon.fr/fr/loginPage",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

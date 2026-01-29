@@ -29,7 +29,7 @@ export class AirLiquideAtCollector extends SketchCollector {
         loginUrl: "https://portal.airliquide.at/portal/secure/abfragen/airliquide",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

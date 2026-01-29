@@ -29,7 +29,7 @@ export class UriageCollector extends SketchCollector {
         loginUrl: "https://www.uriage.fr/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

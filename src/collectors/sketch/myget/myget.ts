@@ -29,7 +29,7 @@ export class MygetCollector extends SketchCollector {
         loginUrl: "https://www.myget.org/Account/Login?ReturnUrl=%2fprofile%2fMe#!/Subscription",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

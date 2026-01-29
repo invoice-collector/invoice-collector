@@ -29,7 +29,7 @@ export class BattlenetEuropeCollector extends SketchCollector {
         loginUrl: "https://eu.battle.net/login/en/?ref=https://eu.battle.net/forums/en/&app=com-forums",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

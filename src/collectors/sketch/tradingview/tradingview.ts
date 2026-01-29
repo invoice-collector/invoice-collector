@@ -29,7 +29,7 @@ export class TradingviewCollector extends SketchCollector {
         loginUrl: "https://de.tradingview.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

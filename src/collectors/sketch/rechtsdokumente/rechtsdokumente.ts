@@ -29,7 +29,7 @@ export class RechtsdokumenteCollector extends SketchCollector {
         loginUrl: "https://www.rechtsdokumente.de/SignIn/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

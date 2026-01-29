@@ -29,7 +29,7 @@ export class StarsellersworldCollector extends SketchCollector {
         loginUrl: "https://ssl.starsellersworld.com/ssw/konto/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

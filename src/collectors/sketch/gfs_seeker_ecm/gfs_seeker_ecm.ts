@@ -29,7 +29,7 @@ export class GfsSeekerEcmCollector extends SketchCollector {
         loginUrl: "https://ecm.gfsdeliver.com/portal/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

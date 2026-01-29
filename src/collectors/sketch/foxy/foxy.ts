@@ -29,7 +29,7 @@ export class FoxyCollector extends SketchCollector {
         loginUrl: "https://admin.foxycart.com/admin.php?ThisAction=ViewBilling",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

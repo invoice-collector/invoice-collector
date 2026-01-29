@@ -29,7 +29,7 @@ export class GammaCollector extends SketchCollector {
         loginUrl: "https://rechnung.hfo-telecom.de/Portal1/Rechnungen.cms?ActiveID=1013",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

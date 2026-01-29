@@ -29,7 +29,7 @@ export class VirginMediaCollector extends SketchCollector {
         loginUrl: "https://my.virginmedia.com/my-bills/index",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

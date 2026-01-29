@@ -29,7 +29,7 @@ export class TripitCollector extends SketchCollector {
         loginUrl: "https://www.tripit.com/account/edit/section/billing_history",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

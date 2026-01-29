@@ -29,7 +29,7 @@ export class Versicherungscheck24Collector extends SketchCollector {
         loginUrl: "https://mvp.i-planner.cloud/app/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

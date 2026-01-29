@@ -29,7 +29,7 @@ export class ShellFleethubCollector extends SketchCollector {
         loginUrl: "https://fleethub.shell.com/Invoices/Index",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

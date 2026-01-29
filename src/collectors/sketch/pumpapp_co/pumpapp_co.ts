@@ -29,7 +29,7 @@ export class PumpappCoCollector extends SketchCollector {
         loginUrl: "https://identity.pumpapp.co/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

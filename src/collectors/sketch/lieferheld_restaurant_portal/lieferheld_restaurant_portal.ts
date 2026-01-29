@@ -29,7 +29,7 @@ export class LieferheldRestaurantPortalCollector extends SketchCollector {
         loginUrl: "https://restaurant.lieferheld.de/#/portal/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

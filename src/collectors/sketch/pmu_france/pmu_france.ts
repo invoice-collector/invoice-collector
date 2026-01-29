@@ -29,7 +29,7 @@ export class PmuFranceCollector extends SketchCollector {
         loginUrl: "https://www.pmu.fr/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

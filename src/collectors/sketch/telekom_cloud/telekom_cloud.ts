@@ -29,7 +29,7 @@ export class TelekomCloudCollector extends SketchCollector {
         loginUrl: "https://apps.telekomcloud.com/account/bills",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class StempelpoolDeCollector extends SketchCollector {
         loginUrl: "https://www.stempelpool.de/login2.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

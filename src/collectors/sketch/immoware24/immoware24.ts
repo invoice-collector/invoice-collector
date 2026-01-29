@@ -29,7 +29,7 @@ export class Immoware24Collector extends SketchCollector {
         loginUrl: "https://www.awi-rems.de/router/auth/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

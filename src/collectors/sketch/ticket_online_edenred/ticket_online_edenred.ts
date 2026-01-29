@@ -29,7 +29,7 @@ export class TicketOnlineEdenredCollector extends SketchCollector {
         loginUrl: "https://ticketonline.edenred.de/AcceptorManagement/Manage/TrackReimbursement.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

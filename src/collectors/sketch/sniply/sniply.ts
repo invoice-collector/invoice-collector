@@ -29,7 +29,7 @@ export class SniplyCollector extends SketchCollector {
         loginUrl: "https://snip.ly/auth-signup?",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

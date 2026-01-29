@@ -29,7 +29,7 @@ export class EdarchivOnlineCollector extends SketchCollector {
         loginUrl: "https://login.edarchiv.de/recherche/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

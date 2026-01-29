@@ -29,7 +29,7 @@ export class CwsBocoCollector extends SketchCollector {
         loginUrl: "https://www.mein-cws-boco.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

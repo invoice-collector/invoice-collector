@@ -29,7 +29,7 @@ export class AwistaCollector extends SketchCollector {
         loginUrl: "https://portal.awista.de/portal/invoice-duplicate",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

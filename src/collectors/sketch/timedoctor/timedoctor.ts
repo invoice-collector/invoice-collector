@@ -29,7 +29,7 @@ export class TimedoctorCollector extends SketchCollector {
         loginUrl: "https://2.timedoctor.com/billing#invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

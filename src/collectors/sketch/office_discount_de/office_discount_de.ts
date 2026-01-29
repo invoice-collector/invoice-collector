@@ -29,7 +29,7 @@ export class OfficeDiscountDeCollector extends SketchCollector {
         loginUrl: "https://www.office-discount.de/UgsLoginView",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

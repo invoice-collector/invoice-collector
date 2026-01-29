@@ -29,7 +29,7 @@ export class KashflowConnectCollector extends SketchCollector {
         loginUrl: "https://kfc-app.kashflow.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

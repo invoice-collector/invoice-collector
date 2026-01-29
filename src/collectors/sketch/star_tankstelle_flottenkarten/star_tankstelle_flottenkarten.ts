@@ -29,7 +29,7 @@ export class StarTankstelleFlottenkartenCollector extends SketchCollector {
         loginUrl: "https://flottenkarte.star.de/Invoice/DownloadInvoice/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

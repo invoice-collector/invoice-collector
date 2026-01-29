@@ -29,7 +29,7 @@ export class TransipNlCollector extends SketchCollector {
         loginUrl: "https://www.transip.nl/cp/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

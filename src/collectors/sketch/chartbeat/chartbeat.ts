@@ -29,7 +29,7 @@ export class ChartbeatCollector extends SketchCollector {
         loginUrl: "https://chartbeat.com/signin/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

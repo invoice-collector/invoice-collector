@@ -29,7 +29,7 @@ export class MailboxOrgBusinessCollector extends SketchCollector {
         loginUrl: "https://setup.mailbox.org/#/account=sekucon",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

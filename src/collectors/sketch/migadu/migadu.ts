@@ -29,7 +29,7 @@ export class MigaduCollector extends SketchCollector {
         loginUrl: "https://admin.migadu.com/public/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

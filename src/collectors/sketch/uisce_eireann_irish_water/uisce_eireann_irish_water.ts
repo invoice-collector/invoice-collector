@@ -29,7 +29,7 @@ export class UisceEireannIrishWaterCollector extends SketchCollector {
         loginUrl: "https://www.water.ie/webcenter/portal/secure/pages_waterusage",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

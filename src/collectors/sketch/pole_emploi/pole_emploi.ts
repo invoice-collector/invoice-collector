@@ -29,7 +29,7 @@ export class PoleEmploiCollector extends SketchCollector {
         loginUrl: "https://www.pole-emploi.fr/accueil/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

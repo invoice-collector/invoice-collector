@@ -29,7 +29,7 @@ export class DisapoDeCollector extends SketchCollector {
         loginUrl: "https://www.disapo.de/myshop/dashboard",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

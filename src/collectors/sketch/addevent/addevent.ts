@@ -29,7 +29,7 @@ export class AddeventCollector extends SketchCollector {
         loginUrl: "https://www.addevent.com/account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

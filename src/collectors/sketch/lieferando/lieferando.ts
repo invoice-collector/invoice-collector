@@ -29,7 +29,7 @@ export class LieferandoCollector extends SketchCollector {
         loginUrl: "https://www.lieferando.de/meinaccount/meine-bestellhistorie",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

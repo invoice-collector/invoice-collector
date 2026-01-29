@@ -29,7 +29,7 @@ export class CanonCollector extends SketchCollector {
         loginUrl: "https://myid.canon/canonid/#/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

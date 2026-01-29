@@ -29,7 +29,7 @@ export class FeedbinComCollector extends SketchCollector {
         loginUrl: "https://feedbin.com/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class LivedriveCollector extends SketchCollector {
         loginUrl: "https://signup.livedrive.com/Login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

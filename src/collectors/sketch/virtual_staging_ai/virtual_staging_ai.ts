@@ -29,7 +29,7 @@ export class VirtualStagingAiCollector extends SketchCollector {
         loginUrl: "https://www.virtualstagingai.app/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class UlineCaCollector extends SketchCollector {
         loginUrl: "https://www.uline.ca/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

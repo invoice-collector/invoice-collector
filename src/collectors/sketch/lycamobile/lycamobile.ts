@@ -29,7 +29,7 @@ export class LycamobileCollector extends SketchCollector {
         loginUrl: "https://www.lycamobile.de/de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

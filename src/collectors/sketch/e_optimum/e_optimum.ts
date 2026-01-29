@@ -29,7 +29,7 @@ export class EOptimumCollector extends SketchCollector {
         loginUrl: "https://mitglieder.eoptimum.de/mitgliederportal/start",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

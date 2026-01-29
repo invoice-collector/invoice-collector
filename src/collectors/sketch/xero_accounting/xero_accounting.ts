@@ -29,7 +29,7 @@ export class XeroAccountingCollector extends SketchCollector {
         loginUrl: "https://login.xero.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

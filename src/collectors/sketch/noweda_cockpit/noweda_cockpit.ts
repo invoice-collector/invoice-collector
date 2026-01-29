@@ -29,7 +29,7 @@ export class NowedaCockpitCollector extends SketchCollector {
         loginUrl: "https://cockpit.noweda.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

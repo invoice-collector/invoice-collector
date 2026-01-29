@@ -29,7 +29,7 @@ export class UbersuggestCollector extends SketchCollector {
         loginUrl: "https://app.neilpatel.com/account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

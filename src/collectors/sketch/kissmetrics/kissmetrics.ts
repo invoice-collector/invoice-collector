@@ -29,7 +29,7 @@ export class KissmetricsCollector extends SketchCollector {
         loginUrl: "https://signin.kissmetrics.com/signin",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

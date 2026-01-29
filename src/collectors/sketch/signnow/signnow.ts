@@ -29,7 +29,7 @@ export class SignnowCollector extends SketchCollector {
         loginUrl: "https://snseats.signnow.com/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

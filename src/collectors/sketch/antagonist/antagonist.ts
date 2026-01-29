@@ -29,7 +29,7 @@ export class AntagonistCollector extends SketchCollector {
         loginUrl: "https://mijn.antagonist.nl/accounts/login/?next=/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

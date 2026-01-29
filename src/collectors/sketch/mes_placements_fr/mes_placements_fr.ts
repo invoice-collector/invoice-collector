@@ -29,7 +29,7 @@ export class MesPlacementsFrCollector extends SketchCollector {
         loginUrl: "https://mes-placements.fr/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

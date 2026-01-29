@@ -28,7 +28,7 @@ export class LimeCollector extends SketchCollector {
         loginUrl: "https://www.li.me/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

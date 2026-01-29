@@ -29,7 +29,7 @@ export class ArbeitszeiterfassungCollector extends SketchCollector {
         loginUrl: "https://arbeitszeiterfassung.com/meine-rechnungen",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

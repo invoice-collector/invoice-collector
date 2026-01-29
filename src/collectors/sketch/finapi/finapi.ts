@@ -29,7 +29,7 @@ export class FinapiCollector extends SketchCollector {
         loginUrl: "https://finapi.zendesk.com/hc/en-us",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

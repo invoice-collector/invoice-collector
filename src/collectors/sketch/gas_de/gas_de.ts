@@ -29,7 +29,7 @@ export class GasDeCollector extends SketchCollector {
         loginUrl: "https://kundenportal.gas.de/qpo/portal/gasde/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

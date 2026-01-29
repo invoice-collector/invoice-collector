@@ -29,7 +29,7 @@ export class InfusionsoftCollector extends SketchCollector {
         loginUrl: "https://signin.infusionsoft.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

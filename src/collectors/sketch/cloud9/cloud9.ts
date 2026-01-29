@@ -29,7 +29,7 @@ export class Cloud9Collector extends SketchCollector {
         loginUrl: "https://c9.io/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class NewshaProCollector extends SketchCollector {
         loginUrl: "https://www.newsha.pro/bestellungen/meinerechnungen/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

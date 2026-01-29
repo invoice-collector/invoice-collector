@@ -29,7 +29,7 @@ export class SaurCollector extends SketchCollector {
         loginUrl: "https://mon-espace.saurclient.fr/#/fr/mes-paiements",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

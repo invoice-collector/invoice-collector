@@ -29,7 +29,7 @@ export class ArtboardCollector extends SketchCollector {
         loginUrl: "https://artboard.studio/account/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

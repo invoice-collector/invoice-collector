@@ -29,7 +29,7 @@ export class MesquiteTxCollector extends SketchCollector {
         loginUrl: "https://ipn.paymentus.com/cp/msqu?lang=en",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

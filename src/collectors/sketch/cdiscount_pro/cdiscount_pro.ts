@@ -29,7 +29,7 @@ export class CdiscountProCollector extends SketchCollector {
         loginUrl: "https://order.cdiscount.com/Account/LoginLight.html?referrer=",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class DomaisyCollector extends SketchCollector {
         loginUrl: "https://www.domaisy.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class RocketreachCollector extends SketchCollector {
         loginUrl: "https://rocketreach.co/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

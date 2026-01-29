@@ -29,7 +29,7 @@ export class CybersimCollector extends SketchCollector {
         loginUrl: "https://service.cybersim.de/mytariff/invoice/showAll",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class OrtelMobileCollector extends SketchCollector {
         loginUrl: "https://mein.ortelmobile.de/de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class EdudipCollector extends SketchCollector {
         loginUrl: "https://www.edudip.com/de/intern/rechnungen",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

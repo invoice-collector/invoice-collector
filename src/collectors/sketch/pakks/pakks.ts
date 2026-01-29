@@ -29,7 +29,7 @@ export class PakksCollector extends SketchCollector {
         loginUrl: "http://www.pakks.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

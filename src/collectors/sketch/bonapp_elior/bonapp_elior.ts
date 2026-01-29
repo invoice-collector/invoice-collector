@@ -29,7 +29,7 @@ export class BonappEliorCollector extends SketchCollector {
         loginUrl: "https://bonapp.elior.com/connexion?returnUrl=%2F",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class FlexoffersCollector extends SketchCollector {
         loginUrl: "https://publisherpro.flexoffers.com/PaymentHistory",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

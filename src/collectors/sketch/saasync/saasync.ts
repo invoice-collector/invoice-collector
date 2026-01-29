@@ -29,7 +29,7 @@ export class SaasyncCollector extends SketchCollector {
         loginUrl: "https://www.saasync.com/a/settings/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class LinktreeCollector extends SketchCollector {
         loginUrl: "https://linktr.ee/admin/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

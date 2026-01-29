@@ -29,7 +29,7 @@ export class DjiCollector extends SketchCollector {
         loginUrl: "https://my.dji.com/orders",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

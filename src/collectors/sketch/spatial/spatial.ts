@@ -29,7 +29,7 @@ export class SpatialCollector extends SketchCollector {
         loginUrl: "https://billing.stripe.com/session/live_YWNjdF8xRjhWN2FCN1F0RWV6bjdNLF9MZXJLZlo4R2EwRklJYWhrdk5rNUhpZ2xBQkppUFo10100JNILus9k",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

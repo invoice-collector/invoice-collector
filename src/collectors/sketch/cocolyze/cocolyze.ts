@@ -29,7 +29,7 @@ export class CocolyzeCollector extends SketchCollector {
         loginUrl: "https://cocolyze.com/fr/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

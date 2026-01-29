@@ -29,7 +29,7 @@ export class ItCenterRiemerCollector extends SketchCollector {
         loginUrl: "m.holz@itc-riemer.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

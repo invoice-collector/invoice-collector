@@ -29,7 +29,7 @@ export class CoachyCollector extends SketchCollector {
         loginUrl: "https://www.coachy.net",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

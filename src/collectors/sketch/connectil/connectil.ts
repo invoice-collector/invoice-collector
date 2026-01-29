@@ -29,7 +29,7 @@ export class ConnectilCollector extends SketchCollector {
         loginUrl: "https://cloud.connectill.com/dashboard/my-account-invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

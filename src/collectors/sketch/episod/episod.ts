@@ -29,7 +29,7 @@ export class EpisodCollector extends SketchCollector {
         loginUrl: "https://www.episod.com/mon-compte/achats/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

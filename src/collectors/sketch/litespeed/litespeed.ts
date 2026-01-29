@@ -29,7 +29,7 @@ export class LitespeedCollector extends SketchCollector {
         loginUrl: "https://store.litespeedtech.com/store/clientarea.php?action=invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

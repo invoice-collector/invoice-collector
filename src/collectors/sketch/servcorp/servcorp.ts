@@ -29,7 +29,7 @@ export class ServcorpCollector extends SketchCollector {
         loginUrl: "https://home.servcorp.com/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

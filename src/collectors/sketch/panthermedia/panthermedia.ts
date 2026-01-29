@@ -29,7 +29,7 @@ export class PanthermediaCollector extends SketchCollector {
         loginUrl: "https://bildagentur.panthermedia.net/pm/sign-in",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

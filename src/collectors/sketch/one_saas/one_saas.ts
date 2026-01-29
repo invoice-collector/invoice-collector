@@ -29,7 +29,7 @@ export class OneSaasCollector extends SketchCollector {
         loginUrl: "https://partners.onesaas.com/admin/signin",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

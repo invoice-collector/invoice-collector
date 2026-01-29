@@ -29,7 +29,7 @@ export class CleverCloudCollector extends SketchCollector {
         loginUrl: "https://api.clever-cloud.com/v2/sessions/login?fromAuthorize=true",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

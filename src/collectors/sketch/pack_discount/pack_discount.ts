@@ -29,7 +29,7 @@ export class PackDiscountCollector extends SketchCollector {
         loginUrl: "https://www.packdiscount.com/invoice/index/list/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

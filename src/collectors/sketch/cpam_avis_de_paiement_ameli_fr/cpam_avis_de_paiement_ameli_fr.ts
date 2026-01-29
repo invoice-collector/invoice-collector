@@ -29,7 +29,7 @@ export class CpamAvisDePaiementAmeliFrCollector extends SketchCollector {
         loginUrl: "https://www.ameli.fr/assure/adresses-et-contacts/vos-paiements-vos-remboursements",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

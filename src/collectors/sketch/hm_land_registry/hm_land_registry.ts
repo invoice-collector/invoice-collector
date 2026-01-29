@@ -29,7 +29,7 @@ export class HmLandRegistryCollector extends SketchCollector {
         loginUrl: "https://eservices.landregistry.gov.uk/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

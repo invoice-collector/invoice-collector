@@ -29,7 +29,7 @@ export class PartnerizeCollector extends SketchCollector {
         loginUrl: "https://console.partnerize.com/v2/payments/selfbill",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

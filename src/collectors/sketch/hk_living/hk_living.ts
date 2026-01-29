@@ -29,7 +29,7 @@ export class HkLivingCollector extends SketchCollector {
         loginUrl: "https://hkliving.com/account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

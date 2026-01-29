@@ -29,7 +29,7 @@ export class StatistaCollector extends SketchCollector {
         loginUrl: "https://de.statista.com/profil/rechnungen/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

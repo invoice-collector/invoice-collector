@@ -29,7 +29,7 @@ export class IntegracareCollector extends SketchCollector {
         loginUrl: "https://my.allstream.com/BillingInvoiceHistory",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

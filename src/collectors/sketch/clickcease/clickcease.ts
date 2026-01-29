@@ -29,7 +29,7 @@ export class ClickceaseCollector extends SketchCollector {
         loginUrl: "https://www.clickcease.com/dashboard/#/account/domains",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

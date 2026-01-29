@@ -29,7 +29,7 @@ export class VivenuCollector extends SketchCollector {
         loginUrl: "https://dashboard.vivenu.com/balancings",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

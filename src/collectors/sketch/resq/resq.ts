@@ -29,7 +29,7 @@ export class ResqCollector extends SketchCollector {
         loginUrl: "https://app.getresq.com/2s9/invoices/invoices?page=2",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

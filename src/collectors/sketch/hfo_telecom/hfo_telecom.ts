@@ -29,7 +29,7 @@ export class HfoTelecomCollector extends SketchCollector {
         loginUrl: "https://rechnung.hfo-telecom.de/Portal1/Login.cms?ReturnUrl=%2fPortal1%2f",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class PropelleradsCollector extends SketchCollector {
         loginUrl: "https://partners.propellerads.com/#/app/finance/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

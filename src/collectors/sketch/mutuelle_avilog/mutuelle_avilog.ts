@@ -29,7 +29,7 @@ export class MutuelleAvilogCollector extends SketchCollector {
         loginUrl: "https://www.avilog.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

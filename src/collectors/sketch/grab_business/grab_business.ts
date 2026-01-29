@@ -29,7 +29,7 @@ export class GrabBusinessCollector extends SketchCollector {
         loginUrl: "https://business.grab.com/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

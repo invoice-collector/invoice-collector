@@ -29,7 +29,7 @@ export class GolemCollector extends SketchCollector {
         loginUrl: "https://account.golem.de/user/bills",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

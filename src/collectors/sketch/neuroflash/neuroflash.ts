@@ -29,7 +29,7 @@ export class NeuroflashCollector extends SketchCollector {
         loginUrl: "https://app.neuro-flash.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class NeutrinoApiCollector extends SketchCollector {
         loginUrl: "https://www.neutrinoapi.com/account/billing-history/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

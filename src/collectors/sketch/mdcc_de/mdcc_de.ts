@@ -29,7 +29,7 @@ export class MdccDeCollector extends SketchCollector {
         loginUrl: "https://service.mdcc.de/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

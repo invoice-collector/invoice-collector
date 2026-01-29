@@ -29,7 +29,7 @@ export class PortalGoldgasCollector extends SketchCollector {
         loginUrl: "https://portal.goldgas.de/registrierung",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

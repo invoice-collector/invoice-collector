@@ -29,7 +29,7 @@ export class WebshareIoCollector extends SketchCollector {
         loginUrl: "https://proxy.webshare.io/subscription/invoices/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class ProtectedShopsCollector extends SketchCollector {
         loginUrl: "https://www.protectedshops.de/accountPs/invoicearchive",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

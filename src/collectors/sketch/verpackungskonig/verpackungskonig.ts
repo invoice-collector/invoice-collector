@@ -29,7 +29,7 @@ export class VerpackungskonigCollector extends SketchCollector {
         loginUrl: "https://verpackungskoenig.de/registrieren.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

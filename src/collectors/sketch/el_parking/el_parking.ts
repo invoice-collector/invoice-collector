@@ -29,7 +29,7 @@ export class ElParkingCollector extends SketchCollector {
         loginUrl: "https://elparking.com/facturacion/facturas/1",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

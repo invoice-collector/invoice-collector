@@ -29,7 +29,7 @@ export class KeywordToolCollector extends SketchCollector {
         loginUrl: "https://keywordtool.io/user?destination=node",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

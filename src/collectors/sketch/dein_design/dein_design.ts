@@ -29,7 +29,7 @@ export class DeinDesignCollector extends SketchCollector {
         loginUrl: "https://www.deindesign.de/de/secure/customer/orderStats.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class NovofleetCollector extends SketchCollector {
         loginUrl: "https://www.novofleet.com/portal/de/mein-novofleet-login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class VivaloEspaceClientCollector extends SketchCollector {
         loginUrl: "https://vivalo.re/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

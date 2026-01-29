@@ -29,7 +29,7 @@ export class MaschinensucherCollector extends SketchCollector {
         loginUrl: "https://www.maschinensucher.de/user/contract/invoice-list",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

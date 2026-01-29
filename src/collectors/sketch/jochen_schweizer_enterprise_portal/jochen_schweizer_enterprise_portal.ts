@@ -29,7 +29,7 @@ export class JochenSchweizerEnterprisePortalCollector extends SketchCollector {
         loginUrl: "https://jep.jochen-schweizer.de/auth",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class NexudusCollector extends SketchCollector {
         loginUrl: "https://platform.nexudus.com/auth/sign-in?continue_to=/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

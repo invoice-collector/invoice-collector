@@ -29,7 +29,7 @@ export class FreemiusCollector extends SketchCollector {
         loginUrl: "https://users.freemius.com/payments",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

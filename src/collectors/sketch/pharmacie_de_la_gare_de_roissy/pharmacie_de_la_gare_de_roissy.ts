@@ -29,7 +29,7 @@ export class PharmacieDeLaGareDeRoissyCollector extends SketchCollector {
         loginUrl: "https://pharmacie-gare-roissy.fr/index.php/customer/account/login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

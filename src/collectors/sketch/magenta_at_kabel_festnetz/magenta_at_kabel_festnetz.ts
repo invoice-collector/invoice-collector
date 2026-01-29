@@ -29,7 +29,7 @@ export class MagentaAtKabelFestnetzCollector extends SketchCollector {
         loginUrl: "https://service.magenta.at/login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

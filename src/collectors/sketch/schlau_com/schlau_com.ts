@@ -29,7 +29,7 @@ export class SchlauComCollector extends SketchCollector {
         loginUrl: "https://mein.schlau.com/#{1}",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

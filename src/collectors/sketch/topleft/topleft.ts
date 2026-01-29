@@ -29,7 +29,7 @@ export class TopleftCollector extends SketchCollector {
         loginUrl: "https://linkprotect.cudasvc.com/url?a=https%3a%2f%2fbitsandbytes.topleft.team%2fsettings%2flicensing%2fbilling%2f&c=E,1,8HZRUjhnX5H7JvYVF2cW7jnFEPbBrbxeQQnxoSn2TsbAmBB2O56y9huiuXlAWiASTM2opNpPyi7TXJmq7Llu_qkxe3sdm_h8dSodtQIiQbbH2aoibXELfcpT_tm9&typo=1",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

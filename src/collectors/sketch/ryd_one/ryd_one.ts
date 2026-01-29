@@ -29,7 +29,7 @@ export class RydOneCollector extends SketchCollector {
         loginUrl: "http://www.ryd.one",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

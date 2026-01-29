@@ -29,7 +29,7 @@ export class ExpandiIoCollector extends SketchCollector {
         loginUrl: "https://expandi.io/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

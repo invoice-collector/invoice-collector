@@ -29,7 +29,7 @@ export class PlanetencreCollector extends SketchCollector {
         loginUrl: "https://www.planetencre.com/customer/account/login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

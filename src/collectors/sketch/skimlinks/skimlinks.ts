@@ -29,7 +29,7 @@ export class SkimlinksCollector extends SketchCollector {
         loginUrl: "https://hub.skimlinks.com/payments/history",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

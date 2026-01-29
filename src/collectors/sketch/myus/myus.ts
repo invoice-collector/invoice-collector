@@ -29,7 +29,7 @@ export class MyusCollector extends SketchCollector {
         loginUrl: "https://myaccount.myus.com/history/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class KelkooCollector extends SketchCollector {
         loginUrl: "https://merchants.extranet.kelkoo.net/de/registered/ViewInvoices.do",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

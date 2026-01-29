@@ -29,7 +29,7 @@ export class BigrockCollector extends SketchCollector {
         loginUrl: "https://manage.bigrock.com/servlet/ListCustomerTransactionsServlet",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

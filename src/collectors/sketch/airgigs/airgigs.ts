@@ -29,7 +29,7 @@ export class AirgigsCollector extends SketchCollector {
         loginUrl: "https://www.airgigs.com/balance",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class GdBoBalconsCollector extends SketchCollector {
         loginUrl: "https://www.gdbobalcons-shop.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

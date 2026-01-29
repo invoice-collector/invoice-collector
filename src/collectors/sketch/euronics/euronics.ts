@@ -29,7 +29,7 @@ export class EuronicsCollector extends SketchCollector {
         loginUrl: "https://www.euronics.de/account#hide-registration",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

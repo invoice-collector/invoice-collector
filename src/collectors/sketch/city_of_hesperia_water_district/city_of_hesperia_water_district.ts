@@ -29,7 +29,7 @@ export class CityOfHesperiaWaterDistrictCollector extends SketchCollector {
         loginUrl: "https://billpay.onlinebiller.com/ebpp/hesperia/Payment/History",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

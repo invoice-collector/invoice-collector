@@ -29,7 +29,7 @@ export class WoodbrassComCollector extends SketchCollector {
         loginUrl: "https://www.woodbrass.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

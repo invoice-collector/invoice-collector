@@ -29,7 +29,7 @@ export class TransgourmetAtCollector extends SketchCollector {
         loginUrl: "https://shop.transgourmet.at/archive",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

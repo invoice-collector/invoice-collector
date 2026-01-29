@@ -29,7 +29,7 @@ export class SeolyzeCollector extends SketchCollector {
         loginUrl: "https://www.seolyze.com/UserCenter/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

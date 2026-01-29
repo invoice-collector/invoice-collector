@@ -29,7 +29,7 @@ export class PlusDeCollector extends SketchCollector {
         loginUrl: "https://www.plus.de/mein-konto/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

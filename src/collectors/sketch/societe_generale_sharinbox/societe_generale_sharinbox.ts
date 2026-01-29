@@ -29,7 +29,7 @@ export class SocieteGeneraleSharinboxCollector extends SketchCollector {
         loginUrl: "https://sharinbox.societegenerale.com/login.do",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

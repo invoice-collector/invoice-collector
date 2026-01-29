@@ -29,7 +29,7 @@ export class CarethyCollector extends SketchCollector {
         loginUrl: "https://www.carethy.de/user?tab=orders",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class HussLichtAndTonCollector extends SketchCollector {
         loginUrl: "http://www.huss-licht-ton.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

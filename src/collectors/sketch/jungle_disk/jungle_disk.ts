@@ -29,7 +29,7 @@ export class JungleDiskCollector extends SketchCollector {
         loginUrl: "https://secure.jungledisk.com/secure/account/invoices.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

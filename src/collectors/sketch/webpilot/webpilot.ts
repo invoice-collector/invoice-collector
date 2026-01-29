@@ -29,7 +29,7 @@ export class WebpilotCollector extends SketchCollector {
         loginUrl: "https://www.webpilot.ai/developer/dashboard/payment?addResult=true",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

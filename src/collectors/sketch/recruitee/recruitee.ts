@@ -29,7 +29,7 @@ export class RecruiteeCollector extends SketchCollector {
         loginUrl: "https://auth.recruitee.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

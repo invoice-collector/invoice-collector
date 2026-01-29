@@ -29,7 +29,7 @@ export class ConatyCateringSuppliesCollector extends SketchCollector {
         loginUrl: "https://www.conatycatering.com/index.php?route=extension/account/invoice",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

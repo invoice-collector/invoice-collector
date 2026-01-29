@@ -29,7 +29,7 @@ export class DrPetersGroupCollector extends SketchCollector {
         loginUrl: "https://kundenportal.dr-peters.de/meine-beteiligungen",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

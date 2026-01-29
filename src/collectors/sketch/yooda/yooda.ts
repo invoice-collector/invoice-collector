@@ -29,7 +29,7 @@ export class YoodaCollector extends SketchCollector {
         loginUrl: "https://www.yooda.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

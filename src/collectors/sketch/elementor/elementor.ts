@@ -29,7 +29,7 @@ export class ElementorCollector extends SketchCollector {
         loginUrl: "https://my.elementor.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

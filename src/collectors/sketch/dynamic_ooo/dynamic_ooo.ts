@@ -29,7 +29,7 @@ export class DynamicOooCollector extends SketchCollector {
         loginUrl: "https://shop.dynamic.ooo/my-account/orders/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

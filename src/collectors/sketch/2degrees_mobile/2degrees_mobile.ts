@@ -29,7 +29,7 @@ export class _2degreesMobileCollector extends SketchCollector {
         loginUrl: "http://www.2degreesmobile.co.nz",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

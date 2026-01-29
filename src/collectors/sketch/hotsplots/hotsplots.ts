@@ -29,7 +29,7 @@ export class HotsplotsCollector extends SketchCollector {
         loginUrl: "https://www.hotsplots.de/kundenbereich.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

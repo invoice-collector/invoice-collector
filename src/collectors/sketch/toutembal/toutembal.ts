@@ -29,7 +29,7 @@ export class ToutembalCollector extends SketchCollector {
         loginUrl: "https://www.toutembal.fr/commande_visualiser.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

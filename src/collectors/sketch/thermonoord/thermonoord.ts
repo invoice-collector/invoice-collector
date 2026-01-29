@@ -29,7 +29,7 @@ export class ThermonoordCollector extends SketchCollector {
         loginUrl: "https://web.thermonoord.nl/B2B/PAGE_Start/7A8AANwHRfNPZGdZZmJvRkdkQwA",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

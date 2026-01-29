@@ -29,7 +29,7 @@ export class GsmShopNlCollector extends SketchCollector {
         loginUrl: "http://www.gsm-shop.nl/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

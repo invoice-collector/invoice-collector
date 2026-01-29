@@ -29,7 +29,7 @@ export class SortlyCollector extends SketchCollector {
         loginUrl: "https://pro.sortly.com/billing-info",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

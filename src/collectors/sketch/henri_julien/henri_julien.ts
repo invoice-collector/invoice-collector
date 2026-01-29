@@ -29,7 +29,7 @@ export class HenriJulienCollector extends SketchCollector {
         loginUrl: "https://henrijulien.fr/invoices/invoicelist/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class DanskSupermarkedCollector extends SketchCollector {
         loginUrl: "https://dansksupermarked.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

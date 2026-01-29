@@ -29,7 +29,7 @@ export class ConstellationNewEnergyDnCollector extends SketchCollector {
         loginUrl: "https://energymanager.constellation.com/CustomerDashboard",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

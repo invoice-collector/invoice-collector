@@ -29,7 +29,7 @@ export class LandbellEasyShopCollector extends SketchCollector {
         loginUrl: "https://easyshop.landbell.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

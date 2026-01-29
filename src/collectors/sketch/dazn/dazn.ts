@@ -29,7 +29,7 @@ export class DaznCollector extends SketchCollector {
         loginUrl: "https://www.dazn.com/de-DE/account/signin",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

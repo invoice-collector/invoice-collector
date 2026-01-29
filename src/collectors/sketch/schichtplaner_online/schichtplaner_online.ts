@@ -29,7 +29,7 @@ export class SchichtplanerOnlineCollector extends SketchCollector {
         loginUrl: "https://schichtplaner-online.de/pro/invoice_download/15477",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

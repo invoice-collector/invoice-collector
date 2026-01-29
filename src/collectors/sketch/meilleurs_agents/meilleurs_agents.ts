@@ -29,7 +29,7 @@ export class MeilleursAgentsCollector extends SketchCollector {
         loginUrl: "https://www.meilleursagents.com/_signin?show=signin",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

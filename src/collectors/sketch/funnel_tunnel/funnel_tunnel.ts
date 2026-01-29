@@ -29,7 +29,7 @@ export class FunnelTunnelCollector extends SketchCollector {
         loginUrl: "https://bernhard-5.funnel-tunnel.com/me/settings/billing/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

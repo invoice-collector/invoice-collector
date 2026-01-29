@@ -29,7 +29,7 @@ export class FsDataCollector extends SketchCollector {
         loginUrl: "https://fsdata.se/support/kontrollpanel-waff/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

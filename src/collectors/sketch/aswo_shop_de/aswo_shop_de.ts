@@ -29,7 +29,7 @@ export class AswoShopDeCollector extends SketchCollector {
         loginUrl: "https://shop.aswo.com/aswoShop/startPage.faces?storeId=599",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

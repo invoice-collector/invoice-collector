@@ -28,7 +28,7 @@ export class VistaPrintCollector extends SketchCollector {
         loginUrl: "https://account.vista.com/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

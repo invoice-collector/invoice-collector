@@ -29,7 +29,7 @@ export class AppleCompanyAccountCollector extends SketchCollector {
         loginUrl: "https://idmsa.apple.com/IDMSWebAuth/signin?appIdKey=1ea5417fc564f453ff00699cf6d7f2b7c1dc865f65b9f6566cfc7f3ad9b595c5&path=/asb2b/init.do%3Fsegment%3DSBPRO-SMB&language=US-EN&segment=SBPRO-SMB",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

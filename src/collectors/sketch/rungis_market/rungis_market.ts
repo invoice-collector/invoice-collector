@@ -29,7 +29,7 @@ export class RungisMarketCollector extends SketchCollector {
         loginUrl: "https://rungismarket.com/app/account/invoice",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

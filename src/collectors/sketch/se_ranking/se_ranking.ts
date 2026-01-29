@@ -29,7 +29,7 @@ export class SeRankingCollector extends SketchCollector {
         loginUrl: "https://online.seranking.com/admin.subscription.html#/payments/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

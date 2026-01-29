@@ -29,7 +29,7 @@ export class HyundaiDealerCollector extends SketchCollector {
         loginUrl: "https://wdcs.hyundaidealer.com/irj/portal/webdcs#/app_currentReport",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

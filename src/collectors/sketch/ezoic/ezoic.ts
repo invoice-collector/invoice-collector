@@ -29,7 +29,7 @@ export class EzoicCollector extends SketchCollector {
         loginUrl: "https://pubdash.ezoic.com/account/payments/subscriptions",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

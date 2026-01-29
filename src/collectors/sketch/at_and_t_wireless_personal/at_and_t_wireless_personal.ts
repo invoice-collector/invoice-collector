@@ -29,7 +29,7 @@ export class AtAndTWirelessPersonalCollector extends SketchCollector {
         loginUrl: "https://www.att.com/shop/login/login.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

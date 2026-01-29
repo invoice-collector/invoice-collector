@@ -29,7 +29,7 @@ export class AralSupercardBusinessCollector extends SketchCollector {
         loginUrl: "https://business.aral-supercard.de/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

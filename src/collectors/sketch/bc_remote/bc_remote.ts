@@ -29,7 +29,7 @@ export class BcRemoteCollector extends SketchCollector {
         loginUrl: "https://www.bc-remote.com/de/account/orders/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

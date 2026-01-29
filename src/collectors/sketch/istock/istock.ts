@@ -29,7 +29,7 @@ export class IstockCollector extends SketchCollector {
         loginUrl: "https://www.istockphoto.com/de/account/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

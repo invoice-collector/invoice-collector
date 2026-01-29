@@ -29,7 +29,7 @@ export class MemberstackCollector extends SketchCollector {
         loginUrl: "https://app.memberstack.io/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class Auth0Collector extends SketchCollector {
         loginUrl: "https://auth0.auth0.com/login?state=9j7VXnGdEc3g-nqviPl0Yn26rbqkhIX6&client=bLR9T5ar6nFtDO4zErGXdoqMCM4iNZSV&protocol=oauth2&response_type=code&redirect_uri=https%3A%2F%2Fauth0.com%2Fauth%2Fcallback&scope=openid%20profile%20email",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

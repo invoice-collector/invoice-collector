@@ -28,7 +28,7 @@ export class PaulCollector extends SketchCollector {
         loginUrl: "https://www.paul.fr/customer/account/login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

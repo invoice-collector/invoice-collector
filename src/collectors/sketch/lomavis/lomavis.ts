@@ -29,7 +29,7 @@ export class LomavisCollector extends SketchCollector {
         loginUrl: "https://app.lomavis.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

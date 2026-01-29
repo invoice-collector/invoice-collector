@@ -29,7 +29,7 @@ export class HoekCollector extends SketchCollector {
         loginUrl: "https://www.hoekflowers.com/fr-fr/Service/Factuur",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

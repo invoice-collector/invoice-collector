@@ -29,7 +29,7 @@ export class GlobimailCollector extends SketchCollector {
         loginUrl: "https://secure.globimail.com/billinghistory/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

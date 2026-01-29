@@ -29,7 +29,7 @@ export class ExtensisCollector extends SketchCollector {
         loginUrl: "https://secure.extensis.com/loginpage",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

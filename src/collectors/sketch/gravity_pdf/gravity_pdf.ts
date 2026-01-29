@@ -29,7 +29,7 @@ export class GravityPdfCollector extends SketchCollector {
         loginUrl: "https://gravitypdf.com/checkout/purchase-confirmation/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

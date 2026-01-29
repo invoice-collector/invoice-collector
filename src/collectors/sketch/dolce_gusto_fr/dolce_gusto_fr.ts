@@ -28,7 +28,7 @@ export class DolceGustoFrCollector extends SketchCollector {
         loginUrl: "https://www.dolce-gusto.fr/customer/account/login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

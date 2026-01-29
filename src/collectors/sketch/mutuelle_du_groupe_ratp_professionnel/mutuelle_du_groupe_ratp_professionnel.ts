@@ -29,7 +29,7 @@ export class MutuelleDuGroupeRatpProfessionnelCollector extends SketchCollector 
         loginUrl: "https://mutuelleratp.fr/espace-professionnel/connexion/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class CityOfBedfordTxCollector extends SketchCollector {
         loginUrl: "https://bedford.dpnetbill.com/secure/customer/default.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

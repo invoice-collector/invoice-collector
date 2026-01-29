@@ -29,7 +29,7 @@ export class FormlabsCollector extends SketchCollector {
         loginUrl: "https://checkout.formlabs.com/de_de/sales/order/history/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

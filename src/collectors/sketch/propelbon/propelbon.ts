@@ -29,7 +29,7 @@ export class PropelbonCollector extends SketchCollector {
         loginUrl: "https://partner.net.propelbon.com/app/index.html#/account/payments",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

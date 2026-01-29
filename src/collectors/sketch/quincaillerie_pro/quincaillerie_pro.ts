@@ -29,7 +29,7 @@ export class QuincaillerieProCollector extends SketchCollector {
         loginUrl: "https://www.quincaillerie.pro/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

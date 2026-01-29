@@ -29,7 +29,7 @@ export class Briefumschlage24plusCollector extends SketchCollector {
         loginUrl: "https://www.briefumschlaege24plus.de/download",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

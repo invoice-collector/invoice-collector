@@ -29,7 +29,7 @@ export class LuudooCollector extends SketchCollector {
         loginUrl: "https://luudoo.com/admin_5esn7m/sales/invoice/index/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

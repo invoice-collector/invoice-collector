@@ -29,7 +29,7 @@ export class StadtwerkeDusseldorfCollector extends SketchCollector {
         loginUrl: "https://www.swd-ag.de/#close-cookie",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class WallStreetJournalCollector extends SketchCollector {
         loginUrl: "https://www.wsj.com/client/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

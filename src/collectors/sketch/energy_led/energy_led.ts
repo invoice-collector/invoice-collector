@@ -29,7 +29,7 @@ export class EnergyLedCollector extends SketchCollector {
         loginUrl: "https://www.energy-led.com/authentification?back=my-account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

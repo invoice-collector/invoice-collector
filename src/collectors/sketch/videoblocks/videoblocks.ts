@@ -29,7 +29,7 @@ export class VideoblocksCollector extends SketchCollector {
         loginUrl: "https://www.videoblocks.com/member/profile",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

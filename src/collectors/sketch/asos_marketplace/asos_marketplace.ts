@@ -29,7 +29,7 @@ export class AsosMarketplaceCollector extends SketchCollector {
         loginUrl: "https://marketplace.asos.com/authentication/logon?returnUrl=%2F",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

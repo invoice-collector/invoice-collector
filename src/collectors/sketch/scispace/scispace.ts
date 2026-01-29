@@ -29,7 +29,7 @@ export class ScispaceCollector extends SketchCollector {
         loginUrl: "https://scispace.com/accounts/login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

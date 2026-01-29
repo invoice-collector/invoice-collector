@@ -29,7 +29,7 @@ export class TyresystemCollector extends SketchCollector {
         loginUrl: "https://www.tyresystem.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

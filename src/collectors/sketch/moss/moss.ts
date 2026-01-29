@@ -29,7 +29,7 @@ export class MossCollector extends SketchCollector {
         loginUrl: "https://getmoss.com/de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

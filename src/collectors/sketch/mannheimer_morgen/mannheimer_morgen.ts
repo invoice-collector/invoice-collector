@@ -29,7 +29,7 @@ export class MannheimerMorgenCollector extends SketchCollector {
         loginUrl: "https://www2.mannheimer-morgen.de/service/mein_profil/plenigo_dashboard.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

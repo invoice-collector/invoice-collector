@@ -29,7 +29,7 @@ export class ThinkimmoCollector extends SketchCollector {
         loginUrl: "https://thinkimmo.com/settings",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

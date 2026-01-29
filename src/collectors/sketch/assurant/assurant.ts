@@ -29,7 +29,7 @@ export class AssurantCollector extends SketchCollector {
         loginUrl: "https://partner.assurant-schutzbrief.de/insuranceAccounting/listPartnerAccountings",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

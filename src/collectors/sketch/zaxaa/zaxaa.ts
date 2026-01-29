@@ -29,7 +29,7 @@ export class ZaxaaCollector extends SketchCollector {
         loginUrl: "https://www.zaxaa.com/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

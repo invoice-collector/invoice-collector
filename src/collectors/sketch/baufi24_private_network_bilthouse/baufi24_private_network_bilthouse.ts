@@ -29,7 +29,7 @@ export class Baufi24PrivateNetworkBilthouseCollector extends SketchCollector {
         loginUrl: "https://partnerprogramm.bilthouse.com/auszahlungen.cgi",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

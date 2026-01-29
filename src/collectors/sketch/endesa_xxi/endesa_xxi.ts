@@ -29,7 +29,7 @@ export class EndesaXxiCollector extends SketchCollector {
         loginUrl: "https://www.energiaxxi.com/login-en.html?d=Any",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

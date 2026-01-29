@@ -29,7 +29,7 @@ export class FnacDartySellerCollector extends SketchCollector {
         loginUrl: "https://seller.fnacdarty.com/compte/vendeur/factures/date_desc/1",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

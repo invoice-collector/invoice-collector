@@ -29,7 +29,7 @@ export class WebhostoneCollector extends SketchCollector {
         loginUrl: "https://kcc.webhostone.de/kcc/index/index",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

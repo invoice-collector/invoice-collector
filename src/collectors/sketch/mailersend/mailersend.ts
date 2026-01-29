@@ -29,7 +29,7 @@ export class MailersendCollector extends SketchCollector {
         loginUrl: "https://app.mailersend.com/billing/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class BeslistNlCollector extends SketchCollector {
         loginUrl: "https://dashboard.beslist.nl/user/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

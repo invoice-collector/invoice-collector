@@ -29,7 +29,7 @@ export class ColumbiaGasOfVirginiaCollector extends SketchCollector {
         loginUrl: "https://myaccount.columbiagasva.com/bills",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

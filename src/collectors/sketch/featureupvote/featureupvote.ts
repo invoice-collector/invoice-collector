@@ -29,7 +29,7 @@ export class FeatureupvoteCollector extends SketchCollector {
         loginUrl: "https://app.featureupvote.com/dashboard/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class _3SuissesCollector extends SketchCollector {
         loginUrl: "https://www.3suisses.fr/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

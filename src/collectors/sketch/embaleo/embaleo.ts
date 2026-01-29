@@ -29,7 +29,7 @@ export class EmbaleoCollector extends SketchCollector {
         loginUrl: "https://www.embaleo.com/historique-des-commandes",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

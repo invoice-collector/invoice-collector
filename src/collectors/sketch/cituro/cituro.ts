@@ -29,7 +29,7 @@ export class CituroCollector extends SketchCollector {
         loginUrl: "http://www.cituro.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

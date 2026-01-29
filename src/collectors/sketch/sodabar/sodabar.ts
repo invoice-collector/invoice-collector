@@ -29,7 +29,7 @@ export class SodabarCollector extends SketchCollector {
         loginUrl: "https://www.sodabaer.de/account/orders",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class RankMathCollector extends SketchCollector {
         loginUrl: "https://rankmath.com/my-account/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

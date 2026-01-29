@@ -29,7 +29,7 @@ export class GreensparkCollector extends SketchCollector {
         loginUrl: "https://www.app.getgreenspark.com/account?tab=billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

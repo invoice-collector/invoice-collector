@@ -29,7 +29,7 @@ export class FlowfactCollector extends SketchCollector {
         loginUrl: "https://apps.flowfact.com/login?redirect=%2Fhome%2Fapps",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class SewanCollector extends SketchCollector {
         loginUrl: "https://partenaire.sewan.fr/login/?redirect_to=https://partenaire.sewan.fr/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

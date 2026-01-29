@@ -29,7 +29,7 @@ export class EvmPortalCollector extends SketchCollector {
         loginUrl: "https://onlineservice.service-rz.de/?act=login&werknr=11&stylenr=5",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

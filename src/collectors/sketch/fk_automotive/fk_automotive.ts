@@ -29,7 +29,7 @@ export class FkAutomotiveCollector extends SketchCollector {
         loginUrl: "https://www.fk-haendler.de/bestellhistorie/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

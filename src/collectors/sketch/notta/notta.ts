@@ -29,7 +29,7 @@ export class NottaCollector extends SketchCollector {
         loginUrl: "https://www.notta.ai/de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

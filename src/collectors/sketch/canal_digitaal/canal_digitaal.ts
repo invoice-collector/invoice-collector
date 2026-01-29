@@ -29,7 +29,7 @@ export class CanalDigitaalCollector extends SketchCollector {
         loginUrl: "https://www.canaldigitaal.nl/mijn-canaldigitaal/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

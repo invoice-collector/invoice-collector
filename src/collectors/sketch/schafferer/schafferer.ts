@@ -29,7 +29,7 @@ export class SchaffererCollector extends SketchCollector {
         loginUrl: "https://www.schafferer.de/gastro/Mein-Konto/Meine-Einkaeufe/#action",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

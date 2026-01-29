@@ -29,7 +29,7 @@ export class DentalMonitoringCollector extends SketchCollector {
         loginUrl: "https://dental-monitoring.com/doctor/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

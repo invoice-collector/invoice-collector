@@ -29,7 +29,7 @@ export class MysitesGuruCollector extends SketchCollector {
         loginUrl: "https://manage.mysites.guru/en/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

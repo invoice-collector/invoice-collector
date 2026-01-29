@@ -29,7 +29,7 @@ export class BeautifulCollector extends SketchCollector {
         loginUrl: "https://www.beautiful.ai/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

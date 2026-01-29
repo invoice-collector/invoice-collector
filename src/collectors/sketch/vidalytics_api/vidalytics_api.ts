@@ -29,7 +29,7 @@ export class VidalyticsApiCollector extends SketchCollector {
         loginUrl: "https://api.vidalytics.com/oauth/authorize?response_type=token&client_id=app&state=STJlbTVCVDUtcVZfOTBiUW9HdzRtU1AwWDJ3a0pSUDVNZld4YkpSYWt4Y1hG&redirect_uri=https://app.vidalytics.com/dashboard&scope=api",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class OekostromAtCollector extends SketchCollector {
         loginUrl: "https://mein.oekostrom.at/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

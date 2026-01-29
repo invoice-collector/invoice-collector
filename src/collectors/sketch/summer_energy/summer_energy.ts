@@ -29,7 +29,7 @@ export class SummerEnergyCollector extends SketchCollector {
         loginUrl: "https://www.summerenergy.com/MyAccount/Billing/Statements",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

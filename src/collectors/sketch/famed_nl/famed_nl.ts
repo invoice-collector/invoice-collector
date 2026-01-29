@@ -29,7 +29,7 @@ export class FamedNlCollector extends SketchCollector {
         loginUrl: "http://www.famed.nl",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class OnlypultCollector extends SketchCollector {
         loginUrl: "https://onlypult.com/de/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

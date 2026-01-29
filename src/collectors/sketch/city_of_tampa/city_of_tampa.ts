@@ -29,7 +29,7 @@ export class CityOfTampaCollector extends SketchCollector {
         loginUrl: "https://www.tampa.gov",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

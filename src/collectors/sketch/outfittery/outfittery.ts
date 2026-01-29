@@ -29,7 +29,7 @@ export class OutfitteryCollector extends SketchCollector {
         loginUrl: "https://www.outfittery.de/login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

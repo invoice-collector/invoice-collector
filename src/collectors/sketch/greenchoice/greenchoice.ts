@@ -29,7 +29,7 @@ export class GreenchoiceCollector extends SketchCollector {
         loginUrl: "https://dossier.greenchoice.nl/?utm_source=greenchoicenl&utm_medium=button&utm_campaign=mdbuttongreenchoicenl",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

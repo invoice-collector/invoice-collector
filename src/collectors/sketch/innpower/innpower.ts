@@ -29,7 +29,7 @@ export class InnpowerCollector extends SketchCollector {
         loginUrl: "https://www.innpower.ca",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

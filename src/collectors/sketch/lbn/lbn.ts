@@ -29,7 +29,7 @@ export class LbnCollector extends SketchCollector {
         loginUrl: "https://vermittler.lbn.de/vermittlerportal/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

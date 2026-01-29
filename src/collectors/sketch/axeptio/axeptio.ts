@@ -29,7 +29,7 @@ export class AxeptioCollector extends SketchCollector {
         loginUrl: "https://admin.axeptio.eu/projects/60a6104053946911d54de48d/config/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

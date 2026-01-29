@@ -29,7 +29,7 @@ export class HaistGmbhCollector extends SketchCollector {
         loginUrl: "https://www.haist.com/statistik/statistik.cgi?un=w7codUxUMof3aEEcyhvOHytCefOpMVif",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

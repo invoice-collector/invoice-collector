@@ -29,7 +29,7 @@ export class WaalaxyCollector extends SketchCollector {
         loginUrl: "https://app.waalaxy.com/settings/my-invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

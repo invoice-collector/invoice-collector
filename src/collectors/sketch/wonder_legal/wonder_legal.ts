@@ -29,7 +29,7 @@ export class WonderLegalCollector extends SketchCollector {
         loginUrl: "https://www.wonder.legal/de/compte/factures.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

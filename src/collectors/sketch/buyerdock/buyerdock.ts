@@ -29,7 +29,7 @@ export class BuyerdockCollector extends SketchCollector {
         loginUrl: "https://buyerdock.com/login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

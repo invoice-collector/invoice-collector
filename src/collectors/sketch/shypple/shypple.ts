@@ -29,7 +29,7 @@ export class ShyppleCollector extends SketchCollector {
         loginUrl: "https://app.shypple.com/login?redirect=%2Fdashboard",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

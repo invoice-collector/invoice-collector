@@ -29,7 +29,7 @@ export class WorldpayCollector extends SketchCollector {
         loginUrl: "https://dashboard.worldpay.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

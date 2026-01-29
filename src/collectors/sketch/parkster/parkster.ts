@@ -29,7 +29,7 @@ export class ParksterCollector extends SketchCollector {
         loginUrl: "https://www.parkster.com/mypages/paymentorders?page=1&size=10",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

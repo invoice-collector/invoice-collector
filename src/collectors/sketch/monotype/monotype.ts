@@ -29,7 +29,7 @@ export class MonotypeCollector extends SketchCollector {
         loginUrl: "https://accounts.monotype.com/de/orders",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

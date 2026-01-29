@@ -29,7 +29,7 @@ export class ZerobounceCollector extends SketchCollector {
         loginUrl: "https://www.zerobounce.net/members/customerinvoices/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class MilotreeCollector extends SketchCollector {
         loginUrl: "https://milotree.com/widgets/8666/edit",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

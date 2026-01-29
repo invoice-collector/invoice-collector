@@ -29,7 +29,7 @@ export class BarclaycardPrivateNetworkCollector extends SketchCollector {
         loginUrl: "https://barclaycard-pvn.de/user-billings.do",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

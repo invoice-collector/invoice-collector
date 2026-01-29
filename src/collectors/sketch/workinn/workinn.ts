@@ -29,7 +29,7 @@ export class WorkinnCollector extends SketchCollector {
         loginUrl: "https://work-inn.officernd.com/billing/invoices/company?start=2023-01-31T23:00:00.000Z&end=2023-04-30T21:59:59.999Z",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

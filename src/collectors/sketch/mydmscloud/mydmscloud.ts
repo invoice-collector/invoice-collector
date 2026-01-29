@@ -29,7 +29,7 @@ export class MydmscloudCollector extends SketchCollector {
         loginUrl: "https://mydmscloud.de/Account/Login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class VirginMobileCanadaCollector extends SketchCollector {
         loginUrl: "https://www.virginmobile.ca/en/members-lounge/login.html?itcid=NAV:31",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

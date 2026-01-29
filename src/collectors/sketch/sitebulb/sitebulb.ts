@@ -29,7 +29,7 @@ export class SitebulbCollector extends SketchCollector {
         loginUrl: "https://my.paddle.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

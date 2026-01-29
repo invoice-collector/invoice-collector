@@ -29,7 +29,7 @@ export class DmDrogerieMarktCollector extends SketchCollector {
         loginUrl: "https://www.dm.de/meindmkonto/bestellungen/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

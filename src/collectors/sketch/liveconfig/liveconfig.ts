@@ -29,7 +29,7 @@ export class LiveconfigCollector extends SketchCollector {
         loginUrl: "https://www.liveconfig.com/license/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

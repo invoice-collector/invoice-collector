@@ -29,7 +29,7 @@ export class DiageoCollector extends SketchCollector {
         loginUrl: "https://www.diageo.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class DewabitCollector extends SketchCollector {
         loginUrl: "https://member.dewabit.com/dash/subscription?status=success&action=create",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

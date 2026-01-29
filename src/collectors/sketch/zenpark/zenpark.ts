@@ -29,7 +29,7 @@ export class ZenparkCollector extends SketchCollector {
         loginUrl: "https://zenpark.com/espace-membre",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

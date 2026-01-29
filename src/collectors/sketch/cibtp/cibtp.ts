@@ -29,7 +29,7 @@ export class CibtpCollector extends SketchCollector {
         loginUrl: "https://mon-espace.cibtp.fr/4/adh/documents/list-documents/recents",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

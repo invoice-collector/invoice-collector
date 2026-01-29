@@ -28,7 +28,7 @@ export class AntargazCollector extends SketchCollector {
         loginUrl: "https://espace-clients.antargaz.fr/connexion",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class TestiCollector extends SketchCollector {
         loginUrl: "https://testi.at/invoice",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

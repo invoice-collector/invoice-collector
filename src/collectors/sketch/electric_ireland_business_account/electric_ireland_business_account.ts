@@ -29,7 +29,7 @@ export class ElectricIrelandBusinessAccountCollector extends SketchCollector {
         loginUrl: "https://businessonline.electricireland.ie/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

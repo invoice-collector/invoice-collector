@@ -29,7 +29,7 @@ export class PrismicCollector extends SketchCollector {
         loginUrl: "https://prismic.io/dashboard/login?redirectUri=/dashboard",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

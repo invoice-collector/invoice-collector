@@ -29,7 +29,7 @@ export class MsaPaiementsMaladieCollector extends SketchCollector {
         loginUrl: "https://monespaceprive.msa.fr/lfy/web/msa/sante/arret-travail-maladie?modalId=2",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

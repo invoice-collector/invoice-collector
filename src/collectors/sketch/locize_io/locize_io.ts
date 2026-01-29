@@ -29,7 +29,7 @@ export class LocizeIoCollector extends SketchCollector {
         loginUrl: "https://www.locize.io/login?next=/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class RapidFlyerPromoFlyerCollector extends SketchCollector {
         loginUrl: "https://www.rapid-flyer.com/authentification?back=https://www.rapid-flyer.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

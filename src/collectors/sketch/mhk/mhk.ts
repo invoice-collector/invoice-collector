@@ -29,7 +29,7 @@ export class MhkCollector extends SketchCollector {
         loginUrl: "https://www.mhk.net/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

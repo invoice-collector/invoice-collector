@@ -29,7 +29,7 @@ export class FlixcheckCollector extends SketchCollector {
         loginUrl: "https://app.flixcheck.com/portal/settings",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

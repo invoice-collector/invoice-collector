@@ -29,7 +29,7 @@ export class SpiegelOnlineCollector extends SketchCollector {
         loginUrl: "https://www.spiegel.de/plus/access/account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

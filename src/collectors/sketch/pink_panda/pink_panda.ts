@@ -29,7 +29,7 @@ export class PinkPandaCollector extends SketchCollector {
         loginUrl: "https://www.pinkpanda.de/my-orders",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

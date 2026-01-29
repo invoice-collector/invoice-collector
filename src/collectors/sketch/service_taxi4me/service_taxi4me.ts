@@ -29,7 +29,7 @@ export class ServiceTaxi4meCollector extends SketchCollector {
         loginUrl: "https://service.taxi4me.net/1000/unternehmer2.4/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

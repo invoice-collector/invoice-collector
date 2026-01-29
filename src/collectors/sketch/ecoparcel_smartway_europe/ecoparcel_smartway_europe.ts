@@ -29,7 +29,7 @@ export class EcoparcelSmartwayEuropeCollector extends SketchCollector {
         loginUrl: "https://www.ecoparcel.eu/de/order/invoice/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

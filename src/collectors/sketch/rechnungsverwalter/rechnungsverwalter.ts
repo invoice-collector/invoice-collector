@@ -29,7 +29,7 @@ export class RechnungsverwalterCollector extends SketchCollector {
         loginUrl: "https://rechnungsverwalter.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

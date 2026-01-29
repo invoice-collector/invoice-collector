@@ -29,7 +29,7 @@ export class WizzairComCollector extends SketchCollector {
         loginUrl: "https://wizzair.com/de-de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class PlumsailCollector extends SketchCollector {
         loginUrl: "https://plumsail.com/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

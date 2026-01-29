@@ -29,7 +29,7 @@ export class PascoCountyCollector extends SketchCollector {
         loginUrl: "https://pascoeasypay.pascocountyfl.net/my-account/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

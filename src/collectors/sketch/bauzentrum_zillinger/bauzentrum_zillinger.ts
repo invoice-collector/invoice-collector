@@ -29,7 +29,7 @@ export class BauzentrumZillingerCollector extends SketchCollector {
         loginUrl: "https://www.zillinger24.de/my-account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

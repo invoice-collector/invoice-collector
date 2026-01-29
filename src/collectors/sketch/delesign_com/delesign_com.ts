@@ -29,7 +29,7 @@ export class DelesignComCollector extends SketchCollector {
         loginUrl: "https://go.delesign.com/sign-in",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

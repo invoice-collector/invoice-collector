@@ -29,7 +29,7 @@ export class ChronofreshEfacturesCollector extends SketchCollector {
         loginUrl: "https://chronofresh.e-facture.net/esp_ent/index.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

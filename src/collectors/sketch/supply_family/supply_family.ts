@@ -29,7 +29,7 @@ export class SupplyFamilyCollector extends SketchCollector {
         loginUrl: "https://supply.family/my-account/orders/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

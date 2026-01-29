@@ -29,7 +29,7 @@ export class HobexCollector extends SketchCollector {
         loginUrl: "https://online.hobex.at/partnernet/Invoice",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

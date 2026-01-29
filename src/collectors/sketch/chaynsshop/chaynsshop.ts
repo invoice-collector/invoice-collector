@@ -29,7 +29,7 @@ export class ChaynsshopCollector extends SketchCollector {
         loginUrl: "https://die-einkaufsbummler.chayns.net/tapp/258527?v=0",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

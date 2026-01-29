@@ -29,7 +29,7 @@ export class VegwareCollector extends SketchCollector {
         loginUrl: "https://www.vegware.com/index.php?act=login&redir=aHR0cHM6Ly93d3cudmVnd2FyZS5jb20vaW5kZXgucGhwP2NjVXNlcj0xMjRjZTViNDAzNTkyZWExMDQ2ZGU1ZWRiM2JiM2JhNw==",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

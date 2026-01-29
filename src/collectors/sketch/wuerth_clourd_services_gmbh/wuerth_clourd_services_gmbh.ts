@@ -29,7 +29,7 @@ export class WuerthClourdServicesGmbhCollector extends SketchCollector {
         loginUrl: "https://my.towio.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

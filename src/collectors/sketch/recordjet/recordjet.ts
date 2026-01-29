@@ -29,7 +29,7 @@ export class RecordjetCollector extends SketchCollector {
         loginUrl: "https://cockpit.recordjet.com/my-profile",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

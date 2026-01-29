@@ -29,7 +29,7 @@ export class PutzperleDeCollector extends SketchCollector {
         loginUrl: "https://putzperle.de/de/membership",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

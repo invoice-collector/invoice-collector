@@ -29,7 +29,7 @@ export class CclsCollector extends SketchCollector {
         loginUrl: "https://www.espaceclients.ccls-leasing.fr/espaceclients/initlogin.htm",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

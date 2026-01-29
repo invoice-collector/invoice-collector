@@ -29,7 +29,7 @@ export class AsfinagCollector extends SketchCollector {
         loginUrl: "https://shop.asfinag.at/de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

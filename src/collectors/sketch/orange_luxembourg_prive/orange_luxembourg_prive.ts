@@ -29,7 +29,7 @@ export class OrangeLuxembourgPriveCollector extends SketchCollector {
         loginUrl: "https://account.orange.lu/en/index/login#/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

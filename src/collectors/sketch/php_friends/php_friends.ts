@@ -29,7 +29,7 @@ export class PhpFriendsCollector extends SketchCollector {
         loginUrl: "https://crm.php-friends.de/invoice/index",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

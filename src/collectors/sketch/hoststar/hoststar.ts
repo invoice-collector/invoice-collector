@@ -29,7 +29,7 @@ export class HoststarCollector extends SketchCollector {
         loginUrl: "https://my.hoststar.ch/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

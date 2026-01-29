@@ -29,7 +29,7 @@ export class B4valueNetCollector extends SketchCollector {
         loginUrl: "http://www.b4value.net",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

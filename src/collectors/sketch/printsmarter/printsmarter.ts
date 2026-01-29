@@ -29,7 +29,7 @@ export class PrintsmarterCollector extends SketchCollector {
         loginUrl: "https://www.printsmarter.de/mein-benutzerkonto/bestellungen",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

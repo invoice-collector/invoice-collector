@@ -29,7 +29,7 @@ export class LaFermeDuFroidCollector extends SketchCollector {
         loginUrl: "https://lafermedufroid.infologic.fr/#!/histcde",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

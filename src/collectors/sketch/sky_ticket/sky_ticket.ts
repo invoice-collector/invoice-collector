@@ -29,7 +29,7 @@ export class SkyTicketCollector extends SketchCollector {
         loginUrl: "https://skyticket.sky.de/scrm/storm/onko/boundary/showAccountsRH.do?forward_success=/scrm/cms/account_abrechnungen-uebersicht.jsp&months=6",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

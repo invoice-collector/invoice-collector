@@ -29,7 +29,7 @@ export class HanovaCityParkenCollector extends SketchCollector {
         loginUrl: "https://cityparken.hanova.de/accountcontractbillings",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

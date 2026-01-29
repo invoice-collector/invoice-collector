@@ -29,7 +29,7 @@ export class BanggoodComCollector extends SketchCollector {
         loginUrl: "https://www.banggood.com/login.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class MutuelleRadianceEntrepriseCollector extends SketchCollector {
         loginUrl: "https://mutuelle.fr/entreprise",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

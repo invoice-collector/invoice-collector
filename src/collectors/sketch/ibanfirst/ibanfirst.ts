@@ -29,7 +29,7 @@ export class IbanfirstCollector extends SketchCollector {
         loginUrl: "https://platform.ibanfirst.com/Compte/Documents",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class ClearbitCollector extends SketchCollector {
         loginUrl: "https://clearbit.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

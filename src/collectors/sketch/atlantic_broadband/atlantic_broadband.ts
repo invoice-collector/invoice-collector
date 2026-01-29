@@ -29,7 +29,7 @@ export class AtlanticBroadbandCollector extends SketchCollector {
         loginUrl: "https://atlbb.convergentcare.com/atlbb/goToLogin.action?subClientId=2002#ContextMenu/documentView",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

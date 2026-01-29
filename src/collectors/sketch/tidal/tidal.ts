@@ -29,7 +29,7 @@ export class TidalCollector extends SketchCollector {
         loginUrl: "https://my.tidal.com/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class SimpelNlCollector extends SketchCollector {
         loginUrl: "https://mijn.simpel.nl/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

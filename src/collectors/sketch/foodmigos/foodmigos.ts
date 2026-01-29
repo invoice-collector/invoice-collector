@@ -29,7 +29,7 @@ export class FoodmigosCollector extends SketchCollector {
         loginUrl: "https://restaurant.foodamigos.io/online-shop/payouts",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

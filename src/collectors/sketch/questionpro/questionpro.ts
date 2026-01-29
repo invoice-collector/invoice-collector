@@ -29,7 +29,7 @@ export class QuestionproCollector extends SketchCollector {
         loginUrl: "https://eu.questionpro.com/a/showUpgradeUser.do?payment=PaymentHistory",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

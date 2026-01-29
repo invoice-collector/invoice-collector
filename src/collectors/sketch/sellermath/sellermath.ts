@@ -29,7 +29,7 @@ export class SellermathCollector extends SketchCollector {
         loginUrl: "https://system.seller-math.com/sellermath/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class PreziCollector extends SketchCollector {
         loginUrl: "https://prezi.com/settings/license/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

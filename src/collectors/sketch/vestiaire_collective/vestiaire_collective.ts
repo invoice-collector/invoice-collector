@@ -29,7 +29,7 @@ export class VestiaireCollectiveCollector extends SketchCollector {
         loginUrl: "https://fr.vestiairecollective.com/mon-compte.shtml#commandes",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class CometBackupCollector extends SketchCollector {
         loginUrl: "https://account.cometbackup.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

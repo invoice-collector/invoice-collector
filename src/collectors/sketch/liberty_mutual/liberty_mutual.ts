@@ -29,7 +29,7 @@ export class LibertyMutualCollector extends SketchCollector {
         loginUrl: "https://lmidp.libertymutual.com/as/authorization.oauth2?client_id=ci_blportaloidc_1&scope=openid%20profile%20email&response_type=code&redirect_uri=https%3A%2F%2Fmybusiness.libertymutual.com%2Fauth%2Fuser%2F&state=%2Faccount&IdpAdapterId=extldap",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

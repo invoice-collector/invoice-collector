@@ -29,7 +29,7 @@ export class CommodisCollector extends SketchCollector {
         loginUrl: "https://aflexio.commodis.de/de.commodis.ui.employer/secure/staff/booking-history.xhtml",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

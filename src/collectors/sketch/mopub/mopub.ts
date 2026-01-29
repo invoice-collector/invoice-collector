@@ -29,7 +29,7 @@ export class MopubCollector extends SketchCollector {
         loginUrl: "https://app.mopub.com/payment/history",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

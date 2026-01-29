@@ -29,7 +29,7 @@ export class LoomCollector extends SketchCollector {
         loginUrl: "https://www.loom.com/account-settings#billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

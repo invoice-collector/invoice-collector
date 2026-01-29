@@ -29,7 +29,7 @@ export class HelpheroCollector extends SketchCollector {
         loginUrl: "https://app.helphero.co/plan/billing-history",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

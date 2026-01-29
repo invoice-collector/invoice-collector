@@ -29,7 +29,7 @@ export class AflacCollector extends SketchCollector {
         loginUrl: "https://login.aflac.com/?returnURL=https://my.aflac.com/portal/sso/ssologin.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

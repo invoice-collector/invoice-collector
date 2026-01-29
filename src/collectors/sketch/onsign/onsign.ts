@@ -29,7 +29,7 @@ export class OnsignCollector extends SketchCollector {
         loginUrl: "https://app.onsign.tv/accounts/login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

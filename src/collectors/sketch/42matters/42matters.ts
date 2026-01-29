@@ -29,7 +29,7 @@ export class _42mattersCollector extends SketchCollector {
         loginUrl: "https://42matters.com/user/payments",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

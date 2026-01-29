@@ -29,7 +29,7 @@ export class EssilorluxotticaCollector extends SketchCollector {
         loginUrl: "https://my.essilorluxottica.com/myl-de/de-DE/account/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

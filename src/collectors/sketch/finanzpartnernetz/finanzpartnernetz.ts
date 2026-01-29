@@ -29,7 +29,7 @@ export class FinanzpartnernetzCollector extends SketchCollector {
         loginUrl: "https://www2.finanzpartnernetz.de/auszahlungen.cgi",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

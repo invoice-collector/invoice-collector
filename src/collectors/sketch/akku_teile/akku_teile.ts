@@ -29,7 +29,7 @@ export class AkkuTeileCollector extends SketchCollector {
         loginUrl: "https://www.akkuteile-b2b.de/login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

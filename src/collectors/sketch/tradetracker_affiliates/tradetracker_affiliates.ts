@@ -29,7 +29,7 @@ export class TradetrackerAffiliatesCollector extends SketchCollector {
         loginUrl: "https://affiliate.tradetracker.com/user/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

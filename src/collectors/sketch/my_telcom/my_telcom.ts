@@ -29,7 +29,7 @@ export class MyTelcomCollector extends SketchCollector {
         loginUrl: "https://my.telcom.uk/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

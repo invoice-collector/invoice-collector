@@ -29,7 +29,7 @@ export class YellowPagesGroupCollector extends SketchCollector {
         loginUrl: "https://ypforbusiness.yellowpages.ca/dashboard",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

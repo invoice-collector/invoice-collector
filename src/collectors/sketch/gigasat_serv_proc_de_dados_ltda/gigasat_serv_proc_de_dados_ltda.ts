@@ -29,7 +29,7 @@ export class GigasatServProcDeDadosLtdaCollector extends SketchCollector {
         loginUrl: "https://gigasat.com.br/web/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

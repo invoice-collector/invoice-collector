@@ -29,7 +29,7 @@ export class PlusthisCollector extends SketchCollector {
         loginUrl: "https://admin.plusthis.com/users/12493/retired_payment_sources",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

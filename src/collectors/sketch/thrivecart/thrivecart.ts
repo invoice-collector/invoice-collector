@@ -29,7 +29,7 @@ export class ThrivecartCollector extends SketchCollector {
         loginUrl: "https://thrivecart.com/signin/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

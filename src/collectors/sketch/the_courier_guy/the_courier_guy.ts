@@ -29,7 +29,7 @@ export class TheCourierGuyCollector extends SketchCollector {
         loginUrl: "https://tcgweb16931.pperfect.com/pponline/login.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

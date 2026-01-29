@@ -29,7 +29,7 @@ export class HrworksCollector extends SketchCollector {
         loginUrl: "https://login.hrworks.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

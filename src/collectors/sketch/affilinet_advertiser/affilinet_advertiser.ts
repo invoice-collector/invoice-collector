@@ -29,7 +29,7 @@ export class AffilinetAdvertiserCollector extends SketchCollector {
         loginUrl: "https://advertiser.affili.net/Login.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

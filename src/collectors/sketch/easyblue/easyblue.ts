@@ -29,7 +29,7 @@ export class EasyblueCollector extends SketchCollector {
         loginUrl: "https://app.easyblue.io/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

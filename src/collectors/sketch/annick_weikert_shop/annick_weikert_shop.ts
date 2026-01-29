@@ -29,7 +29,7 @@ export class AnnickWeikertShopCollector extends SketchCollector {
         loginUrl: "https://shop.annickweikert.de/customer/payments",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

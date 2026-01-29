@@ -29,7 +29,7 @@ export class PlytixCollector extends SketchCollector {
         loginUrl: "https://accounts.plytix.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

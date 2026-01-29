@@ -29,7 +29,7 @@ export class NochGmbhCollector extends SketchCollector {
         loginUrl: "https://dealer.noch.de/admin/invoice",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

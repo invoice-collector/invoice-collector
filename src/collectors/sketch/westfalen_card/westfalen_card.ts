@@ -29,7 +29,7 @@ export class WestfalenCardCollector extends SketchCollector {
         loginUrl: "https://id.westfalen.com/DigitalServicesLogin",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class AtasCollector extends SketchCollector {
         loginUrl: "https://my.atas.net/shop/plans",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

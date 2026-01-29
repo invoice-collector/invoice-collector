@@ -29,7 +29,7 @@ export class CakewalkCollector extends SketchCollector {
         loginUrl: "https://idp.getcakewalk.io/Account/Login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

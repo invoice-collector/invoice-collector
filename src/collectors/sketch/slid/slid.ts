@@ -29,7 +29,7 @@ export class SlidCollector extends SketchCollector {
         loginUrl: "https://app.slid.cc/docs",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

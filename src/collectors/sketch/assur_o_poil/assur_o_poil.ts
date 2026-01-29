@@ -29,7 +29,7 @@ export class AssurOPoilCollector extends SketchCollector {
         loginUrl: "https://www.assuropoil.fr/espace-adherent/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class SarenzaCollector extends SketchCollector {
         loginUrl: "https://www.sarenza.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

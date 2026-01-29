@@ -29,7 +29,7 @@ export class MarketpressCollector extends SketchCollector {
         loginUrl: "https://marketpress.de/mein-konto/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

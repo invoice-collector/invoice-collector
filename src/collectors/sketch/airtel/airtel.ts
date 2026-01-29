@@ -29,7 +29,7 @@ export class AirtelCollector extends SketchCollector {
         loginUrl: "https://www.airtel.in/personal/myaccount/home",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

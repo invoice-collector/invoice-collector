@@ -29,7 +29,7 @@ export class FideliLesGentlemenEntrepriseCollector extends SketchCollector {
         loginUrl: "https://www.gentlemen-demenagement.com/demenagement-entreprises/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

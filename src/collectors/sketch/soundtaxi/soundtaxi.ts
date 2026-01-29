@@ -29,7 +29,7 @@ export class SoundtaxiCollector extends SketchCollector {
         loginUrl: "https://www.soundtaxi.net/login.php?language=de&action=process",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

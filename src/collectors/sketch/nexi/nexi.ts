@@ -29,7 +29,7 @@ export class NexiCollector extends SketchCollector {
         loginUrl: "https://portal.nexi.de/web/Download",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

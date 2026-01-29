@@ -29,7 +29,7 @@ export class AirSerbiaCollector extends SketchCollector {
         loginUrl: "https://www.airserbia.com/de/my-trips",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

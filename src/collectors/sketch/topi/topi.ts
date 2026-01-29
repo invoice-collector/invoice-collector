@@ -29,7 +29,7 @@ export class TopiCollector extends SketchCollector {
         loginUrl: "https://rentwith.topi.eu/payments",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class OttoversandAtCollector extends SketchCollector {
         loginUrl: "https://www.ottoversand.at/mein-konto/uebersicht/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

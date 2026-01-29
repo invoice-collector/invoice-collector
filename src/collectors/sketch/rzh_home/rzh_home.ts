@@ -29,7 +29,7 @@ export class RzhHomeCollector extends SketchCollector {
         loginUrl: "https://www.rzh-home.de/statistiken",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

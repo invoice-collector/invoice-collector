@@ -29,7 +29,7 @@ export class HobbyAndFreizeitPartnerprogrammCollector extends SketchCollector {
         loginUrl: "https://partner.hobby-freizeit.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class MutuelleGanCollector extends SketchCollector {
         loginUrl: "https://authentification.ganassurances.fr/cas/login?service=https%3A%2F%2Fauthentification.ganassurances.fr%2Fcas%2Foauth2.0%2FcallbackAuthorize&client_id=ecli_ganass",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

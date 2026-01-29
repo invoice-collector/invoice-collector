@@ -29,7 +29,7 @@ export class LemlistCollector extends SketchCollector {
         loginUrl: "https://app.lemlist.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

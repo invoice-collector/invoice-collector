@@ -29,7 +29,7 @@ export class NoezDeCollector extends SketchCollector {
         loginUrl: "https://nas.noez.de/gate",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

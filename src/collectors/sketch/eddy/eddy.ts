@@ -29,7 +29,7 @@ export class EddyCollector extends SketchCollector {
         loginUrl: "https://eddy-sharing.de/login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

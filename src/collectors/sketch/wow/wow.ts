@@ -29,7 +29,7 @@ export class WowCollector extends SketchCollector {
         loginUrl: "https://www.wowtv.de/login?return=/konto/abrechnung",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

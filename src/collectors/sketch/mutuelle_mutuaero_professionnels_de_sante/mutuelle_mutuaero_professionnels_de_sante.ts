@@ -29,7 +29,7 @@ export class MutuelleMutuaeroProfessionnelsDeSanteCollector extends SketchCollec
         loginUrl: "https://pfs.synergie-mutuelles.fr/default_synergie.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class Spst1924Collector extends SketchCollector {
         loginUrl: "https://portailadherents.spst19-24.org/Documents/Invoicing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

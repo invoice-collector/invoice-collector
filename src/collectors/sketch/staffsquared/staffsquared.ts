@@ -29,7 +29,7 @@ export class StaffsquaredCollector extends SketchCollector {
         loginUrl: "https://secure.staffsquared.com/billing/summary/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

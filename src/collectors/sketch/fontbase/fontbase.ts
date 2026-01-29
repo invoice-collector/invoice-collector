@@ -29,7 +29,7 @@ export class FontbaseCollector extends SketchCollector {
         loginUrl: "https://web.fontba.se/account/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

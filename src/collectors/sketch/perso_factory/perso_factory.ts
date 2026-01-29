@@ -29,7 +29,7 @@ export class PersoFactoryCollector extends SketchCollector {
         loginUrl: "https://www.persofactory.com/historique-commandes",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

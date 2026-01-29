@@ -29,7 +29,7 @@ export class CircleciCollector extends SketchCollector {
         loginUrl: "https://circleci.com/vcs-authorize/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

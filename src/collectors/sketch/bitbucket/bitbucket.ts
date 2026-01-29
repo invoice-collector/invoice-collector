@@ -29,7 +29,7 @@ export class BitbucketCollector extends SketchCollector {
         loginUrl: "https://my.atlassian.com/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

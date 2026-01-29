@@ -29,7 +29,7 @@ export class DotmailerCollector extends SketchCollector {
         loginUrl: "https://r1-app.dotmailer.com/account/my-invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

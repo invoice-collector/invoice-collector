@@ -29,7 +29,7 @@ export class RumsMsCollector extends SketchCollector {
         loginUrl: "https://www.rums.ms/profil/abonnements/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

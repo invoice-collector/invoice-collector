@@ -29,7 +29,7 @@ export class ZaDirektCollector extends SketchCollector {
         loginUrl: "https://zadirekt.zaag.de/inbox/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

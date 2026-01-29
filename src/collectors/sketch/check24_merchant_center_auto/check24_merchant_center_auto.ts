@@ -29,7 +29,7 @@ export class Check24MerchantCenterAutoCollector extends SketchCollector {
         loginUrl: "https://merchant-center.auto.check24.de/account/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

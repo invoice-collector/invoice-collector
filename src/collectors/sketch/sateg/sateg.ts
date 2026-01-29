@@ -29,7 +29,7 @@ export class SategCollector extends SketchCollector {
         loginUrl: "https://mon-espace.sateg-eau.com/fr/mes-paiements",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

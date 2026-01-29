@@ -29,7 +29,7 @@ export class AdserviveASCollector extends SketchCollector {
         loginUrl: "http://publisher.adservice.com/cgi-bin/publisher/payments.pl?p1=finance",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

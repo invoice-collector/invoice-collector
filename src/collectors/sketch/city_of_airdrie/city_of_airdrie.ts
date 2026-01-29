@@ -29,7 +29,7 @@ export class CityOfAirdrieCollector extends SketchCollector {
         loginUrl: "https://www.airdrie.ca/index.cfm?serviceID=1104",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

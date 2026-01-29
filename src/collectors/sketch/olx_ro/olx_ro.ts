@@ -29,7 +29,7 @@ export class OlxRoCollector extends SketchCollector {
         loginUrl: "https://www.olx.ro/myaccount/invoiceslist/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

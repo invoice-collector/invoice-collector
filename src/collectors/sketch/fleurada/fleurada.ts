@@ -29,7 +29,7 @@ export class FleuradaCollector extends SketchCollector {
         loginUrl: "https://www.fleurada.de/index.php?op=files",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

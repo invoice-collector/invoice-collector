@@ -29,7 +29,7 @@ export class NisaRetailLimitedCollector extends SketchCollector {
         loginUrl: "https://ntorder.com/default.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

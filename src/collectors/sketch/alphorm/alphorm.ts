@@ -29,7 +29,7 @@ export class AlphormCollector extends SketchCollector {
         loginUrl: "https://www.alphorm.com/profile",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

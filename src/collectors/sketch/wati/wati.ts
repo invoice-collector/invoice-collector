@@ -29,7 +29,7 @@ export class WatiCollector extends SketchCollector {
         loginUrl: "https://wati.chargebee.com/portal/v2/billing_history?source=home",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

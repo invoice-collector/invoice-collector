@@ -29,7 +29,7 @@ export class EwagkamenzCollector extends SketchCollector {
         loginUrl: "https://portal.ewagkamenz.de/BKP/Rechnungen",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

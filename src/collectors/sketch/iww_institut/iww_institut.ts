@@ -29,7 +29,7 @@ export class IwwInstitutCollector extends SketchCollector {
         loginUrl: "https://www.iww.de/anmelden",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class LinkodyCollector extends SketchCollector {
         loginUrl: "https://www.linkody.com/en/account/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class KnollGmbhCollector extends SketchCollector {
         loginUrl: "https://shop.knoll.de/shop/my-account/bills",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

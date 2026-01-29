@@ -29,7 +29,7 @@ export class KonvertaxCollector extends SketchCollector {
         loginUrl: "https://konvertax.de/invoice",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class HinterlandCampCollector extends SketchCollector {
         loginUrl: "https://hinterland.camp/dashboard/payouts",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

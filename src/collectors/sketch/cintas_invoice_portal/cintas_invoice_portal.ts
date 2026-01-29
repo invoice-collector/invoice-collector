@@ -29,7 +29,7 @@ export class CintasInvoicePortalCollector extends SketchCollector {
         loginUrl: "https://account.cintas.com/online/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

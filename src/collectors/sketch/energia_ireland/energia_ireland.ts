@@ -29,7 +29,7 @@ export class EnergiaIrelandCollector extends SketchCollector {
         loginUrl: "https://energyonline.energia.ie",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

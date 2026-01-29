@@ -29,7 +29,7 @@ export class KasperskyCollector extends SketchCollector {
         loginUrl: "https://my.kaspersky.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

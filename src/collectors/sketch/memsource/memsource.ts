@@ -29,7 +29,7 @@ export class MemsourceCollector extends SketchCollector {
         loginUrl: "https://cloud.memsource.com/web/payment/subscribeOverview",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

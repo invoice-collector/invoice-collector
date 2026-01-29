@@ -29,7 +29,7 @@ export class JustEatTakeawayComCollector extends SketchCollector {
         loginUrl: "https://restaurants.takeaway.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

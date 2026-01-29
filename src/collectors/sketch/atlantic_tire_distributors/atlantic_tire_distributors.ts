@@ -29,7 +29,7 @@ export class AtlanticTireDistributorsCollector extends SketchCollector {
         loginUrl: "https://accounts.atlantic-tire.com/dashboard/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

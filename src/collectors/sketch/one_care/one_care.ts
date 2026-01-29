@@ -29,7 +29,7 @@ export class OneCareCollector extends SketchCollector {
         loginUrl: "https://identity.onehealthcareid.com/oneapp/index.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class BudgetEnergieCollector extends SketchCollector {
         loginUrl: "https://mijn.budgetenergie.nl/inloggen?_ga=2.170259616.1692855498.1524058873-1368279290.1524058873",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

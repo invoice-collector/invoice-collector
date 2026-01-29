@@ -29,7 +29,7 @@ export class GasagCollector extends SketchCollector {
         loginUrl: "https://www.gasag.de/meine-gasag/api/b2c/postbox/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class BlogatusCollector extends SketchCollector {
         loginUrl: "https://blogatus.com/publisher/gutschriften",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

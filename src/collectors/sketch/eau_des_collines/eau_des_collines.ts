@@ -29,7 +29,7 @@ export class EauDesCollinesCollector extends SketchCollector {
         loginUrl: "https://monespace.eaudescollines.fr/#/facture",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

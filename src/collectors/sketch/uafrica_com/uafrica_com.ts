@@ -29,7 +29,7 @@ export class UafricaComCollector extends SketchCollector {
         loginUrl: "https://www.uafrica.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class StawagEmobilityCloudCollector extends SketchCollector {
         loginUrl: "https://stawag.emobilitycloud.com/de/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

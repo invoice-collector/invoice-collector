@@ -29,7 +29,7 @@ export class ScoutMonitoringCollector extends SketchCollector {
         loginUrl: "https://scoutapm.com/users/sign_in",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

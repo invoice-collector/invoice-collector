@@ -29,7 +29,7 @@ export class LavitaPartnerCollector extends SketchCollector {
         loginUrl: "https://partner.lavita.de/honorare/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

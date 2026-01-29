@@ -29,7 +29,7 @@ export class UpcAtCollector extends SketchCollector {
         loginUrl: "https://service.upc.at/myupc/portal/fixed",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class AuphonicCollector extends SketchCollector {
         loginUrl: "https://auphonic.com/accounts/invoice_list/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

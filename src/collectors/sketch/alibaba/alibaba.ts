@@ -29,7 +29,7 @@ export class AlibabaCollector extends SketchCollector {
         loginUrl: "https://biz.alibaba.com/order/list.htm",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

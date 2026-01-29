@@ -29,7 +29,7 @@ export class FreshmileCollector extends SketchCollector {
         loginUrl: "https://charge.freshmile.com/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

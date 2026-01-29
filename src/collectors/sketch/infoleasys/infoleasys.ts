@@ -29,7 +29,7 @@ export class InfoleasysCollector extends SketchCollector {
         loginUrl: "https://portail.infoleasys.fr/ArtisWeb/portail/login/auth/01.action",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

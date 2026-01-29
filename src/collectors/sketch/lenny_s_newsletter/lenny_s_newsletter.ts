@@ -29,7 +29,7 @@ export class LennySNewsletterCollector extends SketchCollector {
         loginUrl: "https://www.lennysnewsletter.com/account/receipts?utm_source=account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

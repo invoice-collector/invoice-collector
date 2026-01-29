@@ -29,7 +29,7 @@ export class UpvotyCollector extends SketchCollector {
         loginUrl: "https://crm.upvoty.com/members/auth/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

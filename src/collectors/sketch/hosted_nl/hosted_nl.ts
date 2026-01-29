@@ -29,7 +29,7 @@ export class HostedNlCollector extends SketchCollector {
         loginUrl: "http://www.hosted.nl",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

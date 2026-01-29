@@ -29,7 +29,7 @@ export class AralCardkomfortCollector extends SketchCollector {
         loginUrl: "https://www.bpplus.com/pages/aral/logon.asp",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

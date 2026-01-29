@@ -29,7 +29,7 @@ export class SidnCollector extends SketchCollector {
         loginUrl: "https://registrars.sidn.nl/?language_id=1",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

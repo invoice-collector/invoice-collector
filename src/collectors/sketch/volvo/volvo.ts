@@ -29,7 +29,7 @@ export class VolvoCollector extends SketchCollector {
         loginUrl: "https://www.vcfs.partenaireslld.fr/portal/vlvnetpal/DEPENSES/Votre_Coffre_Fort/factures",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

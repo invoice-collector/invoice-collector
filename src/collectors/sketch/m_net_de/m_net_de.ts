@@ -29,7 +29,7 @@ export class MNetDeCollector extends SketchCollector {
         loginUrl: "https://kundenportal.m-net.de/login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

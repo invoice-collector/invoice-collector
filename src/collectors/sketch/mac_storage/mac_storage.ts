@@ -29,7 +29,7 @@ export class MacStorageCollector extends SketchCollector {
         loginUrl: "https://www.mac-storage.de/Blog/Wartungsarbeiten",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

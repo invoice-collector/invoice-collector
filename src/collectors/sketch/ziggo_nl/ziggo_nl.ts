@@ -29,7 +29,7 @@ export class ZiggoNlCollector extends SketchCollector {
         loginUrl: "https://www.ziggo.nl/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class EverreachCollector extends SketchCollector {
         loginUrl: "http://everreach.co.uk",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

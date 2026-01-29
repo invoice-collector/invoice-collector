@@ -29,7 +29,7 @@ export class MarcosSoftwareCollector extends SketchCollector {
         loginUrl: "https://www.unicorn2.de/kundenbereich/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

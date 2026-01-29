@@ -29,7 +29,7 @@ export class FilmoraCollector extends SketchCollector {
         loginUrl: "https://support.wondershare.com/de/invoice",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

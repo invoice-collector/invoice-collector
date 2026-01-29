@@ -29,7 +29,7 @@ export class DescampsBoisFrCollector extends SketchCollector {
         loginUrl: "https://www.descamps-bois.fr/connexion?_target_path=/&subdomain=www&extension=fr",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

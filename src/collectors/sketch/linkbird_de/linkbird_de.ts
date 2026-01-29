@@ -29,7 +29,7 @@ export class LinkbirdDeCollector extends SketchCollector {
         loginUrl: "https://de.contentbird.io/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

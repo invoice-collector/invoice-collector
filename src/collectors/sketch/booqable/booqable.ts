@@ -29,7 +29,7 @@ export class BooqableCollector extends SketchCollector {
         loginUrl: "https://login.booqable.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

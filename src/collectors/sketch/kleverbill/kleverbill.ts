@@ -29,7 +29,7 @@ export class KleverbillCollector extends SketchCollector {
         loginUrl: "https://app.kleverbill.de/#/settings/profile",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -28,7 +28,7 @@ export class KnaufIndustriesCollector extends SketchCollector {
         loginUrl: "https://account.knauf.com/auth/signin?callbackUrl=%2F",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

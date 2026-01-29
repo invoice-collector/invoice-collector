@@ -29,7 +29,7 @@ export class DeliverooPartnerHubCollector extends SketchCollector {
         loginUrl: "https://partner-hub.deliveroo.com/reports/invoices?orgId=209155",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

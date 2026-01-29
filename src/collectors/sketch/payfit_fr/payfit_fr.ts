@@ -29,7 +29,7 @@ export class PayfitFrCollector extends SketchCollector {
         loginUrl: "https://payfit.com/fr/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

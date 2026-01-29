@@ -29,7 +29,7 @@ export class GoogleDomainsCollector extends SketchCollector {
         loginUrl: "https://domains.google.com/registrar/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

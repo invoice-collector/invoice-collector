@@ -29,7 +29,7 @@ export class FrugeeCollector extends SketchCollector {
         loginUrl: "https://frugee.de/benutzermenue;userInfoTab=user-invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

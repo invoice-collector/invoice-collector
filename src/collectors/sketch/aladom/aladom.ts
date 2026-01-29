@@ -29,7 +29,7 @@ export class AladomCollector extends SketchCollector {
         loginUrl: "https://www.aladom.fr",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

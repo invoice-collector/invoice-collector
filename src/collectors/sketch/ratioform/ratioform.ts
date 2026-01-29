@@ -29,7 +29,7 @@ export class RatioformCollector extends SketchCollector {
         loginUrl: "https://www.ratioform.de/webshop/vs=de/center/main.ipm",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

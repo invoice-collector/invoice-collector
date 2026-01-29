@@ -29,7 +29,7 @@ export class PivasoftCollector extends SketchCollector {
         loginUrl: "https://lhp.pivacom.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

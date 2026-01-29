@@ -29,7 +29,7 @@ export class DieBayrischeCollector extends SketchCollector {
         loginUrl: "https://www.diebayerische.de/responsiveUI/webmail/readMessage.xhtml",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class MetroFrCollector extends SketchCollector {
         loginUrl: "https://shop.metro.fr/shop/portal/overview/my-cmr-statements",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

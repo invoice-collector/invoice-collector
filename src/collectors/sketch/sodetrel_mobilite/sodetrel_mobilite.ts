@@ -29,7 +29,7 @@ export class SodetrelMobiliteCollector extends SketchCollector {
         loginUrl: "https://www.sodetrel-mobilite.fr/account/#/monitoring",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

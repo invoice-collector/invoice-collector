@@ -29,7 +29,7 @@ export class QualityhostingAgCollector extends SketchCollector {
         loginUrl: "https://customer.qualityhosting.de/Login.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

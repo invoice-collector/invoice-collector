@@ -29,7 +29,7 @@ export class PhysitrackCollector extends SketchCollector {
         loginUrl: "https://us.physitrack.com/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

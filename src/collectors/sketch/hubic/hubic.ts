@@ -29,7 +29,7 @@ export class HubicCollector extends SketchCollector {
         loginUrl: "https://hubic.com/home/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

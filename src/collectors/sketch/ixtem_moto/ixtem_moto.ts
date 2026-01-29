@@ -29,7 +29,7 @@ export class IxtemMotoCollector extends SketchCollector {
         loginUrl: "https://ixtem-moto.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

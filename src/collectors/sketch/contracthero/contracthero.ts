@@ -29,7 +29,7 @@ export class ContractheroCollector extends SketchCollector {
         loginUrl: "https://app.contracthero.de/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

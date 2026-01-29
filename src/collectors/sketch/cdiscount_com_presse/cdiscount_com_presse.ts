@@ -29,7 +29,7 @@ export class CdiscountComPresseCollector extends SketchCollector {
         loginUrl: "https://clients.cdiscount.com/Account/Login.html?_ga=2.153115960.1617114807.1553787937-1533610631.1553187014",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class PlumbersCoOpCollector extends SketchCollector {
         loginUrl: "https://www.pscoop.com.au/invoice-credits",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

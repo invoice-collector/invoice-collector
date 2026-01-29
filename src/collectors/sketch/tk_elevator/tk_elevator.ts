@@ -29,7 +29,7 @@ export class TkElevatorCollector extends SketchCollector {
         loginUrl: "https://de.webportal.tkelevator.com/wps/portal/customer",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

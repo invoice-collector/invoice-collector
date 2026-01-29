@@ -29,7 +29,7 @@ export class BirminghamWaterWorksCollector extends SketchCollector {
         loginUrl: "https://web.bwwb.org/myaccount",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

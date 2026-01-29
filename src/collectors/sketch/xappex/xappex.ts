@@ -29,7 +29,7 @@ export class XappexCollector extends SketchCollector {
         loginUrl: "https://portal.xappex.com/#/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

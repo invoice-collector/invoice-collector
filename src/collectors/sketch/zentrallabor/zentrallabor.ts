@@ -29,7 +29,7 @@ export class ZentrallaborCollector extends SketchCollector {
         loginUrl: "https://zlportal.zlgmbh.com/zl/frontend/index.php?section=postfach",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

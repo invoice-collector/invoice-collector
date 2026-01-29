@@ -29,7 +29,7 @@ export class EverhourCollector extends SketchCollector {
         loginUrl: "https://everhour.com/signin/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

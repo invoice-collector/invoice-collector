@@ -29,7 +29,7 @@ export class FlickrCollector extends SketchCollector {
         loginUrl: "https://www.flickr.com/account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

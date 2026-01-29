@@ -29,7 +29,7 @@ export class SchuheGuenstigDeCollector extends SketchCollector {
         loginUrl: "https://www.schuhe-guenstig.de/mein-konto",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

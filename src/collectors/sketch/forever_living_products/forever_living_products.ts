@@ -29,7 +29,7 @@ export class ForeverLivingProductsCollector extends SketchCollector {
         loginUrl: "https://fbosite.foreverliving.com/distribNew/MyReports.do",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

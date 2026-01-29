@@ -29,7 +29,7 @@ export class DaisyconCollector extends SketchCollector {
         loginUrl: "https://login.daisycon.com/nl",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

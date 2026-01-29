@@ -29,7 +29,7 @@ export class BrightHouseBusinessCollector extends SketchCollector {
         loginUrl: "https://www.spectrumbusiness.net/login?ReferringPartner=BH",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

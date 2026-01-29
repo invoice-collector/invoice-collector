@@ -29,7 +29,7 @@ export class FordLeasingCollector extends SketchCollector {
         loginUrl: "https://www.manager.fordfleetmanagement.fr/portal/flonetpal/DEPENSES/Votre_Coffre_Fort/factures",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

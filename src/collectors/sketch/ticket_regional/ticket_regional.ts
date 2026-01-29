@@ -29,7 +29,7 @@ export class TicketRegionalCollector extends SketchCollector {
         loginUrl: "http://www.ticket-regional.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

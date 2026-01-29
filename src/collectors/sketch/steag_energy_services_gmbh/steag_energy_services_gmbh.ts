@@ -29,7 +29,7 @@ export class SteagEnergyServicesGmbhCollector extends SketchCollector {
         loginUrl: "https://portal.steag-fernwaerme.de/portal/csmain.asp",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

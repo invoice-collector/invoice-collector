@@ -29,7 +29,7 @@ export class EbaseB2bCollector extends SketchCollector {
         loginUrl: "https://portal.ebase.com/(e2)/eop/tools-reports/bestandscontrolling/weitere-auswertungen/vermittlerpostkorb",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

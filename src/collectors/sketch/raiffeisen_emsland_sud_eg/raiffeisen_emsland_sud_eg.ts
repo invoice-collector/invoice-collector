@@ -29,7 +29,7 @@ export class RaiffeisenEmslandSudEgCollector extends SketchCollector {
         loginUrl: "https://belege24.raiffeisen-emsland-sued.de/belegarchiv/1010/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class AthenaGlobalServicesCollector extends SketchCollector {
         loginUrl: "https://www.athena-gs.fr/frontOffice/historique_commandes.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

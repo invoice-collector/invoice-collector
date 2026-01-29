@@ -29,7 +29,7 @@ export class BugsnagCollector extends SketchCollector {
         loginUrl: "https://app.bugsnag.com/settings/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

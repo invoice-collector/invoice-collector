@@ -29,7 +29,7 @@ export class DropscanCollector extends SketchCollector {
         loginUrl: "https://secure.dropscan.de/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

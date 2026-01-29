@@ -29,7 +29,7 @@ export class KvbKolnerVerkehrsbetriebeCollector extends SketchCollector {
         loginUrl: "https://kvb.mobilesticket.de/ticketportal/#",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class SymaMobileCollector extends SketchCollector {
         loginUrl: "https://mysyma.symamobile.com/my-syma.html?_gl=1*ctneys*_ga*OTc3MTE1ODQ5LjE2NzM1MTA2NjA.*_ga_K3EN73FKLK*MTY3MzUxMDY2MC4xLjAuMTY3MzUxMDY2MC42MC4wLjA.#payments-bills",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

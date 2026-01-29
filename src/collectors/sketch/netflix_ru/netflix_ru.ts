@@ -29,7 +29,7 @@ export class NetflixRuCollector extends SketchCollector {
         loginUrl: "https://www.netflix.com/ee-ru/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

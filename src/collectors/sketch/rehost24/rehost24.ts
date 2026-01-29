@@ -29,7 +29,7 @@ export class Rehost24Collector extends SketchCollector {
         loginUrl: "https://kundencenter.rehost24.com/clientarea.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

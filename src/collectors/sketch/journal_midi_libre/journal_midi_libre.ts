@@ -29,7 +29,7 @@ export class JournalMidiLibreCollector extends SketchCollector {
         loginUrl: "https://abonnement.midilibre.fr/site/midilibrev2/default/fr/compte/factures.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

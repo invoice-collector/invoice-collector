@@ -29,7 +29,7 @@ export class StencilCollector extends SketchCollector {
         loginUrl: "https://getstencil.com/app/login?curtain",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

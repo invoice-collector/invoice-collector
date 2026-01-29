@@ -29,7 +29,7 @@ export class NewRelicCollector extends SketchCollector {
         loginUrl: "https://www.newrelic.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

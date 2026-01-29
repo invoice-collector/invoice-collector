@@ -29,7 +29,7 @@ export class UllastresCollector extends SketchCollector {
         loginUrl: "https://oficinavirtual.ullastres.com/user/home",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

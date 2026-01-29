@@ -29,7 +29,7 @@ export class ApcoaParkingCollector extends SketchCollector {
         loginUrl: "https://www.mein-apcoa.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

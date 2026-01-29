@@ -29,7 +29,7 @@ export class AislerNetCollector extends SketchCollector {
         loginUrl: "https://aisler.net/juwi/orders",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

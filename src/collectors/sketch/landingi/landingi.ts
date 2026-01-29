@@ -29,7 +29,7 @@ export class LandingiCollector extends SketchCollector {
         loginUrl: "https://new.landingi.com/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

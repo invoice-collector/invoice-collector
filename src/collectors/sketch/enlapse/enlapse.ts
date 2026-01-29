@@ -29,7 +29,7 @@ export class EnlapseCollector extends SketchCollector {
         loginUrl: "https://odoo-ps-enlaps.odoo.com/my/invoices?filterby=invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

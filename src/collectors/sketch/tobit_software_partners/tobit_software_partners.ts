@@ -29,7 +29,7 @@ export class TobitSoftwarePartnersCollector extends SketchCollector {
         loginUrl: "https://de.tobit.software/team",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

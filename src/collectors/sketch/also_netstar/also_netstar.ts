@@ -29,7 +29,7 @@ export class AlsoNetstarCollector extends SketchCollector {
         loginUrl: "https://netzvermarktung.also.com/pvd",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

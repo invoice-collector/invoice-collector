@@ -29,7 +29,7 @@ export class RestpackCollector extends SketchCollector {
         loginUrl: "https://restpack.io/console/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

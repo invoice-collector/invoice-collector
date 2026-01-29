@@ -29,7 +29,7 @@ export class FlaticonCollector extends SketchCollector {
         loginUrl: "https://www.flaticon.com/profile/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

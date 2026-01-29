@@ -29,7 +29,7 @@ export class LeapsomeCollector extends SketchCollector {
         loginUrl: "https://www.leapsome.com/app/#/team/settings/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

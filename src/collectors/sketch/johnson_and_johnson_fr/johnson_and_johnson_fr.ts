@@ -29,7 +29,7 @@ export class JohnsonAndJohnsonFrCollector extends SketchCollector {
         loginUrl: "https://www.jnjvisioncare.fr/e-ordering-login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class IMaterialiseNlCollector extends SketchCollector {
         loginUrl: "https://i.materialise.com/en/account/login?returnUrl=%2fen",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

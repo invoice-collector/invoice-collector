@@ -29,7 +29,7 @@ export class KitchnCollector extends SketchCollector {
         loginUrl: "https://app.kitchnware.io/settings/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

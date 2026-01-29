@@ -29,7 +29,7 @@ export class LobsterPlaceCollector extends SketchCollector {
         loginUrl: "https://portal.lobsterplacewholesale.com/?txid=SSWOS",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

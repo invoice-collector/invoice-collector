@@ -29,7 +29,7 @@ export class UpprCollector extends SketchCollector {
         loginUrl: "https://netzwerk.uppr.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

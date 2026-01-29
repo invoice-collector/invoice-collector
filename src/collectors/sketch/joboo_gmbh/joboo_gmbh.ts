@@ -29,7 +29,7 @@ export class JobooGmbhCollector extends SketchCollector {
         loginUrl: "https://www.joboo.de/de/einloggen",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

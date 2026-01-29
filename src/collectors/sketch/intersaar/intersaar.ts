@@ -29,7 +29,7 @@ export class IntersaarCollector extends SketchCollector {
         loginUrl: "https://www.intersaar.de/noc/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

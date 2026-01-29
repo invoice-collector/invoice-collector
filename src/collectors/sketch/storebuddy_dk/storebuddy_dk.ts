@@ -29,7 +29,7 @@ export class StorebuddyDkCollector extends SketchCollector {
         loginUrl: "https://app.storebuddy.dk/konto/fakturarer",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class PoweoFrCollector extends SketchCollector {
         loginUrl: "https://www.poweo.be/nl/mijn-klantenrekening/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class MutuelleEoviParticulierCollector extends SketchCollector {
         loginUrl: "https://www.espace-particuliers.eovi-mcd-mutuelle.fr/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

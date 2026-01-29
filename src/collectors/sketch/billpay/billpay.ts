@@ -29,7 +29,7 @@ export class BillpayCollector extends SketchCollector {
         loginUrl: "https://admin.billpay.de/MerchantInvoiceApproved.action",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

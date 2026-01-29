@@ -29,7 +29,7 @@ export class CrossardImmobilierSyndicCollector extends SketchCollector {
         loginUrl: "https://crossard.crypto-extranet.com/connexion/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

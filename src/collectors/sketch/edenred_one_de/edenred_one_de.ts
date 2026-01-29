@@ -29,7 +29,7 @@ export class EdenredOneDeCollector extends SketchCollector {
         loginUrl: "https://www.edenred-one.de/anmelden-oder-registrieren/?selection=Login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

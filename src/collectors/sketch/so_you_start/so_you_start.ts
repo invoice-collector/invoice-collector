@@ -29,7 +29,7 @@ export class SoYouStartCollector extends SketchCollector {
         loginUrl: "https://eu.soyoustart.com/manager/?lang=de_DE#/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

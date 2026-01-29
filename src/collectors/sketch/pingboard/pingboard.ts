@@ -29,7 +29,7 @@ export class PingboardCollector extends SketchCollector {
         loginUrl: "https://primal-state-performance-gmbh.pingboard.com/company/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

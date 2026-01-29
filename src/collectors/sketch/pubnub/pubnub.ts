@@ -29,7 +29,7 @@ export class PubnubCollector extends SketchCollector {
         loginUrl: "https://admin.pubnub.com/#/user/573012/account/572963/plans-and-billing?tab=invoices-and-costs",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

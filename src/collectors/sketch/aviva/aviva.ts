@@ -29,7 +29,7 @@ export class AvivaCollector extends SketchCollector {
         loginUrl: "https://www.direct.aviva.co.uk/MyAccount/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

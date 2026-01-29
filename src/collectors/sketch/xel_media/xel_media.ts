@@ -29,7 +29,7 @@ export class XelMediaCollector extends SketchCollector {
         loginUrl: "https://controlcenter.xel.nl/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

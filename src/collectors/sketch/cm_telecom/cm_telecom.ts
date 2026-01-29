@@ -29,7 +29,7 @@ export class CmTelecomCollector extends SketchCollector {
         loginUrl: "https://login.cmtelecom.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

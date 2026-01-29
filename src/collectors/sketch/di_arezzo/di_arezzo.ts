@@ -29,7 +29,7 @@ export class DiArezzoCollector extends SketchCollector {
         loginUrl: "https://www.di-arezzo.fr/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

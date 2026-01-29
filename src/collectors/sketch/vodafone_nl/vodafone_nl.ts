@@ -29,7 +29,7 @@ export class VodafoneNlCollector extends SketchCollector {
         loginUrl: "https://www.vodafone.nl/my/account/login.shtml",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

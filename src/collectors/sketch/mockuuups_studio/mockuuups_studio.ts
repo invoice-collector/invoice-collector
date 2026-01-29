@@ -29,7 +29,7 @@ export class MockuuupsStudioCollector extends SketchCollector {
         loginUrl: "https://mockuuups.studio/manage/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

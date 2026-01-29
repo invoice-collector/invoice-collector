@@ -29,7 +29,7 @@ export class PassslotCollector extends SketchCollector {
         loginUrl: "https://pass.center/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class PleoCollector extends SketchCollector {
         loginUrl: "https://www.pleo.io/de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

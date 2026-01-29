@@ -29,7 +29,7 @@ export class VrTeilhaberbankCollector extends SketchCollector {
         loginUrl: "https://www.vr-teilhaberbank.de/services_cloud/portal/webcomp/epostfach/postfach",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

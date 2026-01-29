@@ -29,7 +29,7 @@ export class CodeableCollector extends SketchCollector {
         loginUrl: "https://app.codeable.io/sign_in",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

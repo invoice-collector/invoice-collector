@@ -29,7 +29,7 @@ export class BillingsProCollector extends SketchCollector {
         loginUrl: "https://www.marketcircle.com/account/login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

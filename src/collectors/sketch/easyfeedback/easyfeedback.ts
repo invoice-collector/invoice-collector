@@ -29,7 +29,7 @@ export class EasyfeedbackCollector extends SketchCollector {
         loginUrl: "https://app.easy-feedback.com/login?l=de&_gl=1*9lnrsk*_ga*Mzk4MjIxMDQ2LjE2MTk3ODEwNTc.*_ga_760DZB7YKX*MTYxOTc4MTA1Ny4xLjAuMTYxOTc4MTA1Ny42MA..&_ga=2.160849981.1208430453.1619781057-398221046.1619781057",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

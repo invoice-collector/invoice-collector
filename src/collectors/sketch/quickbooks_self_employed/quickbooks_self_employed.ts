@@ -29,7 +29,7 @@ export class QuickbooksSelfEmployedCollector extends SketchCollector {
         loginUrl: "https://selfemployed.intuit.com/login?utm_source=QBO&utm_medium=Web&utm_content=SignIn",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class TangerineBankBusinessCollector extends SketchCollector {
         loginUrl: "https://www.tangerine.ca",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

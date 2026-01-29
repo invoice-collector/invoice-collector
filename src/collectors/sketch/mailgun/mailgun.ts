@@ -29,7 +29,7 @@ export class MailgunCollector extends SketchCollector {
         loginUrl: "https://app.mailgun.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

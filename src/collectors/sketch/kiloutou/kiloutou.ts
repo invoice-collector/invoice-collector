@@ -28,7 +28,7 @@ export class KiloutouCollector extends SketchCollector {
         loginUrl: "https://connect.kiloutou.fr/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

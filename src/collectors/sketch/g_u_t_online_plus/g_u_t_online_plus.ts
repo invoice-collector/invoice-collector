@@ -29,7 +29,7 @@ export class GUTOnlinePlusCollector extends SketchCollector {
         loginUrl: "https://www.gutonlineplus.de/#MainPage",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

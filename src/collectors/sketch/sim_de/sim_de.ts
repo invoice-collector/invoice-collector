@@ -29,7 +29,7 @@ export class SimDeCollector extends SketchCollector {
         loginUrl: "https://service.sim.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

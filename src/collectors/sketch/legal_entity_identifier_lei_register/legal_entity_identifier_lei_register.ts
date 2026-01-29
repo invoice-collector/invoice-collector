@@ -29,7 +29,7 @@ export class LegalEntityIdentifierLeiRegisterCollector extends SketchCollector {
         loginUrl: "https://service.leireg.de/en/invoices?10",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

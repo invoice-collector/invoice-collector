@@ -29,7 +29,7 @@ export class DiedruckereiDeCollector extends SketchCollector {
         loginUrl: "https://www.onlineprinters.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

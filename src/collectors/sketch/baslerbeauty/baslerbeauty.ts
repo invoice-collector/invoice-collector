@@ -29,7 +29,7 @@ export class BaslerbeautyCollector extends SketchCollector {
         loginUrl: "https://www.basler-beauty.de/bestellhistorie/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

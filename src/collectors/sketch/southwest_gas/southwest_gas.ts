@@ -29,7 +29,7 @@ export class SouthwestGasCollector extends SketchCollector {
         loginUrl: "https://myaccount.swgas.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

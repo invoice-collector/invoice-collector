@@ -29,7 +29,7 @@ export class SupermetricsCollector extends SketchCollector {
         loginUrl: "http://team.supermetrics.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

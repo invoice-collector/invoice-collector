@@ -29,7 +29,7 @@ export class CaliforniaWaterServiceCollector extends SketchCollector {
         loginUrl: "https://myaccount.calwater.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

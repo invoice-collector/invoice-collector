@@ -29,7 +29,7 @@ export class GametradeDistribuzioneCollector extends SketchCollector {
         loginUrl: "https://www.gametrade.it/stato_pagamenti",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class BaseCrmCollector extends SketchCollector {
         loginUrl: "https://core.futuresimple.com/sales/users/login?__hstc=102910175.3dc3dad61841786b8d73a5a4670b1527.1516721944299.1516721944299.1516721944299.1&__hssc=102910175.1.1516721944299&__hsfp=26496145",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

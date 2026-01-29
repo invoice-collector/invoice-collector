@@ -29,7 +29,7 @@ export class MichelinPasrelComCollector extends SketchCollector {
         loginUrl: "https://www.pasrel.com/metiers/michelin/ConsulterFactures",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

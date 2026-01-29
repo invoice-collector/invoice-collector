@@ -29,7 +29,7 @@ export class ManCitynetDeCollector extends SketchCollector {
         loginUrl: "http://www.man-citynet.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

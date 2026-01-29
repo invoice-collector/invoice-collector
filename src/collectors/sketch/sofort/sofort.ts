@@ -29,7 +29,7 @@ export class SofortCollector extends SketchCollector {
         loginUrl: "https://www.sofort.com/payment/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

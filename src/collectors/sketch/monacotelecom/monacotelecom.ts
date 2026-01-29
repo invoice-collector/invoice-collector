@@ -29,7 +29,7 @@ export class MonacotelecomCollector extends SketchCollector {
         loginUrl: "https://espace-client.monaco-telecom.mc/bill/downloadPdfBil/1454817/202108",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

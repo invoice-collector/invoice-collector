@@ -29,7 +29,7 @@ export class MeetedgarCollector extends SketchCollector {
         loginUrl: "https://app.meetedgar.com/users/sign_in",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class HundIoCollector extends SketchCollector {
         loginUrl: "https://hund.io/client",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

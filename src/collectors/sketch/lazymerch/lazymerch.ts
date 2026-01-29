@@ -29,7 +29,7 @@ export class LazymerchCollector extends SketchCollector {
         loginUrl: "https://www.lazymerch.com/my-account/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

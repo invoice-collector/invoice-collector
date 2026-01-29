@@ -29,7 +29,7 @@ export class SihotCollector extends SketchCollector {
         loginUrl: "https://pms.sihot.com/0063/SIHOTHTML/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

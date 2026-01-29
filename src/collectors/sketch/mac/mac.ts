@@ -29,7 +29,7 @@ export class MacCollector extends SketchCollector {
         loginUrl: "http://www.artfiles.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

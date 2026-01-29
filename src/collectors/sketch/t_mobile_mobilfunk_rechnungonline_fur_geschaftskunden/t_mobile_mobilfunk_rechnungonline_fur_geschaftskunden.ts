@@ -29,7 +29,7 @@ export class TMobileMobilfunkRechnungonlineFurGeschaftskundenCollector extends S
         loginUrl: "https://rechnungonline-business.t-mobile.de/gk/ben_ges_dok_ueb",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

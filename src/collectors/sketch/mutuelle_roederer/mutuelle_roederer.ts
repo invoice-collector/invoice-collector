@@ -29,7 +29,7 @@ export class MutuelleRoedererCollector extends SketchCollector {
         loginUrl: "https://www.roederer.fr/fr/particuliers",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

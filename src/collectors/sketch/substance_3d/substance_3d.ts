@@ -29,7 +29,7 @@ export class Substance3dCollector extends SketchCollector {
         loginUrl: "https://store.substance3d.com/user/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

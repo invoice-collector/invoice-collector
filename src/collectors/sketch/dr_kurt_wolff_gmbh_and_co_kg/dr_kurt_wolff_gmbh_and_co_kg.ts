@@ -29,7 +29,7 @@ export class DrKurtWolffGmbhAndCoKgCollector extends SketchCollector {
         loginUrl: "https://www.alcina-professional.com/de-de/account/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class GogreenenergyAtCollector extends SketchCollector {
         loginUrl: "https://portal.gogreenenergy.at/index.php?page=invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

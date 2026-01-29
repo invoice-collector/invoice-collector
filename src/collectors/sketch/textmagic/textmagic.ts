@@ -29,7 +29,7 @@ export class TextmagicCollector extends SketchCollector {
         loginUrl: "https://my.textmagic.com/online/account/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

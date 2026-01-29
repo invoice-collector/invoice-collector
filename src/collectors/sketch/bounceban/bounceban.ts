@@ -29,7 +29,7 @@ export class BouncebanCollector extends SketchCollector {
         loginUrl: "https://bounceban.com/app/account/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

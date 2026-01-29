@@ -29,7 +29,7 @@ export class FunnelyticsCollector extends SketchCollector {
         loginUrl: "https://app.funnelytics.io/login?_fs=3ed242b0-b9fd-4af6-b6fc-d44c9bc1f797",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

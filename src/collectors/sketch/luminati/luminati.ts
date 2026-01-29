@@ -29,7 +29,7 @@ export class LuminatiCollector extends SketchCollector {
         loginUrl: "https://luminati.io/cp/billing?cust=goalcommerce",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

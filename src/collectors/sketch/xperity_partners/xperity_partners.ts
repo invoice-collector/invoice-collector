@@ -29,7 +29,7 @@ export class XperityPartnersCollector extends SketchCollector {
         loginUrl: "https://partners.xperity.de/auszahlungen.cgi",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

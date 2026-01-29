@@ -29,7 +29,7 @@ export class TimetrackEnterpriseCollector extends SketchCollector {
         loginUrl: "https://cloud.timetrackenterprise.com/#/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

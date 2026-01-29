@@ -29,7 +29,7 @@ export class UnitedGasAndPowerCollector extends SketchCollector {
         loginUrl: "https://customer.ugp.co.uk/#/myBills",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

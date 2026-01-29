@@ -29,7 +29,7 @@ export class MadMimiCollector extends SketchCollector {
         loginUrl: "https://madmimi.com/user/edit?account_info_tabs=account_info_receipts",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

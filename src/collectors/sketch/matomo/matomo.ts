@@ -29,7 +29,7 @@ export class MatomoCollector extends SketchCollector {
         loginUrl: "https://www.matomo.cloud",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

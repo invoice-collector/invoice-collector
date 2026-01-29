@@ -29,7 +29,7 @@ export class ConversionflyCollector extends SketchCollector {
         loginUrl: "https://conversionfly.com/login.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class XiboSignageCollector extends SketchCollector {
         loginUrl: "https://xibosignage.com/my-account/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

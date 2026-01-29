@@ -29,7 +29,7 @@ export class CrowdfireCollector extends SketchCollector {
         loginUrl: "https://web.crowdfireapp.com/#/grow/receipts",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

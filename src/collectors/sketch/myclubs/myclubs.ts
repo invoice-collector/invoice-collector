@@ -29,7 +29,7 @@ export class MyclubsCollector extends SketchCollector {
         loginUrl: "https://partner.myclubs.com/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

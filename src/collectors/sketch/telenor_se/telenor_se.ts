@@ -29,7 +29,7 @@ export class TelenorSeCollector extends SketchCollector {
         loginUrl: "https://minasidor.telenor.se/minasidor/portal/Start.do",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class KelagCollector extends SketchCollector {
         loginUrl: "https://services.kelag.at/ISS/Login.aspx?service=start",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

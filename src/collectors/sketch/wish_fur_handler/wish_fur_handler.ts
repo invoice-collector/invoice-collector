@@ -29,7 +29,7 @@ export class WishFurHandlerCollector extends SketchCollector {
         loginUrl: "https://merchant.wish.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

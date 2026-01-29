@@ -29,7 +29,7 @@ export class MessagebirdCollector extends SketchCollector {
         loginUrl: "https://dashboard.messagebird.com/de-de/financial/list",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

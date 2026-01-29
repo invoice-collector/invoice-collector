@@ -29,7 +29,7 @@ export class McgrundrissCollector extends SketchCollector {
         loginUrl: "http://www.mcgrundriss.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

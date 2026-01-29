@@ -29,7 +29,7 @@ export class AffiliconCollector extends SketchCollector {
         loginUrl: "https://my.affilicon.net/common/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class SigiliumCollector extends SketchCollector {
         loginUrl: "https://sigilium.com/en/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

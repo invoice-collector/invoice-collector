@@ -28,7 +28,7 @@ export class DestockInformatiqueCollector extends SketchCollector {
         loginUrl: "https://www.destock-informatique.com/connexion?back=my-account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

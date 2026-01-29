@@ -29,7 +29,7 @@ export class RemarkableConnecctCollector extends SketchCollector {
         loginUrl: "https://my.remarkable.com/settings/payment-history",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

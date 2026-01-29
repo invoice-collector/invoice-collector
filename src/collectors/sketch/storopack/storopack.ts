@@ -29,7 +29,7 @@ export class StoropackCollector extends SketchCollector {
         loginUrl: "https://www.storopack-shop.de/de/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

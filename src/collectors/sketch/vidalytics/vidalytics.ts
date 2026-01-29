@@ -29,7 +29,7 @@ export class VidalyticsCollector extends SketchCollector {
         loginUrl: "https://app.vidalytics.com/dashboard/profile/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

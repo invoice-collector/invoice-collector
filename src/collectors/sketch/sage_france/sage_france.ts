@@ -29,7 +29,7 @@ export class SageFranceCollector extends SketchCollector {
         loginUrl: "https://www.sage.com/fr-fr/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

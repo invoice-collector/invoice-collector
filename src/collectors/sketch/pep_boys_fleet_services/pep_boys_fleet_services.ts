@@ -29,7 +29,7 @@ export class PepBoysFleetServicesCollector extends SketchCollector {
         loginUrl: "https://www.pepboys.com/account/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

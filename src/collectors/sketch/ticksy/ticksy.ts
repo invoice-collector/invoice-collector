@@ -29,7 +29,7 @@ export class TicksyCollector extends SketchCollector {
         loginUrl: "https://ticksy.com/account/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

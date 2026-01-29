@@ -29,7 +29,7 @@ export class CentralepneusCollector extends SketchCollector {
         loginUrl: "https://www.centralepneus.fr/mon-compte/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

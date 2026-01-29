@@ -29,7 +29,7 @@ export class ZeitIoCollector extends SketchCollector {
         loginUrl: "https://zeit.io/de/credit_notes",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

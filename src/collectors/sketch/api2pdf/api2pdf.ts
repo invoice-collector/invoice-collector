@@ -29,7 +29,7 @@ export class Api2pdfCollector extends SketchCollector {
         loginUrl: "https://portal.api2pdf.com/billing/history",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

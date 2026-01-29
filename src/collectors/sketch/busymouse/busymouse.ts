@@ -29,7 +29,7 @@ export class BusymouseCollector extends SketchCollector {
         loginUrl: "https://cp1.busymouse.de/Default.aspx?pid=Login&ReturnUrl=%2f",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

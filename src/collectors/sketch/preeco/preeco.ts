@@ -29,7 +29,7 @@ export class PreecoCollector extends SketchCollector {
         loginUrl: "https://app.preeco.de/organizations/324/master-data/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

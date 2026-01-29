@@ -29,7 +29,7 @@ export class AraAltstoffRecyclingAustriaAgCollector extends SketchCollector {
         loginUrl: "https://online.ara.at/login.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

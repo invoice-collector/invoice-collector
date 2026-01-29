@@ -29,7 +29,7 @@ export class GearoCollector extends SketchCollector {
         loginUrl: "https://gearo.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

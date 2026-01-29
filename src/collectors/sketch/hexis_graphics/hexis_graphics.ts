@@ -28,7 +28,7 @@ export class HexisGraphicsCollector extends SketchCollector {
         loginUrl: "https://hexis-online.fr/connexion?back=my-account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

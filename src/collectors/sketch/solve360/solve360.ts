@@ -29,7 +29,7 @@ export class Solve360Collector extends SketchCollector {
         loginUrl: "http://www.solve360.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

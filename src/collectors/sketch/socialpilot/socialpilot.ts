@@ -29,7 +29,7 @@ export class SocialpilotCollector extends SketchCollector {
         loginUrl: "https://panel.socialpilot.co/membership/bill",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

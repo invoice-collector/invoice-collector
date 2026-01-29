@@ -29,7 +29,7 @@ export class KsAutoglasCollector extends SketchCollector {
         loginUrl: "https://www.ks-partnersystem.de/FranchiseDocumentManagement?WindowId=1696cd77-7653-4467-9e4d-27835714f0fc",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

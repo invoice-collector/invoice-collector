@@ -29,7 +29,7 @@ export class PrtcCollector extends SketchCollector {
         loginUrl: "https://prtc.smarthub.coop/Login.html#login:",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

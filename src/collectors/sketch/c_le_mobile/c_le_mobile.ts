@@ -29,7 +29,7 @@ export class CLeMobileCollector extends SketchCollector {
         loginUrl: "https://www.clemobile.com/fr/index.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

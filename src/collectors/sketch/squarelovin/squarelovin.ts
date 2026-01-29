@@ -29,7 +29,7 @@ export class SquarelovinCollector extends SketchCollector {
         loginUrl: "https://app.squarelovin.com/analytics/9e3c3731-e3d2-4703-8b69-effa03d567ec/settings",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

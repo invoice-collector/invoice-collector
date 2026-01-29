@@ -29,7 +29,7 @@ export class DiscoversnoopCollector extends SketchCollector {
         loginUrl: "https://app.discoversnoop.com/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

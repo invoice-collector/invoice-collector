@@ -29,7 +29,7 @@ export class ThaliaAtCollector extends SketchCollector {
         loginUrl: "https://www.thalia.at/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

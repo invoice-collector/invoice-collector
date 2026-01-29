@@ -29,7 +29,7 @@ export class HomirisCollector extends SketchCollector {
         loginUrl: "https://abonnes.homiris.fr/fr/client/myAccount.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

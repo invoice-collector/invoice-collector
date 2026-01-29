@@ -29,7 +29,7 @@ export class ViewneoCollector extends SketchCollector {
         loginUrl: "https://cloud.viewneo.com/cms#/dashboard/subscription",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

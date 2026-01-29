@@ -29,7 +29,7 @@ export class TelekomServicePortalCollector extends SketchCollector {
         loginUrl: "https://bsp.geschaeftskunden.telekom.de/portal/login.xhtml",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

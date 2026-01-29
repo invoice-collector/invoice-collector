@@ -29,7 +29,7 @@ export class EspaceClientProOrangeCollector extends SketchCollector {
         loginUrl: "https://espaceclientpro.orange.fr/contracts?redir=facture",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

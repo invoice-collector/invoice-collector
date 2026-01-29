@@ -29,7 +29,7 @@ export class InfostradaCollector extends SketchCollector {
         loginUrl: "http://www.infostrada.it",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

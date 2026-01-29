@@ -29,7 +29,7 @@ export class AxosBankCollector extends SketchCollector {
         loginUrl: "https://onlinebanking.axosbank.com/#!/Account/45861",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

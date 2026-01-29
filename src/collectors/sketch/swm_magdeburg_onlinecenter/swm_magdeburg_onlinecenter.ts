@@ -29,7 +29,7 @@ export class SwmMagdeburgOnlinecenterCollector extends SketchCollector {
         loginUrl: "https://onlinecenter.sw-magdeburg.de/onlineservice",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

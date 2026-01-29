@@ -29,7 +29,7 @@ export class ArloCollector extends SketchCollector {
         loginUrl: "https://my.arlo.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

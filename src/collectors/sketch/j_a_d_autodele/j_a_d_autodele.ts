@@ -29,7 +29,7 @@ export class JADAutodeleCollector extends SketchCollector {
         loginUrl: "http://www.jad.dk",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

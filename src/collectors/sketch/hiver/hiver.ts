@@ -29,7 +29,7 @@ export class HiverCollector extends SketchCollector {
         loginUrl: "https://v2.hiverhq.com/account/paymenthistory",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

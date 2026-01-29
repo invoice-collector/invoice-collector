@@ -29,7 +29,7 @@ export class StadtwerkeMunchenEmobilityCloudCollector extends SketchCollector {
         loginUrl: "https://swm.emobilitycloud.com/login-bereich/login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

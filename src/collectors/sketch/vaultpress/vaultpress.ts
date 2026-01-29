@@ -29,7 +29,7 @@ export class VaultpressCollector extends SketchCollector {
         loginUrl: "https://vaultpress.com/login/?action=require_for&url=https%3A%2F%2Fdashboard.vaultpress.com%2F",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

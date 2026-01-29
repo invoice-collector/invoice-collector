@@ -29,7 +29,7 @@ export class ViewegerSoftwareSuperadminCollector extends SketchCollector {
         loginUrl: "https://www.superbike8.de/haendlerportal/admin/invoices/index",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

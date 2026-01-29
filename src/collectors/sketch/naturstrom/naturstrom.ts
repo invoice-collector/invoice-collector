@@ -29,7 +29,7 @@ export class NaturstromCollector extends SketchCollector {
         loginUrl: "https://kundenservice.naturstrom.de/naturstrom/#/loginRegistration",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

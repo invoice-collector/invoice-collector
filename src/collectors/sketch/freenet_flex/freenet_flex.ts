@@ -29,7 +29,7 @@ export class FreenetFlexCollector extends SketchCollector {
         loginUrl: "https://www.freenet-flex.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

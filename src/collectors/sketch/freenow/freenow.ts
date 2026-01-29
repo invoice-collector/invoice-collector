@@ -29,7 +29,7 @@ export class FreenowCollector extends SketchCollector {
         loginUrl: "https://free-now.com/de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

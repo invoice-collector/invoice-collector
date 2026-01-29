@@ -29,7 +29,7 @@ export class SweetspotCollector extends SketchCollector {
         loginUrl: "https://billing.stripe.com/p/session/live_YWNjdF8xTUwzaDhFd0JjRUxIeWtMLF9SejdhUkVzZ1FqQUMyWmk2YklZWDZIaEdMekY1bnMy0100fyrbHgWw",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class PlantedCollector extends SketchCollector {
         loginUrl: "https://auth.planted.green/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

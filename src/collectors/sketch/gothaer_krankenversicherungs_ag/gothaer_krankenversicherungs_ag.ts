@@ -29,7 +29,7 @@ export class GothaerKrankenversicherungsAgCollector extends SketchCollector {
         loginUrl: "https://www.gothaer.de/app/webmailer/webmail",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class MyCompanyFilesCollector extends SketchCollector {
         loginUrl: "https://customer.mycompanyfiles.fr/auth/login?ReturnUrl=%2f",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

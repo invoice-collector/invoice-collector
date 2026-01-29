@@ -29,7 +29,7 @@ export class OutsetaCollector extends SketchCollector {
         loginUrl: "https://oao.outseta.com/#/app/dashboard",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

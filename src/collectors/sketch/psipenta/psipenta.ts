@@ -29,7 +29,7 @@ export class PsipentaCollector extends SketchCollector {
         loginUrl: "http://www.psipenta.de/de/home/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class TinyCloudCollector extends SketchCollector {
         loginUrl: "https://www.tiny.cloud/my-account/profile/subscription/1472988",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

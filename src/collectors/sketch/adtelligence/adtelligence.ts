@@ -29,7 +29,7 @@ export class AdtelligenceCollector extends SketchCollector {
         loginUrl: "https://adtelligence.com/de/about-us/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class _10webIoCollector extends SketchCollector {
         loginUrl: "https://my.10web.io/workspace/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

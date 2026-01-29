@@ -29,7 +29,7 @@ export class QrcodeStudioCollector extends SketchCollector {
         loginUrl: "https://qrcode.studio/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

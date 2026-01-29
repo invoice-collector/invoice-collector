@@ -29,7 +29,7 @@ export class WalmartCanadaCollector extends SketchCollector {
         loginUrl: "https://www.walmart.ca/en",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

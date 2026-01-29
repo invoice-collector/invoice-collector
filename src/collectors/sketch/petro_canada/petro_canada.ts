@@ -29,7 +29,7 @@ export class PetroCanadaCollector extends SketchCollector {
         loginUrl: "https://www.petro-canada.ca/en/personal/petro-points-sign-up-activate?modalUrl=%2Fen%2Fpersonal%2Flogin#i-have-a-card",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

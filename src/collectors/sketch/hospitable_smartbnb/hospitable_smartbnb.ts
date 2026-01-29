@@ -29,7 +29,7 @@ export class HospitableSmartbnbCollector extends SketchCollector {
         loginUrl: "https://my.hospitable.com/settings/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

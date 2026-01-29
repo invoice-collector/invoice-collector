@@ -29,7 +29,7 @@ export class PlanethosterCollector extends SketchCollector {
         loginUrl: "https://my.planethoster.com/client-area/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

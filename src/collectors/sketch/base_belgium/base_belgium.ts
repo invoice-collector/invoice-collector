@@ -29,7 +29,7 @@ export class BaseBelgiumCollector extends SketchCollector {
         loginUrl: "https://www.base.be/nl/klantenzone/mijn-facturen.html#/overview",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class EresCollector extends SketchCollector {
         loginUrl: "https://www.eresparis.com/eu/en/home",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

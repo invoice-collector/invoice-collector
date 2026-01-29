@@ -29,7 +29,7 @@ export class NorthflankCollector extends SketchCollector {
         loginUrl: "https://app.northflank.com/t/botanica-studios/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

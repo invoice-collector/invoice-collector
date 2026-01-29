@@ -29,7 +29,7 @@ export class LudwigsburgerKreiszeitungCollector extends SketchCollector {
         loginUrl: "https://www.lkz.de/benutzerkonto.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class ConedisonCollector extends SketchCollector {
         loginUrl: "https://www.coned.com/en/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

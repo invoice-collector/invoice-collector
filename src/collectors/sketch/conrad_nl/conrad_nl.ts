@@ -29,7 +29,7 @@ export class ConradNlCollector extends SketchCollector {
         loginUrl: "https://www.conrad.nl/nl/account.html#/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

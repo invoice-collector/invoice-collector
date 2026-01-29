@@ -29,7 +29,7 @@ export class HeemskerkFlowersCollector extends SketchCollector {
         loginUrl: "https://www.heemskerkflowers.com/service/facturen",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

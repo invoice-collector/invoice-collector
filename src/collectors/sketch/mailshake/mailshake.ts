@@ -29,7 +29,7 @@ export class MailshakeCollector extends SketchCollector {
         loginUrl: "https://mailshake.com/app/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

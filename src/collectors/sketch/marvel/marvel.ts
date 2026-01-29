@@ -29,7 +29,7 @@ export class MarvelCollector extends SketchCollector {
         loginUrl: "https://marvelapp.com/user/billing/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

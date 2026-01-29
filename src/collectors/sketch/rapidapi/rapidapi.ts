@@ -29,7 +29,7 @@ export class RapidapiCollector extends SketchCollector {
         loginUrl: "https://rapidapi.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class AdamCollector extends SketchCollector {
         loginUrl: "https://myadam.io/profitability/dashboard",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

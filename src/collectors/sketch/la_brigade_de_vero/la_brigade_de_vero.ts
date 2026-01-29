@@ -29,7 +29,7 @@ export class LaBrigadeDeVeroCollector extends SketchCollector {
         loginUrl: "https://app.labrigadedevero.com/#/panel/formules",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

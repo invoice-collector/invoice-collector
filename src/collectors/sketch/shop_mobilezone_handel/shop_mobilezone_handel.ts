@@ -29,7 +29,7 @@ export class ShopMobilezoneHandelCollector extends SketchCollector {
         loginUrl: "https://shop.mobilezone-handel.de/account#documents",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

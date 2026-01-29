@@ -29,7 +29,7 @@ export class BohlsenerMuhleCollector extends SketchCollector {
         loginUrl: "https://bohlsener-muehle.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

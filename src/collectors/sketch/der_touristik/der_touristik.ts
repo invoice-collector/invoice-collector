@@ -29,7 +29,7 @@ export class DerTouristikCollector extends SketchCollector {
         loginUrl: "https://www.dertouristik.info/intern/chefsache/provisionsabrechnung/index.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

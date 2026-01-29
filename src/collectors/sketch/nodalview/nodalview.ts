@@ -29,7 +29,7 @@ export class NodalviewCollector extends SketchCollector {
         loginUrl: "https://app.nodalview.com/fr/organisation/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class HerweckShopCollector extends SketchCollector {
         loginUrl: "https://www.herweck.de/kundencenter/belege/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

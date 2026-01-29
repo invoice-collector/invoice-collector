@@ -29,7 +29,7 @@ export class EasypayGroupCollector extends SketchCollector {
         loginUrl: "https://sce-easyonline.easypay-group.com/xhtml/com/easypaygroup/easyonline/view/index.xhtml",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

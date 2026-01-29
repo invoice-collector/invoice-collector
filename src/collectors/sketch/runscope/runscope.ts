@@ -29,7 +29,7 @@ export class RunscopeCollector extends SketchCollector {
         loginUrl: "https://www.runscope.com/signin",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

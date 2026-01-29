@@ -29,7 +29,7 @@ export class RevealbotCollector extends SketchCollector {
         loginUrl: "https://revealbot.com/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class GantticCollector extends SketchCollector {
         loginUrl: "https://planner.ganttic.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

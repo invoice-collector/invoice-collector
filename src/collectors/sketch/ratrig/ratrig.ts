@@ -29,7 +29,7 @@ export class RatrigCollector extends SketchCollector {
         loginUrl: "https://ratrig.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

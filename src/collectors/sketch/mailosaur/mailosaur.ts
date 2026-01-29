@@ -29,7 +29,7 @@ export class MailosaurCollector extends SketchCollector {
         loginUrl: "https://mailosaur.com/app/account/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

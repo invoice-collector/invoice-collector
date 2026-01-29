@@ -29,7 +29,7 @@ export class ToplinkXpressCollector extends SketchCollector {
         loginUrl: "https://kundenportal.toplink-xpress.de/#login:welcome",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

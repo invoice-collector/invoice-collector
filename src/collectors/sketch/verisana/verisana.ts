@@ -29,7 +29,7 @@ export class VerisanaCollector extends SketchCollector {
         loginUrl: "https://www.verisana.de/my-account/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

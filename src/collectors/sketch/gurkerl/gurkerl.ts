@@ -29,7 +29,7 @@ export class GurkerlCollector extends SketchCollector {
         loginUrl: "https://www.gurkerl.at/benutzer/profil",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

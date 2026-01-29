@@ -29,7 +29,7 @@ export class MicrosoftAzureCollector extends SketchCollector {
         loginUrl: "http://azure.microsoft.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

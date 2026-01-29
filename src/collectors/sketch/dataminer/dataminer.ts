@@ -29,7 +29,7 @@ export class DataminerCollector extends SketchCollector {
         loginUrl: "https://dataminer.io/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

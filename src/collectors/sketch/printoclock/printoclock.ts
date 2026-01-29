@@ -29,7 +29,7 @@ export class PrintoclockCollector extends SketchCollector {
         loginUrl: "https://www.printoclock.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

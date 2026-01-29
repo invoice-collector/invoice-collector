@@ -29,7 +29,7 @@ export class MutuelleGsmcCourtierCollector extends SketchCollector {
         loginUrl: "https://www.mutuelle-gsmc.fr/courtier/public/authentification",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

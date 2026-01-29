@@ -29,7 +29,7 @@ export class KoronaCloudCollector extends SketchCollector {
         loginUrl: "https://koronacloud.com/web/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

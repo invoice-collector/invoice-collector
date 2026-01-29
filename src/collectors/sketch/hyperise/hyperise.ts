@@ -29,7 +29,7 @@ export class HyperiseCollector extends SketchCollector {
         loginUrl: "https://app.hyperise.io/settings#/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

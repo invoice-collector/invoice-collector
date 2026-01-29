@@ -29,7 +29,7 @@ export class SwiftypeCollector extends SketchCollector {
         loginUrl: "https://app.swiftype.com/settings/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

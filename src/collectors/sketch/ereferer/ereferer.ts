@@ -29,7 +29,7 @@ export class ErefererCollector extends SketchCollector {
         loginUrl: "https://fr.ereferer.com/bo/invoice/list",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

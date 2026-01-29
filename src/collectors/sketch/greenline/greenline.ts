@@ -29,7 +29,7 @@ export class GreenlineCollector extends SketchCollector {
         loginUrl: "https://alt.greenline.de/members/bill_pdf",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class Home24KundenCollector extends SketchCollector {
         loginUrl: "https://www.home24.de/meinkundenkonto/kunde/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

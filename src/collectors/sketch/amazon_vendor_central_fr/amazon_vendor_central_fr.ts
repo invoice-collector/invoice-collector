@@ -29,7 +29,7 @@ export class AmazonVendorCentralFrCollector extends SketchCollector {
         loginUrl: "https://vendorcentral.amazon.fr/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class FreightcoreCollector extends SketchCollector {
         loginUrl: "https://app.freightcore.com/shipments/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class ParadrugsCollector extends SketchCollector {
         loginUrl: "https://www.paradrugs.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

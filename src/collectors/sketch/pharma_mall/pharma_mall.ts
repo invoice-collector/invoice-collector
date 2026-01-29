@@ -29,7 +29,7 @@ export class PharmaMallCollector extends SketchCollector {
         loginUrl: "https://www.pharma-mall.de/shop/vendors",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

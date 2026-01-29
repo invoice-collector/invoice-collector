@@ -29,7 +29,7 @@ export class MagentoComCollector extends SketchCollector {
         loginUrl: "https://account.magento.com/sales/order/history/?p=2",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

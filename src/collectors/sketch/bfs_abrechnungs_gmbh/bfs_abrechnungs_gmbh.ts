@@ -29,7 +29,7 @@ export class BfsAbrechnungsGmbhCollector extends SketchCollector {
         loginUrl: "https://kunden.bfs-abrechnung.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

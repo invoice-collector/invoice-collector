@@ -29,7 +29,7 @@ export class GranvaloraGmbhAndCoKgCollector extends SketchCollector {
         loginUrl: "https://mein.granvalora.de/partner/refunds",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

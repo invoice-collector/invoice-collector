@@ -29,7 +29,7 @@ export class MaafAvisEcheanceCollector extends SketchCollector {
         loginUrl: "https://www.maaf.fr/assurances/fr/d_16103/maaf-vie",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

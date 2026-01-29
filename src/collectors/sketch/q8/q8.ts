@@ -29,7 +29,7 @@ export class Q8Collector extends SketchCollector {
         loginUrl: "https://www.q8.dk/q8-login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

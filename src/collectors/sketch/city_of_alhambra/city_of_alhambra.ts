@@ -29,7 +29,7 @@ export class CityOfAlhambraCollector extends SketchCollector {
         loginUrl: "https://billpay.onlinebiller.com/ebpp/alhambraca/Login/Index",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

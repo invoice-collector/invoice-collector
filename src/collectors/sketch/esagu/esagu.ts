@@ -29,7 +29,7 @@ export class EsaguCollector extends SketchCollector {
         loginUrl: "https://repricing.esagu.de/spa/index#/account/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -28,7 +28,7 @@ export class ChristianFischbacherCollector extends SketchCollector {
         loginUrl: "https://fischbacher1819.com/fr/customer/account/login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

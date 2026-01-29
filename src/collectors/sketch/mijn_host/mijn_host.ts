@@ -29,7 +29,7 @@ export class MijnHostCollector extends SketchCollector {
         loginUrl: "https://mijn.host/cp/account/invoices/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

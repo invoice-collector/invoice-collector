@@ -29,7 +29,7 @@ export class LocoTranslationManagementCollector extends SketchCollector {
         loginUrl: "https://localise.biz/account/plan/billing#hist",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

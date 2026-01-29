@@ -29,7 +29,7 @@ export class HubrisCollector extends SketchCollector {
         loginUrl: "https://hubris-admin-dev.herokuapp.com/signup",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

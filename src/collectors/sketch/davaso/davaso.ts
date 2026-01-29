@@ -29,7 +29,7 @@ export class DavasoCollector extends SketchCollector {
         loginUrl: "https://portal.davaso.de/portal/secure/postfach",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

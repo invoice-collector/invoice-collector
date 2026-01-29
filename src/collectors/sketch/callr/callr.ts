@@ -29,7 +29,7 @@ export class CallrCollector extends SketchCollector {
         loginUrl: "https://sso.callr.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

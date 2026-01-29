@@ -29,7 +29,7 @@ export class FathomCollector extends SketchCollector {
         loginUrl: "https://app.usefathom.com/#/settings/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

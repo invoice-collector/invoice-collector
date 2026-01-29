@@ -29,7 +29,7 @@ export class LempodCollector extends SketchCollector {
         loginUrl: "https://app.lempod.com/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

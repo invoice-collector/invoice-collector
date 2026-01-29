@@ -29,7 +29,7 @@ export class WasteConnectionsCollector extends SketchCollector {
         loginUrl: "https://www.wcicustomer.com/User/KubraContainer.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

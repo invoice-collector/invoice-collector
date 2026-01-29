@@ -29,7 +29,7 @@ export class TechnischeWerkeLudwigshafenCollector extends SketchCollector {
         loginUrl: "https://kundenportal.twl.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

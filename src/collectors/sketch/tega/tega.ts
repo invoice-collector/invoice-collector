@@ -29,7 +29,7 @@ export class TegaCollector extends SketchCollector {
         loginUrl: "https://www.tega.de/kundenportal/de/start",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

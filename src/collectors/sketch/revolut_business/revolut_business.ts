@@ -29,7 +29,7 @@ export class RevolutBusinessCollector extends SketchCollector {
         loginUrl: "https://business.revolut.com/accounts/transactions",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

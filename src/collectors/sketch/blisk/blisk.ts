@@ -29,7 +29,7 @@ export class BliskCollector extends SketchCollector {
         loginUrl: "https://app.blisk.io/account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

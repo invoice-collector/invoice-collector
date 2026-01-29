@@ -29,7 +29,7 @@ export class HotTelekomUndServiceGmbhCollector extends SketchCollector {
         loginUrl: "https://www.hot.at/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

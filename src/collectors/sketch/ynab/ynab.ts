@@ -29,7 +29,7 @@ export class YnabCollector extends SketchCollector {
         loginUrl: "https://app.ynab.com/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class DublyAiCollector extends SketchCollector {
         loginUrl: "https://dubly.ai/account?nav=plan&v=invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

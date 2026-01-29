@@ -29,7 +29,7 @@ export class A2xAccountingCollector extends SketchCollector {
         loginUrl: "https://www.a2xaccounting.com/login#billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

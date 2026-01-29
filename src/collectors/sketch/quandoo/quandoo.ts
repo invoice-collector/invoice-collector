@@ -29,7 +29,7 @@ export class QuandooCollector extends SketchCollector {
         loginUrl: "https://admin.quandoo.com/auth/signin",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

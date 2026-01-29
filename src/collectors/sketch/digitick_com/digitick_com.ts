@@ -29,7 +29,7 @@ export class DigitickComCollector extends SketchCollector {
         loginUrl: "https://www.digitick.com/customerservice",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

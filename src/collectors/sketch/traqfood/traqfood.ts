@@ -29,7 +29,7 @@ export class TraqfoodCollector extends SketchCollector {
         loginUrl: "https://www.traqfood.com/fr/?gclid=Cj0KCQiA-oqdBhDfARIsAO0TrGHbMT0Xtw7OXdFQDKtHFEVmQ7mMr-UOF33dzJ3RdP9izMSXwisJn_oaAnz1EALw_wcB",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

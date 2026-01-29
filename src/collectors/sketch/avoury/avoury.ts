@@ -29,7 +29,7 @@ export class AvouryCollector extends SketchCollector {
         loginUrl: "https://www.avoury.com/de/de/account/orders/00136961",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

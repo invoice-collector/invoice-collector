@@ -29,7 +29,7 @@ export class AlloALHuileCollector extends SketchCollector {
         loginUrl: "https://www.alloalhuile.fr/EspaceClient.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

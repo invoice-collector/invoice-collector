@@ -29,7 +29,7 @@ export class _1passwordComCollector extends SketchCollector {
         loginUrl: "https://my.1password.com/signin?l=en",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

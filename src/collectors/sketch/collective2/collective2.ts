@@ -29,7 +29,7 @@ export class Collective2Collector extends SketchCollector {
         loginUrl: "https://collective2.com/payment-records",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class Grossiste3dCollector extends SketchCollector {
         loginUrl: "https://www.grossiste3d.com/connexion?back=my-account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

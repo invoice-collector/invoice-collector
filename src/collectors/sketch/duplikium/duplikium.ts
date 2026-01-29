@@ -29,7 +29,7 @@ export class DuplikiumCollector extends SketchCollector {
         loginUrl: "https://www.trade-copier.com/index.php/myaccount/subscription/8O56WJCI0191",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class NuonNlCollector extends SketchCollector {
         loginUrl: "https://www.nuon.nl/service/mijn-nuon/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

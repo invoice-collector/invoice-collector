@@ -29,7 +29,7 @@ export class GoldenFrogCollector extends SketchCollector {
         loginUrl: "https://www.goldenfrog.com/de/controlpanel/account/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class FusionauthCollector extends SketchCollector {
         loginUrl: "https://account.fusionauth.io/account/billing/list-invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

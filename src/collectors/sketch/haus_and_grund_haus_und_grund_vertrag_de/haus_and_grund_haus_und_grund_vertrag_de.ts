@@ -29,7 +29,7 @@ export class HausAndGrundHausUndGrundVertragDeCollector extends SketchCollector 
         loginUrl: "https://ssl.haus-und-grund-vertrag.de/login.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

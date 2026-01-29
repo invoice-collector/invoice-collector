@@ -29,7 +29,7 @@ export class CalovoCollector extends SketchCollector {
         loginUrl: "https://calpit.calovo.com/user/account?anchor=addon-tab-tab",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

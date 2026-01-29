@@ -29,7 +29,7 @@ export class ViessmannCollector extends SketchCollector {
         loginUrl: "https://www.viessmann.de/#Login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

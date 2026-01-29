@@ -29,7 +29,7 @@ export class EspacevapCollector extends SketchCollector {
         loginUrl: "https://www.espacevap.com/account/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

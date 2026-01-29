@@ -29,7 +29,7 @@ export class SonosHomeSoundSystemCollector extends SketchCollector {
         loginUrl: "https://www.sonos.com/myaccount/orders/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -28,7 +28,7 @@ export class RedBySfrCollector extends SketchCollector {
         loginUrl: "https://www.red-by-sfr.fr/mon-espace-client/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

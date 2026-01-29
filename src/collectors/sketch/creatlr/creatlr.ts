@@ -29,7 +29,7 @@ export class CreatlrCollector extends SketchCollector {
         loginUrl: "https://shop.creatlr.com/my-orders/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

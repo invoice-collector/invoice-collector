@@ -29,7 +29,7 @@ export class MoncoyoteComCollector extends SketchCollector {
         loginUrl: "https://www.moncoyote.com/fr/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

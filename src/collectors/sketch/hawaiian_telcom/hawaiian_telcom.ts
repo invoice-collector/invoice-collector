@@ -29,7 +29,7 @@ export class HawaiianTelcomCollector extends SketchCollector {
         loginUrl: "https://www.hawaiiantel.com/MyAccount/tabid/2089/Default.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

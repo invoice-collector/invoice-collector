@@ -29,7 +29,7 @@ export class EbueroAgCollector extends SketchCollector {
         loginUrl: "https://www.ebuero.de/login.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

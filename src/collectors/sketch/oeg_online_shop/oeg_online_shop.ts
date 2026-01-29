@@ -29,7 +29,7 @@ export class OegOnlineShopCollector extends SketchCollector {
         loginUrl: "https://www.oeg.net/de/account/order/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

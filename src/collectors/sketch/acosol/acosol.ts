@@ -29,7 +29,7 @@ export class AcosolCollector extends SketchCollector {
         loginUrl: "https://www.acosol.es/clientes/acosol?check_logged_in=1",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

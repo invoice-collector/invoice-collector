@@ -29,7 +29,7 @@ export class FtzAutodeleCollector extends SketchCollector {
         loginUrl: "http://www.ftz.dk",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

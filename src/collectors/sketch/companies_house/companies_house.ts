@@ -29,7 +29,7 @@ export class CompaniesHouseCollector extends SketchCollector {
         loginUrl: "https://ebilling.companieshouse.gov.uk/customer-portal/signin.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class SimonsaysCollector extends SketchCollector {
         loginUrl: "https://app.simonsays.ai/app/account-settings#invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

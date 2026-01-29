@@ -29,7 +29,7 @@ export class DayusePartnersCollector extends SketchCollector {
         loginUrl: "https://partners.dayuse.io/beta/invoicing/item/list/10989",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

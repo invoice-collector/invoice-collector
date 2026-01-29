@@ -29,7 +29,7 @@ export class SchweizerischePostCollector extends SketchCollector {
         loginUrl: "https://service.post.ch/kurepoweb/main/ui/bills",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

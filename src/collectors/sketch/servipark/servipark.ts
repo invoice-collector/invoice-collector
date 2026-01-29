@@ -29,7 +29,7 @@ export class ServiparkCollector extends SketchCollector {
         loginUrl: "https://www.servipark.com/de/shopping/AccountLogin.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

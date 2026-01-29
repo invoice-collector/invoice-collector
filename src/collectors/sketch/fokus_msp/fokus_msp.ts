@@ -29,7 +29,7 @@ export class FokusMspCollector extends SketchCollector {
         loginUrl: "https://msp-marketplace.eu/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

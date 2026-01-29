@@ -29,7 +29,7 @@ export class JerseyCityMunicipalVeoliaWaterCollector extends SketchCollector {
         loginUrl: "https://mywater.veolia.us/jersey-city-mua/standard-home?_gl=1*1jjiwgr*_ga*MTAwNzcwOTI0Mi4xNzAzNzgxODI5*_ga_37RC2MZRT4*MTcxNTYxMzk1My4yNi4xLjE3MTU2MTQxOTYuMC4wLjA.",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

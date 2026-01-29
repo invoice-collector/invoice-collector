@@ -29,7 +29,7 @@ export class OcadoCollector extends SketchCollector {
         loginUrl: "https://www.ocado.com/webshop/startWebshop.do",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

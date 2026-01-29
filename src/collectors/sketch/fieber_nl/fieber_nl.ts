@@ -29,7 +29,7 @@ export class FieberNlCollector extends SketchCollector {
         loginUrl: "https://support.fieber.nl/hc/nl",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

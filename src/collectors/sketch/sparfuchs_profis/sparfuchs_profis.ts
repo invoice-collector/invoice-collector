@@ -29,7 +29,7 @@ export class SparfuchsProfisCollector extends SketchCollector {
         loginUrl: "https://www.sparfuchs-profis.de/abrechnungen",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

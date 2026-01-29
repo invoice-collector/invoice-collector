@@ -29,7 +29,7 @@ export class DecathlonCollector extends SketchCollector {
         loginUrl: "https://www.decathlon.de/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

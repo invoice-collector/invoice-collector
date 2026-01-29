@@ -29,7 +29,7 @@ export class SurfeCollector extends SketchCollector {
         loginUrl: "https://account.surfe.com/settings",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

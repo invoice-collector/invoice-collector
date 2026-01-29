@@ -29,7 +29,7 @@ export class WorkflowyCollector extends SketchCollector {
         loginUrl: "https://workflowy.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

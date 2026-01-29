@@ -29,7 +29,7 @@ export class UlincCollector extends SketchCollector {
         loginUrl: "https://ulinc.co/subscription/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class BlaudirektCollector extends SketchCollector {
         loginUrl: "https://www.maklerinfo.biz/maklerportal/?show=finanzen%2Fmakler",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

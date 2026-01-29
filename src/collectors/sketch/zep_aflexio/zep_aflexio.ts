@@ -29,7 +29,7 @@ export class ZepAflexioCollector extends SketchCollector {
         loginUrl: "https://www.zep-online.de/zepaflexiocom/view/login.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

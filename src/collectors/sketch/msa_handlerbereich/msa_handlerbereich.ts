@@ -29,7 +29,7 @@ export class MsaHandlerbereichCollector extends SketchCollector {
         loginUrl: "https://www.haendlerbereich.de/index.php?x=11&y=9&Filter_Marke=KY&Filter_h=serv&Filter_s=home",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class EInvoiceBgCollector extends SketchCollector {
         loginUrl: "https://www.e-invoice.bg/Reciever/RecievedInvoices.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

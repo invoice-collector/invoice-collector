@@ -29,7 +29,7 @@ export class AppsumoCollector extends SketchCollector {
         loginUrl: "https://www.appsumo.com/account/history",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

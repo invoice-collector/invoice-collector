@@ -29,7 +29,7 @@ export class OrdioCollector extends SketchCollector {
         loginUrl: "https://dritterort.ordio.com/schedule/plan/#/2157/settings/payment",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

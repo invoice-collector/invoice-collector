@@ -29,7 +29,7 @@ export class FortoCollector extends SketchCollector {
         loginUrl: "https://ship.forto.com/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

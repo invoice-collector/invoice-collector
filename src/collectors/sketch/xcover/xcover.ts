@@ -29,7 +29,7 @@ export class XcoverCollector extends SketchCollector {
         loginUrl: "https://www.xcover.com/en/account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

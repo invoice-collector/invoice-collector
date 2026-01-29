@@ -29,7 +29,7 @@ export class BannerbearCollector extends SketchCollector {
         loginUrl: "https://app.bannerbear.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

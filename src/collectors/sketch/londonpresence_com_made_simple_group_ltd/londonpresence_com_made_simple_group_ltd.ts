@@ -29,7 +29,7 @@ export class LondonpresenceComMadeSimpleGroupLtdCollector extends SketchCollecto
         loginUrl: "https://www.londonpresence.com/login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class MaxicoffeeComCollector extends SketchCollector {
         loginUrl: "https://www.maxicoffee.com/account_home.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

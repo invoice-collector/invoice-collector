@@ -29,7 +29,7 @@ export class DatevSmartTransferCollector extends SketchCollector {
         loginUrl: "https://smarttransfer.datev.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

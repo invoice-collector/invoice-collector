@@ -29,7 +29,7 @@ export class TravelportCollector extends SketchCollector {
         loginUrl: "https://my.travelport.com/v2/home",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

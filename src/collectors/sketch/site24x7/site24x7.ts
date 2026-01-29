@@ -29,7 +29,7 @@ export class Site24x7Collector extends SketchCollector {
         loginUrl: "https://www.site24x7.com/login/success.jsp",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

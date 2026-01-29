@@ -29,7 +29,7 @@ export class CherchonsComCollector extends SketchCollector {
         loginUrl: "https://adserver.cherchons.com/cgi/adServer.cgi?service=allFacture&language=&menuSA=A",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

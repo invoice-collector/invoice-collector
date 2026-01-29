@@ -29,7 +29,7 @@ export class GummysearchCollector extends SketchCollector {
         loginUrl: "https://billing.stripe.com/p/session/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

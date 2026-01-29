@@ -29,7 +29,7 @@ export class NotebooksbilligerDePnCollector extends SketchCollector {
         loginUrl: "https://pn.notebooksbilliger.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

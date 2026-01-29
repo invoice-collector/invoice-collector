@@ -29,7 +29,7 @@ export class TigerFacilityServicesCollector extends SketchCollector {
         loginUrl: "https://app.tigerfacilityservices.com/facility_services/sign_in",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

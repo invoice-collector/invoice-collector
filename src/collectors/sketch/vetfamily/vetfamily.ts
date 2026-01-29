@@ -29,7 +29,7 @@ export class VetfamilyCollector extends SketchCollector {
         loginUrl: "https://portal.vetfamily.de/login?next=/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

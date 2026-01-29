@@ -29,7 +29,7 @@ export class Listen360Collector extends SketchCollector {
         loginUrl: "https://app.listen360.com/users/sign_in",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

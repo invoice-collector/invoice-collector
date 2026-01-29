@@ -29,7 +29,7 @@ export class InstagramCollector extends SketchCollector {
         loginUrl: "https://www.instagram.com/accounts/subscriptions/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

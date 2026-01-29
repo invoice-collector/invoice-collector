@@ -29,7 +29,7 @@ export class VoipraiderCollector extends SketchCollector {
         loginUrl: "https://www.voipraider.com/purchases/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

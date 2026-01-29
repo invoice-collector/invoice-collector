@@ -29,7 +29,7 @@ export class MitgasMitteldeutscheGasversorgungGmbhCollector extends SketchCollec
         loginUrl: "https://www.mitgas.de/privatkunden",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

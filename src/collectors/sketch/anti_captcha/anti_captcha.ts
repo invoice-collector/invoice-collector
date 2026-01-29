@@ -29,7 +29,7 @@ export class AntiCaptchaCollector extends SketchCollector {
         loginUrl: "https://anti-captcha.com/clients/finance/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

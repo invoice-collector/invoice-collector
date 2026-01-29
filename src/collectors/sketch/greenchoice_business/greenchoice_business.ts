@@ -29,7 +29,7 @@ export class GreenchoiceBusinessCollector extends SketchCollector {
         loginUrl: "https://mijn.greenchoicezakelijk.nl/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

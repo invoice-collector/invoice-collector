@@ -29,7 +29,7 @@ export class ThomannFrCollector extends SketchCollector {
         loginUrl: "https://www.thomann.de/fr/mythomann_login.html?o=https://www.thomann.de/fr/mythomann.html?sid=b4463a701f069547968a1922ba133225",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

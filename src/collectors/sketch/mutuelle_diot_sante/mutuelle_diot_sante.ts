@@ -29,7 +29,7 @@ export class MutuelleDiotSanteCollector extends SketchCollector {
         loginUrl: "https://www.diot.com/fr/nos-solutions-d-assurances-diot/particuliers/sante-auto-habitation-protection-de-la-famille",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

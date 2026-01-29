@@ -29,7 +29,7 @@ export class EngieEntreprisesAndCollectivitesCollector extends SketchCollector {
         loginUrl: "https://espace-client.entreprises-collectivites.engie.fr/eec/#/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

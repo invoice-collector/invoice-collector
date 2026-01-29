@@ -29,7 +29,7 @@ export class ClimeworksCollector extends SketchCollector {
         loginUrl: "https://climeworks.com/dashboard",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

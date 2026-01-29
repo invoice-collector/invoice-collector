@@ -29,7 +29,7 @@ export class LaMaisonDuWhiskyCollector extends SketchCollector {
         loginUrl: "https://www.whisky.fr/en/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

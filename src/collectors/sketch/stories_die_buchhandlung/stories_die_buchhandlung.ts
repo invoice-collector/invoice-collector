@@ -29,7 +29,7 @@ export class StoriesDieBuchhandlungCollector extends SketchCollector {
         loginUrl: "https://www.stories-hamburg.de/shop/kundenkonto/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

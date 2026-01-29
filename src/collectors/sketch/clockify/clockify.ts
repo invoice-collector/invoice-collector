@@ -29,7 +29,7 @@ export class ClockifyCollector extends SketchCollector {
         loginUrl: "https://clockify.me/workspaces/5c227ebdb079870b01b06417/settings#subscription",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

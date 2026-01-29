@@ -29,7 +29,7 @@ export class DkvEuroserviceCollector extends SketchCollector {
         loginUrl: "https://www.dkv-euroservice.com/DKVCockpit/sites/content/invoices/invoices.xhtml",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

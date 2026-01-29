@@ -29,7 +29,7 @@ export class ProRankTrackerCollector extends SketchCollector {
         loginUrl: "http://www.proranktracker.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

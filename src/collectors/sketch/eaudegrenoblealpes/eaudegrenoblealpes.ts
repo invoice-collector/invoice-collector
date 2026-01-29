@@ -28,7 +28,7 @@ export class EauDeGrenobleAlpesCollector extends SketchCollector {
         loginUrl: "https://eau.grenoblealpesmetropole.fr/#/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

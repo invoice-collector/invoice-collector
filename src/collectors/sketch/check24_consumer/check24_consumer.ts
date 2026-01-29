@@ -29,7 +29,7 @@ export class Check24ConsumerCollector extends SketchCollector {
         loginUrl: "https://kundenbereich.check24.de/index.html?",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

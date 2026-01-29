@@ -29,7 +29,7 @@ export class InternetWorldCollector extends SketchCollector {
         loginUrl: "https://www.internetworld.de/profil-1120069.html?snippet=order",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

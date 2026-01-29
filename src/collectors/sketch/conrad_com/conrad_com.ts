@@ -29,7 +29,7 @@ export class ConradComCollector extends SketchCollector {
         loginUrl: "https://www.conrad.com/my-account/orders",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

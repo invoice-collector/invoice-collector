@@ -29,7 +29,7 @@ export class CellagonCollector extends SketchCollector {
         loginUrl: "https://beraterportal.cellagon.de/mein-cellagon/meine-informationen/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

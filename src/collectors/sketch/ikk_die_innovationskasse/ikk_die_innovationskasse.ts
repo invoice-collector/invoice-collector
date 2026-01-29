@@ -29,7 +29,7 @@ export class IkkDieInnovationskasseCollector extends SketchCollector {
         loginUrl: "https://data-ikknord.bitmarck.org/Web%20Client/ListDir.htm",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

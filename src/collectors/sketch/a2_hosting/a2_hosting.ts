@@ -29,7 +29,7 @@ export class A2HostingCollector extends SketchCollector {
         loginUrl: "https://my.a2hosting.com/clientarea.php?_ga=2.227661019.717146942.1523598768-1113095136.1523598768",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

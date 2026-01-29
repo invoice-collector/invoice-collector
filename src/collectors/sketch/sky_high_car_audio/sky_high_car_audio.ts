@@ -29,7 +29,7 @@ export class SkyHighCarAudioCollector extends SketchCollector {
         loginUrl: "https://shcadealers.com/account.php?action=order_status",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

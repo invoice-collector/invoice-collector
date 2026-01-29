@@ -29,7 +29,7 @@ export class UxpressiaCollector extends SketchCollector {
         loginUrl: "https://uxpressia.com/workspace/AXzjR/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

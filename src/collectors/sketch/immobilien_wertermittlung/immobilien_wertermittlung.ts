@@ -29,7 +29,7 @@ export class ImmobilienWertermittlungCollector extends SketchCollector {
         loginUrl: "https://www.immobilien-wertermittlung.de/user_rechnungen",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

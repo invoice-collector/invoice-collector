@@ -29,7 +29,7 @@ export class GeekbuyingCollector extends SketchCollector {
         loginUrl: "https://www.geekbuying.com/BuyerOrder/Orders?action=History",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

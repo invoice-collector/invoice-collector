@@ -29,7 +29,7 @@ export class SageoneDeCollector extends SketchCollector {
         loginUrl: "https://app.de.sageone.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

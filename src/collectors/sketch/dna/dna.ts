@@ -29,7 +29,7 @@ export class DnaCollector extends SketchCollector {
         loginUrl: "https://c.dna.fr/espace-client/mes-factures",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

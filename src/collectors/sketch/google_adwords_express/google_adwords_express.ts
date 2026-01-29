@@ -29,7 +29,7 @@ export class GoogleAdwordsExpressCollector extends SketchCollector {
         loginUrl: "https://adwords.google.de/express/plus/Business?hl=de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

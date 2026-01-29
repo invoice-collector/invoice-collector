@@ -29,7 +29,7 @@ export class StadtwerkeBadNauheimPlusportalCollector extends SketchCollector {
         loginUrl: "https://stadtwerke-bad-nauheim.plusportal.de/#/devices/dsl/7749/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

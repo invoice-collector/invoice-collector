@@ -29,7 +29,7 @@ export class BucherDeCollector extends SketchCollector {
         loginUrl: "https://www.buecher.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

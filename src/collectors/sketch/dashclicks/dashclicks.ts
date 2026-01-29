@@ -29,7 +29,7 @@ export class DashclicksCollector extends SketchCollector {
         loginUrl: "https://www.dashclicks.com/login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class WpcleverCollector extends SketchCollector {
         loginUrl: "https://wpclever.net/my-account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

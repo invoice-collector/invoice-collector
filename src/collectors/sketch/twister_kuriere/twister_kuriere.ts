@@ -29,7 +29,7 @@ export class TwisterKuriereCollector extends SketchCollector {
         loginUrl: "https://kp.twisterkuriere.de/portal/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class TrendyolPartnerCollector extends SketchCollector {
         loginUrl: "https://partner.trendyol.com/de/payments/invoice",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

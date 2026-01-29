@@ -29,7 +29,7 @@ export class DatacampCollector extends SketchCollector {
         loginUrl: "https://www.datacamp.com/profile/account_settings/subscription",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

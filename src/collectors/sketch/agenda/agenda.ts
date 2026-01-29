@@ -29,7 +29,7 @@ export class AgendaCollector extends SketchCollector {
         loginUrl: "https://agenda-unternehmens-portal.de/Unternehmensportal/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class EntergyCollector extends SketchCollector {
         loginUrl: "https://www.myentergy.com/s/login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

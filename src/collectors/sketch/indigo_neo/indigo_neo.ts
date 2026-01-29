@@ -29,7 +29,7 @@ export class IndigoNeoCollector extends SketchCollector {
         loginUrl: "https://www.indigoneo.fr/fr/account/informations",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

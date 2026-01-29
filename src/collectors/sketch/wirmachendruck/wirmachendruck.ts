@@ -29,7 +29,7 @@ export class WirmachendruckCollector extends SketchCollector {
         loginUrl: "https://www.wir-machen-druck.de/konto_tracking_list.htm",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

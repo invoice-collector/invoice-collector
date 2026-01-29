@@ -29,7 +29,7 @@ export class RainbowEdgeviewCollector extends SketchCollector {
         loginUrl: "https://rainbow-portal.accor.com/EdgeView/Default.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

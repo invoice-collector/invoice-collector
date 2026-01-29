@@ -29,7 +29,7 @@ export class MerChargeportalCollector extends SketchCollector {
         loginUrl: "https://chargeportal.de.mer.eco/secured/statements",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class AdmiraldirektDeCollector extends SketchCollector {
         loginUrl: "https://portal.admiraldirekt.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

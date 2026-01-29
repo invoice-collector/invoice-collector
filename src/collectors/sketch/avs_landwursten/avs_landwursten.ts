@@ -29,7 +29,7 @@ export class AvsLandwurstenCollector extends SketchCollector {
         loginUrl: "https://meldeschein.avs.de/landwursten/auswert3Rechnungseinsicht.do?init=yes",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

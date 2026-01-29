@@ -29,7 +29,7 @@ export class ZendeskSellCollector extends SketchCollector {
         loginUrl: "https://app.futuresimple.com/settings/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class BuromarktBottcherCollector extends SketchCollector {
         loginUrl: "https://www.bueromarkt-ag.de/mein_konto/uebersicht.php?kontolink=meine_bestellungen",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

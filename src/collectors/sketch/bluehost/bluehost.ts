@@ -29,7 +29,7 @@ export class BluehostCollector extends SketchCollector {
         loginUrl: "https://my.bluehost.com/web-hosting/cplogin",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

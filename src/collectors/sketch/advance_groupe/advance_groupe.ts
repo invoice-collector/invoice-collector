@@ -29,7 +29,7 @@ export class AdvanceGroupeCollector extends SketchCollector {
         loginUrl: "https://artis-advance-bureautique.artis.fr/ArtisWebAdvanceBureautique/portail/login/auth/01.action?autoConnect=false",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

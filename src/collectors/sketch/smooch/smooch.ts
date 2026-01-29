@@ -29,7 +29,7 @@ export class SmoochCollector extends SketchCollector {
         loginUrl: "https://app.smooch.io/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

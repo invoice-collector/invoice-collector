@@ -29,7 +29,7 @@ export class LesHypothequesCollector extends SketchCollector {
         loginUrl: "https://www.leshypotheques.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

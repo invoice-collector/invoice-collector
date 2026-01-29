@@ -29,7 +29,7 @@ export class KadysKsolutionCollector extends SketchCollector {
         loginUrl: "https://ksign.kadys.fr/Administration/Index",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

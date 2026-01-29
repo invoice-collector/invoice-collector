@@ -29,7 +29,7 @@ export class TrainlineCollector extends SketchCollector {
         loginUrl: "http://www.thetrainline.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

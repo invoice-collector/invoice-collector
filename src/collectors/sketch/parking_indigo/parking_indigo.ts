@@ -29,7 +29,7 @@ export class ParkingIndigoCollector extends SketchCollector {
         loginUrl: "https://espace-client.fr.parkindigo.com/espace-client/mes-factures",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

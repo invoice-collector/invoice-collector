@@ -29,7 +29,7 @@ export class TMobileRechnungonlineBusinessCollector extends SketchCollector {
         loginUrl: "https://rechnungonline-business.t-mobile.de/gk/auth",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

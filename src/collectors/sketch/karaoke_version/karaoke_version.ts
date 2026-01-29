@@ -29,7 +29,7 @@ export class KaraokeVersionCollector extends SketchCollector {
         loginUrl: "https://www.karaoke-version.de/my/orders.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

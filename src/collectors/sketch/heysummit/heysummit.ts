@@ -29,7 +29,7 @@ export class HeysummitCollector extends SketchCollector {
         loginUrl: "https://heysummit.com/accounts/billing/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

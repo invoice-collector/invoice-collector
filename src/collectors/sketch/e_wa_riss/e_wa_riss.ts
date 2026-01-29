@@ -29,7 +29,7 @@ export class EWaRissCollector extends SketchCollector {
         loginUrl: "https://kundenportal.ewa-riss.de/bkp/rechnungen",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

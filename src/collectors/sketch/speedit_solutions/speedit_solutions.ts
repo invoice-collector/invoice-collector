@@ -29,7 +29,7 @@ export class SpeeditSolutionsCollector extends SketchCollector {
         loginUrl: "https://cp.speedit.org",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

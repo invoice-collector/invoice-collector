@@ -29,7 +29,7 @@ export class JtlSoftwareCollector extends SketchCollector {
         loginUrl: "https://kundencenter.jtl-software.de/rechnungen",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class ChatbaseCollector extends SketchCollector {
         loginUrl: "https://pay.chatbase.co/p/session/live_YWNjdF8xTVhTYUNBV1dvUEpGTDNRLF9Pc1NIdUZuYWFEMlIzWU1sZVVPWldvRDB6SlpCc0530100uq5TRkbG",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

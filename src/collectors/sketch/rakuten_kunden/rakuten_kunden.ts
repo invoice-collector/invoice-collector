@@ -29,7 +29,7 @@ export class RakutenKundenCollector extends SketchCollector {
         loginUrl: "https://www.rakuten.de/kundenkonto",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

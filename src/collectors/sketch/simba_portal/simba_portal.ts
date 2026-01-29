@@ -29,7 +29,7 @@ export class SimbaPortalCollector extends SketchCollector {
         loginUrl: "https://portal.simba.de/mandant/login#!auswertungen-mandant-select",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

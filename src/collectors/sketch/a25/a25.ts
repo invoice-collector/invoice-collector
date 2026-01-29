@@ -29,7 +29,7 @@ export class A25Collector extends SketchCollector {
         loginUrl: "https://www.a25csc.com/facture/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

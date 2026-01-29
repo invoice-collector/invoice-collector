@@ -29,7 +29,7 @@ export class MsMileIqCollector extends SketchCollector {
         loginUrl: "https://dashboard.mileiq.com/reports",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

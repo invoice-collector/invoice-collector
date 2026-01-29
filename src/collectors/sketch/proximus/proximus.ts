@@ -29,7 +29,7 @@ export class ProximusCollector extends SketchCollector {
         loginUrl: "https://www.proximus.be/myproximus/fr/Self-employed-and-small-companies/services/My-Bill__/home",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

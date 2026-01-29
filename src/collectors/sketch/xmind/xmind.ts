@@ -29,7 +29,7 @@ export class XmindCollector extends SketchCollector {
         loginUrl: "https://xmind.app/account/payment/_xmind_wxnvEkkvTJ/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

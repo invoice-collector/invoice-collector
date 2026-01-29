@@ -29,7 +29,7 @@ export class AuraDkCollector extends SketchCollector {
         loginUrl: "https://www.aura.dk/internet-tv-og-telefoni/fiber-selvbetjening/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

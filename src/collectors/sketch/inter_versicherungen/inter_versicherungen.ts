@@ -29,7 +29,7 @@ export class InterVersicherungenCollector extends SketchCollector {
         loginUrl: "https://www.inter.de/postbox/documents?client=kunde",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class FournirestoCollector extends SketchCollector {
         loginUrl: "https://www.fourniresto.com/historique-commandes",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

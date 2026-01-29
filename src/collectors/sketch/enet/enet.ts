@@ -29,7 +29,7 @@ export class EnetCollector extends SketchCollector {
         loginUrl: "https://esp-enet.de/pay?",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

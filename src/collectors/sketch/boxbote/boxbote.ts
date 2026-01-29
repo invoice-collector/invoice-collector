@@ -29,7 +29,7 @@ export class BoxboteCollector extends SketchCollector {
         loginUrl: "https://www.boxbote.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

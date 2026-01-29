@@ -29,7 +29,7 @@ export class TreditionCollector extends SketchCollector {
         loginUrl: "https://my.tredition.com/myaccount/provision/overview",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

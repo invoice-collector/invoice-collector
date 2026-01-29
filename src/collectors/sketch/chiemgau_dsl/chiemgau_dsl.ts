@@ -29,7 +29,7 @@ export class ChiemgauDslCollector extends SketchCollector {
         loginUrl: "http://chiemgau-dsl.info/portal.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

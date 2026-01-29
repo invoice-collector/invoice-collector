@@ -29,7 +29,7 @@ export class MinitoolsSrlCollector extends SketchCollector {
         loginUrl: "https://store.minitools.com/en/sales/order/history/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

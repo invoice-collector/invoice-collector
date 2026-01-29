@@ -29,7 +29,7 @@ export class JarltechCollector extends SketchCollector {
         loginUrl: "https://www.jarltech.com/2007/index.php?language=de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

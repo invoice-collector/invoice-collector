@@ -29,7 +29,7 @@ export class GrunderDeCollector extends SketchCollector {
         loginUrl: "https://mitglieder.gruender.de/mein-konto/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

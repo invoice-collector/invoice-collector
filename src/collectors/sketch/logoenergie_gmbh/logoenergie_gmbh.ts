@@ -29,7 +29,7 @@ export class LogoenergieGmbhCollector extends SketchCollector {
         loginUrl: "https://onlineservice.service-rz.de/?act=login&werknr=49#normal",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

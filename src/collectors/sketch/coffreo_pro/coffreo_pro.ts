@@ -29,7 +29,7 @@ export class CoffreoProCollector extends SketchCollector {
         loginUrl: "https://www.coffreo.pro/documents/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

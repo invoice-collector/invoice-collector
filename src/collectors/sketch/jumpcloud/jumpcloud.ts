@@ -29,7 +29,7 @@ export class JumpcloudCollector extends SketchCollector {
         loginUrl: "https://console.jumpcloud.com/#/account/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

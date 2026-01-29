@@ -29,7 +29,7 @@ export class GitlabCollector extends SketchCollector {
         loginUrl: "https://customers.gitlab.com/receipts",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

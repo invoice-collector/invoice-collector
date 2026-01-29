@@ -29,7 +29,7 @@ export class TreatwellCollector extends SketchCollector {
         loginUrl: "https://www.treatwell.de/geschuetzte-aktion/?route=/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

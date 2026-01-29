@@ -29,7 +29,7 @@ export class VysorCollector extends SketchCollector {
         loginUrl: "https://billing.vysor.io/invoice",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

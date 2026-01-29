@@ -29,7 +29,7 @@ export class AfiAiCollector extends SketchCollector {
         loginUrl: "https://app.afi.ai/orgs/01GVDMXKVWW0DGEY2Y6DX7JF5R/billing/payment-history",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

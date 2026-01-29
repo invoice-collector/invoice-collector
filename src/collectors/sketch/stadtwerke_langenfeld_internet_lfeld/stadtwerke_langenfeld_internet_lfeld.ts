@@ -29,7 +29,7 @@ export class StadtwerkeLangenfeldInternetLfeldCollector extends SketchCollector 
         loginUrl: "https://lfeldmediaportal.stw-langenfeld.de/#/MeineRechnungen",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

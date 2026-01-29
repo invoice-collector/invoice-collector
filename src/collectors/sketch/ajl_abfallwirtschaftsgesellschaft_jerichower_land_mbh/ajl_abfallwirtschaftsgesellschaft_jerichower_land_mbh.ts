@@ -29,7 +29,7 @@ export class AjlAbfallwirtschaftsgesellschaftJerichowerLandMbhCollector extends 
         loginUrl: "https://kundenportal.ajl-mbh.de/documents",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

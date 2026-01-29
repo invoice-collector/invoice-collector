@@ -29,7 +29,7 @@ export class KomroNetCollector extends SketchCollector {
         loginUrl: "https://www.komro.net/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

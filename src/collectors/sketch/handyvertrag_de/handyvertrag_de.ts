@@ -29,7 +29,7 @@ export class HandyvertragDeCollector extends SketchCollector {
         loginUrl: "https://service.handyvertrag.de/mytariff/invoice/showAll",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

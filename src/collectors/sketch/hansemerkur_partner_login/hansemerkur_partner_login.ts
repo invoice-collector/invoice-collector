@@ -29,7 +29,7 @@ export class HansemerkurPartnerLoginCollector extends SketchCollector {
         loginUrl: "https://b2b.hmrv.de/buchen-verwalten/statistik-abrechnung/abrechnungen",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

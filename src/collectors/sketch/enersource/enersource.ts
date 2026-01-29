@@ -29,7 +29,7 @@ export class EnersourceCollector extends SketchCollector {
         loginUrl: "https://secure6.i-doxs.net/Enersource/Secure/Bills.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

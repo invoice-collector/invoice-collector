@@ -29,7 +29,7 @@ export class MyyavinCollector extends SketchCollector {
         loginUrl: "https://my.yavin.com/bo/company/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

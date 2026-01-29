@@ -29,7 +29,7 @@ export class BritishTelecomCollector extends SketchCollector {
         loginUrl: "https://my.bt.com/s/apps/appsmybt/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

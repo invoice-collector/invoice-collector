@@ -29,7 +29,7 @@ export class PennymobilCollector extends SketchCollector {
         loginUrl: "https://pennymobil.congstar.de/mein-pennymobil/meine-rechnungen/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

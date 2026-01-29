@@ -29,7 +29,7 @@ export class ShipwireCollector extends SketchCollector {
         loginUrl: "https://www.shipwire.com/log-in/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

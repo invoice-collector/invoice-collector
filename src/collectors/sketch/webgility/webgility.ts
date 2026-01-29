@@ -29,7 +29,7 @@ export class WebgilityCollector extends SketchCollector {
         loginUrl: "https://portal.webgility.com/billing.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

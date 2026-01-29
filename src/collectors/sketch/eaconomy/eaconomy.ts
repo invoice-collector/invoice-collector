@@ -29,7 +29,7 @@ export class EaconomyCollector extends SketchCollector {
         loginUrl: "https://eaconomy.net/wp-admin/admin.php?page=user-report&tab=payout",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

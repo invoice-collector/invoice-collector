@@ -29,7 +29,7 @@ export class MvvCollector extends SketchCollector {
         loginUrl: "https://ticketshop.mvv-muenchen.de/index.php/personal_data/orderList",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

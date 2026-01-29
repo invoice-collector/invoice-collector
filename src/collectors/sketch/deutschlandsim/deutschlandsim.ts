@@ -29,7 +29,7 @@ export class DeutschlandsimCollector extends SketchCollector {
         loginUrl: "https://service.deutschlandsim.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

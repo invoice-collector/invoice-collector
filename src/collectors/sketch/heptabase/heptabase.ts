@@ -29,7 +29,7 @@ export class HeptabaseCollector extends SketchCollector {
         loginUrl: "https://app.heptabase.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

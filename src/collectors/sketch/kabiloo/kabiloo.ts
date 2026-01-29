@@ -29,7 +29,7 @@ export class KabilooCollector extends SketchCollector {
         loginUrl: "https://www.kabiloo.fr/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

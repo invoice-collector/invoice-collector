@@ -29,7 +29,7 @@ export class AdmitadCollector extends SketchCollector {
         loginUrl: "https://www.admitad.com/de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

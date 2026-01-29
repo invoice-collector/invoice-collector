@@ -29,7 +29,7 @@ export class CloudsecretaryTelefonServiceCollector extends SketchCollector {
         loginUrl: "https://www.cloudsecretary.de/panel/de/consumption/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

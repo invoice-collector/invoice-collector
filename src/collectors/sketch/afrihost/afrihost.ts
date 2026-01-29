@@ -29,7 +29,7 @@ export class AfrihostCollector extends SketchCollector {
         loginUrl: "https://www.afrihost.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

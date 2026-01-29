@@ -29,7 +29,7 @@ export class HereDeveloperCollector extends SketchCollector {
         loginUrl: "https://developer.here.com/billing-management",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

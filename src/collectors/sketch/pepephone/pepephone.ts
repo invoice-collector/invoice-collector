@@ -29,7 +29,7 @@ export class PepephoneCollector extends SketchCollector {
         loginUrl: "https://www.pepephone.com/mipepephone",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

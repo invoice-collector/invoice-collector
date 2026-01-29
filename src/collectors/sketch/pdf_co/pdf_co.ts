@@ -29,7 +29,7 @@ export class PdfCoCollector extends SketchCollector {
         loginUrl: "https://app.pdf.co/account/orders",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

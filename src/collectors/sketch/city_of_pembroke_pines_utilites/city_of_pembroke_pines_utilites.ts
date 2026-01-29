@@ -29,7 +29,7 @@ export class CityOfPembrokePinesUtilitesCollector extends SketchCollector {
         loginUrl: "https://pembrokepinesflcitizens.munisselfservice.com/citizens/UtilityBilling/AccountBrowse.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

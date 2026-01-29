@@ -29,7 +29,7 @@ export class ShellEnergyEuropeCollector extends SketchCollector {
         loginUrl: "https://energyeurope.shell.com/s/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

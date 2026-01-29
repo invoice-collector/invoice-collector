@@ -29,7 +29,7 @@ export class Newsletter2goCollector extends SketchCollector {
         loginUrl: "https://ui.newsletter2go.com/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

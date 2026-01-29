@@ -29,7 +29,7 @@ export class OctopusEnergyCollector extends SketchCollector {
         loginUrl: "https://octopusenergy.fr/connexion",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

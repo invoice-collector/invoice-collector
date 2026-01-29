@@ -29,7 +29,7 @@ export class DreiKocheCollector extends SketchCollector {
         loginUrl: "https://bestellen.drei-koeche.de/pages/dokumente",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

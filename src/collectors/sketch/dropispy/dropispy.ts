@@ -29,7 +29,7 @@ export class DropispyCollector extends SketchCollector {
         loginUrl: "https://app.dropispy.com/user",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

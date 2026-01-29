@@ -29,7 +29,7 @@ export class AthensServicesCollector extends SketchCollector {
         loginUrl: "https://billing.athensservices.com/webpak/signin.jsp",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

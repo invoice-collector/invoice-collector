@@ -29,7 +29,7 @@ export class _3dsellersCollector extends SketchCollector {
         loginUrl: "https://platform.3dsellers.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

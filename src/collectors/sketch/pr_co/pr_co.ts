@@ -29,7 +29,7 @@ export class PrCoCollector extends SketchCollector {
         loginUrl: "https://app.pr.co/users/sign_in",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

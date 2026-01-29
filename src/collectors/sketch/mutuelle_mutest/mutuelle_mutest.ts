@@ -29,7 +29,7 @@ export class MutuelleMutestCollector extends SketchCollector {
         loginUrl: "https://www.mutest.fr/particuliers/Acc%C3%A8s_extranets",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

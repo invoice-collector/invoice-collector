@@ -29,7 +29,7 @@ export class LoisirsEducationEtCitoyenneteGrandSudParticulierCollector extends S
         loginUrl: "https://www.lecgs.org/fr/page/je-suis/je-suis-un-particulier.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

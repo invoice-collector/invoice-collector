@@ -29,7 +29,7 @@ export class WordfenceCollector extends SketchCollector {
         loginUrl: "https://www.wordfence.com/sign-in/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

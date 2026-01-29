@@ -29,7 +29,7 @@ export class MydomainCollector extends SketchCollector {
         loginUrl: "https://www1.mydomain.com/secure/login.bml",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

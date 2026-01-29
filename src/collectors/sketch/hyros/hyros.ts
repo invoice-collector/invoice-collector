@@ -29,7 +29,7 @@ export class HyrosCollector extends SketchCollector {
         loginUrl: "https://app.hyros.com/public/#/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

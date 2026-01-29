@@ -29,7 +29,7 @@ export class RadiokingCollector extends SketchCollector {
         loginUrl: "https://www.radioking.com/on/clientarea.php?action=invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

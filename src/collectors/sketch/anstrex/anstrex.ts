@@ -29,7 +29,7 @@ export class AnstrexCollector extends SketchCollector {
         loginUrl: "https://app.anstrex.com/subscription_info_new",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

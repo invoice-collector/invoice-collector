@@ -29,7 +29,7 @@ export class LagrowthmachineCollector extends SketchCollector {
         loginUrl: "https://app.lagrowthmachine.com/campaigns",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

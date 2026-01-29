@@ -29,7 +29,7 @@ export class AdvancedDisposalCollector extends SketchCollector {
         loginUrl: "https://secure8.i-doxs.net/AdvancedDisposal/SignIn.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

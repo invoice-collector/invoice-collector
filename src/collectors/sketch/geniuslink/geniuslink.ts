@@ -29,7 +29,7 @@ export class GeniuslinkCollector extends SketchCollector {
         loginUrl: "https://my.geni.us/account/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

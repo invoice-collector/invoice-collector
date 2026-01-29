@@ -29,7 +29,7 @@ export class ComputerfuturesWorksheetsCollector extends SketchCollector {
         loginUrl: "https://worksheets.computerfutures.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

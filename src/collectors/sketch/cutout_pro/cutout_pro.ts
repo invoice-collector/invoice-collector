@@ -29,7 +29,7 @@ export class CutoutProCollector extends SketchCollector {
         loginUrl: "https://www.cutout.pro/user/payment",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

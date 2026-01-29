@@ -29,7 +29,7 @@ export class FaserfreundeCollector extends SketchCollector {
         loginUrl: "https://kundenportal.faserfreunde.de/Home",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

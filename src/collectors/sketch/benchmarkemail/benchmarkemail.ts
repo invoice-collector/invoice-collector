@@ -29,7 +29,7 @@ export class BenchmarkemailCollector extends SketchCollector {
         loginUrl: "https://ui.benchmarkemail.com/BillingHistory",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

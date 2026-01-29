@@ -29,7 +29,7 @@ export class GympassCollector extends SketchCollector {
         loginUrl: "https://partners.gympass.com/payslips",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

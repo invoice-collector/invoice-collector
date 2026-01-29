@@ -29,7 +29,7 @@ export class NinoxCollector extends SketchCollector {
         loginUrl: "https://ninoxdb.de/de/subscriptions",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

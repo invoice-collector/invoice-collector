@@ -29,7 +29,7 @@ export class BeholdCollector extends SketchCollector {
         loginUrl: "https://app.behold.so/account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class InterparcelUkCollector extends SketchCollector {
         loginUrl: "https://uk.interparcel.com/myaccount/orders/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

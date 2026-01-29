@@ -29,7 +29,7 @@ export class IisiiCollector extends SketchCollector {
         loginUrl: "https://www.online-tis.de/px_rechnungen.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

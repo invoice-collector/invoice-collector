@@ -29,7 +29,7 @@ export class DrivupCollector extends SketchCollector {
         loginUrl: "https://admin.drivup.fr/abonnement.php?zone=config#",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

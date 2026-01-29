@@ -29,7 +29,7 @@ export class AzhCollector extends SketchCollector {
         loginUrl: "https://mein.hebammen-azh.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

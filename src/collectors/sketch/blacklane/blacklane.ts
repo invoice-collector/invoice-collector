@@ -29,7 +29,7 @@ export class BlacklaneCollector extends SketchCollector {
         loginUrl: "https://www.blacklane.com/de/sessions/new",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

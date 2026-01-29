@@ -29,7 +29,7 @@ export class DieZaCollector extends SketchCollector {
         loginUrl: "https://www.die-za.de/anmelden",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

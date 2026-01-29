@@ -29,7 +29,7 @@ export class StadtwerkeLindauCollector extends SketchCollector {
         loginUrl: "http://www.sw-lindau.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

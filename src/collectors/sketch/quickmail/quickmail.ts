@@ -29,7 +29,7 @@ export class QuickmailCollector extends SketchCollector {
         loginUrl: "https://next.quickmail.io/account/901/settings/subscription",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class DrogeriedepotCollector extends SketchCollector {
         loginUrl: "https://www.drogeriedepot.de/login.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

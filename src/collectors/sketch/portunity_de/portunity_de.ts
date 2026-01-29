@@ -29,7 +29,7 @@ export class PortunityDeCollector extends SketchCollector {
         loginUrl: "https://service.portunity.net/service/soft/loginform.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

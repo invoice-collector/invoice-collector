@@ -29,7 +29,7 @@ export class TntBulgariaCollector extends SketchCollector {
         loginUrl: "https://efaktura.bg/?l=bul",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

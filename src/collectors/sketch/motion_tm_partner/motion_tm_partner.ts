@@ -29,7 +29,7 @@ export class MotionTmPartnerCollector extends SketchCollector {
         loginUrl: "https://partner.motion-tm.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

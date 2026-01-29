@@ -29,7 +29,7 @@ export class PureHaircareCollector extends SketchCollector {
         loginUrl: "https://www.purehaircare.shop/Meine-Rechnungen/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

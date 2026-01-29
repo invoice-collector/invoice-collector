@@ -29,7 +29,7 @@ export class PfdFoodsBusinessCollector extends SketchCollector {
         loginUrl: "https://shop.pfdfoods.com.au/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

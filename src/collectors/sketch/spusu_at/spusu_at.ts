@@ -29,7 +29,7 @@ export class SpusuAtCollector extends SketchCollector {
         loginUrl: "https://www.spusu.at/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

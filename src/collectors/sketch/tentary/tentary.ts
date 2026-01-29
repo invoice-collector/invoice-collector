@@ -29,7 +29,7 @@ export class TentaryCollector extends SketchCollector {
         loginUrl: "https://app.tentary.com/settings/revenues/customerinvoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

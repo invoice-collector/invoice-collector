@@ -29,7 +29,7 @@ export class BonprixCollector extends SketchCollector {
         loginUrl: "https://www.bonprix.de/myaccount/invoices/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

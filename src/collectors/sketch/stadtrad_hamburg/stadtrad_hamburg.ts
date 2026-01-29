@@ -29,7 +29,7 @@ export class StadtradHamburgCollector extends SketchCollector {
         loginUrl: "https://stadtrad.hamburg.de/de/kundenbereich",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

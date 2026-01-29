@@ -29,7 +29,7 @@ export class ChatterbugCollector extends SketchCollector {
         loginUrl: "https://app.chatterbug.com/payments/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

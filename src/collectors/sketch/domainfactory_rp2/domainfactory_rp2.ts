@@ -29,7 +29,7 @@ export class DomainfactoryRp2Collector extends SketchCollector {
         loginUrl: "https://www.df.eu/de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

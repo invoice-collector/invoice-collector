@@ -29,7 +29,7 @@ export class CrefoPayCollector extends SketchCollector {
         loginUrl: "https://service.crefopay.de/msa3/#/authorized/reporting/reports",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

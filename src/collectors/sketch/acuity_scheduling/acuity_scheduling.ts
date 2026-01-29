@@ -29,7 +29,7 @@ export class AcuitySchedulingCollector extends SketchCollector {
         loginUrl: "https://secure.acuityscheduling.com/preferences.php?action=myaccount",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

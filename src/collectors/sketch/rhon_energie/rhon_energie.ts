@@ -29,7 +29,7 @@ export class RhonEnergieCollector extends SketchCollector {
         loginUrl: "https://service.re-fd.de/css/index.html#/invoiceOverview/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

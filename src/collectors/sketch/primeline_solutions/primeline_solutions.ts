@@ -29,7 +29,7 @@ export class PrimelineSolutionsCollector extends SketchCollector {
         loginUrl: "https://www.primeline-solutions.com/de/customer/invoice/all/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class EtrackerCollector extends SketchCollector {
         loginUrl: "https://application.etracker.com/login.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

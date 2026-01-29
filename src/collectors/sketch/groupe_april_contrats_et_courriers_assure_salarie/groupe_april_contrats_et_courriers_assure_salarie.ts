@@ -29,7 +29,7 @@ export class GroupeAprilContratsEtCourriersAssureSalarieCollector extends Sketch
         loginUrl: "https://espace-assures.april-entreprise-prevoyance.fr/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

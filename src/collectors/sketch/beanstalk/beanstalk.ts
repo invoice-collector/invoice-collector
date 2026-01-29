@@ -29,7 +29,7 @@ export class BeanstalkCollector extends SketchCollector {
         loginUrl: "https://login.beanstalkapp.com/session/new",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

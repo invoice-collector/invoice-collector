@@ -29,7 +29,7 @@ export class PraxairCanadaCollector extends SketchCollector {
         loginUrl: "https://xprspay.ipayxepay.net/xprspay/praxaircanada/index.jsp?resource=signon",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

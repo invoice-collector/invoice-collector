@@ -29,7 +29,7 @@ export class NudgifyCollector extends SketchCollector {
         loginUrl: "https://app.nudgify.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

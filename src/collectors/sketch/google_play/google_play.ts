@@ -29,7 +29,7 @@ export class GooglePlayCollector extends SketchCollector {
         loginUrl: "https://payments.google.com/payments/home",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

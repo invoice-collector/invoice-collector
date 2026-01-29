@@ -29,7 +29,7 @@ export class IpxoCollector extends SketchCollector {
         loginUrl: "https://www.ipxo.com/portal/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

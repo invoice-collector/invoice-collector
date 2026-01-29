@@ -29,7 +29,7 @@ export class CityOfCapeTownCollector extends SketchCollector {
         loginUrl: "https://eservices.capetown.gov.za/irj/portal/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

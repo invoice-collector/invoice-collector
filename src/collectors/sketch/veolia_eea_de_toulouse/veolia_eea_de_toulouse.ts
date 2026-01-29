@@ -29,7 +29,7 @@ export class VeoliaEeaDeToulouseCollector extends SketchCollector {
         loginUrl: "https://www.service.eau.veolia.fr/home/espace-client/vos-factures-et-correspondances.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

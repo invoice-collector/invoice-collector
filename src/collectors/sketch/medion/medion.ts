@@ -29,7 +29,7 @@ export class MedionCollector extends SketchCollector {
         loginUrl: "https://www.medion.com/de/shop/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

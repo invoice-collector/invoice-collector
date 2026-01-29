@@ -29,7 +29,7 @@ export class ShowitCollector extends SketchCollector {
         loginUrl: "https://account.showit.com/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

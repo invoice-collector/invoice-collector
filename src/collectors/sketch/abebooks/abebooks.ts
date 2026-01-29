@@ -29,7 +29,7 @@ export class AbebooksCollector extends SketchCollector {
         loginUrl: "https://www.abebooks.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

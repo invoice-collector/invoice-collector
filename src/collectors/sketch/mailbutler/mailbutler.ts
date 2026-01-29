@@ -29,7 +29,7 @@ export class MailbutlerCollector extends SketchCollector {
         loginUrl: "https://mailbutler.recurly.com/account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

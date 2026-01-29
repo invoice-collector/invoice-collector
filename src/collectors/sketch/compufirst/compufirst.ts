@@ -29,7 +29,7 @@ export class CompufirstCollector extends SketchCollector {
         loginUrl: "https://www.compufirst.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

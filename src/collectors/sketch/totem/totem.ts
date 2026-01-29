@@ -29,7 +29,7 @@ export class TotemCollector extends SketchCollector {
         loginUrl: "https://totem.co/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

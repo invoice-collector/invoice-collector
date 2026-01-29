@@ -29,7 +29,7 @@ export class SoundcloudCollector extends SketchCollector {
         loginUrl: "https://soundcloud.com/you/subscriptions",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class SolitKapitalCollector extends SketchCollector {
         loginUrl: "https://app.solit-kapital.de/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

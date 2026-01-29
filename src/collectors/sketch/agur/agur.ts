@@ -29,7 +29,7 @@ export class AgurCollector extends SketchCollector {
         loginUrl: "https://ael.agur.fr/#/facture",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

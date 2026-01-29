@@ -29,7 +29,7 @@ export class DhlComMybillCollector extends SketchCollector {
         loginUrl: "https://mybill.dhl.com/login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

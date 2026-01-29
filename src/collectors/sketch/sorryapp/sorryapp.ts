@@ -29,7 +29,7 @@ export class SorryappCollector extends SketchCollector {
         loginUrl: "https://app.sorryapp.com/billing/subscription",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

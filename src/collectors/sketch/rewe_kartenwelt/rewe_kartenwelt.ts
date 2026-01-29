@@ -29,7 +29,7 @@ export class ReweKartenweltCollector extends SketchCollector {
         loginUrl: "https://kartenwelt.rewe.de/sales/order/invoice/order_id/762116/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

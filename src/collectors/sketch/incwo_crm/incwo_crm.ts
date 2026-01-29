@@ -29,7 +29,7 @@ export class IncwoCrmCollector extends SketchCollector {
         loginUrl: "https://www.incwo.com/invoices/index/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

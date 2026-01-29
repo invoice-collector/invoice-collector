@@ -29,7 +29,7 @@ export class AllianceonlineCoUkCollector extends SketchCollector {
         loginUrl: "https://www.allianceonline.co.uk",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

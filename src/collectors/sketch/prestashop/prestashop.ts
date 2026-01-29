@@ -29,7 +29,7 @@ export class PrestashopCollector extends SketchCollector {
         loginUrl: "https://addons.prestashop.com/en/order-history?pab=1&",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

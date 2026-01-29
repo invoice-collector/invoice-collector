@@ -29,7 +29,7 @@ export class OrangeBelgiumCollector extends SketchCollector {
         loginUrl: "https://e-services.orange.be/fr/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class Performance360Collector extends SketchCollector {
         loginUrl: "https://www.performance360.de/registry-passwordreset.do",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

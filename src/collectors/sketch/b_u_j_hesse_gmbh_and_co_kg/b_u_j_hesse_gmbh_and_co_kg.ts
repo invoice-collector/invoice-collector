@@ -29,7 +29,7 @@ export class BUJHesseGmbhAndCoKgCollector extends SketchCollector {
         loginUrl: "https://www.bj-hesse.de/kontakt/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

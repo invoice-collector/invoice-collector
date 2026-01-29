@@ -29,7 +29,7 @@ export class MadeInDesignCollector extends SketchCollector {
         loginUrl: "https://www.madeindesign.co.uk/midcustomer/account/login/referer/aHR0cHM6Ly93d3cubWFkZWluZGVzaWduLmNvLnVrL21pZGN1c3RvbWVyL2FjY291bnQvaW5kZXgv/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

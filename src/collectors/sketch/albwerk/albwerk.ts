@@ -29,7 +29,7 @@ export class AlbwerkCollector extends SketchCollector {
         loginUrl: "https://portal.albwerk.de/energyportal/exec/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

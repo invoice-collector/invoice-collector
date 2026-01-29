@@ -29,7 +29,7 @@ export class VattenfallLadeappCollector extends SketchCollector {
         loginUrl: "https://vattenfall.chargecloud.de/#/account/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

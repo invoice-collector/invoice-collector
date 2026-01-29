@@ -29,7 +29,7 @@ export class CcvshopNlCollector extends SketchCollector {
         loginUrl: "https://login.ccvshop.nl/onderhoud/GenericLogin.php?Language=nl",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

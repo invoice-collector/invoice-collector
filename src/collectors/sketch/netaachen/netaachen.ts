@@ -29,7 +29,7 @@ export class NetaachenCollector extends SketchCollector {
         loginUrl: "https://onlineservice.netcologne.de/portal/customer/invoice.htm",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

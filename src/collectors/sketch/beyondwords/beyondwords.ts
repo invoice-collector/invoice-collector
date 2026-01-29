@@ -29,7 +29,7 @@ export class BeyondwordsCollector extends SketchCollector {
         loginUrl: "https://dash.beyondwords.io/dashboard/profile/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

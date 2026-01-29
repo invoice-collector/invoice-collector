@@ -29,7 +29,7 @@ export class TransfergoCollector extends SketchCollector {
         loginUrl: "https://my.transfergo.com/en/user/dashboard",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

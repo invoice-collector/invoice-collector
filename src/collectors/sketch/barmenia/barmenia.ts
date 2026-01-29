@@ -29,7 +29,7 @@ export class BarmeniaCollector extends SketchCollector {
         loginUrl: "https://www.meine-barmenia.de/postbox",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

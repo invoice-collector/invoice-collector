@@ -29,7 +29,7 @@ export class RunwayCollector extends SketchCollector {
         loginUrl: "https://app.runwayml.com/teams/pgutburth/settings?tab=billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

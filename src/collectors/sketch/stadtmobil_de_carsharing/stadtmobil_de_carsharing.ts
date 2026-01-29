@@ -29,7 +29,7 @@ export class StadtmobilDeCarsharingCollector extends SketchCollector {
         loginUrl: "https://mein.stadtmobil.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

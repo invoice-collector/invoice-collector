@@ -29,7 +29,7 @@ export class TimeMattersCollector extends SketchCollector {
         loginUrl: "https://www.time-matters.com/service-center/online-booking/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

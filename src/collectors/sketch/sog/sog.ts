@@ -29,7 +29,7 @@ export class SogCollector extends SketchCollector {
         loginUrl: "https://www.sog.de/erp-warenwirtschaft/uebersicht-erp.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

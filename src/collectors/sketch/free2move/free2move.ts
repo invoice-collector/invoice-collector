@@ -29,7 +29,7 @@ export class Free2moveCollector extends SketchCollector {
         loginUrl: "https://www.free2move.com/user/personal-account/en-GB/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

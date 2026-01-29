@@ -29,7 +29,7 @@ export class VodafoneComonCollector extends SketchCollector {
         loginUrl: "https://comon.vodafone.de/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

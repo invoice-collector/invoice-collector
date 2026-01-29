@@ -29,7 +29,7 @@ export class MissAffiliateCollector extends SketchCollector {
         loginUrl: "https://aff-missaffiliate.pay.tune.com/payment-orders",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

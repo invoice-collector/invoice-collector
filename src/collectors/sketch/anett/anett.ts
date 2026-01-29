@@ -29,7 +29,7 @@ export class AnettCollector extends SketchCollector {
         loginUrl: "https://espaceclient.anett.fr/escli/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

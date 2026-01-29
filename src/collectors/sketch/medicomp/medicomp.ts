@@ -29,7 +29,7 @@ export class MedicompCollector extends SketchCollector {
         loginUrl: "https://www.mip-ekv.de/mip.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

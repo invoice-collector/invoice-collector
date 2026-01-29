@@ -29,7 +29,7 @@ export class EastValleyWaterDistrictCollector extends SketchCollector {
         loginUrl: "https://www.municipalonlinepayments.com/eastvalleywd/utilities",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

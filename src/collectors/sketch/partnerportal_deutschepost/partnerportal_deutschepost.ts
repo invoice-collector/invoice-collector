@@ -29,7 +29,7 @@ export class PartnerportalDeutschepostCollector extends SketchCollector {
         loginUrl: "https://www.partnerportal-deutschepost.de/meine-filiale/zahlen-daten-fakten/verguetungsabrechnung.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

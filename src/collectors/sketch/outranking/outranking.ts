@@ -29,7 +29,7 @@ export class OutrankingCollector extends SketchCollector {
         loginUrl: "https://apps.outranking.io/accountsetting/subscription",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

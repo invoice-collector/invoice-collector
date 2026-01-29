@@ -29,7 +29,7 @@ export class BetterrunShopCollector extends SketchCollector {
         loginUrl: "https://www.betterrun.shop/account/orders",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

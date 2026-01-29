@@ -29,7 +29,7 @@ export class PromeaiCollector extends SketchCollector {
         loginUrl: "https://www.promeai.pro/userPayment",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

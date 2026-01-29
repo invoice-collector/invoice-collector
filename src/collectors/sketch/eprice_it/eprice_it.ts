@@ -29,7 +29,7 @@ export class EpriceItCollector extends SketchCollector {
         loginUrl: "https://www.eprice.it/login.aspx?zona=5&dove=0",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

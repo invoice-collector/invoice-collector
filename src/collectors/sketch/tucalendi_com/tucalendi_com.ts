@@ -29,7 +29,7 @@ export class TucalendiComCollector extends SketchCollector {
         loginUrl: "https://account.tucalendi.com/account/plan_settings",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

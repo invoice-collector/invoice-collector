@@ -29,7 +29,7 @@ export class SalarioCollector extends SketchCollector {
         loginUrl: "https://salario.de/user/index.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

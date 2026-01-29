@@ -29,7 +29,7 @@ export class SyscoCollector extends SketchCollector {
         loginUrl: "https://portal.sysco.com/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

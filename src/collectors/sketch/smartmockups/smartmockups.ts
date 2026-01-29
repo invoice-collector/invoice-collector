@@ -29,7 +29,7 @@ export class SmartmockupsCollector extends SketchCollector {
         loginUrl: "https://smartmockups.com/de/user-settings/plan",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

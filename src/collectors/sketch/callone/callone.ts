@@ -29,7 +29,7 @@ export class CalloneCollector extends SketchCollector {
         loginUrl: "https://box.callone.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class MutuelleMfbcoParticuliersCollector extends SketchCollector {
         loginUrl: "https://www.mutuelle-servicesplus.fr/solimutcentreocean/adherent.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

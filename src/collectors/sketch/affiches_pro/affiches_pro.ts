@@ -29,7 +29,7 @@ export class AffichesProCollector extends SketchCollector {
         loginUrl: "https://www.affichespro.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

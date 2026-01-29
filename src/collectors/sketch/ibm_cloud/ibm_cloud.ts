@@ -29,7 +29,7 @@ export class IbmCloudCollector extends SketchCollector {
         loginUrl: "https://cloud.ibm.com/billing/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

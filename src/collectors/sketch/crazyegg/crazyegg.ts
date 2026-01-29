@@ -29,7 +29,7 @@ export class CrazyeggCollector extends SketchCollector {
         loginUrl: "https://app.crazyegg.com/account/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

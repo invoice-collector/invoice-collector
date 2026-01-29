@@ -29,7 +29,7 @@ export class PowershopAuCollector extends SketchCollector {
         loginUrl: "https://www.powershop.com.au/#/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

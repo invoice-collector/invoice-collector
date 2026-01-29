@@ -29,7 +29,7 @@ export class IncentiveMallByCadoozCollector extends SketchCollector {
         loginUrl: "https://incentivemall.cadooz.com/mall/history.do;jsessionid=_KDe_8YYZnnjmLC6_FhkHHTrk_jdEiL0vhIROFmu.bus01?action=LOAD",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

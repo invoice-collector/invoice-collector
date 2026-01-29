@@ -29,7 +29,7 @@ export class TheNewYorkTimesCollector extends SketchCollector {
         loginUrl: "https://customercare.inyt.com/ManageMyAccount/ManageMyAccount.html#billingHistory:billinghistory",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

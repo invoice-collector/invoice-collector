@@ -29,7 +29,7 @@ export class JoynCollector extends SketchCollector {
         loginUrl: "https://www.joyn.de/abo/rechnung",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -28,7 +28,7 @@ export class GroupeOceaCollector extends SketchCollector {
         loginUrl: "https://isihabitat.ocea-sb.com/documents",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

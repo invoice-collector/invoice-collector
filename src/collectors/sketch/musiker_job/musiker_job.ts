@@ -29,7 +29,7 @@ export class MusikerJobCollector extends SketchCollector {
         loginUrl: "https://www.musiker-job.de/mein-konto/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class RsbRetailServiceBankGmbhCollector extends SketchCollector {
         loginUrl: "https://portal.rsb-bank.de/RSBPortal/app/index.jsf",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

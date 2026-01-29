@@ -29,7 +29,7 @@ export class EldisCollector extends SketchCollector {
         loginUrl: "https://eldis.de/open-invoice-items",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

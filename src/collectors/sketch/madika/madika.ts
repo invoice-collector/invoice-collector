@@ -29,7 +29,7 @@ export class MadikaCollector extends SketchCollector {
         loginUrl: "https://www.madika.de/bestellung/28a61vo3r79tw6w19",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

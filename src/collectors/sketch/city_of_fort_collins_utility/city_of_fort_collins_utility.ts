@@ -29,7 +29,7 @@ export class CityOfFortCollinsUtilityCollector extends SketchCollector {
         loginUrl: "https://secure8.i-doxs.net/CityOfFortCollins/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

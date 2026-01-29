@@ -29,7 +29,7 @@ export class PascomCollector extends SketchCollector {
         loginUrl: "https://my.pascom.net/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class RescuetimeCollector extends SketchCollector {
         loginUrl: "https://www.rescuetime.com/invoices/list",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class MailtimersCollector extends SketchCollector {
         loginUrl: "https://mailtimers.com/user/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

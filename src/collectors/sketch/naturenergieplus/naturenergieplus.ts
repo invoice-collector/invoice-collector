@@ -29,7 +29,7 @@ export class NaturenergieplusCollector extends SketchCollector {
         loginUrl: "https://mein.naturenergieplus.de/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

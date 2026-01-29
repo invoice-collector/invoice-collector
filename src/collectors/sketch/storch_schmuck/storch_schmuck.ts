@@ -29,7 +29,7 @@ export class StorchSchmuckCollector extends SketchCollector {
         loginUrl: "https://www.storch-schmuck.de/account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class HirmerGrosseGrossenCollector extends SketchCollector {
         loginUrl: "https://www.hirmer-grosse-groessen.de/bestellhistorie/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

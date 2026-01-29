@@ -29,7 +29,7 @@ export class SaiSubscriptionsCollector extends SketchCollector {
         loginUrl: "https://www.saisubscriptions.com/?invoices=open",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

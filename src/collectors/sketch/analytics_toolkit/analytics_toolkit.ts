@@ -29,7 +29,7 @@ export class AnalyticsToolkitCollector extends SketchCollector {
         loginUrl: "https://www.analytics-toolkit.com/login.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

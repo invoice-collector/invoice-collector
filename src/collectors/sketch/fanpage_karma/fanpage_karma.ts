@@ -29,7 +29,7 @@ export class FanpageKarmaCollector extends SketchCollector {
         loginUrl: "https://www.fanpagekarma.com/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

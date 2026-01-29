@@ -29,7 +29,7 @@ export class GftCollector extends SketchCollector {
         loginUrl: "https://www.gft-eg.de/de/startseite.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

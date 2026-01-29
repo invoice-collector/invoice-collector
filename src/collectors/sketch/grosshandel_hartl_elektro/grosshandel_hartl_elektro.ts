@@ -29,7 +29,7 @@ export class GrosshandelHartlElektroCollector extends SketchCollector {
         loginUrl: "https://hartl.elektro-online.de/login.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

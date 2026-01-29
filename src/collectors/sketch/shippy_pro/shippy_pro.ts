@@ -29,7 +29,7 @@ export class ShippyProCollector extends SketchCollector {
         loginUrl: "https://compute.fattureincloud.it/doc/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

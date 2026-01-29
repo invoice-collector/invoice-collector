@@ -29,7 +29,7 @@ export class UniperSeCollector extends SketchCollector {
         loginUrl: "https://uniperdigitalext.b2clogin.com/uniperdigitalext.onmicrosoft.com/B2C_1_external_user_sign_in_v2/oauth2/v2.0/authorize?client_id=eae0e73c-04f8-41ff-a7a5-2d3eb4d599b7&redirect_uri=https://uniper-digital.de/openIdConnect&response_type=code&scope=openid",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

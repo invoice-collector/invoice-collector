@@ -29,7 +29,7 @@ export class PhotowebFrCollector extends SketchCollector {
         loginUrl: "https://www.photoweb.fr/moncompte/Account/LogOn?ReturnUrl=%2fmoncompte%2f#registration-modal",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

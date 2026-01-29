@@ -29,7 +29,7 @@ export class StripoEmailCollector extends SketchCollector {
         loginUrl: "https://my.stripo.email/cabinet/#/billing/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

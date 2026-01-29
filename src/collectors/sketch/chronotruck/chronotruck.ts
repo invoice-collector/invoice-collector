@@ -29,7 +29,7 @@ export class ChronotruckCollector extends SketchCollector {
         loginUrl: "https://www.chronotruck.com/fr_FR/connexion",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

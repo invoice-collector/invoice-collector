@@ -29,7 +29,7 @@ export class _24adsCollector extends SketchCollector {
         loginUrl: "https://partner.net.24-ads.com/app/index.html#/account/payments",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

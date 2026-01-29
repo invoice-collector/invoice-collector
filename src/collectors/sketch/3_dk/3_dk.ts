@@ -29,7 +29,7 @@ export class _3DkCollector extends SketchCollector {
         loginUrl: "https://www.3.dk/selvbetjening/login?returnUrl=/selvbetjening/regning/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

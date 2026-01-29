@@ -29,7 +29,7 @@ export class JustworksCollector extends SketchCollector {
         loginUrl: "https://secure.justworks.com/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

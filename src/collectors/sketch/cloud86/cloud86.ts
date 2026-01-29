@@ -29,7 +29,7 @@ export class Cloud86Collector extends SketchCollector {
         loginUrl: "https://my.cloud86.io/clientarea.php?action=invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

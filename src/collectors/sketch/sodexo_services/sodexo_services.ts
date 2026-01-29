@@ -29,7 +29,7 @@ export class SodexoServicesCollector extends SketchCollector {
         loginUrl: "https://essen-bei-sodexo.de/mein-essen.html#/login//plan",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

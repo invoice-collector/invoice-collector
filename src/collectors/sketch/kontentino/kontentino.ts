@@ -29,7 +29,7 @@ export class KontentinoCollector extends SketchCollector {
         loginUrl: "https://combyne.kontentino.com/billing/payments/history",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

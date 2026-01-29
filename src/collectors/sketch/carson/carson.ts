@@ -29,7 +29,7 @@ export class CarsonCollector extends SketchCollector {
         loginUrl: "https://dashboard.heycarson.com/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

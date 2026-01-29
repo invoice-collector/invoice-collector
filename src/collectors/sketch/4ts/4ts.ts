@@ -29,7 +29,7 @@ export class _4tsCollector extends SketchCollector {
         loginUrl: "https://kunden.4ts.at/index.php?",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class StadtwerkeItzehoeCollector extends SketchCollector {
         loginUrl: "http://www.schwimmzentrum-itzehoe.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

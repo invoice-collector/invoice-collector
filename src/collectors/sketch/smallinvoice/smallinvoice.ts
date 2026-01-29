@@ -29,7 +29,7 @@ export class SmallinvoiceCollector extends SketchCollector {
         loginUrl: "https://app.smallinvoice.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class DtadDeCollector extends SketchCollector {
         loginUrl: "https://www.dtad.de/login/;jsessionid=1C2B5674DA488F938325C8E10B5F20E0",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

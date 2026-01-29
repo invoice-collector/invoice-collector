@@ -29,7 +29,7 @@ export class FdjFranceCollector extends SketchCollector {
         loginUrl: "https://www.fdj.fr/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class VecteezyCollector extends SketchCollector {
         loginUrl: "https://www.vecteezy.com/account/payments_history",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

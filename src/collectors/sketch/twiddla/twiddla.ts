@@ -29,7 +29,7 @@ export class TwiddlaCollector extends SketchCollector {
         loginUrl: "http://www.twiddla.com/Account/Billing.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

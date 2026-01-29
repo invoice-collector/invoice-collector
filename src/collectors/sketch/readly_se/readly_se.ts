@@ -29,7 +29,7 @@ export class ReadlySeCollector extends SketchCollector {
         loginUrl: "https://se.readly.com/accounts/subscriptions",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

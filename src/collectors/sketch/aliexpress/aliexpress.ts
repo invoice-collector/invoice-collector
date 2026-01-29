@@ -29,7 +29,7 @@ export class AliexpressCollector extends SketchCollector {
         loginUrl: "https://trade.aliexpress.com/orderList.htm?tracelog=ws_topbar",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class NordpassBusinessCollector extends SketchCollector {
         loginUrl: "https://panel.nordpass.com/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

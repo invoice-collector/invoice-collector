@@ -29,7 +29,7 @@ export class WappalyzerCollector extends SketchCollector {
         loginUrl: "https://www.wappalyzer.com/invoices/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class CornelsenVerlagCollector extends SketchCollector {
         loginUrl: "https://www.cvk-online.de/rechnungen.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

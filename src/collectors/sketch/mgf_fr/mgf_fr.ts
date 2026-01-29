@@ -28,7 +28,7 @@ export class MgfCollector extends SketchCollector {
         loginUrl: "https://www.mgf-info.fr/customer/account/login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

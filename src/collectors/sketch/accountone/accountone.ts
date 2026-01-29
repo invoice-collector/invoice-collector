@@ -29,7 +29,7 @@ export class AccountoneCollector extends SketchCollector {
         loginUrl: "https://service.accountone.de/myaccountone/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

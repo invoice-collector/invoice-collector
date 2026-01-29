@@ -29,7 +29,7 @@ export class MontDeMarsanAggloEauCollector extends SketchCollector {
         loginUrl: "https://portail-web.montdemarsanagglo-eau.fr/wp/showDisplayBills.action",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

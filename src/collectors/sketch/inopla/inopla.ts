@@ -29,7 +29,7 @@ export class InoplaCollector extends SketchCollector {
         loginUrl: "https://auth.inopla.de/realms/inopla/protocol/openid-connect/auth?response_type=code&client_id=administration&redirect_uri=https://app.inopla.de&scope=openid",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

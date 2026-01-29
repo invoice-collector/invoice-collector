@@ -29,7 +29,7 @@ export class CompassminingIoCollector extends SketchCollector {
         loginUrl: "https://compassmining.io/profile",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

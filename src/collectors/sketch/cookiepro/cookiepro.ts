@@ -29,7 +29,7 @@ export class CookieproCollector extends SketchCollector {
         loginUrl: "https://app.cookiepro.com/settings/general/billing-and-subscriptions",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class FnacCollector extends SketchCollector {
         loginUrl: "https://secure.fnac.com/identity/gateway/signin?logonType=StandardCreation&pageRedir=https%3a%2f%2fsecure.fnac.com%2faccount%2fensure-authenticated%3fpagePar%26pageRedir%3dhttps%253a%252f%252fwww.fnac.com%252f&section=signin",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

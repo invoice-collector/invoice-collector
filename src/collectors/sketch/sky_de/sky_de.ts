@@ -29,7 +29,7 @@ export class SkyDeCollector extends SketchCollector {
         loginUrl: "http://www.sky.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class StadtwerkeStadeCollector extends SketchCollector {
         loginUrl: "https://swscsit.stadtwerke-stade.de/csit/action/csLogin?formReset.x=true",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

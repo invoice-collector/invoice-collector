@@ -29,7 +29,7 @@ export class MakhCollector extends SketchCollector {
         loginUrl: "https://www.makh.org/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

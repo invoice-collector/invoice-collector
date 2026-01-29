@@ -29,7 +29,7 @@ export class BerlinRecyclingCollector extends SketchCollector {
         loginUrl: "https://kundenportal.berlin-recycling.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

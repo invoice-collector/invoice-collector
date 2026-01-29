@@ -29,7 +29,7 @@ export class DachauCitycomCollector extends SketchCollector {
         loginUrl: "https://www.dachau-citycom.de/rechnung-online/index.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

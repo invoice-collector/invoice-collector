@@ -29,7 +29,7 @@ export class SmoothPandaCollector extends SketchCollector {
         loginUrl: "https://smoothpanda.de/account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

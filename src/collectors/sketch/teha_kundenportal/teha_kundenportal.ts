@@ -29,7 +29,7 @@ export class TehaKundenportalCollector extends SketchCollector {
         loginUrl: "https://login.teha-wd.de/accounting/overview",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

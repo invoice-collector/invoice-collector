@@ -29,7 +29,7 @@ export class _4leadsCollector extends SketchCollector {
         loginUrl: "https://app.4leads.net/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

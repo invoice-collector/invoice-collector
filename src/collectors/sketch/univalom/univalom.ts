@@ -29,7 +29,7 @@ export class UnivalomCollector extends SketchCollector {
         loginUrl: "https://univalom.ecocito.com/Usager/Facture/Index",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

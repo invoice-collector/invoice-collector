@@ -29,7 +29,7 @@ export class PplElectricUtilitiesCollector extends SketchCollector {
         loginUrl: "https://www.pplelectric.com/my-account/login.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

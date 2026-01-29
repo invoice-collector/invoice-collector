@@ -29,7 +29,7 @@ export class EdxCollector extends SketchCollector {
         loginUrl: "https://ecommerce.edx.org/checkout/receipt/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

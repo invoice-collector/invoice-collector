@@ -29,7 +29,7 @@ export class TweetfullCollector extends SketchCollector {
         loginUrl: "https://www.tweetfull.com/signin.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

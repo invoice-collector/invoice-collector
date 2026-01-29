@@ -29,7 +29,7 @@ export class NutrilizeCollector extends SketchCollector {
         loginUrl: "https://portal.nutrilize.app/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

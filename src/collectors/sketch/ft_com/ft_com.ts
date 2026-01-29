@@ -29,7 +29,7 @@ export class FtComCollector extends SketchCollector {
         loginUrl: "https://accounts.ft.com/login?location=https%3A%2F%2Fwww.ft.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

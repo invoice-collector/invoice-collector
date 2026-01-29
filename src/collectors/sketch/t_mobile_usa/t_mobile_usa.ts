@@ -29,7 +29,7 @@ export class TMobileUsaCollector extends SketchCollector {
         loginUrl: "https://my.t-mobile.com/billing/summary.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

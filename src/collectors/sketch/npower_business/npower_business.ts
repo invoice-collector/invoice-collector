@@ -29,7 +29,7 @@ export class NpowerBusinessCollector extends SketchCollector {
         loginUrl: "https://www.npower.com/in_business/applications/BusinessOAM/SME.OAM/Logon.aspx#/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

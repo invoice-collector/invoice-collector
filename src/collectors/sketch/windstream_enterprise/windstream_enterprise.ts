@@ -29,7 +29,7 @@ export class WindstreamEnterpriseCollector extends SketchCollector {
         loginUrl: "https://www.windstreamonline.com/pol/Home.action?cm_sp=BizUtilityNav-_-Customer%2520Login-_-NA",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

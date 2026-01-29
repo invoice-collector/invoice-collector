@@ -29,7 +29,7 @@ export class MeeroCollector extends SketchCollector {
         loginUrl: "https://www.meero.com/customer/fr",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

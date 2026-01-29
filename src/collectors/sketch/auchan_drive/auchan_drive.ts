@@ -29,7 +29,7 @@ export class AuchanDriveCollector extends SketchCollector {
         loginUrl: "http://www.auchandrive.fr",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

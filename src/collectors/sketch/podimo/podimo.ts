@@ -29,7 +29,7 @@ export class PodimoCollector extends SketchCollector {
         loginUrl: "https://account.podimo.com/account/payment",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

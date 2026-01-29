@@ -29,7 +29,7 @@ export class GiffgaffCollector extends SketchCollector {
         loginUrl: "https://www.giffgaff.com/auth/login?redirect=%2Fdashboard",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

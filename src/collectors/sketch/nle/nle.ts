@@ -29,7 +29,7 @@ export class NleCollector extends SketchCollector {
         loginUrl: "https://mijn.nle.nl/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

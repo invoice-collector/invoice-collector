@@ -29,7 +29,7 @@ export class ChatfuelCollector extends SketchCollector {
         loginUrl: "https://dashboard.chatfuel.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

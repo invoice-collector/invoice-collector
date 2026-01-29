@@ -29,7 +29,7 @@ export class TeslafiCollector extends SketchCollector {
         loginUrl: "https://www.teslafi.com/userlogin.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

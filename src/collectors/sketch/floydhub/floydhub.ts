@@ -29,7 +29,7 @@ export class FloydhubCollector extends SketchCollector {
         loginUrl: "https://www.floydhub.com/settings/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

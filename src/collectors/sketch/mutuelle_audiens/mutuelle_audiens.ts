@@ -29,7 +29,7 @@ export class MutuelleAudiensCollector extends SketchCollector {
         loginUrl: "https://www.audiens.org/accueil/espaces-securises.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

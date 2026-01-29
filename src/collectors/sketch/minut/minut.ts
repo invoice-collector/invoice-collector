@@ -29,7 +29,7 @@ export class MinutCollector extends SketchCollector {
         loginUrl: "https://web.minut.com/account/settings_billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

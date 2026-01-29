@@ -29,7 +29,7 @@ export class OnlinepackCollector extends SketchCollector {
         loginUrl: "https://www.onlinepack.de/Mein-Konto",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

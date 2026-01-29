@@ -29,7 +29,7 @@ export class BinaryFortressSoftwareCollector extends SketchCollector {
         loginUrl: "https://www.binaryfortress.com/Account/Login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

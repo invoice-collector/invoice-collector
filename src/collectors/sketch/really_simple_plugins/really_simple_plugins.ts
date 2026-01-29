@@ -29,7 +29,7 @@ export class ReallySimplePluginsCollector extends SketchCollector {
         loginUrl: "https://really-simple-ssl.com/login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

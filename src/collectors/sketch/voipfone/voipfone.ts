@@ -29,7 +29,7 @@ export class VoipfoneCollector extends SketchCollector {
         loginUrl: "https://www.voipfone.co.uk/login.php?url=%2Faccount.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

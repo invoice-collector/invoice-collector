@@ -29,7 +29,7 @@ export class ClippingMagicCollector extends SketchCollector {
         loginUrl: "https://de.clippingmagic.com/account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

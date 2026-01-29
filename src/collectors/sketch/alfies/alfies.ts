@@ -29,7 +29,7 @@ export class AlfiesCollector extends SketchCollector {
         loginUrl: "http://www.alfies.at",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

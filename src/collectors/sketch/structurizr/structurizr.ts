@@ -29,7 +29,7 @@ export class StructurizrCollector extends SketchCollector {
         loginUrl: "https://structurizr.com/user/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

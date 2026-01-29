@@ -29,7 +29,7 @@ export class ReweMerchantCenterCollector extends SketchCollector {
         loginUrl: "https://mc.europe-west1.gcp.commercetools.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

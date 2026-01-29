@@ -29,7 +29,7 @@ export class _123formbuilderCollector extends SketchCollector {
         loginUrl: "https://www.123formbuilder.com/index.php?p=myaccount&click_from=usrman#account-details",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

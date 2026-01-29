@@ -29,7 +29,7 @@ export class CasafariCollector extends SketchCollector {
         loginUrl: "https://de.casafari.com/account/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class HvvSwitchCollector extends SketchCollector {
         loginUrl: "https://www.hvv-switch.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

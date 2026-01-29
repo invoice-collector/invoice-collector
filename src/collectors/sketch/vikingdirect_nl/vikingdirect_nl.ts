@@ -29,7 +29,7 @@ export class VikingdirectNlCollector extends SketchCollector {
         loginUrl: "https://www.vikingdirect.nl/nl/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

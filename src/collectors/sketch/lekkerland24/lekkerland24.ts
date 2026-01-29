@@ -29,7 +29,7 @@ export class Lekkerland24Collector extends SketchCollector {
         loginUrl: "https://www.lekkerland24.de/index.php?cl=account_order",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

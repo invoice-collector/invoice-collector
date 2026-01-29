@@ -29,7 +29,7 @@ export class PacklinkProCollector extends SketchCollector {
         loginUrl: "https://pro.packlink.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

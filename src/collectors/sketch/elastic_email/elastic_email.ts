@@ -29,7 +29,7 @@ export class ElasticEmailCollector extends SketchCollector {
         loginUrl: "https://elasticemail.com/account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

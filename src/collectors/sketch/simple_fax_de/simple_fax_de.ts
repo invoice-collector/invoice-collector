@@ -29,7 +29,7 @@ export class SimpleFaxDeCollector extends SketchCollector {
         loginUrl: "https://simple-fax.de/app/kontoeinstellungen/?task=rechnungen",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

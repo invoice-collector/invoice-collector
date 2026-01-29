@@ -29,7 +29,7 @@ export class InterMaklerportalCollector extends SketchCollector {
         loginUrl: "https://makler.inter.de/e-abrechnungsservice",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class FlachServiceBundCollector extends SketchCollector {
         loginUrl: "https://flach-buettelborn.servicebund.com/account/reports",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class BefeniCollector extends SketchCollector {
         loginUrl: "https://www.befeni.de/login.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

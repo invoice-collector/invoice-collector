@@ -29,7 +29,7 @@ export class OuiSncfCollector extends SketchCollector {
         loginUrl: "https://www.oui.sncf/services-train/suivi-commande",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

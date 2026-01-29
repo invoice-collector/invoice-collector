@@ -29,7 +29,7 @@ export class FastbillCollector extends SketchCollector {
         loginUrl: "https://my.fastbill.com/index.php?cmd=1",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

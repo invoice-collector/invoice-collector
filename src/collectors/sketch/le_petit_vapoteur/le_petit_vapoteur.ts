@@ -29,7 +29,7 @@ export class LePetitVapoteurCollector extends SketchCollector {
         loginUrl: "https://www.lepetitvapoteur.com/fr/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

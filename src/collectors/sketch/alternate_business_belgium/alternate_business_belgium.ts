@@ -29,7 +29,7 @@ export class AlternateBusinessBelgiumCollector extends SketchCollector {
         loginUrl: "https://business.alternate.be/customerAccountOrders.xhtml",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

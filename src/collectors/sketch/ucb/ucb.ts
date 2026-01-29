@@ -29,7 +29,7 @@ export class UcbCollector extends SketchCollector {
         loginUrl: "https://www.ucb.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

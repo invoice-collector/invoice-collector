@@ -29,7 +29,7 @@ export class InmotionhostingCollector extends SketchCollector {
         loginUrl: "https://secure1.inmotionhosting.com/index/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

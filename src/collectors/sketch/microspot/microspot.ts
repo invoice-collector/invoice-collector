@@ -29,7 +29,7 @@ export class MicrospotCollector extends SketchCollector {
         loginUrl: "https://www.microspot.ch/de/account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

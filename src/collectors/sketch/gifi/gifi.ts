@@ -28,7 +28,7 @@ export class GifiCollector extends SketchCollector {
         loginUrl: "https://www.gifi.fr/connexion-compte",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

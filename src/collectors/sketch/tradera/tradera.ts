@@ -29,7 +29,7 @@ export class TraderaCollector extends SketchCollector {
         loginUrl: "https://www.tradera.com/my/Invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

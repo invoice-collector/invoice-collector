@@ -29,7 +29,7 @@ export class AtmsCollector extends SketchCollector {
         loginUrl: "https://atms.at",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

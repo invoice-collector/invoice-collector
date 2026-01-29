@@ -29,7 +29,7 @@ export class FloordirektCollector extends SketchCollector {
         loginUrl: "https://www.floordirekt.de/customer/account/login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

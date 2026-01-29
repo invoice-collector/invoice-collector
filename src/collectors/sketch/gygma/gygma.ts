@@ -29,7 +29,7 @@ export class GygmaCollector extends SketchCollector {
         loginUrl: "https://www.bygma.dk",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

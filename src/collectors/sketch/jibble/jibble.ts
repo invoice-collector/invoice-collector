@@ -29,7 +29,7 @@ export class JibbleCollector extends SketchCollector {
         loginUrl: "https://app.jibble.io/#login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class ToysforfunCollector extends SketchCollector {
         loginUrl: "https://www.toys-for-fun.com/de/customer/account/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

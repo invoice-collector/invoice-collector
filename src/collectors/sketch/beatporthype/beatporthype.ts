@@ -29,7 +29,7 @@ export class BeatporthypeCollector extends SketchCollector {
         loginUrl: "https://gethype.beatport.com/account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

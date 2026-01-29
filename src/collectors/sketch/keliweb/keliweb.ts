@@ -29,7 +29,7 @@ export class KeliwebCollector extends SketchCollector {
         loginUrl: "https://www.keliweb.it/billing/clientarea.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

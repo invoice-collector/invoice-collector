@@ -29,7 +29,7 @@ export class BricopriveCollector extends SketchCollector {
         loginUrl: "https://www.bricoprive.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

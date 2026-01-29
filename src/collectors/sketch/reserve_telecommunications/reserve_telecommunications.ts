@@ -29,7 +29,7 @@ export class ReserveTelecommunicationsCollector extends SketchCollector {
         loginUrl: "https://rtconline.smarthub.coop/Login.html#login:",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

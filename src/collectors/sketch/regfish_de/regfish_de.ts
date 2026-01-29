@@ -29,7 +29,7 @@ export class RegfishDeCollector extends SketchCollector {
         loginUrl: "https://www.regfish.de/my/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

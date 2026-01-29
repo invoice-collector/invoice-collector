@@ -29,7 +29,7 @@ export class ResendCollector extends SketchCollector {
         loginUrl: "https://resend.com/settings/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

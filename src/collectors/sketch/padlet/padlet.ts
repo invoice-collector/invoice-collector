@@ -29,7 +29,7 @@ export class PadletCollector extends SketchCollector {
         loginUrl: "https://padlet.com/dashboard/settings/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

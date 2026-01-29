@@ -29,7 +29,7 @@ export class _1822direktCollector extends SketchCollector {
         loginUrl: "https://www.1822direkt-banking.de/JOBa1822Client/#/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

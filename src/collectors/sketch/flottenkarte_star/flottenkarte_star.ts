@@ -29,7 +29,7 @@ export class FlottenkarteStarCollector extends SketchCollector {
         loginUrl: "https://flottenkarte.star.de/rechnungen",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

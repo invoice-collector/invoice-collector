@@ -29,7 +29,7 @@ export class PicanovaB2bCollector extends SketchCollector {
         loginUrl: "https://b2b-shop-eu.picanova.com/de/bestellungen.jsf",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

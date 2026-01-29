@@ -29,7 +29,7 @@ export class TitanFitnessCollector extends SketchCollector {
         loginUrl: "https://www.titan.fitness/account?registration=false&loginType=Login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

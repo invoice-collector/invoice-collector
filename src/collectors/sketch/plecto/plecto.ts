@@ -29,7 +29,7 @@ export class PlectoCollector extends SketchCollector {
         loginUrl: "https://app.plecto.com/admin/billing/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

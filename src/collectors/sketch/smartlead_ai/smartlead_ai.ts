@@ -29,7 +29,7 @@ export class SmartleadAiCollector extends SketchCollector {
         loginUrl: "https://app.smartlead.ai/app/settings/subscription",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

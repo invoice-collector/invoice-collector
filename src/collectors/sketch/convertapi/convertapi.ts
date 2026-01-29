@@ -29,7 +29,7 @@ export class ConvertapiCollector extends SketchCollector {
         loginUrl: "https://www.convertapi.com/a/receipts",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

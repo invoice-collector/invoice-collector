@@ -29,7 +29,7 @@ export class KarmaBotCollector extends SketchCollector {
         loginUrl: "https://app.karmabot.chat/admin/billing#/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

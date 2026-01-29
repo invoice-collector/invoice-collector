@@ -29,7 +29,7 @@ export class RichterFrenzelCollector extends SketchCollector {
         loginUrl: "https://www.richter-frenzel.de/b2b/profi-login/#e-sales",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class AftershipCollector extends SketchCollector {
         loginUrl: "https://secure.aftership.com/#/profile/payment-history",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

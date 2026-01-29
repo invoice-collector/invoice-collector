@@ -29,7 +29,7 @@ export class MutuelleVivinterEspaceAssureCollector extends SketchCollector {
         loginUrl: "https://assure.vivinter.fr/connexion.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

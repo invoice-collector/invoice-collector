@@ -29,7 +29,7 @@ export class NordischNetCollector extends SketchCollector {
         loginUrl: "https://portal.gvg-glasfaser.de/path/portal/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

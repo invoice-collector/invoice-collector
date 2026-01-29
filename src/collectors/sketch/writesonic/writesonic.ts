@@ -29,7 +29,7 @@ export class WritesonicCollector extends SketchCollector {
         loginUrl: "https://app.writesonic.com/settings/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class EnviaTelPortalCollector extends SketchCollector {
         loginUrl: "https://portal.enviatel.de/rechnungen_verbrauch/rechnungen/2019/7/Stammdaten::Bill/10217568",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

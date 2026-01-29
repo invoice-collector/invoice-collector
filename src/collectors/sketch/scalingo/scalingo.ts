@@ -29,7 +29,7 @@ export class ScalingoCollector extends SketchCollector {
         loginUrl: "https://my.scalingo.com/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

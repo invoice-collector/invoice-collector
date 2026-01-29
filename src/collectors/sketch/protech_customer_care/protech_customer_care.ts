@@ -29,7 +29,7 @@ export class ProtechCustomerCareCollector extends SketchCollector {
         loginUrl: "https://my.protechassociates.com/My-Protech/My-Paid-Invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

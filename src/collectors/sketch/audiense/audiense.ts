@@ -29,7 +29,7 @@ export class AudienseCollector extends SketchCollector {
         loginUrl: "https://dashboard.audiense.com/?main-product=true&_ga=2.201741969.165080570.1524064356-374652238.1524064356#/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

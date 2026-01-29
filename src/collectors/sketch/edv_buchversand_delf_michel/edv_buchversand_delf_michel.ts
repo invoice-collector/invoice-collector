@@ -29,7 +29,7 @@ export class EdvBuchversandDelfMichelCollector extends SketchCollector {
         loginUrl: "https://www.edv-buchversand.de/index.php?cnt=userportal",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

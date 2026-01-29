@@ -29,7 +29,7 @@ export class Pm2KeymetricsCollector extends SketchCollector {
         loginUrl: "https://id.keymetrics.io/api/oauth/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

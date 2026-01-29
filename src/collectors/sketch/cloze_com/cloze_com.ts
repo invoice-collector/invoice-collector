@@ -29,7 +29,7 @@ export class ClozeComCollector extends SketchCollector {
         loginUrl: "https://www.cloze.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

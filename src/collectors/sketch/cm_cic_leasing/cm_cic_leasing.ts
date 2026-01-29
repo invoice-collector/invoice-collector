@@ -29,7 +29,7 @@ export class CmCicLeasingCollector extends SketchCollector {
         loginUrl: "https://www.espaceclients.cmcic-leasing.fr/espaceclients/initMesContrats#horizontalTab3",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

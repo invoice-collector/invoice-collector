@@ -29,7 +29,7 @@ export class CompanyhouseAgCollector extends SketchCollector {
         loginUrl: "https://www.companyhouse.de/user/bestellungen",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

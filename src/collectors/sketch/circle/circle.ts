@@ -29,7 +29,7 @@ export class CircleCollector extends SketchCollector {
         loginUrl: "https://login.circle.so/sign_in?request_host=app.circle.so",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

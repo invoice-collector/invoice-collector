@@ -29,7 +29,7 @@ export class TokyCollector extends SketchCollector {
         loginUrl: "https://app.toky.co/business/receipts",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

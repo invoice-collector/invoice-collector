@@ -29,7 +29,7 @@ export class ComodosslstoreCollector extends SketchCollector {
         loginUrl: "https://comodosslstore.com/client/orders.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

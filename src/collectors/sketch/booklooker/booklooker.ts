@@ -29,7 +29,7 @@ export class BooklookerCollector extends SketchCollector {
         loginUrl: "https://www.booklooker.de/app/priv/deals.php?",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

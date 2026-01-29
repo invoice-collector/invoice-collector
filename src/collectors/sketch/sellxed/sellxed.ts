@@ -29,7 +29,7 @@ export class SellxedCollector extends SketchCollector {
         loginUrl: "https://www.sellxed.com/shop/de/chf/extensions.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

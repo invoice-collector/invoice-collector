@@ -29,7 +29,7 @@ export class PacketstreamCollector extends SketchCollector {
         loginUrl: "https://packetstream.io/dashboard/account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

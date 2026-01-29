@@ -29,7 +29,7 @@ export class LieferantenDeCollector extends SketchCollector {
         loginUrl: "https://www.lieferanten.de/#loginBox",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

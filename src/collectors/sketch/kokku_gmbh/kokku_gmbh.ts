@@ -29,7 +29,7 @@ export class KokkuGmbhCollector extends SketchCollector {
         loginUrl: "https://kokku-online.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

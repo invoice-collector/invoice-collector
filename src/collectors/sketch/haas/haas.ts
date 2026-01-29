@@ -29,7 +29,7 @@ export class HaasCollector extends SketchCollector {
         loginUrl: "https://seminare.haas-wir-steuern.de/Account/Login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

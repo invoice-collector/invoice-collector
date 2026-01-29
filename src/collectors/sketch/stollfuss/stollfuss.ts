@@ -29,7 +29,7 @@ export class StollfussCollector extends SketchCollector {
         loginUrl: "https://www.stollfuss.de/software-service.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

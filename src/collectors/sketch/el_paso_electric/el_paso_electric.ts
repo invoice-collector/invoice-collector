@@ -29,7 +29,7 @@ export class ElPasoElectricCollector extends SketchCollector {
         loginUrl: "https://myaccount.epelectric.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

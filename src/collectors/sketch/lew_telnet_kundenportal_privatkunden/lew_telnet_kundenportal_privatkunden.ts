@@ -29,7 +29,7 @@ export class LewTelnetKundenportalPrivatkundenCollector extends SketchCollector 
         loginUrl: "https://kundenportal.lew-highspeed.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

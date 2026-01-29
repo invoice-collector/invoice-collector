@@ -29,7 +29,7 @@ export class GlsOneCollector extends SketchCollector {
         loginUrl: "https://www.gls-one.de/de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

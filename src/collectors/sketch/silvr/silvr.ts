@@ -29,7 +29,7 @@ export class SilvrCollector extends SketchCollector {
         loginUrl: "https://app.silvr.co/login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

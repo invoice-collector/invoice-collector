@@ -29,7 +29,7 @@ export class OpenTelekomCloudCollector extends SketchCollector {
         loginUrl: "https://www.websso.t-systems.com/MyWorkplace/General/TSIPageContainer.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class VeoliaOnlineShopCollector extends SketchCollector {
         loginUrl: "https://shop.veolia.de/account/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

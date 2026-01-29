@@ -29,7 +29,7 @@ export class SketchfabCollector extends SketchCollector {
         loginUrl: "https://sketchfab.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

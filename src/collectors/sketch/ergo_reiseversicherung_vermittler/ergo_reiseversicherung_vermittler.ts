@@ -29,7 +29,7 @@ export class ErgoReiseversicherungVermittlerCollector extends SketchCollector {
         loginUrl: "https://www.reiseversicherung.de/de/partner/reisebuero/index.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

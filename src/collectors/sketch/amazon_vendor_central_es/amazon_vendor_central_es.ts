@@ -29,7 +29,7 @@ export class AmazonVendorCentralEsCollector extends SketchCollector {
         loginUrl: "https://vendorcentral.amazon.es/gp/vendor/members/contracogs?ref_=vc_ven-ven-home_subNav",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

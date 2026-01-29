@@ -29,7 +29,7 @@ export class VimexxCollector extends SketchCollector {
         loginUrl: "https://www.vimexx.nl/orders",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

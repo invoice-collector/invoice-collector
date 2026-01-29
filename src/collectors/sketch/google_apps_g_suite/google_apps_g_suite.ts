@@ -29,7 +29,7 @@ export class GoogleAppsGSuiteCollector extends SketchCollector {
         loginUrl: "https://admin.google.com/AdminHome",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class IDeGrupoIberdrolaCollector extends SketchCollector {
         loginUrl: "https://www.i-de.es/consumidores/web/home/contract/consumption-electronic-bill",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

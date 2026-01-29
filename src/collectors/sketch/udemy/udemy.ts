@@ -29,7 +29,7 @@ export class UdemyCollector extends SketchCollector {
         loginUrl: "https://www.udemy.com/join/login-popup/?next=/dashboard/purchase-history/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

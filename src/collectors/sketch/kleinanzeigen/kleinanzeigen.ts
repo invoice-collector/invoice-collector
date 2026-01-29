@@ -29,7 +29,7 @@ export class KleinanzeigenCollector extends SketchCollector {
         loginUrl: "https://www.kleinanzeigen.de/m-rechnungen.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

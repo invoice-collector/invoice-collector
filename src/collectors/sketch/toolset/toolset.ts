@@ -29,7 +29,7 @@ export class ToolsetCollector extends SketchCollector {
         loginUrl: "https://toolset.com/log-in/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

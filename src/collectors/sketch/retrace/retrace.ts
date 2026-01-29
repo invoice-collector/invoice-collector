@@ -29,7 +29,7 @@ export class RetraceCollector extends SketchCollector {
         loginUrl: "https://s1.stackify.com/Manage/ManageSubscription/ViewStatements",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

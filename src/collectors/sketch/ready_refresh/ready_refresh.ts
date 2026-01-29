@@ -29,7 +29,7 @@ export class ReadyRefreshCollector extends SketchCollector {
         loginUrl: "https://www.readyrefresh.com/en/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class RoastmarketCollector extends SketchCollector {
         loginUrl: "https://www.roastmarket.de/customer/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

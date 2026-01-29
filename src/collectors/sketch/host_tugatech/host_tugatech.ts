@@ -29,7 +29,7 @@ export class HostTugatechCollector extends SketchCollector {
         loginUrl: "https://clientes.host.tugatech.com.pt/clientarea.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

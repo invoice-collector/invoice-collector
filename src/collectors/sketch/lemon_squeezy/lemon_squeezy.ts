@@ -29,7 +29,7 @@ export class LemonSqueezyCollector extends SketchCollector {
         loginUrl: "https://app.lemonsqueezy.com/my-orders/991b6869-2dca-4c71-845d-e4e63b06ee7a?signature=6cff2efc9eb3d696face66a5b19d71730d1e20f36dcb85322e5df4210f33025d",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

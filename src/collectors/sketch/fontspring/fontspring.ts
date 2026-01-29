@@ -29,7 +29,7 @@ export class FontspringCollector extends SketchCollector {
         loginUrl: "https://www.fontspring.com/account/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

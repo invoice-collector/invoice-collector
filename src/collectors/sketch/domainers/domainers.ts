@@ -29,7 +29,7 @@ export class DomainersCollector extends SketchCollector {
         loginUrl: "https://order.domainers.de/login.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class FinelineTechnologiesCollector extends SketchCollector {
         loginUrl: "https://www.finelineglobal.com/FastTrak/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

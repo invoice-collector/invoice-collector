@@ -29,7 +29,7 @@ export class OptmyzrCollector extends SketchCollector {
         loginUrl: "https://tools.optmyzr.com/tools",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

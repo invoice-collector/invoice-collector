@@ -29,7 +29,7 @@ export class ManutanCollector extends SketchCollector {
         loginUrl: "https://www.manutan.fr/fr/maf",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

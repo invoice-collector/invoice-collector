@@ -29,7 +29,7 @@ export class HarryFoxCollector extends SketchCollector {
         loginUrl: "https://portal.harryfox.com/auth/login/?return=%2F",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

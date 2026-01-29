@@ -29,7 +29,7 @@ export class GastroheroCollector extends SketchCollector {
         loginUrl: "https://www.gastro-hero.de/customer/account/login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

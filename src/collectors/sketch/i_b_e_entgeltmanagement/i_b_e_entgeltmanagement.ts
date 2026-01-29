@@ -29,7 +29,7 @@ export class IBEEntgeltmanagementCollector extends SketchCollector {
         loginUrl: "https://www.institut-be.de/ukc/index.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

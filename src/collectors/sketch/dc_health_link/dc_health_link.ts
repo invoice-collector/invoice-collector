@@ -29,7 +29,7 @@ export class DcHealthLinkCollector extends SketchCollector {
         loginUrl: "https://enroll.dchealthlink.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

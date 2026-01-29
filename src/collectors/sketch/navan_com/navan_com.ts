@@ -29,7 +29,7 @@ export class NavanComCollector extends SketchCollector {
         loginUrl: "https://app.navan.com/app/admin2/de/reports/overview?fromEpochSeconds=1672560000&toEpochSeconds=1691046182&timezone=America%2FLos_Angeles&selectedTimeframe=YTD&currency=EUR&selectedTravelDateTimeframe=null",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

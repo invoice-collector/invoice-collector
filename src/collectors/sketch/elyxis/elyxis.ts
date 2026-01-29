@@ -29,7 +29,7 @@ export class ElyxisCollector extends SketchCollector {
         loginUrl: "https://extranet.elyxis.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

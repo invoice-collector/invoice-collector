@@ -29,7 +29,7 @@ export class MrMoneyServiceGmbhCollector extends SketchCollector {
         loginUrl: "http://portal.maklersystems24.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

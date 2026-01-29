@@ -29,7 +29,7 @@ export class AzooZweihandwerkBackendCollector extends SketchCollector {
         loginUrl: "https://backend.azoo.co/zweihandwerk/settings/accountbills",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

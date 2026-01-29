@@ -29,7 +29,7 @@ export class ProshopCollector extends SketchCollector {
         loginUrl: "https://www.proshop.dk",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

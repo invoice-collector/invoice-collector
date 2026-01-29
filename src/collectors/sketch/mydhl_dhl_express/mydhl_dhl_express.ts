@@ -29,7 +29,7 @@ export class MydhlDhlExpressCollector extends SketchCollector {
         loginUrl: "https://mydhl.express.dhl/de/de/home.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

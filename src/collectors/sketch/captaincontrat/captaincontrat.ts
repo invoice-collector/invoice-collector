@@ -29,7 +29,7 @@ export class CaptaincontratCollector extends SketchCollector {
         loginUrl: "https://client.captaincontrat.com/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

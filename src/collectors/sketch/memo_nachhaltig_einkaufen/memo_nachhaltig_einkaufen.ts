@@ -29,7 +29,7 @@ export class MemoNachhaltigEinkaufenCollector extends SketchCollector {
         loginUrl: "https://www.memo.de/account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

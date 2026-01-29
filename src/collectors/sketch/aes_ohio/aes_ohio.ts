@@ -29,7 +29,7 @@ export class AesOhioCollector extends SketchCollector {
         loginUrl: "https://myprofile.aes-ohio.com/Bill/BillHistory",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

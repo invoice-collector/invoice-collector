@@ -29,7 +29,7 @@ export class RobocorpCollector extends SketchCollector {
         loginUrl: "https://cloud.robocorp.com/saigaprodo9hwf/settings/billing/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

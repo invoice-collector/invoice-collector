@@ -29,7 +29,7 @@ export class WorkableCollector extends SketchCollector {
         loginUrl: "https://www.workable.com/signin",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

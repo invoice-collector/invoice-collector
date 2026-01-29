@@ -29,7 +29,7 @@ export class AtAndTBusinessDirectCollector extends SketchCollector {
         loginUrl: "https://www.businessdirect.att.com/portal/index.jsp",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

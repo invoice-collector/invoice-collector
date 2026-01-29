@@ -29,7 +29,7 @@ export class TwoMinuteReportsC2022CreatedByGoxAiCollector extends SketchCollecto
         loginUrl: "https://two-minute-reports.chargebee.com/portal/v2/home",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

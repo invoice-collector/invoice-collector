@@ -29,7 +29,7 @@ export class DocteurGsmComCollector extends SketchCollector {
         loginUrl: "https://www.docteur-gsm.com/fr/authentification?back=my-account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

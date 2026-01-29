@@ -29,7 +29,7 @@ export class ZeendocCollector extends SketchCollector {
         loginUrl: "https://armoires.zeendoc.com/_Login/Login.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

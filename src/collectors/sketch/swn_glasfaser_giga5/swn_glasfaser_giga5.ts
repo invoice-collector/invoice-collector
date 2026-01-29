@@ -29,7 +29,7 @@ export class SwnGlasfaserGiga5Collector extends SketchCollector {
         loginUrl: "https://connect.stadtwerke-neumuenster.de/index.mx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class AmainvoiceCollector extends SketchCollector {
         loginUrl: "https://amainvoice.de/index.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

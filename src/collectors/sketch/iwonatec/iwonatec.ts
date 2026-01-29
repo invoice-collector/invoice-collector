@@ -29,7 +29,7 @@ export class IwonatecCollector extends SketchCollector {
         loginUrl: "https://www.iwonatec.com/de/kundenkonto",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

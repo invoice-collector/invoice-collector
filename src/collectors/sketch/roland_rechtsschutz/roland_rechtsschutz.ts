@@ -29,7 +29,7 @@ export class RolandRechtsschutzCollector extends SketchCollector {
         loginUrl: "https://www.roland-service.de/epostfach/views/home.xhtml#!",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

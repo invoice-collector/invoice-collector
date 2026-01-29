@@ -29,7 +29,7 @@ export class CiviwebBulletinCollector extends SketchCollector {
         loginUrl: "https://www.civiweb.com/FR/article/votre-tableau-de-bord.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

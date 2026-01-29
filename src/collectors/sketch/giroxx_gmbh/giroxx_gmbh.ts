@@ -29,7 +29,7 @@ export class GiroxxGmbhCollector extends SketchCollector {
         loginUrl: "https://giroxx.de/kundenkonto-auftragsarchiv.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

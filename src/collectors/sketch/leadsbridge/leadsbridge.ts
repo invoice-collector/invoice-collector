@@ -29,7 +29,7 @@ export class LeadsbridgeCollector extends SketchCollector {
         loginUrl: "https://leadsbridge.com/app/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

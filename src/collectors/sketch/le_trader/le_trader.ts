@@ -29,7 +29,7 @@ export class LeTraderCollector extends SketchCollector {
         loginUrl: "http://www.letrader.fr/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

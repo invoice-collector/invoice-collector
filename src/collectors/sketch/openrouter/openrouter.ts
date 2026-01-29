@@ -29,7 +29,7 @@ export class OpenrouterCollector extends SketchCollector {
         loginUrl: "https://openrouter.ai/settings/credits",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

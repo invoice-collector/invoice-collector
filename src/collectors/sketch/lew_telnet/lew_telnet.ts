@@ -29,7 +29,7 @@ export class LewTelnetCollector extends SketchCollector {
         loginUrl: "https://telnet.lew.de/fuer-geschaeftskunden/kundenportal",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

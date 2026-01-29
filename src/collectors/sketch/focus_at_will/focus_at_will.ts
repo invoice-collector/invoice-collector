@@ -29,7 +29,7 @@ export class FocusAtWillCollector extends SketchCollector {
         loginUrl: "https://focusatwill.recurly.com/account/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

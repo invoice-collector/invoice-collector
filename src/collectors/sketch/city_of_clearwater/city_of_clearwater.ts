@@ -29,7 +29,7 @@ export class CityOfClearwaterCollector extends SketchCollector {
         loginUrl: "https://secure8.i-doxs.net/CityOfClearwater/Signin.aspx?ReturnUrl=%2fCityOfClearwater%2fSecure%2fHome.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

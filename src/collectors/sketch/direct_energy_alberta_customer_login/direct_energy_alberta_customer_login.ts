@@ -29,7 +29,7 @@ export class DirectEnergyAlbertaCustomerLoginCollector extends SketchCollector {
         loginUrl: "https://oam.directenergyregulatedservices.com/home/login.xhtml",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

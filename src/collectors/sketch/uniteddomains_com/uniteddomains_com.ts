@@ -29,7 +29,7 @@ export class UniteddomainsComCollector extends SketchCollector {
         loginUrl: "https://www.uniteddomains.com/portfolio/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

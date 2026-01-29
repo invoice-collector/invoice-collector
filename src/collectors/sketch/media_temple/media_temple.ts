@@ -29,7 +29,7 @@ export class MediaTempleCollector extends SketchCollector {
         loginUrl: "https://ac.mediatemple.net/login.mt",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

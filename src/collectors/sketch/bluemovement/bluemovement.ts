@@ -29,7 +29,7 @@ export class BluemovementCollector extends SketchCollector {
         loginUrl: "https://www.bluemovement.com/de-de/auth/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

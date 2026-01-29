@@ -29,7 +29,7 @@ export class ElisWismarCollector extends SketchCollector {
         loginUrl: "http://bestellung.waescherei-wismar.de/Webportal/rechnungen/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class PostmatesCollector extends SketchCollector {
         loginUrl: "https://postmates.com/orders",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class MyappyourselfCollector extends SketchCollector {
         loginUrl: "https://my.appyourself.net/#/account/data",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

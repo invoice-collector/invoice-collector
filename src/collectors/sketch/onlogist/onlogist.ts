@@ -29,7 +29,7 @@ export class OnlogistCollector extends SketchCollector {
         loginUrl: "Onlogist.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

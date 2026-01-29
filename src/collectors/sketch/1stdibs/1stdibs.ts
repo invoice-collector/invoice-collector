@@ -29,7 +29,7 @@ export class _1stdibsCollector extends SketchCollector {
         loginUrl: "https://adminv2.1stdibs.com/dealers/statement",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

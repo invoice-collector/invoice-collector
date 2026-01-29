@@ -29,7 +29,7 @@ export class VoiceflowCollector extends SketchCollector {
         loginUrl: "https://creator.voiceflow.com/workspace",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

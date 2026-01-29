@@ -29,7 +29,7 @@ export class ZasDieAbrechnungsstelleCollector extends SketchCollector {
         loginUrl: "https://portal.die-abrechnungsstelle.de/auth/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

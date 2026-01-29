@@ -29,7 +29,7 @@ export class DrukzoCollector extends SketchCollector {
         loginUrl: "https://www.drukzo.nl/inloggen?back=my-account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

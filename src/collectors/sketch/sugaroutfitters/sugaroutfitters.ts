@@ -29,7 +29,7 @@ export class SugaroutfittersCollector extends SketchCollector {
         loginUrl: "https://www.sugaroutfitters.com/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

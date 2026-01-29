@@ -29,7 +29,7 @@ export class HenriotCollector extends SketchCollector {
         loginUrl: "https://extranet.henriot.fr/WEB_GESDOUANE/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class MiroCollector extends SketchCollector {
         loginUrl: "https://miro.com/app/dashboard/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

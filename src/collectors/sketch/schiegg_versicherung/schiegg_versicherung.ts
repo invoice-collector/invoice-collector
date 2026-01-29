@@ -29,7 +29,7 @@ export class SchieggVersicherungCollector extends SketchCollector {
         loginUrl: "https://www.schiegg-versicherung.de/invoice/showList",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class Anrufannahme24DeCollector extends SketchCollector {
         loginUrl: "https://app.anrufannahme24.de/account/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

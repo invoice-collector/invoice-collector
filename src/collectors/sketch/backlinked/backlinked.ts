@@ -29,7 +29,7 @@ export class BacklinkedCollector extends SketchCollector {
         loginUrl: "https://app.backlinked.de/orders",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

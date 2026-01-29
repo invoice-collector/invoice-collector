@@ -29,7 +29,7 @@ export class PinwheelCollector extends SketchCollector {
         loginUrl: "https://paybypinwheel.com/dashboard/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

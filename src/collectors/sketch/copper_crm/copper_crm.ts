@@ -29,7 +29,7 @@ export class CopperCrmCollector extends SketchCollector {
         loginUrl: "https://app.prosperworks.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

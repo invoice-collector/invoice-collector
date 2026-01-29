@@ -29,7 +29,7 @@ export class BamboohrCollector extends SketchCollector {
         loginUrl: "http://www.bamboohr.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class ChazeCollector extends SketchCollector {
         loginUrl: "https://www.chaze.io/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

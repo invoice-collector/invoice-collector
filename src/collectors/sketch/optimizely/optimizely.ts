@@ -29,7 +29,7 @@ export class OptimizelyCollector extends SketchCollector {
         loginUrl: "https://app.optimizely.com/accountsettings/account/plan",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

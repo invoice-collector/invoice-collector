@@ -29,7 +29,7 @@ export class OdidoCollector extends SketchCollector {
         loginUrl: "https://www.odido.nl/zakelijk/my/facturen",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class DoitCollector extends SketchCollector {
         loginUrl: "https://hello.doit-intl.com/customers/cEuOWlBA69HBBazHZ2Hd/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

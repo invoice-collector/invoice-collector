@@ -29,7 +29,7 @@ export class FactureDocaposteCollector extends SketchCollector {
         loginUrl: "https://publication.e-facture.net/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class EDisCollector extends SketchCollector {
         loginUrl: "https://www.e-dis-netz.de/de/service/rechnungen.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

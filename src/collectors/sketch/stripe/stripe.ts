@@ -29,7 +29,7 @@ export class StripeCollector extends SketchCollector {
         loginUrl: "https://dashboard.stripe.com/account/documents",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

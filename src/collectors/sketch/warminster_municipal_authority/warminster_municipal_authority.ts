@@ -29,7 +29,7 @@ export class WarminsterMunicipalAuthorityCollector extends SketchCollector {
         loginUrl: "https://wma.authoritypay.com/account/history/8660",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

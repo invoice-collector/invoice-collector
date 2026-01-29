@@ -29,7 +29,7 @@ export class SonnenCollector extends SketchCollector {
         loginUrl: "https://my.sonnen.de/documents/invoices?lang=de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

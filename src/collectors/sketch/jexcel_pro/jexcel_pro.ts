@@ -29,7 +29,7 @@ export class JexcelProCollector extends SketchCollector {
         loginUrl: "https://jexcel.net/me/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

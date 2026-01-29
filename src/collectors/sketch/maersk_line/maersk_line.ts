@@ -29,7 +29,7 @@ export class MaerskLineCollector extends SketchCollector {
         loginUrl: "https://www.maersk.com/myfinance/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

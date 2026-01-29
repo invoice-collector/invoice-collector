@@ -29,7 +29,7 @@ export class VidiqCollector extends SketchCollector {
         loginUrl: "https://app.vidiq.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

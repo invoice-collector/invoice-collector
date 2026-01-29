@@ -29,7 +29,7 @@ export class O2HomeServicesCollector extends SketchCollector {
         loginUrl: "https://www.o2.fr/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

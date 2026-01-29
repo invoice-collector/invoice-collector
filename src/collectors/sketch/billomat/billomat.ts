@@ -29,7 +29,7 @@ export class BillomatCollector extends SketchCollector {
         loginUrl: "https://www.billomat.net/?_ga=2.19581373.46259205.1523339149-2117286498.1523339149",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

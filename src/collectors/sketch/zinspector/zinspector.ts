@@ -29,7 +29,7 @@ export class ZinspectorCollector extends SketchCollector {
         loginUrl: "https://portfolio.zinspector.com/billing/payments/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

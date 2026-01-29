@@ -29,7 +29,7 @@ export class PixelzCollector extends SketchCollector {
         loginUrl: "https://login.pixelz.com/Account#billingStatement",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

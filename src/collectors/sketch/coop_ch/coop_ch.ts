@@ -29,7 +29,7 @@ export class CoopChCollector extends SketchCollector {
         loginUrl: "https://www.coop.ch/de/my-orders?sortOrder=date&page=3",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

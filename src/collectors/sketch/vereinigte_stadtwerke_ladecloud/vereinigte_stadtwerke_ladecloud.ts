@@ -29,7 +29,7 @@ export class VereinigteStadtwerkeLadecloudCollector extends SketchCollector {
         loginUrl: "https://vereinigte-stadtwerke.ladecloud.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

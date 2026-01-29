@@ -29,7 +29,7 @@ export class MaisonDuCableComCollector extends SketchCollector {
         loginUrl: "https://www.maison-du-cable.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

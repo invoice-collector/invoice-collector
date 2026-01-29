@@ -29,7 +29,7 @@ export class DoorbirdCollector extends SketchCollector {
         loginUrl: "https://www.doorbird.com/de/partner?login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

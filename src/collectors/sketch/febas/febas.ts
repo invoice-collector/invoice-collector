@@ -29,7 +29,7 @@ export class FebasCollector extends SketchCollector {
         loginUrl: "https://www.febas.de/kundenbereich/invoice/index",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

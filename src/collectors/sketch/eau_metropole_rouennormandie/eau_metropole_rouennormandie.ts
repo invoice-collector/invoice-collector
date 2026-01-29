@@ -29,7 +29,7 @@ export class EauMetropoleRouennormandieCollector extends SketchCollector {
         loginUrl: "https://eau.metropole-rouen-normandie.fr/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

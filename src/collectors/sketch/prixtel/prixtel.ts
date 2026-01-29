@@ -29,7 +29,7 @@ export class PrixtelCollector extends SketchCollector {
         loginUrl: "https://espaceclient.prixtel.com/connexion",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

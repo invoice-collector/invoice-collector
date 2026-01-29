@@ -29,7 +29,7 @@ export class DesignConnectedCollector extends SketchCollector {
         loginUrl: "https://www.designconnected.com/connecter/subscriptions",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class BlackmagicdesingCollector extends SketchCollector {
         loginUrl: "https://cloud.blackmagicdesign.com/apps/settings/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

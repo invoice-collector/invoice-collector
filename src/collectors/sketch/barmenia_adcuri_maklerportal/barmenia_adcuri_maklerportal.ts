@@ -29,7 +29,7 @@ export class BarmeniaAdcuriMaklerportalCollector extends SketchCollector {
         loginUrl: "https://ssl.barmenia24.de/PostBoxWeb/postbox.xhtml",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

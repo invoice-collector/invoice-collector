@@ -29,7 +29,7 @@ export class TiktokAdsCollector extends SketchCollector {
         loginUrl: "https://ads.tiktok.com/i18n/account/payment",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

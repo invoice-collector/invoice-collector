@@ -29,7 +29,7 @@ export class BunningsWarehouseAuCollector extends SketchCollector {
         loginUrl: "https://www.bunnings.com.au/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

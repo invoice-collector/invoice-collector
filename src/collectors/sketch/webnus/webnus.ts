@@ -29,7 +29,7 @@ export class WebnusCollector extends SketchCollector {
         loginUrl: "https://webnus.net/de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

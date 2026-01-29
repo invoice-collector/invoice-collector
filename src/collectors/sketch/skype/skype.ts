@@ -29,7 +29,7 @@ export class SkypeCollector extends SketchCollector {
         loginUrl: "https://secure.skype.com/portal/overview",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

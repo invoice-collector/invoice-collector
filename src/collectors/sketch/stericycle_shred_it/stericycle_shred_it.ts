@@ -29,7 +29,7 @@ export class StericycleShredItCollector extends SketchCollector {
         loginUrl: "https://www.mystericycle.com/Portal_App/BillingSummary.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

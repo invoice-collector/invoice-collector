@@ -29,7 +29,7 @@ export class BauzentrumZerssenHagebauCollector extends SketchCollector {
         loginUrl: "https://www.schroeder-bauzentrum.de/login/page",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

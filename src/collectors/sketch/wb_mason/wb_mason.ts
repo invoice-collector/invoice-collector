@@ -29,7 +29,7 @@ export class WbMasonCollector extends SketchCollector {
         loginUrl: "https://www.wbmason.com/Login2.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

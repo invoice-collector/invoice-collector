@@ -29,7 +29,7 @@ export class UnycCollector extends SketchCollector {
         loginUrl: "https://atlas.unyc.io/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

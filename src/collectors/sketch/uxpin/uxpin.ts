@@ -29,7 +29,7 @@ export class UxpinCollector extends SketchCollector {
         loginUrl: "https://app.uxpin.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class ComviqCollector extends SketchCollector {
         loginUrl: "https://www.comviq.se/mitt-konto",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class EnbwSmartMobilityCollector extends SketchCollector {
         loginUrl: "https://www.enbw.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

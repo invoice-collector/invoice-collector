@@ -29,7 +29,7 @@ export class ReclaimCollector extends SketchCollector {
         loginUrl: "https://invoice.stripe.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

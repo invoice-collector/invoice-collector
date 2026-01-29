@@ -29,7 +29,7 @@ export class ABSRechenzentrumCollector extends SketchCollector {
         loginUrl: "https://www.abs-rz.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class KauflandCollector extends SketchCollector {
         loginUrl: "https://sellerportal.kaufland.de/accounting/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

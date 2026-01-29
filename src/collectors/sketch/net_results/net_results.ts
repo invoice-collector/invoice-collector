@@ -29,7 +29,7 @@ export class NetResultsCollector extends SketchCollector {
         loginUrl: "https://www.net-results.com/app/login.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

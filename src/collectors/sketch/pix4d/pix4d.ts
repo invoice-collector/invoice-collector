@@ -29,7 +29,7 @@ export class Pix4dCollector extends SketchCollector {
         loginUrl: "https://cloud.pix4d.com/account/licenses/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

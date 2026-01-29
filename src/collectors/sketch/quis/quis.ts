@@ -29,7 +29,7 @@ export class QuisCollector extends SketchCollector {
         loginUrl: "https://selfservice.billwerk.com/portal/account.html#/qDJCTyOil-M4x0BSFW2gxg",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

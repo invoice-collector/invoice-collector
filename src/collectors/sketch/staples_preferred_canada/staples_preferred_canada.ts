@@ -29,7 +29,7 @@ export class StaplesPreferredCanadaCollector extends SketchCollector {
         loginUrl: "https://www.staplespreferred.ca/pcam/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

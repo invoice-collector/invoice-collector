@@ -29,7 +29,7 @@ export class BahnDeAboCollector extends SketchCollector {
         loginUrl: "https://abo.bahn.de/?#/rechnungen",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

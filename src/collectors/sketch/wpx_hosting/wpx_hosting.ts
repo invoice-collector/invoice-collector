@@ -29,7 +29,7 @@ export class WpxHostingCollector extends SketchCollector {
         loginUrl: "https://de.wpxhosting.com/clientarea/invoices/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

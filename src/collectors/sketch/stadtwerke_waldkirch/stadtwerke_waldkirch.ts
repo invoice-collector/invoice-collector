@@ -29,7 +29,7 @@ export class StadtwerkeWaldkirchCollector extends SketchCollector {
         loginUrl: "https://kundenportal.sw-waldkirch.de/service/exec/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class PtispCollector extends SketchCollector {
         loginUrl: "http://www.ptisp.pt",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class BrandrewardCollector extends SketchCollector {
         loginUrl: "https://www.brandreward.com/b_payment.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

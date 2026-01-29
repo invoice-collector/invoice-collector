@@ -29,7 +29,7 @@ export class Worldwide101Collector extends SketchCollector {
         loginUrl: "https://dash.worldwide101.com/clients/login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

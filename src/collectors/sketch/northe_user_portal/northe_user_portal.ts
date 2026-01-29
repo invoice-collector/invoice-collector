@@ -29,7 +29,7 @@ export class NortheUserPortalCollector extends SketchCollector {
         loginUrl: "https://northe.app/account/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

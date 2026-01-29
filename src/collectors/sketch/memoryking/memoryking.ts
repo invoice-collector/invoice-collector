@@ -29,7 +29,7 @@ export class MemorykingCollector extends SketchCollector {
         loginUrl: "https://www.memoryking.de/account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

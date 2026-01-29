@@ -29,7 +29,7 @@ export class SimplyDeliveryCollector extends SketchCollector {
         loginUrl: "https://sd6.simplyadmin.de/accountingdata/listcashreport",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

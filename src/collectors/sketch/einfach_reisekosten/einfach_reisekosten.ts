@@ -29,7 +29,7 @@ export class EinfachReisekostenCollector extends SketchCollector {
         loginUrl: "https://www.einfach-reisekosten.de/app/secure/account-billings.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class NetworkSolutionsLlcCollector extends SketchCollector {
         loginUrl: "https://www.networksolutions.com/manage-it/billing-history.jsp?1table_35527700__open=1",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

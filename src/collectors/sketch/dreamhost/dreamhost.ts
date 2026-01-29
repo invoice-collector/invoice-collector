@@ -29,7 +29,7 @@ export class DreamhostCollector extends SketchCollector {
         loginUrl: "https://panel.dreamhost.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

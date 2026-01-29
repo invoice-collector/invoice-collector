@@ -29,7 +29,7 @@ export class VenngageCollector extends SketchCollector {
         loginUrl: "https://infograph.venngage.com/account/billinghistory",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

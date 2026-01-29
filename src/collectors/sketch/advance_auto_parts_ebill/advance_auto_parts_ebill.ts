@@ -29,7 +29,7 @@ export class AdvanceAutoPartsEbillCollector extends SketchCollector {
         loginUrl: "https://ebill.advancecommercial.com/psp/ebill/CUSTOMER/ASC_ARP/c/ASC_CUSTOM_AR.ASC_EBILL_SEARCH.GBL?FolderPath=PORTAL_ROOT_OBJECT.ASC_EBILL_SEARCH&IsFolder=false&IgnoreParamTempl=FolderPath%2cIsFolder",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class VodafonePtCollector extends SketchCollector {
         loginUrl: "https://www.vodafone.pt/main/particulares#",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

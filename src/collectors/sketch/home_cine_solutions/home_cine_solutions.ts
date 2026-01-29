@@ -29,7 +29,7 @@ export class HomeCineSolutionsCollector extends SketchCollector {
         loginUrl: "https://www.homecinesolutions.fr/customer_session/new?return_to=%2Fcustomer",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

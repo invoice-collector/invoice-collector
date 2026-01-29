@@ -29,7 +29,7 @@ export class FinanzplanerCollector extends SketchCollector {
         loginUrl: "https://cloud.finanzportal24.de/Login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

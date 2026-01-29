@@ -29,7 +29,7 @@ export class MatyCollector extends SketchCollector {
         loginUrl: "https://www.maty.com/Identification?ReturnUrl=%2FEspaceClient%2FIndex",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

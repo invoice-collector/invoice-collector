@@ -29,7 +29,7 @@ export class CricutCollector extends SketchCollector {
         loginUrl: "https://myaccount.cricut.com/order-history",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

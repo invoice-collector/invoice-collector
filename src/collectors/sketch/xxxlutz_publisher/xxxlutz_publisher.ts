@@ -29,7 +29,7 @@ export class XxxlutzPublisherCollector extends SketchCollector {
         loginUrl: "https://pvn.xxxlutz.de/index.do",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

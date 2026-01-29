@@ -29,7 +29,7 @@ export class CodefreshCollector extends SketchCollector {
         loginUrl: "https://codefresh.io/dontknow",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

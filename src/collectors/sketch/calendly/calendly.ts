@@ -29,7 +29,7 @@ export class CalendlyCollector extends SketchCollector {
         loginUrl: "https://calendly.com/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

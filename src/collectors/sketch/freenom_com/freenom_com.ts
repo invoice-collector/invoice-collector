@@ -29,7 +29,7 @@ export class FreenomComCollector extends SketchCollector {
         loginUrl: "https://my.freenom.com/clientarea.php?action=invoices&language=english",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

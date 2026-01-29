@@ -29,7 +29,7 @@ export class GreenBubbleCollector extends SketchCollector {
         loginUrl: "https://www.green-bubble.com/de/account/orders/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

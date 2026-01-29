@@ -29,7 +29,7 @@ export class FritzBergerCollector extends SketchCollector {
         loginUrl: "https://www.fritz-berger.de/meinkonto/meinebestellungen/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

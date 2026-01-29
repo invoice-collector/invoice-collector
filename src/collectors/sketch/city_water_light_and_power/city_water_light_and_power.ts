@@ -29,7 +29,7 @@ export class CityWaterLightAndPowerCollector extends SketchCollector {
         loginUrl: "https://www.cwlp.com/myCWLP/myCWLPLogin.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

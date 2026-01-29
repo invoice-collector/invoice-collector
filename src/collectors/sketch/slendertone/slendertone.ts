@@ -29,7 +29,7 @@ export class SlendertoneCollector extends SketchCollector {
         loginUrl: "https://fr.slendertone.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

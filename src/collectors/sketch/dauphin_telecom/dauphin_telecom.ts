@@ -29,7 +29,7 @@ export class DauphinTelecomCollector extends SketchCollector {
         loginUrl: "https://www.dauphintelecom.com/factures",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

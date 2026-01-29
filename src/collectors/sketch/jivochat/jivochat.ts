@@ -29,7 +29,7 @@ export class JivochatCollector extends SketchCollector {
         loginUrl: "https://app.jivosite.com/login?dh=jivochat.com%2F&ewv=1&form_url=index&lang=en&pricelist_id=2104&utm_campaign=direct&utm_source=direct",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

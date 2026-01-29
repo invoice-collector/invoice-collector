@@ -29,7 +29,7 @@ export class BandcampCollector extends SketchCollector {
         loginUrl: "https://bandcamp.com/kaykat/purchases",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

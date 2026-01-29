@@ -29,7 +29,7 @@ export class VirtualPostEdcCollector extends SketchCollector {
         loginUrl: "https://www.virtual-post.net/websuivi/login?action=login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

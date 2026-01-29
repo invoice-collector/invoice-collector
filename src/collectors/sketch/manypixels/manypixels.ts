@@ -29,7 +29,7 @@ export class ManypixelsCollector extends SketchCollector {
         loginUrl: "https://app.manypixels.co/account/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class VonageUkCollector extends SketchCollector {
         loginUrl: "https://secure.vonage.co.uk/account/login.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

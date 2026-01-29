@@ -29,7 +29,7 @@ export class KTelCommunicationsCollector extends SketchCollector {
         loginUrl: "https://www.ktel.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

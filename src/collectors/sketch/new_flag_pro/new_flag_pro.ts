@@ -29,7 +29,7 @@ export class NewFlagProCollector extends SketchCollector {
         loginUrl: "https://de.newflag.pro/de/customer/order/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

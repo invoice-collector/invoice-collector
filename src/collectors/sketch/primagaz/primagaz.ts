@@ -29,7 +29,7 @@ export class PrimagazCollector extends SketchCollector {
         loginUrl: "https://espace-client.primagaz.fr/factures/mes-factures",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

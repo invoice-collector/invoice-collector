@@ -29,7 +29,7 @@ export class FranceBoissonsCollector extends SketchCollector {
         loginUrl: "https://www.myfranceboissons.fr/hfr/fr/EUR/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

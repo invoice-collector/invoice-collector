@@ -29,7 +29,7 @@ export class TakealotSellerCollector extends SketchCollector {
         loginUrl: "https://sellers.takealot.com/sales",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

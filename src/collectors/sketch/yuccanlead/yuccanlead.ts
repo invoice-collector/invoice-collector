@@ -29,7 +29,7 @@ export class YuccanleadCollector extends SketchCollector {
         loginUrl: "https://www.yuccanlead.com/webapp/leads/pay/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

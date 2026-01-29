@@ -29,7 +29,7 @@ export class AffinitadCollector extends SketchCollector {
         loginUrl: "http://www.affinitad.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

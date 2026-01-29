@@ -29,7 +29,7 @@ export class BucketIo20Collector extends SketchCollector {
         loginUrl: "https://app2.bucket.io/account/plan-management",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

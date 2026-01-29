@@ -29,7 +29,7 @@ export class SwmVersorgungsGmbhCollector extends SketchCollector {
         loginUrl: "https://meine.swm.de/iss/acc/vertragsmanagement.html#/postfach",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

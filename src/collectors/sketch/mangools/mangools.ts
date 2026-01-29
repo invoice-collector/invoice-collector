@@ -29,7 +29,7 @@ export class MangoolsCollector extends SketchCollector {
         loginUrl: "https://mangools.com/users/sign_in?ref=header-mngls",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

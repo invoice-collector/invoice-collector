@@ -29,7 +29,7 @@ export class AganttyCollector extends SketchCollector {
         loginUrl: "https://app.agantty.com/?locale=de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

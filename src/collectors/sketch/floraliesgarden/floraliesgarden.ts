@@ -29,7 +29,7 @@ export class FloraliesgardenCollector extends SketchCollector {
         loginUrl: "http://www.floraliesgarden.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

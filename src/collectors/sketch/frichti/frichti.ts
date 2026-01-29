@@ -29,7 +29,7 @@ export class FrichtiCollector extends SketchCollector {
         loginUrl: "https://www.frichti.co/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

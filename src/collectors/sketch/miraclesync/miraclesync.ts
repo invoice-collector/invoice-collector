@@ -29,7 +29,7 @@ export class MiraclesyncCollector extends SketchCollector {
         loginUrl: "https://app.miraclesync.de/#/sign-up",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

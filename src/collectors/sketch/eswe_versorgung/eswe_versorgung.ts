@@ -29,7 +29,7 @@ export class EsweVersorgungCollector extends SketchCollector {
         loginUrl: "https://kundenportal.eswe.com/eswe/index.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

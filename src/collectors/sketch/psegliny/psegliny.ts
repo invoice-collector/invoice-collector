@@ -29,7 +29,7 @@ export class PseglinyCollector extends SketchCollector {
         loginUrl: "https://www.psegliny.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

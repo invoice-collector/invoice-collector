@@ -29,7 +29,7 @@ export class TricentisCollector extends SketchCollector {
         loginUrl: "https://support.tricentis.com/community/home.do",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

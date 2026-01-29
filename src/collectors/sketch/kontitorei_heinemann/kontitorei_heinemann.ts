@@ -29,7 +29,7 @@ export class KontitoreiHeinemannCollector extends SketchCollector {
         loginUrl: "https://www.konditorei-heinemann.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

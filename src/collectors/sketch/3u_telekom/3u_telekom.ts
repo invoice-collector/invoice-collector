@@ -29,7 +29,7 @@ export class _3uTelekomCollector extends SketchCollector {
         loginUrl: "https://portal2.3utelecom.de/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

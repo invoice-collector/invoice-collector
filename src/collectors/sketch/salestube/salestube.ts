@@ -29,7 +29,7 @@ export class SalestubeCollector extends SketchCollector {
         loginUrl: "https://aff.salestube.pl/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

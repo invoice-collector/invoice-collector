@@ -29,7 +29,7 @@ export class FrankeFoodserviceSystemsGmbhCollector extends SketchCollector {
         loginUrl: "https://b2b-foodservicesystems-eu.franke.com/shop4/shop/my-orders",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class UpCollector extends SketchCollector {
         loginUrl: "https://moncommerce.up.coop/acdce77d-6280-436b-9d39-69f3ec9fe7e6/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

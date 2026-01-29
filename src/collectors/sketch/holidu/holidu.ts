@@ -29,7 +29,7 @@ export class HoliduCollector extends SketchCollector {
         loginUrl: "https://host.holidu.com/app/profile/invoices?pageNum=0",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

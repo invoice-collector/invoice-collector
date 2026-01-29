@@ -29,7 +29,7 @@ export class ComputershareVoucherServicesCollector extends SketchCollector {
         loginUrl: "https://myaccount.computersharevoucherservices.com/Login/Login.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

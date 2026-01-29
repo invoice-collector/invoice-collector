@@ -29,7 +29,7 @@ export class MutuelleInterialeCollector extends SketchCollector {
         loginUrl: "https://mamutuelle.interiale.fr/espace-personnel/creer-mon-espace-personnel",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

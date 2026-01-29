@@ -29,7 +29,7 @@ export class ItzehoerVersicherungenCollector extends SketchCollector {
         loginUrl: "https://portal.itzehoer.de/pages/user/documentslist/documents-list.xhtml",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class DevowlIoCollector extends SketchCollector {
         loginUrl: "https://devowl.io/account/#/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

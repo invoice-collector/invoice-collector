@@ -29,7 +29,7 @@ export class UserComCollector extends SketchCollector {
         loginUrl: "https://app.user.com/payments/euiS8D/invoices/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class KunstmatrixCollector extends SketchCollector {
         loginUrl: "https://accounts.kunstmatrix.com/en/user/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

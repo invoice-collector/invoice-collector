@@ -29,7 +29,7 @@ export class RespondentCollector extends SketchCollector {
         loginUrl: "https://app.respondent.io/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

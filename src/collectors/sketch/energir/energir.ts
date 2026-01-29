@@ -29,7 +29,7 @@ export class EnergirCollector extends SketchCollector {
         loginUrl: "https://www.energir.com/en/residential/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

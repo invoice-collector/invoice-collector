@@ -29,7 +29,7 @@ export class GerepGestionCollector extends SketchCollector {
         loginUrl: "https://services.gerep.fr/particuliers",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

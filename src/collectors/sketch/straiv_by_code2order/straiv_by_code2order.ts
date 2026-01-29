@@ -29,7 +29,7 @@ export class StraivByCode2orderCollector extends SketchCollector {
         loginUrl: "https://start.straiv.io/users/sign_in",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class TinytubesCollector extends SketchCollector {
         loginUrl: "https://tiny-tubes.fr/index.php?route=account/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class Cloud66Collector extends SketchCollector {
         loginUrl: "https://app.cloud66.com/accounts/latest",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

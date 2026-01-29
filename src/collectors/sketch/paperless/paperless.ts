@@ -29,7 +29,7 @@ export class PaperlessCollector extends SketchCollector {
         loginUrl: "https://app.paperless.io/organizations/91/billing_session",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

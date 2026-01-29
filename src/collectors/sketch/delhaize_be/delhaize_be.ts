@@ -29,7 +29,7 @@ export class DelhaizeBeCollector extends SketchCollector {
         loginUrl: "https://www.delhaize.be/loyalty/tickets",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

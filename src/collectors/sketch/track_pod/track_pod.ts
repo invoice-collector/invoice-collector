@@ -29,7 +29,7 @@ export class TrackPodCollector extends SketchCollector {
         loginUrl: "https://identity.track-pod.com/account/login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

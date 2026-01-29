@@ -29,7 +29,7 @@ export class EmlenCollector extends SketchCollector {
         loginUrl: "https://app.emlen.io/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

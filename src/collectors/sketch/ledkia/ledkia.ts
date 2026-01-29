@@ -29,7 +29,7 @@ export class LedkiaCollector extends SketchCollector {
         loginUrl: "https://www.ledkia.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

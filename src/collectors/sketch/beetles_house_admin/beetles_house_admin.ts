@@ -29,7 +29,7 @@ export class BeetlesHouseAdminCollector extends SketchCollector {
         loginUrl: "https://beetleshouse.com/w8wlae0ugdwihmvt/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

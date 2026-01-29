@@ -29,7 +29,7 @@ export class DjCityCollector extends SketchCollector {
         loginUrl: "https://www.djcity.com/account/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

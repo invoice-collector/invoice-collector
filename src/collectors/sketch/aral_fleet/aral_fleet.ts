@@ -29,7 +29,7 @@ export class AralFleetCollector extends SketchCollector {
         loginUrl: "https://fleet.aral.com/de/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class HhvCollector extends SketchCollector {
         loginUrl: "https://www.hhv.de/shop/de/bestellung/61999-86238",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

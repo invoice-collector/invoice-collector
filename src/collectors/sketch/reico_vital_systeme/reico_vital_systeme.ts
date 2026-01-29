@@ -29,7 +29,7 @@ export class ReicoVitalSystemeCollector extends SketchCollector {
         loginUrl: "https://vp.reico-vital.com/sales-data",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

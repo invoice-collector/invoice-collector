@@ -28,7 +28,7 @@ export class SanefCollector extends SketchCollector {
         loginUrl: "https://www.sanef.com/client/index.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

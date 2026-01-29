@@ -29,7 +29,7 @@ export class Lumen5Collector extends SketchCollector {
         loginUrl: "https://lumen5.com/dashboard/account/#billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

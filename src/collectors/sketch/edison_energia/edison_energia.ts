@@ -29,7 +29,7 @@ export class EdisonEnergiaCollector extends SketchCollector {
         loginUrl: "http://www.edisonenergia.it",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

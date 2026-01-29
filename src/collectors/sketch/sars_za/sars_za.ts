@@ -29,7 +29,7 @@ export class SarsZaCollector extends SketchCollector {
         loginUrl: "https://www.sarsefiling.co.za/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

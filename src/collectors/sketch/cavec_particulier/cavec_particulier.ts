@@ -29,7 +29,7 @@ export class CavecParticulierCollector extends SketchCollector {
         loginUrl: "https://www.macavecenligne.fr/cavec/servlet/XASFormConnexion?base=0",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

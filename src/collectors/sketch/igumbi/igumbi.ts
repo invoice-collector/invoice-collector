@@ -29,7 +29,7 @@ export class IgumbiCollector extends SketchCollector {
         loginUrl: "https://www.igumbi.com/trial",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class GazDeBordeauxEspaceProCollector extends SketchCollector {
         loginUrl: "https://espacepro.gazdebordeaux.fr/factures-et-consommations",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class SerpbookCollector extends SketchCollector {
         loginUrl: "https://serpbook.com/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

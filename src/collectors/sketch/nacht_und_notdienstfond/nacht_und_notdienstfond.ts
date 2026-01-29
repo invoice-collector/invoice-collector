@@ -29,7 +29,7 @@ export class NachtUndNotdienstfondCollector extends SketchCollector {
         loginUrl: "www.dav-notdienstfonds.de/login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class ConcardisMyConcardisCollector extends SketchCollector {
         loginUrl: "https://login.concardis.com/auth/?contextId=lqy7f6pf7ks548s6gmzzb3wqun",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

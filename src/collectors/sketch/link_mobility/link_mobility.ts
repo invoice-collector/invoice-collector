@@ -29,7 +29,7 @@ export class LinkMobilityCollector extends SketchCollector {
         loginUrl: "https://app.linkmobility.eu/de-AT/#/settings/profile",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class LinevastCollector extends SketchCollector {
         loginUrl: "https://panel.linevast.de/clientarea.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

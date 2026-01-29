@@ -29,7 +29,7 @@ export class BernerCollector extends SketchCollector {
         loginUrl: "https://shop.berner.eu/de-de/myberner/invoice/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

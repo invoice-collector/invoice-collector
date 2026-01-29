@@ -29,7 +29,7 @@ export class AfiniaByIahorroCollector extends SketchCollector {
         loginUrl: "https://afinia.uintertool.com/#/pinvoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

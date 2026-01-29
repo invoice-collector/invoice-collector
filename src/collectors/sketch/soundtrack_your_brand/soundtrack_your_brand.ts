@@ -29,7 +29,7 @@ export class SoundtrackYourBrandCollector extends SketchCollector {
         loginUrl: "https://business.soundtrackyourbrand.com/accounts/QWNjb3VudCwsMWxpd3g5bzJ4MzQv/settings/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

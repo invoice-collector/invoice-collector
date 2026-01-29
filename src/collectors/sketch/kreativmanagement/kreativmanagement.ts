@@ -29,7 +29,7 @@ export class KreativmanagementCollector extends SketchCollector {
         loginUrl: "https://app.kreativ.management/Account/Login?ReturnUrl=%2F",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

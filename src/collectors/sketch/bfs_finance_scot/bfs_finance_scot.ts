@@ -29,7 +29,7 @@ export class BfsFinanceScotCollector extends SketchCollector {
         loginUrl: "https://scot.online/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

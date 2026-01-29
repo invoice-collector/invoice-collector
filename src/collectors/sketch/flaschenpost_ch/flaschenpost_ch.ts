@@ -29,7 +29,7 @@ export class FlaschenpostChCollector extends SketchCollector {
         loginUrl: "https://www.flaschenpost.ch/account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

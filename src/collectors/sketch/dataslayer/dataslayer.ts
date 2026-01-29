@@ -29,7 +29,7 @@ export class DataslayerCollector extends SketchCollector {
         loginUrl: "https://app.dataslayer.ai/billing-info",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

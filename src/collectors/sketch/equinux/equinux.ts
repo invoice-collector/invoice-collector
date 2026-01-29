@@ -29,7 +29,7 @@ export class EquinuxCollector extends SketchCollector {
         loginUrl: "https://store.equinux.com/eqnetwork/store/signin.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

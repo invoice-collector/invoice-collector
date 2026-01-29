@@ -29,7 +29,7 @@ export class QimaCollector extends SketchCollector {
         loginUrl: "http://www.qima.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

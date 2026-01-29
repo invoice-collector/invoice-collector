@@ -29,7 +29,7 @@ export class TldvCollector extends SketchCollector {
         loginUrl: "https://tldv.io/app/login?returnUrl=https%3A%2F%2Ftldv.io%2Fapp%2F%3F",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

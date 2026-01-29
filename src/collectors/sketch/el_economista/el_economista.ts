@@ -29,7 +29,7 @@ export class ElEconomistaCollector extends SketchCollector {
         loginUrl: "https://www.eleconomista.es/premium/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

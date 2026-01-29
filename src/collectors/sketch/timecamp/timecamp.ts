@@ -29,7 +29,7 @@ export class TimecampCollector extends SketchCollector {
         loginUrl: "https://app.timecamp.com/app#/subscription/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

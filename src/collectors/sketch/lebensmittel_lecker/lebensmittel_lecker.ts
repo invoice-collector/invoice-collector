@@ -29,7 +29,7 @@ export class LebensmittelLeckerCollector extends SketchCollector {
         loginUrl: "https://webshop.lebensmittel-becker.de/Account/Login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

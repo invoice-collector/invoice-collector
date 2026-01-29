@@ -29,7 +29,7 @@ export class ToastCollector extends SketchCollector {
         loginUrl: "https://auth.toasttab.com/u/login/identifier?",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

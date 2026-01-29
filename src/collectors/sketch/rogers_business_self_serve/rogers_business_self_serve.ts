@@ -29,7 +29,7 @@ export class RogersBusinessSelfServeCollector extends SketchCollector {
         loginUrl: "https://www.rogers.com/web/smb/bss/#/viewInvoice",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class OutbrainCollector extends SketchCollector {
         loginUrl: "https://my.outbrain.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

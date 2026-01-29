@@ -29,7 +29,7 @@ export class AmericanDreamCollector extends SketchCollector {
         loginUrl: "https://www.americandream.de/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

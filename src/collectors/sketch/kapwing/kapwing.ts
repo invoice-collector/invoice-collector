@@ -29,7 +29,7 @@ export class KapwingCollector extends SketchCollector {
         loginUrl: "https://www.kapwing.com/settings/account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

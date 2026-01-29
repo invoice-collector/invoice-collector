@@ -29,7 +29,7 @@ export class A2xCollector extends SketchCollector {
         loginUrl: "https://accounts.google.com/signin/v2/sl/pwd?service=ah&passive=true&continue=https%3A%2F%2Fappengine.google.com%2F_ah%2Fconflogin%3Fcontinue%3Dhttps%3A%2F%2Fwww.a2xaccounting.com%2Fadmin&flowName=GlifWebSignIn&flowEntry=ServiceLogin",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

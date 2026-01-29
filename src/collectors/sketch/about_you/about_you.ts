@@ -29,7 +29,7 @@ export class AboutYouCollector extends SketchCollector {
         loginUrl: "https://www.aboutyou.de/a/orders",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

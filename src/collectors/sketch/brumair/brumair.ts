@@ -29,7 +29,7 @@ export class BrumairCollector extends SketchCollector {
         loginUrl: "https://www.e-brumair.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

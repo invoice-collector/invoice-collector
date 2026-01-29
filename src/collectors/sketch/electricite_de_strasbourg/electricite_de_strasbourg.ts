@@ -29,7 +29,7 @@ export class ElectriciteDeStrasbourgCollector extends SketchCollector {
         loginUrl: "http://www.es.fr",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

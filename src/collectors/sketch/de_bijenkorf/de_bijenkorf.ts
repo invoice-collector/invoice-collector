@@ -29,7 +29,7 @@ export class DeBijenkorfCollector extends SketchCollector {
         loginUrl: "https://www.debijenkorf.nl/mijn-account/#mijn-aankopen",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

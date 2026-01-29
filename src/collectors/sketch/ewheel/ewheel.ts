@@ -29,7 +29,7 @@ export class EwheelCollector extends SketchCollector {
         loginUrl: "https://ewheel.es/es/mi-cuenta",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class CodaCollector extends SketchCollector {
         loginUrl: "https://coda.io/workspaces/ws-i9PtJ5ah-1?selectedTab=Billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

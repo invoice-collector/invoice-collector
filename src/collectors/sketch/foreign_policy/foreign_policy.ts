@@ -29,7 +29,7 @@ export class ForeignPolicyCollector extends SketchCollector {
         loginUrl: "https://foreignpolicy.com/manage/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

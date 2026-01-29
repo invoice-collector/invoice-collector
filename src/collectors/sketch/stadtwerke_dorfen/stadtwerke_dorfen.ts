@@ -29,7 +29,7 @@ export class StadtwerkeDorfenCollector extends SketchCollector {
         loginUrl: "http://www.stadtwerke-dorfen.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

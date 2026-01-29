@@ -29,7 +29,7 @@ export class AbyssaleCollector extends SketchCollector {
         loginUrl: "https://app.abyssale.com/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class CoffeenessCollector extends SketchCollector {
         loginUrl: "https://shop.coffeeness.de/konto",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

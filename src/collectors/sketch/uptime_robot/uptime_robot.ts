@@ -29,7 +29,7 @@ export class UptimeRobotCollector extends SketchCollector {
         loginUrl: "https://uptimerobot.com/dashboard.php#mySettings",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class AffinityWaterCollector extends SketchCollector {
         loginUrl: "https://myonlineaccount.affinitywater.co.uk/Account/Login?ReturnUrl=%2F&ReturnUrl=%2F",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class StormproxiesComCollector extends SketchCollector {
         loginUrl: "https://stormproxies.com/clients/member/payment-history",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

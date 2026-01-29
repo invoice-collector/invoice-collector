@@ -29,7 +29,7 @@ export class MmogaCollector extends SketchCollector {
         loginUrl: "https://www.mmoga.com/account_history.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

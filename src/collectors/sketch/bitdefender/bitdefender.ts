@@ -29,7 +29,7 @@ export class BitdefenderCollector extends SketchCollector {
         loginUrl: "https://login.bitdefender.com/central/login.html?lang=en_US&redirect_url=https:%2F%2Fcentral.bitdefender.com%2F&adobe_mc=MCMID%3D71225503015089124310800599563903362659%7CMCORGID%3D0E920C0F53DA9E9B0A490D45%2540AdobeOrg%7CTS%3D1695651675&_gl=1*1o3i77c*_ga*M",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

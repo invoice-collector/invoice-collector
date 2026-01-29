@@ -29,7 +29,7 @@ export class WemagCollector extends SketchCollector {
         loginUrl: "https://kundenportal.wemag.com/mein_wemio/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

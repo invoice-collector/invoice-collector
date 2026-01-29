@@ -29,7 +29,7 @@ export class MichaelTelecomCollector extends SketchCollector {
         loginUrl: "https://www.michael-telecom.de/kundencenter/auftragsstatus/rechnungs-uebersicht",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

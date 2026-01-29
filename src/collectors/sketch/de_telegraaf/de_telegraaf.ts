@@ -29,7 +29,7 @@ export class DeTelegraafCollector extends SketchCollector {
         loginUrl: "https://mijn.telegraaf.nl/abonnement/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class GogetsslCollector extends SketchCollector {
         loginUrl: "https://my.gogetssl.com/en/user/invoices/all/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

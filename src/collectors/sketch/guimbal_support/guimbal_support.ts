@@ -29,7 +29,7 @@ export class GuimbalSupportCollector extends SketchCollector {
         loginUrl: "https://support.guimbal.com/#/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

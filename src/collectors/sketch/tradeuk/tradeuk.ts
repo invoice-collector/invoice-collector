@@ -29,7 +29,7 @@ export class TradeukCollector extends SketchCollector {
         loginUrl: "https://directory.trade.co.uk/Account/Login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

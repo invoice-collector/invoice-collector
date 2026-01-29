@@ -29,7 +29,7 @@ export class TuritopCollector extends SketchCollector {
         loginUrl: "https://app.turitop.com/admin/company/L194/edit",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

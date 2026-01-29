@@ -29,7 +29,7 @@ export class VeligoCollector extends SketchCollector {
         loginUrl: "https://mon-espace.veligo-location.fr/home/offer",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

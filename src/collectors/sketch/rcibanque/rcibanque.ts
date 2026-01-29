@@ -29,7 +29,7 @@ export class RcibanqueCollector extends SketchCollector {
         loginUrl: "https://www.meine.rcibanque.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

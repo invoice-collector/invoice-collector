@@ -29,7 +29,7 @@ export class AllianzEsCollector extends SketchCollector {
         loginUrl: "https://seguros.allianz.es/ngx-ecliente/private/pic-cliente",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

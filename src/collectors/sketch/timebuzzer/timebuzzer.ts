@@ -29,7 +29,7 @@ export class TimebuzzerCollector extends SketchCollector {
         loginUrl: "https://store.timebuzzer.com/my-account/view-order/4006955407/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

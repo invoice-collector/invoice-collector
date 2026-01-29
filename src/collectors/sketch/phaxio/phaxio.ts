@@ -29,7 +29,7 @@ export class PhaxioCollector extends SketchCollector {
         loginUrl: "https://console.phaxio.com/sf_guard_users/sign_in",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

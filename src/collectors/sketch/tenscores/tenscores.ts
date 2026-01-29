@@ -29,7 +29,7 @@ export class TenscoresCollector extends SketchCollector {
         loginUrl: "https://app.tenscores.com/#/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

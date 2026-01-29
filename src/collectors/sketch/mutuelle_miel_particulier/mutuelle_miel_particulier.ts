@@ -29,7 +29,7 @@ export class MutuelleMielParticulierCollector extends SketchCollector {
         loginUrl: "https://espacesecurise.mielmut.fr/espace-particulier",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

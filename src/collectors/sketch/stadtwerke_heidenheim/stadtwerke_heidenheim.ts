@@ -29,7 +29,7 @@ export class StadtwerkeHeidenheimCollector extends SketchCollector {
         loginUrl: "https://kundenportal.stadtwerke-heidenheim.de/kundenportal/exec/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

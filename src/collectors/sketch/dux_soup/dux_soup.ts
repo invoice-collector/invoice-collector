@@ -29,7 +29,7 @@ export class DuxSoupCollector extends SketchCollector {
         loginUrl: "https://app.dux-soup.com/web/dux-profile",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

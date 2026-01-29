@@ -29,7 +29,7 @@ export class EuronicsXtranetCollector extends SketchCollector {
         loginUrl: "https://xtranet.euronics.de/code/main.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

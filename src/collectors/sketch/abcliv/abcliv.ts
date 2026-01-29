@@ -29,7 +29,7 @@ export class AbclivCollector extends SketchCollector {
         loginUrl: "https://www.abcliv.net/Extranet_New",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

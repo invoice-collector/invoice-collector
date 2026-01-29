@@ -29,7 +29,7 @@ export class MailfenceCollector extends SketchCollector {
         loginUrl: "https://mailfence.com/flatx/index.jsp#tool=prefs&page=receipt",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

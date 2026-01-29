@@ -29,7 +29,7 @@ export class StackfieldCollector extends SketchCollector {
         loginUrl: "https://www.stackfield.com/de/login.htm",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

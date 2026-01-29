@@ -29,7 +29,7 @@ export class KualoCollector extends SketchCollector {
         loginUrl: "https://my.kualo.com/uk/account/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

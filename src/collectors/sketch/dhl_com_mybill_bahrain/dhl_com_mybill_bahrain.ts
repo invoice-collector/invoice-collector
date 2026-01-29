@@ -29,7 +29,7 @@ export class DhlComMybillBahrainCollector extends SketchCollector {
         loginUrl: "https://mydhl.express.dhl/bh/en/home.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

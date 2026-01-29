@@ -29,7 +29,7 @@ export class SchenkerCollector extends SketchCollector {
         loginUrl: "https://eschenker.dbschenker.com/app/launch-page/public?language_region=de-DE_DE",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

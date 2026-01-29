@@ -29,7 +29,7 @@ export class ToopostExtranetCollector extends SketchCollector {
         loginUrl: "https://extranet.toopost.net/index.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

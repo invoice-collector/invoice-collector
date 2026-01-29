@@ -29,7 +29,7 @@ export class EnercoopGrandComptesCollector extends SketchCollector {
         loginUrl: "https://mon-espace.enercoop.fr/grandscomptes-collectivites/sites",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

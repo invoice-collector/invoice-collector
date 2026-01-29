@@ -29,7 +29,7 @@ export class AvuNetzCollector extends SketchCollector {
         loginUrl: "https://portal.avu.de/powercommerce/avu/fo/portal/home",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

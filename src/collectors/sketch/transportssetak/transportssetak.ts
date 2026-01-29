@@ -28,7 +28,7 @@ export class TransportsSetakCollector extends SketchCollector {
         loginUrl: "https://app.transports-setak.com/ITEM_WEB_V2",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class TrustfactoryCollector extends SketchCollector {
         loginUrl: "https://trustfactory.app",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

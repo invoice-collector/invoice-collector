@@ -29,7 +29,7 @@ export class LogmeinCollector extends SketchCollector {
         loginUrl: "https://store.logmein.com/api/BillingHistory.svc/GetBillingHistory",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

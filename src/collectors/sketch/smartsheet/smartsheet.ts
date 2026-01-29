@@ -29,7 +29,7 @@ export class SmartsheetCollector extends SketchCollector {
         loginUrl: "https://app.smartsheet.com/b/home?_ga=2.229225886.34790070.1604168243-171507766.1604168243",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

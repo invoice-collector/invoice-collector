@@ -29,7 +29,7 @@ export class FleuropCollector extends SketchCollector {
         loginUrl: "https://www.fleurop.de/Shop/MeinFleurop/Login.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class MailercheckCollector extends SketchCollector {
         loginUrl: "https://app.mailercheck.com/login?_ga=2.139472629.730230997.1635224339-1189516071.1635224339",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

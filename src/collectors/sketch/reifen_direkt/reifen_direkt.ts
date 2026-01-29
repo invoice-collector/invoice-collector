@@ -29,7 +29,7 @@ export class ReifenDirektCollector extends SketchCollector {
         loginUrl: "https://www.reifendirekt.de/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

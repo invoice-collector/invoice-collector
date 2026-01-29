@@ -29,7 +29,7 @@ export class ParqetCollector extends SketchCollector {
         loginUrl: "https://checkout.parqet.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class CasewareCollector extends SketchCollector {
         loginUrl: "https://my.caseware.com/site/invoices/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

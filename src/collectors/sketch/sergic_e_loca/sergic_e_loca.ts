@@ -29,7 +29,7 @@ export class SergicELocaCollector extends SketchCollector {
         loginUrl: "https://www.sergic.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

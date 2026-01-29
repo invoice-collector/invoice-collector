@@ -29,7 +29,7 @@ export class BeyondPricesCollector extends SketchCollector {
         loginUrl: "https://v2.beyondpricing.com/dashboard/user/statements",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

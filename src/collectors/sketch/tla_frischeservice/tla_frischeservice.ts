@@ -29,7 +29,7 @@ export class TlaFrischeserviceCollector extends SketchCollector {
         loginUrl: "https://tla-frischeservice.de/account/order",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

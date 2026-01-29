@@ -29,7 +29,7 @@ export class KastnerWebshopCollector extends SketchCollector {
         loginUrl: "https://shop.kastner.at/receipts/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

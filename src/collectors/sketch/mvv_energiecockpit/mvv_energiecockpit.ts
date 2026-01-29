@@ -29,7 +29,7 @@ export class MvvEnergiecockpitCollector extends SketchCollector {
         loginUrl: "https://business-login.mvv.de/auth/realms/mvvbusiness/protocol/openid-connect/auth?response_type=code&client_id=energiecockpit&scope=openid&state=7HtGYUgqU_vrMR4BNeb2WRdUE8tnCywvwSO5HplvRB4%3D&redirect_uri=https://energiecockpit.mvv.de/login/oauth2/code/a",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

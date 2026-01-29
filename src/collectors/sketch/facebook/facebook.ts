@@ -28,7 +28,7 @@ export class FacebookCollector extends SketchCollector {
         loginUrl: "https://facebook.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class ChocopingCollector extends SketchCollector {
         loginUrl: "https://chocoping.com/processing/viewinvoice.php?id=1004129&paymentsuccess=true",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

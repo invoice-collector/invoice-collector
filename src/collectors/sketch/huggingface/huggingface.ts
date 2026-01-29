@@ -29,7 +29,7 @@ export class HuggingfaceCollector extends SketchCollector {
         loginUrl: "https://huggingface.com/bills",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

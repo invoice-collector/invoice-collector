@@ -29,7 +29,7 @@ export class KolnerPensionskasseCollector extends SketchCollector {
         loginUrl: "https://kpk-pkc.foxdox.de/login?next=%2F",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

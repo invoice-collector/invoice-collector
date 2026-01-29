@@ -29,7 +29,7 @@ export class MailcoachCollector extends SketchCollector {
         loginUrl: "https://mailcoach.app/download",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class MutuelleDuSoleilProfessionnelsDeSanteCollector extends SketchCollec
         loginUrl: "https://tiers.mutuellesdusoleil.fr/login#/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

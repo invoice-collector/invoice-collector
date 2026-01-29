@@ -29,7 +29,7 @@ export class Partslink24Collector extends SketchCollector {
         loginUrl: "https://www.partslink24.com/partslink24/user/login.do",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class SendyCollector extends SketchCollector {
         loginUrl: "http://www.sendy.co",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

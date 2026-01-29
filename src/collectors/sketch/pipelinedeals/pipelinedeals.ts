@@ -29,7 +29,7 @@ export class PipelinedealsCollector extends SketchCollector {
         loginUrl: "https://app.pipelinedeals.com/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

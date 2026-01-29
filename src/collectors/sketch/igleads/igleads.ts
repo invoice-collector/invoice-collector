@@ -29,7 +29,7 @@ export class IgleadsCollector extends SketchCollector {
         loginUrl: "https://igleads.io",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class SaalDigitalCollector extends SketchCollector {
         loginUrl: "https://www.saal-digital.de/fotografenportal/login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

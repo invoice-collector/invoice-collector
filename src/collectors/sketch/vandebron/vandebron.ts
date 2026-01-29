@@ -29,7 +29,7 @@ export class VandebronCollector extends SketchCollector {
         loginUrl: "https://mijn.vandebron.nl/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

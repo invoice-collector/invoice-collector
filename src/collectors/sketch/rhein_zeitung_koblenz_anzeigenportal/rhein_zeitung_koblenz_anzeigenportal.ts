@@ -29,7 +29,7 @@ export class RheinZeitungKoblenzAnzeigenportalCollector extends SketchCollector 
         loginUrl: "https://anzeigen.rhein-zeitung.de/webstore/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

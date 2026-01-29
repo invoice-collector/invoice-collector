@@ -29,7 +29,7 @@ export class TechdataDeCollector extends SketchCollector {
         loginUrl: "https://intouch.techdata.com/default.aspx?Logout=&CssStyleSheet=UKMarketingPortal.css&Culture=de-DE",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

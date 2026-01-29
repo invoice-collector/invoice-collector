@@ -29,7 +29,7 @@ export class DashthisCollector extends SketchCollector {
         loginUrl: "https://dashthis.com/app/admin/Security/LogOn",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

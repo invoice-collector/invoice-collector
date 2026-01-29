@@ -29,7 +29,7 @@ export class LearningsuiteCollector extends SketchCollector {
         loginUrl: "https://selfservice.billwerk.com/portal/account.html#/0ySASdq3qjjXviMs8Z7XgQ",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

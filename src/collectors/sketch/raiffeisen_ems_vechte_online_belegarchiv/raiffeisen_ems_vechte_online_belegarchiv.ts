@@ -29,7 +29,7 @@ export class RaiffeisenEmsVechteOnlineBelegarchivCollector extends SketchCollect
         loginUrl: "https://archiv.raiffeisen-ems-vechte.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

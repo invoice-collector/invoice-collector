@@ -29,7 +29,7 @@ export class AzurtemCollector extends SketchCollector {
         loginUrl: "https://shop.azurtem.com/fr/connexion?back=my-account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

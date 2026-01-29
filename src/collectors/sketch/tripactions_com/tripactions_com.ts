@@ -29,7 +29,7 @@ export class TripactionsComCollector extends SketchCollector {
         loginUrl: "https://app.tripactions.com/app/admin2/de/reports/overview",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

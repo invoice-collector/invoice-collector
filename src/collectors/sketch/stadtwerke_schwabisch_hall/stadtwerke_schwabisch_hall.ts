@@ -29,7 +29,7 @@ export class StadtwerkeSchwabischHallCollector extends SketchCollector {
         loginUrl: "https://kundenportal.stadtwerke-hall.de/kp?id=eup_invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

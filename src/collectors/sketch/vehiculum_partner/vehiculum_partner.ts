@@ -29,7 +29,7 @@ export class VehiculumPartnerCollector extends SketchCollector {
         loginUrl: "https://partner.vehiculum.de/auszahlungen.cgi",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class ItWelt24DeCollector extends SketchCollector {
         loginUrl: "https://www.it-welt24.de/backoffice",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

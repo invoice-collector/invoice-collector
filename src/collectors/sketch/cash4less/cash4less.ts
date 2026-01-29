@@ -29,7 +29,7 @@ export class Cash4lessCollector extends SketchCollector {
         loginUrl: "https://portal.cash4less.org/app/portal/de_DE/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

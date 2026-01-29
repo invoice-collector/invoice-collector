@@ -29,7 +29,7 @@ export class MulhouseEauEtAssainissementCollector extends SketchCollector {
         loginUrl: "https://e-services.mulhouse-alsace.fr/services/sde",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

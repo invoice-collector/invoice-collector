@@ -29,7 +29,7 @@ export class ProductHeroCollector extends SketchCollector {
         loginUrl: "https://v2.app.producthero.com/settings/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

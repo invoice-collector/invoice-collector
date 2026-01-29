@@ -29,7 +29,7 @@ export class MalakoffMedericRetraiteCollector extends SketchCollector {
         loginUrl: "https://extranet.malakoffmederic.com/espaceClient/LogonAccess.do",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class MtkomDeCollector extends SketchCollector {
         loginUrl: "https://www.titan-networks.de/cic/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

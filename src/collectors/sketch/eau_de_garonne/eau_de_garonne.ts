@@ -29,7 +29,7 @@ export class EauDeGaronneCollector extends SketchCollector {
         loginUrl: "https://mon-espace.eaudegaronne.fr/fr/accueil",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

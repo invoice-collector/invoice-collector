@@ -29,7 +29,7 @@ export class AudioDesignDeskCollector extends SketchCollector {
         loginUrl: "https://account.add.app/subscription/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

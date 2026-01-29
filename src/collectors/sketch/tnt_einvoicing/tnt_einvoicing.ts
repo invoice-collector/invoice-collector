@@ -29,7 +29,7 @@ export class TntEinvoicingCollector extends SketchCollector {
         loginUrl: "https://express.tnt.com/eInvoicing/default.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

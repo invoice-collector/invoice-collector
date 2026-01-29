@@ -29,7 +29,7 @@ export class FedexCollector extends SketchCollector {
         loginUrl: "https://www.fedex.com/en-us/home.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

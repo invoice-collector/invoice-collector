@@ -29,7 +29,7 @@ export class WwwNetfactoryDeCollector extends SketchCollector {
         loginUrl: "https://www.netfactory.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

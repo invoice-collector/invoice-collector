@@ -29,7 +29,7 @@ export class MemberpressCollector extends SketchCollector {
         loginUrl: "https://memberpress.com/account/?action=payments",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

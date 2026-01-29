@@ -29,7 +29,7 @@ export class PriorityPassCollector extends SketchCollector {
         loginUrl: "https://www.prioritypass.com/dashboard/my-visits",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

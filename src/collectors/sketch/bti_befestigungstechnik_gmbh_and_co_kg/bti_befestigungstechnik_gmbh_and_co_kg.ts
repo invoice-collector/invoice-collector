@@ -29,7 +29,7 @@ export class BtiBefestigungstechnikGmbhAndCoKgCollector extends SketchCollector 
         loginUrl: "https://www.bti.de/shop-de/kundenmenue/invoice/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

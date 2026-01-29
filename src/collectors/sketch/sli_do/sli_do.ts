@@ -29,7 +29,7 @@ export class SliDoCollector extends SketchCollector {
         loginUrl: "https://accounts.sli.do/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

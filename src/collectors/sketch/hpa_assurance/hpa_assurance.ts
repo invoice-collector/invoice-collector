@@ -29,7 +29,7 @@ export class HpaAssuranceCollector extends SketchCollector {
         loginUrl: "https://hpassurance.courtier-en-ligne.com/fr/contrats/1050/avis",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

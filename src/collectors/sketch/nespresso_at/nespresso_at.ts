@@ -29,7 +29,7 @@ export class NespressoAtCollector extends SketchCollector {
         loginUrl: "https://www.nespresso.com/at/de/home",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

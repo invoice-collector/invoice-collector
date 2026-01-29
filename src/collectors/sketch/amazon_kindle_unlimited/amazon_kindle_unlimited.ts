@@ -29,7 +29,7 @@ export class AmazonKindleUnlimitedCollector extends SketchCollector {
         loginUrl: "https://www.amazon.de/gp/kindle/ku/ku_central/ref=nav_youraccount_ku",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

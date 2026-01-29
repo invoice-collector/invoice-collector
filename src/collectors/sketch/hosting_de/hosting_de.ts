@@ -29,7 +29,7 @@ export class HostingDeCollector extends SketchCollector {
         loginUrl: "https://secure.hosting.de/billing/invoices/overview",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class GlobetrotterPartnerprogrammCollector extends SketchCollector {
         loginUrl: "https://www.globetrotter-partnerprogramm.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

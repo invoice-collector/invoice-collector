@@ -29,7 +29,7 @@ export class ConsumersEnergyCollector extends SketchCollector {
         loginUrl: "https://www.consumersenergy.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

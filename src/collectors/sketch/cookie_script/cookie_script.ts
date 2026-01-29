@@ -29,7 +29,7 @@ export class CookieScriptCollector extends SketchCollector {
         loginUrl: "https://cookie-script.com/subscriptions",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

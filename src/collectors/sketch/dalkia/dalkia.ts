@@ -28,7 +28,7 @@ export class DalkiaCollector extends SketchCollector {
         loginUrl: "https://espace-clients.dalkia.fr/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

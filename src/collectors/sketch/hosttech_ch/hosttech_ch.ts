@@ -29,7 +29,7 @@ export class HosttechChCollector extends SketchCollector {
         loginUrl: "https://www.hosttech.ch/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

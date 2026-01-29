@@ -29,7 +29,7 @@ export class SnapchatAdsCollector extends SketchCollector {
         loginUrl: "https://accounts.snapchat.com/accounts/login?client_id=ads-api&referrer=https%3A%2F%2Fads.snapchat.com%2F",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

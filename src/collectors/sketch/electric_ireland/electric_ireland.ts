@@ -29,7 +29,7 @@ export class ElectricIrelandCollector extends SketchCollector {
         loginUrl: "https://www.electricireland.ie/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

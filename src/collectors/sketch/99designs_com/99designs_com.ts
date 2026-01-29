@@ -29,7 +29,7 @@ export class _99designsComCollector extends SketchCollector {
         loginUrl: "https://www.99designs.com/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class GDataPartnerCollector extends SketchCollector {
         loginUrl: "https://partner.gdata.de/app/shop/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class SmiaPortalAdherentCollector extends SketchCollector {
         loginUrl: "https://portail.sante-travail.net/MesDocuments/MesFactures",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

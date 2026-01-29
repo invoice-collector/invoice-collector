@@ -29,7 +29,7 @@ export class ThreeIeCollector extends SketchCollector {
         loginUrl: "https://login.three.ie/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

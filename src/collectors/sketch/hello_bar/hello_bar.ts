@@ -29,7 +29,7 @@ export class HelloBarCollector extends SketchCollector {
         loginUrl: "https://www.hellobar.com/users/sign_in",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

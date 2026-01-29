@@ -29,7 +29,7 @@ export class ServeboltCollector extends SketchCollector {
         loginUrl: "http://www.servebolt.no",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

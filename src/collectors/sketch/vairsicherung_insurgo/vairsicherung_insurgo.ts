@@ -29,7 +29,7 @@ export class VairsicherungInsurgoCollector extends SketchCollector {
         loginUrl: "https://vairsicherung.insurgo.cloud/dokumente",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class GoogleAdmobCollector extends SketchCollector {
         loginUrl: "https://apps.admob.com/v2/payments/transaction-service",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

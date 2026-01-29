@@ -29,7 +29,7 @@ export class KiwiHrCollector extends SketchCollector {
         loginUrl: "https://billing.stripe.com/session/live_YWNjdF8xRDlUVWdEZ3hvdmVpQUp1LF9McnpQODdZS3FGeExEMGk2dHFSa2NnTlJTSFNCempt01008ksIAlnO",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

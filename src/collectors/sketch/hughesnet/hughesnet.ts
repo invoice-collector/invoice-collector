@@ -29,7 +29,7 @@ export class HughesnetCollector extends SketchCollector {
         loginUrl: "http://my.hughesnet.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class EgesaZookaufCollector extends SketchCollector {
         loginUrl: "https://extranet.egesa-zookauf.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

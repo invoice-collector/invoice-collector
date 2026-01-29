@@ -29,7 +29,7 @@ export class BechtleCollector extends SketchCollector {
         loginUrl: "https://www.bechtle.com/beus/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class MydriverCollector extends SketchCollector {
         loginUrl: "https://www.mydriver.com/en/rides",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

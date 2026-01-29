@@ -29,7 +29,7 @@ export class BuzzsumoCollector extends SketchCollector {
         loginUrl: "https://app.buzzsumo.com/account/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

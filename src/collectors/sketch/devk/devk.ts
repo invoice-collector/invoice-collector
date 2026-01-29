@@ -29,7 +29,7 @@ export class DevkCollector extends SketchCollector {
         loginUrl: "https://meine.devk.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class BytescaleCollector extends SketchCollector {
         loginUrl: "https://www.bytescale.com/dashboard/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

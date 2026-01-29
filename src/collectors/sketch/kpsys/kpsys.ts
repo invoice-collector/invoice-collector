@@ -29,7 +29,7 @@ export class KpsysCollector extends SketchCollector {
         loginUrl: "https://aff.kpsys.de/auszahlungen.cgi",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

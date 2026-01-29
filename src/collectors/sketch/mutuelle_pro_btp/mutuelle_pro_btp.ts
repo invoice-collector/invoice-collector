@@ -29,7 +29,7 @@ export class MutuelleProBtpCollector extends SketchCollector {
         loginUrl: "https://www.probtp.com/ext/parAccueil.do?accueil=true",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

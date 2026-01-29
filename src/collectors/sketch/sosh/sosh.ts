@@ -29,7 +29,7 @@ export class SoshCollector extends SketchCollector {
         loginUrl: "https://espaceclientv3.orange.fr/?page=factures-accueil",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

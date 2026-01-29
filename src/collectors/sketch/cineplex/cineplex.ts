@@ -29,7 +29,7 @@ export class CineplexCollector extends SketchCollector {
         loginUrl: "https://shop.cineplex.de/firmenkunden/customer/account/billingdownload/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class SoluteCollector extends SketchCollector {
         loginUrl: "https://partner.solute.de/my/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

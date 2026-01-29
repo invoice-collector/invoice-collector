@@ -29,7 +29,7 @@ export class TierurnenPetraStaadtCollector extends SketchCollector {
         loginUrl: "www.tierurnen-mit-herz.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

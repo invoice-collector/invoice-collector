@@ -29,7 +29,7 @@ export class AffiliatlyPublishersCollector extends SketchCollector {
         loginUrl: "https://www.affiliatly.com/login.html?affiliates=1",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

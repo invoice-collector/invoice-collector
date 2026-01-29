@@ -29,7 +29,7 @@ export class OrangeCaraibeCollector extends SketchCollector {
         loginUrl: "https://caraibe.orange.fr/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

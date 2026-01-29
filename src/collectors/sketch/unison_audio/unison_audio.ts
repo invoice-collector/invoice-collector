@@ -29,7 +29,7 @@ export class UnisonAudioCollector extends SketchCollector {
         loginUrl: "https://app.unison.audio/dashboard/billing-history",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

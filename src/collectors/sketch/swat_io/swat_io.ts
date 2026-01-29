@@ -29,7 +29,7 @@ export class SwatIoCollector extends SketchCollector {
         loginUrl: "https://swatio.app/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

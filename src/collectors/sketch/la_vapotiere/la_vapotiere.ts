@@ -29,7 +29,7 @@ export class LaVapotiereCollector extends SketchCollector {
         loginUrl: "https://www.la-vapotiere.fr/connexion?back=my-account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

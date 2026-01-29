@@ -29,7 +29,7 @@ export class PlandayCollector extends SketchCollector {
         loginUrl: "https://id.planday.com/findCompanyUrl?lang=en",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

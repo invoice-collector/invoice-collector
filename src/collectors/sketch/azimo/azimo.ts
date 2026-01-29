@@ -29,7 +29,7 @@ export class AzimoCollector extends SketchCollector {
         loginUrl: "https://azimo.com/de/ngk/transactions",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class TirendoCollector extends SketchCollector {
         loginUrl: "https://www.tirendo.de/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

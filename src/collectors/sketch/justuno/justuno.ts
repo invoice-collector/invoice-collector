@@ -29,7 +29,7 @@ export class JustunoCollector extends SketchCollector {
         loginUrl: "https://www.justuno.com/login.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class World4youCollector extends SketchCollector {
         loginUrl: "https://my.world4you.com/verrechnung/download/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

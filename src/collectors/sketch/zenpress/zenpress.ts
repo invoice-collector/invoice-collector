@@ -29,7 +29,7 @@ export class ZenpressCollector extends SketchCollector {
         loginUrl: "http://www.zenpress.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

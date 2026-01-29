@@ -29,7 +29,7 @@ export class ClipdealerCollector extends SketchCollector {
         loginUrl: "https://de.clipdealer.com/index.php?ACTION=profile&page=invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

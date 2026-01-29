@@ -29,7 +29,7 @@ export class SvsSozialversicherungFurSelbststandigeInOsterreichCollector extends
         loginUrl: "https://www.svs.at/sva-vorschreibung/views/beitragskonto_v2.xhtml?LO=4&contentid=10007.853115&portal=svsportal",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

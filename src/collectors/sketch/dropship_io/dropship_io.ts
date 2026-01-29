@@ -29,7 +29,7 @@ export class DropshipIoCollector extends SketchCollector {
         loginUrl: "https://app.dropship.io/setting/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

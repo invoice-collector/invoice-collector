@@ -29,7 +29,7 @@ export class KoalenderCollector extends SketchCollector {
         loginUrl: "https://koalendar.com/dashboard",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

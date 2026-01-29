@@ -29,7 +29,7 @@ export class SellerinvestigatorsCollector extends SketchCollector {
         loginUrl: "https://login.carbon6.io/u/login?state=hKFo2SBPZFZ3Z0preFRlVlhGcVZMbllzZ0t3SFpobFRDOTVKQaFur3VuaXZlcnNhbC1sb2dpbqN0aWTZIGJ1RGpxODdhVTdBbTJCRm9JUWZZOFlrcXJKV1FON3BUo2NpZNkgSjF0dXowUEoweVp1ZGFSQzhXMlliT1hLSDhYVVBPVVM",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

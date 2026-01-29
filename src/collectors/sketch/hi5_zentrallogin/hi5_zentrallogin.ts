@@ -29,7 +29,7 @@ export class Hi5ZentralloginCollector extends SketchCollector {
         loginUrl: "https://zentrallogin.hi5dev.de/contracts",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

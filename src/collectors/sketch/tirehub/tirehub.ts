@@ -29,7 +29,7 @@ export class TirehubCollector extends SketchCollector {
         loginUrl: "https://secure.versapay.com/payables/tirehub/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

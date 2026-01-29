@@ -29,7 +29,7 @@ export class PortalDerBitelGesellschaftFurTelekommunikationMbhCollector extends 
         loginUrl: "https://portal.meinbitel.net/customer/dashboard",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

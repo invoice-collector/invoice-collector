@@ -29,7 +29,7 @@ export class OverleafCollector extends SketchCollector {
         loginUrl: "https://www.overleaf.com/users/sign_in",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

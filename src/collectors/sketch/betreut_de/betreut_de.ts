@@ -29,7 +29,7 @@ export class BetreutDeCollector extends SketchCollector {
         loginUrl: "https://www.betreut.de/de-de/my-account/billing/history",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class SouthernStarCollector extends SketchCollector {
         loginUrl: "https://subscribe.southernstar.ie/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

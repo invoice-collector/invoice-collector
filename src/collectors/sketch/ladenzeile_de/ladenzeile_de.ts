@@ -29,7 +29,7 @@ export class LadenzeileDeCollector extends SketchCollector {
         loginUrl: "https://www.ladenzeile.de/account/registration",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

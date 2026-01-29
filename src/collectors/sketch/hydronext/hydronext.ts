@@ -29,7 +29,7 @@ export class HydronextCollector extends SketchCollector {
         loginUrl: "https://www.hydronext.fr/espaceclient/facture_remit.php?periode=2023-09",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

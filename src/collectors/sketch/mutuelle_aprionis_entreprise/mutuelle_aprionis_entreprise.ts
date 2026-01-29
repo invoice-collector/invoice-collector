@@ -29,7 +29,7 @@ export class MutuelleAprionisEntrepriseCollector extends SketchCollector {
         loginUrl: "https://humanis.com/votre-espace-client-entreprise/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

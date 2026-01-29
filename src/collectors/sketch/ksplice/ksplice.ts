@@ -29,7 +29,7 @@ export class KspliceCollector extends SketchCollector {
         loginUrl: "https://status-ksplice.oracle.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class EprimoCollector extends SketchCollector {
         loginUrl: "https://www.eprimo.de/service/contract/inbox",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

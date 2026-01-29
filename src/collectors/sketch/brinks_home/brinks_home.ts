@@ -29,7 +29,7 @@ export class BrinksHomeCollector extends SketchCollector {
         loginUrl: "https://login.brinkshome.com/brinkshomeb2c.onmicrosoft.com/oauth2/v2.0/authorize?p=B2C_1A_BRINKSHOME_CUSTOMER_SSO_SIGNUP_SIGNIN&client_id=ad810868-4715-4404-b1fe-57f010b58da4&nonce=defaultNonce&redirect_uri=https://account.brinkshome.com/auth/b2c/sso&scop",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

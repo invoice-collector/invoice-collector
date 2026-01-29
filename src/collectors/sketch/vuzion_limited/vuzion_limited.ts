@@ -29,7 +29,7 @@ export class VuzionLimitedCollector extends SketchCollector {
         loginUrl: "https://partner.vuzion.cloud/ccp/v/pa/ccp-billing/history-invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

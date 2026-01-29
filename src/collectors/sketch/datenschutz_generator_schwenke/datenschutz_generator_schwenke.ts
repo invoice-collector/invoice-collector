@@ -29,7 +29,7 @@ export class DatenschutzGeneratorSchwenkeCollector extends SketchCollector {
         loginUrl: "https://datenschutz-generator.de/mein-konto/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

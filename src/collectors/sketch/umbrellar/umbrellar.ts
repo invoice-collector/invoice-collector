@@ -29,7 +29,7 @@ export class UmbrellarCollector extends SketchCollector {
         loginUrl: "https://secure.umbrellar.nz/login?_ga=2.21273272.2058613503.1523600439-117179229.1523600439",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

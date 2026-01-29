@@ -29,7 +29,7 @@ export class AcesDirectCollector extends SketchCollector {
         loginUrl: "https://www.acesdirect.nl/inloggen/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

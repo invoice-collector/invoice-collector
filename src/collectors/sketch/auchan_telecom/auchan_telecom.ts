@@ -29,7 +29,7 @@ export class AuchanTelecomCollector extends SketchCollector {
         loginUrl: "https://www.auchantelecom.fr/fr/identification/espace-client.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

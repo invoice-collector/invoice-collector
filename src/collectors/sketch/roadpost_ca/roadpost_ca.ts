@@ -29,7 +29,7 @@ export class RoadpostCaCollector extends SketchCollector {
         loginUrl: "https://www.roadpost.ca/invoice/invoicelist/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

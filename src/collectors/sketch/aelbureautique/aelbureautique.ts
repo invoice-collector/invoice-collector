@@ -28,7 +28,7 @@ export class AelBureautiqueCollector extends SketchCollector {
         loginUrl: "https://aelbureautique.fournituredebureau.net/connexion.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

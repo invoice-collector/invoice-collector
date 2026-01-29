@@ -29,7 +29,7 @@ export class AviraCollector extends SketchCollector {
         loginUrl: "https://my.avira.com/de/dashboard/subscriptions/tabs/plans",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

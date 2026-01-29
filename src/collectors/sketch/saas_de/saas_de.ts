@@ -29,7 +29,7 @@ export class SaasDeCollector extends SketchCollector {
         loginUrl: "https://desktop.saas.de/?locale=en",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

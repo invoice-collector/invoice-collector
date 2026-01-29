@@ -29,7 +29,7 @@ export class HelixWaterDistrictCollector extends SketchCollector {
         loginUrl: "https://css.helixwater.org/hwdcss/JSP/accountTransactions.jsp",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

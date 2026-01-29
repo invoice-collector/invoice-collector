@@ -29,7 +29,7 @@ export class InterpolisNlCollector extends SketchCollector {
         loginUrl: "https://www.interpolis.nl/inloggen",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

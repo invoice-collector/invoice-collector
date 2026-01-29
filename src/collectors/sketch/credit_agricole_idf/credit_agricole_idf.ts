@@ -29,7 +29,7 @@ export class CreditAgricoleIdfCollector extends SketchCollector {
         loginUrl: "https://www.credit-agricole.fr/ca-paris/professionnel/acceder-a-mes-comptes.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

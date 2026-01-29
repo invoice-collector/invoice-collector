@@ -29,7 +29,7 @@ export class AttachIoCollector extends SketchCollector {
         loginUrl: "https://app.attach.io/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

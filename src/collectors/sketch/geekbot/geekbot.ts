@@ -29,7 +29,7 @@ export class GeekbotCollector extends SketchCollector {
         loginUrl: "https://geekbot.com/dashboard/billing#invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

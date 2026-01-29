@@ -29,7 +29,7 @@ export class KalideaCollector extends SketchCollector {
         loginUrl: "https://billetterie.kalidea.com/SSO/Login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

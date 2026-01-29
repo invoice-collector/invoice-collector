@@ -29,7 +29,7 @@ export class OlinCollector extends SketchCollector {
         loginUrl: "https://micuenta.olin.es/login_clientes.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

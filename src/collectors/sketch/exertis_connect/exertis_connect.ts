@@ -29,7 +29,7 @@ export class ExertisConnectCollector extends SketchCollector {
         loginUrl: "https://www.exertis-connect.de/sales/order/invoices/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

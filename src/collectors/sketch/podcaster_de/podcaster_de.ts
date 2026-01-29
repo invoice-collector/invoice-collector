@@ -29,7 +29,7 @@ export class PodcasterDeCollector extends SketchCollector {
         loginUrl: "https://www.podcaster.de/rechnungen#/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

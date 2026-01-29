@@ -29,7 +29,7 @@ export class EinfachEinreichenCollector extends SketchCollector {
         loginUrl: "https://einfach-einreichen.de/meine-belege",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

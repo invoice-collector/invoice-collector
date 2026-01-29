@@ -29,7 +29,7 @@ export class ToniKundenportalRheinNeckarCollector extends SketchCollector {
         loginUrl: "https://bbvpfalz.co.crm-now.de/kundenportal/login.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class ScreenshotscloudCollector extends SketchCollector {
         loginUrl: "https://screenshots.cloud/dashboard",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

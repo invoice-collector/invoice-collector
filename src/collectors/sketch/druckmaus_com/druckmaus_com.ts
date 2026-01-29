@@ -29,7 +29,7 @@ export class DruckmausComCollector extends SketchCollector {
         loginUrl: "http://www.druckmaus.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

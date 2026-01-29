@@ -29,7 +29,7 @@ export class StadtwerkeRostockCollector extends SketchCollector {
         loginUrl: "https://ihrportal.swrag.de/INTERSHOP/web/WFS/SWR-Portal-Site/-/-/-/Default-Start",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

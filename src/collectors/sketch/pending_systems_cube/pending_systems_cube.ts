@@ -29,7 +29,7 @@ export class PendingSystemsCubeCollector extends SketchCollector {
         loginUrl: "https://b2b.cube.eu/Account/Login?ReturnUrl=%2f",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

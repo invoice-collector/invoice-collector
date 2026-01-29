@@ -29,7 +29,7 @@ export class LandalGreenparksEigentumerCollector extends SketchCollector {
         loginUrl: "https://www.landaleigentuemer.de/template3.aspx?cp=huurafrekening&menu=eigenarenpers&mid=eigenarenpersfinancieelhuurafrekening",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

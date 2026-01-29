@@ -29,7 +29,7 @@ export class SnapshooterCollector extends SketchCollector {
         loginUrl: "https://snapshooter.io/dashboard/settings/billing/plans",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

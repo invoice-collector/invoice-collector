@@ -29,7 +29,7 @@ export class RtmFrCollector extends SketchCollector {
         loginUrl: "https://www.rtm.fr/martm/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

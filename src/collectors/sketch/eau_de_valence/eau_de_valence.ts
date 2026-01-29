@@ -29,7 +29,7 @@ export class EauDeValenceCollector extends SketchCollector {
         loginUrl: "https://espaceclient.valenceromanseau.fr/#/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class HkrWeltCollector extends SketchCollector {
         loginUrl: "https://hkr-welt.de/Mein-Konto-HKR-Welt",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

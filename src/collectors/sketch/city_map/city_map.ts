@@ -29,7 +29,7 @@ export class CityMapCollector extends SketchCollector {
         loginUrl: "https://my.cmpowersite.com/intern/account/payments",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

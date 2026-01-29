@@ -29,7 +29,7 @@ export class _5pmWebCollector extends SketchCollector {
         loginUrl: "https://www.5pmweb.com/login.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

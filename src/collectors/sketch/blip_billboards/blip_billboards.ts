@@ -29,7 +29,7 @@ export class BlipBillboardsCollector extends SketchCollector {
         loginUrl: "https://marketplace.blipbillboards.com/reports",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

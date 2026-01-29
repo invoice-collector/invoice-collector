@@ -29,7 +29,7 @@ export class KaffekapslenCollector extends SketchCollector {
         loginUrl: "https://www.kaffekapslen.de/sales/order/printInvoice/order_id/6655647/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

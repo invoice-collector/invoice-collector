@@ -29,7 +29,7 @@ export class OtgHandelsGmbhCollector extends SketchCollector {
         loginUrl: "https://shop.otg-handel.de/user/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

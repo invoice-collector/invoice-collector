@@ -29,7 +29,7 @@ export class FedaCollector extends SketchCollector {
         loginUrl: "https://www.feda.ad/oficina-virtual/usuarisOv/editPublic",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

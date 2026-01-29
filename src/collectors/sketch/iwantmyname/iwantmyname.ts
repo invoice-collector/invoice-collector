@@ -29,7 +29,7 @@ export class IwantmynameCollector extends SketchCollector {
         loginUrl: "https://iwantmyname.com/dashboard/account/receipts",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

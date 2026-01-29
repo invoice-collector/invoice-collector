@@ -29,7 +29,7 @@ export class SocialreportCollector extends SketchCollector {
         loginUrl: "https://www.socialreport.com/settings.htm#subscription",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

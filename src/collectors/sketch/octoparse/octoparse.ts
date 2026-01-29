@@ -29,7 +29,7 @@ export class OctoparseCollector extends SketchCollector {
         loginUrl: "https://www.octoparse.com/subscribe/transactions",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

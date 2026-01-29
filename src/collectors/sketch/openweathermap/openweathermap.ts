@@ -29,7 +29,7 @@ export class OpenweathermapCollector extends SketchCollector {
         loginUrl: "https://home.openweathermap.org/payments",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

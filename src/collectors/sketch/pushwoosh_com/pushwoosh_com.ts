@@ -29,7 +29,7 @@ export class PushwooshComCollector extends SketchCollector {
         loginUrl: "https://go.pushwoosh.com/v2/account/orders",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class PandleCollector extends SketchCollector {
         loginUrl: "https://my.pandle.com/partner_accountant_subscriptions",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

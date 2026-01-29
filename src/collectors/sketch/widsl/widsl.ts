@@ -29,7 +29,7 @@ export class WidslCollector extends SketchCollector {
         loginUrl: "https://www.widsl.de/loginformular",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

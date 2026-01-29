@@ -29,7 +29,7 @@ export class ChesterfieldCountyUtilitiesDeptCollector extends SketchCollector {
         loginUrl: "https://www.chesterfield.gov/236/Utilities",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class InsomniaCollector extends SketchCollector {
         loginUrl: "https://insomnia.rest/app/invoices/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

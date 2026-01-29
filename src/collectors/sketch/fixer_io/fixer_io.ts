@@ -29,7 +29,7 @@ export class FixerIoCollector extends SketchCollector {
         loginUrl: "https://fixer.io/payment",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

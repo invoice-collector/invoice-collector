@@ -29,7 +29,7 @@ export class MutuelleGfpEntrepriseCollector extends SketchCollector {
         loginUrl: "https://entreprise.plansante.com/auth",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

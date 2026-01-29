@@ -29,7 +29,7 @@ export class SoldanCollector extends SketchCollector {
         loginUrl: "https://www.soldan.de/account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

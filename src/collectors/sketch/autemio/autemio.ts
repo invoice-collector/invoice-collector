@@ -29,7 +29,7 @@ export class AutemioCollector extends SketchCollector {
         loginUrl: "https://www.autemio.de/preise/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

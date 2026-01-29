@@ -29,7 +29,7 @@ export class SixPaymentServicesCollector extends SketchCollector {
         loginUrl: "https://mypayments.six-payment-services.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class CopytrackCollector extends SketchCollector {
         loginUrl: "https://app.copytrack.com/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

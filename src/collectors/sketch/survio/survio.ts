@@ -29,7 +29,7 @@ export class SurvioCollector extends SketchCollector {
         loginUrl: "https://my.survio.com/user/account#billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

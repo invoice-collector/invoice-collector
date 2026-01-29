@@ -29,7 +29,7 @@ export class MegaEgCollector extends SketchCollector {
         loginUrl: "https://shop.mega.de/store/mega/de/EUR/my-account/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

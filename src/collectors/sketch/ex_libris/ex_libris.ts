@@ -29,7 +29,7 @@ export class ExLibrisCollector extends SketchCollector {
         loginUrl: "https://www.exlibris.ch/de/mein-konto/meine-rechnungen/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

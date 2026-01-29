@@ -29,7 +29,7 @@ export class ChadwicksGroupCollector extends SketchCollector {
         loginUrl: "https://grafton.softco.com/gmroi/Account/Login?ReturnUrl=%2Fgmroi%2F",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

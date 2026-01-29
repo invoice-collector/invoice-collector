@@ -29,7 +29,7 @@ export class RoyalMailInvoicingCollector extends SketchCollector {
         loginUrl: "https://invoicing.royalmail.com/RMF/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

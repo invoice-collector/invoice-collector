@@ -29,7 +29,7 @@ export class TotalEnergiesEgProFrCollector extends SketchCollector {
         loginUrl: "https://pro.totalenergies.fr/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

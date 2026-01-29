@@ -29,7 +29,7 @@ export class ManufactumCollector extends SketchCollector {
         loginUrl: "https://www.manufactum.de/login?target=/kundenkonto",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class MacincloudCollector extends SketchCollector {
         loginUrl: "https://macincloud.recurly.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

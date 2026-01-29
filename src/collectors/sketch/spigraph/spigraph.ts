@@ -29,7 +29,7 @@ export class SpigraphCollector extends SketchCollector {
         loginUrl: "https://spigraph.valeur-probante.fr/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class UpcloudCollector extends SketchCollector {
         loginUrl: "https://hub.upcloud.com/account/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

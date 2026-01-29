@@ -29,7 +29,7 @@ export class GeistlichCollector extends SketchCollector {
         loginUrl: "https://shop.geistlich.de/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

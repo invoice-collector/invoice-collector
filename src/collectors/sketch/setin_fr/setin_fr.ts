@@ -29,7 +29,7 @@ export class SetinFrCollector extends SketchCollector {
         loginUrl: "https://www.setin.fr/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

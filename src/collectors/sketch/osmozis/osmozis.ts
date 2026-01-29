@@ -29,7 +29,7 @@ export class OsmozisCollector extends SketchCollector {
         loginUrl: "https://console.osmozis.com/fr/cccfc8ce9c/inc_invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

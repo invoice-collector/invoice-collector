@@ -29,7 +29,7 @@ export class WebstaurantCollector extends SketchCollector {
         loginUrl: "https://www.webstaurantstore.com/myaccount/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

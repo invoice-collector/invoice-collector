@@ -29,7 +29,7 @@ export class LightOnlineCollector extends SketchCollector {
         loginUrl: "https://www.lightonline.fr/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

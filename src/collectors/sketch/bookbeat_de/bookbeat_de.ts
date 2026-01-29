@@ -29,7 +29,7 @@ export class BookbeatDeCollector extends SketchCollector {
         loginUrl: "https://www.bookbeat.de/konto/belege",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class GradwellCollector extends SketchCollector {
         loginUrl: "https://login.gradwell.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

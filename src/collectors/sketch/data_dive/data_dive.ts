@@ -29,7 +29,7 @@ export class DataDiveCollector extends SketchCollector {
         loginUrl: "https://2.datadive.tools/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

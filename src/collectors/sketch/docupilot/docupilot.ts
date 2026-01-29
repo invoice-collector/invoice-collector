@@ -29,7 +29,7 @@ export class DocupilotCollector extends SketchCollector {
         loginUrl: "http://www.docupilot.app",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

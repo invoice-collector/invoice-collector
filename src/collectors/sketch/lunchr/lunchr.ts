@@ -29,7 +29,7 @@ export class LunchrCollector extends SketchCollector {
         loginUrl: "https://app.lunchr.co/signin",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

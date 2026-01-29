@@ -29,7 +29,7 @@ export class LEauBordeauxMetropoleProfessionnelsCollector extends SketchCollecto
         loginUrl: "https://moncompte.leaubordeauxmetropole.fr/#/factures",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

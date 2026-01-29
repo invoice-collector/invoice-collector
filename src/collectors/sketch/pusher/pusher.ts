@@ -29,7 +29,7 @@ export class PusherCollector extends SketchCollector {
         loginUrl: "https://dashboard.pusher.com/plans",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

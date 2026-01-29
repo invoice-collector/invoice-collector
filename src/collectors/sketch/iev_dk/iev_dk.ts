@@ -29,7 +29,7 @@ export class IevDkCollector extends SketchCollector {
         loginUrl: "https://www.energi-ikast.dk/kundeservice/selvbetjening/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

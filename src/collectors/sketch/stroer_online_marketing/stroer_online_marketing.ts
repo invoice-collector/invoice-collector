@@ -29,7 +29,7 @@ export class StroerOnlineMarketingCollector extends SketchCollector {
         loginUrl: "https://kundencenter.stroeer-online-marketing.de/accounting/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

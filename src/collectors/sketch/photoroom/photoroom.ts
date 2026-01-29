@@ -29,7 +29,7 @@ export class PhotoroomCollector extends SketchCollector {
         loginUrl: "https://invoice.stripe.com/i/acct_1IVDi9El9AVRLibq/live_YWNjdF8xSVZEaTlFbDlBVlJMaWJxLF9RVkIxUXpOczdEOUFHalgzbGg4ZEhHTGRjM0JRVWg0LDExNDM1ODcyNA02009WInwBT6?s=il&locale=en-GB",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

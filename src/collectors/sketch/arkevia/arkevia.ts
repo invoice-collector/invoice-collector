@@ -29,7 +29,7 @@ export class ArkeviaCollector extends SketchCollector {
         loginUrl: "https://sante.arkevia.com/safe-unsecured/welcome.action",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

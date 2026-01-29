@@ -29,7 +29,7 @@ export class DergruenepunktCollector extends SketchCollector {
         loginUrl: "https://www.gruener-punkt.de/de/portale.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

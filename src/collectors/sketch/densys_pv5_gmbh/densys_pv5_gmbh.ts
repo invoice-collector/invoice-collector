@@ -29,7 +29,7 @@ export class DensysPv5GmbhCollector extends SketchCollector {
         loginUrl: "https://densys-pv5.de/Account/Orders.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

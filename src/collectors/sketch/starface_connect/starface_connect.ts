@@ -29,7 +29,7 @@ export class StarfaceConnectCollector extends SketchCollector {
         loginUrl: "https://connect.starface.de/secure/#/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class SkyleadCollector extends SketchCollector {
         loginUrl: "https://dash.skylead.io/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

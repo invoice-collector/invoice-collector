@@ -29,7 +29,7 @@ export class Tc30Collector extends SketchCollector {
         loginUrl: "https://login.srn-manager.de/Start/Default.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

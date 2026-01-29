@@ -29,7 +29,7 @@ export class DuluxBusinessPlusCollector extends SketchCollector {
         loginUrl: "https://www.duluxbusinessplus.com.au",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

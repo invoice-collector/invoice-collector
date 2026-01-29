@@ -29,7 +29,7 @@ export class CclSolarBVCollector extends SketchCollector {
         loginUrl: "https://www.cclsolar.eu/Home/AgedDebt",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

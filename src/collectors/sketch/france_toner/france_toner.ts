@@ -29,7 +29,7 @@ export class FranceTonerCollector extends SketchCollector {
         loginUrl: "https://www.francetoner.fr/caddy.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

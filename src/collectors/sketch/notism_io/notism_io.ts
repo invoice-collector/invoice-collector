@@ -29,7 +29,7 @@ export class NotismIoCollector extends SketchCollector {
         loginUrl: "https://www.notism.io/account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

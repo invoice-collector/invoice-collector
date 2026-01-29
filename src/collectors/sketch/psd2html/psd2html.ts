@@ -29,7 +29,7 @@ export class Psd2htmlCollector extends SketchCollector {
         loginUrl: "https://www.psd2html.com/login.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

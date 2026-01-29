@@ -29,7 +29,7 @@ export class HelloFreshUkCollector extends SketchCollector {
         loginUrl: "https://www.hellofresh.co.uk/account-settings/order-history",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

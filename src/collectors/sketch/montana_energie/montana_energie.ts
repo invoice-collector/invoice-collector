@@ -29,7 +29,7 @@ export class MontanaEnergieCollector extends SketchCollector {
         loginUrl: "https://kundenportal.montana-energie.at/customerportal/index.php?page=invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

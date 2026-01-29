@@ -29,7 +29,7 @@ export class McsharkCollector extends SketchCollector {
         loginUrl: "https://shop.mcshark.at/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

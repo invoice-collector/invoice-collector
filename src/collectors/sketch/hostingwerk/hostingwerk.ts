@@ -29,7 +29,7 @@ export class HostingwerkCollector extends SketchCollector {
         loginUrl: "https://hostingwerk.de/anmelden",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

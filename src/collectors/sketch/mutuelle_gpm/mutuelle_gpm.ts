@@ -29,7 +29,7 @@ export class MutuelleGpmCollector extends SketchCollector {
         loginUrl: "https://espace-adherent.gpm.fr/connexion.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

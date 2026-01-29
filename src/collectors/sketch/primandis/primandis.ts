@@ -29,7 +29,7 @@ export class PrimandisCollector extends SketchCollector {
         loginUrl: "https://www.primandis.de/administration/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

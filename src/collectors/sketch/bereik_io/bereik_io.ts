@@ -29,7 +29,7 @@ export class BereikIoCollector extends SketchCollector {
         loginUrl: "https://mijn.bereik.io/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

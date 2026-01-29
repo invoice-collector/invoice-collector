@@ -29,7 +29,7 @@ export class PlayHtCollector extends SketchCollector {
         loginUrl: "https://play.ht/app/account/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

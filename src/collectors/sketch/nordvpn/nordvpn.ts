@@ -29,7 +29,7 @@ export class NordvpnCollector extends SketchCollector {
         loginUrl: "https://ucp.nordvpn.com/dashboard/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

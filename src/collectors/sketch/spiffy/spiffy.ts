@@ -29,7 +29,7 @@ export class SpiffyCollector extends SketchCollector {
         loginUrl: "https://app.spiffy.co/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

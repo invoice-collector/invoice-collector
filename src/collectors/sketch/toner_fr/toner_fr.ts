@@ -29,7 +29,7 @@ export class TonerFrCollector extends SketchCollector {
         loginUrl: "https://www.toner.fr/connexion-inscription.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

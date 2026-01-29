@@ -29,7 +29,7 @@ export class LyndaComCollector extends SketchCollector {
         loginUrl: "https://www.lynda.com/signin",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

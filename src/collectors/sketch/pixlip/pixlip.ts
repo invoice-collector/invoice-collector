@@ -29,7 +29,7 @@ export class PixlipCollector extends SketchCollector {
         loginUrl: "https://www.pixlip.com/account/order",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

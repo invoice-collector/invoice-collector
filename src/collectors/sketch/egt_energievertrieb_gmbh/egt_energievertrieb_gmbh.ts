@@ -29,7 +29,7 @@ export class EgtEnergievertriebGmbhCollector extends SketchCollector {
         loginUrl: "https://kundenportal.egt.de/sap/bc/ui5_ui5/kibf/gwui_mcf/index.html?CompanyID=KLIEF_211&sap-client=030&sap-language=DE#/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

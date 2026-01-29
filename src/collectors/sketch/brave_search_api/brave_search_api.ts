@@ -29,7 +29,7 @@ export class BraveSearchApiCollector extends SketchCollector {
         loginUrl: "https://api-dashboard.search.brave.com/app/invoicing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

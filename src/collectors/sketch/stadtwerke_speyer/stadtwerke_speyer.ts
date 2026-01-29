@@ -29,7 +29,7 @@ export class StadtwerkeSpeyerCollector extends SketchCollector {
         loginUrl: "https://onlineportal.stadtwerke-speyer.de/csit/action/csShowInvoices?formReset.x=true",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

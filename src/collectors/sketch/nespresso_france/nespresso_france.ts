@@ -29,7 +29,7 @@ export class NespressoFranceCollector extends SketchCollector {
         loginUrl: "https://nespresso.e-facture.net/index.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class FlickCollector extends SketchCollector {
         loginUrl: "https://www.flick.tech/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

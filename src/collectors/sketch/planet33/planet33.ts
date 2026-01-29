@@ -29,7 +29,7 @@ export class Planet33Collector extends SketchCollector {
         loginUrl: "https://portal.planet33.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

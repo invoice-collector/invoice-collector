@@ -29,7 +29,7 @@ export class MicrosoftAdsBingAdsCollector extends SketchCollector {
         loginUrl: "https://ads.microsoft.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

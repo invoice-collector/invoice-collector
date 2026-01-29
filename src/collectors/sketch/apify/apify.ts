@@ -29,7 +29,7 @@ export class ApifyCollector extends SketchCollector {
         loginUrl: "https://my.apify.com/account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

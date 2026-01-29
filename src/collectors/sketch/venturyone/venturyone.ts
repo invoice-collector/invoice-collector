@@ -29,7 +29,7 @@ export class VenturyoneCollector extends SketchCollector {
         loginUrl: "https://app.ventory.one/users/login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

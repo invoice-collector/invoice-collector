@@ -29,7 +29,7 @@ export class MoqoCollector extends SketchCollector {
         loginUrl: "https://portal.moqo.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

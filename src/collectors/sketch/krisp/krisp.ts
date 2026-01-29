@@ -29,7 +29,7 @@ export class KrispCollector extends SketchCollector {
         loginUrl: "https://account.krisp.ai/app/manage/subscription",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

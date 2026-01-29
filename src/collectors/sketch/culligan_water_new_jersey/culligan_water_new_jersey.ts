@@ -29,7 +29,7 @@ export class CulliganWaterNewJerseyCollector extends SketchCollector {
         loginUrl: "https://www.culligannj.com/services/online-bill-pay",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

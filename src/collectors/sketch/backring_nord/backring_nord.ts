@@ -29,7 +29,7 @@ export class BackringNordCollector extends SketchCollector {
         loginUrl: "https://portal.backring.de/portal/index.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class LibratoCollector extends SketchCollector {
         loginUrl: "https://metrics.librato.com/account/plans",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

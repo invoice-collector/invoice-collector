@@ -29,7 +29,7 @@ export class KvbwCollector extends SketchCollector {
         loginUrl: "https://dienste.portal.kvbawue.de/bw-testverordnung/#/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

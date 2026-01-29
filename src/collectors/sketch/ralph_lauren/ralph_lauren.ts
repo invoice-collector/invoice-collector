@@ -29,7 +29,7 @@ export class RalphLaurenCollector extends SketchCollector {
         loginUrl: "https://www.ralphlauren.fr/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

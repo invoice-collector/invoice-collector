@@ -29,7 +29,7 @@ export class CrAndREnvironmentalServicesCollector extends SketchCollector {
         loginUrl: "https://secured.crrwasteservices.com/webpak2sw/index.jsp",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class EbaseCollector extends SketchCollector {
         loginUrl: "https://portal.ebase.com/(e1)/portal.ebase.com/depot/online-postkorb",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

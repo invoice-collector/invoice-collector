@@ -29,7 +29,7 @@ export class GroupeArgusCollector extends SketchCollector {
         loginUrl: "https://factures.largus.fr/#!/documents",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

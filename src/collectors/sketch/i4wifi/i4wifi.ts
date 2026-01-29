@@ -29,7 +29,7 @@ export class I4wifiCollector extends SketchCollector {
         loginUrl: "https://www.i4wifi.eu/en/faktury",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

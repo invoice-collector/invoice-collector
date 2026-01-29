@@ -29,7 +29,7 @@ export class SepaheldCollector extends SketchCollector {
         loginUrl: "https://app.sepaheld.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

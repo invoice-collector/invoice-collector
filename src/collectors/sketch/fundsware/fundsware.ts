@@ -29,7 +29,7 @@ export class FundswareCollector extends SketchCollector {
         loginUrl: "https://www.fundsware.de/fwpro/content/investment_provisionsabrechnung",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

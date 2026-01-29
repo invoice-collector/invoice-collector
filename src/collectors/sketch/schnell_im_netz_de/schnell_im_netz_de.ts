@@ -29,7 +29,7 @@ export class SchnellImNetzDeCollector extends SketchCollector {
         loginUrl: "https://schnell-im-netz.de/customer/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

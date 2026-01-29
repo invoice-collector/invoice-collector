@@ -29,7 +29,7 @@ export class MysunriseCollector extends SketchCollector {
         loginUrl: "https://www.sunrise.ch/content/mysunrise/de/residential/meine-rechnungen.html#/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

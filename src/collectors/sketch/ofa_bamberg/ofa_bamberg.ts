@@ -29,7 +29,7 @@ export class OfaBambergCollector extends SketchCollector {
         loginUrl: "https://portal.ofa24.de/login/?next=/de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

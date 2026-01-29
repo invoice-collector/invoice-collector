@@ -29,7 +29,7 @@ export class FibwiCollector extends SketchCollector {
         loginUrl: "https://clientes.fibwi.com/panelClientes",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

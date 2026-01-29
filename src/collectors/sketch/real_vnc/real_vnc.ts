@@ -29,7 +29,7 @@ export class RealVncCollector extends SketchCollector {
         loginUrl: "https://manage.realvnc.com/en/?",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

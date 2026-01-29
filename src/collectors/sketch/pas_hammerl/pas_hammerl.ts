@@ -29,7 +29,7 @@ export class PasHammerlCollector extends SketchCollector {
         loginUrl: "https://login.pas-hammerl.de/kundencenter/postbox/list",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

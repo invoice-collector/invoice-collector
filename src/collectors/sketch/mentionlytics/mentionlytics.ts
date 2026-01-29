@@ -29,7 +29,7 @@ export class MentionlyticsCollector extends SketchCollector {
         loginUrl: "www.mentionlytics.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

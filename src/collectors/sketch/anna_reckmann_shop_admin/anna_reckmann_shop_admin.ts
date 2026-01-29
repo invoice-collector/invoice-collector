@@ -29,7 +29,7 @@ export class AnnaReckmannShopAdminCollector extends SketchCollector {
         loginUrl: "https://shop.annareckmann.com/admin#/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class ChpadblockCollector extends SketchCollector {
         loginUrl: "https://chpadblock.com/account/orders/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

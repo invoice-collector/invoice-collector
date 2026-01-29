@@ -29,7 +29,7 @@ export class BilletreducComCollector extends SketchCollector {
         loginUrl: "https://www.billetreduc.com/monbrconnec.htm?go=monbrresa.htm%3ftype%3dmesresas",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

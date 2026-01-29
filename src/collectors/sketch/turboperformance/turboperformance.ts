@@ -29,7 +29,7 @@ export class TurboperformanceCollector extends SketchCollector {
         loginUrl: "https://fes.turboperformance.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

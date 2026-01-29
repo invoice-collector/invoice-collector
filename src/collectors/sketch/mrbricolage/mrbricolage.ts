@@ -28,7 +28,7 @@ export class MrBricolageCollector extends SketchCollector {
         loginUrl: "https://www.mr-bricolage.fr/paris-montyon/customer/account/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

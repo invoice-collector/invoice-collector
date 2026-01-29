@@ -29,7 +29,7 @@ export class SuisaCollector extends SketchCollector {
         loginUrl: "https://www.suisa.ch/de/meta/mein-konto.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

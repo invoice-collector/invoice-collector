@@ -29,7 +29,7 @@ export class WebexCollector extends SketchCollector {
         loginUrl: "https://support.webex.com/MyAccountWeb/invoice.do?root=My&parent=invoice&child=invPayHist",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

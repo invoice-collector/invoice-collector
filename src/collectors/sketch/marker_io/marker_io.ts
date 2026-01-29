@@ -29,7 +29,7 @@ export class MarkerIoCollector extends SketchCollector {
         loginUrl: "https://marker.io/account/settings/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

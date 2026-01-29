@@ -29,7 +29,7 @@ export class DavpackCollector extends SketchCollector {
         loginUrl: "https://www.davpack.de/SignIn.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

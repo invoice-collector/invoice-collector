@@ -29,7 +29,7 @@ export class SyByCegedimCollector extends SketchCollector {
         loginUrl: "https://portal.sybycegedim.com/sy-foclient/#/re-invoices/list",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

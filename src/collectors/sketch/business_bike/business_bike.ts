@@ -29,7 +29,7 @@ export class BusinessBikeCollector extends SketchCollector {
         loginUrl: "https://portal.businessbike.de/anmeldung",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

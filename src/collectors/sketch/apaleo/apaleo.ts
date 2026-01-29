@@ -29,7 +29,7 @@ export class ApaleoCollector extends SketchCollector {
         loginUrl: "https://app.apaleo.com/payment/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class SimpleAnalyticsCollector extends SketchCollector {
         loginUrl: "https://simpleanalytics.com/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

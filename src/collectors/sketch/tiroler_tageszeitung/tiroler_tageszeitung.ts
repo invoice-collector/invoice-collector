@@ -29,7 +29,7 @@ export class TirolerTageszeitungCollector extends SketchCollector {
         loginUrl: "https://login.tt.com/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

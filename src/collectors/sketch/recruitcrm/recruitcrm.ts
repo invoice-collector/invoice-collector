@@ -29,7 +29,7 @@ export class RecruitcrmCollector extends SketchCollector {
         loginUrl: "https://app.recruitcrm.io/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

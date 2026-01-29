@@ -29,7 +29,7 @@ export class TauronCollector extends SketchCollector {
         loginUrl: "https://moj.tauron.pl/Home/Pages/Archiwum-dokumentow",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class StrikinglyCollector extends SketchCollector {
         loginUrl: "https://www.strikingly.com/s/charges",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class StadtwerkeMuhlheimCollector extends SketchCollector {
         loginUrl: "https://www.stadtwerke-muehlheim.de/de/Kopfnavigation/Kundenportale/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

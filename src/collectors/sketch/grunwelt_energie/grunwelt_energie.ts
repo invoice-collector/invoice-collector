@@ -29,7 +29,7 @@ export class GrunweltEnergieCollector extends SketchCollector {
         loginUrl: "https://kundenportal.gruenwelt.de/qpo/portal/waermestrom/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

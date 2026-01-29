@@ -29,7 +29,7 @@ export class ScreenshotMonitorCollector extends SketchCollector {
         loginUrl: "https://screenshotmonitor.com/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

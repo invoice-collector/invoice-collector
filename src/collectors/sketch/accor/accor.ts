@@ -29,7 +29,7 @@ export class AccorCollector extends SketchCollector {
         loginUrl: "https://all.accor.com/account/index.en.shtml#/my-bookings",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class WhopCollector extends SketchCollector {
         loginUrl: "https://whop.com/account/?menuItem=order_history",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

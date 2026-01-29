@@ -29,7 +29,7 @@ export class Recht247Collector extends SketchCollector {
         loginUrl: "http://www.recht24-7.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

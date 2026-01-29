@@ -29,7 +29,7 @@ export class SeositecheckupCollector extends SketchCollector {
         loginUrl: "https://app.seositecheckup.com/user/account/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

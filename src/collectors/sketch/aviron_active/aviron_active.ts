@@ -29,7 +29,7 @@ export class AvironActiveCollector extends SketchCollector {
         loginUrl: "https://accounts.avironactive.com/login?redirect=https://accounts.avironactive.com/membership",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

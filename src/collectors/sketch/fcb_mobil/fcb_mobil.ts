@@ -29,7 +29,7 @@ export class FcbMobilCollector extends SketchCollector {
         loginUrl: "https://kundenportal.fcbayernmobil.de/fcbayern-csc/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

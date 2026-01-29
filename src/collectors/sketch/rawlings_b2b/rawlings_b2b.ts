@@ -29,7 +29,7 @@ export class RawlingsB2bCollector extends SketchCollector {
         loginUrl: "b2b.rawlings.com/orderhistory",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

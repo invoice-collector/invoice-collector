@@ -29,7 +29,7 @@ export class KosatecCollector extends SketchCollector {
         loginUrl: "https://www.kosatec.de/de/Login?redir=de/Home",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

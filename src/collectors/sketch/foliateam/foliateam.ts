@@ -29,7 +29,7 @@ export class FoliateamCollector extends SketchCollector {
         loginUrl: "https://espace-client.foliateam.com/invoice/listing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

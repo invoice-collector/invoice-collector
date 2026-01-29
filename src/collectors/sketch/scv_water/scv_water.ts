@@ -29,7 +29,7 @@ export class ScvWaterCollector extends SketchCollector {
         loginUrl: "https://webpay.yourscvwater.com/app/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

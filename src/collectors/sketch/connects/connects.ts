@@ -29,7 +29,7 @@ export class ConnectsCollector extends SketchCollector {
         loginUrl: "https://cct.connects.ch/partner",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class CofaqCollector extends SketchCollector {
         loginUrl: "https://demat.cofaq.fr",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

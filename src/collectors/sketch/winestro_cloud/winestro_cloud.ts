@@ -29,7 +29,7 @@ export class WinestroCloudCollector extends SketchCollector {
         loginUrl: "https://nephele-s5.de/program.php?p=51000",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

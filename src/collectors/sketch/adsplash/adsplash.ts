@@ -29,7 +29,7 @@ export class AdsplashCollector extends SketchCollector {
         loginUrl: "https://netzwerk.adsplash.de/modules/affili/frontend/de/user/auszahlungen.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

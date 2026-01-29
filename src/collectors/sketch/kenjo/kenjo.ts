@@ -29,7 +29,7 @@ export class KenjoCollector extends SketchCollector {
         loginUrl: "https://app.kenjo.io/cloud/settings/billing/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

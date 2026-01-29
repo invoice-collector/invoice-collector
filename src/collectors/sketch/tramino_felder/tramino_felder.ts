@@ -29,7 +29,7 @@ export class TraminoFelderCollector extends SketchCollector {
         loginUrl: "https://marc-felder.tramino.de/tramino/meldewesen/rechnung/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

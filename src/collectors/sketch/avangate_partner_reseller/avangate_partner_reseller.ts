@@ -29,7 +29,7 @@ export class AvangatePartnerResellerCollector extends SketchCollector {
         loginUrl: "https://www.avangate.com/login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class SyscoIrelandCollector extends SketchCollector {
         loginUrl: "https://order.syscoireland.com/selfservice/index/invoice/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

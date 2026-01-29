@@ -29,7 +29,7 @@ export class Ipostal1Collector extends SketchCollector {
         loginUrl: "https://ipostal1.com/secure-store-login.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

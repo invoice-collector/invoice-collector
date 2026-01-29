@@ -29,7 +29,7 @@ export class LnkBioCollector extends SketchCollector {
         loginUrl: "https://lnk.bio/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

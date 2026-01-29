@@ -29,7 +29,7 @@ export class LyconetCollector extends SketchCollector {
         loginUrl: "https://www.lyconet.com/de/profile/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

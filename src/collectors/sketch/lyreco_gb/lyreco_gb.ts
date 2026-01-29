@@ -29,7 +29,7 @@ export class LyrecoGbCollector extends SketchCollector {
         loginUrl: "https://www.lyreco.com/webshop/ENEN/index.html?lc=ENEN",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

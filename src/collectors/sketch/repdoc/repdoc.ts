@@ -29,7 +29,7 @@ export class RepdocCollector extends SketchCollector {
         loginUrl: "https://www.repdoc.com/WM/#Ws/lists/listdetail/(list:belegelist;mode=1;filter=;complexFilter=//detail:belegedetail;id=e855c2ac-696a-4844-842c-709821e53ed8)",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class RadkeIndustrieCollector extends SketchCollector {
         loginUrl: "https://www.radtke-med.de/Reinigungsmittel",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class MyalbumCollector extends SketchCollector {
         loginUrl: "https://myalbum.com/member/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

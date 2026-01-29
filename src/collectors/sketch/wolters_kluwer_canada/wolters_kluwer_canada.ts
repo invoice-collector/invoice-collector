@@ -29,7 +29,7 @@ export class WoltersKluwerCanadaCollector extends SketchCollector {
         loginUrl: "https://shop.wolterskluwer.ca/en/customer/account/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

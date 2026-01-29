@@ -29,7 +29,7 @@ export class TailorBrandsCollector extends SketchCollector {
         loginUrl: "https://studio.tailorbrands.com/settings/invoices?selectedOrgId=15884670",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class FlareCollector extends SketchCollector {
         loginUrl: "https://flareapp.io/teams/242-developer/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

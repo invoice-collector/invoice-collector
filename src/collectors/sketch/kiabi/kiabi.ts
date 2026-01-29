@@ -29,7 +29,7 @@ export class KiabiCollector extends SketchCollector {
         loginUrl: "https://www.kiabi.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

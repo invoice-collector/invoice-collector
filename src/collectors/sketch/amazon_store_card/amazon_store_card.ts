@@ -29,7 +29,7 @@ export class AmazonStoreCardCollector extends SketchCollector {
         loginUrl: "https://www.synchronycredit.com/eService/EBill/eBillAction.action",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

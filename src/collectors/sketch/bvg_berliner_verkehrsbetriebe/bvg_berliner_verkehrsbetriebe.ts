@@ -29,7 +29,7 @@ export class BvgBerlinerVerkehrsbetriebeCollector extends SketchCollector {
         loginUrl: "https://shop.bvg.de/index.php/personal_data/orderList/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

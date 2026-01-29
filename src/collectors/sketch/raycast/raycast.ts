@@ -29,7 +29,7 @@ export class RaycastCollector extends SketchCollector {
         loginUrl: "https://www.raycast.com/users/sign_in",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

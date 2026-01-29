@@ -29,7 +29,7 @@ export class EcwidCollector extends SketchCollector {
         loginUrl: "https://my.ecwid.com/store/16217913#orders",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

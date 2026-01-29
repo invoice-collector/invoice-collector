@@ -29,7 +29,7 @@ export class FunbookerCollector extends SketchCollector {
         loginUrl: "https://www.funbooker.com/fr/funpro/virements",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

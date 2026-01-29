@@ -29,7 +29,7 @@ export class LeaseServicesPeacSolutionsCollector extends SketchCollector {
         loginUrl: "https://marlinbillpay.osgview.com/Secure/StatementHistory.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

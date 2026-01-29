@@ -29,7 +29,7 @@ export class PollinElectronicCollector extends SketchCollector {
         loginUrl: "https://www.pollin.de/account/orders",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

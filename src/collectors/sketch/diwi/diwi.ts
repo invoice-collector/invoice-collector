@@ -29,7 +29,7 @@ export class DiwiCollector extends SketchCollector {
         loginUrl: "https://diwi.mobilezone-handel.de/web/accounting/accounting-overview.xhtml?c=2-0",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

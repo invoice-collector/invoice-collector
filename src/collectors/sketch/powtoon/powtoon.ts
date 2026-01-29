@@ -29,7 +29,7 @@ export class PowtoonCollector extends SketchCollector {
         loginUrl: "https://www.powtoon.com/account/login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

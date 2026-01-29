@@ -29,7 +29,7 @@ export class PeopleperhourCollector extends SketchCollector {
         loginUrl: "https://www.peopleperhour.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

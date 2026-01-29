@@ -29,7 +29,7 @@ export class NetcologneMeineKundenweltCollector extends SketchCollector {
         loginUrl: "https://meinekundenwelt.netcologne.de/rechnungen",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

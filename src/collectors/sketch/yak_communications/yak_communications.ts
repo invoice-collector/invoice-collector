@@ -29,7 +29,7 @@ export class YakCommunicationsCollector extends SketchCollector {
         loginUrl: "https://www.yak.ca/contact.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

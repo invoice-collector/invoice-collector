@@ -29,7 +29,7 @@ export class EventimLightCollector extends SketchCollector {
         loginUrl: "https://www.eventim-light.com/de/events/past",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

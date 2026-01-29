@@ -29,7 +29,7 @@ export class NewEnergieCollector extends SketchCollector {
         loginUrl: "https://meine.new-energie.de/portal/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class SendforensicsCollector extends SketchCollector {
         loginUrl: "https://www.sendforensics.com/clientarea/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class KomsaCollector extends SketchCollector {
         loginUrl: "https://karlo.de/Login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

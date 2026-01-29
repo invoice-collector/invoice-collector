@@ -29,7 +29,7 @@ export class LiquidWebCollector extends SketchCollector {
         loginUrl: "https://manage.liquidweb.com/manage/billing/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class OhneMaklerCollector extends SketchCollector {
         loginUrl: "https://www.ohne-makler.net/invoice/list/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

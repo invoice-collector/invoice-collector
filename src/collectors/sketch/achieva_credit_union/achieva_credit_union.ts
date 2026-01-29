@@ -29,7 +29,7 @@ export class AchievaCreditUnionCollector extends SketchCollector {
         loginUrl: "https://banking.achievacu.com/eDocs",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class MutuelleDuSoleilEntrepriseCollector extends SketchCollector {
         loginUrl: "https://entreprises.mutuellesdusoleil.fr/login#/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

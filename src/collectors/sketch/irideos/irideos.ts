@@ -29,7 +29,7 @@ export class IrideosCollector extends SketchCollector {
         loginUrl: "https://reseller-areaclienti.irideos.it/AdminPanel/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class PimentagroupCollector extends SketchCollector {
         loginUrl: "http://www.pimentagroup.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

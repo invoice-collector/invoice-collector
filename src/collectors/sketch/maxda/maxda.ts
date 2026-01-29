@@ -29,7 +29,7 @@ export class MaxdaCollector extends SketchCollector {
         loginUrl: "https://pap.maxda.de/affiliates/panel.php#Payouts",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

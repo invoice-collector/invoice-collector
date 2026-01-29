@@ -29,7 +29,7 @@ export class ApmCollector extends SketchCollector {
         loginUrl: "https://buergerportal.apm-niemegk.de/objects/96661/documents",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

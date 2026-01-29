@@ -29,7 +29,7 @@ export class ZeopEnterpriseCollector extends SketchCollector {
         loginUrl: "https://monportailentreprise.zeop.re/gestion-factures",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

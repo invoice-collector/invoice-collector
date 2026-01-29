@@ -29,7 +29,7 @@ export class WdvMollineCollector extends SketchCollector {
         loginUrl: "https://www.molline.de/informationen/kundenbereich/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

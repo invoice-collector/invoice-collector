@@ -29,7 +29,7 @@ export class BizayCollector extends SketchCollector {
         loginUrl: "https://www.bizay.de/Account/Login?ReturnUrl=%2FOrder%2FInvoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

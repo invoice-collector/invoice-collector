@@ -29,7 +29,7 @@ export class LoisirsEducationEtCitoyenneteGrandSudEntrepriseCollector extends Sk
         loginUrl: "https://www.lecgs.org/fr/page/je-suis/salarie.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class WaldhausenReitsportCollector extends SketchCollector {
         loginUrl: "https://www.waldhausen.com/b2binvoicelist",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

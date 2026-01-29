@@ -29,7 +29,7 @@ export class EcovadisCollector extends SketchCollector {
         loginUrl: "https://www.ecovadis-survey.com/app/#/subscription-billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

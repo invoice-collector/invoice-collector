@@ -29,7 +29,7 @@ export class BookingActivitiesCollector extends SketchCollector {
         loginUrl: "https://booking-activities.fr/en/my-account/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class InternedservicesNlCollector extends SketchCollector {
         loginUrl: "https://www.internedservices.nl/inloggen/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

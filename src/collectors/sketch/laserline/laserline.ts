@@ -29,7 +29,7 @@ export class LaserlineCollector extends SketchCollector {
         loginUrl: "https://www.laser-line.de/benutzerkonto/bestellungen.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

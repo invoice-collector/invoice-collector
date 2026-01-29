@@ -29,7 +29,7 @@ export class Like2driveCollector extends SketchCollector {
         loginUrl: "https://cd.fleetpool.de/invoice-b2b/2055740/7d9b98edb6f5736e8371791f6a6bd76cbccf5cb6d053d13c3337d7a2cf3c3aa4",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

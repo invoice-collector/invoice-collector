@@ -29,7 +29,7 @@ export class SmunchShiverNebulaCollector extends SketchCollector {
         loginUrl: "https://my.smunch.co/invoices/company",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

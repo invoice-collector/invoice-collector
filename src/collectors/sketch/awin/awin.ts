@@ -29,7 +29,7 @@ export class AwinCollector extends SketchCollector {
         loginUrl: "https://ui.awin.com/idp/de/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class HubspotCollector extends SketchCollector {
         loginUrl: "http://www.hubspot.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

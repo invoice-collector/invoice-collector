@@ -28,7 +28,7 @@ export class HelloAssoCollector extends SketchCollector {
         loginUrl: "https://auth.helloasso.com/connexion",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

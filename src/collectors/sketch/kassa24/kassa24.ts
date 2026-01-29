@@ -29,7 +29,7 @@ export class Kassa24Collector extends SketchCollector {
         loginUrl: "https://www.kassa24.at/app/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

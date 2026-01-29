@@ -29,7 +29,7 @@ export class GrafanaCollector extends SketchCollector {
         loginUrl: "https://grafana.com/orgs/saiga/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

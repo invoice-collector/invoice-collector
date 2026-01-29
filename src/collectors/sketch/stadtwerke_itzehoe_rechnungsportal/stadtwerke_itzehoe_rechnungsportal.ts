@@ -29,7 +29,7 @@ export class StadtwerkeItzehoeRechnungsportalCollector extends SketchCollector {
         loginUrl: "https://service.iz-kom.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

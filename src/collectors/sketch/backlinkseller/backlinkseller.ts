@@ -29,7 +29,7 @@ export class BacklinksellerCollector extends SketchCollector {
         loginUrl: "https://www.backlinkseller.de/login_area/invoices/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

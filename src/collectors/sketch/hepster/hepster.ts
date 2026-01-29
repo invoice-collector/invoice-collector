@@ -29,7 +29,7 @@ export class HepsterCollector extends SketchCollector {
         loginUrl: "https://hepster.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

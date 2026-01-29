@@ -29,7 +29,7 @@ export class SmarterqueueCollector extends SketchCollector {
         loginUrl: "https://smarterqueue.com/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

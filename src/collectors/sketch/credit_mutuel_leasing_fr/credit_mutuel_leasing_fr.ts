@@ -29,7 +29,7 @@ export class CreditMutuelLeasingFrCollector extends SketchCollector {
         loginUrl: "https://www.creditmutuel-leasing.fr/fr/identification/authentification.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

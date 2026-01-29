@@ -29,7 +29,7 @@ export class ProfesionalHostingCollector extends SketchCollector {
         loginUrl: "https://clientes.profesionalhosting.com/clientarea.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

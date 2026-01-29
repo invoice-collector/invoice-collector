@@ -29,7 +29,7 @@ export class KyteTecCollector extends SketchCollector {
         loginUrl: "https://console.kyte-tec.com/shopadmin/document/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

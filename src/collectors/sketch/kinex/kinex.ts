@@ -29,7 +29,7 @@ export class KinexCollector extends SketchCollector {
         loginUrl: "https://kinex.co.uk/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

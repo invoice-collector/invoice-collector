@@ -29,7 +29,7 @@ export class CreditMutuelCicEpargneSalarialeCollector extends SketchCollector {
         loginUrl: "https://www.creditmutuel-epargnesalariale.fr/espace-client/fr/identification/authentification.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

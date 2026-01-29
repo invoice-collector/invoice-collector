@@ -29,7 +29,7 @@ export class QuicknodeCollector extends SketchCollector {
         loginUrl: "https://www.quicknode.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

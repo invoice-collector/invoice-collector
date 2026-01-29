@@ -29,7 +29,7 @@ export class EurodepCollector extends SketchCollector {
         loginUrl: "http://www.eurodep.fr/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

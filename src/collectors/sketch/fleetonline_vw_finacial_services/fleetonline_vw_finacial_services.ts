@@ -29,7 +29,7 @@ export class FleetonlineVwFinacialServicesCollector extends SketchCollector {
         loginUrl: "https://fleetonline.vwfs.com/FleetOnline/search",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

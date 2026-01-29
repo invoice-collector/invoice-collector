@@ -29,7 +29,7 @@ export class QuironprevencionCollector extends SketchCollector {
         loginUrl: "https://www.quironprevencion.com/es/area-privada/area-clientes",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

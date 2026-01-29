@@ -29,7 +29,7 @@ export class DeLageLandenLeasingGmbhCollector extends SketchCollector {
         loginUrl: "https://www.directinvoices.com/en/documents/1Q6qz2dO6ikfiMOivWyl",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

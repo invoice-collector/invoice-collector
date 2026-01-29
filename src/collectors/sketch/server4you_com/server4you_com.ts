@@ -29,7 +29,7 @@ export class Server4youComCollector extends SketchCollector {
         loginUrl: "https://my.server4you.com/en/Generic/Auth/Index/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

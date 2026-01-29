@@ -29,7 +29,7 @@ export class HavasVoyagesCollector extends SketchCollector {
         loginUrl: "https://www.havas-voyages.fr/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

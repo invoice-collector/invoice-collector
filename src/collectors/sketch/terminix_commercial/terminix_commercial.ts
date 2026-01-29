@@ -29,7 +29,7 @@ export class TerminixCommercialCollector extends SketchCollector {
         loginUrl: "https://www.terminix.com/my-account/#/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

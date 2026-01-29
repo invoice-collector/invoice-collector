@@ -29,7 +29,7 @@ export class PrimusCanadaCollector extends SketchCollector {
         loginUrl: "https://primus.ca/business/en/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

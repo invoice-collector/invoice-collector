@@ -29,7 +29,7 @@ export class CodetwoCollector extends SketchCollector {
         loginUrl: "https://emailsignatures365.codetwo.com/Profile/Billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

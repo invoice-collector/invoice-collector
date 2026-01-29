@@ -29,7 +29,7 @@ export class OttoPartnerprogrammCollector extends SketchCollector {
         loginUrl: "https://partnerprogramm.otto.de/user-billings.do",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

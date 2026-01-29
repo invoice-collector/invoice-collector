@@ -29,7 +29,7 @@ export class MtimpexCollector extends SketchCollector {
         loginUrl: "https://www.mtimpex.com/de/account/orders/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

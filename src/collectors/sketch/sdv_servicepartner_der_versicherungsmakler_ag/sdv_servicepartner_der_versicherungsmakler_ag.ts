@@ -29,7 +29,7 @@ export class SdvServicepartnerDerVersicherungsmaklerAgCollector extends SketchCo
         loginUrl: "https://portal.sdv.ag:8443/faces/jsf/masken/mitarbeiter.jsp?conversationContext=1",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {
