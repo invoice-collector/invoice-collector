@@ -12,7 +12,7 @@ export abstract class SketchCollector extends WebCollector {
         super({
             ...config,
             type: CollectorType.SKETCH,
-            state: CollectorState.DEVELOPMENT,
+            state: CollectorState.PLANNED,
             enableInteractiveLogin: true
         });
     }

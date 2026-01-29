@@ -7,9 +7,9 @@ import { WebSocketServer } from '../websocket/webSocketServer';
 import { Element } from '../driver/driver';
 
 export enum CollectorState {
+    PLANNED = 'planned',
     DEVELOPMENT = 'development',
-    ACTIVE = 'active',
-    MAINTENANCE = 'maintenance'
+    ACTIVE = 'active'
 }
 
 export enum CollectorType {
