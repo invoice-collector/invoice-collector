@@ -121,14 +121,16 @@ async function addI18n(language, key, value) {
     fs.writeFileSync(i18nPath, JSON.stringify(sortedI18nData, null, 2));
 }
 
-async function createSketchCollector() {
-    console.log("Welcome to the Sketch Collector Setup!");
+async function createAgentCollector() {
+    console.log("Welcome to the Agent Collector Setup!");
 
     // 1. Collect basic information
     const website = askUser("Website URL", true);
     await checkUrl(website, "text/html");
     const loginUrl = askUser("Login URL", true);
     await checkUrl(loginUrl, "text/html");
+    const entryUrl = askUser("Entry URL", false);
+    await checkUrl(entryUrl, "text/html");
     const logo = askUser("Link to the logo. Prefer wikipedia logo in .svg format", true);
     await checkUrl(logo, "image");
     const messageToLlm = askUser("Optional Message to LLM", false);
@@ -148,12 +150,13 @@ async function createSketchCollector() {
         description_en: llmResult.description_en,
         description_fr: llmResult.description_fr,
         website: website,
+        logo: logo,
         loginUrl: loginUrl,
-        logo: logo
+        entryUrl: entryUrl
     };
 
     // 5. Check src/collectors/{id}.json does not exist
-    const collectorPath = `src/collectors/sketch/${collector.id}`;
+    const collectorPath = `src/premium/collectors/${collector.id}`;
     const collectorFile = `${collectorPath}/${collector.id}.ts`;
     if (fs.existsSync(collectorPath)) {
         // Check if folder is not empty
@@ -168,11 +171,10 @@ async function createSketchCollector() {
     fs.mkdirSync(collectorPath, { recursive: true });
     fs.writeFileSync(collectorFile, JSON.stringify(collector, null, 4));
 
-    const sketchCollectorContent = `import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorCaptcha, CollectorType } from '../../abstractCollector';
+    const sketchCollectorContent = `import { AgentCollector } from '../customAgentCollector';
+import { CollectorState, CollectorCaptcha, CollectorType } from '../../../collectors/abstractCollector';
 
-export class ${collector.id_camel_case}Collector extends SketchCollector {
-
+export class ${collector.id_camel_case}Collector extends AgentCollector {
     static CONFIG = {
         id: "${collector.id}",
         name: "${collector.name}",
@@ -180,7 +182,7 @@ export class ${collector.id_camel_case}Collector extends SketchCollector {
         version: "0",
         website: "${collector.website}",
         logo: "${collector.logo}",
-        type: CollectorType.SKETCH,
+        type: CollectorType.AGENT,
         params: {
             email: {
                 type: "email",
@@ -196,9 +198,10 @@ export class ${collector.id_camel_case}Collector extends SketchCollector {
             }
         },
         loginUrl: "${collector.loginUrl}",
+        entryUrl: "${collector.entryUrl}",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.PLANNED
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {
@@ -217,4 +220,4 @@ export class ${collector.id_camel_case}Collector extends SketchCollector {
     console.log("Ctrl + C to exit.");
 }
 
-createSketchCollector();
+createAgentCollector();
