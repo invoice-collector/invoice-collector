@@ -1,4 +1,4 @@
-import { BitwardenClient, ClientSettings, DeviceType, LogLevel } from "@bitwarden/sdk-napi";
+import { BitwardenClient, ClientSettings, DeviceType } from "@bitwarden/sdk-napi";
 import { AbstractSecretManager } from "./abstractSecretManager";
 import * as utils from "../utils";
 import { Secret } from "../model/secret";
@@ -24,7 +24,6 @@ export class Bitwarden extends AbstractSecretManager {
             deviceType: DeviceType.SDK,
         };
         this.client = new BitwardenClient(settings, 2);
-        this.connect();
     }
 
     async connect(): Promise<void> {
