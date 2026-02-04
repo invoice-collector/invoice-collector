@@ -4,8 +4,7 @@ on:
   workflow_dispatch:
   pull_request:
     paths:
-      - 'src/collectors/**'
-      - 'src/premium/collectors/**'
+      - 'src/**'
 
 jobs:
   test-collectors:
