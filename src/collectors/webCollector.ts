@@ -163,7 +163,7 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
                 // If first collect
                 if(webSocketServer) {
                     // Go to login url
-                    await driver.goto(this.config.loginUrl);
+                    await driver.goto(this.config.loginUrl, { navigation: false });
                     // Perform interactive login
                     await this.interactive(driver, webSocketServer, 'i18n.views.interactive.login.instructions');
                     // Save customer area url if not defined
