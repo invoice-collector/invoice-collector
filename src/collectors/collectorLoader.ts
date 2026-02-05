@@ -1,5 +1,5 @@
 import path from 'path';
-import glob from 'glob';
+import { glob } from 'glob';
 import fs from 'fs';
 import { AbstractCollector, CollectorCaptcha, CollectorType, Config } from './abstractCollector';
 import { StatusError } from '../error';
@@ -27,12 +27,8 @@ export class CollectorLoader {
         const pattern = path.join(__dirname, strPattern);
 
         await new Promise<void>((resolve, reject) => {
-            glob(pattern, (err, files) => {
+            glob(pattern).then((files) => {
                 console.log(`Loading ${name} collectors...`);
-                if (err) {
-                    console.error('Error finding files:', err);
-                    reject(err);
-                }
                 let nbFFilesLoaded = 0;
                 for (const file of files) {
                     if(file.endsWith('selectors.ts') || file.endsWith('customAgentCollector.ts') || file.endsWith('common.ts') || file.endsWith('Common.ts')) {
@@ -83,6 +79,10 @@ export class CollectorLoader {
                 }
                 console.log(`${nbFFilesLoaded} ${name} collectors loaded`);
                 resolve();
+            })
+            .catch((err) => {
+                console.error(`Error loading ${name} collectors:`, err);
+                reject(err);
             });
         });
     }
