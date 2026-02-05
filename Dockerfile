@@ -48,6 +48,8 @@ RUN npm update \
 FROM deps AS dev
 ENV BUILD_ENV=development
 
+COPY --from=deps /usr/app/package*.json ./
+
 # Copy the rest of the application code
 COPY tsconfig.json ./tsconfig.json
 COPY src/ ./src/
@@ -76,6 +78,7 @@ FROM base AS prod
 ENV BUILD_ENV=production
 
 # Copy the dependencies from the deps stage
+COPY --from=deps /usr/app/package*.json ./
 COPY --from=deps /usr/app/node_modules ./node_modules
 
 COPY tsconfig.json ./tsconfig.json
