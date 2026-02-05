@@ -47,19 +47,9 @@ export abstract class Action<Context, Result> {
 
     static async performActions(actions: Action<any, any>[], context: any): Promise<any> {
         for(const action of actions) {
-            try {
-                const result = await action.perform(context);
-                if (result) {
-                    return result;
-                }
-            }
-            catch (e) {
-                // Rethrow AuthenticationError and DisconnectedError
-                if (e instanceof AuthenticationError || e instanceof DisconnectedError) {
-                    throw e;
-                }
-                // Wrap other errors
-                throw new Error(`Error performing action ${action.toString()}`, { cause: e });
+            const result = await action.perform(context);
+            if (result) {
+                return result;
             }
         }
         return;
@@ -101,11 +91,22 @@ export abstract class Action<Context, Result> {
         return element;
     }
 
-    abstract perform(context: Context): Promise<Result>;
-
-    toString(): string {
-        return `Action: ${this.action}, Description: ${this.description}`;
+    perform(context: Context): Promise<Result> {
+        try {
+            return this._perform(context);
+        }
+        catch (e) {
+            // Rethrow AuthenticationError and DisconnectedError
+            if (e instanceof AuthenticationError || e instanceof DisconnectedError) {
+                throw e;
+            }
+            // Wrap other errors
+            throw new Error(`Error performing action ${this.toString()}`, { cause: e });
+        }
     }
+
+    abstract _perform(context: Context): Promise<Result>;
+    abstract toString(): string;
 }
 
 export type LeftClickContext = {
@@ -124,7 +125,7 @@ export class LeftClickAction extends Action<LeftClickContext, void> {
         super(ActionEnum.LEFT_CLICK, description, location, args, cssSelector);
     }
 
-    async perform(context: LeftClickContext): Promise<void> {
+    async _perform(context: LeftClickContext): Promise<void> {
         if(context.element) {
             // Perform left click on provided element
             await context.element.leftClick(this.args);
@@ -153,7 +154,7 @@ export class MiddleClickAction extends Action<MiddleClickContext, void> {
         super(ActionEnum.MIDDLE_CLICK, description, location, args, cssSelector);
     }
 
-    async perform(context: MiddleClickContext): Promise<void> {
+    async _perform(context: MiddleClickContext): Promise<void> {
         let element: Element = context.element || await this.getElement(context.driver);
         
         try {
@@ -190,7 +191,7 @@ export class InputTextAction extends Action<InputTextContext, void> {
         super(ActionEnum.INPUT_TEXT, description, location, args, cssSelector);
     }
 
-    async perform(context: InputTextContext): Promise<void> {
+    async _perform(context: InputTextContext): Promise<void> {
         // If parameter exists
         if(!context.params.hasOwnProperty(this.args.text)) {
             throw new Error(`Parameter ${this.args.text} not found in params`);
@@ -223,7 +224,7 @@ export class GetTextContentAction extends Action<GetTextContentContext, string> 
         super(ActionEnum.GET_TEXT_CONTENT, description, location, args, cssSelector);
     }
 
-    async perform(context: GetTextContentContext): Promise<string> {
+    async _perform(context: GetTextContentContext): Promise<string> {
         let element: Element = await this.getElement(context.driver);
         return await element.textContent(this.args.default);
     }
@@ -248,7 +249,7 @@ export class InputTwofaAction extends Action<InputTwofaContext, void> {
         super(ActionEnum.INPUT_2FA_CODE, description, location, args, cssSelector);
     }
 
-    async perform(context: InputTwofaContext): Promise<void> {
+    async _perform(context: InputTwofaContext): Promise<void> {
         // Get 2fa code
         const code = await Promise.race([context.twofaPromise.code(), context.webSocketServer.getTwofa()]);
 
@@ -279,7 +280,7 @@ export class GetTwofaInstructionsAction extends Action<GetTwofaInstructionsConte
         super(ActionEnum.GET_TWOFA_INSTRUCTIONS, description, location, args, cssSelector);
     }
 
-    async perform(context: GetTwofaInstructionsContext): Promise<string | void> {
+    async _perform(context: GetTwofaInstructionsContext): Promise<string | void> {
         try {
             let element: Element = await this.getElement(context.driver);
             return await element.textContent(this.args.default);
@@ -309,7 +310,7 @@ export class GetInvoicesAction extends Action<GetInvoicesContext, Element[]> {
         super(ActionEnum.GET_INVOICES, description, location, args, cssSelector);
     }
 
-    async perform(context: GetInvoicesContext): Promise<Element[]> {
+    async _perform(context: GetInvoicesContext): Promise<Element[]> {
         return await context.driver.getElements({
             selector: this.cssSelector,
             info: this.description
@@ -344,7 +345,7 @@ export class ExtractInvoiceDataAction extends Action<ExtractInvoiceDataContext, 
         super(ActionEnum.EXTRACT_INVOICE_DATA, description, location, args, cssSelector);
     }
 
-    async perform(context: ExtractInvoiceDataContext): Promise<Invoice> {
+    async _perform(context: ExtractInvoiceDataContext): Promise<Invoice> {
         const link = await context.driver.url();
         const date = await context.element.getAttribute({selector: this.args.date.cssSelector, info: "date"}, this.args.date.attribute || "textContent");
         const timestamp = utils.timestampFromString(date, this.args.date.format, this.args.date.locale || 'en');
@@ -400,7 +401,7 @@ export class RaiseErrorIfDisplayed extends Action<RaiseErrorContext, void> {
         super(ActionEnum.RAISE_ERROR_IF_DISPLAYED, description, location, args, cssSelector);
     }
 
-    async perform(context: RaiseErrorContext): Promise<void> {
+    async _perform(context: RaiseErrorContext): Promise<void> {
         // Get element from cssSelector
         const element = await context.driver.getElement({
             selector: this.cssSelector,
