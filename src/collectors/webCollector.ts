@@ -150,8 +150,6 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
                     }
                 }
 
-                console.log("User is successfully logged in")
-
                 // Set progress step to collecting
                 state.update(State._5_COLLECTING);
                 webSocketServer?.sendState(State._5_COLLECTING);
@@ -211,7 +209,14 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
                 if(needLogin) {
                     throw new DisconnectedError(this);
                 }
+
+                // If no webSocketServer, it means that we are in auto login mode
+                if(!webSocketServer) {
+                    console.log("Successfully used cookies and local storage")
+                }
             }
+
+            console.log("User is successfully logged in")
 
             // Update secret.cookies
             await secret.setCookies(await driver.getCookies(this.config.autoLogin?.cookieNames));
