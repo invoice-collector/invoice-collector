@@ -18,7 +18,6 @@ services:
       - SECRET_MANAGER_BITWARDEN_ORGANIZATION_ID=
       - SECRET_MANAGER_BITWARDEN_PROJECT_ID=
       - FRONTEND=http://localhost:8080
-    command: npm run start
 
   mongodb:
     image : mongo:8.0.3

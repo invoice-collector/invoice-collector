@@ -1,4 +1,4 @@
-name: Deploy to Kubernetes
+name: Publish & Deploy
 
 on:
   push:
@@ -22,7 +22,7 @@ permissions:
   packages: write
 
 jobs:
-  publish-image:
+  publish-image-to-github:
     runs-on: ubuntu-latest
 
     steps:
@@ -48,13 +48,16 @@ jobs:
       uses: docker/build-push-action@v6
       with:
         context: .
+        target: prod
+        build-args: |
+          BUILD_ENV=production
         platforms: linux/amd64
         push: true
         provenance: false
         tags: |
             ${{ env.IMAGE_NAME }}:${{ env.TAG }}
 
-  publish-image-premium:
+  publish-premium-image-to-github:
     runs-on: ubuntu-latest
 
     steps:
@@ -82,15 +85,18 @@ jobs:
       uses: docker/build-push-action@v6
       with:
         context: .
+        target: prod
+        build-args: |
+          BUILD_ENV=production
         platforms: linux/amd64
         push: true
         provenance: false
         tags: |
             ${{ env.IMAGE_NAME_PREMIUM }}:${{ env.TAG }}
 
-  push-to-kubernetes:
+  deploy-premium-image-to-kubernetes:
     runs-on: ubuntu-latest
-    needs: publish-image-premium
+    needs: publish-premium-image-to-github
 
     steps:
     - name: Checkout
@@ -100,7 +106,7 @@ jobs:
         submodules: true
         token: ${{ secrets.PAT_TOKEN }}
 
-    - name: Reload Prod Deployement
+    - name: Reload Production Deployment
       uses: actions-hub/kubectl@master
       env:
         KUBE_CONFIG: ${{ secrets.KUBE_CONFIG }}

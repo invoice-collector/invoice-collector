@@ -1,11 +1,9 @@
 import path from 'path';
 import express from 'express';
-import dotenv from 'dotenv';
 import { StatusError } from "./error"
 import { Server } from "./server"
 import * as utils from "./utils"
 import { I18n } from './i18n';
-dotenv.config();
 
 // Configure express
 const app = express()

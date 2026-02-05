@@ -4,6 +4,9 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+      target: dev
+      args:
+        BUILD_ENV: development
     env_file:
       - .env
     ports:
@@ -28,7 +31,6 @@ services:
       - SECRET_MANAGER_BITWARDEN_IDENTITY_URI=https://vault.bitwarden.eu/identity
       - FRONTEND=http://localhost:8080
       - ENV=debug
-    command: npm run debug
 
   mongodb:
     image : mongo:8.0.3
