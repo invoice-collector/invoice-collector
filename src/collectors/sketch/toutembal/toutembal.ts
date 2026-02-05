@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ToutembalCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ToutembalCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.toutembal.fr/commande_visualiser.php",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.toutembal.fr/commande_visualiser.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

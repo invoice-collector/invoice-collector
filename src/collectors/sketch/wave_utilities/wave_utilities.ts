@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WaveUtilitiesCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class WaveUtilitiesCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.wave-utilities.co.uk/account",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.wave-utilities.co.uk/account",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

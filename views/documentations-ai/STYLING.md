@@ -141,9 +141,8 @@ Breakpoints :
 ```css
 .ic-badge            /* Badge de base */
 .ic-badge--stable    /* Vert - Production */
-.ic-badge--beta      /* Orange - Beta */
-.ic-badge--alpha     /* Rouge - Alpha */
-.ic-badge--info      /* Bleu - Info */
+.ic-badge--beta      /* Bleu - Beta */
+.ic-badge--info      /* Gris - Info */
 ```
 
 ### Boutons

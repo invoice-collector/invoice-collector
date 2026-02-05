@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RubartDeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class RubartDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.rubart.de/index.php?view=account",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.rubart.de/index.php?view=account",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

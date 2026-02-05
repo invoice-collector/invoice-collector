@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BlipBillboardsCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BlipBillboardsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://marketplace.blipbillboards.com/reports",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://marketplace.blipbillboards.com/reports",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

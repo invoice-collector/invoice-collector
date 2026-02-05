@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GravisCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class GravisCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.gravis.de/index.php?cl=account",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "http://www.gravis.de/index.php?cl=account",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

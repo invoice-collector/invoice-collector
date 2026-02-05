@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AgendaCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AgendaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://agenda-unternehmens-portal.de/Unternehmensportal/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://agenda-unternehmens-portal.de/Unternehmensportal/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

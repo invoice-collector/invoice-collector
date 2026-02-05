@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RideGmbhUberStripeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class RideGmbhUberStripeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.ride.capital/login?",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.ride.capital/login?",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

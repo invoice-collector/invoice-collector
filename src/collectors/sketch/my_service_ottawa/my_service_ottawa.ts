@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MyServiceOttawaCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MyServiceOttawaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://myservice.ottawa.ca/profile/account/login?lang=en",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://myservice.ottawa.ca/profile/account/login?lang=en",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GridpaneCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class GridpaneCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.gridpane.com/settings#/invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://my.gridpane.com/settings#/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

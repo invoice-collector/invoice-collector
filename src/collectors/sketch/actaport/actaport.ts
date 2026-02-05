@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ActaportCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ActaportCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.actaport.de/rechnungen/uebersicht",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.actaport.de/rechnungen/uebersicht",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

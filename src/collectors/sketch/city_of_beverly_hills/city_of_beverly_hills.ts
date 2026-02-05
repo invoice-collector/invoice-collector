@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CityOfBeverlyHillsCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CityOfBeverlyHillsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://idp.beverlyhills.org/ui/clogin.jsp",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://idp.beverlyhills.org/ui/clogin.jsp",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

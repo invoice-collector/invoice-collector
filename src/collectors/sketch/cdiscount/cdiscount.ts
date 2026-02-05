@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CdiscountCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CdiscountCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://clients.cdiscount.com/Account/Login.html?",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://clients.cdiscount.com/Account/Login.html?",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

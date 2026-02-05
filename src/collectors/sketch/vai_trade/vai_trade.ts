@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VaiTradeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class VaiTradeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://vaitrade.de/de/app/deals/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://vaitrade.de/de/app/deals/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

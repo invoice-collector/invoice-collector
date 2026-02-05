@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GroverCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class GroverCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.grover.com/de/dashboard/transactions",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.grover.com/de/dashboard/transactions",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HarryFoxCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class HarryFoxCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portal.harryfox.com/auth/login/?return=%2F",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://portal.harryfox.com/auth/login/?return=%2F",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

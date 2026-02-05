@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SarbacaneCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SarbacaneCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://sarbacane.app/#!/auth/connection",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://sarbacane.app/#!/auth/connection",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

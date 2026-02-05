@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TorontoHydroHomeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TorontoHydroHomeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://css.torontohydro.com/selfserve/pages/login.aspx?ReturnUrl=%2f_layouts%2fAuthenticate.aspx%3fSource%3d%252f&Source=%2f",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://css.torontohydro.com/selfserve/pages/login.aspx?ReturnUrl=%2f_layouts%2fAuthenticate.aspx%3fSource%3d%252f&Source=%2f",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

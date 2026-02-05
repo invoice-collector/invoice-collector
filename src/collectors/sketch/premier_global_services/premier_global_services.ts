@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PremierGlobalServicesCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PremierGlobalServicesCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.pgi.com",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "http://www.pgi.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

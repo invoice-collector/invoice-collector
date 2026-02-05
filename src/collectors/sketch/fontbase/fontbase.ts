@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FontbaseCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class FontbaseCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://web.fontba.se/account/billing",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://web.fontba.se/account/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

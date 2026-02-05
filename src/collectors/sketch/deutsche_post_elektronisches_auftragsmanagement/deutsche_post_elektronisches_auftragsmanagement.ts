@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DeutschePostElektronischesAuftragsmanagementCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DeutschePostElektronischesAuftragsmanagementCollector extends Sketc
                 mandatory: true
             }
         },
-        entryUrl: "https://auftragsmanagement.deutschepost.de",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://auftragsmanagement.deutschepost.de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

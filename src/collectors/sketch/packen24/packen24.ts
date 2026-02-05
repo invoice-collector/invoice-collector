@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Packen24Collector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class Packen24Collector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.packen24.de/account",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.packen24.de/account",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

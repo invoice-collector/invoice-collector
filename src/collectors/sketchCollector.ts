@@ -1,38 +1,39 @@
-import { CompleteInvoice, CollectorType, CollectorState, Config } from "./abstractCollector";
-import { V2Collector } from "./v2Collector";
-import { Location } from "../proxy/abstractProxy";
-import { Secret } from "../secret_manager/abstractSecretManager";
-import { TwofaPromise } from "../collect/twofaPromise";
-import { State } from "../model/state";
+import { CollectorType, CollectorState, Invoice } from "./abstractCollector";
+import { WebCollector, WebConfig } from "./webCollector";
+import { Driver, Element } from "../driver/driver";
 import { WebSocketServer } from "../websocket/webSocketServer";
 
-export type SketchConfig = Config & {
+export type SketchConfig = WebConfig & {
 }
 
-export abstract class SketchCollector extends V2Collector<SketchConfig> {
+export abstract class SketchCollector extends WebCollector {
 
     constructor(config: SketchConfig) {
         super({
             ...config,
             type: CollectorType.SKETCH,
-            state: CollectorState.DEVELOPMENT
+            state: CollectorState.PLANNED,
+            enableInteractiveLogin: true
         });
     }
 
-    async _collect(
-        state: State,
-        twofa_promise: TwofaPromise,
-        webSocketServer: WebSocketServer | undefined,
-        secret: Secret,
-        download_from_timestamp: number,
-        previousInvoices: any[],
-        location: Location | null
-    ): Promise<CompleteInvoice[]> {
-        // Return an empty array as this is just a sketch collector
+    async login(driver: Driver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
+        return;
+    }
+
+    async isEmpty(driver: Driver): Promise<boolean> {
+        return true;
+    }
+
+    async getInvoices(driver: Driver): Promise<Element[]> {
         return [];
     }
 
-    async _close(): Promise<void> {
-        // Nothing to close
+    async data(driver: Driver, element: Element): Promise<Invoice | null> {
+        throw new Error("Method not implemented.");
+    }
+
+    async download(driver: Driver, invoice: Invoice): Promise<string[]> {
+        throw new Error("Method not implemented.");
     }
 }

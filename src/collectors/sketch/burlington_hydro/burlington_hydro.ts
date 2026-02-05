@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BurlingtonHydroCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BurlingtonHydroCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.bhiviewmybill.com/login.asp",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.bhiviewmybill.com/login.asp",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

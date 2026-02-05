@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SghNetCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SghNetCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://cp.sgh-net.de/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://cp.sgh-net.de/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

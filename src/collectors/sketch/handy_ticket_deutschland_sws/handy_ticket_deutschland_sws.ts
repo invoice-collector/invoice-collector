@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HandyTicketDeutschlandSwsCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class HandyTicketDeutschlandSwsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://handyticket.de/portals/web/nutzer/sws/login.html",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://handyticket.de/portals/web/nutzer/sws/login.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

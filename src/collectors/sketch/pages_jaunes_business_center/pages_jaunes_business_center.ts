@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PagesJaunesBusinessCenterCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PagesJaunesBusinessCenterCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://businesscenter.pagesjaunes.fr/nouvelles_audiences/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://businesscenter.pagesjaunes.fr/nouvelles_audiences/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

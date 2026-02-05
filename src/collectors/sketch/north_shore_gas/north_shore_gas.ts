@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NorthShoreGasCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class NorthShoreGasCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.northshoregasdelivery.com/accountsummary",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.northshoregasdelivery.com/accountsummary",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

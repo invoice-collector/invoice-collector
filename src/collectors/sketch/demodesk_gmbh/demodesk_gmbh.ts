@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DemodeskGmbhCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DemodeskGmbhCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://demodesk.com/manage/settings/company/billing",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://demodesk.com/manage/settings/company/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

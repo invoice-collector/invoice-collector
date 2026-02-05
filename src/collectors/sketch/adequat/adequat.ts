@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AdequatCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AdequatCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://connexion.myadequat.fr/Account/Login?ReturnUrl=%2Fconnect%2Fauthorize%2Fcallback%3Fclient_id%3DspaCodeClient%26redirect_uri%3Dhttps%253A%252F%252Fmyadequat.fr%26response_type%3Dcode%26scope%3Dopenid%2520profile%2520email%2520phone%2520resourceApi%",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://connexion.myadequat.fr/Account/Login?ReturnUrl=%2Fconnect%2Fauthorize%2Fcallback%3Fclient_id%3DspaCodeClient%26redirect_uri%3Dhttps%253A%252F%252Fmyadequat.fr%26response_type%3Dcode%26scope%3Dopenid%2520profile%2520email%2520phone%2520resourceApi%",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

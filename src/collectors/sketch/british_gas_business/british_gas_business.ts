@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BritishGasBusinessCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BritishGasBusinessCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://business.britishgas.co.uk/business/your-account/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://business.britishgas.co.uk/business/your-account/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

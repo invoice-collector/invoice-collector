@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class _2captchaCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class _2captchaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://2captcha.com/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://2captcha.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

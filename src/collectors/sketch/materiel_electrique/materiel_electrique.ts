@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MaterielElectriqueCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MaterielElectriqueCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.materielelectrique.com/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.materielelectrique.com/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

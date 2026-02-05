@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SendibleCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SendibleCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.sendible.com/#manage/subscription",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.sendible.com/#manage/subscription",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

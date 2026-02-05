@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EnetCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class EnetCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://esp-enet.de/pay?",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://esp-enet.de/pay?",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

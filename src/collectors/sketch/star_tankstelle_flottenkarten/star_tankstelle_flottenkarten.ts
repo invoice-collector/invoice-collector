@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StarTankstelleFlottenkartenCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class StarTankstelleFlottenkartenCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://flottenkarte.star.de/Invoice/DownloadInvoice/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://flottenkarte.star.de/Invoice/DownloadInvoice/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

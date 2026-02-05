@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ShipedgeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ShipedgeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://flftx.shipedge.com/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://flftx.shipedge.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

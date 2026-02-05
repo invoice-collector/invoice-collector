@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MaschinensucherCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MaschinensucherCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.maschinensucher.de/user/contract/invoice-list",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.maschinensucher.de/user/contract/invoice-list",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

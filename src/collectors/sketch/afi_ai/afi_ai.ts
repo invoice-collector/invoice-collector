@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AfiAiCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AfiAiCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.afi.ai/orgs/01GVDMXKVWW0DGEY2Y6DX7JF5R/billing/payment-history",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.afi.ai/orgs/01GVDMXKVWW0DGEY2Y6DX7JF5R/billing/payment-history",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

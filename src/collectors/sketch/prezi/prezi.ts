@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PreziCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PreziCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://prezi.com/settings/license/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://prezi.com/settings/license/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

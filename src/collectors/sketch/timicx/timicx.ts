@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TimicxCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TimicxCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.timicx.de/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.timicx.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

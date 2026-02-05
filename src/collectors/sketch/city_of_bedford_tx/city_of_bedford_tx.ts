@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CityOfBedfordTxCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CityOfBedfordTxCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://bedford.dpnetbill.com/secure/customer/default.aspx",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://bedford.dpnetbill.com/secure/customer/default.aspx",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

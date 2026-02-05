@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SeoClerkCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SeoClerkCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.seoclerks.com/balance",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.seoclerks.com/balance",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

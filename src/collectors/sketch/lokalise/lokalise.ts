@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LokaliseCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class LokaliseCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://lokalise.co/team#invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://lokalise.co/team#invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

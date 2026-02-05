@@ -1,5 +1,5 @@
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MonoprixCollector extends SketchCollector {
 
@@ -25,8 +25,10 @@ export class MonoprixCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://client.monoprix.fr/monoprix-shopping",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://client.monoprix.fr/monoprix-shopping",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

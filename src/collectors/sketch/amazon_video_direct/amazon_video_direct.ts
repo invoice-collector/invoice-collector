@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AmazonVideoDirectCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AmazonVideoDirectCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.amazon.com/ap/signin?clientContext=135-5131242-6373120&openid.return_to=https%3A%2F%2Fvideodirect.amazon.com%2Fap-post-redirect&openid.identity=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.assoc_handle=amzn_dv_cooper_u",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.amazon.com/ap/signin?clientContext=135-5131242-6373120&openid.return_to=https%3A%2F%2Fvideodirect.amazon.com%2Fap-post-redirect&openid.identity=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.assoc_handle=amzn_dv_cooper_u",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

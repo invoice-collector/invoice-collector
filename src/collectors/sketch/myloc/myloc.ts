@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MylocCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MylocCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://zkm.myloc.de/s/billing/overview/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://zkm.myloc.de/s/billing/overview/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

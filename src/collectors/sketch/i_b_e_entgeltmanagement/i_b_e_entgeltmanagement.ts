@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IBEEntgeltmanagementCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class IBEEntgeltmanagementCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.institut-be.de/ukc/index.php",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.institut-be.de/ukc/index.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

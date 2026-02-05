@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HgkHotelUndGastronomieKaufEgCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class HgkHotelUndGastronomieKaufEgCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.h-g-k.de/belege_letzter_monat/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.h-g-k.de/belege_letzter_monat/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

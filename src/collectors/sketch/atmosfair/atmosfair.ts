@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AtmosfairCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AtmosfairCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.atmosfair.de/de/myatmosfair",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.atmosfair.de/de/myatmosfair",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

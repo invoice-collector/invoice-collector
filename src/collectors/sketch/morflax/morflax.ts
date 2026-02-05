@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MorflaxCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MorflaxCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://studio.morflax.com/dashboard/user/billing/invoice",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://studio.morflax.com/dashboard/user/billing/invoice",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

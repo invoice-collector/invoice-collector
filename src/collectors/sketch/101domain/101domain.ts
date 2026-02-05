@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class _101domainCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class _101domainCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.101domain.com/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://my.101domain.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

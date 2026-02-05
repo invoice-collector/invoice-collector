@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SetasignCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SetasignCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.setasign.com",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "http://www.setasign.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

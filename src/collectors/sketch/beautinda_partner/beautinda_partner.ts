@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BeautindaPartnerCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BeautindaPartnerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://pro.beautinda.de/settings/finance/data-export",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://pro.beautinda.de/settings/finance/data-export",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

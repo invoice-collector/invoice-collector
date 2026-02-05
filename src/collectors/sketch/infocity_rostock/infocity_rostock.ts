@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class InfocityRostockCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class InfocityRostockCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://mein.infocity-rostock.de/konto/rechnungen",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://mein.infocity-rostock.de/konto/rechnungen",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

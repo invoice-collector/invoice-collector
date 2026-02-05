@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DusNetCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DusNetCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.dus.net/de/kundenmenue/kundencenter/bookkeeping.html",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.dus.net/de/kundenmenue/kundencenter/bookkeeping.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

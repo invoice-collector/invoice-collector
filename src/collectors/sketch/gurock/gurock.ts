@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GurockCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class GurockCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://secure.gurock.com/customers/auth/login/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://secure.gurock.com/customers/auth/login/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

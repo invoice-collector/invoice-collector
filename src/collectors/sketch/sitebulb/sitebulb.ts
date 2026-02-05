@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SitebulbCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SitebulbCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.paddle.com/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://my.paddle.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

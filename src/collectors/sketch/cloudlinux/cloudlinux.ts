@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CloudlinuxCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CloudlinuxCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://cln.cloudlinux.com/clweb/account/reseller/billing.xhtml",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://cln.cloudlinux.com/clweb/account/reseller/billing.xhtml",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

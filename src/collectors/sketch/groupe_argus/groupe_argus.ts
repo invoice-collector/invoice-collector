@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GroupeArgusCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class GroupeArgusCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://factures.largus.fr/#!/documents",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://factures.largus.fr/#!/documents",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

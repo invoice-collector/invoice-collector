@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LichtblickFahrstromGeschaftskundenCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class LichtblickFahrstromGeschaftskundenCollector extends SketchCollector
                 mandatory: true
             }
         },
-        entryUrl: "https://www.lichtblick.de/konto#/posteingang",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.lichtblick.de/konto#/posteingang",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

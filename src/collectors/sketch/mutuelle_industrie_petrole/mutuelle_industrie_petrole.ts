@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MutuelleIndustriePetroleCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MutuelleIndustriePetroleCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://secure.mutuelles.biz/-MIP-",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://secure.mutuelles.biz/-MIP-",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

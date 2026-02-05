@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KerlogCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class KerlogCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.ecorec-online.fr/Kerlog/Portail/#/ecoportail/document/Documents%20KERLOG",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.ecorec-online.fr/Kerlog/Portail/#/ecoportail/document/Documents%20KERLOG",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

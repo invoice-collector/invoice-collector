@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SouthStaffordshireWaterworksCoCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SouthStaffordshireWaterworksCoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://myaccount.sourceforbusiness.co.uk/Login.aspx",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://myaccount.sourceforbusiness.co.uk/Login.aspx",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

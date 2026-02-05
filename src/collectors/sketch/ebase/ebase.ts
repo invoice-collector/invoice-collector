@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EbaseCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class EbaseCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portal.ebase.com/(e1)/portal.ebase.com/depot/online-postkorb",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://portal.ebase.com/(e1)/portal.ebase.com/depot/online-postkorb",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

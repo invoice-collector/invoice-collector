@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MyuniqaCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MyuniqaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://myuniqa.at/main/dashboard/documents",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://myuniqa.at/main/dashboard/documents",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

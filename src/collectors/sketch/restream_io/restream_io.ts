@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RestreamIoCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class RestreamIoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://restream.io/channel",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://restream.io/channel",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

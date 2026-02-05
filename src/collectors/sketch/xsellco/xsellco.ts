@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class XsellcoCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class XsellcoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://dashboard.xsellco.com/login?_ga=2.219650970.2018828526.1508765813-806878810.1508765813",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://dashboard.xsellco.com/login?_ga=2.219650970.2018828526.1508765813-806878810.1508765813",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Tyre24Collector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class Tyre24Collector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.tyre24.com/de/de/user/login/page/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.tyre24.com/de/de/user/login/page/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

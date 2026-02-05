@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DwnCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DwnCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://deutsche-wirtschafts-nachrichten.de/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://deutsche-wirtschafts-nachrichten.de/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

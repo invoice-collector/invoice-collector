@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DiscacCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DiscacCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://espacepro.discac.fr/invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://espacepro.discac.fr/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CityOfVancouverPermitsAndLicencesCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CityOfVancouverPermitsAndLicencesCollector extends SketchCollector 
                 mandatory: true
             }
         },
-        entryUrl: "https://plposweb.vancouver.ca/Public/Login.aspx",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://plposweb.vancouver.ca/Public/Login.aspx",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

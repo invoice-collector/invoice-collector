@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FinapiCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class FinapiCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://finapi.zendesk.com/hc/en-us",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://finapi.zendesk.com/hc/en-us",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

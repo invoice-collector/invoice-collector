@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NetclusiveCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class NetclusiveCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.netclusive.de/?go=konto",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.netclusive.de/?go=konto",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

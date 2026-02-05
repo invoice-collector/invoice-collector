@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SligroCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SligroCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.sligro.nl",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "http://www.sligro.nl",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

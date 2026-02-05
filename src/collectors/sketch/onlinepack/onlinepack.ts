@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OnlinepackCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class OnlinepackCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.onlinepack.de/Mein-Konto",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.onlinepack.de/Mein-Konto",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

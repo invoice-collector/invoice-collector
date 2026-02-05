@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PdfMonkeyCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PdfMonkeyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://dashboard.pdfmonkey.io/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://dashboard.pdfmonkey.io/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

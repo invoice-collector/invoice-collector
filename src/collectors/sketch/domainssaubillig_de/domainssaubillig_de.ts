@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DomainssaubilligDeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DomainssaubilligDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://mein.domainssaubillig.de/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://mein.domainssaubillig.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

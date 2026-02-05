@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SellerboardCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SellerboardCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.sellerboard.com/en/auth/login/?_ga=2.186678696.1679769345.1559218854-1670839472.1559218854",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.sellerboard.com/en/auth/login/?_ga=2.186678696.1679769345.1559218854-1670839472.1559218854",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

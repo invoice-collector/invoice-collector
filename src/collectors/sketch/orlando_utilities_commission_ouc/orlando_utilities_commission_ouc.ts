@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OrlandoUtilitiesCommissionOucCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class OrlandoUtilitiesCommissionOucCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.ouc.com/myouc/AccountSummary_Home",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://my.ouc.com/myouc/AccountSummary_Home",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MessagebirdCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MessagebirdCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://dashboard.messagebird.com/de-de/financial/list",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://dashboard.messagebird.com/de-de/financial/list",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

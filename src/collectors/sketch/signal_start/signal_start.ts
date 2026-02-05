@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SignalStartCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SignalStartCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.signalstart.com/billing",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.signalstart.com/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

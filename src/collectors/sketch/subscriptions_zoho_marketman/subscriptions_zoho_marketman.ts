@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SubscriptionsZohoMarketmanCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SubscriptionsZohoMarketmanCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://subscriptions.zoho.com/portal/marketmanuk/index#/invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://subscriptions.zoho.com/portal/marketmanuk/index#/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

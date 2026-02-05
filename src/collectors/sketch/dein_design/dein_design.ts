@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DeinDesignCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DeinDesignCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.deindesign.de/de/secure/customer/orderStats.html",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.deindesign.de/de/secure/customer/orderStats.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

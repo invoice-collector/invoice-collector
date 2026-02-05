@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PepcoCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PepcoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.pepco.com/Pages/default.aspx",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.pepco.com/Pages/default.aspx",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

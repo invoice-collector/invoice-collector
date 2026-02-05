@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class A1BusinessCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class A1BusinessCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://ppp.a1.net/start/index.sp",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://ppp.a1.net/start/index.sp",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

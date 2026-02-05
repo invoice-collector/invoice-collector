@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CodementorCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CodementorCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.codementor.io/settings/payment-history?type=invoice",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.codementor.io/settings/payment-history?type=invoice",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

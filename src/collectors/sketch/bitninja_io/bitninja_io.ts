@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BitninjaIoCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BitninjaIoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://console.bitninja.io/payment/subscription",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://console.bitninja.io/payment/subscription",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class H2proBerlinerWasserbetriebeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class H2proBerlinerWasserbetriebeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://h2pro.bwb.de/powercommerce/bwb/fo/portal/professional",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://h2pro.bwb.de/powercommerce/bwb/fo/portal/professional",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

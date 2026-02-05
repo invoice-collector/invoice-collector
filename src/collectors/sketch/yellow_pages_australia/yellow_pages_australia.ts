@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class YellowPagesAustraliaCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class YellowPagesAustraliaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://myaccount.sensis.com.au",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://myaccount.sensis.com.au",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

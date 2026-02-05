@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AgipiCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AgipiCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.assurancevie-agipi.com/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.assurancevie-agipi.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

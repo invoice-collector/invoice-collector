@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AgilecrmCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AgilecrmCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.agilecrm.com/enter-domain?to=login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://my.agilecrm.com/enter-domain?to=login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

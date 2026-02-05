@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DesigncrowdCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DesigncrowdCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.designcrowd.de/registration",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.designcrowd.de/registration",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

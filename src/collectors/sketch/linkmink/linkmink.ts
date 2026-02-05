@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LinkminkCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class LinkminkCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://linkmink.com/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://linkmink.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

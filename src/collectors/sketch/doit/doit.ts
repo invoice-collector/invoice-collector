@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DoitCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DoitCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://hello.doit-intl.com/customers/cEuOWlBA69HBBazHZ2Hd/invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://hello.doit-intl.com/customers/cEuOWlBA69HBBazHZ2Hd/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

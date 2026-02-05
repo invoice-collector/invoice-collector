@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LightspeedRestaurantPosKSeriesCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class LightspeedRestaurantPosKSeriesCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://manager.lsk.lightspeed.app/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://manager.lsk.lightspeed.app/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

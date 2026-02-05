@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FreelancerDeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class FreelancerDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.freelancer.de/login?goto=YjFiMzg4ZTQ5ODBlMDc2NDM1MDJmNTU4YjhmOTUyMTRodHRwczovL3d3dy5mcmVlbGFuY2VyLmNvbS9wYXltZW50cy90cmFuc2FjdGlvbnMucGhw",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.freelancer.de/login?goto=YjFiMzg4ZTQ5ODBlMDc2NDM1MDJmNTU4YjhmOTUyMTRodHRwczovL3d3dy5mcmVlbGFuY2VyLmNvbS9wYXltZW50cy90cmFuc2FjdGlvbnMucGhw",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

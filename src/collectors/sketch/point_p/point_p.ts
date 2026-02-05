@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PointPCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PointPCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.pointp.fr/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.pointp.fr/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

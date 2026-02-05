@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SuperxGmbhCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SuperxGmbhCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://super-chat.eu.auth0.com/login?state=hKFo2SBhT2sxZjBiaE1fLTN1anFIRE9SS2dGV0JlWGQ2MDAzbKFupWxvZ2luo3RpZNkgQ0tJbWU5ZG1TRzlQVlIyQXlTUVd3SklPdmFUWjZ0cnKjY2lk2SBMUWRxRnRpNjRzcjljOTJMYUpXclR6cDZpelQ0YlpkZw&client=LQdqFti64sr9c92LaJWrTzp6izT4bZdg&protocol",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://super-chat.eu.auth0.com/login?state=hKFo2SBhT2sxZjBiaE1fLTN1anFIRE9SS2dGV0JlWGQ2MDAzbKFupWxvZ2luo3RpZNkgQ0tJbWU5ZG1TRzlQVlIyQXlTUVd3SklPdmFUWjZ0cnKjY2lk2SBMUWRxRnRpNjRzcjljOTJMYUpXclR6cDZpelQ0YlpkZw&client=LQdqFti64sr9c92LaJWrTzp6izT4bZdg&protocol",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

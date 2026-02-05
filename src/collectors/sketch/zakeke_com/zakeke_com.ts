@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ZakekeComCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ZakekeComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portal.zakeke.com/en-US/Admin/Seller/Billings",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://portal.zakeke.com/en-US/Admin/Seller/Billings",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

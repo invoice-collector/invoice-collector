@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SocialpilotCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SocialpilotCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://panel.socialpilot.co/membership/bill",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://panel.socialpilot.co/membership/bill",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

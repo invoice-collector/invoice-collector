@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DruckerwolkeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DruckerwolkeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.druckerwolke.de/app/account/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.druckerwolke.de/app/account/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

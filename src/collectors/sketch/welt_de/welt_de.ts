@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WeltDeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class WeltDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "welt.de",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "welt.de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

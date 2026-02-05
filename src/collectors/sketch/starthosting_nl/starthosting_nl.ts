@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StarthostingNlCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class StarthostingNlCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.starthosting.nl",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "http://www.starthosting.nl",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

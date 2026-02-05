@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MutuelleProBtpCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MutuelleProBtpCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.probtp.com/ext/parAccueil.do?accueil=true",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.probtp.com/ext/parAccueil.do?accueil=true",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class UsFoodsCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class UsFoodsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www3.usfoods.com/order/faces/oracle/webcenter/portalapp/pages/invoice/invoiceInquiry.jspx?_adf.ctrl-state=c4yt4t9gs_4&_afrLoop=73457099228509#!",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www3.usfoods.com/order/faces/oracle/webcenter/portalapp/pages/invoice/invoiceInquiry.jspx?_adf.ctrl-state=c4yt4t9gs_4&_afrLoop=73457099228509#!",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MooCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MooCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.moo.com/us/account/signin.php",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.moo.com/us/account/signin.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

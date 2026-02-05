@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BambulabCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BambulabCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://eu.store.bambulab.com/de/account",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://eu.store.bambulab.com/de/account",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TencentCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TencentCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://console.tencentcloud.com/expense/invoicing",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://console.tencentcloud.com/expense/invoicing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

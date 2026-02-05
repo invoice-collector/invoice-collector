@@ -1,5 +1,6 @@
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { log } from 'console';
 
 export class ReflectivCollector extends SketchCollector {
 
@@ -25,7 +26,10 @@ export class ReflectivCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.reflectiv.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

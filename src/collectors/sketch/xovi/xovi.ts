@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class XoviCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class XoviCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://suite.xovi.net/user/login?redirect=%2Faccount%2Finvoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://suite.xovi.net/user/login?redirect=%2Faccount%2Finvoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

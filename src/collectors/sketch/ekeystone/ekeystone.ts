@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EkeystoneCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class EkeystoneCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://wwwsc.ekeystone.com/account-center/invoices-returns",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://wwwsc.ekeystone.com/account-center/invoices-returns",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DescriptCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DescriptCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://web.descript.com/invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://web.descript.com/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

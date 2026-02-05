@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VaillantCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class VaillantCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.vaillant.de/fachpartnernet/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.vaillant.de/fachpartnernet/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

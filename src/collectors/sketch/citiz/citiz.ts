@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CitizCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CitizCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://service.citiz.fr/webapp/my_invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://service.citiz.fr/webapp/my_invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

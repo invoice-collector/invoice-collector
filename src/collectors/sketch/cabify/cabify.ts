@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CabifyCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CabifyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.cabify.com/app/billing/receipts",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.cabify.com/app/billing/receipts",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class InnpowerCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class InnpowerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.innpower.ca",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.innpower.ca",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

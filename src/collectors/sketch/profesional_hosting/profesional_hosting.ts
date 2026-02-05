@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ProfesionalHostingCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ProfesionalHostingCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://clientes.profesionalhosting.com/clientarea.php",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://clientes.profesionalhosting.com/clientarea.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

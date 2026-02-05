@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NexudusCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class NexudusCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://platform.nexudus.com/auth/sign-in?continue_to=/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://platform.nexudus.com/auth/sign-in?continue_to=/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

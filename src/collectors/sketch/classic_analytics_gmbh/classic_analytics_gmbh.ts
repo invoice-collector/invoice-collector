@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ClassicAnalyticsGmbhCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ClassicAnalyticsGmbhCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.classic-analytics.de/de/my_account/bills",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.classic-analytics.de/de/my_account/bills",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

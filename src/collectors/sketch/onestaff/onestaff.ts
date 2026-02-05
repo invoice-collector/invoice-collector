@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OnestaffCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class OnestaffCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.onestaff.eu/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.onestaff.eu/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

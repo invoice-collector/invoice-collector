@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WifiberCyprusCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class WifiberCyprusCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://billing.wifiber.com.cy",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://billing.wifiber.com.cy",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

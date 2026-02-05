@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TheforkManagerCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TheforkManagerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://manager.thefork.com/fr/booking",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://manager.thefork.com/fr/booking",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BillappCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BillappCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.billapp.de/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "http://www.billapp.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

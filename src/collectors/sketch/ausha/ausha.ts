@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AushaCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AushaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.ausha.co/app/user/billing",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.ausha.co/app/user/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

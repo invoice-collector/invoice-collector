@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LuudooCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class LuudooCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://luudoo.com/admin_5esn7m/sales/invoice/index/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://luudoo.com/admin_5esn7m/sales/invoice/index/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

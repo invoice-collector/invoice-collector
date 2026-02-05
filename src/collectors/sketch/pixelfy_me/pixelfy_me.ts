@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PixelfyMeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PixelfyMeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.pixelfy.me/sign-in",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.pixelfy.me/sign-in",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

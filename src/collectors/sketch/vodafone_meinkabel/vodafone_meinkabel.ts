@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VodafoneMeinkabelCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class VodafoneMeinkabelCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://kabel.vodafone.de/meinkabel/rechnungen/rechnung",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://kabel.vodafone.de/meinkabel/rechnungen/rechnung",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

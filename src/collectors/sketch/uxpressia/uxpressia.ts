@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class UxpressiaCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class UxpressiaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://uxpressia.com/workspace/AXzjR/invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://uxpressia.com/workspace/AXzjR/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

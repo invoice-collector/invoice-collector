@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ThriveThemesAffiliateprogrammCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ThriveThemesAffiliateprogrammCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://thrivethemes.com/affiliates/account.php?page=3",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://thrivethemes.com/affiliates/account.php?page=3",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

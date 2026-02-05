@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MetroFrCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MetroFrCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://shop.metro.fr/shop/portal/overview/my-cmr-statements",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://shop.metro.fr/shop/portal/overview/my-cmr-statements",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

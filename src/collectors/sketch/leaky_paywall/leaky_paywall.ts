@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LeakyPaywallCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class LeakyPaywallCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://leakypaywall.com/my-account/#tabs-1",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://leakypaywall.com/my-account/#tabs-1",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

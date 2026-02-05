@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Ip2locationComCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class Ip2locationComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.ip2location.com/invoice",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.ip2location.com/invoice",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

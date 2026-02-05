@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MutuelleRadianceEntrepriseCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MutuelleRadianceEntrepriseCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://mutuelle.fr/entreprise",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://mutuelle.fr/entreprise",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

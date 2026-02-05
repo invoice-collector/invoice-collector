@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NpowerBusinessCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class NpowerBusinessCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.npower.com/in_business/applications/BusinessOAM/SME.OAM/Logon.aspx#/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.npower.com/in_business/applications/BusinessOAM/SME.OAM/Logon.aspx#/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

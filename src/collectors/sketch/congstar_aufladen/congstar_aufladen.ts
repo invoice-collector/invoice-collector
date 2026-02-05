@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CongstarAufladenCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CongstarAufladenCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.congstaraufladen.de",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.congstaraufladen.de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

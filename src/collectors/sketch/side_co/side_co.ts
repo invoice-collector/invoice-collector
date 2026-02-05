@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SideCoCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SideCoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://team.side.co/beta/invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://team.side.co/beta/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

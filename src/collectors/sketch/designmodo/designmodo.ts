@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DesignmodoCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DesignmodoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://designmodo.com/my-account/view-subscription/550265/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://designmodo.com/my-account/view-subscription/550265/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

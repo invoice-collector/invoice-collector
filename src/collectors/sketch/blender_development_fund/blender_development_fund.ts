@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BlenderDevelopmentFundCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BlenderDevelopmentFundCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://fund.blender.org/settings/receipts/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://fund.blender.org/settings/receipts/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

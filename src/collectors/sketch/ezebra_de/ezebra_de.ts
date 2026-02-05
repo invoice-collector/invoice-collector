@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EzebraDeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class EzebraDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://ezebra.de/de/signin.html",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://ezebra.de/de/signin.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

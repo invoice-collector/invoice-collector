@@ -1,5 +1,5 @@
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LeauDileDeFranceBailleursSyndicsCollector extends SketchCollector {
 
@@ -25,8 +25,10 @@ export class LeauDileDeFranceBailleursSyndicsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://connexion.leaudiledefrance.fr/espace-bailleurs-syndics/s/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://connexion.leaudiledefrance.fr/espace-bailleurs-syndics/s/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

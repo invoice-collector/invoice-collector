@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TuciaCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TuciaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.tucia.com/account/billing/history",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.tucia.com/account/billing/history",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

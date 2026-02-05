@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AdverflyCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AdverflyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.adverfly.io/auth/signin",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.adverfly.io/auth/signin",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

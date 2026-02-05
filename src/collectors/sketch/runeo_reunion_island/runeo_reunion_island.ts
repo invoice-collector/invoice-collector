@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RuneoReunionIslandCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class RuneoReunionIslandCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.runeo.re/espace-client/connexion.html",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.runeo.re/espace-client/connexion.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

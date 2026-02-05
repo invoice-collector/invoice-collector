@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SocinatorCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SocinatorCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://socinator.com/amember/signup",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://socinator.com/amember/signup",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FedexExpressTntCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class FedexExpressTntCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://esipub.esi-sa.com/TNT_Archive/archive/document",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://esipub.esi-sa.com/TNT_Archive/archive/document",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

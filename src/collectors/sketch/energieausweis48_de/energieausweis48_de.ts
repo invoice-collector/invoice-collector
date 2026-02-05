@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Energieausweis48DeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class Energieausweis48DeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portal.energieausweis48.de/memberarea/invoices?_gl=1*1jboa3c*_up*MQ..*_ga*NDYxODAxOTc5LjE3Mjc0Mjg3NDg.*_ga_8T37RQ4ZCB*MTcyNzQyODc0Ny4xLjAuMTcyNzQyODc0Ny4wLjAuMTk5OTMyMjM5OQ..",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://portal.energieausweis48.de/memberarea/invoices?_gl=1*1jboa3c*_up*MQ..*_ga*NDYxODAxOTc5LjE3Mjc0Mjg3NDg.*_ga_8T37RQ4ZCB*MTcyNzQyODc0Ny4xLjAuMTcyNzQyODc0Ny4wLjAuMTk5OTMyMjM5OQ..",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

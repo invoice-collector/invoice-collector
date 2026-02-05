@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TalkmobileCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TalkmobileCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://myaccount.talkmobile.co.uk/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://myaccount.talkmobile.co.uk/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

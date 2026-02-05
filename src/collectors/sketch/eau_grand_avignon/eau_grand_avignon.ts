@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EauGrandAvignonCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class EauGrandAvignonCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.eaugrandavignon.fr/mon-compte-en-ligne/je-me-connecte",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.eaugrandavignon.fr/mon-compte-en-ligne/je-me-connecte",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

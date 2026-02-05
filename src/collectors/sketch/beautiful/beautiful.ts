@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BeautifulCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BeautifulCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.beautiful.ai/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.beautiful.ai/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

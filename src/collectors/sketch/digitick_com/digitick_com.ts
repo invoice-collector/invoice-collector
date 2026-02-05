@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DigitickComCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DigitickComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.digitick.com/customerservice",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.digitick.com/customerservice",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FilloutComCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class FilloutComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://build.fillout.com/home/settings/billing",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://build.fillout.com/home/settings/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

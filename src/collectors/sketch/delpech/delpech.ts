@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DelpechCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DelpechCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://pharmaciedelpech.fr/?page=Pharmacie:Accueil",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://pharmaciedelpech.fr/?page=Pharmacie:Accueil",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

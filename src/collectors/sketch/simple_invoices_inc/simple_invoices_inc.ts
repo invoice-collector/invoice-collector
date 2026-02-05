@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SimpleInvoicesIncCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SimpleInvoicesIncCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://simpleinvoices.io/settings/account",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://simpleinvoices.io/settings/account",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

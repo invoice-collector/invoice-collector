@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NosCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class NosCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://login.nos.pt/o/IVLJg6cTEpXit2RLo1kOfpMEmzzFIMMJ/Login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://login.nos.pt/o/IVLJg6cTEpXit2RLo1kOfpMEmzzFIMMJ/Login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

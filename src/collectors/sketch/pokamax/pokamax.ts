@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PokamaxCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PokamaxCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://pokamax.com",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://pokamax.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

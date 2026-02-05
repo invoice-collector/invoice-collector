@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ShipwireCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ShipwireCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.shipwire.com/log-in/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.shipwire.com/log-in/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

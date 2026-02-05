@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MutuelleGpmCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MutuelleGpmCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://espace-adherent.gpm.fr/connexion.html",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://espace-adherent.gpm.fr/connexion.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

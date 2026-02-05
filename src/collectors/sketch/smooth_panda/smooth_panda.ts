@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SmoothPandaCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SmoothPandaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://smoothpanda.de/account",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://smoothpanda.de/account",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

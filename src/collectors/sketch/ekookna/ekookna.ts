@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EkooknaCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class EkooknaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://eko4u.com/?p=billing",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://eko4u.com/?p=billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

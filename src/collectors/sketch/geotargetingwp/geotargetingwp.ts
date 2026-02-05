@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GeotargetingwpCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class GeotargetingwpCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://geotargetingwp.com/dashboard/invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://geotargetingwp.com/dashboard/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

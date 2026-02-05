@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LebendigesLandCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class LebendigesLandCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.lebendiges-land.de/shop/logon.html",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.lebendiges-land.de/shop/logon.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

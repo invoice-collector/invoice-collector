@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LaFermeDuFroidCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class LaFermeDuFroidCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://lafermedufroid.infologic.fr/#!/histcde",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://lafermedufroid.infologic.fr/#!/histcde",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

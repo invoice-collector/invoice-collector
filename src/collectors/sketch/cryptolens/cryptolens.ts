@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CryptolensCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CryptolensCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.cryptolens.io/Account/Login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.cryptolens.io/Account/Login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

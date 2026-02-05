@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HamburgEnergieCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class HamburgEnergieCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portal.hamburgenergie.de/powercommerce/hhe/fo/start",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://portal.hamburgenergie.de/powercommerce/hhe/fo/start",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SellersuiteCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SellersuiteCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://pay.stripe.com/invoice/invst_0Ty0ieAwz12P2OoIYVcjmCjygU",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://pay.stripe.com/invoice/invst_0Ty0ieAwz12P2OoIYVcjmCjygU",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

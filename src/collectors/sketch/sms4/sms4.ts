@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Sms4Collector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class Sms4Collector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.sms4.de/cgi-bin/verwalten_rechnungen.pl",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.sms4.de/cgi-bin/verwalten_rechnungen.pl",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

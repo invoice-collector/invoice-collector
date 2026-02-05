@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WpmlOrgCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class WpmlOrgCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://wpml.org/view_order/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://wpml.org/view_order/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

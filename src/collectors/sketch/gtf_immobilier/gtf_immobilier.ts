@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GtfImmobilierCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class GtfImmobilierCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://extranet.gtf.fr/connexion",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://extranet.gtf.fr/connexion",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

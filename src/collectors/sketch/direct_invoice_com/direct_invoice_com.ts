@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DirectInvoiceComCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DirectInvoiceComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://direct-invoice.com",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://direct-invoice.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

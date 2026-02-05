@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SparkCoNzCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SparkCoNzCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.spark.co.nz/myspark/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.spark.co.nz/myspark/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

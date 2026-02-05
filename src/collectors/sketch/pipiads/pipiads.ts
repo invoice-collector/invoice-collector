@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PipiadsCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PipiadsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.pipiads.com/user-center/payment",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.pipiads.com/user-center/payment",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

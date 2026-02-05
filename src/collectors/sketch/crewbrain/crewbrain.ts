@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CrewbrainCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CrewbrainCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://visua-two.crewbrain.com/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://visua-two.crewbrain.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

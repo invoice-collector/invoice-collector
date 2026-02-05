@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GumtreeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class GumtreeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.gumtree.com/manage-account/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://my.gumtree.com/manage-account/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SmartestenergyCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SmartestenergyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://smartweb.smartestenergy.com/Account/LogIn",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://smartweb.smartestenergy.com/Account/LogIn",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BaltimoreGasAndElectricCompanyCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BaltimoreGasAndElectricCompanyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.bge.com",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "http://www.bge.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class JADAutodeleCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class JADAutodeleCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.jad.dk",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "http://www.jad.dk",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

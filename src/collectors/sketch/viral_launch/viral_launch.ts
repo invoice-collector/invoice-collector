@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ViralLaunchCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ViralLaunchCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://viral-launch.com/sellers/launch-staging/pages/account-management.html#/account-settings",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://viral-launch.com/sellers/launch-staging/pages/account-management.html#/account-settings",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

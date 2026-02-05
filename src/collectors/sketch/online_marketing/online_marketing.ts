@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OnlineMarketingCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class OnlineMarketingCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://erfolg2.online-marketing.net/login/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://erfolg2.online-marketing.net/login/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

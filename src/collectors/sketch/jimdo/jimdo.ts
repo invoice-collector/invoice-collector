@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class JimdoCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class JimdoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://e.jimdo.com/app/siteadmin/billing/invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "http://e.jimdo.com/app/siteadmin/billing/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

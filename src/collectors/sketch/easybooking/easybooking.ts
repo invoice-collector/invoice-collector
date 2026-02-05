@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EasybookingCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class EasybookingCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://web-eb-de-3.easy-booking.at/julia/?customer=2647",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://web-eb-de-3.easy-booking.at/julia/?customer=2647",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

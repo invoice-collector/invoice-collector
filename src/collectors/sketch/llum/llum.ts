@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LlumCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class LlumCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://llum-portail-web.incom-sa.fr/wp/showDisplayBills.action",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://llum-portail-web.incom-sa.fr/wp/showDisplayBills.action",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

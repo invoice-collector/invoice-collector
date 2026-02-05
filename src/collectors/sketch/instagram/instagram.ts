@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class InstagramCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class InstagramCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.instagram.com/accounts/subscriptions/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.instagram.com/accounts/subscriptions/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

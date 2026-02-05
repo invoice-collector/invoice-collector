@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TeletaxCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TeletaxCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.teletax.de",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "http://www.teletax.de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

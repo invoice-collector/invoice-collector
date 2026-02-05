@@ -1,16 +1,15 @@
-
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
-export class RexelCollector extends SketchCollector {
+export class SoneparDeCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "rexel",
-        name: "Rexel",
-        description: "i18n.collectors.rexel.description",
+        id: "sonepar_de",
+        name: "Sonepar (.de)",
+        description: "i18n.collectors.sonepar.description",
         version: "1",
-        website: "https://www.rexel.de/",
-        logo: "https://upload.wikimedia.org/wikipedia/commons/9/90/Rexel_logo.svg",
+        website: "https://www.sonepar.de/",
+        logo: "https://upload.wikimedia.org/wikipedia/de/b/ba/Sonepar_2025_logo.svg",
         type: CollectorType.SKETCH,
         params: {
             email: {
@@ -26,11 +25,13 @@ export class RexelCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.rexel.de/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.sonepar.de/authentication/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {
-        super(RexelCollector.CONFIG);
+        super(SoneparDeCollector.CONFIG);
     }
 }

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CodebaseCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CodebaseCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://billing.atechmedia.com/invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://billing.atechmedia.com/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

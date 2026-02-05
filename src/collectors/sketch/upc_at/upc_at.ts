@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class UpcAtCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class UpcAtCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://service.upc.at/myupc/portal/fixed",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://service.upc.at/myupc/portal/fixed",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

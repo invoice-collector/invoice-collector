@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MaxconvCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MaxconvCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.maxconv.com/app/settings/billing",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.maxconv.com/app/settings/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BettervestCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BettervestCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.bettervest.com/de/meine-investitionen/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.bettervest.com/de/meine-investitionen/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

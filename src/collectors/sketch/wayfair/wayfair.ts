@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WayfairCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class WayfairCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.wayfair.de/v/account/welcome/show",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.wayfair.de/v/account/welcome/show",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

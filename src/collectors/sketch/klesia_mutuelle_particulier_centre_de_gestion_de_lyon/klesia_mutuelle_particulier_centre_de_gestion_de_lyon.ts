@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KlesiaMutuelleParticulierCentreDeGestionDeLyonCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class KlesiaMutuelleParticulierCentreDeGestionDeLyonCollector extends Ske
                 mandatory: true
             }
         },
-        entryUrl: "https://www.klesia.fr/accedez-votre-espace-client",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.klesia.fr/accedez-votre-espace-client",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

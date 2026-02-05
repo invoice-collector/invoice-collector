@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NordvpnCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class NordvpnCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://ucp.nordvpn.com/dashboard/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://ucp.nordvpn.com/dashboard/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

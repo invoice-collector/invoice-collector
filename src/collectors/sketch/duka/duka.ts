@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DukaCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DukaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.duka.dk/mit-duka/fakturaer/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.duka.dk/mit-duka/fakturaer/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

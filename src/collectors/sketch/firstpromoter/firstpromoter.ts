@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FirstpromoterCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class FirstpromoterCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://firstpromoter.com/sign_in",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://firstpromoter.com/sign_in",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

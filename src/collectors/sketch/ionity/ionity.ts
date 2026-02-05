@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IonityCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class IonityCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "Www.IONITY.eu",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "Www.IONITY.eu",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

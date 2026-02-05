@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FraseCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class FraseCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.frase.io/app/dashboard/settings/plan/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.frase.io/app/dashboard/settings/plan/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

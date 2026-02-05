@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ApaleoCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ApaleoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.apaleo.com/payment/invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.apaleo.com/payment/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

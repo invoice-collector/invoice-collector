@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MaxonCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MaxonCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.maxon.net",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://my.maxon.net",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

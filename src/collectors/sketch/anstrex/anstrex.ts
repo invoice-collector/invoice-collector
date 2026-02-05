@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AnstrexCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AnstrexCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.anstrex.com/subscription_info_new",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.anstrex.com/subscription_info_new",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

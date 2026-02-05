@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EdenredOneDeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class EdenredOneDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.edenred-one.de/anmelden-oder-registrieren/?selection=Login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.edenred-one.de/anmelden-oder-registrieren/?selection=Login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

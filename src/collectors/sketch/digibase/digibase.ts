@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DigibaseCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DigibaseCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.digibase.com/dashboard/organizations/1845813",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.digibase.com/dashboard/organizations/1845813",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

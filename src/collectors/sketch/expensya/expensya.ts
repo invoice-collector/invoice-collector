@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ExpensyaCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ExpensyaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.expensya.com/portal/#/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.expensya.com/portal/#/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

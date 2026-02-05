@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OrangeCaraibeClientSpaceCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class OrangeCaraibeClientSpaceCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://espaceclient.orangecaraibe.com/fel/loginOut#",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://espaceclient.orangecaraibe.com/fel/loginOut#",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

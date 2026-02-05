@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Site24x7Collector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class Site24x7Collector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.site24x7.com/login/success.jsp",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.site24x7.com/login/success.jsp",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

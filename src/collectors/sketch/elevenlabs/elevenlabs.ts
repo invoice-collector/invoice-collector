@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ElevenlabsCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ElevenlabsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://elevenlabs.io/subscription",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://elevenlabs.io/subscription",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

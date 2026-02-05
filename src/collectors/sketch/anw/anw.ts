@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AnwCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AnwCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://secure.anw.es/extranet/admin.php",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://secure.anw.es/extranet/admin.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

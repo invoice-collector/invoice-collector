@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MadikaCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MadikaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.madika.de/bestellung/28a61vo3r79tw6w19",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.madika.de/bestellung/28a61vo3r79tw6w19",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

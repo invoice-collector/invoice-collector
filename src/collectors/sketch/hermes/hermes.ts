@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HermesCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class HermesCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.hermes-port.de/port/main.jsp?site=1027",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.hermes-port.de/port/main.jsp?site=1027",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

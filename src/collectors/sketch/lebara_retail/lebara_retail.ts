@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LebaraRetailCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class LebaraRetailCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://retail.lebara.com/order/invoicehistory",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://retail.lebara.com/order/invoicehistory",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

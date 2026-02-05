@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TankpasNlCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TankpasNlCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.tankpas.nl/Portaal/Passen",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.tankpas.nl/Portaal/Passen",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

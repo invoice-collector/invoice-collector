@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CoopCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CoopCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://om.coop.dk/forside.aspx",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://om.coop.dk/forside.aspx",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

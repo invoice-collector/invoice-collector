@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HyggerCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class HyggerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://accounts.hygger.io/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://accounts.hygger.io/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

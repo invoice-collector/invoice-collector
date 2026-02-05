@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AllstarBusinessSolutionsLtdCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AllstarBusinessSolutionsLtdCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://myaccount.allstaronline.co.uk/login/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://myaccount.allstaronline.co.uk/login/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

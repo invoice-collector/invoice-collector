@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DbEnergieCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DbEnergieCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://dbenergie.sps-ocs.de/Document/Documents",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://dbenergie.sps-ocs.de/Document/Documents",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

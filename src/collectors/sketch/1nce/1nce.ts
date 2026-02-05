@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class _1nceCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class _1nceCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portal.1nce.com/portal/customer/orders",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://portal.1nce.com/portal/customer/orders",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

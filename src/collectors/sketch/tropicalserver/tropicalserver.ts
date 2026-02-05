@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TropicalserverCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TropicalserverCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://clientes.tropicalserver.com/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://clientes.tropicalserver.com/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

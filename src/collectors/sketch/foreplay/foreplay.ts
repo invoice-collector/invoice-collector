@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ForeplayCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ForeplayCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.foreplay.co/account",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.foreplay.co/account",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

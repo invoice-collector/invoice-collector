@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AndreMediaGroupCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AndreMediaGroupCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portal.andre-media.de/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://portal.andre-media.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

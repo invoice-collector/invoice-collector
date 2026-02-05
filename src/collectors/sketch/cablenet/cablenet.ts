@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CablenetCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CablenetCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://pay.cablenet.me/payment",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://pay.cablenet.me/payment",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AutoteileweltHandlerShopCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AutoteileweltHandlerShopCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://shop.autoteilewelt.de/efa704/opencms/html/de/01_Division/X/Home/Haendlerbereich/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://shop.autoteilewelt.de/efa704/opencms/html/de/01_Division/X/Home/Haendlerbereich/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

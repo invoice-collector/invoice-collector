@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ExtrudrCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ExtrudrCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.extrudr.com/de/produkte/accounts/orders/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.extrudr.com/de/produkte/accounts/orders/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

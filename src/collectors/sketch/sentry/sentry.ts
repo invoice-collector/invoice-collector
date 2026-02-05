@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SentryCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SentryCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://sentry.io/auth/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://sentry.io/auth/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

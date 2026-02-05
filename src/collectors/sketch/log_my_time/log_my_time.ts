@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LogMyTimeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class LogMyTimeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://dynamic.logmytime.de/Profile/Logon",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://dynamic.logmytime.de/Profile/Logon",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

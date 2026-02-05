@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MysvgCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MysvgCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://mysvg.de/invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://mysvg.de/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

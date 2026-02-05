@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BsiCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BsiCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portail-groupe-sequences.artis.fr/ArtisWebBsi/portail/ventes/factures/entree.action?cKey=1&cStatus=P&session=1Acv5ijjkTIaRZO9&typeLicence=BSI",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://portail-groupe-sequences.artis.fr/ArtisWebBsi/portail/ventes/factures/entree.action?cKey=1&cStatus=P&session=1Acv5ijjkTIaRZO9&typeLicence=BSI",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

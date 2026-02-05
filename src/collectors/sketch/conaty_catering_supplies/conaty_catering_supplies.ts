@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ConatyCateringSuppliesCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ConatyCateringSuppliesCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.conatycatering.com/index.php?route=extension/account/invoice",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.conatycatering.com/index.php?route=extension/account/invoice",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

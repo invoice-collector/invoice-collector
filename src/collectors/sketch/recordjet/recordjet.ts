@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RecordjetCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class RecordjetCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://cockpit.recordjet.com/my-profile",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://cockpit.recordjet.com/my-profile",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GreenchoiceCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class GreenchoiceCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://dossier.greenchoice.nl/?utm_source=greenchoicenl&utm_medium=button&utm_campaign=mdbuttongreenchoicenl",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://dossier.greenchoice.nl/?utm_source=greenchoicenl&utm_medium=button&utm_campaign=mdbuttongreenchoicenl",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

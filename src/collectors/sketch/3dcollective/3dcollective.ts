@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class _3dcollectiveCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class _3dcollectiveCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://3dcollective.es/en/s/my-account/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://3dcollective.es/en/s/my-account/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

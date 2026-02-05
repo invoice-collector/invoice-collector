@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AscapCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AscapCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.ascap.com/member-access#login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.ascap.com/member-access#login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

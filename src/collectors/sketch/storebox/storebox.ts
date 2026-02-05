@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StoreboxCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class StoreboxCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.yourstorebox.com/de/profile/dashboard/invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.yourstorebox.com/de/profile/dashboard/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

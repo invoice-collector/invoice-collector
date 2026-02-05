@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MerChargeportalCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MerChargeportalCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://chargeportal.de.mer.eco/secured/statements",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://chargeportal.de.mer.eco/secured/statements",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

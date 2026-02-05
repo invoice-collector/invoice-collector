@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AmazonSellerCentralJpCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AmazonSellerCentralJpCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://sellercentral-japan.amazon.com/tax/seller-fee-invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://sellercentral-japan.amazon.com/tax/seller-fee-invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

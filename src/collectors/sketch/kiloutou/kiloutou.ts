@@ -1,5 +1,5 @@
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KiloutouCollector extends SketchCollector {
 
@@ -25,8 +25,10 @@ export class KiloutouCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://connect.kiloutou.fr/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://connect.kiloutou.fr/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

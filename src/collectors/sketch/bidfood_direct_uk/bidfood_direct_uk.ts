@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BidfoodDirectUkCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BidfoodDirectUkCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.bidfooddirect.co.uk",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.bidfooddirect.co.uk",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

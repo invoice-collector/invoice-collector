@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BuromarktBottcherCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BuromarktBottcherCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.bueromarkt-ag.de/mein_konto/uebersicht.php?kontolink=meine_bestellungen",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.bueromarkt-ag.de/mein_konto/uebersicht.php?kontolink=meine_bestellungen",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

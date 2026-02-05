@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OpensrsResellerControlPanelCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class OpensrsResellerControlPanelCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://opensrs.com/manage/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://opensrs.com/manage/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class QrcodeStudioCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class QrcodeStudioCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://qrcode.studio/invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://qrcode.studio/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

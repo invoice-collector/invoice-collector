@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HubrisCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class HubrisCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://hubris-admin-dev.herokuapp.com/signup",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://hubris-admin-dev.herokuapp.com/signup",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

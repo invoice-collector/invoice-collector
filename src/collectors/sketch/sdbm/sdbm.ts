@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SdbmCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SdbmCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.sdbm.mc/icd/zco/public-index.html#zco",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.sdbm.mc/icd/zco/public-index.html#zco",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

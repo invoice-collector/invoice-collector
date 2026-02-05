@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SofengoCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SofengoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.sofengo.de/usersettingspayment",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.sofengo.de/usersettingspayment",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

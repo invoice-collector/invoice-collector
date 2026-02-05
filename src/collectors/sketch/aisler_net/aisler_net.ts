@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AislerNetCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AislerNetCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://aisler.net/juwi/orders",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://aisler.net/juwi/orders",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

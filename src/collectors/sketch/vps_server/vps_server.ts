@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VpsServerCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class VpsServerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://service.vpsserver.com/invoices/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://service.vpsserver.com/invoices/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IDeGrupoIberdrolaCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class IDeGrupoIberdrolaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.i-de.es/consumidores/web/home/contract/consumption-electronic-bill",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.i-de.es/consumidores/web/home/contract/consumption-electronic-bill",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

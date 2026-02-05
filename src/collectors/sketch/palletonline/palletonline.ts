@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PalletonlineCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PalletonlineCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://palletonline.co.uk/my-invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://palletonline.co.uk/my-invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

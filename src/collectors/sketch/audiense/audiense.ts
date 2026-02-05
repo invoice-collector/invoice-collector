@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AudienseCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AudienseCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://dashboard.audiense.com/?main-product=true&_ga=2.201741969.165080570.1524064356-374652238.1524064356#/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://dashboard.audiense.com/?main-product=true&_ga=2.201741969.165080570.1524064356-374652238.1524064356#/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

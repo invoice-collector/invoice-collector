@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WebDeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class WebDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://mein.web.de/rechnungen?inner=true",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://mein.web.de/rechnungen?inner=true",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

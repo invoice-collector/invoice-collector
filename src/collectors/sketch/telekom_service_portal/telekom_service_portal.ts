@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TelekomServicePortalCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TelekomServicePortalCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://bsp.geschaeftskunden.telekom.de/portal/login.xhtml",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://bsp.geschaeftskunden.telekom.de/portal/login.xhtml",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

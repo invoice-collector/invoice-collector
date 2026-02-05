@@ -2,7 +2,7 @@ import { OpenaiSelectors } from './selectors';
 import { Driver, Element } from '../../../../driver/driver';
 import { TwofaPromise } from '../../../../collect/twofaPromise';
 import { WebSocketServer } from '../../../../websocket/webSocketServer';
-import { WebCollector } from '../../../web2Collector';
+import { WebCollector } from '../../../webCollector';
 import { Invoice } from '../../../abstractCollector';
 
 export abstract class OpenaiCommonCollector extends WebCollector {
@@ -55,14 +55,14 @@ export abstract class OpenaiCommonCollector extends WebCollector {
     }
 
     async twofa(driver: Driver, params: any, twofa_promise: TwofaPromise, webSocketServer: WebSocketServer): Promise<string | void> {
-        // Check if is push auth
-        const isPushAuth = driver.url().includes("push-auth-verification");
+        // Check if is email verification
+        const isEmailVerification = driver.url().includes("auth.openai.com/email-verification");
 
         // Get code from UI
         const code = await Promise.race([twofa_promise.code(), webSocketServer.getTwofa()]);
 
-        // If not push auth
-        if(!isPushAuth) {
+        // If is email verification
+        if(isEmailVerification) {
             // Input code
             await driver.inputText(OpenaiSelectors.FIELD_2FA_CODE, code);
             await driver.leftClick(OpenaiSelectors.BUTTON_2FA_CONTINUE);
@@ -75,7 +75,7 @@ export abstract class OpenaiCommonCollector extends WebCollector {
         }
     }
 
-    async download(driver: Driver, params: any, element: Element, invoice: Invoice): Promise<string[]> {
+    async download(driver: Driver, invoice: Invoice): Promise<string[]> {
         // Open invoice in new tab
         await invoice.downloadButton.middleClick();
         // Download PDF

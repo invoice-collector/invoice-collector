@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GroupeAprilContratsEtCourriersAssureSalarieCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class GroupeAprilContratsEtCourriersAssureSalarieCollector extends Sketch
                 mandatory: true
             }
         },
-        entryUrl: "https://espace-assures.april-entreprise-prevoyance.fr/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://espace-assures.april-entreprise-prevoyance.fr/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

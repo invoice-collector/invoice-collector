@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FeedlyCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class FeedlyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://feedly.com",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://feedly.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

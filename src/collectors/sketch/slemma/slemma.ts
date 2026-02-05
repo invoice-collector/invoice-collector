@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SlemmaCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SlemmaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://slemma.com/auth",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://slemma.com/auth",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

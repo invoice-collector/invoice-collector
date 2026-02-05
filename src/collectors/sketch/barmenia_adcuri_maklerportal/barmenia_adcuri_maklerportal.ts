@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BarmeniaAdcuriMaklerportalCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BarmeniaAdcuriMaklerportalCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://ssl.barmenia24.de/PostBoxWeb/postbox.xhtml",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://ssl.barmenia24.de/PostBoxWeb/postbox.xhtml",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

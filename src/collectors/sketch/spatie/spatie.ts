@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SpatieCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SpatieCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://spatie.be/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://spatie.be/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

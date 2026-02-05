@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BureauDeLaPcrCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BureauDeLaPcrCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://clients.bureaupcr.fr/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://clients.bureaupcr.fr/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

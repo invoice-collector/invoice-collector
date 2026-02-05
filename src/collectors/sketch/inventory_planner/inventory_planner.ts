@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class InventoryPlannerCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class InventoryPlannerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.inventory-planner.com/#/settings/billing?a=a1988",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.inventory-planner.com/#/settings/billing?a=a1988",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

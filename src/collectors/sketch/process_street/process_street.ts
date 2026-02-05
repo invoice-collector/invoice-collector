@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ProcessStreetCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ProcessStreetCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.process.st/organizations/manage/billing",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.process.st/organizations/manage/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

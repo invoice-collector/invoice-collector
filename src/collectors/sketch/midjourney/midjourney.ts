@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MidjourneyCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MidjourneyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.midjourney.com/home/?callbackUrl=%2Fapp%2F",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.midjourney.com/home/?callbackUrl=%2Fapp%2F",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

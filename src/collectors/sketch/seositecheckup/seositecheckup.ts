@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SeositecheckupCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SeositecheckupCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.seositecheckup.com/user/account/billing",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.seositecheckup.com/user/account/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

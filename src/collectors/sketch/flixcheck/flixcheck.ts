@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FlixcheckCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class FlixcheckCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.flixcheck.com/portal/settings",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.flixcheck.com/portal/settings",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

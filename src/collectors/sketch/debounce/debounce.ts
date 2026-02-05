@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DebounceCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DebounceCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.debounce.io/payments",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.debounce.io/payments",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

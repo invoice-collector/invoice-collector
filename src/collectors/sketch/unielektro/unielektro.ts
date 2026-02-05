@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class UnielektroCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class UnielektroCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://webshop.unielektro.de/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://webshop.unielektro.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

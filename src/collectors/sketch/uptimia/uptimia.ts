@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class UptimiaCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class UptimiaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.uptimia.com/cp/billing-history",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.uptimia.com/cp/billing-history",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class UpvotyCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class UpvotyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://crm.upvoty.com/members/auth/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://crm.upvoty.com/members/auth/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

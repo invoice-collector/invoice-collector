@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CoverdCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CoverdCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.coverd.co/dashboard/invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.coverd.co/dashboard/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

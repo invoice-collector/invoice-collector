@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MutuellePlanSanteProfessionnelCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MutuellePlanSanteProfessionnelCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://ps.plansante.com/auth",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://ps.plansante.com/auth",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

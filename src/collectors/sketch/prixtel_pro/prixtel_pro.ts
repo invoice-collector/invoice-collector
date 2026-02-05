@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PrixtelProCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PrixtelProCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://espaceclient.prixtel.com/factures/liste",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://espaceclient.prixtel.com/factures/liste",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

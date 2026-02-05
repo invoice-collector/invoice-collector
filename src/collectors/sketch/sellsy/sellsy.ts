@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SellsyCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SellsyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.sellsy.com/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.sellsy.com/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

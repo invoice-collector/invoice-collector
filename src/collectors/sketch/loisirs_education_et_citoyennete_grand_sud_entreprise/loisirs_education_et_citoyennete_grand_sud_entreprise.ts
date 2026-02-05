@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LoisirsEducationEtCitoyenneteGrandSudEntrepriseCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class LoisirsEducationEtCitoyenneteGrandSudEntrepriseCollector extends Sk
                 mandatory: true
             }
         },
-        entryUrl: "https://www.lecgs.org/fr/page/je-suis/salarie.php",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.lecgs.org/fr/page/je-suis/salarie.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

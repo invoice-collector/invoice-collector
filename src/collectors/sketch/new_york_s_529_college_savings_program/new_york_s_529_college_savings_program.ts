@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NewYorkS529CollegeSavingsProgramCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class NewYorkS529CollegeSavingsProgramCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.nysaves.org/nytpl/auth/ll.cs",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.nysaves.org/nytpl/auth/ll.cs",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

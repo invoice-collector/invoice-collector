@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ParfimoCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ParfimoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.parfimo.de/b2c/orders/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.parfimo.de/b2c/orders/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

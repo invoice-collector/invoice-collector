@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LinkedinHelperCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class LinkedinHelperCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.linkedhelper.com/member/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.linkedhelper.com/member/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

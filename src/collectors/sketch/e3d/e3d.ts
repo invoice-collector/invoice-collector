@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class E3dCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class E3dCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://e3d-online.com/account",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://e3d-online.com/account",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

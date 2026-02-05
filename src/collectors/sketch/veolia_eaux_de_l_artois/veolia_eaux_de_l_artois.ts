@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VeoliaEauxDeLArtoisCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class VeoliaEauxDeLArtoisCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.service.eau.veolia.fr/files/live/sites/veolia/files/EDA.html",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.service.eau.veolia.fr/files/live/sites/veolia/files/EDA.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

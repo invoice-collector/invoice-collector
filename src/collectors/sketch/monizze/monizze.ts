@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MonizzeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MonizzeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://client.monizze.be/customer/85887/invoices/overview#page=1&sort=date_added&direction=desc",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://client.monizze.be/customer/85887/invoices/overview#page=1&sort=date_added&direction=desc",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

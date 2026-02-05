@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SimplesellCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SimplesellCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.simplesell.de/user/invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.simplesell.de/user/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ClubOpticLeaderCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ClubOpticLeaderCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://adherents.opticlibre.com/espace-de-connexion",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://adherents.opticlibre.com/espace-de-connexion",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

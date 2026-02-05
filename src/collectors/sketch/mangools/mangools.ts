@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MangoolsCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MangoolsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://mangools.com/users/sign_in?ref=header-mngls",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://mangools.com/users/sign_in?ref=header-mngls",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

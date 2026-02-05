@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NeurapixCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class NeurapixCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://neurapix.com/webui/dashboard/profile/invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://neurapix.com/webui/dashboard/profile/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BoostMobileCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BoostMobileCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://myaccount.boostmobile.com/sign-in.html?intnav=UtilNav:SignIn",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://myaccount.boostmobile.com/sign-in.html?intnav=UtilNav:SignIn",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HydronextCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class HydronextCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.hydronext.fr/espaceclient/facture_remit.php?periode=2023-09",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.hydronext.fr/espaceclient/facture_remit.php?periode=2023-09",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PatreonCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PatreonCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.patreon.com/pledges?ty=h",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.patreon.com/pledges?ty=h",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

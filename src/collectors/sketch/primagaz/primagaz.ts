@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PrimagazCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PrimagazCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://espace-client.primagaz.fr/factures/mes-factures",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://espace-client.primagaz.fr/factures/mes-factures",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

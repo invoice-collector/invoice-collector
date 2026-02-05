@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Newsletter2goCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class Newsletter2goCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://ui.newsletter2go.com/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://ui.newsletter2go.com/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

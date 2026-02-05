@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EtoroPartnersCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class EtoroPartnersCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://etoropartners.b2clogin.com/etoropartners.onmicrosoft.com/b2c_1_signin/oauth2/v2.0/logout?post_logout_redirect_uri=https%3A%2F%2Fpor.etoro.com%2Fen-gb%2Fauth%2Flogin",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://etoropartners.b2clogin.com/etoropartners.onmicrosoft.com/b2c_1_signin/oauth2/v2.0/logout?post_logout_redirect_uri=https%3A%2F%2Fpor.etoro.com%2Fen-gb%2Fauth%2Flogin",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

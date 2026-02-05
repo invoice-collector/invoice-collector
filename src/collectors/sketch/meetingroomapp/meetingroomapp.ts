@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MeetingroomappCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MeetingroomappCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.meetingroomapp.com/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.meetingroomapp.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,16 +1,16 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
-export class SfrReunionIslandCollector extends SketchCollector {
+export class SfrReCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "sfr_reunion_island",
-        name: "SFR Reunion Island",
-        description: "i18n.collectors.sfr_reunion_island.description",
+        id: "sfr_re",
+        name: "SFR (.re)",
+        description: "i18n.collectors.sfr_re.description",
         version: "0",
         website: "https://sso.sfr.re/login?service=https://www.sfr.re/boutique-mobile/api/secure/validate",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/230386.jpg",
+        logo: "https://upload.wikimedia.org/wikipedia/commons/9/97/SFR-2022-logo.svg",
         type: CollectorType.SKETCH,
         params: {
             email: {
@@ -26,11 +26,13 @@ export class SfrReunionIslandCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://sso.sfr.re/login?service=https://www.sfr.re/boutique-mobile/api/secure/validate",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://sso.sfr.re/login?service=https://www.sfr.re/boutique-mobile/api/secure/validate",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {
-        super(SfrReunionIslandCollector.CONFIG);
+        super(SfrReCollector.CONFIG);
     }
 }

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WestbahnCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class WestbahnCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.westbahn.at",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "http://www.westbahn.at",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

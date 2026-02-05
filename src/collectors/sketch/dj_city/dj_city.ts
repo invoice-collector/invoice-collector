@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DjCityCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DjCityCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.djcity.com/account/billing",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.djcity.com/account/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

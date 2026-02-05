@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LeasedirectCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class LeasedirectCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://leasedirect.com/lss/account-summary/my-account",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://leasedirect.com/lss/account-summary/my-account",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

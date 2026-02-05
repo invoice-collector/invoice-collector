@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LabeldiscounterCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class LabeldiscounterCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.labeldiscounter.de/customer/account/login/referer/aHR0cHM6Ly93d3cubGFiZWxkaXNjb3VudGVyLmRlL2N1c3RvbWVyL2FjY291bnQvaW5kZXgv/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.labeldiscounter.de/customer/account/login/referer/aHR0cHM6Ly93d3cubGFiZWxkaXNjb3VudGVyLmRlL2N1c3RvbWVyL2FjY291bnQvaW5kZXgv/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

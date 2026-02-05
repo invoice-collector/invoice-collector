@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WestfalenHubCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class WestfalenHubCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://hub.westfalen.com/wcc-management",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://hub.westfalen.com/wcc-management",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

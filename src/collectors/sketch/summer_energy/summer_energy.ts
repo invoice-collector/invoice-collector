@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SummerEnergyCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SummerEnergyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.summerenergy.com/MyAccount/Billing/Statements",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.summerenergy.com/MyAccount/Billing/Statements",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

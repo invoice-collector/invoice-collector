@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PortunityDeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PortunityDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://service.portunity.net/service/soft/loginform.php",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://service.portunity.net/service/soft/loginform.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WaalaxyCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class WaalaxyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.waalaxy.com/settings/my-invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.waalaxy.com/settings/my-invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

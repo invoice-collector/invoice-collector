@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BeefreeDeveloperCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BeefreeDeveloperCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://developers.beefree.io/subscriptions/16000/statements",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://developers.beefree.io/subscriptions/16000/statements",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HellofaxCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class HellofaxCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.hellofax.com/account/logIn",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.hellofax.com/account/logIn",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

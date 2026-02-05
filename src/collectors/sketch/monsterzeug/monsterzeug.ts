@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MonsterzeugCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MonsterzeugCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.monsterzeug.de/account.php",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.monsterzeug.de/account.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

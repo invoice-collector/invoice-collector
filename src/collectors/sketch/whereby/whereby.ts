@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WherebyCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class WherebyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://whereby.com/user/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://whereby.com/user/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LoopiaSeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class LoopiaSeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://customerzone.loopia.se/invoice/pdf/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://customerzone.loopia.se/invoice/pdf/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

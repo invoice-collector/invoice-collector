@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EnveloppebulleCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class EnveloppebulleCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.enveloppebulle.com/historique-commandes",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.enveloppebulle.com/historique-commandes",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

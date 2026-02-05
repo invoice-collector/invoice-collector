@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ProworkflowCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ProworkflowCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.proworkflow.com/clients/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.proworkflow.com/clients/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

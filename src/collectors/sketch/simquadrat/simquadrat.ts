@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SimquadratCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SimquadratCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.sipgatebasic.de/account",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.sipgatebasic.de/account",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

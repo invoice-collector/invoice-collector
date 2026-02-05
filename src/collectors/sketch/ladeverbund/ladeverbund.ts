@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LadeverbundCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class LadeverbundCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://ladeverbundplus.chargecloud.de/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://ladeverbundplus.chargecloud.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

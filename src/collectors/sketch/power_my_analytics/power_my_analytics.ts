@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PowerMyAnalyticsCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PowerMyAnalyticsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://hub.powermyanalytics.com/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://hub.powermyanalytics.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

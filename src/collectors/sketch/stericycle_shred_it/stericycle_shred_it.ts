@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StericycleShredItCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class StericycleShredItCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.mystericycle.com/Portal_App/BillingSummary.aspx",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.mystericycle.com/Portal_App/BillingSummary.aspx",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

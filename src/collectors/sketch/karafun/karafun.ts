@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KarafunCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class KarafunCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.karafun.fr/my/receipts.html",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.karafun.fr/my/receipts.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

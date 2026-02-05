@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ReselloCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ReselloCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.resello.com/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.resello.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

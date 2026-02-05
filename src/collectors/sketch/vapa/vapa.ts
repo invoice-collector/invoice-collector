@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VapaCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class VapaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://login.vapa.ai/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://login.vapa.ai/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

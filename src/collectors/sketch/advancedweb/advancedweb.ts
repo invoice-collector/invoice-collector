@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AdvancedwebCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AdvancedwebCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.advancedwebranking.com/signin",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.advancedwebranking.com/signin",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

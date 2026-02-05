@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RawlingsB2bCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class RawlingsB2bCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "b2b.rawlings.com/orderhistory",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "b2b.rawlings.com/orderhistory",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

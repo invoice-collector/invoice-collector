@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ImmobiliereLandisCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ImmobiliereLandisCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://immobiliere-landis.mygercop.com/connexion/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://immobiliere-landis.mygercop.com/connexion/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

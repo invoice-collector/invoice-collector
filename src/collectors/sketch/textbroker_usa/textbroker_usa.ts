@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TextbrokerUsaCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TextbrokerUsaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://intern.textbroker.com/client/account/invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://intern.textbroker.com/client/account/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

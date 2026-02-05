@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LieferantenDeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class LieferantenDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.lieferanten.de/#loginBox",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.lieferanten.de/#loginBox",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

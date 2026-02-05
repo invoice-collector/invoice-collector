@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SmartsuppCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SmartsuppCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.smartsupp.com/app/sign/in",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.smartsupp.com/app/sign/in",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

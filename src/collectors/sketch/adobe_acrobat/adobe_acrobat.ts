@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AdobeAcrobatCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AdobeAcrobatCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://acrobat.adobe.com/link/documents/files/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://acrobat.adobe.com/link/documents/files/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

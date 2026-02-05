@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PropelleradsCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PropelleradsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://partners.propellerads.com/#/app/finance/invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://partners.propellerads.com/#/app/finance/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CocaColaEpPartnersCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CocaColaEpPartnersCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.mycca.com.au/ccrz__CCPage?pageKey=homepage&cclcl=en_AU",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.mycca.com.au/ccrz__CCPage?pageKey=homepage&cclcl=en_AU",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

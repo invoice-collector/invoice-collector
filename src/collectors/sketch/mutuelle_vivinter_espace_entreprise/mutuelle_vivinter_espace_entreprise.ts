@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MutuelleVivinterEspaceEntrepriseCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MutuelleVivinterEspaceEntrepriseCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.psf-services.com/index_entreprise_vivinter.php",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.psf-services.com/index_entreprise_vivinter.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

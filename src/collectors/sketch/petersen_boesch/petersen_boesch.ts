@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PetersenBoeschCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PetersenBoeschCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://petersen-boesch.portal-bereich.de/html/#kanzleirechnungen",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://petersen-boesch.portal-bereich.de/html/#kanzleirechnungen",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

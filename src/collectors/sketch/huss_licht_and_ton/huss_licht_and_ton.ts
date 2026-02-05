@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HussLichtAndTonCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class HussLichtAndTonCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.huss-licht-ton.de",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "http://www.huss-licht-ton.de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

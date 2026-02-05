@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TMobileMobilfunkRechnungonlineFurGeschaftskundenCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TMobileMobilfunkRechnungonlineFurGeschaftskundenCollector extends S
                 mandatory: true
             }
         },
-        entryUrl: "https://rechnungonline-business.t-mobile.de/gk/ben_ges_dok_ueb",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://rechnungonline-business.t-mobile.de/gk/ben_ges_dok_ueb",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

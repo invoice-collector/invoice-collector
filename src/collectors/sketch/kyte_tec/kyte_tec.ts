@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KyteTecCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class KyteTecCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://console.kyte-tec.com/shopadmin/document/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://console.kyte-tec.com/shopadmin/document/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

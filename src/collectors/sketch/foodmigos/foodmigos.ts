@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FoodmigosCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class FoodmigosCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://restaurant.foodamigos.io/online-shop/payouts",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://restaurant.foodamigos.io/online-shop/payouts",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

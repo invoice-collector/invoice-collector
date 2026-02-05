@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MemberspaceCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MemberspaceCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://admin.memberspace.com/sites/12236",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://admin.memberspace.com/sites/12236",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

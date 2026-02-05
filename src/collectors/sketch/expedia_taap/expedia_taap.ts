@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ExpediaTaapCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ExpediaTaapCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.expediataap.de/trips",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.expediataap.de/trips",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

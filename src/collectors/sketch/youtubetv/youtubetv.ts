@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class YoutubetvCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class YoutubetvCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://accounts.google.com/AccountChooser/signinchooser?service=youtube&uilel=0&hl=en&continue=https%3A%2F%2Fwww.youtube.com%2Fsignin%3Faction_handle_signin%3Dtrue%26app%3Ddesktop%26skip_identity_prompt%3DTrue%26hl%3Den%26next%3Dhttps%253A%252F%252Ftv.yo",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://accounts.google.com/AccountChooser/signinchooser?service=youtube&uilel=0&hl=en&continue=https%3A%2F%2Fwww.youtube.com%2Fsignin%3Faction_handle_signin%3Dtrue%26app%3Ddesktop%26skip_identity_prompt%3DTrue%26hl%3Den%26next%3Dhttps%253A%252F%252Ftv.yo",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

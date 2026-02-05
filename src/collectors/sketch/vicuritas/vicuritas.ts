@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VicuritasCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class VicuritasCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://vicuritas.onlinesuite.de/volz_main/myvast-vo/office/user_detail.php?akt=doc&bid=2220580",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://vicuritas.onlinesuite.de/volz_main/myvast-vo/office/user_detail.php?akt=doc&bid=2220580",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

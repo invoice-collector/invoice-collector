@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EcomdataGmbhCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class EcomdataGmbhCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.ecomdata.de/clientarea.php?_ga=2.6130931.1786468032.1601532605-1955470257.1601532605",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://my.ecomdata.de/clientarea.php?_ga=2.6130931.1786468032.1601532605-1955470257.1601532605",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

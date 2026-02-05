@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CalcumateCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CalcumateCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://calcumate.co/admin/my-account",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://calcumate.co/admin/my-account",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

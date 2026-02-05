@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class YoufoneNlCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class YoufoneNlCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.youfone.nl/Login?ReturnUrl=%2F",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://my.youfone.nl/Login?ReturnUrl=%2F",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IngramsparkCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class IngramsparkCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://myaccount.ingramspark.com/Orders/PreviousOrders",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://myaccount.ingramspark.com/Orders/PreviousOrders",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

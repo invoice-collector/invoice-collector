@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CoffeosiCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CoffeosiCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://coffeosi.com/kasse",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://coffeosi.com/kasse",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

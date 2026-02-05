@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SuezOcsCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SuezOcsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://suez.sps-ocs.co.uk/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://suez.sps-ocs.co.uk/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

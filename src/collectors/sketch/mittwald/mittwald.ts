@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MittwaldCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MittwaldCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://login.mittwald.de/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://login.mittwald.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

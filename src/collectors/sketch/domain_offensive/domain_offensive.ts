@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DomainOffensiveCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DomainOffensiveCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.do.de/finance/invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://my.do.de/finance/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

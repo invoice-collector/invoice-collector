@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AutoactuComCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AutoactuComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.autoactu.com/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.autoactu.com/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

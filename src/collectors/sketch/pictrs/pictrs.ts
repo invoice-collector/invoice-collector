@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PictrsCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PictrsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.pictrs.com/shopadmin/my_bills#tab-shopfee",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.pictrs.com/shopadmin/my_bills#tab-shopfee",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ChargebeeEuCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ChargebeeEuCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://theargonauts.chargebee.com/users/edit_account",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://theargonauts.chargebee.com/users/edit_account",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

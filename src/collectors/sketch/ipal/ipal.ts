@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IpalCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class IpalCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://pst-ipal.medtra.fr/liste-factures-adh.html",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://pst-ipal.medtra.fr/liste-factures-adh.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

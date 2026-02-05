@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HaasCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class HaasCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://seminare.haas-wir-steuern.de/Account/Login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://seminare.haas-wir-steuern.de/Account/Login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

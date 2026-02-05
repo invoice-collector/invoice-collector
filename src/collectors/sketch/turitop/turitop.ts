@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TuritopCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TuritopCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.turitop.com/admin/company/L194/edit",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.turitop.com/admin/company/L194/edit",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

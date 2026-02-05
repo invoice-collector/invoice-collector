@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TechdataFrCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TechdataFrCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://fr.techdata.com/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://fr.techdata.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

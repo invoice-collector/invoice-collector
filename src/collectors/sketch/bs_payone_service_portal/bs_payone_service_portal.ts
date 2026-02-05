@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BsPayoneServicePortalCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BsPayoneServicePortalCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portal.bs-card-service.com/login?ReturnUrl=%2fsfsts.axd%3frealm%3dhttps%253a%252f%252fportal.bs-card-service.com%26redirect_uri%3dhttps%253a%252f%252fportal.bs-card-service.com%252fcms%252f%253fsf-hru%253dtrue%26deflate%3dtrue&realm=https%3a%2f%2f",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://portal.bs-card-service.com/login?ReturnUrl=%2fsfsts.axd%3frealm%3dhttps%253a%252f%252fportal.bs-card-service.com%26redirect_uri%3dhttps%253a%252f%252fportal.bs-card-service.com%252fcms%252f%253fsf-hru%253dtrue%26deflate%3dtrue&realm=https%3a%2f%2f",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

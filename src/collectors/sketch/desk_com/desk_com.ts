@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DeskComCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DeskComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://login.salesforce.com/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://login.salesforce.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

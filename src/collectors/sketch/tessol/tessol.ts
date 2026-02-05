@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TessolCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TessolCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portal.tessol.de",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://portal.tessol.de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

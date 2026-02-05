@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NfonCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class NfonCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://mynfon.net",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://mynfon.net",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

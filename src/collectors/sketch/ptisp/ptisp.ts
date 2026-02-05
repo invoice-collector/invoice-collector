@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PtispCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PtispCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.ptisp.pt",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "http://www.ptisp.pt",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

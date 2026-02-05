@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KalaydoCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class KalaydoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.kalaydo.de/nichtangemeldet.htm",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.kalaydo.de/nichtangemeldet.htm",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

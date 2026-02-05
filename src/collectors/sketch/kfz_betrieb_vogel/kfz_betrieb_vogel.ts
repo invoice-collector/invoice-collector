@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KfzBetriebVogelCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class KfzBetriebVogelCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.kfz-betrieb.vogel.de/anmelden/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.kfz-betrieb.vogel.de/anmelden/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

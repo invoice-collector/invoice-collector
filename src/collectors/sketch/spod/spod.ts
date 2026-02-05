@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SpodCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SpodCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://login.spod.com/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://login.spod.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

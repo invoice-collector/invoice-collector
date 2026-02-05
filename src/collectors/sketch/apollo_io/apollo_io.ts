@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ApolloIoCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ApolloIoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.apollo.io/#/settings/plans/billing",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.apollo.io/#/settings/plans/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

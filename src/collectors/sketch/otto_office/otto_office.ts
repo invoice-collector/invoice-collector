@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OttoOfficeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class OttoOfficeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.otto-office.com/de/app/account/statement/main",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.otto-office.com/de/app/account/statement/main",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

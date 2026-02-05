@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IrideosCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class IrideosCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://reseller-areaclienti.irideos.it/AdminPanel/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://reseller-areaclienti.irideos.it/AdminPanel/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

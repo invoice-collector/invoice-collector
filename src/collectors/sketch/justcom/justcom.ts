@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class JustcomCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class JustcomCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.justcom-shop.de/shopware.php/sViewport,account/sAction,orders",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.justcom-shop.de/shopware.php/sViewport,account/sAction,orders",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class O2onlineDeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class O2onlineDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.o2online.de",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.o2online.de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

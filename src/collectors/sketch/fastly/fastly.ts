@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FastlyCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class FastlyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://manage.fastly.com/authentication/sign-in",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://manage.fastly.com/authentication/sign-in",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

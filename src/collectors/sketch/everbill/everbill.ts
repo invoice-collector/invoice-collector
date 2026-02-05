@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EverbillCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class EverbillCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://secure.everbill.eu/?_ga=1.5276915.1941659048.1493191247",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://secure.everbill.eu/?_ga=1.5276915.1941659048.1493191247",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

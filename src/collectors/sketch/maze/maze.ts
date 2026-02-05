@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MazeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MazeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://maze.design/settings/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://maze.design/settings/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

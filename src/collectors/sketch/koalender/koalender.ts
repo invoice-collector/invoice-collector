@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KoalenderCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class KoalenderCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://koalendar.com/dashboard",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://koalendar.com/dashboard",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

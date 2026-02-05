@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ClayCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ClayCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.clay.com/workspaces",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.clay.com/workspaces",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

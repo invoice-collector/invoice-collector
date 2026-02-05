@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BradfordsBuildingSuppliesCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BradfordsBuildingSuppliesCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.bradfords.co.uk/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.bradfords.co.uk/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

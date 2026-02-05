@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WoltMerchantsCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class WoltMerchantsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://merchant.wolt.com/login?next=/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://merchant.wolt.com/login?next=/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

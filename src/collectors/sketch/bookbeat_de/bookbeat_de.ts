@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BookbeatDeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BookbeatDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.bookbeat.de/konto/belege",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.bookbeat.de/konto/belege",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

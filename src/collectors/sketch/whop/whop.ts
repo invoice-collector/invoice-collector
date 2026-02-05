@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WhopCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class WhopCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://whop.com/account/?menuItem=order_history",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://whop.com/account/?menuItem=order_history",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

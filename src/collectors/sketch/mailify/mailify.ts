@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MailifyCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MailifyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://mailify.app/#!/p/settings/account/invoice",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://mailify.app/#!/p/settings/account/invoice",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

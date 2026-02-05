@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OnlineBulkEmailValidatorCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class OnlineBulkEmailValidatorCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://panel.bulkemailchecker.com/account-settings/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://panel.bulkemailchecker.com/account-settings/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

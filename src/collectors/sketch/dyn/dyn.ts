@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DynCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DynCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://account.dyn.com/entrance/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://account.dyn.com/entrance/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

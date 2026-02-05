@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BmwBankCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BmwBankCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.bmwbank.de/login/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.bmwbank.de/login/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

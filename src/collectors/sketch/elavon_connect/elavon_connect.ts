@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ElavonConnectCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ElavonConnectCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.elavonconnect.com/ui/#/eu/en_GB/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.elavonconnect.com/ui/#/eu/en_GB/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

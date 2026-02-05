@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SmartscoutCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SmartscoutCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.smartscout.com/app/account/billing",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.smartscout.com/app/account/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

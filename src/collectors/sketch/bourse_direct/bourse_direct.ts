@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BourseDirectCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BourseDirectCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.boursedirect.fr/frmIdentif.php",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.boursedirect.fr/frmIdentif.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

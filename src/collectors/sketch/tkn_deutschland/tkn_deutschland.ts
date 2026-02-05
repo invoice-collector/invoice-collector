@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TknDeutschlandCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TknDeutschlandCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.tkn-deutschland.de",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "http://www.tkn-deutschland.de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

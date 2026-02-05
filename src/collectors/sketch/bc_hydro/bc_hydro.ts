@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BcHydroCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BcHydroCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.bchydro.com/sso/UI/Login?realm=bch-ps&goto=https%3A%2F%2Fapp.bchydro.com%3A443%2FBCHCustomerPortal%2Fweb%2Flogin.html",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.bchydro.com/sso/UI/Login?realm=bch-ps&goto=https%3A%2F%2Fapp.bchydro.com%3A443%2FBCHCustomerPortal%2Fweb%2Flogin.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

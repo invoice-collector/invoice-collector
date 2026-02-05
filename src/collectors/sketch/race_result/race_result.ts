@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RaceResultCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class RaceResultCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.raceresult.com/de-de/account/invoices.php",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.raceresult.com/de-de/account/invoices.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

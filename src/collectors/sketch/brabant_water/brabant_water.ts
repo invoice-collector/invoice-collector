@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BrabantWaterCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BrabantWaterCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://mijn.brabantwater.nl/Paginas/Inloggen.aspx",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://mijn.brabantwater.nl/Paginas/Inloggen.aspx",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

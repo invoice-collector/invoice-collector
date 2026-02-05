@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CakewalkCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CakewalkCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://idp.getcakewalk.io/Account/Login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://idp.getcakewalk.io/Account/Login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

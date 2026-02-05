@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FeiyrCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class FeiyrCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://accounts.feiyr.com/statements.html",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://accounts.feiyr.com/statements.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PromptmetheusCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PromptmetheusCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://archery.promptmetheus.com/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://archery.promptmetheus.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

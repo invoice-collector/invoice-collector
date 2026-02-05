@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ContinentaleCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ContinentaleCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://concorp.continentale.de/hr",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://concorp.continentale.de/hr",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

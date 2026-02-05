@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MaptilerCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MaptilerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://cloud.maptiler.com/account/billing",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://cloud.maptiler.com/account/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

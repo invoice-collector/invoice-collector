@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MakitaDealerzoneCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MakitaDealerzoneCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.makita.de/dealerzone-ordering-invoices.html",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.makita.de/dealerzone-ordering-invoices.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MyaxaMaklerCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MyaxaMaklerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://entry.axa.de/vertriebsportal/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://entry.axa.de/vertriebsportal/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MicrosoftPartnerPortalCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MicrosoftPartnerPortalCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

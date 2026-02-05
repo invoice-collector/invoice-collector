@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AudistoCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AudistoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.audisto.com/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "http://www.audisto.com/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

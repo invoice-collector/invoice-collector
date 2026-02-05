@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AccessallyCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AccessallyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://access.accessally.com/my-account/my-orders-and-subscriptions/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://access.accessally.com/my-account/my-orders-and-subscriptions/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

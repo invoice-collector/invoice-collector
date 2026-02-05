@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OctopiaMarketplaceCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class OctopiaMarketplaceCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://seller.octopia.com/finance/Invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://seller.octopia.com/finance/Invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

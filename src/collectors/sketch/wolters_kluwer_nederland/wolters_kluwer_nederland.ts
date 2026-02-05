@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WoltersKluwerNederlandCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class WoltersKluwerNederlandCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.wolterskluwer.nl/inloggen",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.wolterskluwer.nl/inloggen",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

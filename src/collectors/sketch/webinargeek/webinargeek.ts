@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WebinargeekCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class WebinargeekCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.webinargeek.com/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.webinargeek.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

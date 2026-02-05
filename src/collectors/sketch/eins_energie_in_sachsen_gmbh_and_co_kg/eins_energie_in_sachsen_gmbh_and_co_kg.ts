@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EinsEnergieInSachsenGmbhAndCoKgCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class EinsEnergieInSachsenGmbhAndCoKgCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://onlineservice.eins.de/powercommerce/eins/fo/portal/start?_ga=2.255272256.950415654.1558015875-1970041404.1558015875",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://onlineservice.eins.de/powercommerce/eins/fo/portal/start?_ga=2.255272256.950415654.1558015875-1970041404.1558015875",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

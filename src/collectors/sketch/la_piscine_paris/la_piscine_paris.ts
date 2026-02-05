@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LaPiscineParisCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class LaPiscineParisCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.lapiscine-paris.fr/entrercompte?back=my-account",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.lapiscine-paris.fr/entrercompte?back=my-account",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

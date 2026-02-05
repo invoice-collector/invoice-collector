@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AvgCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AvgCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://myaccount.avg.com/de-de/my-account-login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://myaccount.avg.com/de-de/my-account-login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

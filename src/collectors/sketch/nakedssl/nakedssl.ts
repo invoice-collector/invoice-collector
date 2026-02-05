@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NakedsslCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class NakedsslCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.nakedssl.com/profile",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.nakedssl.com/profile",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

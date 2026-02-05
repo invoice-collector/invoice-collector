@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MediamodifierCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MediamodifierCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://mediamodifier.com/dashboard/settings/invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://mediamodifier.com/dashboard/settings/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

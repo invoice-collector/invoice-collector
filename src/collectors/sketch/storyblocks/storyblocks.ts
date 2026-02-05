@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StoryblocksCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class StoryblocksCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.storyblocks.com/member/billing",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.storyblocks.com/member/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

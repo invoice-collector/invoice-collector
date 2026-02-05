@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GreenEnergyCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class GreenEnergyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.greenenergyuk.com",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "http://www.greenenergyuk.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

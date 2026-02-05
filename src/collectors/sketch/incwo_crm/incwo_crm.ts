@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IncwoCrmCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class IncwoCrmCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.incwo.com/invoices/index/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.incwo.com/invoices/index/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

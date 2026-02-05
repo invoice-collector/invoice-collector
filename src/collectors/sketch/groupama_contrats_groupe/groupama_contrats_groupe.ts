@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GroupamaContratsGroupeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class GroupamaContratsGroupeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.contrat-groupe-groupama.fr/lib/aspx/EspacePublic/homeErgoAlt.aspx",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.contrat-groupe-groupama.fr/lib/aspx/EspacePublic/homeErgoAlt.aspx",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

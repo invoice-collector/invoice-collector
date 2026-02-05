@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WinestroCloudCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class WinestroCloudCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://nephele-s5.de/program.php?p=51000",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://nephele-s5.de/program.php?p=51000",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

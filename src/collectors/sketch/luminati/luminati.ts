@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LuminatiCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class LuminatiCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://luminati.io/cp/billing?cust=goalcommerce",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://luminati.io/cp/billing?cust=goalcommerce",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

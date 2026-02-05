@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ChaosgroupCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ChaosgroupCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://accounts.chaosgroup.com",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "http://accounts.chaosgroup.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

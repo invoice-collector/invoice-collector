@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ReifenborseCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ReifenborseCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.reifenboerse.de/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.reifenboerse.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

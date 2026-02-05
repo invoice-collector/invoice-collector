@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class JexcelProCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class JexcelProCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://jexcel.net/me/invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://jexcel.net/me/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

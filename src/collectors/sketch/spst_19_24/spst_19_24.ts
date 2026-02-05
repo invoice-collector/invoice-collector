@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Spst1924Collector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class Spst1924Collector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portailadherents.spst19-24.org/Documents/Invoicing",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://portailadherents.spst19-24.org/Documents/Invoicing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

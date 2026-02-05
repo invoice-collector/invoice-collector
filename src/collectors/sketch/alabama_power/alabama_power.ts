@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AlabamaPowerCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AlabamaPowerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.alabamapower.com",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "http://www.alabamapower.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MulticardEniInvoicingCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MulticardEniInvoicingCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://selfcare.multicard.eni.com/apex/PortalVisualforce?country=de_DE",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://selfcare.multicard.eni.com/apex/PortalVisualforce?country=de_DE",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

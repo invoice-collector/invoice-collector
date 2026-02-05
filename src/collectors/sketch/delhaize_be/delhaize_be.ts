@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DelhaizeBeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DelhaizeBeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.delhaize.be/loyalty/tickets",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.delhaize.be/loyalty/tickets",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

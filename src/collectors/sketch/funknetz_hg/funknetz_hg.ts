@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FunknetzHgCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class FunknetzHgCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://web0040.siplogin.de/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://web0040.siplogin.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

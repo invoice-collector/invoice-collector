@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OpticaCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class OpticaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.optica.de/meinoptica",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.optica.de/meinoptica",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

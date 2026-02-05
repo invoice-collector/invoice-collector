@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AbasCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AbasCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://abas-erp.com/de/customer-and-partner-logins",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://abas-erp.com/de/customer-and-partner-logins",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

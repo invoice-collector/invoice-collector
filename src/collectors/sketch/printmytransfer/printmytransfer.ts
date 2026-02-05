@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PrintmytransferCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PrintmytransferCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://extranet.printmytransfer.de/secure/my-invoices.xhtml",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://extranet.printmytransfer.de/secure/my-invoices.xhtml",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

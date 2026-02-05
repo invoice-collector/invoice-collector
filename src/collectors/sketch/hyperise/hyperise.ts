@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HyperiseCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class HyperiseCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.hyperise.io/settings#/invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.hyperise.io/settings#/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

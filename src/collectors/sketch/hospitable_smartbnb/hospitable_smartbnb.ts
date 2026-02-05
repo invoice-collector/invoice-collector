@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HospitableSmartbnbCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class HospitableSmartbnbCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.hospitable.com/settings/invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://my.hospitable.com/settings/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ProximusCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ProximusCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.proximus.be/myproximus/fr/Self-employed-and-small-companies/services/My-Bill__/home",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.proximus.be/myproximus/fr/Self-employed-and-small-companies/services/My-Bill__/home",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

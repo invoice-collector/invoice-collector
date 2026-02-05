@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PicanovaApiCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PicanovaApiCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://api.picanova.com/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://api.picanova.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DropcontactCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DropcontactCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.dropcontact.io/app/billing/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.dropcontact.io/app/billing/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

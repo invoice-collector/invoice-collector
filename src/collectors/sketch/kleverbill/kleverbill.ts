@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KleverbillCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class KleverbillCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.kleverbill.de/#/settings/profile",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.kleverbill.de/#/settings/profile",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PaperformCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PaperformCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://paperform.co/account/receipts",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://paperform.co/account/receipts",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

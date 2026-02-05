@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ShootproofCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ShootproofCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://studio.shootproof.com/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://studio.shootproof.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

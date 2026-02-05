@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NextKraftwerkeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class NextKraftwerkeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://mein-kraftwerk.next-kraftwerke.de/document/invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://mein-kraftwerk.next-kraftwerke.de/document/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

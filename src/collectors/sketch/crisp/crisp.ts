@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CrispCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CrispCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.crisp.chat/settings/billing/invoices/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.crisp.chat/settings/billing/invoices/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

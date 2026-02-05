@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GogreenenergyAtCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class GogreenenergyAtCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portal.gogreenenergy.at/index.php?page=invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://portal.gogreenenergy.at/index.php?page=invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

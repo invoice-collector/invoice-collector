@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PhsCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PhsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.phs.co.uk/documents?utm_source=myphs",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://my.phs.co.uk/documents?utm_source=myphs",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WebmailerCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class WebmailerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://email.ionos.de",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://email.ionos.de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

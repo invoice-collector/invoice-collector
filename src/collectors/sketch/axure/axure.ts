@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AxureCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AxureCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.axure.com/portal/billing",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.axure.com/portal/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

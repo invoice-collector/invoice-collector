@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ArmadoCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ArmadoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://myarmado.fr/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://myarmado.fr/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

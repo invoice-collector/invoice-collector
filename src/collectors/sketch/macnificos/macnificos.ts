@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MacnificosCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MacnificosCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.macnificos.com/cuenta/mis-pedidos",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.macnificos.com/cuenta/mis-pedidos",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

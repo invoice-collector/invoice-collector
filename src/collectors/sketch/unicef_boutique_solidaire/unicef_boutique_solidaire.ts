@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class UnicefBoutiqueSolidaireCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class UnicefBoutiqueSolidaireCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://boutique-solidaire.com/unicef/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "http://boutique-solidaire.com/unicef/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

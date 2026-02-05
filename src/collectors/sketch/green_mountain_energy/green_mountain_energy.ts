@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GreenMountainEnergyCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class GreenMountainEnergyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.businessportal.greenmountain.com/resources/protected/previousBills.htm",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.businessportal.greenmountain.com/resources/protected/previousBills.htm",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

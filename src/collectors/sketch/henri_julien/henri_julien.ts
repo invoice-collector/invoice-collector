@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HenriJulienCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class HenriJulienCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://henrijulien.fr/invoices/invoicelist/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://henrijulien.fr/invoices/invoicelist/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

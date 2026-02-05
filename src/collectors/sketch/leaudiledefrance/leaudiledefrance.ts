@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LeauDileDeFranceCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class LeauDileDeFranceCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://connexion.leaudiledefrance.fr/s/login/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://connexion.leaudiledefrance.fr/s/login/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

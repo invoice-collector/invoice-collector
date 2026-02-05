@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GogetsslCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class GogetsslCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.gogetssl.com/en/user/invoices/all/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://my.gogetssl.com/en/user/invoices/all/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,7 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { Driver } from '../../../driver/driver';
 
 export class AirbnbCollector extends SketchCollector {
 
@@ -8,9 +9,9 @@ export class AirbnbCollector extends SketchCollector {
         id: "airbnb",
         name: "Airbnb",
         description: "i18n.collectors.airbnb.description",
-        version: "0",
-        website: "https://www.airbnb.de/trips/upcoming",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/6387.jpg",
+        version: "1",
+        website: "https://www.airbnb.com/",
+        logo: "https://upload.wikimedia.org/wikipedia/commons/6/69/Airbnb_Logo_B%C3%A9lo.svg",
         type: CollectorType.SKETCH,
         params: {
             email: {
@@ -26,11 +27,17 @@ export class AirbnbCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.airbnb.de/trips/upcoming",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.airbnb.com/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {
         super(AirbnbCollector.CONFIG);
+    }
+
+    async needLogin(driver: Driver): Promise<boolean> {
+        return this.config.entryUrl == undefined || !driver.url().includes("/login");
     }
 }

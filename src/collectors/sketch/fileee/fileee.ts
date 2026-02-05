@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FileeeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class FileeeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.fileee.com/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://my.fileee.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

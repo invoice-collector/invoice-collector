@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KabelTvBinzCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class KabelTvBinzCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.kabel-tv-binz.de/login/index/index.html",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "http://www.kabel-tv-binz.de/login/index/index.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

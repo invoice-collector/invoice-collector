@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LEauDuValenciennoisCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class LEauDuValenciennoisCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://leauduvalenciennois.toutsurmoneau.fr/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://leauduvalenciennois.toutsurmoneau.fr/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

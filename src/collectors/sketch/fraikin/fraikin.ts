@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FraikinCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class FraikinCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://customerportal.fraikin.com/login?ec=302&startURL=%2Fs%2F",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://customerportal.fraikin.com/login?ec=302&startURL=%2Fs%2F",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

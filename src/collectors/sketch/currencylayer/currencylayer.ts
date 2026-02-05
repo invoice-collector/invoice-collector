@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CurrencylayerCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CurrencylayerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://currencylayer.com/invoice-dl?invoice_id=",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://currencylayer.com/invoice-dl?invoice_id=",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

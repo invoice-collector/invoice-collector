@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TicketmasterCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TicketmasterCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.ticketmaster.de/myAccount/loginRegister.php",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.ticketmaster.de/myAccount/loginRegister.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

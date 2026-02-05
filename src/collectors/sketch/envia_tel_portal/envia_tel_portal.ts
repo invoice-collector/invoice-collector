@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EnviaTelPortalCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class EnviaTelPortalCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portal.enviatel.de/rechnungen_verbrauch/rechnungen/2019/7/Stammdaten::Bill/10217568",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://portal.enviatel.de/rechnungen_verbrauch/rechnungen/2019/7/Stammdaten::Bill/10217568",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

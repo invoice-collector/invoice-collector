@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LeadparkVerkauferCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class LeadparkVerkauferCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.leadpark.de",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.leadpark.de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

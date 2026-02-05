@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AllInklCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AllInklCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://all-inkl.com/members/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://all-inkl.com/members/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SkelloCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SkelloCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://skello.io/?",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://skello.io/?",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

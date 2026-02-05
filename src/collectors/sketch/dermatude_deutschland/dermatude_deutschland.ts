@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DermatudeDeutschlandCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DermatudeDeutschlandCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.dermatude-deutschland.de/mein-konto/orders/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.dermatude-deutschland.de/mein-konto/orders/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EvpassCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class EvpassCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.evpass.ch/Transaction/Transaction",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.evpass.ch/Transaction/Transaction",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

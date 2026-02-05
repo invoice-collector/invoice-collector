@@ -25,6 +25,7 @@ export class Customer {
     static DEFAULT_REMOTE_ID = "";
     static DEFAULT_SUBSCRIBED_COLLECTORS: string[] = [];
     static DEFAULT_IS_SUBSCRIBED_TO_ALL = true;
+    static DEFAULT_ENABLE_INTERACTIVE_LOGIN = true;
     static DEFAULT_DISPLAY_SKETCH_COLLECTORS = true;
     static DEFAULT_MAX_DELAY_BETWEEN_COLLECT = 2592000000; // 30 days in milliseconds
 
@@ -51,7 +52,8 @@ export class Customer {
     }
 
     static async createDefault(): Promise<{bearer: string, customer: Customer}> {
-        const bearer = utils.generate_bearer();
+        // Generate default api bearer
+        const bearer = utils.generate_bearer(utils.BearerType.API);
         const customer = new Customer(
             Customer.DEFAULT_EMAIL,
             Customer.DEFAULT_PASSWORD,
@@ -77,6 +79,7 @@ export class Customer {
     theme: Theme;
     subscribedCollectors: string[];
     isSubscribedToAll: boolean;
+    enableInteractiveLogin: boolean;
     displaySketchCollectors: boolean;
     maxDelayBetweenCollect: number;
     plan: Plan;
@@ -92,6 +95,7 @@ export class Customer {
         theme: Theme = Theme.DEFAULT,
         subscribedCollectors: string[] = Customer.DEFAULT_SUBSCRIBED_COLLECTORS,
         isSubscribedToAll: boolean = Customer.DEFAULT_IS_SUBSCRIBED_TO_ALL,
+        enableInteractiveLogin: boolean = Customer.DEFAULT_ENABLE_INTERACTIVE_LOGIN,
         displaySketchCollectors: boolean = Customer.DEFAULT_DISPLAY_SKETCH_COLLECTORS,
         maxDelayBetweenCollect: number = Customer.DEFAULT_MAX_DELAY_BETWEEN_COLLECT,
         plan: Plan = Server.IS_SELF_HOSTED ? Plan.FREE : Plan.TRIAL
@@ -107,6 +111,7 @@ export class Customer {
         this.theme = theme;
         this.subscribedCollectors = subscribedCollectors;
         this.isSubscribedToAll = isSubscribedToAll;
+        this.enableInteractiveLogin = enableInteractiveLogin;
         this.displaySketchCollectors = displaySketchCollectors;
         this.maxDelayBetweenCollect = maxDelayBetweenCollect;
         this.plan = plan;
@@ -145,6 +150,9 @@ export class Customer {
     }
 
     async setSubscribedCollectors(collectors: string[]) {
+        // Order collectors alphabetically
+        collectors.sort();
+
         // Check if collectors is an array
         if (!Array.isArray(collectors)) {
             throw new StatusError(`Collectors must be an array.`, 400);

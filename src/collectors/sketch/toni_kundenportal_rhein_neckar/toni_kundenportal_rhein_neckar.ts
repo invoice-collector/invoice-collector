@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ToniKundenportalRheinNeckarCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ToniKundenportalRheinNeckarCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://bbvpfalz.co.crm-now.de/kundenportal/login.php",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://bbvpfalz.co.crm-now.de/kundenportal/login.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

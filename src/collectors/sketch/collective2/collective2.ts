@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Collective2Collector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class Collective2Collector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://collective2.com/payment-records",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://collective2.com/payment-records",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SerpclixCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SerpclixCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://serpclix.com/buyers/profile/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://serpclix.com/buyers/profile/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

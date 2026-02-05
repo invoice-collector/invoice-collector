@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FinelineTechnologiesCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class FinelineTechnologiesCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.finelineglobal.com/FastTrak/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.finelineglobal.com/FastTrak/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

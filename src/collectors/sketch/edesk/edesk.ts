@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EdeskCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class EdeskCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://dashboard-3.edesk.com/payments",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://dashboard-3.edesk.com/payments",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

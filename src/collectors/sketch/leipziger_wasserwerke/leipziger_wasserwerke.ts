@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LeipzigerWasserwerkeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class LeipzigerWasserwerkeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://kupowasser.l.de/#/Logon",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://kupowasser.l.de/#/Logon",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

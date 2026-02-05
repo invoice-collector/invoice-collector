@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Psd2htmlCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class Psd2htmlCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.psd2html.com/login.html",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.psd2html.com/login.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

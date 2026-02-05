@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NeotouchByQuadientCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class NeotouchByQuadientCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://we4.neotouch.quadient.com/ondemand/webaccess/CustomerLogon.aspx?server=W23&skin=NeoTouch&lang=fr&uid=7B756A4E7D503E5424256B523A6C&user=j0t0001&TestCookie=1",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://we4.neotouch.quadient.com/ondemand/webaccess/CustomerLogon.aspx?server=W23&skin=NeoTouch&lang=fr&uid=7B756A4E7D503E5424256B523A6C&user=j0t0001&TestCookie=1",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

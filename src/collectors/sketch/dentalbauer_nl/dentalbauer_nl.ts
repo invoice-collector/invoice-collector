@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DentalbauerNlCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DentalbauerNlCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.dentalbauer.nl",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "http://www.dentalbauer.nl",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ScreencastOMaticCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ScreencastOMaticCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://screencast-o-matic.com/account",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://screencast-o-matic.com/account",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

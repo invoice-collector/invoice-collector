@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EasyblueCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class EasyblueCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.easyblue.io/invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.easyblue.io/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

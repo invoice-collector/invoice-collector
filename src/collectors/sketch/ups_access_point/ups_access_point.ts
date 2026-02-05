@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class UpsAccessPointCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class UpsAccessPointCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://ap.ups.com/REAP/viewAccessPoint.htm",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://ap.ups.com/REAP/viewAccessPoint.htm",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

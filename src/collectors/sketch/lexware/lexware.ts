@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LexwareCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class LexwareCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.lexware.de/kontakt/meinkonto/meine-daten/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.lexware.de/kontakt/meinkonto/meine-daten/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

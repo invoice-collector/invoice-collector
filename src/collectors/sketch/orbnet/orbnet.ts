@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OrbnetCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class OrbnetCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.orbnet.de/account/downloads/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://my.orbnet.de/account/downloads/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

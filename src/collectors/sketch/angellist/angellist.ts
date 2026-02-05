@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AngellistCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AngellistCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://angel.co/layer-8/recruiting/billing",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://angel.co/layer-8/recruiting/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StihlB2bCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class StihlB2bCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://stihl.logistics-mall.com/group/stihl-rechnung",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://stihl.logistics-mall.com/group/stihl-rechnung",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

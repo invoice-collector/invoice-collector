@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PrintendoCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PrintendoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://printendo.de/invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://printendo.de/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

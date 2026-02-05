@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MotionarrayCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MotionarrayCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://motionarray.com/account/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://motionarray.com/account/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

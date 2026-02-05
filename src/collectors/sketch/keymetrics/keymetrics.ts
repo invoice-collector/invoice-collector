@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KeymetricsCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class KeymetricsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.keymetrics.io",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.keymetrics.io",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

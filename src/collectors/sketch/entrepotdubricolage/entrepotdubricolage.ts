@@ -1,5 +1,5 @@
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EntrepotDuBricolageCollector extends SketchCollector {
 
@@ -25,8 +25,10 @@ export class EntrepotDuBricolageCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.entrepot-du-bricolage.fr/connexion",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.entrepot-du-bricolage.fr/connexion",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

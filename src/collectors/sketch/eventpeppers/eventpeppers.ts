@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EventpeppersCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class EventpeppersCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.eventpeppers.com/de/private-v/epp738776746/account",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.eventpeppers.com/de/private-v/epp738776746/account",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

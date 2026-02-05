@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GreensparkCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class GreensparkCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.app.getgreenspark.com/account?tab=billing",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.app.getgreenspark.com/account?tab=billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

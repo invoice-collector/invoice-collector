@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PrefectCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PrefectCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.prefect.cloud/my/billing",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.prefect.cloud/my/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

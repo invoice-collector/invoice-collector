@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ViewneoCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ViewneoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://cloud.viewneo.com/cms#/dashboard/subscription",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://cloud.viewneo.com/cms#/dashboard/subscription",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

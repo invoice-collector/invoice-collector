@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DandomainDkCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DandomainDkCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://kundecenter.dandomain.dk/login.aspx?",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://kundecenter.dandomain.dk/login.aspx?",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

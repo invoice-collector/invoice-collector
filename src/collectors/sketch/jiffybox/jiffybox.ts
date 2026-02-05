@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class JiffyboxCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class JiffyboxCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://admin.jiffybox.de/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://admin.jiffybox.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

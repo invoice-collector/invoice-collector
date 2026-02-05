@@ -1,5 +1,5 @@
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BoliaCollector extends SketchCollector {
 
@@ -25,7 +25,10 @@ export class BoliaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.bolia.com/fr-fr/mybolia/se-connecter/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

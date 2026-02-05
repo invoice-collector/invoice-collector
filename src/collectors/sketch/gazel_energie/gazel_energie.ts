@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GazelEnergieCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class GazelEnergieCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://dispatching.gazelenergie.fr/WebClient/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://dispatching.gazelenergie.fr/WebClient/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class JvzooCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class JvzooCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://customer.jvzoo.com",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://customer.jvzoo.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

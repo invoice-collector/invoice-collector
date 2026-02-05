@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FloatScheduleCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class FloatScheduleCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://float.recurly.com",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://float.recurly.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

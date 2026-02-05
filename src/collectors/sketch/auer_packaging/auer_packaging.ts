@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AuerPackagingCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AuerPackagingCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.auer-packaging.com/de/de/Mein-AUER.html",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.auer-packaging.com/de/de/Mein-AUER.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

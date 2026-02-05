@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MinoxCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MinoxCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.minox.nl/feature-categories/minox-open-api/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.minox.nl/feature-categories/minox-open-api/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

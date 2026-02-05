@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class InboxlogyCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class InboxlogyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.inboxlogy.com/billing/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.inboxlogy.com/billing/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

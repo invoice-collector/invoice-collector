@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HbMarketplaceHandlerbundCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class HbMarketplaceHandlerbundCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://auth.hb-marketplace.com/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://auth.hb-marketplace.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

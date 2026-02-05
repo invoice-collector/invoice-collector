@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ItWelt24DeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ItWelt24DeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.it-welt24.de/backoffice",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.it-welt24.de/backoffice",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

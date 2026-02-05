@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LaboratorieLcsCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class LaboratorieLcsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.lcsorders.com/login?redirect=%2F",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.lcsorders.com/login?redirect=%2F",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

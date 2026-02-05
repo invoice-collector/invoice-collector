@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EcoembesCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class EcoembesCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://fspro.ecoembes.com/adfs/ls?version=1.0&action=signin&realm=urn%3AAppProxy%3Acom&appRealm=ab03468a-2bfe-e811-8114-005056b119d5&returnUrl=https%3A%2F%2Fsso.ecoembes.com%2FEcoembes.SGC.ServiciosPortal.WebUI%2FSingleSignOn.aspx&client-request-id=858AF",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://fspro.ecoembes.com/adfs/ls?version=1.0&action=signin&realm=urn%3AAppProxy%3Acom&appRealm=ab03468a-2bfe-e811-8114-005056b119d5&returnUrl=https%3A%2F%2Fsso.ecoembes.com%2FEcoembes.SGC.ServiciosPortal.WebUI%2FSingleSignOn.aspx&client-request-id=858AF",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

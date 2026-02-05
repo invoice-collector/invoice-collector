@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SoftCarrierCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SoftCarrierCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.softcarrier.de/hbdb/vshop/index.php",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.softcarrier.de/hbdb/vshop/index.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

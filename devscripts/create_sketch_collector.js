@@ -6,7 +6,7 @@ require('dotenv').config();
 function askUser(instructions, mandatory) {
     let response;
     do {
-        response = prompt(instructions + (mandatory ? "(mandatory): " : "(optional): "));
+        response = prompt(instructions + (mandatory ? " (mandatory): " : " (optional): "));
     } while (mandatory && response.trim() === "");
     return response;
 }
@@ -127,6 +127,8 @@ async function createSketchCollector() {
     // 1. Collect basic information
     const website = askUser("Website URL", true);
     await checkUrl(website, "text/html");
+    const loginUrl = askUser("Login URL", true);
+    await checkUrl(loginUrl, "text/html");
     const logo = askUser("Link to the logo. Prefer wikipedia logo in .svg format", true);
     await checkUrl(logo, "image");
     const messageToLlm = askUser("Optional Message to LLM", false);
@@ -145,7 +147,8 @@ async function createSketchCollector() {
         name: llmResult.name,
         description_en: llmResult.description_en,
         description_fr: llmResult.description_fr,
-        website: baseUrl,
+        website: website,
+        loginUrl: loginUrl,
         logo: logo
     };
 
@@ -166,7 +169,7 @@ async function createSketchCollector() {
     fs.writeFileSync(collectorFile, JSON.stringify(collector, null, 4));
 
     const sketchCollectorContent = `import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorState, CollectorCaptcha, CollectorType } from '../../abstractCollector';
 
 export class ${collector.id_camel_case}Collector extends SketchCollector {
 
@@ -192,7 +195,10 @@ export class ${collector.id_camel_case}Collector extends SketchCollector {
                 mandatory: true
             }
         },
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "${collector.loginUrl}",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

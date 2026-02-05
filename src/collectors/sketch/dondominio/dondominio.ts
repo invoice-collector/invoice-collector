@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DondominioCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DondominioCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.dondominio.com/en/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.dondominio.com/en/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

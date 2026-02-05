@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EnedisCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class EnedisCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://mon-compte-entreprise.enedis.fr/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://mon-compte-entreprise.enedis.fr/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

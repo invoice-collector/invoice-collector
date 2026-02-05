@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BackMarketCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BackMarketCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.backmarket.fr/dashboard",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.backmarket.fr/dashboard",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

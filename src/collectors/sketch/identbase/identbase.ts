@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IdentbaseCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class IdentbaseCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://identbase.de/shop/system/?func=customer&action=orderlist&",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://identbase.de/shop/system/?func=customer&action=orderlist&",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

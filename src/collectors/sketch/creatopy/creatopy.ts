@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CreatopyCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CreatopyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://auth.creatopy.com/auth/realms/creatopy/protocol/openid-connect/auth?client_id=creatopy-webapp&redirect_uri=https%3A%2F%2Fapp.creatopy.com%2F&state=68ac7fd2-c4ff-4136-8818-d25f4c21d979&response_mode=fragment&response_type=code&scope=openid&nonce=e7",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://auth.creatopy.com/auth/realms/creatopy/protocol/openid-connect/auth?client_id=creatopy-webapp&redirect_uri=https%3A%2F%2Fapp.creatopy.com%2F&state=68ac7fd2-c4ff-4136-8818-d25f4c21d979&response_mode=fragment&response_type=code&scope=openid&nonce=e7",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

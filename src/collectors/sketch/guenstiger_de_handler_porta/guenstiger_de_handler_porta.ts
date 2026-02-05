@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GuenstigerDeHandlerPortaCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class GuenstigerDeHandlerPortaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://stats.guenstiger.de/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://stats.guenstiger.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

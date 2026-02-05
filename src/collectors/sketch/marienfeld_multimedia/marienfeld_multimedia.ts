@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MarienfeldMultimediaCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MarienfeldMultimediaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://kundenportal.vivawest.de/?etcc_cmp_onsite=kundenportal&etcc_med_onsite=website&etcc_cu=onsite&etcc_ctv_onsite=artikel-bewerbung-kundenportal-8.12.17",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://kundenportal.vivawest.de/?etcc_cmp_onsite=kundenportal&etcc_med_onsite=website&etcc_cu=onsite&etcc_ctv_onsite=artikel-bewerbung-kundenportal-8.12.17",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

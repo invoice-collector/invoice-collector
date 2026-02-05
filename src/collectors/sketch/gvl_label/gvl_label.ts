@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GvlLabelCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class GvlLabelCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://label.gvl.de/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://label.gvl.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

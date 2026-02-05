@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Icons8Collector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class Icons8Collector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://icons8.com/register/?back=https%3A%2F%2Ficons8.com%2F",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://icons8.com/register/?back=https%3A%2F%2Ficons8.com%2F",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

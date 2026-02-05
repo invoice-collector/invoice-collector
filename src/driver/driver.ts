@@ -7,8 +7,8 @@ import { Proxy } from '../proxy/abstractProxy';
 import * as utils from '../utils';
 import { Options } from './puppeteer/browser';
 import { CollectorCaptcha } from '../collectors/abstractCollector';
-import { WebCollector as OldWebCollector} from '../collectors/web2Collector';
-import { WebCollector } from '../collectors/web2Collector';
+import { WebCollector as OldWebCollector} from '../collectors/webCollector';
+import { WebCollector } from '../collectors/webCollector';
 
 export class Driver {
 
@@ -84,7 +84,7 @@ export class Driver {
             console.log(`Do not use proxy`);
         }
 
-        this.puppeteerConfig.remoteChrome = (this.collector.config.captcha == CollectorCaptcha.DATADOME);
+        this.puppeteerConfig.remoteChrome = this.collector.config.captcha == CollectorCaptcha.DATADOME;
 
         // Open browser and page
         const connectResult = await connect(this.puppeteerConfig);
@@ -111,13 +111,14 @@ export class Driver {
         }
 
         // Clear download folder
-        this.clearDownloadFolder();
+        await this.clearDownloadFolder();
 
         // Listen for new page and update page
         this.browser.on('targetcreated', async (target) => {
             const newPage = await target.page();
             if (newPage && this.page !== newPage) {
                 this.page = newPage;
+                this.page.bringToFront();
             }
         });
 
@@ -201,67 +202,27 @@ export class Driver {
 
     // GOTO
 
-    async goto(url, network_request: string = ""): Promise<{requestBody: any, responseBody: any}> {
+    async goto(url: string | undefined, {
+        timeout = Driver.DEFAULT_NAVIGATION_TIMEOUT,
+        navigation = true
+    } = {}): Promise<void> {
+        if(url === undefined) {
+            throw new Error('URL is undefined.');
+        }
         if (this.page === null) {
             throw new Error('Page is not initialized.');
         }
-        // If must wait for a specific network request
-        if(network_request) {
-            await this.page.setRequestInterception(true);
-            const urlPromise = new Promise<any>((resolve) => {
-                if (this.page === null) {
-                    throw new Error('Page is not initialized.');
-                }
-                this.page.on('request', request => {
-                    if (!request.isInterceptResolutionHandled()) {
-                        request.continue();
-                    }
-                });
 
-                this.page.on('response', async (response) => {
-                    if (response.url().includes(network_request) && response.ok()) {
-                        const requestBody = JSON.parse(response.request().postData() || '{}');
-                        try {
-                            const responseBody = await response.json();
-                            resolve({requestBody, responseBody});
-                        }
-                        catch (error) {}
-                    }
-                });
-            });
-
-            // Navigate to the page
-            await this.page.goto(url, {waitUntil: 'networkidle0', timeout: Driver.DEFAULT_NAVIGATION_TIMEOUT});
-
-            // Wait for the network request
-            const response = await Promise.race([
-                urlPromise,
-                new Promise((_, reject) =>
-                    setTimeout(() => reject(new Error(`Request ${network_request} not intercepted while loading page ${url}`)), 30000)
-                )
-            ]);
-
-            // Return the response
-            return response;
-        }
-        else {
-            let response;
-            try {
-                // Navigate to the page
-                response = await this.page.goto(url, {waitUntil: 'networkidle0', timeout: Driver.DEFAULT_NAVIGATION_TIMEOUT});
-            } catch (error) {
-                console.warn(`Failed to navigate to ${url}, navigation timeout`);
+        try {
+            if(navigation) {
+                // Navigate to the page and wait for navigation
+                await this.page.goto(url, {waitUntil: 'networkidle0', timeout: timeout});
+            } else {
+                // Navigate to the page without waiting for navigation
+                await this.page.goto(url, {waitUntil: 'domcontentloaded', timeout: timeout});
             }
-
-            // Check if response is 404
-            if (response && response.status() == 404) {
-                const error = new LoggableError(`Failed to navigate to ${url}, page not found 404`, this.collector);
-                error.url = url;
-                error.source_code = await this.sourceCode(true, true);
-                error.screenshot = await this.screenshot();
-                throw error;
-            }
-            return {requestBody: null, responseBody: null};
+        } catch (error) {
+            console.warn(`Failed to navigate to ${url}, navigation timeout`);
         }
     }
 
@@ -577,7 +538,7 @@ export class Driver {
         }
 
         // Remove all files in the download folder
-        this.clearDownloadFolder();
+        await this.clearDownloadFolder();
 
         // Navigate to the page
         await this.page.evaluate((url) => {
@@ -609,7 +570,7 @@ export class Driver {
         const data = fs.readFileSync(path.join(this.downloadPath, file), {encoding: 'base64'});
 
         // Clear download folder
-        this.clearDownloadFolder();
+        await this.clearDownloadFolder();
 
         return data;
     }
@@ -619,8 +580,13 @@ export class Driver {
         this.downloadedFile = null;
         // Remove all files in the download folder
         if (fs.existsSync(this.downloadPath)) {
-            fs.readdirSync(this.downloadPath).forEach(async file => {
+            // Get all files in the download folder
+            const files = fs.readdirSync(this.downloadPath)
+            // For each file
+            for (const file of files) {
+                // Get full path
                 const filePath = path.join(this.downloadPath, file);
+                // Try to delete the file
                 try {
                     fs.unlinkSync(filePath);
                 } catch (error) {
@@ -628,7 +594,7 @@ export class Driver {
                     await utils.delay(100);
                     fs.unlinkSync(filePath);
                 }
-            });
+            }
         }
     }
 

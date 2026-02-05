@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MitsubishiElectricCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MitsubishiElectricCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://edocs.mitsubishielectric.co.uk/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://edocs.mitsubishielectric.co.uk/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

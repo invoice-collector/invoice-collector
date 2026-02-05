@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TestmanuelCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TestmanuelCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "ibcs.online/invoice",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "ibcs.online/invoice",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

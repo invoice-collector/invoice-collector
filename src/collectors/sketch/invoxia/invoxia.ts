@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class InvoxiaCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class InvoxiaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://hub.invoxia.com/login?next=devices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://hub.invoxia.com/login?next=devices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

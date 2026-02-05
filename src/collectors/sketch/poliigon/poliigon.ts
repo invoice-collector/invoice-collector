@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PoliigonCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PoliigonCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.poliigon.com/account/invoice",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.poliigon.com/account/invoice",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

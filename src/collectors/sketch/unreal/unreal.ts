@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class UnrealCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class UnrealCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://accounts.unrealengine.com/login?lang=en_US&redirectUrl=https%3A%2F%2Fwww.unrealengine.com%2Fen-US%2Fblog&client_id=43e2dea89b054198a703f6199bee6d5b&noHostRedirect=true",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://accounts.unrealengine.com/login?lang=en_US&redirectUrl=https%3A%2F%2Fwww.unrealengine.com%2Fen-US%2Fblog&client_id=43e2dea89b054198a703f6199bee6d5b&noHostRedirect=true",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

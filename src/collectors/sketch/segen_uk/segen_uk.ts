@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SegenUkCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SegenUkCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portal.segen.co.uk/Reseller/Orders/RecentInvoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://portal.segen.co.uk/Reseller/Orders/RecentInvoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

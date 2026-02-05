@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WeeblrComCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class WeeblrComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://weeblr.com/dashboard?layout=subscription&subscription_key=8O56WJCO5F94",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://weeblr.com/dashboard?layout=subscription&subscription_key=8O56WJCO5F94",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

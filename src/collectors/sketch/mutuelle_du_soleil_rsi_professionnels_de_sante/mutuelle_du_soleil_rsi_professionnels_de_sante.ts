@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MutuelleDuSoleilRsiProfessionnelsDeSanteCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MutuelleDuSoleilRsiProfessionnelsDeSanteCollector extends SketchCol
                 mandatory: true
             }
         },
-        entryUrl: "https://tiers.mutuellesdusoleil.fr/login#/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://tiers.mutuellesdusoleil.fr/login#/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

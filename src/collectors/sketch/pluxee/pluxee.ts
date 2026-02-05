@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PluxeeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PluxeeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://commercants.pluxee.fr/invoice/restaurant",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://commercants.pluxee.fr/invoice/restaurant",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

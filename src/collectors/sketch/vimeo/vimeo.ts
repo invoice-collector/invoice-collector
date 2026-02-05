@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VimeoCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class VimeoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://vimeo.com/settings/billing/purchases",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://vimeo.com/settings/billing/purchases",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

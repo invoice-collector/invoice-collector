@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OnepageGmbhCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class OnepageGmbhCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.onepage.io/sites",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.onepage.io/sites",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

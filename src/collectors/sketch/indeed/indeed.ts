@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IndeedCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class IndeedCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://secure.indeed.com/account/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://secure.indeed.com/account/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

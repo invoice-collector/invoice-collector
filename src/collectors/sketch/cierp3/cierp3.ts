@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Cierp3Collector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class Cierp3Collector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.allgeier-it.de/404/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.allgeier-it.de/404/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

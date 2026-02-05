@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HostmonsterCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class HostmonsterCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.hostmonster.com/web-hosting/cplogin",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://my.hostmonster.com/web-hosting/cplogin",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WasteResourcesCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class WasteResourcesCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://wrk-prd-tow-etr.amcsplatform.com/WR/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://wrk-prd-tow-etr.amcsplatform.com/WR/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

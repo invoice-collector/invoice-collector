@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MCommeMutuelleCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MCommeMutuelleCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.mgen.fr/login-adherent/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.mgen.fr/login-adherent/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

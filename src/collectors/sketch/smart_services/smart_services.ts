@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SmartServicesCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SmartServicesCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://client.smart-services.com/factures",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://client.smart-services.com/factures",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

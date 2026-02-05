@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MarkenmehrwertCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MarkenmehrwertCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.markenmehrwert.com",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.markenmehrwert.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

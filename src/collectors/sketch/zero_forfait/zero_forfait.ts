@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ZeroForfaitCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ZeroForfaitCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.prixtel.com/pws/SSO/authentication?callback=/client",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.prixtel.com/pws/SSO/authentication?callback=/client",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

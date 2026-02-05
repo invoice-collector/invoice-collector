@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NetfirmsCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class NetfirmsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://secure.netfirms.com/secure/login.bml",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://secure.netfirms.com/secure/login.bml",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

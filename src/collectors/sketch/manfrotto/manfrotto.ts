@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ManfrottoCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ManfrottoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.manfrotto.com/de-de/customer/account/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.manfrotto.com/de-de/customer/account/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

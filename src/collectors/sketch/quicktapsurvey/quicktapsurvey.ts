@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class QuicktapsurveyCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class QuicktapsurveyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.quicktapsurvey.com/admin/account/list-invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.quicktapsurvey.com/admin/account/list-invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

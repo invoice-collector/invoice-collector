@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Free2moveBusinessCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class Free2moveBusinessCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.free2move.com/business/#/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.free2move.com/business/#/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

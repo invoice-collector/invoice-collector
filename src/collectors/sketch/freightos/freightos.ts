@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FreightosCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class FreightosCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://ship.freightos.com/billing",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://ship.freightos.com/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

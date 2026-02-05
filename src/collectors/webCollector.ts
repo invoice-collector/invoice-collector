@@ -2,9 +2,8 @@ import { Invoice, CompleteInvoice, CollectorType, CollectorCaptcha, CollectorSta
 import { Driver, Element } from '../driver/driver';
 import { AuthenticationError, CollectorError, DisconnectedError, LoggableError, NoInvoiceFoundError } from '../error';
 import { ProxyFactory } from '../proxy/proxyFactory';
-import { mimetypeFromBase64 } from '../utils';
 import { Location } from "../proxy/abstractProxy";
-import { Secret } from "../secret_manager/abstractSecretManager";
+import { Secret } from "../model/secret";
 import { TwofaPromise } from "../collect/twofaPromise";
 import { State } from "../model/state";
 import * as utils from '../utils';
@@ -14,6 +13,7 @@ import { MessageClick, MessageKeydown, MessageText } from "../websocket/message"
 import { KeyInput } from "rebrowser-puppeteer-core";
 import { GoogleOauth2 } from "./oauth2/googleOauth2";
 import { MicrosoftOauth2 } from "./oauth2/microsoftOauth2";
+import { CollectorMemory } from "../model/collectorMemory";
 
 export type WebConfig = Config & {
     loginUrl: string,
@@ -24,7 +24,8 @@ export type WebConfig = Config & {
     autoLogin?: {
         cookieNames?: string[],
         localStorageKeys?: string[]
-    }
+    },
+    enableInteractiveLogin: boolean
 }
 
 export enum DocumentStrategy {
@@ -35,7 +36,6 @@ export enum DocumentStrategy {
 export abstract class WebCollector extends V2Collector<WebConfig> {
 
     static LOGIN_TIMEOUT_MS = 10 * 60 * 1000; // 10 minutes
-    static SCREENSHOT_INTERVAL_MS = 50; // 50 ms
     static DEFAULT_DOCUMENT_STRATEGY = DocumentStrategy.SPLIT;
 
     driver: Driver | null;
@@ -62,7 +62,8 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
         secret: Secret,
         download_from_timestamp: number,
         previousInvoices: any[],
-        location: Location | null
+        location: Location | null,
+        useInteractiveLogin: boolean
     ): Promise<CompleteInvoice[]> {
         // Get proxy
         const proxy = this.config.useProxy ? await ProxyFactory.getProxy().get(location) : null;
@@ -73,10 +74,10 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
         await driver.open(proxy);
 
         // Set cookies
-        await driver.setCookies(secret.cookies);
+        await driver.setCookies(await secret.getCookies());
 
         // Set localStorage
-        await driver.setLocalStorage(secret.localStorage);
+        await driver.setLocalStorage(await secret.getLocalStorage());
 
         try {
             // Pre actions
@@ -88,103 +89,157 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
                 this.config.loadImages = true;
             }
 
-            // Open entry url
-            await driver.goto(this.config.entryUrl || this.config.loginUrl);
+            // If no interactive login
+            if(!useInteractiveLogin) {
+                // Open entry url
+                await driver.goto(this.config.entryUrl || this.config.loginUrl);
 
-            // Check if user needs to login
-            const needLogin = await this.needLogin(driver)
+                // Check if user needs to login
+                const needLogin = await this.needLogin(driver)
 
-            // If user need to login
-            if (needLogin) {
-                // Set progress step to logging in
-                state.update(State._2_LOGGING_IN);
-                webSocketServer?.sendState(State._2_LOGGING_IN);
+                // If user need to login
+                if (needLogin) {
+                    // Set progress step to logging in
+                    state.update(State._2_LOGGING_IN);
+                    webSocketServer?.sendState(State._2_LOGGING_IN);
 
-                console.log("User is not logged in, logging in...")
-                const login_error = await this.login(driver, secret.params, webSocketServer) || 
-                    await GoogleOauth2.login(driver, secret.params, webSocketServer) || 
-                    await MicrosoftOauth2.login(driver, secret.params, webSocketServer);
+                    console.log("User is not logged in, logging in...")
 
-                // Check if not authenticated
-                if (login_error) {
-                    throw new AuthenticationError(login_error, this);
+                    // Login with stored credentials
+                    const login_error = await this.login(driver, await secret.getParams(), webSocketServer) || 
+                        await GoogleOauth2.login(driver, await secret.getParams(), webSocketServer) || 
+                        await MicrosoftOauth2.login(driver, await secret.getParams(), webSocketServer);
+
+                    // Check if not authenticated
+                    if (login_error) {
+                        throw new AuthenticationError(login_error, this);
+                    }
                 }
+                else {
+                    console.log("Successfully used cookies and local storage")
+                }
+
+                // Check if 2fa is required
+                const needTwofa = await this.needTwofa(driver) ||
+                    await GoogleOauth2.needTwofa(driver) ||
+                    await MicrosoftOauth2.needTwofa(driver);
+
+                // If 2fa is required
+                if (needTwofa) {
+                    console.log(`2FA is required, performing 2FA... (${utils.trim(needTwofa)})`)
+
+                    // If the webSocketServer is undefined, it means that the session has expired
+                    if (!webSocketServer) {
+                        throw new DisconnectedError(this);
+                    }
+
+                    // Set progress step to 2fa waiting
+                    state.update(State._3_2FA_WAITING, needTwofa);
+                    webSocketServer.sendState(State._3_2FA_WAITING, needTwofa);
+
+                    // Set instructions for UI
+                    await twofa_promise.setInstructions(needTwofa);
+
+                    const twofa_error = await this.twofa(driver, await secret.getParams(), twofa_promise, webSocketServer) ||
+                        await GoogleOauth2.twofa(driver, await secret.getParams(), twofa_promise, webSocketServer) || 
+                        await MicrosoftOauth2.twofa(driver, await secret.getParams(), twofa_promise, webSocketServer);
+
+                    // Check if 2fa error
+                    if (twofa_error) {
+                        throw new AuthenticationError(twofa_error, this);
+                    }
+                }
+
+                console.log("User is successfully logged in")
+
+                // Set progress step to collecting
+                state.update(State._5_COLLECTING);
+                webSocketServer?.sendState(State._5_COLLECTING);
             }
             else {
-                console.log("Successfully used cookies and local storage")
+                // Get collector memory
+                const collectorMemory = await CollectorMemory.fromCollectorId(this.config.id);
+
+                // If first collect
+                if(webSocketServer) {
+                    // Go to login url
+                    await driver.goto(this.config.loginUrl, { navigation: false });
+                    // Perform interactive login
+                    await this.interactive(driver, webSocketServer, 'i18n.views.interactive.login.instructions');
+                    // Save customer area url if not defined
+                    if(!collectorMemory.customerAreaUrl) {
+                        collectorMemory.customerAreaUrl = driver.url();
+                        await collectorMemory.commit();
+                    }
+
+                    // If no entry url defined
+                    if(!this.config.entryUrl && !collectorMemory.entryUrl) {
+                        // Perform interactive navigate
+                        await this.interactive(driver, webSocketServer, 'i18n.views.interactive.navigate.instructions');
+                        // Save entry url
+                        collectorMemory.entryUrl = driver.url();
+                        await collectorMemory.commit();
+                    }
+                    else if (this.config.entryUrl && !collectorMemory.entryUrl) {
+                        collectorMemory.entryUrl = this.config.entryUrl;
+                        await collectorMemory.commit();
+                    }
+                    else if (!this.config.entryUrl && collectorMemory.entryUrl) {
+                        console.warn(`Collector ${this.config.id} has no entryUrl defined in config, but has one saved in memory. Consider defining it in the config.`);
+                    }
+                }
+
+                // Compute new url
+                const url = this.config.entryUrl || collectorMemory.entryUrl || collectorMemory.customerAreaUrl;
+
+                // If url is undefined, something whent wrong
+                if(!url) {
+                    throw new Error(`Collector ${this.config.id} does not have any of entryUrl, nor customerAreaUrl defined`);
+                }
+
+                // Set progress step to collecting
+                state.update(State._5_COLLECTING);
+                webSocketServer?.sendState(State._5_COLLECTING);
+
+                // Go to entry url
+                await driver.goto(url);
+
+                // Check if user needs to login
+                const needLogin = await this.needLogin(driver);
+
+                // If need login, raise error
+                if(needLogin) {
+                    throw new DisconnectedError(this);
+                }
             }
+
+            // Update secret.cookies
+            await secret.setCookies(await driver.getCookies(this.config.autoLogin?.cookieNames));
+            // Update secret.localStorage
+            await secret.setLocalStorage(await driver.getLocalStorage(this.config.autoLogin?.localStorageKeys));
 
             // Restore previous load images value
             if(webSocketServer) {
                 this.config.loadImages = loadImagesPreviousValue;
             }
 
-            // Check if 2fa is required
-            const needTwofa = await GoogleOauth2.needTwofa(driver) ||
-                await MicrosoftOauth2.needTwofa(driver) ||
-                await this.needTwofa(driver);
-
-            // If 2fa is required
-            if (needTwofa) {
-                console.log(`2FA is required, performing 2FA... (${utils.trim(needTwofa)})`)
-
-                // If the webSocketServer is undefined, it means that the session has expired
-                if (!webSocketServer) {
-                    throw new DisconnectedError(this);
-                }
-
-                // Set progress step to 2fa waiting
-                state.update(State._3_2FA_WAITING, needTwofa);
-                webSocketServer.sendState(State._3_2FA_WAITING, needTwofa);
-
-                // Set instructions for UI
-                await twofa_promise.setInstructions(needTwofa);
-
-                const twofa_error = await GoogleOauth2.twofa(driver, secret.params, twofa_promise, webSocketServer) || 
-                    await MicrosoftOauth2.twofa(driver, secret.params, twofa_promise, webSocketServer) || 
-                    await this.twofa(driver, secret.params, twofa_promise, webSocketServer);
-
-                // Check if 2fa error
-                if (twofa_error) {
-                    throw new AuthenticationError(twofa_error, this);
-                }
-            }
-
-            console.log("User is successfully logged in")
-
-            // Update secret.cookies
-            secret.cookies = await driver.getCookies(this.config.autoLogin?.cookieNames);
-
-            // Update secret.localStorage
-            secret.localStorage = await driver.getLocalStorage(this.config.autoLogin?.localStorageKeys);
-
             // Navigate to invoices
-            await this.navigate(driver, secret.params);
-
-            // Set progress step to collecting
-            state.update(State._5_COLLECTING);
-            webSocketServer?.sendState(State._5_COLLECTING);
+            await this.navigate(driver);
 
             // Get previous invoice ids
             const previousInvoiceIds = previousInvoices.map((inv) => inv.id);
 
-            // Find the most recent invoice timestamp from previousInvoices
-            const mostRecentTimestamp = previousInvoices.length > 0 
-                ? Math.max(...previousInvoices.map(inv => inv.timestamp))
-                : 0;
-
             // For each page
             let invoices: CompleteInvoice[] = [];
             let firstDownload = true;
-            await this.forEachPage(driver, secret.params, async () => {
+            await this.forEachPage(driver, async () => {
                 // Check if no invoices are present on the page
                 const isEmpty = await this.isEmpty(driver);
 
                 // Continue only if invoices are present
-                if (isEmpty == false) {
-
+                if (!isEmpty) {
                     // For each invoice on the page
-                    const invoiceElements = await this.getInvoices(driver, secret.params);
+                    const invoiceElements = await this.getInvoices(driver);
                     
                     // If invoice elements is empty, collector may be broken
                     if (invoiceElements.length === 0) {
@@ -194,7 +249,7 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
                     // For each invoice element
                     for (const element of invoiceElements) {
                         // Get invoice data
-                        let invoice: Invoice | null = await this.data(driver, secret.params, element);
+                        let invoice: Invoice | null = await this.data(driver, element);
 
                         // Ignore if null
                         if (invoice === null) {
@@ -211,8 +266,8 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
                             downloadButton: invoice.downloadButton || {}
                         }
 
-                        // If invoice is more recent or equal to most recent timestamp and id is not in previousInvoiceIds
-                        if (invoice.timestamp >= mostRecentTimestamp && !previousInvoiceIds.includes(invoice.id)){
+                        // If id is not in previous ids
+                        if (!previousInvoiceIds.includes(invoice.id)) {
                             // If invoice is more recent than the download_from_timestamp
                             if (download_from_timestamp <= invoice.timestamp) {
                                 // If this is the first invoice to download, set progress step to downloading
@@ -224,7 +279,7 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
                                 }
 
                                 // Download invoice
-                                let documents = await this.download(driver, secret.params, element, invoice);
+                                let documents = await this.download(driver, invoice);
 
                                 // Close extra pages opened during download
                                 await driver.closeExtraPages();
@@ -235,12 +290,12 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
                                 }
                                 console.log(`Invoice ${invoice.id} successfully downloaded, ${documents.length} document(s) found.`);
                     
-                                for (const [index, document] of documents.entries()) {
+                                for (const document of documents) {
                                     invoices.push({
                                         ...invoice,
-                                        id: `${invoice.id}${documents.length > 1 ? `-part${index + 1}` : ''}`,
                                         data: document,
-                                        mimetype: mimetypeFromBase64(document),
+                                        mimetype: utils.mimetypeFromBase64(document),
+                                        hash: utils.hash_string(document, "md5"),
                                         collected_timestamp: Date.now(),
                                         metadata: invoice.metadata || {}
                                     });
@@ -252,6 +307,7 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
                                     ...invoice,
                                     data: null,
                                     mimetype: null,
+                                    hash: null,
                                     collected_timestamp: null,
                                     downloadButton: null,
                                     metadata: {},
@@ -293,27 +349,23 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
         }
     }
 
-    protected async interactiveLogin(driver: Driver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string |void> {
-        // If login is called with a WebSocketServer to undefined, it means that the session has expired
+    private async interactive(
+        driver: Driver,
+        webSocketServer: WebSocketServer | undefined,
+        instructions: string
+    ): Promise<string |void> {
+        // If called with a WebSocketServer to undefined, it means that the session has expired
         if (!webSocketServer) {
             throw new DisconnectedError(this);
         }
 
-        let checkPageInterval: NodeJS.Timeout | undefined, screenshotInterval: NodeJS.Timeout | undefined;
-        const promise = new Promise<void>((resolve, reject) => {
+        const interactiveEndPromise = new Promise<void>((resolve, reject) => {
             // Define timeout
             setTimeout(() => {
                 //webSocketServer.close();
                 reject(new AuthenticationError('i18n.collectors.all.login.timeout', this))
             }, WebCollector.LOGIN_TIMEOUT_MS)
 
-            // Take screenshot and send it to the client every 50 ms
-            screenshotInterval = setInterval(async () => {
-                try {
-                    const screenshot = await driver.screenshot();
-                    webSocketServer?.sendScreenshot(screenshot, Driver.VIEWPORT_WIDTH, Driver.VIEWPORT_HEIGHT);
-                } catch (error) {}
-            }, WebCollector.SCREENSHOT_INTERVAL_MS);
 
             // Define what to do on click event
             webSocketServer.onClick = async (event: MessageClick) => {
@@ -333,10 +385,13 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
             webSocketServer.onText = async (event: MessageText) => {
                 await driver.page?.keyboard.type(event.text);
             };
-            // Define what to do on close event
-            webSocketServer.onClose = async (event) => {
+            // Define what to do on interactive event
+            webSocketServer.onInteractive = async (event) => {
                 switch(event.reason) {
-                    case 'ok':
+                    case 'open':
+                        // Do not do anything
+                        break;
+                    case 'close':
                         resolve();
                         break;
                     case 'cancel':
@@ -350,12 +405,40 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
                         break;
                 }
             };
+            // Send interactive open
+            webSocketServer.sendInteractiveOpen(instructions);
+        });
+
+        // ---------- Screencast ----------
+
+        // Create CDP session
+        const cdp = await driver.page?.createCDPSession();
+        if(!cdp) {
+            throw new Error("CDP session could not be created");
+        }
+        await cdp.send('Page.enable');
+
+        // Listen for screencast frames
+        cdp.on('Page.screencastFrame', async ({ data, sessionId }) => {
+            // Send screenshot to client
+            webSocketServer?.sendScreenshot(data, Driver.VIEWPORT_WIDTH, Driver.VIEWPORT_HEIGHT);
+            // Acknowledge frame
+            await cdp.send('Page.screencastFrameAck', { sessionId });
+        });
+
+        // Start screencast
+        await cdp.send('Page.startScreencast', {
+            format: 'jpeg',         // jpeg = smaller than png
+            quality: 100,           // 0–100
+            maxWidth: Driver.VIEWPORT_WIDTH,
+            maxHeight: Driver.VIEWPORT_HEIGHT,
+            everyNthFrame: 1        // increase to reduce FPS
         });
 
         try {
-            await promise;
+            await interactiveEndPromise;
         } finally {
-            clearInterval(screenshotInterval);
+            await cdp.send('Page.stopScreencast');
         }
     }
 
@@ -381,11 +464,8 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
         // Assume the collector does not implement 2FA
     }
 
-    async navigate(driver: Driver, params: any): Promise<void> {
-        // Go to entry URL if exists
-        if (this.config.entryUrl) {
-            await driver.goto(this.config.entryUrl);
-        }
+    async navigate(driver: Driver): Promise<void> {
+        // Assume the collector does not need navigation
     }
 
     async isEmpty(driver: Driver): Promise<boolean> {
@@ -393,16 +473,16 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
         return false;
     }
 
-    async forEachPage(driver: Driver, params: any, next: () => void): Promise<void> {
+    async forEachPage(driver: Driver, next: () => void): Promise<void> {
         // Assume the collector does not have pagination
         await next();
     }
 
-    abstract getInvoices(driver: Driver, params: any): Promise<Element[]>;
+    abstract getInvoices(driver: Driver): Promise<Element[]>;
 
-    abstract data(driver: Driver, params: any, element: Element): Promise<Invoice | null>;
+    abstract data(driver: Driver, element: Element): Promise<Invoice | null>;
 
-    abstract download(driver: Driver, params: any, element: Element, invoice: Invoice): Promise<string[]>;
+    abstract download(driver: Driver, invoice: Invoice): Promise<string[]>;
 
     // DOWNLOAD METHODS
 

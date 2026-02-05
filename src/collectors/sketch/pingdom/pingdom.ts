@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PingdomCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PingdomCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.pingdom.com/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://my.pingdom.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

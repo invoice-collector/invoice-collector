@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ThreeIeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ThreeIeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://login.three.ie/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://login.three.ie/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

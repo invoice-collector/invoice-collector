@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LeaddeskCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class LeaddeskCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://login.leaddesk.com/r79.6/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://login.leaddesk.com/r79.6/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

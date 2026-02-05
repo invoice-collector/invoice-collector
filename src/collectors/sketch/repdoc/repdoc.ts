@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RepdocCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class RepdocCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.repdoc.com/WM/#Ws/lists/listdetail/(list:belegelist;mode=1;filter=;complexFilter=//detail:belegedetail;id=e855c2ac-696a-4844-842c-709821e53ed8)",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.repdoc.com/WM/#Ws/lists/listdetail/(list:belegelist;mode=1;filter=;complexFilter=//detail:belegedetail;id=e855c2ac-696a-4844-842c-709821e53ed8)",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

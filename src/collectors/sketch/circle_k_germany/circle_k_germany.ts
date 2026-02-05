@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CircleKGermanyCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CircleKGermanyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://fleet.circlek-deutschland.de/secure/clients/factures/recherche.do#anchorRecherche",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://fleet.circlek-deutschland.de/secure/clients/factures/recherche.do#anchorRecherche",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

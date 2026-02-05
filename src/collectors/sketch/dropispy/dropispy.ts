@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DropispyCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DropispyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.dropispy.com/user",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.dropispy.com/user",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

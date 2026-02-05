@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BlauDeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BlauDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.blau.de/mein-blau/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.blau.de/mein-blau/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

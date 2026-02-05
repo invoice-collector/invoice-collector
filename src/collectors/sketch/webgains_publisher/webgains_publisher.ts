@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WebgainsPublisherCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class WebgainsPublisherCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://platform.webgains.io/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://platform.webgains.io/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DeBijenkorfCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DeBijenkorfCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.debijenkorf.nl/mijn-account/#mijn-aankopen",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.debijenkorf.nl/mijn-account/#mijn-aankopen",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LpaMobilitesCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class LpaMobilitesCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://espaceclient.lpa.fr/ESCLAB/public/account-fac-lister",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://espaceclient.lpa.fr/ESCLAB/public/account-fac-lister",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ElbphilharmonieAndLaeiszhalleHamburgCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ElbphilharmonieAndLaeiszhalleHamburgCollector extends SketchCollect
                 mandatory: true
             }
         },
-        entryUrl: "https://shop.elbphilharmonie.de/de/meine-daten/#/my-orders",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://shop.elbphilharmonie.de/de/meine-daten/#/my-orders",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

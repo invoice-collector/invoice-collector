@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TelecashVirtualTerminalCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TelecashVirtualTerminalCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.ipg-online.com/vt/view/reports/reports.faces",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.ipg-online.com/vt/view/reports/reports.faces",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MutuelleEoviParticulierCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MutuelleEoviParticulierCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.espace-particuliers.eovi-mcd-mutuelle.fr/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.espace-particuliers.eovi-mcd-mutuelle.fr/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

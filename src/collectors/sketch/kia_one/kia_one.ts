@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KiaOneCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class KiaOneCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.kdealer.com/DealerOthersReport",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.kdealer.com/DealerOthersReport",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

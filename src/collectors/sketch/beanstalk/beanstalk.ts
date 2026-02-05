@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BeanstalkCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BeanstalkCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://login.beanstalkapp.com/session/new",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://login.beanstalkapp.com/session/new",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

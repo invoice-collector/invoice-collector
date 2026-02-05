@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SetinFrCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SetinFrCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.setin.fr/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.setin.fr/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CricutCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CricutCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://myaccount.cricut.com/order-history",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://myaccount.cricut.com/order-history",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

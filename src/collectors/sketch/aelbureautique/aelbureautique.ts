@@ -1,5 +1,5 @@
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AelBureautiqueCollector extends SketchCollector {
 
@@ -25,7 +25,10 @@ export class AelBureautiqueCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://aelbureautique.fournituredebureau.net/connexion.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

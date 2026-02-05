@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StudiolutionCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class StudiolutionCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.studiolution.com/de/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.studiolution.com/de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

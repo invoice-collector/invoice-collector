@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HolaLuzCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class HolaLuzCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://clientes.holaluz.com/es/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://clientes.holaluz.com/es/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

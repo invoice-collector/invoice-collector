@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FlatboosterCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class FlatboosterCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://flatbooster.com/de/client/invoice",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://flatbooster.com/de/client/invoice",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SyscoCanadaCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SyscoCanadaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://syscosource.ca/pnet/eOrder",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://syscosource.ca/pnet/eOrder",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

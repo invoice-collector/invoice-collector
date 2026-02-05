@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AlfiesCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AlfiesCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.alfies.at",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "http://www.alfies.at",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

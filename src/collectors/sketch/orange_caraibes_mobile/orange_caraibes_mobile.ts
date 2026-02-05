@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OrangeCaraibesMobileCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class OrangeCaraibesMobileCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://login.orange.fr/?return_url=https://caraibe.orange.fr/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://login.orange.fr/?return_url=https://caraibe.orange.fr/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

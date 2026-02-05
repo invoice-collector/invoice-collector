@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EroplacePlCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class EroplacePlCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://en.eroplace.pl/moje-konto/zamowienia",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://en.eroplace.pl/moje-konto/zamowienia",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

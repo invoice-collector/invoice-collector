@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NewfoundlandAndLabradorHydroCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class NewfoundlandAndLabradorHydroCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://bids.nalcorenergy.com/Module/Tenders/en/Login/Index/62546bf9-ce4a-411f-9ac3-fc2a5ada7389",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://bids.nalcorenergy.com/Module/Tenders/en/Login/Index/62546bf9-ce4a-411f-9ac3-fc2a5ada7389",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

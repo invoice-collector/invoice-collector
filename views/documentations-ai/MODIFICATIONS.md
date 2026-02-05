@@ -125,10 +125,9 @@ Ce document fournit des instructions directes pour les modifications les plus fr
 
 ```javascript
 // Trouver ce bloc et ajouter un nouveau cas
-${company.state === 'development' ? '<span class="ic-badge ic-badge--info">Development</span>' : ''}
 ${company.state === 'active' ? '<span class="ic-badge ic-badge--stable">Active</span>' : ''}
-${company.state === 'maintenance' ? '<span class="ic-badge ic-badge--beta">Maintenance</span>' : ''}
-${company.state === 'deprecated' ? '<span class="ic-badge ic-badge--alpha">Deprecated</span>' : ''} /* NOUVEAU */
+${company.state === 'development' ? '<span class="ic-badge ic-badge--beta">Development</span>' : ''}
+${company.state === 'planned' ? '<span class="ic-badge ic-badge--info">Planned</span>' : ''}
 ```
 
 **Aussi dans** : `showForm()` pour le badge du formulaire

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PusherCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PusherCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://dashboard.pusher.com/plans",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://dashboard.pusher.com/plans",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

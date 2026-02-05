@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MutuelleSquadraCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MutuelleSquadraCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.mutuelle-et-assurance.net/tag/squadra/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "http://www.mutuelle-et-assurance.net/tag/squadra/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

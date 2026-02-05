@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IpapiCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class IpapiCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://ipapi.co/login/?next=/account/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://ipapi.co/login/?next=/account/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

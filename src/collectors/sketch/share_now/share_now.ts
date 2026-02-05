@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ShareNowCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ShareNowCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.share-now.com/customer/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.share-now.com/customer/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

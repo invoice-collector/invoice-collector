@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PcextremeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PcextremeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://secure.pcextreme.nl/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://secure.pcextreme.nl/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

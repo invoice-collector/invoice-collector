@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EauDeGaronneCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class EauDeGaronneCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://mon-espace.eaudegaronne.fr/fr/accueil",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://mon-espace.eaudegaronne.fr/fr/accueil",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

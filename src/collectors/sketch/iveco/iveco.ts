@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IvecoCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class IvecoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://cnhice.espaceclient.fineasy.com/group/france-iveco/factures-avoirs",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://cnhice.espaceclient.fineasy.com/group/france-iveco/factures-avoirs",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

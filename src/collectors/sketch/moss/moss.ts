@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MossCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MossCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://getmoss.com/de",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://getmoss.com/de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

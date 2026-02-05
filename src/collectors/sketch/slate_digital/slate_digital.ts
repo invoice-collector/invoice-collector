@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SlateDigitalCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SlateDigitalCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.completeaccess.audio/users/11555379/account-info",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.completeaccess.audio/users/11555379/account-info",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

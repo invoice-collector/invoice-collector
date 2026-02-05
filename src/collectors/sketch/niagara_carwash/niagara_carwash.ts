@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NiagaraCarwashCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class NiagaraCarwashCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.niagara.cloud.bnt.io/transactionhistory",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.niagara.cloud.bnt.io/transactionhistory",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

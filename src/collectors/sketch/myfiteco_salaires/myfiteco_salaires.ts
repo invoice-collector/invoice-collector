@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MyfitecoSalairesCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MyfitecoSalairesCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://myfiteco.com/bulletins-salaires",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://myfiteco.com/bulletins-salaires",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

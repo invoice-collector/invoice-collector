@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KatagCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class KatagCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://zronline.katag.net/gui/#search",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://zronline.katag.net/gui/#search",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

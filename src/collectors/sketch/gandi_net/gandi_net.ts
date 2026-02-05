@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GandiNetCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class GandiNetCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://admin.gandi.net/billing",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://admin.gandi.net/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

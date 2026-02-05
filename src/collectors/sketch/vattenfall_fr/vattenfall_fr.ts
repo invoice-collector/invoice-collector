@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VattenfallFrCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class VattenfallFrCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.vattenfall.fr/espaceclient/connexion",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.vattenfall.fr/espaceclient/connexion",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

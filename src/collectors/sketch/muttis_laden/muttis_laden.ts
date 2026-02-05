@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MuttisLadenCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MuttisLadenCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://muttis-laden.de/LogIn.action",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://muttis-laden.de/LogIn.action",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

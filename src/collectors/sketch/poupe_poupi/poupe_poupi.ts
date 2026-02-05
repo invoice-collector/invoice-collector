@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PoupePoupiCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PoupePoupiCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://poupepoupi.com/authentification?back=my-account",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://poupepoupi.com/authentification?back=my-account",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

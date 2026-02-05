@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NovalnetCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class NovalnetCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://admin.novalnet.de/index.php/invoice",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://admin.novalnet.de/index.php/invoice",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PhorestCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PhorestCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://messenger6.phorest.com/clientlogin.php?lang=de",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://messenger6.phorest.com/clientlogin.php?lang=de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

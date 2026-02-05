@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EdenWatersCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class EdenWatersCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.edensprings.de/user",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.edensprings.de/user",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

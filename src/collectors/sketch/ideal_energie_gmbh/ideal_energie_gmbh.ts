@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IdealEnergieGmbhCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class IdealEnergieGmbhCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.idealenergie.de/kundenportal/anmeldung",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.idealenergie.de/kundenportal/anmeldung",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

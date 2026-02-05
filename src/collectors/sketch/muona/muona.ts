@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MuonaCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MuonaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://moncompte.muona.com/index.php?p=MonCompteClientFacture/main&tab=1&id=1706",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://moncompte.muona.com/index.php?p=MonCompteClientFacture/main&tab=1&id=1706",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

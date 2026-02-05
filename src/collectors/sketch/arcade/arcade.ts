@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ArcadeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ArcadeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.arcade.software/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.arcade.software/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

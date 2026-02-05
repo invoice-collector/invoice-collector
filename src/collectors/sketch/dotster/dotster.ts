@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DotsterCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DotsterCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www1.dotster.com/controlpanel/foundation/account/billing/paid-statements",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www1.dotster.com/controlpanel/foundation/account/billing/paid-statements",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

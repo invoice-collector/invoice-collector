@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FusionauthCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class FusionauthCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://account.fusionauth.io/account/billing/list-invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://account.fusionauth.io/account/billing/list-invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

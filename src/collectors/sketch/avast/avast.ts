@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AvastCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AvastCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://id.avast.com/?target=https%3A%2F%2Fmy.avast.com%2F#login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://id.avast.com/?target=https%3A%2F%2Fmy.avast.com%2F#login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SelecdooCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SelecdooCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://work.selecdoo.com/affiliates/login.php#login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://work.selecdoo.com/affiliates/login.php#login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

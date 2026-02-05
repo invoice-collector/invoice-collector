@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SunmiCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SunmiCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://partner.sunmi.com/sunmi-wallet/invoice-management",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://partner.sunmi.com/sunmi-wallet/invoice-management",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

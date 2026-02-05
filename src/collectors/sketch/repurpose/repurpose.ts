@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RepurposeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class RepurposeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.repurpose.io",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://my.repurpose.io",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

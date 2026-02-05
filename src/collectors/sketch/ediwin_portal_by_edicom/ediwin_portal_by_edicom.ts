@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EdiwinPortalByEdicomCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class EdiwinPortalByEdicomCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://ediwin.edicomgroup.com/app#/docs/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://ediwin.edicomgroup.com/app#/docs/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

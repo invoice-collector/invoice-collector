@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MeineVrmCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MeineVrmCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.vrm-abo.de/profil/kundenlogin/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.vrm-abo.de/profil/kundenlogin/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

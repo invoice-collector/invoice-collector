@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SearchSeekersCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SearchSeekersCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://searchseekers.de/login/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://searchseekers.de/login/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

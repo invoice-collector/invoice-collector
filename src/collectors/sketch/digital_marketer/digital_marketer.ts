@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DigitalMarketerCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DigitalMarketerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://lab.digitalmarketer.com/users/edit",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://lab.digitalmarketer.com/users/edit",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

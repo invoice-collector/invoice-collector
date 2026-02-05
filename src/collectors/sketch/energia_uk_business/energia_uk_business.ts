@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EnergiaUkBusinessCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class EnergiaUkBusinessCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.energia-online.co.uk/energiaplus/Energia.Utilities.Q4C.WebPages/Login.aspx",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.energia-online.co.uk/energiaplus/Energia.Utilities.Q4C.WebPages/Login.aspx",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

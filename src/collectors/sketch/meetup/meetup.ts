@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MeetupCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MeetupCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://secure.meetup.com/subscription/payment/history/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://secure.meetup.com/subscription/payment/history/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

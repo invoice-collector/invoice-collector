@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TripleWhaleCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TripleWhaleCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.triplewhale.com/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.triplewhale.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EspaceLinkCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class EspaceLinkCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://icoworking.espace.link/gestion/factures/recurrentes",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://icoworking.espace.link/gestion/factures/recurrentes",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

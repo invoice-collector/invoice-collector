@@ -367,13 +367,8 @@ body {
 }
 
 .ic-badge--beta {
-  background: var(--warning-bg);
-  color: var(--warning-text);
-}
-
-.ic-badge--alpha {
-  background: var(--danger-bg);
-  color: var(--danger-text);
+  background: var(--info-bg);
+  color: var(--info-text);
 }
 
 .ic-badge--info {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class UnitedcallCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class UnitedcallCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.unitedcall.de/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.unitedcall.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

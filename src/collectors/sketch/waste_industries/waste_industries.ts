@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WasteIndustriesCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class WasteIndustriesCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://wasteindustries.com/myaccount/login?ReturnUrl=%2fmyaccount%2fhome",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://wasteindustries.com/myaccount/login?ReturnUrl=%2fmyaccount%2fhome",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TraderepublicCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TraderepublicCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://traderepublic-data-production.s3.eu-central-1.amazonaws.com/timeline/postbox/2023...",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://traderepublic-data-production.s3.eu-central-1.amazonaws.com/timeline/postbox/2023...",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

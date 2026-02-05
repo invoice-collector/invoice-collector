@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MollieCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MollieCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.mollie.com/dashboard/login?lang=en",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.mollie.com/dashboard/login?lang=en",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

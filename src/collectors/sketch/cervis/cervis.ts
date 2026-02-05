@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CervisCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CervisCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://desk.cervis.de/Faktura",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://desk.cervis.de/Faktura",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

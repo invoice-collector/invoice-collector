@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class UbeeqoCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class UbeeqoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.ubeeqo.com/de/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.ubeeqo.com/de/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

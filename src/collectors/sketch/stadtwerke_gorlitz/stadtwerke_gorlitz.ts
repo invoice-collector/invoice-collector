@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StadtwerkeGorlitzCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class StadtwerkeGorlitzCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://digitaldirect.plusportal.de/#/devices/dsl/61841/invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://digitaldirect.plusportal.de/#/devices/dsl/61841/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

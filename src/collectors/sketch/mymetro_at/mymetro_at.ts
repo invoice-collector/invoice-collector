@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MymetroAtCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MymetroAtCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://mymetro.at/Invoices/10097842",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://mymetro.at/Invoices/10097842",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

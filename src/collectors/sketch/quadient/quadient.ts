@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class QuadientCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class QuadientCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.myquadient.fr/FR/fr/CustomerLogin",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.myquadient.fr/FR/fr/CustomerLogin",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

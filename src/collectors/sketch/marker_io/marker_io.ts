@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MarkerIoCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MarkerIoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://marker.io/account/settings/billing",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://marker.io/account/settings/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

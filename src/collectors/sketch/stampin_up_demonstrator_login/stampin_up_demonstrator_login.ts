@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StampinUpDemonstratorLoginCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class StampinUpDemonstratorLoginCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.stampinup.com/portal/de-de/account/sign-in",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://my.stampinup.com/portal/de-de/account/sign-in",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

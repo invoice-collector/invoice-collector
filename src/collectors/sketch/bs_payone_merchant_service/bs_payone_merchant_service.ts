@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BsPayoneMerchantServiceCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BsPayoneMerchantServiceCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://pmi.pay1.de/merchants/index.php?request=makecsv&mode=0&navi=rechn&year=",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://pmi.pay1.de/merchants/index.php?request=makecsv&mode=0&navi=rechn&year=",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,5 +1,5 @@
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IdexCollector extends SketchCollector {
 
@@ -25,8 +25,10 @@ export class IdexCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://espaceclient.idex.fr/web/guest/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://espaceclient.idex.fr/web/guest/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DexxonGroupeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DexxonGroupeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://plus.dexxon.eu/index.php/fr/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://plus.dexxon.eu/index.php/fr/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

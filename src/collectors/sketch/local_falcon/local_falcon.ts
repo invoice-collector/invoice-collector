@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LocalFalconCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class LocalFalconCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.localfalcon.com/billing/transactions",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.localfalcon.com/billing/transactions",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

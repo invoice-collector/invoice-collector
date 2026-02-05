@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MarketpringCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MarketpringCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.marketprint.de/api/invoice/5044959543562",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.marketprint.de/api/invoice/5044959543562",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VereinigteStadtwerkeMediaCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class VereinigteStadtwerkeMediaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://mediaportal.vereinigte-stadtwerke.de/self-service/authentication/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://mediaportal.vereinigte-stadtwerke.de/self-service/authentication/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

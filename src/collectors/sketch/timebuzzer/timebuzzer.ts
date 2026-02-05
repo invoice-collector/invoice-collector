@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TimebuzzerCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TimebuzzerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://store.timebuzzer.com/my-account/view-order/4006955407/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://store.timebuzzer.com/my-account/view-order/4006955407/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

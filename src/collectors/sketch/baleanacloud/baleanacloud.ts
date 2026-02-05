@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BaleanacloudCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BaleanacloudCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://dashboard.balena-cloud.com/billing/summary",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://dashboard.balena-cloud.com/billing/summary",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

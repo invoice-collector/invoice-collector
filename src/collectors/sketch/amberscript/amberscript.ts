@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AmberscriptCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AmberscriptCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.amberscript.com/login?lang=de",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.amberscript.com/login?lang=de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

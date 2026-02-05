@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KontentinoCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class KontentinoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://combyne.kontentino.com/billing/payments/history",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://combyne.kontentino.com/billing/payments/history",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

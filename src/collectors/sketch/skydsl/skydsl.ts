@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SkydslCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SkydslCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.skydsl.eu/de-DE/Privatkunden/Satelliten-Internet/customer/faccount/invoice",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.skydsl.eu/de-DE/Privatkunden/Satelliten-Internet/customer/faccount/invoice",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

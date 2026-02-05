@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ArtlistIoCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ArtlistIoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://artlist.io/page/signin",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://artlist.io/page/signin",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

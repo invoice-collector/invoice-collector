@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DroomsCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DroomsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "shop.drooms.com/billing",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "shop.drooms.com/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

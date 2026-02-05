@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Easy2Collector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class Easy2Collector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://easy2.de/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://easy2.de/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

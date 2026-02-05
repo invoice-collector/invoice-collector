@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LoslebenCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class LoslebenCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://losleben.wienerstaedtische.at/app/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://losleben.wienerstaedtische.at/app/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

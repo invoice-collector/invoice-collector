@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SanteeCooperMelCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SanteeCooperMelCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://myservice.santeecooper.com/portal/BillDashboard.aspx",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://myservice.santeecooper.com/portal/BillDashboard.aspx",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

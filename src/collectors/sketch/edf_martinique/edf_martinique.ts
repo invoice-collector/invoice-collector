@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EdfMartiniqueCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class EdfMartiniqueCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://sei-ael-martinique.edf.com/aelEDF/jsp/arc/habilitation/acteur.ZoomerDossierClient.go",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://sei-ael-martinique.edf.com/aelEDF/jsp/arc/habilitation/acteur.ZoomerDossierClient.go",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

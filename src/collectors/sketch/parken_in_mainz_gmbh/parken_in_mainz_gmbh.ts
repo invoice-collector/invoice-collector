@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ParkenInMainzGmbhCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ParkenInMainzGmbhCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://pmg.evopark.de/b/aHR0cHM6Ly9hcGktcHJvZHVjdC5ldm9wYXJrLmRlL3BtZy5ldm9wYXJrLmRlL2ludm9pY2Vz",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://pmg.evopark.de/b/aHR0cHM6Ly9hcGktcHJvZHVjdC5ldm9wYXJrLmRlL3BtZy5ldm9wYXJrLmRlL2ludm9pY2Vz",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

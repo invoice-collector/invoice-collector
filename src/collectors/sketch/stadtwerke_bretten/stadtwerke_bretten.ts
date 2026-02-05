@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StadtwerkeBrettenCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class StadtwerkeBrettenCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.kraichgau-energie.de/kundenportal/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.kraichgau-energie.de/kundenportal/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AchievaCreditUnionCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AchievaCreditUnionCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://banking.achievacu.com/eDocs",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://banking.achievacu.com/eDocs",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DrekopfRecyclingzentrumVelbertGmbhCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DrekopfRecyclingzentrumVelbertGmbhCollector extends SketchCollector
                 mandatory: true
             }
         },
-        entryUrl: "https://www.drekopf.de/unternehmen/standorte/velbert/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.drekopf.de/unternehmen/standorte/velbert/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

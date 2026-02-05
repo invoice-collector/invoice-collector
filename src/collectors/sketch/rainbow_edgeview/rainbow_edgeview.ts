@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RainbowEdgeviewCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class RainbowEdgeviewCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://rainbow-portal.accor.com/EdgeView/Default.aspx",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://rainbow-portal.accor.com/EdgeView/Default.aspx",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

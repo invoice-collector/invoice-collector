@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KontentWebmailCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class KontentWebmailCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://webmail.kontent.com",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://webmail.kontent.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

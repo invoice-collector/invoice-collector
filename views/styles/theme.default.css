@@ -356,13 +356,8 @@ body {
 }
 
 .ic-badge--beta {
-  background: var(--warning-bg);
-  color: var(--warning-text);
-}
-
-.ic-badge--alpha {
-  background: var(--danger-bg);
-  color: var(--danger-text);
+  background: var(--info-bg);
+  color: var(--info-text);
 }
 
 .ic-badge--info {
@@ -828,8 +823,6 @@ body {
 
 .ic-progress-card {
   background: var(--card);
-  border: 1px solid var(--card-border);
-  border-radius: var(--radius-xl);
   padding: 3rem 2rem;
   min-width: 500px;
   max-width: 600px;

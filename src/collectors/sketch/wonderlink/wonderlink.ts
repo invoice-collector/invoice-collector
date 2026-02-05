@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WonderlinkCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class WonderlinkCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.wonderlink.de/dashboard",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.wonderlink.de/dashboard",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

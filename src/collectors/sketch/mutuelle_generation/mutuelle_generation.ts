@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MutuelleGenerationCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MutuelleGenerationCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.generation.fr/View/AccueilProSante.aspx",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.generation.fr/View/AccueilProSante.aspx",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RichardVinsAndSpiritueuxCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class RichardVinsAndSpiritueuxCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://pro.vinsrichard.fr/vin/factures/view#bigbook",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://pro.vinsrichard.fr/vin/factures/view#bigbook",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

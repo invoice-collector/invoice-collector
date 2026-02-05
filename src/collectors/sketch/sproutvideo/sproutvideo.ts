@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SproutvideoCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SproutvideoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://sproutvideo.com/settings/billing#details_212262",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://sproutvideo.com/settings/billing#details_212262",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

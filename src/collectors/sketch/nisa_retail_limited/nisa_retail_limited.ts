@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NisaRetailLimitedCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class NisaRetailLimitedCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://ntorder.com/default.aspx",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://ntorder.com/default.aspx",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

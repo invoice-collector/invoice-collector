@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StadtwerkeDelmenhorstCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class StadtwerkeDelmenhorstCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://kundenportal.swd-del.de/BK/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://kundenportal.swd-del.de/BK/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

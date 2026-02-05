@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EdarchivOnlineCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class EdarchivOnlineCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://login.edarchiv.de/recherche/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://login.edarchiv.de/recherche/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MytaxiBusinessCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MytaxiBusinessCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://business.mytaxi.com/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://business.mytaxi.com/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

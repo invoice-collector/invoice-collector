@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EkoPunktCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class EkoPunktCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.eko-punkt.de/kundenportal-neukunden/dokumente/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.eko-punkt.de/kundenportal-neukunden/dokumente/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

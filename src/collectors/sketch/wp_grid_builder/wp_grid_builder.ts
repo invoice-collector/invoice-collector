@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WpGridBuilderCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class WpGridBuilderCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://wpgridbuilder.com/account/purchases/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://wpgridbuilder.com/account/purchases/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NnsendCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class NnsendCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://ebill.nnsend.net/vfne/documents/list_by?action=update",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://ebill.nnsend.net/vfne/documents/list_by?action=update",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

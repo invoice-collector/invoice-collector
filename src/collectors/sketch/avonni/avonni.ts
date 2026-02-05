@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AvonniCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AvonniCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://admin.avonni.app/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://admin.avonni.app/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

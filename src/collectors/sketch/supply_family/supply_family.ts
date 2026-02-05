@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SupplyFamilyCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SupplyFamilyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://supply.family/my-account/orders/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://supply.family/my-account/orders/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

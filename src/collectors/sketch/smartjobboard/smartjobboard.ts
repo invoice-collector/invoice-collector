@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SmartjobboardCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SmartjobboardCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.smartjobboard.com/ca/clientarea.php?action=products",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.smartjobboard.com/ca/clientarea.php?action=products",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

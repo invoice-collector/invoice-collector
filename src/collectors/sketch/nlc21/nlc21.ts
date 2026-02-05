@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Nlc21Collector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class Nlc21Collector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://nlc21.com/rechnungen.html",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://nlc21.com/rechnungen.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

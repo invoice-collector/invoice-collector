@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HeidelpayCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class HeidelpayCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://heidelpay.hpcgw.net/hip/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://heidelpay.hpcgw.net/hip/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

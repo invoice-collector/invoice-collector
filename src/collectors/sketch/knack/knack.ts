@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KnackCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class KnackCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://builder.knack.com/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://builder.knack.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

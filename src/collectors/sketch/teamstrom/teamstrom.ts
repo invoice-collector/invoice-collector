@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TeamstromCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TeamstromCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portal.teamstrom.de/bkp/rechnungen",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://portal.teamstrom.de/bkp/rechnungen",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

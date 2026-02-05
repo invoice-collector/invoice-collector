@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FranceExpressCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class FranceExpressCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://espace-client.france-express.com/client/home#/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://espace-client.france-express.com/client/home#/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

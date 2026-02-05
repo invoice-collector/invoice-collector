@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FreddieSFlowersCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class FreddieSFlowersCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.freddiesflowers.de/konto/mein-konto-verwalten",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.freddiesflowers.de/konto/mein-konto-verwalten",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

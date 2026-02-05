@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SparkpostEuCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SparkpostEuCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.eu.sparkpost.com/auth",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.eu.sparkpost.com/auth",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

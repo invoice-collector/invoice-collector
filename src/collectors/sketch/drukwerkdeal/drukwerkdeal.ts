@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DrukwerkdealCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DrukwerkdealCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.drukwerkdeal.nl/nl/account/login-page",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.drukwerkdeal.nl/nl/account/login-page",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

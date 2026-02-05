@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EcontExpressOodCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class EcontExpressOodCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://ee.econt.com/index.php",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://ee.econt.com/index.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

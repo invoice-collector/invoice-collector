@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LinearCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class LinearCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://linear.app/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://linear.app/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

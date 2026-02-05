@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VooCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class VooCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://newmy.voo.be/invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://newmy.voo.be/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

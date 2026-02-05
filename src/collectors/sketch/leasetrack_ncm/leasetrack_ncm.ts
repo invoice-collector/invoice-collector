@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LeasetrackNcmCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class LeasetrackNcmCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://ncm.espaceclient.fineasy.com/group/ncm/factures-avoirs",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://ncm.espaceclient.fineasy.com/group/ncm/factures-avoirs",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

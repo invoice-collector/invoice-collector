@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KamikomCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class KamikomCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.kamikom.de/login/verwaltung/abrechnung/index.php",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.kamikom.de/login/verwaltung/abrechnung/index.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

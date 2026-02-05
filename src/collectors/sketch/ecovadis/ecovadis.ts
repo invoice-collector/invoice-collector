@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EcovadisCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class EcovadisCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.ecovadis-survey.com/app/#/subscription-billing",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.ecovadis-survey.com/app/#/subscription-billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

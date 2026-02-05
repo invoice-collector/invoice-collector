@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CreditAgricoleNormandieProfessionelCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CreditAgricoleNormandieProfessionelCollector extends SketchCollecto
                 mandatory: true
             }
         },
-        entryUrl: "https://www.credit-agricole.fr/ca-normandie/entreprise/operations/documents/e-documents.html",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.credit-agricole.fr/ca-normandie/entreprise/operations/documents/e-documents.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

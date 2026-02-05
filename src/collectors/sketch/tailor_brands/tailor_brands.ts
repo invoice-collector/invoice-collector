@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TailorBrandsCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TailorBrandsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://studio.tailorbrands.com/settings/invoices?selectedOrgId=15884670",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://studio.tailorbrands.com/settings/invoices?selectedOrgId=15884670",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

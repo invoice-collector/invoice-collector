@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class QuestionproCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class QuestionproCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://eu.questionpro.com/a/showUpgradeUser.do?payment=PaymentHistory",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://eu.questionpro.com/a/showUpgradeUser.do?payment=PaymentHistory",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

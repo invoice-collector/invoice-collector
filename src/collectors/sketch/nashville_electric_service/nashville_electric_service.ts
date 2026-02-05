@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NashvilleElectricServiceCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class NashvilleElectricServiceCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.nespower.com/login/login.aspx",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.nespower.com/login/login.aspx",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

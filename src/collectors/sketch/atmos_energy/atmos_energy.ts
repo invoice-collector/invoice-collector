@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AtmosEnergyCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AtmosEnergyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.atmosenergy.com/accountcenter/finance/FinancialTransaction.html?activeTab=2",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.atmosenergy.com/accountcenter/finance/FinancialTransaction.html?activeTab=2",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RoastmarketCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class RoastmarketCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.roastmarket.de/customer/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.roastmarket.de/customer/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

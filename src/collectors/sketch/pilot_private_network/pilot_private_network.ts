@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PilotPrivateNetworkCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PilotPrivateNetworkCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://partners.pilot.de/auszahlungen.cgi",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://partners.pilot.de/auszahlungen.cgi",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

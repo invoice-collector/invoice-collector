@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VetsxlCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class VetsxlCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.myvetsxl.com/de/Konto/Konto_Rechnungen/Default.aspx",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.myvetsxl.com/de/Konto/Konto_Rechnungen/Default.aspx",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

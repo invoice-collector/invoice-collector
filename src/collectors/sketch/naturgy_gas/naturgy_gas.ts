@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NaturgyGasCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class NaturgyGasCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://areaprivada.naturgy.es/ovh-web/SearchInvoiceAndConsumptionList.gas",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://areaprivada.naturgy.es/ovh-web/SearchInvoiceAndConsumptionList.gas",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

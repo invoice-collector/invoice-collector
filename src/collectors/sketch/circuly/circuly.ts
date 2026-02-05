@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CirculyCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CirculyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.circuly.io/cms/invoices?page=1&per_page=10&sort=created_at",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.circuly.io/cms/invoices?page=1&per_page=10&sort=created_at",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

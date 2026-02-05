@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PressloftCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PressloftCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.pressloft.com/app/admin/invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.pressloft.com/app/admin/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,4 +1,4 @@
-import { WebCollector } from '../../web2Collector';
+import { WebCollector } from '../../webCollector';
 import { IntermarcheSelectors } from './selectors';
 import { Driver, Element } from '../../../driver/driver';
 import { CollectorCaptcha, CollectorState, CollectorType, Invoice } from '../../abstractCollector';
@@ -32,6 +32,7 @@ export class IntermarcheCollector extends WebCollector {
         loginUrl: "https://www.intermarche.com/",
         entryUrl: "https://www.intermarche.com/gestion-de-compte/mes-courses",
         captcha: CollectorCaptcha.DATADOME,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 
@@ -82,19 +83,19 @@ export class IntermarcheCollector extends WebCollector {
         }
     }
 
-    async navigate(driver: Driver, params: any): Promise<void> {
+    async navigate(driver: Driver): Promise<void> {
         await driver.leftClick(IntermarcheSelectors.BUTTON_REFUSE_COOKIES, { raiseException: false, timeout: 5000});
     }
      
-    async getInvoices(driver: Driver, params: any): Promise<Element[]> {
+    async getInvoices(driver: Driver): Promise<Element[]> {
         throw new UnfinishedCollectorError(this);
     }
 
-    async data(driver: Driver, params: any, element: Element): Promise<Invoice | null> {
+    async data(driver: Driver, element: Element): Promise<Invoice | null> {
         throw new UnfinishedCollectorError(this);
     }
 
-    async download(driver: Driver, params: any, element: Element, invoice: Invoice): Promise<string[]> {
+    async download(driver: Driver, invoice: Invoice): Promise<string[]> {
         throw new UnfinishedCollectorError(this);
     }
 }

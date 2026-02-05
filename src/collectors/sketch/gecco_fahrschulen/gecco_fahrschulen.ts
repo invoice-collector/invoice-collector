@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GeccoFahrschulenCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class GeccoFahrschulenCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://gecco-fahrschulen.de/fahrschule/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://gecco-fahrschulen.de/fahrschule/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

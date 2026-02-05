@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EbayPacklinkCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class EbayPacklinkCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://ebay-versand.ebay.de/private/settings/billing/invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://ebay-versand.ebay.de/private/settings/billing/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TauronCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TauronCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://moj.tauron.pl/Home/Pages/Archiwum-dokumentow",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://moj.tauron.pl/Home/Pages/Archiwum-dokumentow",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

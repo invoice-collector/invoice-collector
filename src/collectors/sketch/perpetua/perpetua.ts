@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PerpetuaCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PerpetuaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.perpetua.io/settings?geocompany=4544&selectedTab=3",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.perpetua.io/settings?geocompany=4544&selectedTab=3",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PixiesetCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PixiesetCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://pixieset.com/account/billing/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://pixieset.com/account/billing/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

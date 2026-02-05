@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RocketLinkCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class RocketLinkCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.rocketlinks.net/wallet/deposits",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.rocketlinks.net/wallet/deposits",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

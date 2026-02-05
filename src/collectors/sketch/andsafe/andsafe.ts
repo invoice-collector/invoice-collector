@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AndsafeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AndsafeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://andsafe.de/portal/kunden/vertraege",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://andsafe.de/portal/kunden/vertraege",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

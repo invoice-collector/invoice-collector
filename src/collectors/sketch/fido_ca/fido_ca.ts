@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FidoCaCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class FidoCaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.fido.ca",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.fido.ca",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

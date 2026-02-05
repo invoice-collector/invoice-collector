@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VoysCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class VoysCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://freedom.voys.nl/user/login/?next=/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://freedom.voys.nl/user/login/?next=/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

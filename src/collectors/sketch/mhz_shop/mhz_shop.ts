@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MhzShopCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MhzShopCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://mhz.pickmill.com/extranet/factures?s=1&t=c4ce0247d24b9891f75ac2aee7cd1215386d99b3&redirected=1",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://mhz.pickmill.com/extranet/factures?s=1&t=c4ce0247d24b9891f75ac2aee7cd1215386d99b3&redirected=1",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

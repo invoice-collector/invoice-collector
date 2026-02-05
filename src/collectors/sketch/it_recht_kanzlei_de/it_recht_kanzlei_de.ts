@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ItRechtKanzleiDeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ItRechtKanzleiDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.it-recht-kanzlei.de/Portal/rechnungen.php",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.it-recht-kanzlei.de/Portal/rechnungen.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

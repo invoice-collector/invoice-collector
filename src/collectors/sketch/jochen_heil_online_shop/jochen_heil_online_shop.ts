@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class JochenHeilOnlineShopCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class JochenHeilOnlineShopCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://jh-products.jochenheil.de/account/order",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://jh-products.jochenheil.de/account/order",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

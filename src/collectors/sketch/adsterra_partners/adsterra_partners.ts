@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AdsterraPartnersCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AdsterraPartnersCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://partners.adsterra.com/finances",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://partners.adsterra.com/finances",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

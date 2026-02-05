@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FiberyCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class FiberyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://iq-hub.fibery.io/fibery/settings/plan-and-billing",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://iq-hub.fibery.io/fibery/settings/plan-and-billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

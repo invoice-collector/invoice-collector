@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IntercarsPlCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class IntercarsPlCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://pl.e-cat.intercars.eu",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://pl.e-cat.intercars.eu",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

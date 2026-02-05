@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RueDuCommerceCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class RueDuCommerceCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.rueducommerce.fr/client/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.rueducommerce.fr/client/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

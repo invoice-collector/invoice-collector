@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ArkeviaCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ArkeviaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://sante.arkevia.com/safe-unsecured/welcome.action",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://sante.arkevia.com/safe-unsecured/welcome.action",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EevolutionCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class EevolutionCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.eevolution.de/forum/forum/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.eevolution.de/forum/forum/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

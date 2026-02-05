@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TMobileRechnungonlineBusinessCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TMobileRechnungonlineBusinessCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://rechnungonline-business.t-mobile.de/gk/auth",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://rechnungonline-business.t-mobile.de/gk/auth",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

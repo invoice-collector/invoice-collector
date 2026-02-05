@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CloseCrmCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CloseCrmCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.close.com/settings/billing/payment/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.close.com/settings/billing/payment/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

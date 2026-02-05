@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BrainstormForceCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BrainstormForceCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://store.brainstormforce.com/purchase-history/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://store.brainstormforce.com/purchase-history/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

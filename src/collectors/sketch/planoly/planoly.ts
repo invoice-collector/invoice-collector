@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PlanolyCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PlanolyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://billing.planoly.com/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://billing.planoly.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

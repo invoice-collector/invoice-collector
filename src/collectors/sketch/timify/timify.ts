@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TimifyCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TimifyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app-de.timify.com/#/auth/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app-de.timify.com/#/auth/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

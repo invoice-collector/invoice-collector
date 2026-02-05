@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MagentoComCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MagentoComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://account.magento.com/sales/order/history/?p=2",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://account.magento.com/sales/order/history/?p=2",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

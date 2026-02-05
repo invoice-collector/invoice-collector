@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BackwpupCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BackwpupCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://backwpup.de/mein-account/orders/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://backwpup.de/mein-account/orders/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

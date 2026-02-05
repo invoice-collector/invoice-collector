@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MarcosSoftwareCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MarcosSoftwareCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.unicorn2.de/kundenbereich/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.unicorn2.de/kundenbereich/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

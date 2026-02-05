@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RestpackCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class RestpackCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://restpack.io/console/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://restpack.io/console/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SendsparkCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SendsparkCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://sendspark.com/settings/billing",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://sendspark.com/settings/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EuroshellCardCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class EuroshellCardCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://simplyui-sme.azurewebsites.net/reports",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://simplyui-sme.azurewebsites.net/reports",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

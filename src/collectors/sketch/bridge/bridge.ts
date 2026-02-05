@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BridgeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BridgeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://dashboard.bridgeapi.io/signin",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://dashboard.bridgeapi.io/signin",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

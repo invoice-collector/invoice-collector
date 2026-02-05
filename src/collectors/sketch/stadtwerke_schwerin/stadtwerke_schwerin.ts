@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StadtwerkeSchwerinCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class StadtwerkeSchwerinCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://kundenportal.swsn.de/powercommerce/swsn/fo/portal/start",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://kundenportal.swsn.de/powercommerce/swsn/fo/portal/start",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

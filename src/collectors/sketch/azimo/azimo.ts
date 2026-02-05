@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AzimoCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AzimoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://azimo.com/de/ngk/transactions",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://azimo.com/de/ngk/transactions",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

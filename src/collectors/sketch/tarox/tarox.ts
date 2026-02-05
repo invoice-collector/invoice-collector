@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TaroxCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TaroxCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.tarox-onlineshop.de/index.php?page=rechnungsnachdruck",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.tarox-onlineshop.de/index.php?page=rechnungsnachdruck",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

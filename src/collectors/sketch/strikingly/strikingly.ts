@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StrikinglyCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class StrikinglyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.strikingly.com/s/charges",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.strikingly.com/s/charges",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

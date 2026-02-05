@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Nuco2Collector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class Nuco2Collector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.billeriq.com/ebpp/NuCO2/BillPay",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.billeriq.com/ebpp/NuCO2/BillPay",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

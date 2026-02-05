@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ConstantContactCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ConstantContactCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://login.constantcontact.com/login/login.sdo?goto=https%3A%2F%2Fwww.constantcontact.com%2Fprocessing_login.jsp",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://login.constantcontact.com/login/login.sdo?goto=https%3A%2F%2Fwww.constantcontact.com%2Fprocessing_login.jsp",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

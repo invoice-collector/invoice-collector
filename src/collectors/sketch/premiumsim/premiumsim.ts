@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PremiumsimCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PremiumsimCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://service.premiumsim.de",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://service.premiumsim.de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SncbInternationalCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SncbInternationalCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://agent.b-europe.com/fr",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://agent.b-europe.com/fr",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

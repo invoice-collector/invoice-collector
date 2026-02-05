@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TradedoublerCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TradedoublerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://login.tradedoubler.com/public/aLogin.action?language=de&country=GB",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://login.tradedoubler.com/public/aLogin.action?language=de&country=GB",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

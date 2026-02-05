@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NodalviewCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class NodalviewCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.nodalview.com/fr/organisation/invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.nodalview.com/fr/organisation/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EOnRomaniaCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class EOnRomaniaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.eon.ro/myline/facturile-mele",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.eon.ro/myline/facturile-mele",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

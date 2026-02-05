@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AiprmForChatgptCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AiprmForChatgptCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app1.aiprm.com/billing",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app1.aiprm.com/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NgojobsCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class NgojobsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.ngojobs.eu/wp-admin/edit.php?post_type=shop_order",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.ngojobs.eu/wp-admin/edit.php?post_type=shop_order",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

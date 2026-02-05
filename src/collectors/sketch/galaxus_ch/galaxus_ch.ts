@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GalaxusChCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class GalaxusChCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://id.digitecgalaxus.ch/login?ReturnUrl=%2Fconnect%2Fauthorize%2Fcallback%3Fclient_id%3Dimplicit.galaxus-ch%26redirect_uri%3Dhttps%253A%252F%252Fwww.galaxus.ch%252Fsignin-oidc-gax-ch%26response_type%3Did_token%26scope%3Dopenid%2520profile%2520B2B%26r",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://id.digitecgalaxus.ch/login?ReturnUrl=%2Fconnect%2Fauthorize%2Fcallback%3Fclient_id%3Dimplicit.galaxus-ch%26redirect_uri%3Dhttps%253A%252F%252Fwww.galaxus.ch%252Fsignin-oidc-gax-ch%26response_type%3Did_token%26scope%3Dopenid%2520profile%2520B2B%26r",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class _5eurosComCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class _5eurosComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.5euros.com/achats/factures",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.5euros.com/achats/factures",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HuntTelecomCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class HuntTelecomCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://secure.eplustechnologies.com/esalesplus/home_htc.htm",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://secure.eplustechnologies.com/esalesplus/home_htc.htm",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

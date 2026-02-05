@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Druckdiscount24DeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class Druckdiscount24DeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.druckdiscount24.de/de/ShoppingCart/ShowOrder/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.druckdiscount24.de/de/ShoppingCart/ShowOrder/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

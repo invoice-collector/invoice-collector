@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OrbytCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class OrbytCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://seguro.orbyt.es/registro_nuevo/v3/?view=userArea",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://seguro.orbyt.es/registro_nuevo/v3/?view=userArea",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EauDuPonantCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class EauDuPonantCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://espace-abonne.eauduponant.fr//#/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://espace-abonne.eauduponant.fr//#/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

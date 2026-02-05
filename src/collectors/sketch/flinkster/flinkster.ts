@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FlinksterCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class FlinksterCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.flinkster.de/kundenbuchung/process.php?proc=rechnung&f=3",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.flinkster.de/kundenbuchung/process.php?proc=rechnung&f=3",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

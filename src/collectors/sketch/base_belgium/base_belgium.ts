@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BaseBelgiumCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BaseBelgiumCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.base.be/nl/klantenzone/mijn-facturen.html#/overview",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.base.be/nl/klantenzone/mijn-facturen.html#/overview",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

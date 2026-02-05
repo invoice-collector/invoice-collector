@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class UtaCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class UtaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.uta.com/servicecenter/prod/spr/login-flow?execution=e1s1",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.uta.com/servicecenter/prod/spr/login-flow?execution=e1s1",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

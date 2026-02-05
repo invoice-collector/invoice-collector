@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IziviaCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class IziviaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://pro.izivia-ig.fr/#/main/invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://pro.izivia-ig.fr/#/main/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

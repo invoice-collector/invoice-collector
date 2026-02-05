@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WpeverestCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class WpeverestCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://wpeverest.com/my-account/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://wpeverest.com/my-account/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AcuitySchedulingCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AcuitySchedulingCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://secure.acuityscheduling.com/preferences.php?action=myaccount",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://secure.acuityscheduling.com/preferences.php?action=myaccount",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

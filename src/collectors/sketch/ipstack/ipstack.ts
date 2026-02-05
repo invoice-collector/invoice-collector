@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IpstackCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class IpstackCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://ipstack.com/payment",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://ipstack.com/payment",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

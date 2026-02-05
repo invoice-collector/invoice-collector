@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NpowerPersonalCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class NpowerPersonalCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.npower.com/at_home/applications/atlas.web/billsandpayments.aspx",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.npower.com/at_home/applications/atlas.web/billsandpayments.aspx",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HotsplotsCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class HotsplotsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.hotsplots.de/kundenbereich.html",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.hotsplots.de/kundenbereich.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

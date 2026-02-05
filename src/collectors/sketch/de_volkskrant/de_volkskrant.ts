@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DeVolkskrantCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DeVolkskrantCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://mijnomgeving.volkskrant.nl/facturen",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://mijnomgeving.volkskrant.nl/facturen",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

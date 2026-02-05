@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OrangeBusinessBelgiumCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class OrangeBusinessBelgiumCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://eservices.business.orange.be/fr/b2bcustomer-zone/your-invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://eservices.business.orange.be/fr/b2bcustomer-zone/your-invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

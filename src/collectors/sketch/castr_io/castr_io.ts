@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CastrIoCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CastrIoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://castr.io/app/manage/billing",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://castr.io/app/manage/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

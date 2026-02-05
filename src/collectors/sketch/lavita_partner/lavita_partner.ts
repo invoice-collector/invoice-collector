@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LavitaPartnerCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class LavitaPartnerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://partner.lavita.de/honorare/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://partner.lavita.de/honorare/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

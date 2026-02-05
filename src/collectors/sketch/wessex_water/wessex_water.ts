@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WessexWaterCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class WessexWaterCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://myaccount.wessexwater.co.uk/profile/summary/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://myaccount.wessexwater.co.uk/profile/summary/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

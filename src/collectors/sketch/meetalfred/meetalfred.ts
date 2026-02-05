@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MeetalfredCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MeetalfredCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://meetalfred.com/app/billing?team=14143",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://meetalfred.com/app/billing?team=14143",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

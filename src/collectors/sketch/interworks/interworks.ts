@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class InterworksCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class InterworksCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://bss.adncloud.de/ModulePages/Invoices/Invoices.aspx#v=689",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://bss.adncloud.de/ModulePages/Invoices/Invoices.aspx#v=689",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

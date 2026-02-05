@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ButCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ButCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.but.fr/Customer/Account/Identification",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.but.fr/Customer/Account/Identification",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ShirtrunnerCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ShirtrunnerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.shirtrunner.de/station/auftragsuebersicht",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.shirtrunner.de/station/auftragsuebersicht",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GotaEnergiCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class GotaEnergiCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://minasidor.gotaenergi.se/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://minasidor.gotaenergi.se/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

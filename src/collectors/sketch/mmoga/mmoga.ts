@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MmogaCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MmogaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.mmoga.com/account_history.php",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.mmoga.com/account_history.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

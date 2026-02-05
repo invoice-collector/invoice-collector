@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FotoDrucken24DeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class FotoDrucken24DeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.foto-drucken24.de/anmelden",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.foto-drucken24.de/anmelden",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

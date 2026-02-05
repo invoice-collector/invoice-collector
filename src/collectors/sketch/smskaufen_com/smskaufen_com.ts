@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SmskaufenComCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SmskaufenComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.smskaufen.com/sms/index.php?seite=konto",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.smskaufen.com/sms/index.php?seite=konto",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

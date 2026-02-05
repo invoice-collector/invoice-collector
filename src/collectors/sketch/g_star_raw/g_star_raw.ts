@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GStarRawCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class GStarRawCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://invoicing.g-star.com/gstar/#/documents",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://invoicing.g-star.com/gstar/#/documents",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

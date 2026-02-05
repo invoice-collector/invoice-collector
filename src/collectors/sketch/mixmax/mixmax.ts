@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MixmaxCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MixmaxCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.mixmax.com/dashboard?login=new",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.mixmax.com/dashboard?login=new",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

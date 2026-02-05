@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SfrBusinessCollector extends SketchCollector {
 
@@ -10,7 +10,7 @@ export class SfrBusinessCollector extends SketchCollector {
         description: "i18n.collectors.sfr_business.description",
         version: "0",
         website: "https://www.sfrbusiness.fr/espace-client/portail/#/factures",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/72746.jpg",
+        logo: "https://static.s-sfr.fr/assets/logos/SFR_Business.svg",
         type: CollectorType.SKETCH,
         params: {
             email: {
@@ -26,8 +26,10 @@ export class SfrBusinessCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.sfrbusiness.fr/espace-client/portail/#/factures",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.sfrbusiness.fr/espace-client/portail/#/factures",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

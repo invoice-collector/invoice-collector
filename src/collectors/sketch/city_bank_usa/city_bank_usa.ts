@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CityBankUsaCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CityBankUsaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://secure.city.bank/CityBankOnline/uux.aspx#/landingPage",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://secure.city.bank/CityBankOnline/uux.aspx#/landingPage",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

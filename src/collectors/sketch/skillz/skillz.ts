@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SkillzCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SkillzCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://developers.skillz.com/statements",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://developers.skillz.com/statements",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

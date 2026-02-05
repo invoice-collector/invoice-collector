@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SalesloftCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SalesloftCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://accounts.salesloft.com/sign_in?return_to=https://app.salesloft.com",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://accounts.salesloft.com/sign_in?return_to=https://app.salesloft.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

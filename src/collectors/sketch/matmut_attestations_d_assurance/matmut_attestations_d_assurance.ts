@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MatmutAttestationsDAssuranceCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MatmutAttestationsDAssuranceCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.matmut.fr/app/loginrsp/login/index.mcp?returnurl=https%3A%2F%2Fwww.matmut.fr%2Fapp%2FSPAEspaceSocietaireInternet%2F%23!%2Faccueil&cookieCheck=true",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.matmut.fr/app/loginrsp/login/index.mcp?returnurl=https%3A%2F%2Fwww.matmut.fr%2Fapp%2FSPAEspaceSocietaireInternet%2F%23!%2Faccueil&cookieCheck=true",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

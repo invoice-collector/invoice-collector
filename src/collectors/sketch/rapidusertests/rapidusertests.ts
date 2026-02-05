@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RapidusertestsCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class RapidusertestsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://rapidusertests.com/user/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://rapidusertests.com/user/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

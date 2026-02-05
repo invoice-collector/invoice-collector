@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GliffyCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class GliffyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://go.gliffy.com/go/auth/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://go.gliffy.com/go/auth/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

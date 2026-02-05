@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ConcardisMyConcardisCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ConcardisMyConcardisCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://login.concardis.com/auth/?contextId=lqy7f6pf7ks548s6gmzzb3wqun",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://login.concardis.com/auth/?contextId=lqy7f6pf7ks548s6gmzzb3wqun",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

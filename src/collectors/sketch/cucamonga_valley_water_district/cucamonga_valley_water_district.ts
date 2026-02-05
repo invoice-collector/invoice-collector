@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CucamongaValleyWaterDistrictCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CucamongaValleyWaterDistrictCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.invoicecloud.com/portal/(S(tljikpfetqc3ipbjw2r4x3ou))/2/CustomerGroupLedger.aspx?mode=closed",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.invoicecloud.com/portal/(S(tljikpfetqc3ipbjw2r4x3ou))/2/CustomerGroupLedger.aspx?mode=closed",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

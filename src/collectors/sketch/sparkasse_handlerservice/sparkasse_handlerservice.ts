@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SparkasseHandlerserviceCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SparkasseHandlerserviceCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portal.s-haendlerservice.de/cms/spksp/Postfach/dokumente/neue-dokumente",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://portal.s-haendlerservice.de/cms/spksp/Postfach/dokumente/neue-dokumente",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

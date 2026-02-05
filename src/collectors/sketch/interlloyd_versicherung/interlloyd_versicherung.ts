@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class InterlloydVersicherungCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class InterlloydVersicherungCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://meine.interlloyd.de/services/postfach",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://meine.interlloyd.de/services/postfach",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

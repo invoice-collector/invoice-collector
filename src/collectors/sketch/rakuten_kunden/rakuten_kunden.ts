@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RakutenKundenCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class RakutenKundenCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.rakuten.de/kundenkonto",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.rakuten.de/kundenkonto",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PrivatefloorCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PrivatefloorCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://es.privatefloor.com/cuenta/pedidos/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://es.privatefloor.com/cuenta/pedidos/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

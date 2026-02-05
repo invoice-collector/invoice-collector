@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EpagCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class EpagCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://domrob.epag.net/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://domrob.epag.net/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StatuscakeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class StatuscakeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.statuscake.com/Billing.php",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.statuscake.com/Billing.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

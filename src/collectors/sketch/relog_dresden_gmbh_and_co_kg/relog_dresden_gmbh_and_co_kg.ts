@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RelogDresdenGmbhAndCoKgCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class RelogDresdenGmbhAndCoKgCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://relog-lohn-dresden.portal-bereich.de/html/#documentsharing",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://relog-lohn-dresden.portal-bereich.de/html/#documentsharing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

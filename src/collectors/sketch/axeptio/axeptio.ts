@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AxeptioCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AxeptioCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://admin.axeptio.eu/projects/60a6104053946911d54de48d/config/invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://admin.axeptio.eu/projects/60a6104053946911d54de48d/config/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

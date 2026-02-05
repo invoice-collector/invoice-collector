@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MadgicxCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MadgicxCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://invoice.stripe.com/i/acct_1CSQNKCGZsMIpI9T/invst_IUrRwsldDZw1bQOSLmrm1qEOCXXuPDW",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://invoice.stripe.com/i/acct_1CSQNKCGZsMIpI9T/invst_IUrRwsldDZw1bQOSLmrm1qEOCXXuPDW",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

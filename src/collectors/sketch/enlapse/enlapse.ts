@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EnlapseCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class EnlapseCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://odoo-ps-enlaps.odoo.com/my/invoices?filterby=invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://odoo-ps-enlaps.odoo.com/my/invoices?filterby=invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

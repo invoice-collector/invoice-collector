@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ManpowerEmployerPortalCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ManpowerEmployerPortalCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.manpower.us/en/Employers.htm",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.manpower.us/en/Employers.htm",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WbMasonCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class WbMasonCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.wbmason.com/Login2.aspx",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.wbmason.com/Login2.aspx",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

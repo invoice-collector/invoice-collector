@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FilmoraCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class FilmoraCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://support.wondershare.com/de/invoice",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://support.wondershare.com/de/invoice",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

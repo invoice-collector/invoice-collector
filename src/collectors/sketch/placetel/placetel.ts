@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PlacetelCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PlacetelCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://web.placetel.de/invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://web.placetel.de/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

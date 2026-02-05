@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BinectCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BinectCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.binect.de",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.binect.de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

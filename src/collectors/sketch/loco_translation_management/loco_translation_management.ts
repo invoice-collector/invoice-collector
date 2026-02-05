@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LocoTranslationManagementCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class LocoTranslationManagementCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://localise.biz/account/plan/billing#hist",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://localise.biz/account/plan/billing#hist",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

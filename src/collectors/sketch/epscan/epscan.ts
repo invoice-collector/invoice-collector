@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EpscanCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class EpscanCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.epcan.de/kundenlogin/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.epcan.de/kundenlogin/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

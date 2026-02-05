@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HostingDeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class HostingDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://secure.hosting.de/billing/invoices/overview",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://secure.hosting.de/billing/invoices/overview",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GmxCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class GmxCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.gmx.net",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "http://www.gmx.net",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

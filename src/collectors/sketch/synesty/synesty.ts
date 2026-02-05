@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SynestyCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SynestyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://apps.synesty.com/logon/en-us",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://apps.synesty.com/logon/en-us",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

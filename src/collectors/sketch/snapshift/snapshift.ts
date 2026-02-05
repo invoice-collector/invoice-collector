@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SnapshiftCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SnapshiftCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.snapshift.co/subscription?tab=payment_history",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.snapshift.co/subscription?tab=payment_history",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

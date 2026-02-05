@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GmPackagingCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class GmPackagingCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.gmpackaging.com",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "http://www.gmpackaging.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FunnelformsCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class FunnelformsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://member.funnelforms.io/rechnungen/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://member.funnelforms.io/rechnungen/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

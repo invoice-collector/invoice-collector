@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CloudmailinCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CloudmailinCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.cloudmailin.com/account",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.cloudmailin.com/account",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Myh2oserversCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class Myh2oserversCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.myh2oservers.com/inloggen-klantenpaneel",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.myh2oservers.com/inloggen-klantenpaneel",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

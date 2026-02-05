@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MytpboxCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MytpboxCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://scoubidou26.mytpbox.com/TPBox?session=d6c8e0102748de2a2d0871f819df4259",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://scoubidou26.mytpbox.com/TPBox?session=d6c8e0102748de2a2d0871f819df4259",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

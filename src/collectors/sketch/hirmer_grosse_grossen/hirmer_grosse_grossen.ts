@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HirmerGrosseGrossenCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class HirmerGrosseGrossenCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.hirmer-grosse-groessen.de/bestellhistorie/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.hirmer-grosse-groessen.de/bestellhistorie/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

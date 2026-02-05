@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BannerSnackCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BannerSnackCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.bannersnack.com/auth/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.bannersnack.com/auth/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ReadwiseCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ReadwiseCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://readwise.io/receipts",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://readwise.io/receipts",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

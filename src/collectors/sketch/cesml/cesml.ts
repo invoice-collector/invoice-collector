@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CesmlCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CesmlCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://moncompte-cesml.multield.net/application/jsp/arc/habilitation/login.jsp",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://moncompte-cesml.multield.net/application/jsp/arc/habilitation/login.jsp",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

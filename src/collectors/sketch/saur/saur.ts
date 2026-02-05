@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SaurCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SaurCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://mon-espace.saurclient.fr/#/fr/mes-paiements",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://mon-espace.saurclient.fr/#/fr/mes-paiements",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

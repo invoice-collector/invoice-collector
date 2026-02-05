@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AttijarinetCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AttijarinetCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://attijarinet.attijariwafa.com/particulier/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://attijarinet.attijariwafa.com/particulier/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

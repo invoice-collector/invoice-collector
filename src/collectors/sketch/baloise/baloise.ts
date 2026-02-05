@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BaloiseCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BaloiseCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.baloise.ch/en/private-customers.html",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.baloise.ch/en/private-customers.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

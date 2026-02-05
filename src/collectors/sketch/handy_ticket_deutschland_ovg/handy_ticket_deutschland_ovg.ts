@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HandyTicketDeutschlandOvgCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class HandyTicketDeutschlandOvgCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://handyticket.de/portals/web/nutzer/ovg/login.html",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://handyticket.de/portals/web/nutzer/ovg/login.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

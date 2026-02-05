@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EasymarketingCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class EasymarketingCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://easymarketing.de/invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://easymarketing.de/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AfiniaByIahorroCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AfiniaByIahorroCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://afinia.uintertool.com/#/pinvoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://afinia.uintertool.com/#/pinvoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

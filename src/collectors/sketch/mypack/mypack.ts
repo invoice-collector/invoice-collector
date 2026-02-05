@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MypackCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MypackCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.mypack.de/account/orders",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.mypack.de/account/orders",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

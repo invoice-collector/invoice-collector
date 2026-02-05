@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AmazonSellerCentralMxCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AmazonSellerCentralMxCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://sellercentral.amazon.com.mx/sellertaxinvoice/displaySellerTaxInvoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://sellercentral.amazon.com.mx/sellertaxinvoice/displaySellerTaxInvoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

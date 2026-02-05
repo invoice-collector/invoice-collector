@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Cram101Collector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class Cram101Collector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://cram101.com/index.html#",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "http://cram101.com/index.html#",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

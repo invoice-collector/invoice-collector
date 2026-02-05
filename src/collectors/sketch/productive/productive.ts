@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ProductiveCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ProductiveCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.productive.io/26357-hub633-creative/settings/billing",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.productive.io/26357-hub633-creative/settings/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

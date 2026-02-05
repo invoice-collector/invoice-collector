@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VeoliaEauEspaceClientCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class VeoliaEauEspaceClientCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://espace-client.vedif.eau.veolia.fr/s/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://espace-client.vedif.eau.veolia.fr/s/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

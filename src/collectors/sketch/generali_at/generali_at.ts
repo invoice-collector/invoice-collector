@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GeneraliAtCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class GeneraliAtCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://kundenportal.generali.at/iss/gui/kundenportal/login/login.seam?conversationId=16500",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://kundenportal.generali.at/iss/gui/kundenportal/login/login.seam?conversationId=16500",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

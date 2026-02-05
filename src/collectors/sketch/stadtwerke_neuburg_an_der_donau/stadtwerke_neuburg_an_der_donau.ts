@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StadtwerkeNeuburgAnDerDonauCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class StadtwerkeNeuburgAnDerDonauCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.stw-nd.de/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.stw-nd.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

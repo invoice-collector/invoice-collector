@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WindunieCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class WindunieCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.windunie.nl/inloggen/?URL=/mijn-windunie/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.windunie.nl/inloggen/?URL=/mijn-windunie/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

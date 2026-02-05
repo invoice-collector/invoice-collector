@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GelsenwasserCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class GelsenwasserCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://onlineservice.gelsenwasser.de/sap/bc/ui5_ui5/sap/zmcf_ui/index.html?CompanyID=1101000_GWAG&sap-client=110",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://onlineservice.gelsenwasser.de/sap/bc/ui5_ui5/sap/zmcf_ui/index.html?CompanyID=1101000_GWAG&sap-client=110",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

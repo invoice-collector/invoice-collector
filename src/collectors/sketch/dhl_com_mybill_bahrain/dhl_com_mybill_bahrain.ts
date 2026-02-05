@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DhlComMybillBahrainCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DhlComMybillBahrainCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://mydhl.express.dhl/bh/en/home.html",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://mydhl.express.dhl/bh/en/home.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

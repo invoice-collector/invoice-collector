@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ParadrugsCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ParadrugsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.paradrugs.com/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.paradrugs.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

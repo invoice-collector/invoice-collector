@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FideliLesGentlemenParticuliersCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class FideliLesGentlemenParticuliersCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.gentlemen-demenagement.com/demenagement-particuliers/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.gentlemen-demenagement.com/demenagement-particuliers/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

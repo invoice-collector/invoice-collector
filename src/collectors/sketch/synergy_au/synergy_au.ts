@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SynergyAuCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SynergyAuCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.synergy.net.au/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.synergy.net.au/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

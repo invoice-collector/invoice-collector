@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CityOfTorranceUtilitiesCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CityOfTorranceUtilitiesCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://torranceca.myutilitydirect.com/customerportal/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://torranceca.myutilitydirect.com/customerportal/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

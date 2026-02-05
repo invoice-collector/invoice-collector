@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KeepaCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class KeepaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://keepa.com/#!",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://keepa.com/#!",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

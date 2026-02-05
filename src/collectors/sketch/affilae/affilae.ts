@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AffilaeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AffilaeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://affilae.com/fr/logiciel-affiliation/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://affilae.com/fr/logiciel-affiliation/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

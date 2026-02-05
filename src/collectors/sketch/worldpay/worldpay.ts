@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WorldpayCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class WorldpayCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://dashboard.worldpay.com",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://dashboard.worldpay.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SkyHighCarAudioCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SkyHighCarAudioCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://shcadealers.com/account.php?action=order_status",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://shcadealers.com/account.php?action=order_status",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

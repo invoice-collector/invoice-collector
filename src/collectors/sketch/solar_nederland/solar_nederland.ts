@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SolarNederlandCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SolarNederlandCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://webshop.solarnederland.nl/signon?ReturnUrl=%2f",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://webshop.solarnederland.nl/signon?ReturnUrl=%2f",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

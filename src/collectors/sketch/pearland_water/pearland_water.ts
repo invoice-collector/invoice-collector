@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PearlandWaterCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PearlandWaterCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://pearlandtx.watersmart.com/index.php/home/index",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://pearlandtx.watersmart.com/index.php/home/index",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

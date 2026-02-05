@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ChangeEnergyKundenportalCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ChangeEnergyKundenportalCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://kundenservice.change-energy.de/change-energy/#/loginRegistration",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://kundenservice.change-energy.de/change-energy/#/loginRegistration",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

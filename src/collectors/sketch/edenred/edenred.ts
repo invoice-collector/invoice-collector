@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EdenredCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class EdenredCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://firmenkunden.mein-edenred.de/Konto_Meine_Rechnungen.htm?ActiveID=1141",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://firmenkunden.mein-edenred.de/Konto_Meine_Rechnungen.htm?ActiveID=1141",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RockautoCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class RockautoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.rockauto.com/orderstatus/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.rockauto.com/orderstatus/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

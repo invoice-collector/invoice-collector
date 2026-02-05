@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HopinCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class HopinCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://dashboard.hopin.com/org/recode_law_42KL2CHkrue9QhIUBvMTL81md/manage/billing",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://dashboard.hopin.com/org/recode_law_42KL2CHkrue9QhIUBvMTL81md/manage/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SmallpdfCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SmallpdfCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://smallpdf.com/de",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://smallpdf.com/de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

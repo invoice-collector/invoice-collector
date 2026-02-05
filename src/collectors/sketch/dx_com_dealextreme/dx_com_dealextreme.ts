@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DxComDealextremeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DxComDealextremeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://passport.dx.com/?redirect=http%3A%2F%2Fwww.dx.com%2F",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://passport.dx.com/?redirect=http%3A%2F%2Fwww.dx.com%2F",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

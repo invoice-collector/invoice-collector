@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AlliantCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AlliantCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.alliantcreditunion.com/onlinebanking/Accounts/Statements/Estatement.aspx",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.alliantcreditunion.com/onlinebanking/Accounts/Statements/Estatement.aspx",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

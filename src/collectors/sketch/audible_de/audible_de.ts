@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AudibleDeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AudibleDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.audible.de/purchase-history",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.audible.de/purchase-history",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SavviiCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SavviiCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://billing.savvii.nl/index.php?/clientarea/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://billing.savvii.nl/index.php?/clientarea/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

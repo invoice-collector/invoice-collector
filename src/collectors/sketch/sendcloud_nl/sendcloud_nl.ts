@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SendcloudNlCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SendcloudNlCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.sendcloud.com/v2/settings/financial/invoices/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.sendcloud.com/v2/settings/financial/invoices/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

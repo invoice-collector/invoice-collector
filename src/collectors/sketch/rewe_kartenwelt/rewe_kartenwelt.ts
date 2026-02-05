@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ReweKartenweltCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ReweKartenweltCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://kartenwelt.rewe.de/sales/order/invoice/order_id/762116/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://kartenwelt.rewe.de/sales/order/invoice/order_id/762116/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

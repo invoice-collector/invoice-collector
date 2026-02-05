@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RotacloudCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class RotacloudCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.rotacloud.com",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.rotacloud.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

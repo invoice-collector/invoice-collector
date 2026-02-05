@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SwisscomCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SwisscomCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.swisscom.ch",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "http://www.swisscom.ch",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

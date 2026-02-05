@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RclTradingCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class RclTradingCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "www.rcltrading.com",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "www.rcltrading.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HeliNetCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class HeliNetCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.helimail.de/kundenportal/login.php",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.helimail.de/kundenportal/login.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

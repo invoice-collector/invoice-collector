@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WestexCommunityCreditUnionCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class WestexCommunityCreditUnionCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.mobicint.net/wnk/statements",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.mobicint.net/wnk/statements",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

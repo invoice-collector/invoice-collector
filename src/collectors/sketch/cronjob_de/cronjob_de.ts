@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CronjobDeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CronjobDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.cronjob.de/loggedin/tarifdaten",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.cronjob.de/loggedin/tarifdaten",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

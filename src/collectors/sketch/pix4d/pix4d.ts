@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Pix4dCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class Pix4dCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://cloud.pix4d.com/account/licenses/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://cloud.pix4d.com/account/licenses/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

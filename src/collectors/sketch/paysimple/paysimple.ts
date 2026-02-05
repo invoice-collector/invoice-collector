@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PaysimpleCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PaysimpleCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://payments.paysimple.com/PaySimple/Login/Login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://payments.paysimple.com/PaySimple/Login/Login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

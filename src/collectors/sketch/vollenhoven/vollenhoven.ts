@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VollenhovenCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class VollenhovenCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.vollenhoven-ot.nl",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "http://www.vollenhoven-ot.nl",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

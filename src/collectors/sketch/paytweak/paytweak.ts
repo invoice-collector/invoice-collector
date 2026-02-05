@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PaytweakCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PaytweakCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.paytweak.com/adminp/account#invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.paytweak.com/adminp/account#invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

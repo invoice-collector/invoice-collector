@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OsterreichischePostBusinessCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class OsterreichischePostBusinessCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://bec.post.at/invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://bec.post.at/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

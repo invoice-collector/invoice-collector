@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DelightedCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DelightedCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://delighted.com/signin",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://delighted.com/signin",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

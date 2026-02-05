@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VodafoneDeFirmenkundenCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class VodafoneDeFirmenkundenCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.vodafone.de/ussa/enterprise/fkpDashboardLogin.ftel",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.vodafone.de/ussa/enterprise/fkpDashboardLogin.ftel",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

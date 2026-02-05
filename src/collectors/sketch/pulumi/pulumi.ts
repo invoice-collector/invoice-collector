@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PulumiCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PulumiCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.pulumi.com/signin?reason=401&redirect=%2F%3F_gl%3D1*1das3d7*_gcl_au*ODA4Njc3ODA5LjE3MDg2MDY4NDY.",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.pulumi.com/signin?reason=401&redirect=%2F%3F_gl%3D1*1das3d7*_gcl_au*ODA4Njc3ODA5LjE3MDg2MDY4NDY.",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AsanaGetnaveCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AsanaGetnaveCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://asana.getnave.com/billing",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://asana.getnave.com/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

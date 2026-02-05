@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EasystampDeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class EasystampDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.easystamp.de/einloggen",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.easystamp.de/einloggen",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

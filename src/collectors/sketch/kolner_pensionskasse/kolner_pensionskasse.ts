@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KolnerPensionskasseCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class KolnerPensionskasseCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://kpk-pkc.foxdox.de/login?next=%2F",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://kpk-pkc.foxdox.de/login?next=%2F",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

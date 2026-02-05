@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KnollGmbhCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class KnollGmbhCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://shop.knoll.de/shop/my-account/bills",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://shop.knoll.de/shop/my-account/bills",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

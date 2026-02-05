@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GezCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class GezCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portal.rundfunkbeitrag.de/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://portal.rundfunkbeitrag.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

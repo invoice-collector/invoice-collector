@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KabelsatDeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class KabelsatDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://kundenportal.kabelsat.net/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://kundenportal.kabelsat.net/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BritishAirwayCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BritishAirwayCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.britishairways.com/travel/viewaccount/inet/en_de?eId=106062&source=INET_LHN_PASTBOOKINGS",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.britishairways.com/travel/viewaccount/inet/en_de?eId=106062&source=INET_LHN_PASTBOOKINGS",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

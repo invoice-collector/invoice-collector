@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NwwiCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class NwwiCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://site.nwwi.nl/login/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://site.nwwi.nl/login/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

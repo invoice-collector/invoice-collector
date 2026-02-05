@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IziworkCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class IziworkCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://pro.iziwork.com/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://pro.iziwork.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CityOfBocaRatonCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CityOfBocaRatonCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://myubaccount.myboca.us/app/capricorn?para=index",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://myubaccount.myboca.us/app/capricorn?para=index",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

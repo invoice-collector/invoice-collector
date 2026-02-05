@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LegindaCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class LegindaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.leginda.de/app/index.php?ACTION=BILL_LIST_CUSTOMER",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.leginda.de/app/index.php?ACTION=BILL_LIST_CUSTOMER",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

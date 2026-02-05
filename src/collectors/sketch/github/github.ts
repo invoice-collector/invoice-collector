@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GithubCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class GithubCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://github.com/settings/billing",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://github.com/settings/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MyhermesDeGeschaftskundenCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MyhermesDeGeschaftskundenCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://business.myhermes.de/konto/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://business.myhermes.de/konto/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

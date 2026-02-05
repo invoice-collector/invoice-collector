@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ErankCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ErankCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://erank.com/settings",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://erank.com/settings",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

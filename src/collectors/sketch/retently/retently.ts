@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RetentlyCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class RetentlyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://retently.com",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://retently.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

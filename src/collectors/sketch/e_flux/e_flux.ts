@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EFluxCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class EFluxCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://dashboard.e-flux.io/my-invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://dashboard.e-flux.io/my-invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

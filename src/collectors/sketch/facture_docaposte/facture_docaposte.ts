@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FactureDocaposteCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class FactureDocaposteCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://publication.e-facture.net/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://publication.e-facture.net/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

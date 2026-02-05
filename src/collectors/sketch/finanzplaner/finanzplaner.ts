@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FinanzplanerCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class FinanzplanerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://cloud.finanzportal24.de/Login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://cloud.finanzportal24.de/Login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

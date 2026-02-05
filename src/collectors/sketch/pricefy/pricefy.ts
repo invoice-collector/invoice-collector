@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PricefyCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PricefyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://dashboard.pricefy.io/billing/profile",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://dashboard.pricefy.io/billing/profile",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

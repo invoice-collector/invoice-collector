@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CanalDeIsabelIiCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CanalDeIsabelIiCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://oficinavirtual.canaldeisabelsegunda.es/recytal/public/inicio.htm",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://oficinavirtual.canaldeisabelsegunda.es/recytal/public/inicio.htm",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

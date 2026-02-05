@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class UserlikeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class UserlikeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.userlike.com/de/dashboard/company/invoice",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.userlike.com/de/dashboard/company/invoice",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

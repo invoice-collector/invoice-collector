@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RepliconCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class RepliconCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://login.replicon.com/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://login.replicon.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

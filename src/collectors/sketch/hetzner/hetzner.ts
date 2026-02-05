@@ -1,5 +1,5 @@
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HetznerCollector extends SketchCollector {
 
@@ -25,8 +25,10 @@ export class HetznerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://accounts.hetzner.com/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://accounts.hetzner.com/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

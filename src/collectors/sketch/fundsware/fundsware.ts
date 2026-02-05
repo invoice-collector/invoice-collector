@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FundswareCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class FundswareCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.fundsware.de/fwpro/content/investment_provisionsabrechnung",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.fundsware.de/fwpro/content/investment_provisionsabrechnung",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

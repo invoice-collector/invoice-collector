@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DonedoneCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DonedoneCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

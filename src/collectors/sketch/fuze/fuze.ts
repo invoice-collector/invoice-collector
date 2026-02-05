@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FuzeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class FuzeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portal.thinkingphones.com/jetspeed/portal/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://portal.thinkingphones.com/jetspeed/portal/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

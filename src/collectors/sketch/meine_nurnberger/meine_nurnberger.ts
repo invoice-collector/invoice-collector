@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MeineNurnbergerCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MeineNurnbergerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://meine.nuernberger.de/kunde/pages/startseite.html",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://meine.nuernberger.de/kunde/pages/startseite.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

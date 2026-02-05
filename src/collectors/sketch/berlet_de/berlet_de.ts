@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BerletDeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BerletDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.berlet.de/mein-konto.htm",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.berlet.de/mein-konto.htm",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

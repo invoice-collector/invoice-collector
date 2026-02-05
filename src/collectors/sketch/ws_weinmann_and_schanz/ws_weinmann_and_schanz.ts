@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WsWeinmannAndSchanzCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class WsWeinmannAndSchanzCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.weinmann-schanz.de/de/de/Anmelden-Abmelden/Anmelden.html",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.weinmann-schanz.de/de/de/Anmelden-Abmelden/Anmelden.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

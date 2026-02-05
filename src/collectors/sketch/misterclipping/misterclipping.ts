@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MisterclippingCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MisterclippingCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.bright-river.com/com/login?r=%2f",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.bright-river.com/com/login?r=%2f",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

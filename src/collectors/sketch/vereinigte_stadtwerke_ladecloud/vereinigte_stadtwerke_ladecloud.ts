@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VereinigteStadtwerkeLadecloudCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class VereinigteStadtwerkeLadecloudCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://vereinigte-stadtwerke.ladecloud.de/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://vereinigte-stadtwerke.ladecloud.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

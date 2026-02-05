@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FrappeCloudCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class FrappeCloudCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://frappecloud.com/dashboard/billing",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://frappecloud.com/dashboard/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PerplexityAiCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PerplexityAiCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://stripe.perplexity.ai/p/session/live_YWNjdF8xTjlZcUJHWndqcVBmeGtaLF9RM2R6MkhmTndyWTA4R2pQUHpFQ1gyb1BJVGcwaEZl01001FQMwif6",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://stripe.perplexity.ai/p/session/live_YWNjdF8xTjlZcUJHWndqcVBmeGtaLF9RM2R6MkhmTndyWTA4R2pQUHpFQ1gyb1BJVGcwaEZl01001FQMwif6",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

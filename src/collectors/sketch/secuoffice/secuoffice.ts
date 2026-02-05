@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SecuofficeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SecuofficeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://secuoffice.com/#/M/MRC_W87B9BGFZX6B6V8FGYEUMY890ASCOP/card-processing/invoices?sorting[0][propName]=created&sorting[0][asc]=false&grid=true",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://secuoffice.com/#/M/MRC_W87B9BGFZX6B6V8FGYEUMY890ASCOP/card-processing/invoices?sorting[0][propName]=created&sorting[0][asc]=false&grid=true",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

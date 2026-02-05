@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DoccleCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DoccleCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://secure.doccle.be/doccle-euui/archive/index",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://secure.doccle.be/doccle-euui/archive/index",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

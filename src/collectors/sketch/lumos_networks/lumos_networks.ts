@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LumosNetworksCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class LumosNetworksCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://rsb.lumosnetworks.com/myaccount",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://rsb.lumosnetworks.com/myaccount",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

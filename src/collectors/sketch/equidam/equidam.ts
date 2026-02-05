@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EquidamCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class EquidamCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://secure.equidam.com/login.php",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://secure.equidam.com/login.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

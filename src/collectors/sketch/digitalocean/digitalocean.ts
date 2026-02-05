@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DigitaloceanCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DigitaloceanCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://cloud.digitalocean.com/droplets",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://cloud.digitalocean.com/droplets",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

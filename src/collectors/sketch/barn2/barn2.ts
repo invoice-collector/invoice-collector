@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Barn2Collector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class Barn2Collector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://barn2.com/account/#orders",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://barn2.com/account/#orders",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

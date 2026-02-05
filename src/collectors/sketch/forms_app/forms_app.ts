@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FormsAppCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class FormsAppCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://forms.app/account/paymenthistory",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://forms.app/account/paymenthistory",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

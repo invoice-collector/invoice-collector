@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Sms77Collector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class Sms77Collector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.seven.io/billing",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.seven.io/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

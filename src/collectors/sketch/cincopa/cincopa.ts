@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CincopaCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CincopaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.cincopa.com/login.aspx",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.cincopa.com/login.aspx",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

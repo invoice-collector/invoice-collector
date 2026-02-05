@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SkyTicketCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SkyTicketCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://skyticket.sky.de/scrm/storm/onko/boundary/showAccountsRH.do?forward_success=/scrm/cms/account_abrechnungen-uebersicht.jsp&months=6",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://skyticket.sky.de/scrm/storm/onko/boundary/showAccountsRH.do?forward_success=/scrm/cms/account_abrechnungen-uebersicht.jsp&months=6",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

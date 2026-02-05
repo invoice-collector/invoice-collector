@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TenscoresCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TenscoresCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.tenscores.com/#/billing",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.tenscores.com/#/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

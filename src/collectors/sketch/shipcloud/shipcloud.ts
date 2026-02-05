@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ShipcloudCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ShipcloudCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.shipcloud.io/de/account/billing_information",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.shipcloud.io/de/account/billing_information",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

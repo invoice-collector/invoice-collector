@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WhsoftCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class WhsoftCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://login2.whsoft.de/konto/rechnungen",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://login2.whsoft.de/konto/rechnungen",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

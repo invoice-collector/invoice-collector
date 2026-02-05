@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FusionIotCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class FusionIotCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portal.fusion-iot.de/sign/in",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://portal.fusion-iot.de/sign/in",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

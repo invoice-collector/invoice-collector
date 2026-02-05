@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class _1bluCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class _1bluCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://login.1blu.de/login.php",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://login.1blu.de/login.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

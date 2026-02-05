@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SecuritasDirectEsCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SecuritasDirectEsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://customers.securitasdirect.es/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://customers.securitasdirect.es/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

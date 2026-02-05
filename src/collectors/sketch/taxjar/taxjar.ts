@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TaxjarCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TaxjarCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.taxjar.com/account/plan",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.taxjar.com/account/plan",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CrAndREnvironmentalServicesCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CrAndREnvironmentalServicesCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://secured.crrwasteservices.com/webpak2sw/index.jsp",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://secured.crrwasteservices.com/webpak2sw/index.jsp",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

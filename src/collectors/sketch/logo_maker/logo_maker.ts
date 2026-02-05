@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LogoMakerCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class LogoMakerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.logomaker.com/de/websites-management",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.logomaker.com/de/websites-management",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

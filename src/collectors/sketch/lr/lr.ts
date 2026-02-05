@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LrCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class LrCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://myoffice.lrworld.com/personal-orders",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://myoffice.lrworld.com/personal-orders",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

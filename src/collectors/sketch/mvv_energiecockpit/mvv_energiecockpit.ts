@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MvvEnergiecockpitCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MvvEnergiecockpitCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://business-login.mvv.de/auth/realms/mvvbusiness/protocol/openid-connect/auth?response_type=code&client_id=energiecockpit&scope=openid&state=7HtGYUgqU_vrMR4BNeb2WRdUE8tnCywvwSO5HplvRB4%3D&redirect_uri=https://energiecockpit.mvv.de/login/oauth2/code/a",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://business-login.mvv.de/auth/realms/mvvbusiness/protocol/openid-connect/auth?response_type=code&client_id=energiecockpit&scope=openid&state=7HtGYUgqU_vrMR4BNeb2WRdUE8tnCywvwSO5HplvRB4%3D&redirect_uri=https://energiecockpit.mvv.de/login/oauth2/code/a",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

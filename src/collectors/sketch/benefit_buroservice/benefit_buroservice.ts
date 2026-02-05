@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BenefitBuroserviceCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BenefitBuroserviceCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://service.benefit-bueroservice.at/mein-bueroservice#g_benefit_tab_bills",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://service.benefit-bueroservice.at/mein-bueroservice#g_benefit_tab_bills",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

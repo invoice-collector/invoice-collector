@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ResendCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ResendCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://resend.com/settings/billing",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://resend.com/settings/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

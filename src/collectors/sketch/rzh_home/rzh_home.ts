@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RzhHomeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class RzhHomeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.rzh-home.de/statistiken",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.rzh-home.de/statistiken",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

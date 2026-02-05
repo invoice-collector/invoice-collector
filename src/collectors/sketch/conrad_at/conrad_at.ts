@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ConradAtCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ConradAtCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.conrad.at/de/account.html#/invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.conrad.at/de/account.html#/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

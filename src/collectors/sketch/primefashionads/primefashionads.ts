@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PrimefashionadsCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PrimefashionadsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.primefashionads.com/partner",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.primefashionads.com/partner",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

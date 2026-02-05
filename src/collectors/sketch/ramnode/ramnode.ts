@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RamnodeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class RamnodeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://clientarea.ramnode.com/clientarea.php",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://clientarea.ramnode.com/clientarea.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

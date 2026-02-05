@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AfilaeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AfilaeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.affilae.com/fr/advertiser/billing/invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.affilae.com/fr/advertiser/billing/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

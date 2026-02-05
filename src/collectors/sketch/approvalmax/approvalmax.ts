@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ApprovalmaxCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ApprovalmaxCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.approvalmax.com/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.approvalmax.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

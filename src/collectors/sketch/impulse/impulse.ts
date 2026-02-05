@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ImpulseCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ImpulseCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://shop.impulse.de/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://shop.impulse.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CraftCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CraftCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.craft.io/auth/sign-in",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.craft.io/auth/sign-in",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

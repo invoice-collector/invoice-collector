@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PartooCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PartooCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.partoo.co/settings/main/invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.partoo.co/settings/main/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

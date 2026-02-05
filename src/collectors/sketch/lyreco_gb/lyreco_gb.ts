@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LyrecoGbCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class LyrecoGbCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.lyreco.com/webshop/ENEN/index.html?lc=ENEN",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.lyreco.com/webshop/ENEN/index.html?lc=ENEN",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

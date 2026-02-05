@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CityOfComptonCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CityOfComptonCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://compton.merchanttransact.com/Login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://compton.merchanttransact.com/Login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

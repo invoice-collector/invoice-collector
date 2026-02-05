@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DubsadoCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DubsadoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://hello.dubsado.com/user/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://hello.dubsado.com/user/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

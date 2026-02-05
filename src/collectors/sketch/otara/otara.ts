@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OtaraCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class OtaraCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://otara.de/account#hide-registration",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://otara.de/account#hide-registration",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

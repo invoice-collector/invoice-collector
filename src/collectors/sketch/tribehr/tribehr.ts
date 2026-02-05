@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TribehrCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TribehrCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.mytribehr.com/users/login/find",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.mytribehr.com/users/login/find",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

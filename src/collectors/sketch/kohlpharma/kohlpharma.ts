@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KohlpharmaCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class KohlpharmaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://kundenportal.kohlpharma.com/PIDocument/Document/DocumentOverview?isDirectCall=False",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://kundenportal.kohlpharma.com/PIDocument/Document/DocumentOverview?isDirectCall=False",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

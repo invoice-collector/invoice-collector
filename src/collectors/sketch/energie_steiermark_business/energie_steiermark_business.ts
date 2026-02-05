@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EnergieSteiermarkBusinessCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class EnergieSteiermarkBusinessCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://kundenportal.e-steiermark.com/rechnungen",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://kundenportal.e-steiermark.com/rechnungen",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

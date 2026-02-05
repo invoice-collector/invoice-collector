@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AlliantEnergyCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AlliantEnergyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://myaccount.alliantenergy.com/Portal//BillDashboard.aspx",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://myaccount.alliantenergy.com/Portal//BillDashboard.aspx",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

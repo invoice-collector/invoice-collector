@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class JustEatPartnerCentreCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class JustEatPartnerCentreCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://connect.just-eat.co.uk/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://connect.just-eat.co.uk/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

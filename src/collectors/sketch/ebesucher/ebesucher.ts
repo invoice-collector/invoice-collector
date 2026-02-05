@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EbesucherCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class EbesucherCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.ebesucher.de/?link=userinvoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.ebesucher.de/?link=userinvoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

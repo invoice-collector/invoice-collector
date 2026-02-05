@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KunstmatrixCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class KunstmatrixCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://accounts.kunstmatrix.com/en/user/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://accounts.kunstmatrix.com/en/user/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

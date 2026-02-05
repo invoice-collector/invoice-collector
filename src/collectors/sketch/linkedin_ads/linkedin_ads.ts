@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LinkedinAdsCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class LinkedinAdsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.linkedin.com/campaignmanager/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.linkedin.com/campaignmanager/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

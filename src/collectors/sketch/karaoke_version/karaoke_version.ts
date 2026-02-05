@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KaraokeVersionCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class KaraokeVersionCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.karaoke-version.de/my/orders.html",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.karaoke-version.de/my/orders.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TicketmasterFrCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TicketmasterFrCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.ticketmaster.fr/fr/identification?redirect=moncompte",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.ticketmaster.fr/fr/identification?redirect=moncompte",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AvayaCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AvayaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://xbp1-1.avaya.com/portal/apo.nsf/apo2data?open&tab=30.10#",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://xbp1-1.avaya.com/portal/apo.nsf/apo2data?open&tab=30.10#",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GeocaptureAppCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class GeocaptureAppCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.geocapture.net/receipts",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.geocapture.net/receipts",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

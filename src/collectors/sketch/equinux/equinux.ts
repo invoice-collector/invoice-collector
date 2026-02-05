@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EquinuxCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class EquinuxCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://store.equinux.com/eqnetwork/store/signin.html",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://store.equinux.com/eqnetwork/store/signin.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class As24ByTotalCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class As24ByTotalCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://extranet.as24.com/extranet/login?langue=fr",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://extranet.as24.com/extranet/login?langue=fr",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

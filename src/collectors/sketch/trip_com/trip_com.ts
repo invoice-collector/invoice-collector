@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TripComCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TripComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.trip.com/order/all/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.trip.com/order/all/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

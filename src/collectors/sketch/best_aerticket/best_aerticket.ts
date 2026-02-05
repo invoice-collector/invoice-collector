@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BestAerticketCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BestAerticketCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://cockpit.best-aerticket.de/home/mein-best-aer/rechnungen-und-gutschriften/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://cockpit.best-aerticket.de/home/mein-best-aer/rechnungen-und-gutschriften/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

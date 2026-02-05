@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GrenkebankDeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class GrenkebankDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.onlinebanking-grenkebank.de/banking-business/portal?menuId=Postfach&token=6865410398368038915",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.onlinebanking-grenkebank.de/banking-business/portal?menuId=Postfach&token=6865410398368038915",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TagoIoCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TagoIoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://admin.tago.io/account/billing",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://admin.tago.io/account/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

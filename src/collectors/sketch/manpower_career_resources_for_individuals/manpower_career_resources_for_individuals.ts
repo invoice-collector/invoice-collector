@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ManpowerCareerResourcesForIndividualsCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ManpowerCareerResourcesForIndividualsCollector extends SketchCollec
                 mandatory: true
             }
         },
-        entryUrl: "https://www.manpower.com/wps/portal/ManpowerUSA/career-resources",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.manpower.com/wps/portal/ManpowerUSA/career-resources",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FtdDeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class FtdDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.ftd.de/kommtnurnachlogin",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.ftd.de/kommtnurnachlogin",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

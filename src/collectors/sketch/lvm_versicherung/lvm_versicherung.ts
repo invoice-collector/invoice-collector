@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LvmVersicherungCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class LvmVersicherungCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.lvm.de",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "http://www.lvm.de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

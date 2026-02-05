@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FleetonlineVwFinacialServicesCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class FleetonlineVwFinacialServicesCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://fleetonline.vwfs.com/FleetOnline/search",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://fleetonline.vwfs.com/FleetOnline/search",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

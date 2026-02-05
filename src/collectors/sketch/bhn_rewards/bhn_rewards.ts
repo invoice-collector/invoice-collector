@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BhnRewardsCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BhnRewardsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.rybbon.net/ui/reports/payment-report",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.rybbon.net/ui/reports/payment-report",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

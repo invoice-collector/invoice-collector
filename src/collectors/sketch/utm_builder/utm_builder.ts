@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class UtmBuilderCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class UtmBuilderCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.utm-builder.com/app/invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.utm-builder.com/app/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

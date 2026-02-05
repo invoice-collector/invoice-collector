@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AftershipCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AftershipCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://secure.aftership.com/#/profile/payment-history",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://secure.aftership.com/#/profile/payment-history",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

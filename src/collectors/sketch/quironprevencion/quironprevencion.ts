@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class QuironprevencionCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class QuironprevencionCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.quironprevencion.com/es/area-privada/area-clientes",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.quironprevencion.com/es/area-privada/area-clientes",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TicksyCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TicksyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://ticksy.com/account/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://ticksy.com/account/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ElisWismarCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ElisWismarCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://bestellung.waescherei-wismar.de/Webportal/rechnungen/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "http://bestellung.waescherei-wismar.de/Webportal/rechnungen/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

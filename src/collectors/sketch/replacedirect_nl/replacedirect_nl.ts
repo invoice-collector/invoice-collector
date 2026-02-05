@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ReplacedirectNlCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ReplacedirectNlCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.replacedirect.nl/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.replacedirect.nl/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

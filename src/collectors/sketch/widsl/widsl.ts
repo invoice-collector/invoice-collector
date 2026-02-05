@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WidslCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class WidslCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.widsl.de/loginformular",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.widsl.de/loginformular",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

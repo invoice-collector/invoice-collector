@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class JulepCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class JulepCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.julep.de/podcaster/billing",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.julep.de/podcaster/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

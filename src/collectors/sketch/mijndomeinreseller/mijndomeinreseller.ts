@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MijndomeinresellerCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MijndomeinresellerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://manager.mijndomeinreseller.nl/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://manager.mijndomeinreseller.nl/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

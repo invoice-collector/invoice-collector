@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Werkzeugstore24Collector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class Werkzeugstore24Collector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://werkzeugstore24.de",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://werkzeugstore24.de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

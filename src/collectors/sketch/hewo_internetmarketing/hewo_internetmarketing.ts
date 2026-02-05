@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HewoInternetmarketingCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class HewoInternetmarketingCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://hewo.clonedesk.com/index.php",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://hewo.clonedesk.com/index.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

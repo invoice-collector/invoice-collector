@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KonicaMinoltaFrCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class KonicaMinoltaFrCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://ds-ecommerce.konicaminolta.fr/fr-fr/invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://ds-ecommerce.konicaminolta.fr/fr-fr/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

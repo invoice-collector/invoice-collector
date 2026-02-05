@@ -1,5 +1,5 @@
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LaMetropoleMobiliteCollector extends SketchCollector {
 
@@ -25,7 +25,10 @@ export class LaMetropoleMobiliteCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://is.sso.prod.instant-system.com/auth/realms/61/protocol/openid-connect/auth?redirect_uri=https%3A%2F%2Fwww.lametropolemobilite.fr%2Ffr%2Fsignedin&client_id=instant-account&response_type=code&ui_locales=fr",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

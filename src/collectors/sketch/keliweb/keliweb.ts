@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KeliwebCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class KeliwebCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.keliweb.it/billing/clientarea.php",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.keliweb.it/billing/clientarea.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

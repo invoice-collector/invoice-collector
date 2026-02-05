@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DcHealthLinkCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DcHealthLinkCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://enroll.dchealthlink.com/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://enroll.dchealthlink.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

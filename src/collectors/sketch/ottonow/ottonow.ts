@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OttonowCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class OttonowCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://ottonow.de/konto/vertraege/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://ottonow.de/konto/vertraege/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

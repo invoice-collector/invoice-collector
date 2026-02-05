@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MolkereiRuckerCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MolkereiRuckerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://aur.milcherzeuger.info/anmelden",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://aur.milcherzeuger.info/anmelden",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

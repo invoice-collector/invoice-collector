@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LeBienPublicCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class LeBienPublicCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://c.bienpublic.com/espace-client/mes-factures",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://c.bienpublic.com/espace-client/mes-factures",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

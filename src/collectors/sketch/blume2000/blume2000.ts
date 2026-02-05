@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Blume2000Collector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class Blume2000Collector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.blume2000.de/index.php?cl=account&fnc=showOrders",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.blume2000.de/index.php?cl=account&fnc=showOrders",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

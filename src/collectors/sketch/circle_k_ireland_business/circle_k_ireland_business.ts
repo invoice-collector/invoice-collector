@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CircleKIrelandBusinessCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CircleKIrelandBusinessCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.circlek.ie/business/fuel-card/login-to-your-account/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.circlek.ie/business/fuel-card/login-to-your-account/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

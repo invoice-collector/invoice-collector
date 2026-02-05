@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FrameIoCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class FrameIoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.frame.io/welcome",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.frame.io/welcome",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

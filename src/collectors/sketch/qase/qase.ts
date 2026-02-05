@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class QaseCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class QaseCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.qase.io/billing/history",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.qase.io/billing/history",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

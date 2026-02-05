@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FlinkCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class FlinkCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.goflink.com/de-DE/account/order-details/ea933e44-7ecc-4fbc-9790-ecd9e700d016/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.goflink.com/de-DE/account/order-details/ea933e44-7ecc-4fbc-9790-ecd9e700d016/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

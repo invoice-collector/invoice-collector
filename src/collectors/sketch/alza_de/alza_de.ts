@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AlzaDeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AlzaDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.alza.de/mein-konto/bestellungen.htm",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.alza.de/mein-konto/bestellungen.htm",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

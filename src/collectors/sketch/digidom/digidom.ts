@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DigidomCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DigidomCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.digidom.pro/document",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.digidom.pro/document",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

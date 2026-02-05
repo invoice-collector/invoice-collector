@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WpmuDevCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class WpmuDevCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://premium.wpmudev.org/hub/account/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://premium.wpmudev.org/hub/account/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

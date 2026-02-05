@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KelaKeckAndLangGmbhCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class KelaKeckAndLangGmbhCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://b2b.kela.de/html/de/customerDocumentList-customerDocumentListId-invoice.html",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://b2b.kela.de/html/de/customerDocumentList-customerDocumentListId-invoice.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

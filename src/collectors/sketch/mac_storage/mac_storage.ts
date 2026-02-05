@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MacStorageCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MacStorageCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.mac-storage.de/Blog/Wartungsarbeiten",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.mac-storage.de/Blog/Wartungsarbeiten",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MaxxprintCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MaxxprintCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://maxxprint.de/account/orders",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://maxxprint.de/account/orders",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

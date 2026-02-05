@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HighmarkBlueCrossBlueShieldHealthInsuranceCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class HighmarkBlueCrossBlueShieldHealthInsuranceCollector extends SketchC
                 mandatory: true
             }
         },
-        entryUrl: "https://employer.highmark.com/billing/group/invoice",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://employer.highmark.com/billing/group/invoice",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

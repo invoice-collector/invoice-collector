@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Wochenmarkt24Collector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class Wochenmarkt24Collector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.wochenmarkt24.de/shop/rechnungen",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.wochenmarkt24.de/shop/rechnungen",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ColtCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ColtCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://dcp.colt.net/myBillsView/viewInvoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://dcp.colt.net/myBillsView/viewInvoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

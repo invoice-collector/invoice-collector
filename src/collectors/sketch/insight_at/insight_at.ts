@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class InsightAtCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class InsightAtCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://at.insight.com/de/apps/account/invoices.php",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://at.insight.com/de/apps/account/invoices.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

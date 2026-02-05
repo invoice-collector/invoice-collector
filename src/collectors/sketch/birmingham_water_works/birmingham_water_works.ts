@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BirminghamWaterWorksCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BirminghamWaterWorksCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://web.bwwb.org/myaccount",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://web.bwwb.org/myaccount",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

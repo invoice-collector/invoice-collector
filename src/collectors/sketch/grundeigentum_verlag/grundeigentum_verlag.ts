@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GrundeigentumVerlagCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class GrundeigentumVerlagCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://premium.grundeigentum-verlag.de/zugang/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://premium.grundeigentum-verlag.de/zugang/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

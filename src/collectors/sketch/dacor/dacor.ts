@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DacorCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DacorCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://dacor.de/kundenportal/konto.php",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://dacor.de/kundenportal/konto.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

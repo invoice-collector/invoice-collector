@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FathomVideoCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class FathomVideoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://fathom.video/users/sign_in",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://fathom.video/users/sign_in",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

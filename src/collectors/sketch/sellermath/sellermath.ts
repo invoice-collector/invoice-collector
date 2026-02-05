@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SellermathCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SellermathCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://system.seller-math.com/sellermath/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://system.seller-math.com/sellermath/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

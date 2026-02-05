@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HelplingCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class HelplingCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.helpling.de/invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.helpling.de/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

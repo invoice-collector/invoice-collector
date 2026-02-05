@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SmartbrokerPartnerprogrammCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SmartbrokerPartnerprogrammCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://partner.net.smartbroker.de/app/index.html#/account/payments",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://partner.net.smartbroker.de/app/index.html#/account/payments",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

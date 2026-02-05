@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WatiCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class WatiCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://wati.chargebee.com/portal/v2/billing_history?source=home",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://wati.chargebee.com/portal/v2/billing_history?source=home",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

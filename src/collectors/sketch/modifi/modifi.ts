@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ModifiCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ModifiCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://billing.modifi.com/invoices/buyer-finance",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://billing.modifi.com/invoices/buyer-finance",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

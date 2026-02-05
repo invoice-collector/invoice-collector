@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ElektroMosterCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ElektroMosterCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://moster.elektro-online.de/shop/myorders/get.html",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://moster.elektro-online.de/shop/myorders/get.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

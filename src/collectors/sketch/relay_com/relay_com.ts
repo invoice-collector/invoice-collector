@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RelayComCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class RelayComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.relay.com/mon-compte.html?ReturnUrl=%2fdefault.aspx",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.relay.com/mon-compte.html?ReturnUrl=%2fdefault.aspx",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

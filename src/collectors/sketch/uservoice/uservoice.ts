@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class UservoiceCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class UservoiceCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.billingportal.com/s/uservoice/invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.billingportal.com/s/uservoice/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

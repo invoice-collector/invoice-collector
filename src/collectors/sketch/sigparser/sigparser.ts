@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SigparserCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SigparserCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.sigparser.com/Account/App#/billing",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.sigparser.com/Account/App#/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

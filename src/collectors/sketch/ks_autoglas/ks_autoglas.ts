@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KsAutoglasCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class KsAutoglasCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.ks-partnersystem.de/FranchiseDocumentManagement?WindowId=1696cd77-7653-4467-9e4d-27835714f0fc",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.ks-partnersystem.de/FranchiseDocumentManagement?WindowId=1696cd77-7653-4467-9e4d-27835714f0fc",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

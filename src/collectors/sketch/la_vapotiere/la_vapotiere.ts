@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LaVapotiereCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class LaVapotiereCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.la-vapotiere.fr/connexion?back=my-account",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.la-vapotiere.fr/connexion?back=my-account",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

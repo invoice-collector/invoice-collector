@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SignalIdunaCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SignalIdunaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://sb-serviceframe.ui.signal-iduna.org/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://sb-serviceframe.ui.signal-iduna.org/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HuntressCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class HuntressCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://idt.huntress.io/account/invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://idt.huntress.io/account/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Ipostal1Collector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class Ipostal1Collector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://ipostal1.com/secure-store-login.php",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://ipostal1.com/secure-store-login.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

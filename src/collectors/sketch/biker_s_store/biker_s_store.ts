@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BikerSStoreCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BikerSStoreCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.bikers-store.fr/client.html",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.bikers-store.fr/client.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

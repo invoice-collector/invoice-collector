@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AlexanderBurkleCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AlexanderBurkleCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://alexander-buerkle.com/de-de/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://alexander-buerkle.com/de-de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

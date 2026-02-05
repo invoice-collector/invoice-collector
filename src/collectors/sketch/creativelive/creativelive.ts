@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CreativeliveCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CreativeliveCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.creativelive.com",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "http://www.creativelive.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

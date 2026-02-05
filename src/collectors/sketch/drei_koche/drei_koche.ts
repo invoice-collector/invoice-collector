@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DreiKocheCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DreiKocheCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://bestellen.drei-koeche.de/pages/dokumente",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://bestellen.drei-koeche.de/pages/dokumente",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

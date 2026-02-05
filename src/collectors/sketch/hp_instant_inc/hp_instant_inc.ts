@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HpInstantIncCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class HpInstantIncCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://instantink.hpconnected.com/users/signin?redirect=isep_or_same_origin&theme=RWD",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://instantink.hpconnected.com/users/signin?redirect=isep_or_same_origin&theme=RWD",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

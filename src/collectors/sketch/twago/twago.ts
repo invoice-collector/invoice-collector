@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TwagoCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TwagoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.twago.de/authenticate",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.twago.de/authenticate",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

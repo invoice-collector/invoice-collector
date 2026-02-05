@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class UprightNowecorCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class UprightNowecorCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://upright.nowecor.de/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://upright.nowecor.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

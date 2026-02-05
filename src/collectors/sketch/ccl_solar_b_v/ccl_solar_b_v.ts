@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CclSolarBVCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CclSolarBVCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.cclsolar.eu/Home/AgedDebt",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.cclsolar.eu/Home/AgedDebt",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

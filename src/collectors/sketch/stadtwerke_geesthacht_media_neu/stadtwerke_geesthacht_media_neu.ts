@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StadtwerkeGeesthachtMediaNeuCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class StadtwerkeGeesthachtMediaNeuCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://media-portal.stadtwerke-geesthacht.de/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://media-portal.stadtwerke-geesthacht.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

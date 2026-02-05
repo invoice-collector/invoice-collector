@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HmdSoftwareAgCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class HmdSoftwareAgCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.netarchiv.eu/doLogin.php?inline=0&lang=de&addresscode=&code=&demo=0",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.netarchiv.eu/doLogin.php?inline=0&lang=de&addresscode=&code=&demo=0",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

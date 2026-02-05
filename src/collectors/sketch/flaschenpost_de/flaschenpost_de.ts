@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FlaschenpostDeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class FlaschenpostDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.flaschenpost.de/Account/Overview",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.flaschenpost.de/Account/Overview",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

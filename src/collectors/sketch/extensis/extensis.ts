@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ExtensisCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ExtensisCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://secure.extensis.com/loginpage",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://secure.extensis.com/loginpage",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

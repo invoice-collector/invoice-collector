@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AthenaGlobalServicesCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AthenaGlobalServicesCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.athena-gs.fr/frontOffice/historique_commandes.php",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.athena-gs.fr/frontOffice/historique_commandes.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

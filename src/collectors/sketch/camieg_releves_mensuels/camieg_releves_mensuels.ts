@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CamiegRelevesMensuelsCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CamiegRelevesMensuelsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://assure.ameli.fr/PortailAS/appmanager/PortailAS/assure?_somtc=true",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://assure.ameli.fr/PortailAS/appmanager/PortailAS/assure?_somtc=true",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

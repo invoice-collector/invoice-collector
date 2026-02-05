@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TiktokAdsCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TiktokAdsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://ads.tiktok.com/i18n/account/payment",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://ads.tiktok.com/i18n/account/payment",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

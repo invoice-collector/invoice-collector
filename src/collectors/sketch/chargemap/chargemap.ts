@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ChargemapCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ChargemapCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://fr.chargemap.com/user/invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://fr.chargemap.com/user/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

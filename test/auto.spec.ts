@@ -2,17 +2,24 @@ import dotenv from 'dotenv';
 dotenv.config();
 import promptSync from 'prompt-sync';
 const prompt = promptSync({});
+import http from 'http';
+import readline from 'readline';
 import { expect, describe } from '@jest/globals';
 import { CollectorLoader } from '../src/collectors/collectorLoader';
 import { AuthenticationError } from '../src/error';
-import { Secret } from '../src/secret_manager/abstractSecretManager';
-import { Collect } from '../src/collect/collect';
 import { State } from '../src/model/state';
-import { CollectorType } from '../src/collectors/abstractCollector';
+import { AbstractCollector, CollectorType, Config } from '../src/collectors/abstractCollector';
+import { TwofaPromise } from '../src/collect/twofaPromise';
+import * as utils from '../src/utils';
+import { I18n } from '../src/i18n';
+import { WebSocketServer } from '../src/websocket/webSocketServer';
+import { WebCollector } from '../src/collectors/webCollector';
+import { Secret } from '../src/model/secret';
 
 const id = process.argv[4] || null;
 const ONE_MINUTE = 60 * 1000;       // 1 minute in milliseconds
 const TWO_MINUTES = 2 * ONE_MINUTE; // 2 minutes in milliseconds
+const PORT = parseInt(utils.getEnvVar('PORT')) + 1;
 
 // Check if id is provided
 if (!id) {
@@ -24,6 +31,62 @@ else {
     const loadedCollectors = await CollectorLoader.load(id);
     if (loadedCollectors.size === 0) {
         throw new Error(`No collectors found with id: ${id}`);
+    }
+}
+// Start readline interface for async prompt
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+
+async function createWebsocketClientAndServer(collector: AbstractCollector<Config>): Promise<{
+    webSocketServer: WebSocketServer,
+    webSocketClient: WebSocket
+}> {
+    // Create an http server to handle web socket connections
+    const httpServer = http.createServer();
+    httpServer.listen(PORT, () => {
+        console.log(`HTTP server listening on port ${PORT}`);
+    });
+
+    // Instanciate web socket server
+    const webSocketServer = new WebSocketServer(httpServer, I18n.DEFAULT_LOCALE, collector);
+    const webSocketPath = webSocketServer.start();
+
+    // Connect to web socket server
+    const webSocketClient = new WebSocket(`ws://localhost:${PORT}${webSocketPath}`);
+    webSocketClient.addEventListener('open', () => {
+        let isFirstScreenshot = true;
+        webSocketClient.addEventListener('message', async (message) => {
+            const parsedData = JSON.parse(message.data.toString());
+            if(parsedData.type == "screenshot") {
+                if(isFirstScreenshot) {
+                    isFirstScreenshot = false;
+
+                    console.log("Login to the website and press Enter to continue...");
+
+                    // Listen for user input asynchronously
+                    rl.on('line', (input) => {
+                        // Send close message to server
+                        webSocketClient.send(JSON.stringify({ type: 'interactive', reason: 'close' }));
+                        // Close readline interface
+                        rl.close();
+                    });
+                }
+            }
+            else if(parsedData.type == "state" && parsedData.state.index == 3) {
+                // Wait until main thread is waiting for twofa code
+                while (webSocketServer.onTwofa == undefined) {
+                    await utils.delay(1000);
+                }
+                const twofa_code = prompt(`${parsedData.state.message}: `).trim();
+                webSocketClient.send(JSON.stringify({ type: 'twofa', twofa: twofa_code }));
+            }
+        });
+    });
+    return {
+        webSocketServer,
+        webSocketClient
     }
 }
 
@@ -39,76 +102,73 @@ for (const collectorConfig of await CollectorLoader.getAll()) {
 
         describe(`${id} tests`, () => {
             it('Login with incorrect email format', async () => {
-                const secret: Secret = {
+                const secret: Secret = new Secret("", {
                     params: {
                         email: 'incorrect_format_email',
                         password: 'fake_password'
                     },
                     cookies: null,
                     localStorage: null
-                };
+                });
 
                 // Collect invoices
-                const collect = new Collect("", undefined)
-                collect.state = State.DEFAULT_STATE;
                 await expect(collector.collect_new_invoices(
-                    collect.state,
-                    collect.twofa_promise,
+                    State.DEFAULT_STATE,
+                    new TwofaPromise(),
                     undefined,
                     secret,
                     Date.UTC(2000, 0, 1),
                     [],
-                    null
+                    null,
+                    false
                 ))
                     .rejects.toThrow(AuthenticationError);
             }, ONE_MINUTE);
 
             it('Login with non-existing account', async () => {
-                const secret: Secret = {
+                const secret: Secret = new Secret("", {
                     params: {
                         email: 'fake@email.com',
                         password: 'fake_password'
                     },
                     cookies: null,
                     localStorage: null
-                };
+                });
 
                 // Collect invoices
-                const collect = new Collect("", undefined)
-                collect.state = State.DEFAULT_STATE;
                 await expect(collector.collect_new_invoices(
-                    collect.state,
-                    collect.twofa_promise,
+                    State.DEFAULT_STATE,
+                    new TwofaPromise(),
                     undefined,
                     secret,
                     Date.UTC(2000, 0, 1),
                     [],
-                    null
+                    null,
+                    false
                 ))
                     .rejects.toThrow(AuthenticationError);
             }, ONE_MINUTE);
 
             it('Login with wrong password', async () => {
-                const secret: Secret = {
+                const secret: Secret = new Secret("", {
                     params: {
                         email: 'real@email.com',
                         password: 'fake_password'
                     },
                     cookies: null,
                     localStorage: null
-                };
+                });
 
                 // Collect invoices
-                const collect = new Collect("", undefined)
-                collect.state = State.DEFAULT_STATE;
                 await expect(collector.collect_new_invoices(
-                    collect.state,
-                    collect.twofa_promise,
+                    State.DEFAULT_STATE,
+                    new TwofaPromise(),
                     undefined,
                     secret,
                     Date.UTC(2000, 0, 1),
                     [],
-                    null
+                    null,
+                    false
                 ))
                     .rejects.toThrow(AuthenticationError);
             }, ONE_MINUTE);
@@ -116,40 +176,34 @@ for (const collectorConfig of await CollectorLoader.getAll()) {
             let testSecret : Secret | undefined = undefined;
 
             it('Login with correct credentials, no cookies', async () => {
-                const secret: Secret = {
+                const secret: Secret = new Secret("", {
                     params: {
                         email: 'real@email.com',
                         password: 'real_password'
                     },
                     cookies: null,
                     localStorage: null
-                };
-
-                // Collect invoices
-                const collect = new Collect("", undefined)
-                collect.state = State.DEFAULT_STATE;
-
-                // Define what to do on 2FA
-                collect.twofa_promise.instructions().then((twofa_instruction) => {
-                    const twofa_code = prompt(`${twofa_instruction}: `);
-                    collect.twofa_promise.setCode(twofa_code);
                 });
 
+                // Instanciate web socket client and server
+                const { webSocketServer, webSocketClient } = await createWebsocketClientAndServer(collector);
+
                 await collector.collect_new_invoices(
-                    collect.state,
-                    collect.twofa_promise,
-                    undefined,
+                    State.DEFAULT_STATE,
+                    new TwofaPromise(),
+                    webSocketServer,
                     secret,
                     Date.UTC(2000, 0, 1),
                     [],
-                    null
+                    null,
+                    false
                 );
 
                 // Assert cookies are not null
-                expect(secret.cookies).not.toBeNull();
+                expect(await secret.getCookies()).not.toBeNull();
 
                 // Assert localStorage are not null
-                expect(secret.localStorage).not.toBeNull();
+                expect(await secret.getLocalStorage()).not.toBeNull();
 
                 // Save secret if collect is successful
                 testSecret = secret;
@@ -161,17 +215,19 @@ for (const collectorConfig of await CollectorLoader.getAll()) {
                     throw new Error(`Skipping test as previous test failed.`);
                 }
 
+                // Instanciate web socket client and server
+                const { webSocketServer, webSocketClient } = await createWebsocketClientAndServer(collector);
+
                 // Collect invoices
-                const collect = new Collect("", undefined)
-                collect.state = State.DEFAULT_STATE;
                 await collector.collect_new_invoices(
-                    collect.state,
-                    collect.twofa_promise,
-                    undefined,
+                    State.DEFAULT_STATE,
+                    new TwofaPromise(),
+                    webSocketServer,
                     testSecret,
                     Date.UTC(2000, 0, 1),
                     [],
-                    null
+                    null,
+                    false
                 );
             }, TWO_MINUTES);
         });

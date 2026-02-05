@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AllogaCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AllogaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.alloga.fr/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.alloga.fr/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

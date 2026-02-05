@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DropshipIoCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DropshipIoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.dropship.io/setting/billing",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.dropship.io/setting/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

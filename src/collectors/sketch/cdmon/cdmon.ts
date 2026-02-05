@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CdmonCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CdmonCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://admin.cdmon.com/ca/facturacio/llistat-factures",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://admin.cdmon.com/ca/facturacio/llistat-factures",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

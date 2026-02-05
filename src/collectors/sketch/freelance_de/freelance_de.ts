@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FreelanceDeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class FreelanceDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.freelance.de/account/edit_payment_data.php",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.freelance.de/account/edit_payment_data.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

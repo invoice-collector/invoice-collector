@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TeslaBusinessCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TeslaBusinessCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.tesla.com/teslaaccount/business",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.tesla.com/teslaaccount/business",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

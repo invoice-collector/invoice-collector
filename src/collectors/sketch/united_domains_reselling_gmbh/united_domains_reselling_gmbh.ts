@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class UnitedDomainsResellingGmbhCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class UnitedDomainsResellingGmbhCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://domainreselling.de/index.php?p=finance",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://domainreselling.de/index.php?p=finance",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

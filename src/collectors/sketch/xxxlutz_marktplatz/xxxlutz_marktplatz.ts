@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class XxxlutzMarktplatzCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class XxxlutzMarktplatzCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://marketplace.xxxlgroup.com/sellerpayment/shop/accounting-document/list?sort=issueDate%2CDESC&limit=25",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://marketplace.xxxlgroup.com/sellerpayment/shop/accounting-document/list?sort=issueDate%2CDESC&limit=25",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

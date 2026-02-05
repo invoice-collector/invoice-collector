@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class B2vRetraitePrevoyanceLaFirmeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class B2vRetraitePrevoyanceLaFirmeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.b2v.fr/entreprises/espace-client",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.b2v.fr/entreprises/espace-client",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

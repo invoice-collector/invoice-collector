@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PubnubCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PubnubCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://admin.pubnub.com/#/user/573012/account/572963/plans-and-billing?tab=invoices-and-costs",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://admin.pubnub.com/#/user/573012/account/572963/plans-and-billing?tab=invoices-and-costs",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

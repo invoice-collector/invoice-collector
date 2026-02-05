@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TanatCoffeeKawaProCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TanatCoffeeKawaProCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://pro.kawa.coffee/mon-compte/orders",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://pro.kawa.coffee/mon-compte/orders",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

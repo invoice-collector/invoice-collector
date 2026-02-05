@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PgworksCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PgworksCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://myaccount.pgworks.com/Portal/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://myaccount.pgworks.com/Portal/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

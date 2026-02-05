@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KeyyoCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class KeyyoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://manager.keyyo.com/manage/invoices/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://manager.keyyo.com/manage/invoices/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MarmosetCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MarmosetCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://account.marmoset.co/orders?63lvh5yg66sgu6jswt4224rrva=qkz5clxxhgeegpkwqbdthbuokq",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://account.marmoset.co/orders?63lvh5yg66sgu6jswt4224rrva=qkz5clxxhgeegpkwqbdthbuokq",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

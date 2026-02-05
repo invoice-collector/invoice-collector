@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EspaceFamilleArpegeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class EspaceFamilleArpegeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://espaceclients.arpege.fr/Accueil/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://espaceclients.arpege.fr/Accueil/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

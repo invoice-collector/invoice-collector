@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Km3Collector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class Km3Collector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.internet.km3.de/Login/007-28062/007-28062/rechnungen",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.internet.km3.de/Login/007-28062/007-28062/rechnungen",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

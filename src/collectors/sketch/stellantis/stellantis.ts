@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StellantisCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class StellantisCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.madd.stellantis.com/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.madd.stellantis.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LinkMobilityCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class LinkMobilityCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.linkmobility.eu/de-AT/#/settings/profile",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.linkmobility.eu/de-AT/#/settings/profile",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SearchviuGmbhCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SearchviuGmbhCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://billing.stripe.com/p/session/live_YWNjdF8xSHpscFdMWmtEczdSVWJmLF9OU25pVzZLZlFQRktMejlhcmdwSG92Rlc0UUJzQ0po01003ESql5Aq",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://billing.stripe.com/p/session/live_YWNjdF8xSHpscFdMWmtEczdSVWJmLF9OU25pVzZLZlFQRktMejlhcmdwSG92Rlc0UUJzQ0po01003ESql5Aq",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KsrCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class KsrCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://shop.ksr-group.com/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://shop.ksr-group.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

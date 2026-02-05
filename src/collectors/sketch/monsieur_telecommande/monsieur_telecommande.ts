@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MonsieurTelecommandeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MonsieurTelecommandeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.telecommande.com/login.php",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.telecommande.com/login.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

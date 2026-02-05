@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AirtimeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AirtimeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://airtame.cloud/account",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://airtame.cloud/account",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

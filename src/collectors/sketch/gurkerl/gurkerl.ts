@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GurkerlCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class GurkerlCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.gurkerl.at/benutzer/profil",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.gurkerl.at/benutzer/profil",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

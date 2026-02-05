@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AlleaktienCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AlleaktienCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.alleaktien.de/account",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.alleaktien.de/account",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

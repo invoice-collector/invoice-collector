@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ChronotruckCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ChronotruckCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.chronotruck.com/fr_FR/connexion",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.chronotruck.com/fr_FR/connexion",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

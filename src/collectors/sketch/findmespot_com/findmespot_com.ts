@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FindmespotComCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class FindmespotComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://login.findmespot.com/spot-main-web/auth/login.html",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://login.findmespot.com/spot-main-web/auth/login.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class _360comsBillingCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class _360comsBillingCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://360coms.enlighten-online.net/EnlightenInvoice",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://360coms.enlighten-online.net/EnlightenInvoice",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

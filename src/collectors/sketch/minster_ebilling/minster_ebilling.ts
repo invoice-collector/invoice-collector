@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MinsterEbillingCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MinsterEbillingCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://billing.minsteronline.co.uk/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://billing.minsteronline.co.uk/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

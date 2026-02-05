@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SmunchShiverNebulaCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SmunchShiverNebulaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.smunch.co/invoices/company",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://my.smunch.co/invoices/company",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

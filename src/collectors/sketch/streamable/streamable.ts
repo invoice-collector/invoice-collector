@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StreamableCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class StreamableCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://streamable.com/payments",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://streamable.com/payments",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

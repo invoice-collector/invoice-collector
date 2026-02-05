@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OutrankingCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class OutrankingCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://apps.outranking.io/accountsetting/subscription",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://apps.outranking.io/accountsetting/subscription",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

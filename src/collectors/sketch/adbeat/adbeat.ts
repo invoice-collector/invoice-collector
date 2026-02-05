@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AdbeatCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AdbeatCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://adbeat.com/user-profile/billing_history",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://adbeat.com/user-profile/billing_history",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

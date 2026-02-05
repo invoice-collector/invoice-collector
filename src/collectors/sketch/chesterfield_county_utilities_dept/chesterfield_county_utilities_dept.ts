@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ChesterfieldCountyUtilitiesDeptCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ChesterfieldCountyUtilitiesDeptCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.chesterfield.gov/236/Utilities",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.chesterfield.gov/236/Utilities",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

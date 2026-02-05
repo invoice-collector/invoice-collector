@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TestingTimeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TestingTimeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.testingtime.com/web/customer/dashboard",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.testingtime.com/web/customer/dashboard",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

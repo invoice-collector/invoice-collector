@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CaiwayCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CaiwayCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://mijn.caiway.nl/general.logOn.logic",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://mijn.caiway.nl/general.logOn.logic",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

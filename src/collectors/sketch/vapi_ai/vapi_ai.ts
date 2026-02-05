@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VapiAiCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class VapiAiCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://dashboard.vapi.ai/settings/billing",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://dashboard.vapi.ai/settings/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

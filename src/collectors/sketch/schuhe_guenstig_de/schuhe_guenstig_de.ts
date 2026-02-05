@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SchuheGuenstigDeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SchuheGuenstigDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.schuhe-guenstig.de/mein-konto",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.schuhe-guenstig.de/mein-konto",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

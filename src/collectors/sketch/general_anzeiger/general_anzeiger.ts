@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GeneralAnzeigerCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class GeneralAnzeigerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://id.ga.de/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://id.ga.de/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

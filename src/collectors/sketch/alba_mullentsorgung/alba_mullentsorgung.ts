@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AlbaMullentsorgungCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AlbaMullentsorgungCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.albaclick.de/invoice?customerId=50-9145486",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.albaclick.de/invoice?customerId=50-9145486",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

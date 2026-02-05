@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PilotComputerCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PilotComputerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://shop.pilot-computer.de/index.php/~customerCenter_InvoiceOrderController/start/invoice",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://shop.pilot-computer.de/index.php/~customerCenter_InvoiceOrderController/start/invoice",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Shk4youPietschGruppeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class Shk4youPietschGruppeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.shk-4you.de/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.shk-4you.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

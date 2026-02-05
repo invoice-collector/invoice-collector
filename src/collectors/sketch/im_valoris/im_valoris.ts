@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ImValorisCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ImValorisCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://extranet2.ics.fr/V5/connexion-imvaloris.html",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://extranet2.ics.fr/V5/connexion-imvaloris.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

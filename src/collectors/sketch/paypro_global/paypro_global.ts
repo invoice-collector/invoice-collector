@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PayproGlobalCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PayproGlobalCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://cc.payproglobal.com/Account/Login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://cc.payproglobal.com/Account/Login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NiniteProCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class NiniteProCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://ninite.com/me/invoices/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://ninite.com/me/invoices/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

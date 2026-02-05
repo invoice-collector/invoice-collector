@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GeoTargetlyCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class GeoTargetlyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://dashboard.geotargetly.com/credits",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://dashboard.geotargetly.com/credits",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

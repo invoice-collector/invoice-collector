@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HiverCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class HiverCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://v2.hiverhq.com/account/paymenthistory",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://v2.hiverhq.com/account/paymenthistory",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

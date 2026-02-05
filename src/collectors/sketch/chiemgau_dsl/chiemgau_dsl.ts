@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ChiemgauDslCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ChiemgauDslCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://chiemgau-dsl.info/portal.html",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "http://chiemgau-dsl.info/portal.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

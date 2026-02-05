@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MutuelleCcmoCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MutuelleCcmoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://espace-adherent.ccmo.fr/login#/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://espace-adherent.ccmo.fr/login#/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

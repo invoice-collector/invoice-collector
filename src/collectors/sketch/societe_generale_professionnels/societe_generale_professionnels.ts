@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SocieteGeneraleProfessionnelsCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SocieteGeneraleProfessionnelsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://professionnels.secure.societegenerale.fr/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://professionnels.secure.societegenerale.fr/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

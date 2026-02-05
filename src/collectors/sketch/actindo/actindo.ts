@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ActindoCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ActindoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.actindo.biz/actindo/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.actindo.biz/actindo/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

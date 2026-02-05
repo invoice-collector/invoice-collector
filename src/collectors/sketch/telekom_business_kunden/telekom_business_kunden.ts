@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TelekomBusinessKundenCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TelekomBusinessKundenCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.rechnung-online-business.telekom.de/dtroot/login/loginpage.htm",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.rechnung-online-business.telekom.de/dtroot/login/loginpage.htm",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

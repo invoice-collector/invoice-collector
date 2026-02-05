@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AnnyCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AnnyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.anny.co",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.anny.co",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CityOfHighPointUtilitiesCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CityOfHighPointUtilitiesCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://ipn2.paymentus.com/cp/view-bill-history.action?accountId=26433035&accthid=Haz2JlD41WY1AVc_AoAI7a9nmgk&liabilityId=0&liabilityHid=JVihZwQSTrup151_nAV5sAGDHzA&CSRF_TOKEN=1603725584630-e3c920db54120e9d096a271b8819a892",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://ipn2.paymentus.com/cp/view-bill-history.action?accountId=26433035&accthid=Haz2JlD41WY1AVc_AoAI7a9nmgk&liabilityId=0&liabilityHid=JVihZwQSTrup151_nAV5sAGDHzA&CSRF_TOKEN=1603725584630-e3c920db54120e9d096a271b8819a892",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

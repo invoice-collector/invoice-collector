@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EdelkroneCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class EdelkroneCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://edelkrone.eu/account/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://edelkrone.eu/account/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

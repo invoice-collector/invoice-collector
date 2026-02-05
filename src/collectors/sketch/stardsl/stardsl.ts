@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StardslCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class StardslCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.stardsl.net/anmeldung/servlet/Cif1?func=13&subc=show&template=202",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.stardsl.net/anmeldung/servlet/Cif1?func=13&subc=show&template=202",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

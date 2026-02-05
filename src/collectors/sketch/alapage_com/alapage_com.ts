@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AlapageComCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AlapageComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://fr.shopping.rakuten.com/connect?action=login&c=80",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://fr.shopping.rakuten.com/connect?action=login&c=80",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

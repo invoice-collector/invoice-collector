@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HhvCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class HhvCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.hhv.de/shop/de/bestellung/61999-86238",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.hhv.de/shop/de/bestellung/61999-86238",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

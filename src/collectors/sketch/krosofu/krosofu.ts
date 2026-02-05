@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KrosofuCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class KrosofuCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.krosfou.fr/historique-commandes",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.krosfou.fr/historique-commandes",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

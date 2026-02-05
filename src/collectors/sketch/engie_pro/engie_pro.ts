@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EngieProCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class EngieProCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://espace-client.pro.engie.fr/mes-factures",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://espace-client.pro.engie.fr/mes-factures",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

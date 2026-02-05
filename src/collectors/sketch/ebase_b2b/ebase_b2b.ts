@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EbaseB2bCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class EbaseB2bCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portal.ebase.com/(e2)/eop/tools-reports/bestandscontrolling/weitere-auswertungen/vermittlerpostkorb",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://portal.ebase.com/(e2)/eop/tools-reports/bestandscontrolling/weitere-auswertungen/vermittlerpostkorb",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

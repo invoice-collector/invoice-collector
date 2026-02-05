@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GulpDeGutschriftstoolCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class GulpDeGutschriftstoolCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.gulp.de/gstool",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.gulp.de/gstool",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

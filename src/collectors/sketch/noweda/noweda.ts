@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NowedaCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class NowedaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.noweda.de/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.noweda.de/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SuddenlinkCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SuddenlinkCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://account.suddenlink.net/my-account/mybill/viewstatements.html",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://account.suddenlink.net/my-account/mybill/viewstatements.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

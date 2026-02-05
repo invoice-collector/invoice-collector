@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BeyondwordsCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BeyondwordsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://dash.beyondwords.io/dashboard/profile/billing",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://dash.beyondwords.io/dashboard/profile/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

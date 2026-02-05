@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CompaniesHouseCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CompaniesHouseCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://ebilling.companieshouse.gov.uk/customer-portal/signin.html",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://ebilling.companieshouse.gov.uk/customer-portal/signin.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

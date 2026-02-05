@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GametradeDistribuzioneCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class GametradeDistribuzioneCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.gametrade.it/stato_pagamenti",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.gametrade.it/stato_pagamenti",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

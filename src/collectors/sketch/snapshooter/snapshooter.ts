@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SnapshooterCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SnapshooterCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://snapshooter.io/dashboard/settings/billing/plans",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://snapshooter.io/dashboard/settings/billing/plans",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OsmozisCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class OsmozisCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://console.osmozis.com/fr/cccfc8ce9c/inc_invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://console.osmozis.com/fr/cccfc8ce9c/inc_invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

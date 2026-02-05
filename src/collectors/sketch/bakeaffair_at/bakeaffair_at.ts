@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BakeaffairAtCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BakeaffairAtCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "www.bakeaffair.at",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "www.bakeaffair.at",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

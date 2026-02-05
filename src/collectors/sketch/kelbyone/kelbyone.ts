@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KelbyoneCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class KelbyoneCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://members.kelbyone.com/account/orders/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://members.kelbyone.com/account/orders/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

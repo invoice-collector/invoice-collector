@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Lekkerland24Collector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class Lekkerland24Collector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.lekkerland24.de/index.php?cl=account_order",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.lekkerland24.de/index.php?cl=account_order",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

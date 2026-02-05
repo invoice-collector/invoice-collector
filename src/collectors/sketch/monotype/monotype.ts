@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MonotypeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MonotypeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://accounts.monotype.com/de/orders",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://accounts.monotype.com/de/orders",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

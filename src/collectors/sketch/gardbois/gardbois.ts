@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GardboisCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class GardboisCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.gardbois.fr/mon-compte/atoo-sync-documents/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.gardbois.fr/mon-compte/atoo-sync-documents/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

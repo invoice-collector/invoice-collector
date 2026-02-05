@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TwengaCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TwengaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.twenga-solutions.com/de/billing",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.twenga-solutions.com/de/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

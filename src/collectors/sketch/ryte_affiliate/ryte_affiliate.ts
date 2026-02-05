@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RyteAffiliateCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class RyteAffiliateCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://affiliate.ryte.com/billing",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://affiliate.ryte.com/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

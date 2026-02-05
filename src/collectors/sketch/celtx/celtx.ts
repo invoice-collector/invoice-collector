@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CeltxCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CeltxCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.celtx.com/a/ux/purchasehistory",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.celtx.com/a/ux/purchasehistory",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

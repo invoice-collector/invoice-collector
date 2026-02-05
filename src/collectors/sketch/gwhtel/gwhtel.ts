@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GwhtelCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class GwhtelCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portal.gwhtel.de/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://portal.gwhtel.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

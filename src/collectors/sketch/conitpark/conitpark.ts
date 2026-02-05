@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ConitparkCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ConitparkCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://pcard.mein-contipark.de/konto/transaktionen",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://pcard.mein-contipark.de/konto/transaktionen",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

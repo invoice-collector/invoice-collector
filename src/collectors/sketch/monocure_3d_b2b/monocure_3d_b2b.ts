@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Monocure3dB2bCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class Monocure3dB2bCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://b2b.monocure3d.com.au/my-account/orders/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://b2b.monocure3d.com.au/my-account/orders/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

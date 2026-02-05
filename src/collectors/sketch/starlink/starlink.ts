@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StarlinkCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class StarlinkCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.starlink.com/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.starlink.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

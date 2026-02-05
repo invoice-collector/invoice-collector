@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NetcologneCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class NetcologneCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://onlineservice.netcologne.de/portal/customer/invoice.htm",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://onlineservice.netcologne.de/portal/customer/invoice.htm",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

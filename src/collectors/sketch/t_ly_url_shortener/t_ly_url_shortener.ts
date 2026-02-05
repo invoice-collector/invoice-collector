@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TLyUrlShortenerCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TLyUrlShortenerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://t.ly/settings/teams/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://t.ly/settings/teams/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

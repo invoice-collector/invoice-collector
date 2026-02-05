@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GreenfiberInternetCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class GreenfiberInternetCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://kundenportal.greenfiber.de/Greenfiber/MeineRechnungen.cms?ActiveID=1002",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://kundenportal.greenfiber.de/Greenfiber/MeineRechnungen.cms?ActiveID=1002",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

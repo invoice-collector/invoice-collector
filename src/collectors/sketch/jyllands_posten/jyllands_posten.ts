@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class JyllandsPostenCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class JyllandsPostenCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://jyllands-posten.dk/login?returnUrl=%2F%3FloggedIn%3Dtrue%26loggedIn%3Dtrue",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://jyllands-posten.dk/login?returnUrl=%2F%3FloggedIn%3Dtrue%26loggedIn%3Dtrue",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

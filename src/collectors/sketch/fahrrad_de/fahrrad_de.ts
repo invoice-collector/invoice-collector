@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FahrradDeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class FahrradDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.fahrrad.de/login/?original=%2Fkundenkonto%2F",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.fahrrad.de/login/?original=%2Fkundenkonto%2F",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

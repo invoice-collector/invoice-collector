@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BvukDownloadPortsalCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BvukDownloadPortsalCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.bvuk.de/downloads/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.bvuk.de/downloads/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

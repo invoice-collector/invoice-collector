@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PixelFilmStudiosCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PixelFilmStudiosCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://store.pixelfilmstudios.com/my-account/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://store.pixelfilmstudios.com/my-account/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

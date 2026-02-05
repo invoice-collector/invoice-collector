@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SaasDeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SaasDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://desktop.saas.de/?locale=en",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://desktop.saas.de/?locale=en",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

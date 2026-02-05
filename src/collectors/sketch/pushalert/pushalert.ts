@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PushalertCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PushalertCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://pushalert.co/dashboard/billing",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://pushalert.co/dashboard/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AuxinumCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AuxinumCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://auxinum.tq-onis.de/Intern/Balance/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://auxinum.tq-onis.de/Intern/Balance/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

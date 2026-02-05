@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SmileAndPayCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SmileAndPayCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://espacepersonnel.smileandpay.com/view/invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://espacepersonnel.smileandpay.com/view/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

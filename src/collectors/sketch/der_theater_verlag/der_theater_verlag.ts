@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DerTheaterVerlagCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DerTheaterVerlagCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://shop.der-theaterverlag.de/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://shop.der-theaterverlag.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

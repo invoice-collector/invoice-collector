@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KanzleidriveCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class KanzleidriveCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.kanzleidrive.de/backoffice/office/accounting/subscriptions/invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.kanzleidrive.de/backoffice/office/accounting/subscriptions/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

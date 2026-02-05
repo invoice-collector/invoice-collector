@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ProbonioCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ProbonioCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.probonio.de/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.probonio.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

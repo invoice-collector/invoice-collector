@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PixelluCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PixelluCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://account.pixellu.com/checkout/purchase-history/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://account.pixellu.com/checkout/purchase-history/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Pax8Collector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class Pax8Collector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.pax8.com/billing?activeTab=Invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.pax8.com/billing?activeTab=Invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

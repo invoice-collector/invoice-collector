@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ChazeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ChazeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.chaze.io/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.chaze.io/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

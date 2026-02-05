@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RakutenFrCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class RakutenFrCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://fr.shopping.rakuten.com/usersecure?action=invoicesaction",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://fr.shopping.rakuten.com/usersecure?action=invoicesaction",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

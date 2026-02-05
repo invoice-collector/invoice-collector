@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DustinCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DustinCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.dustin.dk/orders/invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.dustin.dk/orders/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

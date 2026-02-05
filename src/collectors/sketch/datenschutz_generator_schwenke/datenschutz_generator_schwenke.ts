@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DatenschutzGeneratorSchwenkeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DatenschutzGeneratorSchwenkeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://datenschutz-generator.de/mein-konto/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://datenschutz-generator.de/mein-konto/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

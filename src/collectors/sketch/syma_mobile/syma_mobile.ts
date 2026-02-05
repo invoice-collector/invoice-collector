@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SymaMobileCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SymaMobileCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://mysyma.symamobile.com/my-syma.html?_gl=1*ctneys*_ga*OTc3MTE1ODQ5LjE2NzM1MTA2NjA.*_ga_K3EN73FKLK*MTY3MzUxMDY2MC4xLjAuMTY3MzUxMDY2MC42MC4wLjA.#payments-bills",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://mysyma.symamobile.com/my-syma.html?_gl=1*ctneys*_ga*OTc3MTE1ODQ5LjE2NzM1MTA2NjA.*_ga_K3EN73FKLK*MTY3MzUxMDY2MC4xLjAuMTY3MzUxMDY2MC42MC4wLjA.#payments-bills",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

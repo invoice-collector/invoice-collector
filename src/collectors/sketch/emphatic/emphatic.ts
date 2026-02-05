@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EmphaticCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class EmphaticCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://emphatic.co",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://emphatic.co",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

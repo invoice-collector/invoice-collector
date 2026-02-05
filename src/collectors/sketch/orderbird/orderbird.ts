@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OrderbirdCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class OrderbirdCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.orderbird.com/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://my.orderbird.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StonexCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class StonexCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://payments.stonex.com/einloggen.html",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://payments.stonex.com/einloggen.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

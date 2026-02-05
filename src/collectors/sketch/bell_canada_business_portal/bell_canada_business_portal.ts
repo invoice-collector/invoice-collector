@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BellCanadaBusinessPortalCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BellCanadaBusinessPortalCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://business.bell.ca/Self-Serve/secure/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://business.bell.ca/Self-Serve/secure/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

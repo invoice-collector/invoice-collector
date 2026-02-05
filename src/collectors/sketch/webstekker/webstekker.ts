@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WebstekkerCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class WebstekkerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://mijn.webstekker.nl/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://mijn.webstekker.nl/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

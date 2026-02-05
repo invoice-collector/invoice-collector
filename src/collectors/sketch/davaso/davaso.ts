@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DavasoCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DavasoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portal.davaso.de/portal/secure/postfach",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://portal.davaso.de/portal/secure/postfach",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

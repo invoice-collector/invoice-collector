@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AbeileAssurancesCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AbeileAssurancesCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.abeille-assurances.fr/espacepersonnel/MonCompte/Connexion",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.abeille-assurances.fr/espacepersonnel/MonCompte/Connexion",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class QuickmailCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class QuickmailCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://next.quickmail.io/account/901/settings/subscription",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://next.quickmail.io/account/901/settings/subscription",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

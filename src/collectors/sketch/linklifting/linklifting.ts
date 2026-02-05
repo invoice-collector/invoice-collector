@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LinkliftingCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class LinkliftingCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://linklifting.com/payments/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://linklifting.com/payments/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

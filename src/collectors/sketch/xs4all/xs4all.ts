@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Xs4allCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class Xs4allCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://inloggen.xs4all.nl/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://inloggen.xs4all.nl/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DentsplySironaCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DentsplySironaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.dentsplysirona.com/de-de/shop/nutzer/mein-konto/bestellhistorie.html",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.dentsplysirona.com/de-de/shop/nutzer/mein-konto/bestellhistorie.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

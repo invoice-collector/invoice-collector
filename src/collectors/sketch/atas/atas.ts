@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AtasCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AtasCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.atas.net/shop/plans",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://my.atas.net/shop/plans",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DekolightCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DekolightCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://shop.deko-light.com/account/order",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://shop.deko-light.com/account/order",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

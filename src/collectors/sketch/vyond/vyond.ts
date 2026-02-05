@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VyondCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class VyondCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://ga.vyond.com/login?r=%2Faccount%2Fbilling",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://ga.vyond.com/login?r=%2Faccount%2Fbilling",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

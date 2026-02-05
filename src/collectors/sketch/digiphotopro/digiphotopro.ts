@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DigiphotoproCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DigiphotoproCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://digiphotopro.de/registrierung",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://digiphotopro.de/registrierung",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KurpfalztelCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class KurpfalztelCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://kundenportal.kurpfalztel.de/DocumentArc/DocumentArchive",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://kundenportal.kurpfalztel.de/DocumentArc/DocumentArchive",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

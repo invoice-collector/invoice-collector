@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AmazonLogisticsCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AmazonLogisticsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://logistics.amazon.de/flexpayments/invoices?navMenuVariant=external",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://logistics.amazon.de/flexpayments/invoices?navMenuVariant=external",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

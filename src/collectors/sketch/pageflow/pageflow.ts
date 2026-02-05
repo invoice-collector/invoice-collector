@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PageflowCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PageflowCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://creator.hosted-pageflow.com/admin/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://creator.hosted-pageflow.com/admin/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WhatconvertsComCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class WhatconvertsComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.whatconverts.com/billing/invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.whatconverts.com/billing/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

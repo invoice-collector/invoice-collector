@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MarktplaatsNlCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MarktplaatsNlCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.marktplaats.nl/account/login.html?target=https%3A%2F%2Fwww.marktplaats.nl%2F",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.marktplaats.nl/account/login.html?target=https%3A%2F%2Fwww.marktplaats.nl%2F",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

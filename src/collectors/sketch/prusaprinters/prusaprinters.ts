@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PrusaprintersCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PrusaprintersCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://account.prusa3d.com/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://account.prusa3d.com/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

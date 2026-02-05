@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SwissmademarketingCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SwissmademarketingCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.swissmademarketing.com/apps/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.swissmademarketing.com/apps/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

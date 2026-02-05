@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KelkooCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class KelkooCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://merchants.extranet.kelkoo.net/de/registered/ViewInvoices.do",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://merchants.extranet.kelkoo.net/de/registered/ViewInvoices.do",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

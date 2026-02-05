@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WekaMediaCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class WekaMediaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.weka.de",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "http://www.weka.de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

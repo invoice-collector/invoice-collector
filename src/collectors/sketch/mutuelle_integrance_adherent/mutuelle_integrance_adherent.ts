@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MutuelleIntegranceAdherentCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MutuelleIntegranceAdherentCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://sante.integrance.fr/iAdherent",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://sante.integrance.fr/iAdherent",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

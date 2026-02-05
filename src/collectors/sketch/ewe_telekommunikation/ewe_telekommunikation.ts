@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EweTelekommunikationCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class EweTelekommunikationCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://mein.ewe.de/owl/secure/billingOverview.xhtml",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://mein.ewe.de/owl/secure/billingOverview.xhtml",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

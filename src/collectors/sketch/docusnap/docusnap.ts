@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DocusnapCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DocusnapCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.docusnap.com/mydocusnap/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.docusnap.com/mydocusnap/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

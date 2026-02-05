@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RackspaceCloudControlPanelCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class RackspaceCloudControlPanelCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://login.rackspace.com/?next=%2Fsso%2Fv2%2Fauthdone&SigAlg=http%3A%2F%2Fwww.w3.org%2F2000%2F09%2Fxmldsig%23rsa-sha1&Signature=mtBCns5ZbsOmJmyBHyhjU7xPyplqvepJD%2F9XZ1dEeEXXUyKtkO2NOfWmuU1voBl78qN01CUSAEUjelneVdaLf%2B2dLe24FRutLvlSoGtyWgGmwJZy9WfdDcVe",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://login.rackspace.com/?next=%2Fsso%2Fv2%2Fauthdone&SigAlg=http%3A%2F%2Fwww.w3.org%2F2000%2F09%2Fxmldsig%23rsa-sha1&Signature=mtBCns5ZbsOmJmyBHyhjU7xPyplqvepJD%2F9XZ1dEeEXXUyKtkO2NOfWmuU1voBl78qN01CUSAEUjelneVdaLf%2B2dLe24FRutLvlSoGtyWgGmwJZy9WfdDcVe",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

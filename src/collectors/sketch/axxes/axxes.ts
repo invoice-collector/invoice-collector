@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AxxesCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AxxesCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.axxes.fr/fr/identification/authentification.html",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.axxes.fr/fr/identification/authentification.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

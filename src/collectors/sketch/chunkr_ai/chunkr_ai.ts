@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ChunkrAiCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ChunkrAiCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://chunkr.ai/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://chunkr.ai/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LaravelVaporCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class LaravelVaporCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://vapor.laravel.com/app/account/billing",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://vapor.laravel.com/app/account/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KissmetricsCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class KissmetricsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://signin.kissmetrics.com/signin",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://signin.kissmetrics.com/signin",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

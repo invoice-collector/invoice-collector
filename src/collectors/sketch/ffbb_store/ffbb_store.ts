@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FfbbStoreCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class FfbbStoreCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.ffbbstore.com/index.php?controller=authentication&back=my-account",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "http://www.ffbbstore.com/index.php?controller=authentication&back=my-account",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

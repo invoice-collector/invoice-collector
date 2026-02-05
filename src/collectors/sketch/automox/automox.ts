@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AutomoxCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AutomoxCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://console.automox.com/settings?o=9311",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://console.automox.com/settings?o=9311",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

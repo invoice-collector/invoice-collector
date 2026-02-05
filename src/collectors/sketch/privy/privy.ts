@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PrivyCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PrivyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://dashboard.privy.com/settings/invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://dashboard.privy.com/settings/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

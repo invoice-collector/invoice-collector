@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DccDkCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DccDkCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://en.dcc.dk/customercenter/credit-note",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://en.dcc.dk/customercenter/credit-note",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

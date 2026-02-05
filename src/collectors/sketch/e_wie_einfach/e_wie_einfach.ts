@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EWieEinfachCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class EWieEinfachCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://mein.e-wie-einfach.de/qpo/portal/ewi/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://mein.e-wie-einfach.de/qpo/portal/ewi/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

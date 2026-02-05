@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class UberEatsBeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class UberEatsBeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.ubereats.com/be/orders",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.ubereats.com/be/orders",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

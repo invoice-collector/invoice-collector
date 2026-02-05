@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OneHourTranslationCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class OneHourTranslationCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.onehourtranslation.com/auth/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.onehourtranslation.com/auth/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

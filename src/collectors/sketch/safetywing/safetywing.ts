@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SafetywingCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SafetywingCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://safetywing.com/nomad-insurance/profile/receipts",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://safetywing.com/nomad-insurance/profile/receipts",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

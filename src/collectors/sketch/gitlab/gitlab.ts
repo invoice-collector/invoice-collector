@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GitlabCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class GitlabCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://customers.gitlab.com/receipts",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://customers.gitlab.com/receipts",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

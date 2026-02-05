@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BefunkyCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BefunkyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.befunky.com/my-account/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.befunky.com/my-account/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BeehiveEnterpriseCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BeehiveEnterpriseCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://enterprise.beehive.work/invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://enterprise.beehive.work/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

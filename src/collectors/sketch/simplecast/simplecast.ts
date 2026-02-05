@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SimplecastCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SimplecastCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://dashboard.simplecast.com/accounts/f3c3379a-5720-459f-8760-1926cbc50719/billing/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://dashboard.simplecast.com/accounts/f3c3379a-5720-459f-8760-1926cbc50719/billing/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

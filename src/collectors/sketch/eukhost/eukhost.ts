@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EukhostCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class EukhostCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.eukhost.com",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "http://www.eukhost.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

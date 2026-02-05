@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GammaCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class GammaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://rechnung.hfo-telecom.de/Portal1/Rechnungen.cms?ActiveID=1013",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://rechnung.hfo-telecom.de/Portal1/Rechnungen.cms?ActiveID=1013",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

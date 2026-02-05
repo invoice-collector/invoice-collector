@@ -1,5 +1,5 @@
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LaFoirFouilleCollector extends SketchCollector {
 
@@ -25,8 +25,10 @@ export class LaFoirFouilleCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.lafoirfouille.fr/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.lafoirfouille.fr/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

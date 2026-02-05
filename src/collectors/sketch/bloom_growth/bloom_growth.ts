@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BloomGrowthCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BloomGrowthCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.bloomgrowth.com/invoice",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.bloomgrowth.com/invoice",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

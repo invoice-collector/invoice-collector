@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class QmSpecialsCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class QmSpecialsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.qmspecials.ie/home.html",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.qmspecials.ie/home.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

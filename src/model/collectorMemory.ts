@@ -4,20 +4,22 @@ import { Actions } from "./actions";
 
 export class CollectorMemory {
 
-    static async fromName(name: string): Promise<CollectorMemory> {    
-        // Get collector memory from name or create new one
-        return await DatabaseFactory.getDatabase().getCollectorMemory(name) || new CollectorMemory(name, new Actions());
+    static async fromCollectorId(collector_id: string): Promise<CollectorMemory> {
+        // Get collector memory from collector_id or create new one
+        return await DatabaseFactory.getDatabase().getCollectorMemory(collector_id) || new CollectorMemory(collector_id, new Actions());
     }
 
     id: string;
-    name: string;
+    collector_id: string;
     actions: Actions;
+    customerAreaUrl?: string;
     entryUrl?: string;
 
-    constructor(name: string, actions: Actions, entryUrl?: string) {
+    constructor(collector_id: string, actions: Actions, customerAreaUrl?: string, entryUrl?: string) {
         this.id = "";
-        this.name = name;
+        this.collector_id = collector_id;
         this.actions = actions;
+        this.customerAreaUrl = customerAreaUrl
         this.entryUrl = entryUrl;
     }
 

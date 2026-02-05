@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GoogleWalletCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class GoogleWalletCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://accounts.google.com/signin/v2/identifier?service=sierra&passive=1209600&osid=1&continue=https%3A%2F%2Fpay.google.com%2Fsend%2Ftransactions&followup=https%3A%2F%2Fwallet.google.com%2Fn%2Ftransactions&flowName=GlifWebSignIn&flowEntry=ServiceLogin",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://accounts.google.com/signin/v2/identifier?service=sierra&passive=1209600&osid=1&continue=https%3A%2F%2Fpay.google.com%2Fsend%2Ftransactions&followup=https%3A%2F%2Fwallet.google.com%2Fn%2Ftransactions&flowName=GlifWebSignIn&flowEntry=ServiceLogin",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

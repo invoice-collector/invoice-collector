@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BloomonUkCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BloomonUkCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.bloomon.co.uk/login/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.bloomon.co.uk/login/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

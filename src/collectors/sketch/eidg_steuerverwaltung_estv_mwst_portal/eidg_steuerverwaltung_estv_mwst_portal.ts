@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EidgSteuerverwaltungEstvMwstPortalCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class EidgSteuerverwaltungEstvMwstPortalCollector extends SketchCollector
                 mandatory: true
             }
         },
-        entryUrl: "https://www.mwstabrechnen.estv.admin.ch/pro/declarations",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.mwstabrechnen.estv.admin.ch/pro/declarations",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

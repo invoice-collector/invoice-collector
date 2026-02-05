@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FcMotoCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class FcMotoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.fc-moto.de/epages/fcm.sf/de_DE/?ObjectID=139105782&ViewAction=ViewOrderTracking",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.fc-moto.de/epages/fcm.sf/de_DE/?ObjectID=139105782&ViewAction=ViewOrderTracking",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

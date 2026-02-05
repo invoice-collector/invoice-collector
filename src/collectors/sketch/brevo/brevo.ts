@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BrevoCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BrevoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.brevo.com/billing/account/plans/billing-history",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.brevo.com/billing/account/plans/billing-history",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

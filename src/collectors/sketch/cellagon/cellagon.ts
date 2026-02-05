@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CellagonCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CellagonCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://beraterportal.cellagon.de/mein-cellagon/meine-informationen/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://beraterportal.cellagon.de/mein-cellagon/meine-informationen/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

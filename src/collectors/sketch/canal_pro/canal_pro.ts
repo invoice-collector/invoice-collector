@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CanalProCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CanalProCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://client.canalpro.fr/espaceclient/factures",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://client.canalpro.fr/espaceclient/factures",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

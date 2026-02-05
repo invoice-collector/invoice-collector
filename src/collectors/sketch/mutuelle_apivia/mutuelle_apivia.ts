@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MutuelleApiviaCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MutuelleApiviaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://adherents.apivia.fr/login#/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://adherents.apivia.fr/login#/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

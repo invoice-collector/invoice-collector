@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AlzaAtCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AlzaAtCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.alza.at/my-account/orders.htm",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.alza.at/my-account/orders.htm",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

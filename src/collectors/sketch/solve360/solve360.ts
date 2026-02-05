@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Solve360Collector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class Solve360Collector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.solve360.com",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "http://www.solve360.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

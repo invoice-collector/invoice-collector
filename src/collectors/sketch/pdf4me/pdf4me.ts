@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Pdf4meCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class Pdf4meCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://pdf4me.com/de/account/#/invoices/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://pdf4me.com/de/account/#/invoices/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

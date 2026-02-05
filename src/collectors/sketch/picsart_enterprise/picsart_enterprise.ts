@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PicsartEnterpriseCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PicsartEnterpriseCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://console.picsart.io/usage/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://console.picsart.io/usage/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

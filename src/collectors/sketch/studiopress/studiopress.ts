@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StudiopressCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class StudiopressCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.studiopress.com/wp-login.php?redirect_to=https%3A%2F%2Fmy.studiopress.com%2F%2F%3F_ga%3D2.24493562.1974328791.1524113316-104450928.1524113316",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://my.studiopress.com/wp-login.php?redirect_to=https%3A%2F%2Fmy.studiopress.com%2F%2F%3F_ga%3D2.24493562.1974328791.1524113316-104450928.1524113316",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

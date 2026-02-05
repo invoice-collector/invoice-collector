@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CopadexCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CopadexCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.copadex.com/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "http://www.copadex.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

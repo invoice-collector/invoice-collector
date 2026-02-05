@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HamburgWasserCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class HamburgWasserCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://onlineservice.hamburgwasser.de/sap/bc/ui5_ui5/sap/ZUMCUI5_MOBILE/#/Logon",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://onlineservice.hamburgwasser.de/sap/bc/ui5_ui5/sap/ZUMCUI5_MOBILE/#/Logon",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

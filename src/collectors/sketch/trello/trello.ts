@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TrelloCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TrelloCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://trello.com/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://trello.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AmzsharkCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AmzsharkCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://amzshark.com/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://amzshark.com/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KitchenerUtilityCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class KitchenerUtilityCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://ebilling.kitchener.ca/sap/bc/ui5_ui5/sap/ZUMCUI5/index.html#page|%7B%22id%22%3A%22login%22%7D|0",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://ebilling.kitchener.ca/sap/bc/ui5_ui5/sap/ZUMCUI5/index.html#page|%7B%22id%22%3A%22login%22%7D|0",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

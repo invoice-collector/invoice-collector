@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PrismaPbsGmbhCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PrismaPbsGmbhCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://archiv.pbs-gmbh.com/cgi-bin/m210000.asp/Aktion=Archiv&Neu_BelegArt=ZR",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://archiv.pbs-gmbh.com/cgi-bin/m210000.asp/Aktion=Archiv&Neu_BelegArt=ZR",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

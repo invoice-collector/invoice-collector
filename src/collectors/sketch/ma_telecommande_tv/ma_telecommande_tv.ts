@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MaTelecommandeTvCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MaTelecommandeTvCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.matelecommandetv.com/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.matelecommandetv.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class InsightlyCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class InsightlyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://login.insightly.com/User/Login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://login.insightly.com/User/Login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

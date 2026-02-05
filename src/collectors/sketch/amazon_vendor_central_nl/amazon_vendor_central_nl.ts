@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AmazonVendorCentralNlCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AmazonVendorCentralNlCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://vendorcentral.amazon.nl/gp/vendor/sign-in/257-4832853-4155409?ie=UTF8&originatingURI=%2Fgp%2Fvendor%2Fmembers%2Fhome",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://vendorcentral.amazon.nl/gp/vendor/sign-in/257-4832853-4155409?ie=UTF8&originatingURI=%2Fgp%2Fvendor%2Fmembers%2Fhome",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

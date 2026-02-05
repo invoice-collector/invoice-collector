@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AndreasPaulsenCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AndreasPaulsenCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.paulsen-online.de/v3/rechnungsarchiv.csp",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.paulsen-online.de/v3/rechnungsarchiv.csp",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FasthostsCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class FasthostsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://admin.fasthosts.co.uk/Auth/Login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://admin.fasthosts.co.uk/Auth/Login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

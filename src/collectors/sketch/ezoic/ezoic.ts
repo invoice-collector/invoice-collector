@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EzoicCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class EzoicCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://pubdash.ezoic.com/account/payments/subscriptions",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://pubdash.ezoic.com/account/payments/subscriptions",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

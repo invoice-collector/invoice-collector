@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LyconetCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class LyconetCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.lyconet.com/de/profile/invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.lyconet.com/de/profile/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

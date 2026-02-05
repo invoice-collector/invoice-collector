@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ThomannCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ThomannCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.thomann.de/de/mythomann_orderlist.html",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.thomann.de/de/mythomann_orderlist.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

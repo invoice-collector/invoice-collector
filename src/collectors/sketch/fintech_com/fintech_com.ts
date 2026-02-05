@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FintechComCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class FintechComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.fintech.net/fms/reports/retailer_invoice_information_summary.asp",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.fintech.net/fms/reports/retailer_invoice_information_summary.asp",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

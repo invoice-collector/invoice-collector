@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DashthisCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DashthisCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://dashthis.com/app/admin/Security/LogOn",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://dashthis.com/app/admin/Security/LogOn",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

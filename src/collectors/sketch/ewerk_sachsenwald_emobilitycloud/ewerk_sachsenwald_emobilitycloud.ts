@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EwerkSachsenwaldEmobilitycloudCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class EwerkSachsenwaldEmobilitycloudCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://ewerk.emobilitycloud.com/de/account/receipts",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://ewerk.emobilitycloud.com/de/account/receipts",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StorebuddyDkCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class StorebuddyDkCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.storebuddy.dk/konto/fakturarer",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.storebuddy.dk/konto/fakturarer",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

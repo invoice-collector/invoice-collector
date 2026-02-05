@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OhneMaklerCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class OhneMaklerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.ohne-makler.net/invoice/list/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.ohne-makler.net/invoice/list/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MyfactoriaFrCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MyfactoriaFrCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://myfactoria.fr/ArtisWeb/portail/ventes/factures/entree.action?cKey=1&cStatus=P&session=mYPzSaFTCGUvUVa3&typeLicence=01",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://myfactoria.fr/ArtisWeb/portail/ventes/factures/entree.action?cKey=1&cStatus=P&session=mYPzSaFTCGUvUVa3&typeLicence=01",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

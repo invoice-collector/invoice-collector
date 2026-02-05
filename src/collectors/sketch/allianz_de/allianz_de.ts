@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AllianzDeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AllianzDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://meine.allianz.de/protected/res/postfach/posteingang/index.html",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://meine.allianz.de/protected/res/postfach/posteingang/index.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

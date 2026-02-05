@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MinolMesstechnikCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MinolMesstechnikCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.minol.de/minoldirect.html",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.minol.de/minoldirect.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

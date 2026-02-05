@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BurbankWaterAndPowerCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BurbankWaterAndPowerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.burbankwaterandpower.com/Portal/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://my.burbankwaterandpower.com/Portal/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

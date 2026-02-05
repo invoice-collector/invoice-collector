@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class UmbrellarCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class UmbrellarCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://secure.umbrellar.nz/login?_ga=2.21273272.2058613503.1523600439-117179229.1523600439",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://secure.umbrellar.nz/login?_ga=2.21273272.2058613503.1523600439-117179229.1523600439",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

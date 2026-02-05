@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MerchantOnlinePortalTelecashDeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MerchantOnlinePortalTelecashDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://mop.telecash.de/mop/faces/pages/main/tc/main.xhtml?acquirer=tc&language=de&styleFor=tc#",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://mop.telecash.de/mop/faces/pages/main/tc/main.xhtml?acquirer=tc&language=de&styleFor=tc#",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

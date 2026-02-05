@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RowsComCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class RowsComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://rows.com/vegconomist/settings/billing/invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://rows.com/vegconomist/settings/billing/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

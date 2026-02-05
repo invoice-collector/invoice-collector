@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RhonEnergieCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class RhonEnergieCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://service.re-fd.de/css/index.html#/invoiceOverview/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://service.re-fd.de/css/index.html#/invoiceOverview/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

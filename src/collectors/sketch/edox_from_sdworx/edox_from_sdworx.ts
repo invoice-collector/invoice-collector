@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EdoxFromSdworxCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class EdoxFromSdworxCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.sd.be/edoxv2/release/#",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.sd.be/edoxv2/release/#",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

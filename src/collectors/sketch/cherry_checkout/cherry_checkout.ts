@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CherryCheckoutCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CherryCheckoutCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://dashboard.cherrycheckout.com/fr/#/invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://dashboard.cherrycheckout.com/fr/#/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

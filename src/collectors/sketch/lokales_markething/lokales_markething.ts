@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LokalesMarkethingCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class LokalesMarkethingCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://ergo.ergo-mein-lokales-marketing.de/marcapo_platform//OrderStart.cms",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://ergo.ergo-mein-lokales-marketing.de/marcapo_platform//OrderStart.cms",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

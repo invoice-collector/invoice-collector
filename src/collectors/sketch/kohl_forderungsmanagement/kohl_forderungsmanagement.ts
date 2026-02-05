@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KohlForderungsmanagementCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class KohlForderungsmanagementCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://kundenlogin.kohlkg.de/MP/Menue.aspx",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://kundenlogin.kohlkg.de/MP/Menue.aspx",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

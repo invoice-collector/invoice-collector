@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ShopMobilezoneHandelCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ShopMobilezoneHandelCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://shop.mobilezone-handel.de/account#documents",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://shop.mobilezone-handel.de/account#documents",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HomeToGoCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class HomeToGoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.hometogo.com/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://my.hometogo.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

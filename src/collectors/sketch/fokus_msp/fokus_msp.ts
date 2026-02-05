@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FokusMspCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class FokusMspCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://msp-marketplace.eu/invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://msp-marketplace.eu/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

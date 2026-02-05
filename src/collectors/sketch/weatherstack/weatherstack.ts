@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WeatherstackCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class WeatherstackCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://weatherstack.com/payment",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://weatherstack.com/payment",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FlatchrCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class FlatchrCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.flatchr.io/board/settings/plan/payment",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.flatchr.io/board/settings/plan/payment",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

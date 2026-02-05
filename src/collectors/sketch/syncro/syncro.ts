@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SyncroCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SyncroCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://admin.syncromsp.com/users/sign_in?_ga=2.167324414.1585489120.1631954032-2027211550.1631954032",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://admin.syncromsp.com/users/sign_in?_ga=2.167324414.1585489120.1631954032-2027211550.1631954032",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

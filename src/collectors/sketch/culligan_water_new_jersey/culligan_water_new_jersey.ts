@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CulliganWaterNewJerseyCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CulliganWaterNewJerseyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.culligannj.com/services/online-bill-pay",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.culligannj.com/services/online-bill-pay",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

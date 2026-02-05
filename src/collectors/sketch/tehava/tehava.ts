@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TehavaCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TehavaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.tehava.com/en-us/profile/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.tehava.com/en-us/profile/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

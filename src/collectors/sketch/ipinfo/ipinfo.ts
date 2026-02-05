@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IpinfoCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class IpinfoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://ipinfo.io/account/invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://ipinfo.io/account/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

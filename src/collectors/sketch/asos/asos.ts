@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AsosCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AsosCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.asos.com/identity/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://my.asos.com/identity/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

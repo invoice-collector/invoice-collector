@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CyberportCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CyberportCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.cyberport.de/tools/my-account.html",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.cyberport.de/tools/my-account.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

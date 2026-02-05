@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GabeLivanAssetCleanupProCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class GabeLivanAssetCleanupProCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.gabelivan.com/checkout/purchase-history/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.gabelivan.com/checkout/purchase-history/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

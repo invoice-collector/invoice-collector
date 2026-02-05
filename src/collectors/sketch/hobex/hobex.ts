@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HobexCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class HobexCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://online.hobex.at/partnernet/Invoice",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://online.hobex.at/partnernet/Invoice",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

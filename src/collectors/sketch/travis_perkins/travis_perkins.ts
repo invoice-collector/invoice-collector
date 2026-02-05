@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TravisPerkinsCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TravisPerkinsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.travisperkins.co.uk/login?targetUrl=/cart&uiel=Desktop",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.travisperkins.co.uk/login?targetUrl=/cart&uiel=Desktop",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

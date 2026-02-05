@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AutozoneCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AutozoneCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.autozonepro.com/ui/transaction-history",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.autozonepro.com/ui/transaction-history",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

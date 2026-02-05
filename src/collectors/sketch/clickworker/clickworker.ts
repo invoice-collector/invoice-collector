@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ClickworkerCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ClickworkerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://cas.clickworker.com/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://cas.clickworker.com/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

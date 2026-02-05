@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AkkuTeileCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AkkuTeileCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.akkuteile-b2b.de/login/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.akkuteile-b2b.de/login/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

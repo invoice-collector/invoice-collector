@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AgglopoleProvenceEauCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AgglopoleProvenceEauCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://espaceclients-ape.eauxdemarseille.fr/#/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://espaceclients-ape.eauxdemarseille.fr/#/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

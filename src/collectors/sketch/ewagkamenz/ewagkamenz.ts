@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EwagkamenzCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class EwagkamenzCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portal.ewagkamenz.de/BKP/Rechnungen",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://portal.ewagkamenz.de/BKP/Rechnungen",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

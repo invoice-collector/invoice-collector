@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AuchanTelecomCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AuchanTelecomCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.auchantelecom.fr/fr/identification/espace-client.html",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.auchantelecom.fr/fr/identification/espace-client.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IntersaarCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class IntersaarCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.intersaar.de/noc/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.intersaar.de/noc/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

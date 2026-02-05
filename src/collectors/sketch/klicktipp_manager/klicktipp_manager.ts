@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KlicktippManagerCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class KlicktippManagerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.digistore24.com/receipt/3A4YFYVP/YS9R3NMX",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.digistore24.com/receipt/3A4YFYVP/YS9R3NMX",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

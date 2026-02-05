@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AhrefsCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AhrefsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.ahrefs.com/account/billing/invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.ahrefs.com/account/billing/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KeysExpressFrCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class KeysExpressFrCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://keys.express/FR/sales/order/invoice/order_id/105568/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://keys.express/FR/sales/order/invoice/order_id/105568/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

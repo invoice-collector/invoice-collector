@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LittleLunchCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class LittleLunchCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.littlelunch.com/de-de/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.littlelunch.com/de-de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

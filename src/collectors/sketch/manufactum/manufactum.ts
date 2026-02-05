@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ManufactumCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ManufactumCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.manufactum.de/login?target=/kundenkonto",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.manufactum.de/login?target=/kundenkonto",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

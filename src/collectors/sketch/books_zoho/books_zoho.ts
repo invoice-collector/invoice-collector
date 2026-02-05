@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BooksZohoCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BooksZohoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://books.zoho.eu",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://books.zoho.eu",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

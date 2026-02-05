@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StampedIoCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class StampedIoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://go.stamped.io/v3/#/settings/plans",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://go.stamped.io/v3/#/settings/plans",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

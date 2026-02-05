@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LearnyBoxCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class LearnyBoxCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://learnybox.com/connexion_lb/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://learnybox.com/connexion_lb/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WemagCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class WemagCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://kundenportal.wemag.com/mein_wemio/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://kundenportal.wemag.com/mein_wemio/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

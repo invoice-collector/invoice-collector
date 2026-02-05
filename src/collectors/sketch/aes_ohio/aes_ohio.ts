@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AesOhioCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AesOhioCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://myprofile.aes-ohio.com/Bill/BillHistory",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://myprofile.aes-ohio.com/Bill/BillHistory",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

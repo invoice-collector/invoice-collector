@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PlusthisCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PlusthisCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://admin.plusthis.com/users/12493/retired_payment_sources",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://admin.plusthis.com/users/12493/retired_payment_sources",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ConnectsCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ConnectsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://cct.connects.ch/partner",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://cct.connects.ch/partner",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

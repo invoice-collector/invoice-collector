@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AlwaysdataCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AlwaysdataCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://admin.alwaysdata.com/login/?next=/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://admin.alwaysdata.com/login/?next=/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

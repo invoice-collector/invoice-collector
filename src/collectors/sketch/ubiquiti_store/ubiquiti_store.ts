@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class UbiquitiStoreCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class UbiquitiStoreCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://eu.store.ui.com/account",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://eu.store.ui.com/account",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

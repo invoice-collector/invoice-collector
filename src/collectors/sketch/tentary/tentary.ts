@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TentaryCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TentaryCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.tentary.com/settings/revenues/customerinvoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.tentary.com/settings/revenues/customerinvoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

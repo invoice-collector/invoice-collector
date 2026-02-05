@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SoundswitchCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SoundswitchCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://soundswitch.scaledcommerce.com/dashboard/billing-history",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://soundswitch.scaledcommerce.com/dashboard/billing-history",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

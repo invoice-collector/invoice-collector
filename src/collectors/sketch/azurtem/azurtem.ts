@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AzurtemCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AzurtemCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://shop.azurtem.com/fr/connexion?back=my-account",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://shop.azurtem.com/fr/connexion?back=my-account",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

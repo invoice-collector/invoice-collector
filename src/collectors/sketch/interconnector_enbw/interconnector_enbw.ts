@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class InterconnectorEnbwCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class InterconnectorEnbwCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portal.interconnector.de/dashboard/overview",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://portal.interconnector.de/dashboard/overview",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

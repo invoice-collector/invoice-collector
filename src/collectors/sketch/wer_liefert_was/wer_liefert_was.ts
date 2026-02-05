@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WerLiefertWasCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class WerLiefertWasCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.wlw.de/de/mein-konto/uebersicht/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.wlw.de/de/mein-konto/uebersicht/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

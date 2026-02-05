@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PretixCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PretixCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://pretix.eu/control/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://pretix.eu/control/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

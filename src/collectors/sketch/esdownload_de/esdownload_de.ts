@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EsdownloadDeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class EsdownloadDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://esdownload.de/bestellungsverlauf",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://esdownload.de/bestellungsverlauf",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

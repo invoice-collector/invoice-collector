@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NozbeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class NozbeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.nozbe.com/#settings-account",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.nozbe.com/#settings-account",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

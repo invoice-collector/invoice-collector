@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ConsortiumImmobilierCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ConsortiumImmobilierCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.consortium-immobilier.fr/gestion.html",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.consortium-immobilier.fr/gestion.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

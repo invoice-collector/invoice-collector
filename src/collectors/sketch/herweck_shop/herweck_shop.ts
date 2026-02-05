@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HerweckShopCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class HerweckShopCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.herweck.de/kundencenter/belege/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.herweck.de/kundencenter/belege/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

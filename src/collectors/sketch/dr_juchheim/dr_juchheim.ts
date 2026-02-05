@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DrJuchheimCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DrJuchheimCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://doritmeyer.juchheim-methode.de/de/partner/orders",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://doritmeyer.juchheim-methode.de/de/partner/orders",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

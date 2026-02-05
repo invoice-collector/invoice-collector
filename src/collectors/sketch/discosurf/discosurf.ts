@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DiscosurfCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DiscosurfCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://mein.eteleon.de/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://mein.eteleon.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

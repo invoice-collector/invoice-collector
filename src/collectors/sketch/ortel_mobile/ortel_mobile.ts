@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OrtelMobileCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class OrtelMobileCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://mein.ortelmobile.de/de/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://mein.ortelmobile.de/de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

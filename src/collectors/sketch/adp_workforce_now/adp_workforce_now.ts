@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AdpWorkforceNowCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AdpWorkforceNowCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://workforcenow.adp.com/public/index.htm",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://workforcenow.adp.com/public/index.htm",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

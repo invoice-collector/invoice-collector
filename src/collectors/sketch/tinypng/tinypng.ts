@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TinypngCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TinypngCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.tinypng.com",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "http://www.tinypng.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SuburbanPropaneCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SuburbanPropaneCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://account.suburbanpropane.com/statements",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://account.suburbanpropane.com/statements",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

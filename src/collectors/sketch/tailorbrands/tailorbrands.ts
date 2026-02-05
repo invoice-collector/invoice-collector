@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TailorbrandsCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TailorbrandsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://tailorbrands.hasoffers.com/publisher/#!/dashboard",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://tailorbrands.hasoffers.com/publisher/#!/dashboard",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

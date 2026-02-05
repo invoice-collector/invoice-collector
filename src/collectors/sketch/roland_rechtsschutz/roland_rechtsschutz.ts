@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RolandRechtsschutzCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class RolandRechtsschutzCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.roland-service.de/epostfach/views/home.xhtml#!",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.roland-service.de/epostfach/views/home.xhtml#!",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

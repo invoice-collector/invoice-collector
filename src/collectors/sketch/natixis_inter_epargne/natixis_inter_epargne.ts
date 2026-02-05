@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NatixisInterEpargneCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class NatixisInterEpargneCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://epargnants.interepargne.natixis.fr/def_int_ep/ep/home.do?language=fr",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://epargnants.interepargne.natixis.fr/def_int_ep/ep/home.do?language=fr",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

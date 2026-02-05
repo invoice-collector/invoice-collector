@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MatomoEcoFuelCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MatomoEcoFuelCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://eco2fuelproject.matomo.cloud/index.php?module=Billing&action=invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://eco2fuelproject.matomo.cloud/index.php?module=Billing&action=invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

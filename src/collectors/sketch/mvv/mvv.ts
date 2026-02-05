@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MvvCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MvvCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://ticketshop.mvv-muenchen.de/index.php/personal_data/orderList",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://ticketshop.mvv-muenchen.de/index.php/personal_data/orderList",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

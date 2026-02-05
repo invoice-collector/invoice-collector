@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MarvelCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MarvelCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://marvelapp.com/user/billing/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://marvelapp.com/user/billing/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

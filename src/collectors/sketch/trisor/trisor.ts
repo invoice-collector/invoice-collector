@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TrisorCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TrisorCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.trisor.de/payment/invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.trisor.de/payment/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

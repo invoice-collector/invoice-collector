@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FleuradaCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class FleuradaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.fleurada.de/index.php?op=files",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.fleurada.de/index.php?op=files",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

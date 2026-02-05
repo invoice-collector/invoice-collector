@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PpgDeutschlandSalesAndServiceGmbhCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PpgDeutschlandSalesAndServiceGmbhCollector extends SketchCollector 
                 mandatory: true
             }
         },
-        entryUrl: "https://refeuinvoices.ppg.com/ppg/#/documents",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://refeuinvoices.ppg.com/ppg/#/documents",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

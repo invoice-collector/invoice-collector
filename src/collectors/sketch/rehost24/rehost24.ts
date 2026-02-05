@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Rehost24Collector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class Rehost24Collector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://kundencenter.rehost24.com/clientarea.php",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://kundencenter.rehost24.com/clientarea.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

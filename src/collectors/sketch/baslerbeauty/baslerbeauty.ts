@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BaslerbeautyCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BaslerbeautyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.basler-beauty.de/bestellhistorie/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.basler-beauty.de/bestellhistorie/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

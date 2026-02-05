@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class InfoleasysCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class InfoleasysCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portail.infoleasys.fr/ArtisWeb/portail/login/auth/01.action",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://portail.infoleasys.fr/ArtisWeb/portail/login/auth/01.action",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

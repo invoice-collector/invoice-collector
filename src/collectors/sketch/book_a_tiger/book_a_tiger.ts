@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BookATigerCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BookATigerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.bookatiger.com/de-en/app/closet/my-bookings",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.bookatiger.com/de-en/app/closet/my-bookings",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

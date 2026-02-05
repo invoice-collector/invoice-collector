@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FastspringCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class FastspringCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://fastspring.com/sign-in/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://fastspring.com/sign-in/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

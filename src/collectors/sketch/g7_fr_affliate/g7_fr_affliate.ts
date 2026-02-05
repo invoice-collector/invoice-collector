@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class G7FrAffliateCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class G7FrAffliateCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.g7.fr/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.g7.fr/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

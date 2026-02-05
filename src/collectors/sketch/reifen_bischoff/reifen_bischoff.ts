@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ReifenBischoffCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ReifenBischoffCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://reifenshopb2b.de/?shop_id=5143",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://reifenshopb2b.de/?shop_id=5143",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

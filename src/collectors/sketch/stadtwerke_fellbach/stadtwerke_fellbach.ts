@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StadtwerkeFellbachCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class StadtwerkeFellbachCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://kundenportal.stadtwerke-fellbach.de/csit/action/csLogin?formReset.x=true",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://kundenportal.stadtwerke-fellbach.de/csit/action/csLogin?formReset.x=true",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

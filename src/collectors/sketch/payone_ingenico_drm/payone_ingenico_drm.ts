@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PayoneIngenicoDrmCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PayoneIngenicoDrmCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://ger-drm.mc.ingenico.com/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://ger-drm.mc.ingenico.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

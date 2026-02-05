@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BusinessOfFashionCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BusinessOfFashionCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.businessoffashion.com/spa#/app/account/personal/your-membership",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.businessoffashion.com/spa#/app/account/personal/your-membership",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

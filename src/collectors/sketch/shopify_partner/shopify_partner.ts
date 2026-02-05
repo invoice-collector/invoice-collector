@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ShopifyPartnerCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ShopifyPartnerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.shopify.com/partners?",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.shopify.com/partners?",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

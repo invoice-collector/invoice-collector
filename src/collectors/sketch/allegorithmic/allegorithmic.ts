@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AllegorithmicCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AllegorithmicCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.allegorithmic.com/user/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.allegorithmic.com/user/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BoordsCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BoordsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.boords.com/settings/billing/invoice",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.boords.com/settings/billing/invoice",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

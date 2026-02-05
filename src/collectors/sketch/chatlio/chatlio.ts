@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ChatlioCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ChatlioCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://chatlio.com/app/#/account",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://chatlio.com/app/#/account",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

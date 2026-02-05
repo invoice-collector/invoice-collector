@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RogersBusinessSelfServiceSmallBusinessCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class RogersBusinessSelfServiceSmallBusinessCollector extends SketchColle
                 mandatory: true
             }
         },
-        entryUrl: "https://bss.rogers.com/bizonline/bss-login-menu.do",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://bss.rogers.com/bizonline/bss-login-menu.do",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

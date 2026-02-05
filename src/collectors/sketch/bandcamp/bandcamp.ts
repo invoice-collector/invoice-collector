@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BandcampCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BandcampCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://bandcamp.com/kaykat/purchases",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://bandcamp.com/kaykat/purchases",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

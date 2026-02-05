@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BuchholzFachinformationsdienstCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BuchholzFachinformationsdienstCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://partner.bfd-online.info/mybfd/acl_users/credentials_cookie_auth/require_login?came_from=https://partner.bfd-online.info/mybfd/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://partner.bfd-online.info/mybfd/acl_users/credentials_cookie_auth/require_login?came_from=https://partner.bfd-online.info/mybfd/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

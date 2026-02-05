@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AmazonMarketingServiceCoUkCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AmazonMarketingServiceCoUkCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://advertising.amazon.co.uk/billing/history/ref=ams_head_billing",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://advertising.amazon.co.uk/billing/history/ref=ams_head_billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

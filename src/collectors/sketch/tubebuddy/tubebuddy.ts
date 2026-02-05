@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TubebuddyCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TubebuddyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.tubebuddy.com/signin",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.tubebuddy.com/signin",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

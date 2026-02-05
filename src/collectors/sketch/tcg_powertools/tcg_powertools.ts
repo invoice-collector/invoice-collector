@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TcgPowertoolsCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TcgPowertoolsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.tcgpowertools.com/signin",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.tcgpowertools.com/signin",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

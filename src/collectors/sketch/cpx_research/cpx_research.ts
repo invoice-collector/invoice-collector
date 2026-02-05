@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CpxResearchCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CpxResearchCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://publisher.cpx-research.com/index.php?page=statistics_account_balance",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://publisher.cpx-research.com/index.php?page=statistics_account_balance",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class UbaldiComCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class UbaldiComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.ubaldi.com/espace-perso/identification.php",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.ubaldi.com/espace-perso/identification.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

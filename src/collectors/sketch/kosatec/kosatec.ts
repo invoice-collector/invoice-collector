@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KosatecCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class KosatecCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.kosatec.de/de/Login?redir=de/Home",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.kosatec.de/de/Login?redir=de/Home",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

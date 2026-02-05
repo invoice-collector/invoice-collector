@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SorryappCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SorryappCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.sorryapp.com/billing/subscription",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.sorryapp.com/billing/subscription",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

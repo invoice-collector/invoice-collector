@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class QuandooCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class QuandooCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://admin.quandoo.com/auth/signin",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://admin.quandoo.com/auth/signin",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MytelloCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MytelloCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.mytello.com/de/register",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.mytello.com/de/register",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

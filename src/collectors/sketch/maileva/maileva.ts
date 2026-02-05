@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MailevaCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MailevaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://secure2.maileva.com/customer/invoices/list/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://secure2.maileva.com/customer/invoices/list/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

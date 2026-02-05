@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CircleciCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CircleciCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://circleci.com/vcs-authorize/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://circleci.com/vcs-authorize/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StadtwerkeMunchenEmobilityCloudCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class StadtwerkeMunchenEmobilityCloudCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://swm.emobilitycloud.com/login-bereich/login/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://swm.emobilitycloud.com/login-bereich/login/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

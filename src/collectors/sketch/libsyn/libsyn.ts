@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LibsynCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class LibsynCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://four.libsyn.com/billing/billing-form/type/change-plan",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://four.libsyn.com/billing/billing-form/type/change-plan",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

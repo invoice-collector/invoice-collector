@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AsanaRecurlyCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AsanaRecurlyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://asana.recurly.com/account/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://asana.recurly.com/account/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

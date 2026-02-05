@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HostTrackerCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class HostTrackerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.host-tracker.com/billing/payments",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.host-tracker.com/billing/payments",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

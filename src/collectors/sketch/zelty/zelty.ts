@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ZeltyCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ZeltyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://zelty.fr/contact.html",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://zelty.fr/contact.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

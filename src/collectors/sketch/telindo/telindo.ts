@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TelindoCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TelindoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.telindo.de/mein_konto/32/bestelluebersicht.htm",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.telindo.de/mein_konto/32/bestelluebersicht.htm",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

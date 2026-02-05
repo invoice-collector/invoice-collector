@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EServiceCheckCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class EServiceCheckCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://kundenportal.e-service-check.de/index.php/apps/files/?dir=/360%C2%B0%20Psychotherapie&fileid=303557",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://kundenportal.e-service-check.de/index.php/apps/files/?dir=/360%C2%B0%20Psychotherapie&fileid=303557",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

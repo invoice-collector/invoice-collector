@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VirginMobileCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class VirginMobileCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.virgin.com/virgingroup/company/virgin-mobile-france",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.virgin.com/virgingroup/company/virgin-mobile-france",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

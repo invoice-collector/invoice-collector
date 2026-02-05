@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SmsPartnerCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SmsPartnerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.smspartner.fr/dashboard/factures",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://my.smspartner.fr/dashboard/factures",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

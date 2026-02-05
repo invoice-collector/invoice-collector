@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PlusPieceAutoCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PlusPieceAutoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.automecanik.com/myak/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.automecanik.com/myak/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

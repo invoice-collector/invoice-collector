@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CosCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CosCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.cos.com/en_de/index.html",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.cos.com/en_de/index.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

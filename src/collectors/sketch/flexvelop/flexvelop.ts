@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FlexvelopCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class FlexvelopCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.flexvelop.com/customer-dashboard/contracts/FLEX-Y2X6H7X7",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.flexvelop.com/customer-dashboard/contracts/FLEX-Y2X6H7X7",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

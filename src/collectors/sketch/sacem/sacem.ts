@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SacemCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SacemCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://clients.sacem.fr/mon-compte/mes-factures?cid=30004454302",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://clients.sacem.fr/mon-compte/mes-factures?cid=30004454302",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

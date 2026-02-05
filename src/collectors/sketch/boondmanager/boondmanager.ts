@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BoondmanagerCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BoondmanagerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://ui.boondmanager.com/subscription",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://ui.boondmanager.com/subscription",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

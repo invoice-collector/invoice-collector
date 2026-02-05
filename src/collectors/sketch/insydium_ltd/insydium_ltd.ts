@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class InsydiumLtdCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class InsydiumLtdCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://insydium.ltd/shop/index.php?route=account/order",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://insydium.ltd/shop/index.php?route=account/order",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

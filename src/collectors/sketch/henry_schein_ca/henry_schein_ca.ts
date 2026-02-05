@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HenryScheinCaCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class HenryScheinCaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.henryschein.ca/ca-en/Dental/Default.aspx?did=Dental-CA",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.henryschein.ca/ca-en/Dental/Default.aspx?did=Dental-CA",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ReadlySeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ReadlySeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://se.readly.com/accounts/subscriptions",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://se.readly.com/accounts/subscriptions",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

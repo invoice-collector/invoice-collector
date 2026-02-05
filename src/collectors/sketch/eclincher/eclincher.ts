@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EclincherCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class EclincherCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.eclincher.com/ec/login?",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.eclincher.com/ec/login?",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

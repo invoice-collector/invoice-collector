@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DattoGmbhSaasCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DattoGmbhSaasCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://store.datto.com/account/purchases/monthly-invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://store.datto.com/account/purchases/monthly-invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

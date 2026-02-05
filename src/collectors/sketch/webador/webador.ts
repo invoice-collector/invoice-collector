@@ -1,5 +1,5 @@
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WebadorCollector extends SketchCollector {
 
@@ -8,7 +8,7 @@ export class WebadorCollector extends SketchCollector {
         name: "Webador",
         description: "i18n.collectors.webador.description",
         version: "0",
-        website: "https://www.webador.fr",
+        website: "https://www.webador.com",
         logo: "https://assets.jwwb.nl/assets/brand/webador/logo/logo-dark.svg",
         type: CollectorType.SKETCH,
         params: {
@@ -25,7 +25,10 @@ export class WebadorCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.webador.com/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

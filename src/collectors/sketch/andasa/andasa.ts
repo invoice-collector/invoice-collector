@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AndasaCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AndasaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.andasa.de/login.html",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "http://www.andasa.de/login.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

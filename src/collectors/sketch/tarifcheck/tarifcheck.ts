@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TarifcheckCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TarifcheckCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.versicherungspartnerprogramm.de/berichte/gutschriften/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.versicherungspartnerprogramm.de/berichte/gutschriften/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AqlCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AqlCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portal.aql.com/login-required/?login_redirect=%2Faccount%2F",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://portal.aql.com/login-required/?login_redirect=%2Faccount%2F",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

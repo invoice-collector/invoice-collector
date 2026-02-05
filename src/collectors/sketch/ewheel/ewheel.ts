@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EwheelCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class EwheelCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://ewheel.es/es/mi-cuenta",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://ewheel.es/es/mi-cuenta",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

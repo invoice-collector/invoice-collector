@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StadtgutscheinBraunschweigCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class StadtgutscheinBraunschweigCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.stadtgutschein-braunschweig.de/administration",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.stadtgutschein-braunschweig.de/administration",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MutuelleGsmcPersonnaliseCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MutuelleGsmcPersonnaliseCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.mutuelle-gsmc.fr/prive",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.mutuelle-gsmc.fr/prive",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

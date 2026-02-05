@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GiffgaffCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class GiffgaffCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.giffgaff.com/auth/login?redirect=%2Fdashboard",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.giffgaff.com/auth/login?redirect=%2Fdashboard",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

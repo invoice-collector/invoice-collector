@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ProsaldoNetCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ProsaldoNetCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://mein.prosaldo.net/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://mein.prosaldo.net/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

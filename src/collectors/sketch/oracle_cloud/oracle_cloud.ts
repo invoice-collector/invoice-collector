@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OracleCloudCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class OracleCloudCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://cloud.oracle.com/account-management/invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://cloud.oracle.com/account-management/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ReaCardCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ReaCardCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.rea-service.de/main/de/forward.jsp",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.rea-service.de/main/de/forward.jsp",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

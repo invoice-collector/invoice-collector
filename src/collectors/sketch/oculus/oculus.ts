@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OculusCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class OculusCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://auth.oculus.com/login/?redirect_uri=https%3A%2F%2Fwww.oculus.com%2F",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://auth.oculus.com/login/?redirect_uri=https%3A%2F%2Fwww.oculus.com%2F",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

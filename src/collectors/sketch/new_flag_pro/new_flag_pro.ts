@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NewFlagProCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class NewFlagProCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://de.newflag.pro/de/customer/order/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://de.newflag.pro/de/customer/order/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

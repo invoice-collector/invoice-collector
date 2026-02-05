@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CoconutCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CoconutCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app-eu-west-1.coconut.co/billing",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app-eu-west-1.coconut.co/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

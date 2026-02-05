@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EnvatoElementsCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class EnvatoElementsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://elements.envato.com/de/sign-in",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://elements.envato.com/de/sign-in",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VitasCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class VitasCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.telefonassistent.de/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.telefonassistent.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

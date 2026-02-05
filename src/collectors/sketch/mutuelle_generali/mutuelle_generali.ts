@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MutuelleGeneraliCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MutuelleGeneraliCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.generali.fr/espace-client/public/connexion/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.generali.fr/espace-client/public/connexion/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

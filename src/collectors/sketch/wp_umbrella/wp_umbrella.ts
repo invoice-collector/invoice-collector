@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WpUmbrellaCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class WpUmbrellaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.wp-umbrella.com/auth/signin",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.wp-umbrella.com/auth/signin",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

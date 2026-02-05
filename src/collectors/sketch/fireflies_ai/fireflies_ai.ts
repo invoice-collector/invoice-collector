@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FirefliesAiCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class FirefliesAiCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.fireflies.ai/settings/billing",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.fireflies.ai/settings/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

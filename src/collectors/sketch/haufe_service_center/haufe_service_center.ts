@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HaufeServiceCenterCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class HaufeServiceCenterCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://account.haufe-lexware.com",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://account.haufe-lexware.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

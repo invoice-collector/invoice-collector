@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CityMapCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CityMapCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.cmpowersite.com/intern/account/payments",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://my.cmpowersite.com/intern/account/payments",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

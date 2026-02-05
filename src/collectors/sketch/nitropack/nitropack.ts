@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NitropackCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class NitropackCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://nitropack.io/user/billing",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://nitropack.io/user/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

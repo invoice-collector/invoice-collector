@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EweGoNeuCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class EweGoNeuCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portal.ewe-go.de/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://portal.ewe-go.de/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

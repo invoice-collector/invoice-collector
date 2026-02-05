@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VoelknerCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class VoelknerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.voelkner.de/account/history.html",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.voelkner.de/account/history.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

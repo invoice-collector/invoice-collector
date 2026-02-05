@@ -30,14 +30,15 @@ export class OpenaiChatgptCollector extends OpenaiCommonCollector {
         },
         loginUrl: "https://auth.openai.com/log-in",
         entryUrl: "https://chatgpt.com/#settings/Account",
-        captcha: CollectorCaptcha.NONE
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true
     }
 
     constructor() {
         super(OpenaiChatgptCollector.CONFIG);
     }
     
-    async navigate(driver: Driver, params: any): Promise<void> {
+    async navigate(driver: Driver): Promise<void> {
         // Wait for billing button
         await driver.getElement(OpenaiSelectors.BUTTON_ACCOUNT, { timeout: 5000 });
         // Click manage payments button
@@ -46,7 +47,7 @@ export class OpenaiChatgptCollector extends OpenaiCommonCollector {
         await driver.getElement(OpenaiSelectors.BUTTON_SEARCH_INVOICES);
     }
     
-    async forEachPage(driver: Driver, params: any, next: () => void): Promise<void> {
+    async forEachPage(driver: Driver, next: () => void): Promise<void> {
         // Show more invoices while possible
         while((await driver.leftClick(OpenaiSelectors.BUTTON_MORE_INVOICES, { raiseException: false, timeout: 1000, navigation: false, delay: 1000 })) != null) {}
         // Collect invoices
@@ -57,11 +58,11 @@ export class OpenaiChatgptCollector extends OpenaiCommonCollector {
         return await driver.getElement(OpenaiSelectors.CONTAINER_NO_ORDERS, { raiseException: false, timeout: 100 }) != null;
     }
 
-    async getInvoices(driver: Driver, params: any): Promise<Element[]> {
+    async getInvoices(driver: Driver): Promise<Element[]> {
         return await driver.getElements(OpenaiSelectors.CONTAINER_INVOICES);
     }
 
-    async data(driver: Driver, params: any, element: Element): Promise<Invoice | null> {
+    async data(driver: Driver, element: Element): Promise<Invoice | null> {
         // Get url before map
         const link = driver.url();
 

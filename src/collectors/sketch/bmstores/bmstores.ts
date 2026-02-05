@@ -1,5 +1,5 @@
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BMStoresCollector extends SketchCollector {
 
@@ -25,8 +25,10 @@ export class BMStoresCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://bmstores.fr/connexion?back=my-account",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://bmstores.fr/connexion?back=my-account",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

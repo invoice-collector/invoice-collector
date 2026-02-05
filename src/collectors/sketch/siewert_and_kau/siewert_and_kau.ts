@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SiewertAndKauCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SiewertAndKauCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.siewert-kau.de",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "http://www.siewert-kau.de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

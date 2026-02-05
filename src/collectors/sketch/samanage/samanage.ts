@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SamanageCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SamanageCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.samanage.com/login?__hstc=51647990.d84476cbbd3b08dda93ec1928db6b9ac.1507205787897.1507807104393.1507818450583.13&__hssc=51647990.7.1507818450583&__hsfp=1414170404&_ga=2.226858654.2016000231.1523347662-973992629.1523347662",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.samanage.com/login?__hstc=51647990.d84476cbbd3b08dda93ec1928db6b9ac.1507205787897.1507807104393.1507818450583.13&__hssc=51647990.7.1507818450583&__hsfp=1414170404&_ga=2.226858654.2016000231.1523347662-973992629.1523347662",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

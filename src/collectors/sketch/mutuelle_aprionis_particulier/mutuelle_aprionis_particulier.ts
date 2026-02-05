@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MutuelleAprionisParticulierCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MutuelleAprionisParticulierCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://humanis.com/votre-espace-client-particulier/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://humanis.com/votre-espace-client-particulier/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

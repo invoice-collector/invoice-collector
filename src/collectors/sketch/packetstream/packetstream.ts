@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PacketstreamCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PacketstreamCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://packetstream.io/dashboard/account",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://packetstream.io/dashboard/account",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

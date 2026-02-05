@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DuoSecurityCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DuoSecurityCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://admin-4c9fdb22.duosecurity.com/billing/billing-history",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://admin-4c9fdb22.duosecurity.com/billing/billing-history",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

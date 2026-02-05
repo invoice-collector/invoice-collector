@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SoshCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SoshCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://espaceclientv3.orange.fr/?page=factures-accueil",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://espaceclientv3.orange.fr/?page=factures-accueil",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

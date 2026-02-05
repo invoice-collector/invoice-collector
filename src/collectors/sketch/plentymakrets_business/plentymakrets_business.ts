@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PlentymakretsBusinessCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PlentymakretsBusinessCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://plentymarkets-cloud-ie.com/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://plentymarkets-cloud-ie.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

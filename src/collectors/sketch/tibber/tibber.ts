@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TibberCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TibberCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://tibber.com/de/portal",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://tibber.com/de/portal",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

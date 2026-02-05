@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VersaCommerceCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class VersaCommerceCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.versacommerce.de/admin/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.versacommerce.de/admin/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

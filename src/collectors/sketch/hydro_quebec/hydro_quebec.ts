@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HydroQuebecCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class HydroQuebecCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.hydroquebec.com/portail/en/group/clientele/gerer-mon-compte",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.hydroquebec.com/portail/en/group/clientele/gerer-mon-compte",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

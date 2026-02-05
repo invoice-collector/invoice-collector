@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GtranslateCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class GtranslateCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.gtranslate.io/billing",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://my.gtranslate.io/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TransacomCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TransacomCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://compta-transacom.bluerocktel.net/invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://compta-transacom.bluerocktel.net/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

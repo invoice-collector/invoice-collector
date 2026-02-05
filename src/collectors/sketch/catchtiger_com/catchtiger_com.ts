@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CatchtigerComCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CatchtigerComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.catchtiger.com/en/inloggen/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.catchtiger.com/en/inloggen/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

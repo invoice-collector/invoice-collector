@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DnConnectCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DnConnectCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.dn-connect.de/kunden-bereich.html",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.dn-connect.de/kunden-bereich.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

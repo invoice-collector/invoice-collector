@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SiteSearchCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SiteSearchCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://control.sitesearch360.com/#section=invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://control.sitesearch360.com/#section=invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IncentiveMallByCadoozCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class IncentiveMallByCadoozCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://incentivemall.cadooz.com/mall/history.do;jsessionid=_KDe_8YYZnnjmLC6_FhkHHTrk_jdEiL0vhIROFmu.bus01?action=LOAD",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://incentivemall.cadooz.com/mall/history.do;jsessionid=_KDe_8YYZnnjmLC6_FhkHHTrk_jdEiL0vhIROFmu.bus01?action=LOAD",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

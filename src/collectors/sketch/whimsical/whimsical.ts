@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WhimsicalCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class WhimsicalCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://whimsical.com/workspace/subscription",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://whimsical.com/workspace/subscription",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

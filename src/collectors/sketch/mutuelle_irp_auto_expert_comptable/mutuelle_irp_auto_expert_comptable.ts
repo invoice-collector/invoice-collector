@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MutuelleIrpAutoExpertComptableCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MutuelleIrpAutoExpertComptableCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.irp-auto.com/acces-votre-compte-expert-comptable",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.irp-auto.com/acces-votre-compte-expert-comptable",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

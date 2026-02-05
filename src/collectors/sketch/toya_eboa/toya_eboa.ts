@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ToyaEboaCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ToyaEboaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://eboa.toya.net.pl/payment",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://eboa.toya.net.pl/payment",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

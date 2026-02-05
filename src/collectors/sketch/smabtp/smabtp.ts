@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SmabtpCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SmabtpCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.services-smabtp.net/monespace/#/documents/contrats",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.services-smabtp.net/monespace/#/documents/contrats",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

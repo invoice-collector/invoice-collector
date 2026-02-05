@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SelfservicerepairCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SelfservicerepairCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://selfservicerepair.eu/de-DE/account/orders",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://selfservicerepair.eu/de-DE/account/orders",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

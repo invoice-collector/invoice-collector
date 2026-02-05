@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SoftrCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SoftrCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://studio.softr.io/user/billing",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://studio.softr.io/user/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

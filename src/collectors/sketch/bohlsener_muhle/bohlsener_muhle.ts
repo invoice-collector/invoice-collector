@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BohlsenerMuhleCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BohlsenerMuhleCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://bohlsener-muehle.de/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://bohlsener-muehle.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

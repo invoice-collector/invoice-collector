@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MutuelleAdreaProfessionnelDeSanteCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MutuelleAdreaProfessionnelDeSanteCollector extends SketchCollector 
                 mandatory: true
             }
         },
-        entryUrl: "https://corporate.adrea.fr/professionnel-de-sante/espace-securise/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://corporate.adrea.fr/professionnel-de-sante/espace-securise/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

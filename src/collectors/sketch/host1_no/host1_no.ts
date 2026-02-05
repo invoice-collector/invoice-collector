@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Host1NoCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class Host1NoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://host1.no/client/clientarea.php?language=Norwegian",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://host1.no/client/clientarea.php?language=Norwegian",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

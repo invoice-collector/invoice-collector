@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BirchCoomunicationsCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BirchCoomunicationsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://birchconnect.com/bc/core/#/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://birchconnect.com/bc/core/#/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

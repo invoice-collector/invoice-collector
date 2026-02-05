@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LiftstarCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class LiftstarCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.liftstar-partner.de/belegcenter",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.liftstar-partner.de/belegcenter",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

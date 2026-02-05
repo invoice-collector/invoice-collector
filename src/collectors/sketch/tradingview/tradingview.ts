@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TradingviewCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TradingviewCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://de.tradingview.com/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://de.tradingview.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

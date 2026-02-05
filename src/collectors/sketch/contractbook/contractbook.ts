@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ContractbookCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ContractbookCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.contractbook.com/documents",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.contractbook.com/documents",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

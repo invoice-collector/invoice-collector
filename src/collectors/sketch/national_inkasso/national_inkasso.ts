@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NationalInkassoCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class NationalInkassoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://test.national-inkasso.de/Account/Login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://test.national-inkasso.de/Account/Login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

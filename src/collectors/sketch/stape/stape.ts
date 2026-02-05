@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StapeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class StapeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://stape.io/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://stape.io/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

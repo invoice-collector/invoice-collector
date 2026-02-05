@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class YellowImagesCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class YellowImagesCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://yellowimages.com/my-account/orders/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://yellowimages.com/my-account/orders/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

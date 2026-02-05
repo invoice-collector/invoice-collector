@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StadtradHamburgCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class StadtradHamburgCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://stadtrad.hamburg.de/de/kundenbereich",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://stadtrad.hamburg.de/de/kundenbereich",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

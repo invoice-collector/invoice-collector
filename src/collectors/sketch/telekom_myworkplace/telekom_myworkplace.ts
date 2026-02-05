@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TelekomMyworkplaceCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TelekomMyworkplaceCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://myworkplace.t-systems.com/MyWorkplace/Login.aspx",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://myworkplace.t-systems.com/MyWorkplace/Login.aspx",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

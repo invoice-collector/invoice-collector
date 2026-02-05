@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SageOneAccountingSaCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SageOneAccountingSaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://accounting.sageone.co.za/Landing/Default.aspx",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://accounting.sageone.co.za/Landing/Default.aspx",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

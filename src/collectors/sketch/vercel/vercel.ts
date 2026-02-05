@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VercelCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class VercelCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://vercel.com/account/invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://vercel.com/account/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

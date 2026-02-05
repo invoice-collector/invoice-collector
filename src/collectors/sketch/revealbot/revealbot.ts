@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RevealbotCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class RevealbotCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://revealbot.com/billing",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://revealbot.com/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

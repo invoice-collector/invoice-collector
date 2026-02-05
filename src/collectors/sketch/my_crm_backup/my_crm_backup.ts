@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MyCrmBackupCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MyCrmBackupCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.mycrmbackup.com/subscription/edit",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.mycrmbackup.com/subscription/edit",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

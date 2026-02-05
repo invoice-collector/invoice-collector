@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AirtelCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AirtelCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.airtel.in/personal/myaccount/home",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.airtel.in/personal/myaccount/home",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

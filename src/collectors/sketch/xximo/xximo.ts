@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class XximoCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class XximoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.xximo.com/xximo-nl/nl/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://my.xximo.com/xximo-nl/nl/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

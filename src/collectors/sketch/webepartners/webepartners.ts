@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WebepartnersCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class WebepartnersCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://panel.webepartners.pl/Account/Login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://panel.webepartners.pl/Account/Login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

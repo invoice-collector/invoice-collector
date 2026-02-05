@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CircleKDenmarkCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CircleKDenmarkCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.circlek.dk/dk_DK/pg1334072984722/privat/voresbutikker/PrivatKort/MitCircleK.html",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.circlek.dk/dk_DK/pg1334072984722/privat/voresbutikker/PrivatKort/MitCircleK.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

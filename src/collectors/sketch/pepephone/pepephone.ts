@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PepephoneCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PepephoneCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.pepephone.com/mipepephone",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.pepephone.com/mipepephone",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Lead2chatCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class Lead2chatCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.lead2chat.de/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.lead2chat.de/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

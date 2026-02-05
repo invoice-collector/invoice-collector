@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MutuelleAprevaEntrepriseCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MutuelleAprevaEntrepriseCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://entreprise.apreva.fr/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://entreprise.apreva.fr/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

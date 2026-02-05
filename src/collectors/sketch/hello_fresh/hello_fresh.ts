@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HelloFreshCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class HelloFreshCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.hellofresh.de/customer/account/login/?redirectUrl=%2Faccount-settings%2Forder-history",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.hellofresh.de/customer/account/login/?redirectUrl=%2Faccount-settings%2Forder-history",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

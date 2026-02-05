@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StuttgarterVersicherungExtranetCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class StuttgarterVersicherungExtranetCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://extranet.stuttgarter.de",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://extranet.stuttgarter.de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

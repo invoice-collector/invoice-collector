@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RaindropCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class RaindropCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://raindrop.onfastspring.com/account/v0iOIrtqQCaoR0giOKLqkA/zX6n0mAkT2M",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://raindrop.onfastspring.com/account/v0iOIrtqQCaoR0giOKLqkA/zX6n0mAkT2M",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

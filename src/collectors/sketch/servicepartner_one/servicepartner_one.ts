@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ServicepartnerOneCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ServicepartnerOneCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://web.servicepartner.one/invoices-orders/invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://web.servicepartner.one/invoices-orders/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

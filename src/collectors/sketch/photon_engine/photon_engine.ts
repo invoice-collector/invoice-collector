@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PhotonEngineCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PhotonEngineCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://dashboard.photonengine.com/en-US/Billing/BillingAccount#acc-statement-history",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://dashboard.photonengine.com/en-US/Billing/BillingAccount#acc-statement-history",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

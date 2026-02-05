@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class InternetxAutodnsCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class InternetxAutodnsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.internetx.com/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.internetx.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

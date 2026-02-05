@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BillingsProCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BillingsProCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.marketcircle.com/account/login/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.marketcircle.com/account/login/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

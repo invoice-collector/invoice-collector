@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BinaryFortressSoftwareCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BinaryFortressSoftwareCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.binaryfortress.com/Account/Login/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.binaryfortress.com/Account/Login/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

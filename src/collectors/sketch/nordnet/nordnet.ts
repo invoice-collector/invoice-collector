@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NordnetCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class NordnetCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://client.nordnet.com/identification",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://client.nordnet.com/identification",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

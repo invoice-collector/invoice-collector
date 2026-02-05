@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IdMacifCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class IdMacifCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.macif.fr/assurance/particuliers/vos-espaces-macif",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.macif.fr/assurance/particuliers/vos-espaces-macif",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MigaduCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MigaduCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://admin.migadu.com/public/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://admin.migadu.com/public/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

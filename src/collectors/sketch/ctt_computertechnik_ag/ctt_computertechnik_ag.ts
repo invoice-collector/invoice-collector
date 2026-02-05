@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CttComputertechnikAgCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CttComputertechnikAgCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://ctt.de/customer/account/login/referer/aHR0cHM6Ly9jdHQuZGUv/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://ctt.de/customer/account/login/referer/aHR0cHM6Ly9jdHQuZGUv/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

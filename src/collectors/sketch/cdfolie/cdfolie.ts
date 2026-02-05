@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CdfolieCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CdfolieCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.cdfolie.com/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "http://www.cdfolie.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

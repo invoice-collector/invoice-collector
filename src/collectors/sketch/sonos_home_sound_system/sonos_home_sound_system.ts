@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SonosHomeSoundSystemCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SonosHomeSoundSystemCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.sonos.com/myaccount/orders/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.sonos.com/myaccount/orders/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

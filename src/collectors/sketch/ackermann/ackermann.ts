@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AckermannCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AckermannCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://ackermann-edv.de/op/rechnungen.php",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://ackermann-edv.de/op/rechnungen.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

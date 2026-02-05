@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ReservixVorverkaufCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ReservixVorverkaufCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://system.reservix.de/off/login.php",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://system.reservix.de/off/login.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PrimusCanadaCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PrimusCanadaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://primus.ca/business/en/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://primus.ca/business/en/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

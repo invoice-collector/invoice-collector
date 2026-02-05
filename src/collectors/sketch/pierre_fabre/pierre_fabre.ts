@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PierreFabreCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PierreFabreCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://sso.pierre-fabre.com/user/login?destination=cas/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://sso.pierre-fabre.com/user/login?destination=cas/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LewTelnetKundenportalPrivatkundenCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class LewTelnetKundenportalPrivatkundenCollector extends SketchCollector 
                 mandatory: true
             }
         },
-        entryUrl: "https://kundenportal.lew-highspeed.de/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://kundenportal.lew-highspeed.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BSCardServicePortalCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BSCardServicePortalCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://login.pay1.de/auth/realms/financegate/protocol/openid-connect/auth?response_type=code&client_id=pmi&redirect_uri=https://pmi.pay1.de/merchants/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://login.pay1.de/auth/realms/financegate/protocol/openid-connect/auth?response_type=code&client_id=pmi&redirect_uri=https://pmi.pay1.de/merchants/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

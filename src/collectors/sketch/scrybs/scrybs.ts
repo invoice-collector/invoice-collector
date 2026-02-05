@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ScrybsCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ScrybsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://scrybs.com/en/account/c/myorders/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://scrybs.com/en/account/c/myorders/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

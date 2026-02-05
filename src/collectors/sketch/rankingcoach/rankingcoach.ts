@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RankingcoachCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class RankingcoachCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.rankingcoach.com/de-de#login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.rankingcoach.com/de-de#login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MyshipperNlCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MyshipperNlCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.myshipper.nl/pro/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.myshipper.nl/pro/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

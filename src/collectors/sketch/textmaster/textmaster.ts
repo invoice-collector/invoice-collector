@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TextmasterCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TextmasterCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://de.textmaster.com/users/sign_in",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "http://de.textmaster.com/users/sign_in",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

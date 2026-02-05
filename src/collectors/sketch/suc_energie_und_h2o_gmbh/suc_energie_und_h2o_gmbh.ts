@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SucEnergieUndH2oGmbhCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SucEnergieUndH2oGmbhCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://kundenportal.suec.de/powercommerce/csit3/fo/portal/start",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://kundenportal.suec.de/powercommerce/csit3/fo/portal/start",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

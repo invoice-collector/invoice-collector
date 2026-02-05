@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WnOnlineCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class WnOnlineCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.wn-onlineservice.de/invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://my.wn-onlineservice.de/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

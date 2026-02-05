@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ViktorNussbaumerBestesFurKucheUndGastlichkeitGmbhAndCoKgCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ViktorNussbaumerBestesFurKucheUndGastlichkeitGmbhAndCoKgCollector e
                 mandatory: true
             }
         },
-        entryUrl: "https://nussbaumer.servicebund.com/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://nussbaumer.servicebund.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

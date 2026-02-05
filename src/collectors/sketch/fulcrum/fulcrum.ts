@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FulcrumCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class FulcrumCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://web.fulcrumapp.com/settings/subscription",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://web.fulcrumapp.com/settings/subscription",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

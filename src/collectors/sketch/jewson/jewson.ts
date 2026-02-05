@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class JewsonCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class JewsonCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.jewson.co.uk/accounts/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.jewson.co.uk/accounts/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

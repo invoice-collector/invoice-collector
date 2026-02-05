@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class InfraFurthCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class InfraFurthCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.infra-fuerth.de/privatkunden/kontakt/kundenportal/einstieg/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.infra-fuerth.de/privatkunden/kontakt/kundenportal/einstieg/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

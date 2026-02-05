@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VandebronCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class VandebronCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://mijn.vandebron.nl/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://mijn.vandebron.nl/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

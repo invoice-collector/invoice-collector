@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StrettaMusicCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class StrettaMusicCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.stretta-music.com",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "http://www.stretta-music.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

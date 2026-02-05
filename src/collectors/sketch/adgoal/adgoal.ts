@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AdgoalCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AdgoalCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.adgoal.de/publisher/payouts.html",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.adgoal.de/publisher/payouts.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

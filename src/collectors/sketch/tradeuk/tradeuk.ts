@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TradeukCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TradeukCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://directory.trade.co.uk/Account/Login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://directory.trade.co.uk/Account/Login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

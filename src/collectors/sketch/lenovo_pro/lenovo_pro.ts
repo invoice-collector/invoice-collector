@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LenovoProCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class LenovoProCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://account.lenovo.com/de/lenovopro/de/smbaccount/gatekeeper/showpage",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://account.lenovo.com/de/lenovopro/de/smbaccount/gatekeeper/showpage",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

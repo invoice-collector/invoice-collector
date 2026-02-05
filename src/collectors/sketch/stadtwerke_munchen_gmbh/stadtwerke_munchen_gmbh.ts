@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StadtwerkeMunchenGmbhCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class StadtwerkeMunchenGmbhCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://login.muenchen.de/ui/account/login?service=meine-swm&state=web_LyMvYWNjL3ZlcnRyYWdzdWViZXJzaWNodHwxYTdjODY3MS00NzA1LTRkMjEtYWQ3Ni0zZWRhNzZmNGNlYTQ",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://login.muenchen.de/ui/account/login?service=meine-swm&state=web_LyMvYWNjL3ZlcnRyYWdzdWViZXJzaWNodHwxYTdjODY3MS00NzA1LTRkMjEtYWQ3Ni0zZWRhNzZmNGNlYTQ",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

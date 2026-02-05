@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OsourcedCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class OsourcedCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://osourced.is/de/vadirectory/?login=1",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://osourced.is/de/vadirectory/?login=1",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

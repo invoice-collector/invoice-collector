@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TripadvisorAtCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TripadvisorAtCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.tripadvisor.at/BillingAndPayments?tab=invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.tripadvisor.at/BillingAndPayments?tab=invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

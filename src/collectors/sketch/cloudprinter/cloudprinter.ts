@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CloudprinterCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CloudprinterCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://admin.cloudprinter.com/#common/login/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://admin.cloudprinter.com/#common/login/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

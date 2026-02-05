@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PoleEmploiCourriersElectroniquesCandidatCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PoleEmploiCourriersElectroniquesCandidatCollector extends SketchCol
                 mandatory: true
             }
         },
-        entryUrl: "https://www.pole-emploi.fr/region/ile-de-france/informations/candidat-@/region/ile-de-france/index.jspz?id=54125",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.pole-emploi.fr/region/ile-de-france/informations/candidat-@/region/ile-de-france/index.jspz?id=54125",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

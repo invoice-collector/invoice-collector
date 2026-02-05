@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AppsheetCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AppsheetCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.appsheet.com/Account/Account",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.appsheet.com/Account/Account",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

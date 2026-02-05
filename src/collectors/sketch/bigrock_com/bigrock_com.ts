@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BigrockCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BigrockCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://manage.bigrock.com/servlet/ListCustomerTransactionsServlet",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://manage.bigrock.com/servlet/ListCustomerTransactionsServlet",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DuluxRewardsCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DuluxRewardsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://rewards.dulux.com.au",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://rewards.dulux.com.au",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

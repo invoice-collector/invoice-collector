@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VyprvpnCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class VyprvpnCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://account.vyprvpn.com/payment-information",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://account.vyprvpn.com/payment-information",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

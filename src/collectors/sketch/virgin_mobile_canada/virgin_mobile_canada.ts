@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VirginMobileCanadaCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class VirginMobileCanadaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.virginmobile.ca/en/members-lounge/login.html?itcid=NAV:31",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.virginmobile.ca/en/members-lounge/login.html?itcid=NAV:31",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

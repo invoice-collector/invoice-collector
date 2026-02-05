@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AlgoliaCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AlgoliaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.algolia.com/users/edit#?tab=invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.algolia.com/users/edit#?tab=invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

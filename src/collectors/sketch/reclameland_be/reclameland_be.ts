@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ReclamelandBeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ReclamelandBeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.reclameland.be/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.reclameland.be/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

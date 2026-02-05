@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class JoomlatoolsCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class JoomlatoolsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://dashboard.joomlatools.com/subscriptions/invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://dashboard.joomlatools.com/subscriptions/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

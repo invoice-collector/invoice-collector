@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DecathlonFacturesCarteFideliteCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DecathlonFacturesCarteFideliteCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.decathlon.fr/fr/loginPage",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.decathlon.fr/fr/loginPage",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

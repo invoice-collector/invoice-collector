@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MutuelleVerteAdherentCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MutuelleVerteAdherentCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.mutuelleverte.com/connexion/##a",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.mutuelleverte.com/connexion/##a",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

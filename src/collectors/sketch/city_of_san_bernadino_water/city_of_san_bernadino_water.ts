@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CityOfSanBernadinoWaterCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CityOfSanBernadinoWaterCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.onlinebiller.com/sbmwd/statements.html",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.onlinebiller.com/sbmwd/statements.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

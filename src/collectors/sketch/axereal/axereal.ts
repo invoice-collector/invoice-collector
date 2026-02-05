@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AxerealCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AxerealCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.axereal.com/en",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.axereal.com/en",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

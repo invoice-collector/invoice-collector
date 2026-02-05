@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AmazonSeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AmazonSeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.amazon.se/gp/css/order-history?ref_=nav_AccountFlyout_orders",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.amazon.se/gp/css/order-history?ref_=nav_AccountFlyout_orders",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

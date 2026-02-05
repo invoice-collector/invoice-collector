@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AmazonSellerCentralDeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AmazonSellerCentralDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://sellercentral.amazon.de/gp/payments-account/past-settlements.html/ref=ag_xx_cont_pymtvtrans",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://sellercentral.amazon.de/gp/payments-account/past-settlements.html/ref=ag_xx_cont_pymtvtrans",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

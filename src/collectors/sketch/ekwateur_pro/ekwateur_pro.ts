@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EkwateurProCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class EkwateurProCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://espace-energie.ekwateur.fr/search/regroupement",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://espace-energie.ekwateur.fr/search/regroupement",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

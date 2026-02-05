@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PythonanywhereCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PythonanywhereCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.pythonanywhere.com/login/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.pythonanywhere.com/login/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

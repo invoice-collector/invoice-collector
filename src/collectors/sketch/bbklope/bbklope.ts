@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BbklopeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BbklopeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://bbklope.fr/index.php?",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "http://bbklope.fr/index.php?",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

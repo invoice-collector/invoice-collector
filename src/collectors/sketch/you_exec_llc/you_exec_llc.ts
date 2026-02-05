@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class YouExecLlcCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class YouExecLlcCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://plus.youexec.com/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://plus.youexec.com/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

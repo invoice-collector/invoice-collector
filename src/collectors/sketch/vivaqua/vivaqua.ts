@@ -1,5 +1,5 @@
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VivaquaCollector extends SketchCollector {
 
@@ -25,8 +25,10 @@ export class VivaquaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://secure.doccle.be/doccle-euui/login/auth",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://secure.doccle.be/doccle-euui/login/auth",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

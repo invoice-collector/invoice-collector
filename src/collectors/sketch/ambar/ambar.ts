@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AmbarCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AmbarCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://comunidad.ambarplus.com/s/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://comunidad.ambarplus.com/s/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

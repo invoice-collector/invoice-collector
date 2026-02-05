@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SklumCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SklumCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.sklum.com/fr/historial-de-pedidos",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.sklum.com/fr/historial-de-pedidos",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

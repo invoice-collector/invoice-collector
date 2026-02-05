@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class UxpinCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class UxpinCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.uxpin.com/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.uxpin.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SurvioCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SurvioCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.survio.com/user/account#billing",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://my.survio.com/user/account#billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

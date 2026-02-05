@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GrundsteuerDigitalCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class GrundsteuerDigitalCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://login.grundsteuer-digital.de/#/setting/billing",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://login.grundsteuer-digital.de/#/setting/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

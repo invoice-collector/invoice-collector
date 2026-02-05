@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TraedeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TraedeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.traede.com/invoices?page=1&perPage=20&sort=&sortDirection=",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.traede.com/invoices?page=1&perPage=20&sort=&sortDirection=",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

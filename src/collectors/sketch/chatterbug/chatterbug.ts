@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ChatterbugCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ChatterbugCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.chatterbug.com/payments/invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.chatterbug.com/payments/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

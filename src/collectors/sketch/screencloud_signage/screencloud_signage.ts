@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ScreencloudSignageCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ScreencloudSignageCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://signage.screen.cloud",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://signage.screen.cloud",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

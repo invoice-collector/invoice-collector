@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PutzperleDeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PutzperleDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://putzperle.de/de/membership",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://putzperle.de/de/membership",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

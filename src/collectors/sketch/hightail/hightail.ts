@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HightailCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class HightailCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://spaces.hightail.com/dashboard/news",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://spaces.hightail.com/dashboard/news",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

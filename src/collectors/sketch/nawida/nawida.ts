@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NawidaCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class NawidaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://nawida.de/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://nawida.de/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GevGrundeigentumerVersicherungCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class GevGrundeigentumerVersicherungCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.gev-versicherung.de/service/?q=nav",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.gev-versicherung.de/service/?q=nav",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

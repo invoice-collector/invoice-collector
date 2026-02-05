@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SidexaCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SidexaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://services.sidexa.fr/fr/billing",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://services.sidexa.fr/fr/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AnimotoCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AnimotoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://animoto.com/log_in",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://animoto.com/log_in",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class JanitosCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class JanitosCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portal-a.janitos.de/std/module/such_module/suche_ib/vm_abrechnung_controller.html?RID=1673564465773&RWN=vermittlerabrechnung&posUrl=https://portal-a.janitos.de/global/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://portal-a.janitos.de/std/module/such_module/suche_ib/vm_abrechnung_controller.html?RID=1673564465773&RWN=vermittlerabrechnung&posUrl=https://portal-a.janitos.de/global/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

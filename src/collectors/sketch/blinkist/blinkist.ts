@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BlinkistCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BlinkistCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.blinkist.com/de/nc/settings",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.blinkist.com/de/nc/settings",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

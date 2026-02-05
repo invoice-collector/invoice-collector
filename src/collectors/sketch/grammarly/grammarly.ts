@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GrammarlyCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class GrammarlyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://account.grammarly.com/admin/subscription",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://account.grammarly.com/admin/subscription",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

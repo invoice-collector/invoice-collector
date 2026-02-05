@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EasternBankCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class EasternBankCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.easternbank.com/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.easternbank.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

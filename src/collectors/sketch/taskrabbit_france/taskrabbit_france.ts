@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TaskrabbitFranceCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TaskrabbitFranceCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.taskrabbit.fr/dashboard/completed",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.taskrabbit.fr/dashboard/completed",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

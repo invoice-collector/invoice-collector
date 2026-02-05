@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GfsSeekerEcmCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class GfsSeekerEcmCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://ecm.gfsdeliver.com/portal/invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://ecm.gfsdeliver.com/portal/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

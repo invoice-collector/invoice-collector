@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DelmarvaPowerCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DelmarvaPowerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://secure.delmarva.com/MyAccount/MyBillUsage/pages/secure/MyBillUsage.aspx",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://secure.delmarva.com/MyAccount/MyBillUsage/pages/secure/MyBillUsage.aspx",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ExLibrisCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ExLibrisCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.exlibris.ch/de/mein-konto/meine-rechnungen/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.exlibris.ch/de/mein-konto/meine-rechnungen/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

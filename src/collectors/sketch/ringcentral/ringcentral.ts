@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RingcentralCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class RingcentralCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://service.ringcentral.com/#/enterCredential",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://service.ringcentral.com/#/enterCredential",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

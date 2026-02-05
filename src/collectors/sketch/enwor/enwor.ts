@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EnworCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class EnworCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.enwor.de/enworPortal/Portal?Anwendung=RhenagRechnungslisteV2&Methode=Init&AuswahlVertragSchluessel=214992062!4",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.enwor.de/enworPortal/Portal?Anwendung=RhenagRechnungslisteV2&Methode=Init&AuswahlVertragSchluessel=214992062!4",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

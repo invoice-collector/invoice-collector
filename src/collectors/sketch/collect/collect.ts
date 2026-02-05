@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CollectCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CollectCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.usecollect.com/settings/plan",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.usecollect.com/settings/plan",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

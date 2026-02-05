@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LidlFranceCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class LidlFranceCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.lidl.fr/css/order-history",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.lidl.fr/css/order-history",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

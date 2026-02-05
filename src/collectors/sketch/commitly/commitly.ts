@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CommitlyCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CommitlyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.commitly.com/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.commitly.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CityOfTallahassyCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CityOfTallahassyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://selfservice.talgov.com/billing/AP0036948/100148649",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://selfservice.talgov.com/billing/AP0036948/100148649",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

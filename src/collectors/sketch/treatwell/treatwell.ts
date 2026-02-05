@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TreatwellCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TreatwellCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.treatwell.de/geschuetzte-aktion/?route=/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.treatwell.de/geschuetzte-aktion/?route=/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

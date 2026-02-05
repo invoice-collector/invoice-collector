@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AmeropaCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AmeropaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://service.ameropa.de/kreditoren/?action=avisen",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://service.ameropa.de/kreditoren/?action=avisen",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

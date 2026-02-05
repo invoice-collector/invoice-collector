@@ -10,7 +10,7 @@ export class OpenaiApiCollector extends OpenaiCommonCollector {
         id: "openai_api",
         name: "OpenAI (API)",
         description: "i18n.collectors.openai_api.description",
-        version: "14",
+        version: "15",
         website: "https://openai.com",
         logo: "https://upload.wikimedia.org/wikipedia/commons/4/4d/OpenAI_Logo.svg",
         type: CollectorType.WEB,
@@ -33,29 +33,30 @@ export class OpenaiApiCollector extends OpenaiCommonCollector {
         captcha: CollectorCaptcha.NONE,
         autoLogin: {
             localStorageKeys: ['@@auth0spajs@@']
-        }
+        },
+        enableInteractiveLogin: true
     }
 
     constructor() {
         super(OpenaiApiCollector.CONFIG);
     }
 
-    async navigate(driver: Driver, params: any): Promise<void> {
+    async navigate(driver: Driver): Promise<void> {
         // Wait for billing button
         await driver.getElement(OpenaiSelectors.BUTTON_SETTINGS, { timeout: 5000 });
         // Go to invoices page
-        await driver.goto(OpenaiApiCollector.CONFIG.entryUrl);
+        await driver.goto(this.config.entryUrl);
     }
 
     async isEmpty(driver: Driver): Promise<boolean> {
         return await driver.getElement(OpenaiSelectors.CONTAINER_NO_INVOICE, { raiseException: false, timeout: 5000 }) != null;
     }
 
-    async getInvoices(driver: Driver, params: any): Promise<Element[]> {
+    async getInvoices(driver: Driver): Promise<Element[]> {
         return await driver.getElements(OpenaiSelectors.CONTAINER_INVOICE);
     }
 
-    async data(driver: Driver, params: any, element: Element): Promise<Invoice | null> {
+    async data(driver: Driver, element: Element): Promise<Invoice | null> {
         // Get url before map
         const link = driver.url();
 

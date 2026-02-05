@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PrintcarrierComCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PrintcarrierComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.printcarrier.com/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.printcarrier.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

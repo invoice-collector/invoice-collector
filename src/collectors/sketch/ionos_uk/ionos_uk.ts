@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IonosUkCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class IonosUkCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://login.ionos.co.uk/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://login.ionos.co.uk/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

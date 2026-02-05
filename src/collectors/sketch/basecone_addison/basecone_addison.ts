@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BaseconeAddisonCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BaseconeAddisonCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://identity.basecone.com/authentication/login?signin=6dd09df2f7dca6eada587463a123cbe7",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://identity.basecone.com/authentication/login?signin=6dd09df2f7dca6eada587463a123cbe7",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

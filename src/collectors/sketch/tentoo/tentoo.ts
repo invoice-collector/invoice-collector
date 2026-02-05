@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TentooCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TentooCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.tentoo.nl/login/?_ga=2.93198430.2110826057.1524058832-1623198614.1524058832",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://my.tentoo.nl/login/?_ga=2.93198430.2110826057.1524058832-1623198614.1524058832",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

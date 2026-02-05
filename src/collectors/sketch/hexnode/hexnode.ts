@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HexnodeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class HexnodeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://bitwip.hexnodemdm.com/subscribe/#/reciepts",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://bitwip.hexnodemdm.com/subscribe/#/reciepts",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

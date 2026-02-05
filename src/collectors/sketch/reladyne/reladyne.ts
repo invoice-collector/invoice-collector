@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ReladyneCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ReladyneCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.reladyne.com/invoices.asp",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://my.reladyne.com/invoices.asp",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ChequeDejeunerCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ChequeDejeunerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://clients.cheque-dejeuner.com/accueil/gerer/mes-factures-et-documents/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://clients.cheque-dejeuner.com/accueil/gerer/mes-factures-et-documents/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

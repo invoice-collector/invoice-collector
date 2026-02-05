@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TriviarKurseUndWorkshopsCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TriviarKurseUndWorkshopsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://triviar.de",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://triviar.de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

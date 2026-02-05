@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MagentaAtKabelFestnetzCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MagentaAtKabelFestnetzCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://service.magenta.at/login/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://service.magenta.at/login/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

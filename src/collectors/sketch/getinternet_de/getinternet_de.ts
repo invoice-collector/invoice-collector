@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GetinternetDeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class GetinternetDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://kunden.getinternet.de/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://kunden.getinternet.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

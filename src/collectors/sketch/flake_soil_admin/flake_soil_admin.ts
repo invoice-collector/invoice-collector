@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FlakeSoilAdminCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class FlakeSoilAdminCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://flake-soil.com/admin595u5upn4/index.php?controller=AdminLogin&token=dd1710d65958ae0cfa1a10c8dafc4940&redirect=AdminDashboard",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://flake-soil.com/admin595u5upn4/index.php?controller=AdminLogin&token=dd1710d65958ae0cfa1a10c8dafc4940&redirect=AdminDashboard",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

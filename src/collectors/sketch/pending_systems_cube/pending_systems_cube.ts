@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PendingSystemsCubeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PendingSystemsCubeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://b2b.cube.eu/Account/Login?ReturnUrl=%2f",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://b2b.cube.eu/Account/Login?ReturnUrl=%2f",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

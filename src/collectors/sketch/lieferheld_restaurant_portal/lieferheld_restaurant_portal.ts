@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LieferheldRestaurantPortalCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class LieferheldRestaurantPortalCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://restaurant.lieferheld.de/#/portal/invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://restaurant.lieferheld.de/#/portal/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

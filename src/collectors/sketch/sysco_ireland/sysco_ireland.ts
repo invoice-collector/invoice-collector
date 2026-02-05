@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SyscoIrelandCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SyscoIrelandCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://order.syscoireland.com/selfservice/index/invoice/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://order.syscoireland.com/selfservice/index/invoice/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

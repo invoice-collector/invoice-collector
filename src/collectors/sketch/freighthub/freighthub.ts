@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FreighthubCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class FreighthubCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://ship.freighthub.com/shipments",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://ship.freighthub.com/shipments",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

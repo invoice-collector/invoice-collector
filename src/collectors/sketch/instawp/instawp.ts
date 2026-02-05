@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class InstawpCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class InstawpCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.instawp.io/invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.instawp.io/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

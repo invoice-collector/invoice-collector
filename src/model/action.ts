@@ -2,7 +2,7 @@ import { Driver, Element } from "../driver/driver";
 import { TwofaPromise } from "../collect/twofaPromise";
 import * as utils from '../utils';
 import { Invoice } from "../collectors/abstractCollector";
-import { AuthenticationError, ElementNotFoundError } from "../error";
+import { AuthenticationError, DisconnectedError, ElementNotFoundError } from "../error";
 import { WebSocketServer } from "../websocket/webSocketServer";
 
 export enum ActionEnum  {
@@ -47,9 +47,19 @@ export abstract class Action<Context, Result> {
 
     static async performActions(actions: Action<any, any>[], context: any): Promise<any> {
         for(const action of actions) {
-            const result = await action.perform(context);
-            if (result) {
-                return result;
+            try {
+                const result = await action.perform(context);
+                if (result) {
+                    return result;
+                }
+            }
+            catch (e) {
+                // Rethrow AuthenticationError and DisconnectedError
+                if (e instanceof AuthenticationError || e instanceof DisconnectedError) {
+                    throw e;
+                }
+                // Wrap other errors
+                throw new Error(`Error performing action ${action.toString()}`, { cause: e });
             }
         }
         return;
@@ -100,6 +110,7 @@ export abstract class Action<Context, Result> {
 
 export type LeftClickContext = {
     driver: Driver;
+    element?: Element;
 }
 
 export class LeftClickAction extends Action<LeftClickContext, void> {
@@ -114,10 +125,17 @@ export class LeftClickAction extends Action<LeftClickContext, void> {
     }
 
     async perform(context: LeftClickContext): Promise<void> {
-        await context.driver.leftClick({
+        if(context.element) {
+            // Perform left click on provided element
+            await context.element.leftClick(this.args);
+        }
+        else {
+            // Perform left click using driver and cssSelector
+            await context.driver.leftClick({
                 selector: this.cssSelector,
                 info: this.description
             }, this.args);
+        }
     }
 
     toString(): string {
@@ -144,6 +162,8 @@ export class MiddleClickAction extends Action<MiddleClickContext, void> {
         } catch (error) {
             // If error occurs, it may be because middle click is not supported and a simple click was already performed
         }
+        // Set element to undefined to avoid reuse for next actions
+        context.element = undefined;
     }
 
     toString(): string {
@@ -249,7 +269,7 @@ export class GetTwofaInstructionsAction extends Action<GetTwofaInstructionsConte
     constructor(description: string, location: string, args: any, cssSelector?: string) {
         // args should have 'default' field
         if(!args.hasOwnProperty('default')) {
-            throw new Error('InputTwofaAction requires args to have a "default" field');
+            throw new Error('GetTwofaInstructionsAction requires args to have a "default" field');
         }
         // Check if cssSelector is provided
         if (!cssSelector) {
@@ -308,25 +328,17 @@ export type ExtractInvoiceDataContext = {
 
 export class ExtractInvoiceDataAction extends Action<ExtractInvoiceDataContext, Invoice> {
     constructor(description: string, location: string, args: any, cssSelector?: string) {
-        // args should have 'least css_selector_id' or 'css_selector_amount' fields
-        if(!args.hasOwnProperty('css_selector_id') && !args.hasOwnProperty('css_selector_amount')) {
-            throw new Error('InputTwofaAction requires args to have at least a "css_selector_id" or "css_selector_amount" field');
+        // args should have 'least id' or 'amount' fields
+        if(!args.hasOwnProperty('id') && !args.hasOwnProperty('amount')) {
+            throw new Error('ExtractInvoiceDataAction requires args to have at least a "id" or "amount" field');
         }
-        // args should have 'css_selector_date' field
-        if(!args.hasOwnProperty('css_selector_date')) {
-            throw new Error('InputTwofaAction requires args to have a "css_selector_date" field');
+        // args should have 'date' field
+        if(!args.hasOwnProperty('date')) {
+            throw new Error('ExtractInvoiceDataAction requires args to have a "date" field');
         }
-        // args should have 'css_selector_download' field
-        if(!args.hasOwnProperty('css_selector_download')) {
-            throw new Error('InputTwofaAction requires args to have a "css_selector_download" field');
-        }
-        // args should have 'date_format' field
-        if(!args.hasOwnProperty('date_format')) {
-            throw new Error('InputTwofaAction requires args to have a "date_format" field');
-        }
-        // args should have 'date_locale' field
-        if(!args.hasOwnProperty('date_locale')) {
-            throw new Error('InputTwofaAction requires args to have a "date_locale" field');
+        // args should have 'download' field
+        if(!args.hasOwnProperty('download')) {
+            throw new Error('ExtractInvoiceDataAction requires args to have a "download" field');
         }
 
         super(ActionEnum.EXTRACT_INVOICE_DATA, description, location, args, cssSelector);
@@ -334,27 +346,27 @@ export class ExtractInvoiceDataAction extends Action<ExtractInvoiceDataContext, 
 
     async perform(context: ExtractInvoiceDataContext): Promise<Invoice> {
         const link = await context.driver.url();
-        const date = await context.element.getAttribute(this.args.css_selector_date, "textContent");
-        const timestamp = utils.timestampFromString(date, this.args.date_format, this.args.date_locale || 'en');
-        const downloadElement = await context.element.getElement(this.args.css_selector_download);
+        const date = await context.element.getAttribute({selector: this.args.date.cssSelector, info: "date"}, this.args.date.attribute || "textContent");
+        const timestamp = utils.timestampFromString(date, this.args.date.format, this.args.date.locale || 'en');
+        const downloadElement = await context.element.getElement({selector: this.args.download.cssSelector, info: "download button"});
 
         // Get amount if selector provided
         let amount: string | undefined;
-        if(this.args.css_selector_amount) {
-            amount = await context.element.getAttribute(this.args.css_selector_amount, "textContent");
+        if(this.args.amount) {
+            amount = await context.element.getAttribute({selector: this.args.amount.cssSelector, info: "amount"}, this.args.amount.attribute || "textContent");
             utils.checkAmountContainsCurrencySymbol(amount);
         }
 
         // Get id if selector provided
         let id: string;
-        if(this.args.css_selector_id) {
-            id = await context.element.getAttribute(this.args.css_selector_id, "textContent");
+        if(this.args.id) {
+            id = await context.element.getAttribute({selector: this.args.id.cssSelector, info: "id"}, this.args.id.attribute || "textContent");
         }
         else if (amount) {
             id = utils.hash_string(`${date}${amount}`);
         }
         else {
-            throw new Error('Cannot compute invoice id, no css_selector_id provided and amount is undefined');
+            throw new Error('Cannot compute invoice id, no id nor amount provided');
         }
 
         return {
@@ -379,7 +391,7 @@ export class RaiseErrorIfDisplayed extends Action<RaiseErrorContext, void> {
     constructor(description: string, location: string, args: any, cssSelector?: string) {
         // args should have 'default' field
         if(!args.hasOwnProperty('default')) {
-            throw new Error('RaiseError requires args to have a "default" field');
+            throw new Error('RaiseErrorIfDisplayed requires args to have a "default" field');
         }
         // Check if cssSelector is provided
         if (!cssSelector) {
@@ -388,7 +400,7 @@ export class RaiseErrorIfDisplayed extends Action<RaiseErrorContext, void> {
         super(ActionEnum.RAISE_ERROR_IF_DISPLAYED, description, location, args, cssSelector);
     }
 
-    async perform(context: RaiseErrorContext): Promise<void> {   
+    async perform(context: RaiseErrorContext): Promise<void> {
         // Get element from cssSelector
         const element = await context.driver.getElement({
             selector: this.cssSelector,

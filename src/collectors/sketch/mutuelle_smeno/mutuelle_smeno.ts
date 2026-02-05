@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MutuelleSmenoCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MutuelleSmenoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://espace-perso.smeno.com/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://espace-perso.smeno.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

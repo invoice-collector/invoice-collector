@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GlsCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class GlsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://gls-group.eu/DE/de/home",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://gls-group.eu/DE/de/home",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

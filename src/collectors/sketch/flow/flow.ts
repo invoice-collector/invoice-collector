@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FlowCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class FlowCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.getflow.com",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.getflow.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

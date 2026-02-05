@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StadtwerkePlauenStromCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class StadtwerkePlauenStromCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://kundenportal.stadtwerke-strom-plauen.de/bkp/rechnungen",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://kundenportal.stadtwerke-strom-plauen.de/bkp/rechnungen",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

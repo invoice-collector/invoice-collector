@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SkyparkSecureCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SkyparkSecureCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.skyparksecure.com",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "http://www.skyparksecure.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

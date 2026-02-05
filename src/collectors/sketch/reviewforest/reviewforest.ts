@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ReviewforestCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ReviewforestCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.reviewforest.org/settings/invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.reviewforest.org/settings/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

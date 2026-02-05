@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KlookCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class KlookCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://merchant.klook.com/booking_report?t=1583932326549",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://merchant.klook.com/booking_report?t=1583932326549",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

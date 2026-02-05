@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MinterIoCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MinterIoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://minter.io/payment/in_1EY83nF8TNScfXnTDEIdJFLR/in_1EY83nF8TNScfXnTDEIdJFLR",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://minter.io/payment/in_1EY83nF8TNScfXnTDEIdJFLR/in_1EY83nF8TNScfXnTDEIdJFLR",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

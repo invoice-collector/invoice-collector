@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TelekomProfisCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TelekomProfisCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.telekom-profis.de/mein-bereich/rechnungsuebersicht.html",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.telekom-profis.de/mein-bereich/rechnungsuebersicht.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

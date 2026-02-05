@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LeadpagesCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class LeadpagesCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.leadpages.net/login/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://my.leadpages.net/login/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

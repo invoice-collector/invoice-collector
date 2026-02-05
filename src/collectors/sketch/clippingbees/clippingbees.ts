@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ClippingbeesCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ClippingbeesCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.clippingbees.com/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "http://www.clippingbees.com/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

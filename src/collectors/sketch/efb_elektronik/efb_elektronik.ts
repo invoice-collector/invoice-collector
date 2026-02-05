@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EfbElektronikCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class EfbElektronikCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.efb-elektronik.de/documentList/invoice",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.efb-elektronik.de/documentList/invoice",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

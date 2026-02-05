@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DreamloveCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DreamloveCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://store.dreamlove.es/mf-1-53-mis_facturas/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://store.dreamlove.es/mf-1-53-mis_facturas/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

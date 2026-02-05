@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RenderstreetCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class RenderstreetCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://jobs.render.st/invoices/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://jobs.render.st/invoices/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

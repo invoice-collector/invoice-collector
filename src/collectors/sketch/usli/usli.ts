@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class UsliCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class UsliCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://myaccount.usli.com/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://myaccount.usli.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

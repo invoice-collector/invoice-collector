@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SmavaCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SmavaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://affiliate.smava.de/dashboard/payoff",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://affiliate.smava.de/dashboard/payoff",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

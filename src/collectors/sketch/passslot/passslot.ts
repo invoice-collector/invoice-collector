@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PassslotCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PassslotCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://pass.center/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://pass.center/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

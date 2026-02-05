@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TierurnenPetraStaadtCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TierurnenPetraStaadtCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "www.tierurnen-mit-herz.de",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "www.tierurnen-mit-herz.de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

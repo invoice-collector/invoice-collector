@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BavariadirektCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BavariadirektCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.bavariadirekt.de/meinebavariadirekt/meine-vertraege-und-dokumente/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.bavariadirekt.de/meinebavariadirekt/meine-vertraege-und-dokumente/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

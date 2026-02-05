@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AudioDesignDeskCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AudioDesignDeskCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://account.add.app/subscription/billing",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://account.add.app/subscription/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

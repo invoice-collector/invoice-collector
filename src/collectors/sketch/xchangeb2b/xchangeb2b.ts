@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Xchangeb2bCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class Xchangeb2bCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://xchangeb2b.com/XCH/V4.1d_TC/tr_invoice_history.php",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://xchangeb2b.com/XCH/V4.1d_TC/tr_invoice_history.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

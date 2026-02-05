@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SmileMateEuropeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SmileMateEuropeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://eu.smilemate.com/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://eu.smilemate.com/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

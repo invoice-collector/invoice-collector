@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TripactionsComCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TripactionsComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.tripactions.com/app/admin2/de/reports/overview",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.tripactions.com/app/admin2/de/reports/overview",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

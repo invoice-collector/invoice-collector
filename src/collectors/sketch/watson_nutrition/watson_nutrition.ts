@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WatsonNutritionCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class WatsonNutritionCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://watsonnutrition.de/mein-konto/view-order/55313/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://watsonnutrition.de/mein-konto/view-order/55313/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

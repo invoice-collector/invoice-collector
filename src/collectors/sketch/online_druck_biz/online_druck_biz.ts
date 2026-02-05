@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OnlineDruckBizCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class OnlineDruckBizCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.online-druck.biz",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.online-druck.biz",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

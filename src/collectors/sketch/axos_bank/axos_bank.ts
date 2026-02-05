@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AxosBankCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AxosBankCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://onlinebanking.axosbank.com/#!/Account/45861",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://onlinebanking.axosbank.com/#!/Account/45861",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SkySalesPortalCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SkySalesPortalCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://smp.nureg.de",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://smp.nureg.de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SslmateCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SslmateCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://sslmate.com/dashboard?login=1",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://sslmate.com/dashboard?login=1",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

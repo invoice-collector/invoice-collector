@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MusgravesCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MusgravesCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.musgravemarketplace.ie/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.musgravemarketplace.ie/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

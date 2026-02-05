@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TchiboCoffeeserviceCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TchiboCoffeeserviceCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.tchibo-coffeeservice.de/shop/bestellhistorie/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.tchibo-coffeeservice.de/shop/bestellhistorie/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

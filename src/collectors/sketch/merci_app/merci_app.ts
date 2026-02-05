@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MerciAppCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MerciAppCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://web.merci-app.com/u/1455021896/settings/subscription?fsu=workspacequickswitcher#subscription",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://web.merci-app.com/u/1455021896/settings/subscription?fsu=workspacequickswitcher#subscription",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

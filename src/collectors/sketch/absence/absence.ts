@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AbsenceCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AbsenceCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.absence.io/#/actions/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.absence.io/#/actions/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

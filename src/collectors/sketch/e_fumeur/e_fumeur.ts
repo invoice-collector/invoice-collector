@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EFumeurCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class EFumeurCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.e-fumeur.fr/connexion?back=my-account",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.e-fumeur.fr/connexion?back=my-account",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

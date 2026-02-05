@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ReserveTelecommunicationsCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ReserveTelecommunicationsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://rtconline.smarthub.coop/Login.html#login:",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://rtconline.smarthub.coop/Login.html#login:",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

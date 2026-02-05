@@ -1,5 +1,5 @@
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SchindlerCollector extends SketchCollector {
 
@@ -25,8 +25,10 @@ export class SchindlerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://actionboard.schindler.com/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://actionboard.schindler.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

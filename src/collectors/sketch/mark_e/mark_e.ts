@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MarkECollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MarkECollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://selfservice.mark-e.de/portal/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://selfservice.mark-e.de/portal/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

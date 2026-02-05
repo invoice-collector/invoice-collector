@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OnstipeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class OnstipeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://onstipe.com/web/stipe",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://onstipe.com/web/stipe",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

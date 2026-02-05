@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ShadowEuCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ShadowEuCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://auth.eu.shadow.tech/ui/kratos/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://auth.eu.shadow.tech/ui/kratos/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

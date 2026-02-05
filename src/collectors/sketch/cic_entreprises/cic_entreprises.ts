@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CicEntreprisesCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CicEntreprisesCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.cic.fr/fr/banque/documentinternet.html?_tabi=C&a_tiers=1300007491864&_pid=SelectDocument&k_typePageDoc=DocsAutres",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.cic.fr/fr/banque/documentinternet.html?_tabi=C&a_tiers=1300007491864&_pid=SelectDocument&k_typePageDoc=DocsAutres",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

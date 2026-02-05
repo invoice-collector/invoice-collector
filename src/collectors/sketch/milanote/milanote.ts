@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MilanoteCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MilanoteCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.milanote.com/account/plan/invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.milanote.com/account/plan/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

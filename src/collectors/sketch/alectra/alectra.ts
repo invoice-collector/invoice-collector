@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AlectraCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AlectraCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://myaccount.alectrautilities.com/app/login.jsp",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://myaccount.alectrautilities.com/app/login.jsp",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

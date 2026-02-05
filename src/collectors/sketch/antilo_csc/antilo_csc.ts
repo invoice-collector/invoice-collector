@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AntiloCscCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AntiloCscCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://csc.antilo.de/cgi-bin/uncgi/main.cgi?session=X5kfy1ndAT4AAGWZE-oAAAAA",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://csc.antilo.de/cgi-bin/uncgi/main.cgi?session=X5kfy1ndAT4AAGWZE-oAAAAA",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

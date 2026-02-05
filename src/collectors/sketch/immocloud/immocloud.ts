@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ImmocloudCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ImmocloudCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.immocloud.de/settings/orders",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.immocloud.de/settings/orders",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

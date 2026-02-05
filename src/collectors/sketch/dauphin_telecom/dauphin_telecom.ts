@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DauphinTelecomCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DauphinTelecomCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.dauphintelecom.com/factures",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.dauphintelecom.com/factures",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

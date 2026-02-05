@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FtnirdcCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class FtnirdcCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portal2.ftnirdc.com/en/210793",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://portal2.ftnirdc.com/en/210793",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ZeendocCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ZeendocCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://armoires.zeendoc.com/_Login/Login.php",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://armoires.zeendoc.com/_Login/Login.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

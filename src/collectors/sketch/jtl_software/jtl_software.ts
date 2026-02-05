@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class JtlSoftwareCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class JtlSoftwareCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://kundencenter.jtl-software.de/rechnungen",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://kundencenter.jtl-software.de/rechnungen",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

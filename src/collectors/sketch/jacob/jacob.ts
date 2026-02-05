@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class JacobCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class JacobCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.jacob.de/bestellstatus.html",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.jacob.de/bestellstatus.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

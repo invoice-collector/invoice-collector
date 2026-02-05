@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AdyenCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AdyenCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://ca-live.adyen.com/ca/ca/login.shtml",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://ca-live.adyen.com/ca/ca/login.shtml",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

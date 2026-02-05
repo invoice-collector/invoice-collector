@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PlugAndPayCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PlugAndPayCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://plugandpay.nl/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://plugandpay.nl/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ELiquideFrComCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ELiquideFrComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.e-liquide-fr.com/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.e-liquide-fr.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

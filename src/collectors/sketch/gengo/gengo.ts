@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GengoCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class GengoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://gengo.com/c/order/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://gengo.com/c/order/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

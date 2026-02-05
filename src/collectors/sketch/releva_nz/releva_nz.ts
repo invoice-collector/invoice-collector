@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RelevaNzCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class RelevaNzCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://frontend.releva.nz/account",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://frontend.releva.nz/account",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

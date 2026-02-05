@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SmaplyCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SmaplyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.smaply.com/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.smaply.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

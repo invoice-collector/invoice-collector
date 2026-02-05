@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class QweebyCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class QweebyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.qweeby.net/facturesrecues-consultees",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.qweeby.net/facturesrecues-consultees",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SprintCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SprintCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.sprint.com",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "http://www.sprint.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TixforgigsCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TixforgigsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://promoter.tixforgigs.com/de-DE",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://promoter.tixforgigs.com/de-DE",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

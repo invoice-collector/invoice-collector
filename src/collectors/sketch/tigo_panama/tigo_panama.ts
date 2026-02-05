@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TigoPanamaCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TigoPanamaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://mi.tigo.com.pa/movil/facturacion",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://mi.tigo.com.pa/movil/facturacion",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

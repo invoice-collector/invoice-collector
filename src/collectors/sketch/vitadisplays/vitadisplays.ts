@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VitadisplaysCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class VitadisplaysCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.prospekthalter.com/mein-konto/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.prospekthalter.com/mein-konto/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

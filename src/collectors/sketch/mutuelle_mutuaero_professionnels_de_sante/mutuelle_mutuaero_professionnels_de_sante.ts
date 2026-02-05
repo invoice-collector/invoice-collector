@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MutuelleMutuaeroProfessionnelsDeSanteCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MutuelleMutuaeroProfessionnelsDeSanteCollector extends SketchCollec
                 mandatory: true
             }
         },
-        entryUrl: "https://pfs.synergie-mutuelles.fr/default_synergie.aspx",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://pfs.synergie-mutuelles.fr/default_synergie.aspx",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

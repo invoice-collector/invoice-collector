@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PreplyCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PreplyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://preply.de/de/settings/history",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://preply.de/de/settings/history",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

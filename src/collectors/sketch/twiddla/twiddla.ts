@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TwiddlaCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TwiddlaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.twiddla.com/Account/Billing.aspx",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "http://www.twiddla.com/Account/Billing.aspx",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

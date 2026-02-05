@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GoogleSalesConsoleCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class GoogleSalesConsoleCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://channelservices.cloud.google.com/billing/accounts",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://channelservices.cloud.google.com/billing/accounts",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

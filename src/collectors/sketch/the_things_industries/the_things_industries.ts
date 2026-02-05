@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TheThingsIndustriesCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TheThingsIndustriesCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://accounts.thethingsindustries.com/dashboard/subscriptions/sub_1ObdRdBfIIHupA2rb7uAawLm",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://accounts.thethingsindustries.com/dashboard/subscriptions/sub_1ObdRdBfIIHupA2rb7uAawLm",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

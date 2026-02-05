@@ -1,15 +1,15 @@
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
-export class RedBySfrCollector extends SketchCollector {
+export class RexelDeCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "red_by_sfr",
-        name: "Red by SFR",
-        description: "i18n.collectors.red_by_sfr.description",
-        version: "0",
-        website: "https://red-by-sfr.fr",
-        logo: "https://upload.wikimedia.org/wikipedia/fr/6/6f/Logo_Red_By_SFR_2016.svg",
+        id: "rexel_de",
+        name: "Rexel (.de)",
+        description: "i18n.collectors.rexel.description",
+        version: "1",
+        website: "https://www.rexel.de/",
+        logo: "https://upload.wikimedia.org/wikipedia/commons/9/90/Rexel_logo.svg",
         type: CollectorType.SKETCH,
         params: {
             email: {
@@ -25,11 +25,13 @@ export class RedBySfrCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.red-by-sfr.fr/mon-espace-client/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.rexel.de/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {
-        super(RedBySfrCollector.CONFIG);
+        super(RexelDeCollector.CONFIG);
     }
 }

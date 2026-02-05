@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ENetElmshornCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ENetElmshornCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://mein.epunktnet.de/group/myenet/meinvertrag/rechnungsarchiv",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://mein.epunktnet.de/group/myenet/meinvertrag/rechnungsarchiv",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

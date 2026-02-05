@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TimeMattersCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TimeMattersCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.time-matters.com/service-center/online-booking/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.time-matters.com/service-center/online-booking/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

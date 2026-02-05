@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ClickmeetingCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ClickmeetingCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://account-panel.clickmeeting.com/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://account-panel.clickmeeting.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

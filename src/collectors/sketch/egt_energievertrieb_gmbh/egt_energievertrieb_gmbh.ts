@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EgtEnergievertriebGmbhCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class EgtEnergievertriebGmbhCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://kundenportal.egt.de/sap/bc/ui5_ui5/kibf/gwui_mcf/index.html?CompanyID=KLIEF_211&sap-client=030&sap-language=DE#/invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://kundenportal.egt.de/sap/bc/ui5_ui5/kibf/gwui_mcf/index.html?CompanyID=KLIEF_211&sap-client=030&sap-language=DE#/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

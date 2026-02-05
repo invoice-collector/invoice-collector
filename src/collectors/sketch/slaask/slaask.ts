@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SlaaskCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SlaaskCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://simplessusteam.slack.com",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://simplessusteam.slack.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TopviewCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TopviewCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.topview.ai/dashboard/subscription?type=Invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.topview.ai/dashboard/subscription?type=Invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

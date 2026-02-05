@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ObbOebbAtCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ObbOebbAtCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://tickets.oebb.at",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://tickets.oebb.at",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

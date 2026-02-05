@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GodaddyCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class GodaddyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://sso.godaddy.com/v1/?regionsite=de&path=%2f&realm=idp&marketid=de-DE",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://sso.godaddy.com/v1/?regionsite=de&path=%2f&realm=idp&marketid=de-DE",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

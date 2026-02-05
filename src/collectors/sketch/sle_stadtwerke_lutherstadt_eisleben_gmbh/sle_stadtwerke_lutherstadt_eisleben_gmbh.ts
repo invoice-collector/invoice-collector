@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SleStadtwerkeLutherstadtEislebenGmbhCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SleStadtwerkeLutherstadtEislebenGmbhCollector extends SketchCollect
                 mandatory: true
             }
         },
-        entryUrl: "https://kundenportal.sle24.de",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://kundenportal.sle24.de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CampaignMonitorCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CampaignMonitorCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://login.createsend.com/l?_ga=2.41260645.657612371.1523338420-1375527042.1523338420",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://login.createsend.com/l?_ga=2.41260645.657612371.1523338420-1375527042.1523338420",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

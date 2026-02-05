@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SocialWorksCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SocialWorksCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://techfusion.azurewebsites.net/Invoices/List#",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://techfusion.azurewebsites.net/Invoices/List#",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

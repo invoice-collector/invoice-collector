@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NextmobilesCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class NextmobilesCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.nextmobiles.com/moncompte/mes-factures/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.nextmobiles.com/moncompte/mes-factures/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

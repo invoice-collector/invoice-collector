@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ShCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ShCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.sh-diwi.de/diwi/accounting/accounting-overview.xhtml?c=2-0",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.sh-diwi.de/diwi/accounting/accounting-overview.xhtml?c=2-0",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

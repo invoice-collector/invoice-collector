@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PostnlCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PostnlCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://jouw.postnl.nl/account/overzicht",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://jouw.postnl.nl/account/overzicht",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

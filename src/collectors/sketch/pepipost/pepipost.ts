@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PepipostCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PepipostCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.pepipost.com/app/billings/postpaid-billing/history",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.pepipost.com/app/billings/postpaid-billing/history",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PlantForThePlanetCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PlantForThePlanetCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www1.plant-for-the-planet.org/profile/history",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www1.plant-for-the-planet.org/profile/history",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RemotepcCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class RemotepcCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://login.remotepc.com/rpcnew/account?page=billing",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://login.remotepc.com/rpcnew/account?page=billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

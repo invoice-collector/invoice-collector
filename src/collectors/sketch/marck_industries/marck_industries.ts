@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MarckIndustriesCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MarckIndustriesCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://waste.marck.net/truxweb/login.aspx",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://waste.marck.net/truxweb/login.aspx",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

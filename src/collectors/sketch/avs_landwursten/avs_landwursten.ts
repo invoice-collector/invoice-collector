@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AvsLandwurstenCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AvsLandwurstenCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://meldeschein.avs.de/landwursten/auswert3Rechnungseinsicht.do?init=yes",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://meldeschein.avs.de/landwursten/auswert3Rechnungseinsicht.do?init=yes",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

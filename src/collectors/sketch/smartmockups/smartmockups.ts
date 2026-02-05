@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SmartmockupsCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SmartmockupsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://smartmockups.com/de/user-settings/plan",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://smartmockups.com/de/user-settings/plan",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

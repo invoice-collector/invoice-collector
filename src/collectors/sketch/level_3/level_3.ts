@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Level3Collector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class Level3Collector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://account.level3.com/login?service=https%3A%2F%2Fmy.level3.com%2FportalWeb%2Fpartner%2Fcommon%2Flogin%2Fbegin.do",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://account.level3.com/login?service=https%3A%2F%2Fmy.level3.com%2FportalWeb%2Fpartner%2Fcommon%2Flogin%2Fbegin.do",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

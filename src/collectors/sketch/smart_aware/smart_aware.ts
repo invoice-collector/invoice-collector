@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SmartAwareCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SmartAwareCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.smart-aware.de/lms/mitglied/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.smart-aware.de/lms/mitglied/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

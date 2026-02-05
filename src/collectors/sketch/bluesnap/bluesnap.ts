@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BluesnapCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BluesnapCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://cp.bluesnap.com/jsp/account_login.jsp",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://cp.bluesnap.com/jsp/account_login.jsp",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

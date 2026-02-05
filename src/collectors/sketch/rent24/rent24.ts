@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Rent24Collector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class Rent24Collector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://members.rent24.com/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://members.rent24.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ManfreddoCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ManfreddoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.manfreddo.com/login.xhtml",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.manfreddo.com/login.xhtml",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

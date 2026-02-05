@@ -56,13 +56,10 @@ Ce document détaille tous les composants UI disponibles avec leur HTML, leurs c
 <span class="ic-badge ic-badge--stable">Active</span>
 
 <!-- Beta -->
-<span class="ic-badge ic-badge--beta">Maintenance</span>
-
-<!-- Alpha / Danger -->
-<span class="ic-badge ic-badge--alpha">Alpha</span>
+<span class="ic-badge ic-badge--beta">Development</span>
 
 <!-- Information -->
-<span class="ic-badge ic-badge--info">Development</span>
+<span class="ic-badge ic-badge--info">Planned</span>
 ```
 
 ## Boutons

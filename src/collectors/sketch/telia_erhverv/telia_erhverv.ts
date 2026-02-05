@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TeliaErhvervCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TeliaErhvervCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.telia.dk/lux/cr/hjem/faktura/fakturaoverblik/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.telia.dk/lux/cr/hjem/faktura/fakturaoverblik/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

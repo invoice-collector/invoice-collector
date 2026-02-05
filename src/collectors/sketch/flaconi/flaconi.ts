@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FlaconiCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class FlaconiCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.flaconi.de/konto/anmelden/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.flaconi.de/konto/anmelden/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WaalazyCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class WaalazyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://invoice.stripe.com/i/acct_1FOmpmHBSdnTEMdF/live_YWNjdF8xRk9tcG1IQlNkblRFTWRGLF9PN3hZbFJMMHFkb0VFeHk1NzNFSW9nSEtYemgwcWUxLDc4MDYwMzgw02007CedNKg4?s=ap",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://invoice.stripe.com/i/acct_1FOmpmHBSdnTEMdF/live_YWNjdF8xRk9tcG1IQlNkblRFTWRGLF9PN3hZbFJMMHFkb0VFeHk1NzNFSW9nSEtYemgwcWUxLDc4MDYwMzgw02007CedNKg4?s=ap",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

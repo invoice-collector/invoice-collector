@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TrafficstarsCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TrafficstarsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://admin.trafficstars.com/advertisers/accounting/show/70270.pdf",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://admin.trafficstars.com/advertisers/accounting/show/70270.pdf",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

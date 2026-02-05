@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SpyserpCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SpyserpCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://spyserp.com/panel/signin",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://spyserp.com/panel/signin",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

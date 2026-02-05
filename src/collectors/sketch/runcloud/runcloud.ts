@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RuncloudCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class RuncloudCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://manage.runcloud.io/auth/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://manage.runcloud.io/auth/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

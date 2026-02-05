@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KickofflabsCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class KickofflabsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.kickofflabs.com/users/account",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.kickofflabs.com/users/account",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

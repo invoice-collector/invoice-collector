@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BlendermarketCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BlendermarketCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://blendermarket.com/account/orders",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://blendermarket.com/account/orders",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PlatformShCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PlatformShCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://accounts.platform.sh/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://accounts.platform.sh/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

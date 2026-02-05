@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FakturaXCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class FakturaXCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.faktura-xp.de/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "http://www.faktura-xp.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

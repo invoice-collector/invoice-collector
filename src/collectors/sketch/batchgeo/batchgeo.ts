@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BatchgeoCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BatchgeoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://batchgeo.com",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://batchgeo.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

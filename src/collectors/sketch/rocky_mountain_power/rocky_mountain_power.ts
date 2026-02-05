@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RockyMountainPowerCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class RockyMountainPowerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.rockymountainpower.net",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "http://www.rockymountainpower.net",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

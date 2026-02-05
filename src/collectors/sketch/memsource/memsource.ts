@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MemsourceCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MemsourceCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://cloud.memsource.com/web/payment/subscribeOverview",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://cloud.memsource.com/web/payment/subscribeOverview",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

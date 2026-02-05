@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StadtwerkePforzheimCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class StadtwerkePforzheimCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portal.stadtwerke-pforzheim.de/powercommerce/swph/fo/portal/start",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://portal.stadtwerke-pforzheim.de/powercommerce/swph/fo/portal/start",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

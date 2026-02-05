@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ClarizenCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ClarizenCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app2.clarizen.com/Clarizen/Pages/Service/Login.aspx",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app2.clarizen.com/Clarizen/Pages/Service/Login.aspx",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

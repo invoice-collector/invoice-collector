@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MutuelleCpmsCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MutuelleCpmsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.cpms.fr/connexion-particulier/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.cpms.fr/connexion-particulier/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

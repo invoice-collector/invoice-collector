@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CrocoblockCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CrocoblockCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://account.crocoblock.com/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://account.crocoblock.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

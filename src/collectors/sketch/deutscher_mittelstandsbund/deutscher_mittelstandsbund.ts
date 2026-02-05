@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DeutscherMittelstandsbundCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DeutscherMittelstandsbundCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.mittelstandsbund.de/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.mittelstandsbund.de/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

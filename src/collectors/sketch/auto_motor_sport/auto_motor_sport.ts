@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AutoMotorSportCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AutoMotorSportCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.auto-motor-und-sport.de/meine-abonnements/?plenigoSelfService=INVOICE",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.auto-motor-und-sport.de/meine-abonnements/?plenigoSelfService=INVOICE",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

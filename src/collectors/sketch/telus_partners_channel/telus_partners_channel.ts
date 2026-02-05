@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TelusPartnersChannelCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TelusPartnersChannelCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://channelpartners.telus.com/cws/orderManager#!/search",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://channelpartners.telus.com/cws/orderManager#!/search",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

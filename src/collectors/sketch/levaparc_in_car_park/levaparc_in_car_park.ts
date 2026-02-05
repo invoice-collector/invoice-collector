@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LevaparcInCarParkCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class LevaparcInCarParkCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://reza-levaparc.axigap.com/Account/Factures",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://reza-levaparc.axigap.com/Account/Factures",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VerheesTextilesCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class VerheesTextilesCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.verheestextiles.com/de/account/Invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.verheestextiles.com/de/account/Invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

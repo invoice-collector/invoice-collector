@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FnacproCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class FnacproCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://secure.fnacpro.com/identity/server/gateway/signin",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://secure.fnacpro.com/identity/server/gateway/signin",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

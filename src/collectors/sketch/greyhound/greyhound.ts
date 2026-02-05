@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GreyhoundCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class GreyhoundCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://greyhound-software.com/gcc/mybills",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://greyhound-software.com/gcc/mybills",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

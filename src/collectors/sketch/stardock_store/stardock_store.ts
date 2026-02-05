@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StardockStoreCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class StardockStoreCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://identity.stardock.com/login?returnUrl=%2Fconnect%2Fauthorize%2Flogin%3Fclient_id%3Dstardock.com%26response_mode%3Dform_post%26response_type%3Did_token%26scope%3Dopenid%2520profile%2520email%2520steam.profile%26state%3DOpenIdConnect.AuthenticationP",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://identity.stardock.com/login?returnUrl=%2Fconnect%2Fauthorize%2Flogin%3Fclient_id%3Dstardock.com%26response_mode%3Dform_post%26response_type%3Did_token%26scope%3Dopenid%2520profile%2520email%2520steam.profile%26state%3DOpenIdConnect.AuthenticationP",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

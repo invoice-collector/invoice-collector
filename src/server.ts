@@ -1,5 +1,5 @@
 import { DatabaseFactory } from './database/databaseFactory';
-import { Secret } from './secret_manager/abstractSecretManager';
+import { Secret } from './model/secret';
 import { SecretManagerFactory } from './secret_manager/secretManagerFactory';
 import { OauthError, MissingField, MissingParams, StatusError, AuthenticationBearerError } from './error';
 import { generate_token } from './utils';
@@ -9,7 +9,7 @@ import { Customer, Stats } from './model/customer';
 import { IcCredential } from './model/credential';
 import { CollectTask } from './collect/collectTask';
 import { ProxyFactory } from './proxy/proxyFactory';
-import { CollectorType, Config } from './collectors/abstractCollector';
+import { AbstractCollector, CollectorType, Config } from './collectors/abstractCollector';
 import { RegistryServer } from './registryServer';
 import * as utils from './utils';
 import { CallbackHandler } from './callback/callback';
@@ -47,8 +47,9 @@ export class Server {
         // Connect to database
         await DatabaseFactory.getDatabase().connect();
 
-        // Connect to secret manager
-        await SecretManagerFactory.getSecretManager();
+        // Load secret manager and connect to it
+        await SecretManagerFactory.load();
+        await SecretManagerFactory.getSecretManager().connect();
 
         // Check if registery server is reachable
         RegistryServer.getInstance().ping();
@@ -159,8 +160,8 @@ export class Server {
             throw new StatusError("Invalid credentials", 401);
         }
 
-        // Generate ui bearer token
-        const uiBearer = utils.generate_bearer();
+        // Generate session bearer token
+        const uiBearer = utils.generate_bearer(utils.BearerType.SESSION);
 
         // Compute hashed bearer
         const hashed_bearer = utils.hash_string(uiBearer);
@@ -262,6 +263,7 @@ export class Server {
         theme: string,
         subscribedCollectors: string[],
         isSubscribedToAll: boolean,
+        enableInteractiveLogin: boolean,
         displaySketchCollectors: boolean,
         maxDelayBetweenCollect: number,
         plan: Plan
@@ -279,6 +281,7 @@ export class Server {
             theme: customer.theme,
             subscribedCollectors: customer.subscribedCollectors,
             isSubscribedToAll: customer.isSubscribedToAll,
+            enableInteractiveLogin: customer.enableInteractiveLogin,
             displaySketchCollectors: customer.displaySketchCollectors,
             maxDelayBetweenCollect: customer.maxDelayBetweenCollect,
             plan: customer.plan
@@ -294,6 +297,7 @@ export class Server {
         theme: string | undefined,
         subscribedCollectors: string[] | undefined,
         isSubscribedToAll: boolean | undefined,
+        enableInteractiveLogin: boolean | undefined,
         displaySketchCollectors: boolean | undefined
     ): Promise<void> {
         // Get customer from bearer
@@ -327,6 +331,10 @@ export class Server {
             customer.isSubscribedToAll = isSubscribedToAll;
         }
 
+        if (typeof enableInteractiveLogin === 'boolean') {
+            customer.enableInteractiveLogin = enableInteractiveLogin;
+        }
+
         if (typeof displaySketchCollectors === 'boolean') {
             customer.displaySketchCollectors = displaySketchCollectors;
         }
@@ -342,8 +350,8 @@ export class Server {
         // Get customer from bearer
         const customer = await this.getCustomerFromBearer(bearer);
 
-        // Generate new bearer token
-        const newBearer = utils.generate_bearer();
+        // Generate api bearer
+        const newBearer = utils.generate_bearer(utils.BearerType.API);
 
         // Compute hashed bearer
         const hashedBearer = utils.hash_string(newBearer);
@@ -548,6 +556,12 @@ export class Server {
             // Get collector from id
             const collector = await CollectorLoader.get(credential.collector_id);
 
+            // Get customer from user
+            const customer = await user.getCustomer();
+
+            // Update collector params based on customer settings
+            AbstractCollector.updateCollectorParams(customer.enableInteractiveLogin, collector.config);
+
             // Get current collect
             const collect = CollectPool.getInstance().get(credential.id);
             
@@ -625,6 +639,9 @@ export class Server {
         // Get customer from user
         const customer = await user.getCustomer();
 
+        // Update collector params based on customer settings
+        AbstractCollector.updateCollectorParams(customer.enableInteractiveLogin, collector.config);
+
         // Check if customer has define a callback URL
         if(!customer.callback) {
             throw new StatusError(`No callback url defined for the customer. Please define a callback URL first.`, 400);
@@ -663,13 +680,15 @@ export class Server {
             throw new StatusError(`Credential limit reached. Max credentials: ${customer.plan.maxCredentials}`, 403);
         }
 
-        // Add credential to Secure Storage
-        const secret: Secret = {
+        // Create secret
+        const secret = new Secret(`${user.id}_${collector.config.id}`, {
             params,
             cookies: null,
             localStorage: null
-        }
-        const secret_manager_id = await SecretManagerFactory.getSecretManager().addSecret(`${user.customer_id}_${user.id}_${collector.config.id}`, secret);
+        });
+
+        // Create secret in Secure Storage
+        await secret.commit();
 
         // Create credential
         const now = Date.now();
@@ -677,7 +696,7 @@ export class Server {
             user.id,
             collector.config.id,
             note,
-            secret_manager_id,
+            secret.id,
             now,
             download_from_timestamp ?? now
         );
@@ -764,6 +783,12 @@ export class Server {
         // Get collector from id
         const collector = await CollectorLoader.get(credential.collector_id);
 
+        // Get customer from user
+        const customer = await user.getCustomer();
+
+        // Update collector params based on customer settings
+        AbstractCollector.updateCollectorParams(customer.enableInteractiveLogin, collector.config);
+
         // Get current collect
         const collect = CollectPool.getInstance().get(credential.id);
 
@@ -818,9 +843,6 @@ export class Server {
         if (credential.user_id != user.id) {
             throw new StatusError(`Credential with id "${id}" does not belong to user.`, 403);
         }
-
-        // Delete credential from Secure Storage
-        await SecretManagerFactory.getSecretManager().deleteSecret(credential.secret_manager_id);
 
         // Delete credential
         await credential.delete();
@@ -903,6 +925,12 @@ export class Server {
             // Get collector from id
             const collector = await CollectorLoader.get(credential.collector_id);
 
+            // Get customer from user
+            const customer = await user.getCustomer();
+
+            // Update collector params based on customer settings
+            AbstractCollector.updateCollectorParams(customer.enableInteractiveLogin, collector.config);
+
             // Start web socket server and get token
             const webSocketServer = new WebSocketServer(this.httpServer, user.locale, collector);
             wsPath = webSocketServer.start();
@@ -946,12 +974,14 @@ export class Server {
         // Check if token is missing or incorrect
         let subscribedCollectors: string[] = Customer.DEFAULT_SUBSCRIBED_COLLECTORS;
         let isSubscribedToAll: boolean = Customer.DEFAULT_IS_SUBSCRIBED_TO_ALL;
+        let enableInteractiveLogin: boolean = false;
         let displaySketchCollectors: boolean = Customer.DEFAULT_DISPLAY_SKETCH_COLLECTORS;
         if(token || bearer) {
             // Get customer from bearer or token
             const customer = await this.getCustomerFromBearerOrToken(bearer, token);
             subscribedCollectors = customer.subscribedCollectors;
             isSubscribedToAll = customer.isSubscribedToAll;
+            enableInteractiveLogin = customer.enableInteractiveLogin;
             displaySketchCollectors = customer.displaySketchCollectors;
         }
 
@@ -967,9 +997,13 @@ export class Server {
         }
 
         return (await CollectorLoader.getAll())
+            .map((config: Config): Config => ({ ...config }))
             .filter((config: Config) => isSubscribedToAll || subscribedCollectors.includes(config.id))
             .filter((config: Config) => config.type !== CollectorType.SKETCH || displaySketchCollectors)
             .map((config: Config): Config => {
+                // Update collector params based on customer settings
+                AbstractCollector.updateCollectorParams(enableInteractiveLogin, config);
+
                 const name: string = I18n.get(config.name, locale);
                 const description: string = I18n.get(config.description, locale);
                 const instructions: string = I18n.get(config.instructions, locale);

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FullrateDkCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class FullrateDkCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.fullrate.dk/selvbetjening/fakturaoversigt",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.fullrate.dk/selvbetjening/fakturaoversigt",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

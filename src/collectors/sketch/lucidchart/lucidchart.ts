@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LucidchartCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class LucidchartCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.lucidchart.com/users/login?passwordOnly=1",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.lucidchart.com/users/login?passwordOnly=1",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SelekktCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SelekktCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://selekkt.com/selekkt_dropship/vendor/statements/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://selekkt.com/selekkt_dropship/vendor/statements/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

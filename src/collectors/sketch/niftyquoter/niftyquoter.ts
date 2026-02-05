@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NiftyquoterCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class NiftyquoterCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.niftyquoter.com/sign_in",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.niftyquoter.com/sign_in",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

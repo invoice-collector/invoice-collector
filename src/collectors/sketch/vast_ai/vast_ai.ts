@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VastAiCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class VastAiCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://cloud.vast.ai/billing/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://cloud.vast.ai/billing/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

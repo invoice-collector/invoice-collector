@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class _24affiliatesCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class _24affiliatesCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://partner.24affiliates.com/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "http://partner.24affiliates.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CoinpaprikaCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CoinpaprikaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://coinpaprika.com/api/pricing/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://coinpaprika.com/api/pricing/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

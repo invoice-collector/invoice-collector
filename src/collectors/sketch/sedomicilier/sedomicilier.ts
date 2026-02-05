@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SedomicilierCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SedomicilierCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://espace-client.sedomicilier.fr/settings/invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://espace-client.sedomicilier.fr/settings/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

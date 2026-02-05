@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LivewebinarCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class LivewebinarCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.livewebinar.com/billing/transactions",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.livewebinar.com/billing/transactions",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PswGroupCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PswGroupCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.psw.net",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "http://www.psw.net",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

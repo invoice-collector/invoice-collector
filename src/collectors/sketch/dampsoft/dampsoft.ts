@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DampsoftCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DampsoftCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://shop.dampsoft.de/einkaufshistorie.aspx",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://shop.dampsoft.de/einkaufshistorie.aspx",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

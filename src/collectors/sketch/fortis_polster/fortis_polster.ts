@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FortisPolsterCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class FortisPolsterCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.fortispolster.de/user/loginUser",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.fortispolster.de/user/loginUser",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

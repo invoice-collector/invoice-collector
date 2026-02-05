@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class JetFlottenkarteCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class JetFlottenkarteCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://flottenkarte.jet-tankstellen.de/default.ixsp#{20}",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://flottenkarte.jet-tankstellen.de/default.ixsp#{20}",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HostingerCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class HostingerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://hpanel.hostinger.com/de",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://hpanel.hostinger.com/de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

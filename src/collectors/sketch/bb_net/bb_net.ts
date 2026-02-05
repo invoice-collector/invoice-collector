@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BbNetCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BbNetCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://shop.bb-net.de/kundenmenu.php?page=bestellungen",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://shop.bb-net.de/kundenmenu.php?page=bestellungen",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

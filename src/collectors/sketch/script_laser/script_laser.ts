@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ScriptLaserCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ScriptLaserCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.scriptlaser.com/cgi/user.cgi/payments",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.scriptlaser.com/cgi/user.cgi/payments",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

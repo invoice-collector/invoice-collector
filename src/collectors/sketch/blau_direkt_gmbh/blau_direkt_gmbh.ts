@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BlauDirektGmbhCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BlauDirektGmbhCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.maklerinfo.biz/maklerportal/?job=Konto&Job_art=lizenz",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.maklerinfo.biz/maklerportal/?job=Konto&Job_art=lizenz",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

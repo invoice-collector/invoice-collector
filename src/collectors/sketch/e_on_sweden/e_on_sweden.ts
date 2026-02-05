@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EOnSwedenCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class EOnSwedenCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.eon.se/privat.html",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.eon.se/privat.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

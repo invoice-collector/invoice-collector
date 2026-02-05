@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DAndHCanadaCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DAndHCanadaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.dandh.ca/v4/view?pageReq=myOrders&int_cid=LP33&utm_campaign=OpenOrder",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.dandh.ca/v4/view?pageReq=myOrders&int_cid=LP33&utm_campaign=OpenOrder",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CamshopCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CamshopCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.camshop.fr/module/kcpscamshotmyaccountdolibarr/linkdolibarr",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.camshop.fr/module/kcpscamshotmyaccountdolibarr/linkdolibarr",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

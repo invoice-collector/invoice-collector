@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ThelemAssurancesParticuliersCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ThelemAssurancesParticuliersCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.thelem-assurances.fr/#",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.thelem-assurances.fr/#",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

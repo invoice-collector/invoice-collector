@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GehePointGesundLebenPointCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class GehePointGesundLebenPointCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.gehe-point.de/de/auswertungen/rechonline/esare/index.jsp",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.gehe-point.de/de/auswertungen/rechonline/esare/index.jsp",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

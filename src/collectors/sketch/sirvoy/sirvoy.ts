@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SirvoyCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SirvoyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://secured.sirvoy.com/account/statement",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://secured.sirvoy.com/account/statement",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

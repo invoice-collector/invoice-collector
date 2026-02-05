@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SessionlabCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SessionlabCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.sessionlab.com/signin",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.sessionlab.com/signin",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

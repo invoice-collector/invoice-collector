@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OneComCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class OneComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://login.one.com/cp/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://login.one.com/cp/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

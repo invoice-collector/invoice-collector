@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CityOfClearwaterCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CityOfClearwaterCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://secure8.i-doxs.net/CityOfClearwater/Signin.aspx?ReturnUrl=%2fCityOfClearwater%2fSecure%2fHome.aspx",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://secure8.i-doxs.net/CityOfClearwater/Signin.aspx?ReturnUrl=%2fCityOfClearwater%2fSecure%2fHome.aspx",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

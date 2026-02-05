@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IntruderCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class IntruderCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portal.intruder.io/settings/invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://portal.intruder.io/settings/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

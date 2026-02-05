@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class A2HostingPartnersCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class A2HostingPartnersCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://affiliates.a2hosting.com/affiliates/panel.php#Payouts",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://affiliates.a2hosting.com/affiliates/panel.php#Payouts",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

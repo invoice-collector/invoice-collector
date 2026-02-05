@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RewagCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class RewagCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://meine.rewag.de/sap/bc/ui5_ui5/sap/zmcf_customer/index.html?sap-client=200&sap-language=DE#/invoiceslatest",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://meine.rewag.de/sap/bc/ui5_ui5/sap/zmcf_customer/index.html?sap-client=200&sap-language=DE#/invoiceslatest",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

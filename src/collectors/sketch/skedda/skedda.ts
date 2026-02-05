@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SkeddaCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SkeddaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.skedda.com/account/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.skedda.com/account/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

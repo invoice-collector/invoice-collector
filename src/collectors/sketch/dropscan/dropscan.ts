@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DropscanCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DropscanCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://secure.dropscan.de/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://secure.dropscan.de/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

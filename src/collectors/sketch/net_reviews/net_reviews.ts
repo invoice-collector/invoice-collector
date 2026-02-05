@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NetReviewsCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class NetReviewsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.avis-verifies.com/index.php?page=mod_info_banque",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.avis-verifies.com/index.php?page=mod_info_banque",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

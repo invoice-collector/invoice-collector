@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CrowdinCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CrowdinCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://crowdin.com/settings#payments",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://crowdin.com/settings#payments",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

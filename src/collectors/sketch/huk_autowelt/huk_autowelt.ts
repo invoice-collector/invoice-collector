@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HukAutoweltCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class HukAutoweltCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.huk-autowelt.de/order/159467/details",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.huk-autowelt.de/order/159467/details",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

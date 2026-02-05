@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EdnaDeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class EdnaDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.edna.de/epages/Edna.sf/de_DE/?ObjectPath=/Shops/Edna&ViewAction=ViewMyAccount&LastViewAction=ViewMyAccount",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.edna.de/epages/Edna.sf/de_DE/?ObjectPath=/Shops/Edna&ViewAction=ViewMyAccount&LastViewAction=ViewMyAccount",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DigidipCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DigidipCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.digidip.net/publisher/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.digidip.net/publisher/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

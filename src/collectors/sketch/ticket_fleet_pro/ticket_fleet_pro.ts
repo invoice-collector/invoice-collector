@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TicketFleetProCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TicketFleetProCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://extranet.lacartecarburant.com/petrole/BackOfficeUTA/fr/facturation/consultation-factures-client/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://extranet.lacartecarburant.com/petrole/BackOfficeUTA/fr/facturation/consultation-factures-client/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

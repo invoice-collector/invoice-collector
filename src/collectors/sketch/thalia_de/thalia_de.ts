@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ThaliaDeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ThaliaDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.thalia.de/shop/home/login/login/?_token=5826bcba-526b-4d5b-bcb5-a836f66341a6",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.thalia.de/shop/home/login/login/?_token=5826bcba-526b-4d5b-bcb5-a836f66341a6",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

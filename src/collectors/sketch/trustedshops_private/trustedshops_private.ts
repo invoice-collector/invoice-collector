@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TrustedshopsPrivateCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TrustedshopsPrivateCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.trustedshops.com/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://my.trustedshops.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

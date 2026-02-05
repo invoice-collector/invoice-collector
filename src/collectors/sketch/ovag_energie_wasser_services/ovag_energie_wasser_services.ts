@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OvagEnergieWasserServicesCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class OvagEnergieWasserServicesCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://onlineservice.ovag.de/sap/bc/ui5_ui5/sap/zmcf_ui/index.html?CompanyID=OVAG&sap-client=002&sap-language=DE#/invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://onlineservice.ovag.de/sap/bc/ui5_ui5/sap/zmcf_ui/index.html?CompanyID=OVAG&sap-client=002&sap-language=DE#/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

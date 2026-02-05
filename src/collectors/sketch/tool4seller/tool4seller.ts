@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Tool4sellerCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class Tool4sellerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://data.tool4seller.com/dashboard/home",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://data.tool4seller.com/dashboard/home",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

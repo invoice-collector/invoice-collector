@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MeroltCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MeroltCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.merolt.de/my-account-2/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.merolt.de/my-account-2/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

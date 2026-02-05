@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BuchnerHmkDigitalCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BuchnerHmkDigitalCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.heilmittelkatalog.app/account-einstellungen/billing",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.heilmittelkatalog.app/account-einstellungen/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

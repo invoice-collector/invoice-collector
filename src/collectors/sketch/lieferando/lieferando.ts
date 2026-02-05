@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LieferandoCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class LieferandoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.lieferando.de/meinaccount/meine-bestellhistorie",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.lieferando.de/meinaccount/meine-bestellhistorie",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

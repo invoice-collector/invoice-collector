@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CyoCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CyoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.cyodirect.fr/default-connected.aspx",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.cyodirect.fr/default-connected.aspx",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

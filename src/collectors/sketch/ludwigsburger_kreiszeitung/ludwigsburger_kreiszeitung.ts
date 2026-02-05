@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LudwigsburgerKreiszeitungCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class LudwigsburgerKreiszeitungCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.lkz.de/benutzerkonto.html",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.lkz.de/benutzerkonto.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

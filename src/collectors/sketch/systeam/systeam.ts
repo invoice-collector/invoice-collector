@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SysteamCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SysteamCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.systeam.de",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "http://www.systeam.de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

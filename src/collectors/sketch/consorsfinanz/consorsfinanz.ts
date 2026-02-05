@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ConsorsfinanzCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ConsorsfinanzCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://olb.consorsfinanz.de/web/homebanking/umsatze",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://olb.consorsfinanz.de/web/homebanking/umsatze",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

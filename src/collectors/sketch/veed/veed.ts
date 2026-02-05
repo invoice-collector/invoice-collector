@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VeedCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class VeedCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.veed.io/workspaces/d3757d68-f1f3-446f-8783-7b635bd00103/billing",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.veed.io/workspaces/d3757d68-f1f3-446f-8783-7b635bd00103/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

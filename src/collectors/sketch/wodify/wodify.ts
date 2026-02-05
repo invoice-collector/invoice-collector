@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WodifyCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class WodifyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.wodify.com/WodifyAdminTheme/Login.aspx",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.wodify.com/WodifyAdminTheme/Login.aspx",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DropcatchCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DropcatchCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.dropcatch.com/MyAccount/MyOrders",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.dropcatch.com/MyAccount/MyOrders",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TuiDeutschlandRechnungsarchivCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TuiDeutschlandRechnungsarchivCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://archivsystem.tui.com/extern/nTASlogin.jsf",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://archivsystem.tui.com/extern/nTASlogin.jsf",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

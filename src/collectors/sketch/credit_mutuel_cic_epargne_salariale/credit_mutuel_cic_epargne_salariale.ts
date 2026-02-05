@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CreditMutuelCicEpargneSalarialeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CreditMutuelCicEpargneSalarialeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.creditmutuel-epargnesalariale.fr/espace-client/fr/identification/authentification.html",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.creditmutuel-epargnesalariale.fr/espace-client/fr/identification/authentification.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

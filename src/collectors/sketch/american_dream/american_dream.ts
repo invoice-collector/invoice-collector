@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AmericanDreamCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AmericanDreamCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.americandream.de/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.americandream.de/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

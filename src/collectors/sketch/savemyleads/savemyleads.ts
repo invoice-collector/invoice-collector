@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SavemyleadsCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SavemyleadsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://u1.savemyleads.com/client/payment-history",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://u1.savemyleads.com/client/payment-history",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

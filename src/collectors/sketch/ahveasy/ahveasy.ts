@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AhveasyCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AhveasyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.eadminportal.ch/portal/Portal.do?embed=/zl/svasg/igseaagap/agap/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.eadminportal.ch/portal/Portal.do?embed=/zl/svasg/igseaagap/agap/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

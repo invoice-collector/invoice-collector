@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WrangleCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class WrangleCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://slack.wrangle.io/auth/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://slack.wrangle.io/auth/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

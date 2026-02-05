@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FavikonCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class FavikonCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.favikon.com/signin/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.favikon.com/signin/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

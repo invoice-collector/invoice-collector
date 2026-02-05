@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WeeblrCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class WeeblrCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.weeblrpress.com/dashboard",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.weeblrpress.com/dashboard",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

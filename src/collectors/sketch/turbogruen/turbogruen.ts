@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TurbogruenCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TurbogruenCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://turbogruen.de/account?_gl=1*rp7m9n*_up*MQ..*_gs*MQ..&gclid=EAIaIQobChMIjfn41auYiwMV6jkGAB1b3zdfEAAYASAAEgIt5vD_BwE",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://turbogruen.de/account?_gl=1*rp7m9n*_up*MQ..*_gs*MQ..&gclid=EAIaIQobChMIjfn41auYiwMV6jkGAB1b3zdfEAAYASAAEgIt5vD_BwE",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

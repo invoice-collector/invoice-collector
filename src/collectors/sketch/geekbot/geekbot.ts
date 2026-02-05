@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GeekbotCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class GeekbotCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://geekbot.com/dashboard/billing#invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://geekbot.com/dashboard/billing#invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

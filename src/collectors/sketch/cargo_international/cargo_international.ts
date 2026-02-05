@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CargoInternationalCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CargoInternationalCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.cargointernational.de/mycargo",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.cargointernational.de/mycargo",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

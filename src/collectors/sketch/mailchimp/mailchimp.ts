@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MailchimpCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MailchimpCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.mailchimp.com/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.mailchimp.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

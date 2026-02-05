@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ChargedeskCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ChargedeskCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://chargedesk.com/account/billing",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://chargedesk.com/account/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

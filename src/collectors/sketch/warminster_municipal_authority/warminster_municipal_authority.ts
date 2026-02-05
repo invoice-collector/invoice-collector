@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WarminsterMunicipalAuthorityCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class WarminsterMunicipalAuthorityCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://wma.authoritypay.com/account/history/8660",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://wma.authoritypay.com/account/history/8660",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

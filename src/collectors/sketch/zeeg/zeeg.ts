@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ZeegCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ZeegCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://api.zeeg.me/billing",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://api.zeeg.me/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class USCellularCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class USCellularCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://m.uscellular.com/uscellular/app/login/authenticate/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://m.uscellular.com/uscellular/app/login/authenticate/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

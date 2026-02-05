@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TodoistCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TodoistCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://de.todoist.com/Users/viewPrefs?page=payments",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://de.todoist.com/Users/viewPrefs?page=payments",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

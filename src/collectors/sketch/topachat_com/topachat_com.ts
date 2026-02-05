@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TopachatComCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TopachatComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.topachat.com/pages/authentification.php?f=http://www.topachat.com/accueil/index.php",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.topachat.com/pages/authentification.php?f=http://www.topachat.com/accueil/index.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

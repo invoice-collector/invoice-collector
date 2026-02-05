@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PedernalesElectricCoopCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PedernalesElectricCoopCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://pec.smarthub.coop/ui/#/billingHistory",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://pec.smarthub.coop/ui/#/billingHistory",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

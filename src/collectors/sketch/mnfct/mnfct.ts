@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MnfctCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MnfctCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.actiweb.mnfct.fr/login#/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.actiweb.mnfct.fr/login#/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

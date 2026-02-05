@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TeschInkassoFinanceCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TeschInkassoFinanceCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://arag.tesch-finance.de/a/forderungen.php",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://arag.tesch-finance.de/a/forderungen.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

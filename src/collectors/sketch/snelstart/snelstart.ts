@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SnelstartCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SnelstartCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://web.snelstart.nl/04b3cb89-79ad-44ae-b291-df5e389a191a/account/invoicedetails",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://web.snelstart.nl/04b3cb89-79ad-44ae-b291-df5e389a191a/account/invoicedetails",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SohohouseCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SohohouseCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://identity.houseseven.com/sessions/new",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://identity.houseseven.com/sessions/new",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CyberwebhostingCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CyberwebhostingCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://cyberwebhosting.de/service/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://cyberwebhosting.de/service/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BackboneCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BackboneCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.bkbn.com/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.bkbn.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

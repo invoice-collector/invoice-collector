@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TldvCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TldvCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://tldv.io/app/login?returnUrl=https%3A%2F%2Ftldv.io%2Fapp%2F%3F",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://tldv.io/app/login?returnUrl=https%3A%2F%2Ftldv.io%2Fapp%2F%3F",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GruGainesvilleRegionalUtilitiesCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class GruGainesvilleRegionalUtilitiesCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://myaccount.gru.com/BillingAndUsageHistory",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://myaccount.gru.com/BillingAndUsageHistory",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

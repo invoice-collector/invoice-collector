@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BritishTelecomCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BritishTelecomCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.bt.com/s/apps/appsmybt/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://my.bt.com/s/apps/appsmybt/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

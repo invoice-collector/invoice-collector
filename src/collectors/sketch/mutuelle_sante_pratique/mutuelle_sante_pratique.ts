@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MutuelleSantePratiqueCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MutuelleSantePratiqueCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.mon-compte-en-ligne.fr/mon-compte-sante-pratique/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "http://www.mon-compte-en-ligne.fr/mon-compte-sante-pratique/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EurodepCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class EurodepCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.eurodep.fr/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "http://www.eurodep.fr/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

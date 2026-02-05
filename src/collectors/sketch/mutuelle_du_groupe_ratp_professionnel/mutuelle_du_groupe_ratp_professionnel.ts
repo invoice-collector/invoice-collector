@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MutuelleDuGroupeRatpProfessionnelCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MutuelleDuGroupeRatpProfessionnelCollector extends SketchCollector 
                 mandatory: true
             }
         },
-        entryUrl: "https://mutuelleratp.fr/espace-professionnel/connexion/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://mutuelleratp.fr/espace-professionnel/connexion/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

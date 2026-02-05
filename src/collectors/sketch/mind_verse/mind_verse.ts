@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MindVerseCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MindVerseCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://ai.mind-verse.de/?p=settings",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://ai.mind-verse.de/?p=settings",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

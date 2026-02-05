@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PerdooCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PerdooCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://web.perdoo.com/#/settings/company/general/info",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://web.perdoo.com/#/settings/company/general/info",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

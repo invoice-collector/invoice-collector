@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TailwindAppCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TailwindAppCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.tailwindapp.com/dashboard/settings/billing/statements",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.tailwindapp.com/dashboard/settings/billing/statements",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

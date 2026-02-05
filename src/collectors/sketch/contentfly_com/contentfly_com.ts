@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ContentflyComCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ContentflyComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.contentfly.com/#/c/me/invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.contentfly.com/#/c/me/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

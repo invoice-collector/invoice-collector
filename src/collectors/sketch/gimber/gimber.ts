@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GimberCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class GimberCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portal.gimber.com/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://portal.gimber.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

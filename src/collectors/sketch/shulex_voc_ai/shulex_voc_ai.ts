@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ShulexVocAiCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ShulexVocAiCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://apps.voc.ai/app#/account/user?redirect=%2Fapp&type=billing",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://apps.voc.ai/app#/account/user?redirect=%2Fapp&type=billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

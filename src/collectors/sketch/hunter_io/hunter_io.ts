@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HunterIoCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class HunterIoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://hunter.io/users/sign_in",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://hunter.io/users/sign_in",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

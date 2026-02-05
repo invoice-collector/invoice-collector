@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SdeaCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SdeaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://client.sdea.fr/fr/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://client.sdea.fr/fr/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

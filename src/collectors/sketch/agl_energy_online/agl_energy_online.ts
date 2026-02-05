@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AglEnergyOnlineCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AglEnergyOnlineCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://secure.agl.com.au/login?state=PqNr8WhJIeaQUQ9sDgxcpwFUjYNCPFob&client=8NReZXmds46C4pCMhOCN8mbHjQ60F9zh&protocol=oauth2&response_type=code&scope=openid&redirect_uri=https%3A%2F%2Fwww.agl.com.au%2Fsts%2Faccount%2Flogincallback&nonce=18fa842d4320a1c5",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://secure.agl.com.au/login?state=PqNr8WhJIeaQUQ9sDgxcpwFUjYNCPFob&client=8NReZXmds46C4pCMhOCN8mbHjQ60F9zh&protocol=oauth2&response_type=code&scope=openid&redirect_uri=https%3A%2F%2Fwww.agl.com.au%2Fsts%2Faccount%2Flogincallback&nonce=18fa842d4320a1c5",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

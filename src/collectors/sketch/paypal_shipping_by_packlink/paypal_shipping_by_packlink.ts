@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PaypalShippingByPacklinkCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PaypalShippingByPacklinkCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://paypal.packlink.com/de/private/settings/billing/invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://paypal.packlink.com/de/private/settings/billing/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

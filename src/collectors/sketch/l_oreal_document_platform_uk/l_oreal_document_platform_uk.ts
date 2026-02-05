@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LOrealDocumentPlatformUkCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class LOrealDocumentPlatformUkCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://documentplatform.loreal.co.uk/data/p/1",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://documentplatform.loreal.co.uk/data/p/1",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

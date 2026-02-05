@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class _3dkBerlinCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class _3dkBerlinCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://3dk.berlin/verwaltung",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://3dk.berlin/verwaltung",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

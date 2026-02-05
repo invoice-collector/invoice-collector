@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DolibarrKerlanCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DolibarrKerlanCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://dolibarr.kerlan-info.fr/compta/facture/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://dolibarr.kerlan-info.fr/compta/facture/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PsngrCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PsngrCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://psngr.co/dashboard/billing/overview",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://psngr.co/dashboard/billing/overview",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

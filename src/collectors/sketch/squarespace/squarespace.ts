@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SquarespaceCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SquarespaceCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.squarespace.com/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.squarespace.com/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

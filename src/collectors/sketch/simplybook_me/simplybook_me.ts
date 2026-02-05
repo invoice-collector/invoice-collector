@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SimplybookMeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SimplybookMeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://arogyavision.secure.simplybook.it/v2/management/#invoice-report/filter/%7B%22status%22%3A%22paid%22%2C%22payment_received%22%3A%221%22%7D/onPage/10/page/1",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://arogyavision.secure.simplybook.it/v2/management/#invoice-report/filter/%7B%22status%22%3A%22paid%22%2C%22payment_received%22%3A%221%22%7D/onPage/10/page/1",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

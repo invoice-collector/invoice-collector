@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RialtoWaterServicesCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class RialtoWaterServicesCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.onlinebiller.com/rialtows/statements.html",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.onlinebiller.com/rialtows/statements.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

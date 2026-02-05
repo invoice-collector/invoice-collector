@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StormproxiesComCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class StormproxiesComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://stormproxies.com/clients/member/payment-history",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://stormproxies.com/clients/member/payment-history",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

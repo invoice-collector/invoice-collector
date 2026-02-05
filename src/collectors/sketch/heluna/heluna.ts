@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HelunaCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class HelunaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://heluna.com/clients/account/invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://heluna.com/clients/account/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

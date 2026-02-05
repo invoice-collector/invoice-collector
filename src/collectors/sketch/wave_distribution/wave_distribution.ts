@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WaveDistributionCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class WaveDistributionCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.wave-distribution.de/Mein-Konto/Bestellungen",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.wave-distribution.de/Mein-Konto/Bestellungen",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class QuetextCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class QuetextCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.quetext.com/account/billing",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.quetext.com/account/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

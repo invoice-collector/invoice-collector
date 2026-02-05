@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GrunerFunkeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class GrunerFunkeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portal.gruenerfunke.de/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://portal.gruenerfunke.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

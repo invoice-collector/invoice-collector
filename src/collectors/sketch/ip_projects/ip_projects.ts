@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IpProjectsCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class IpProjectsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portal.ip-projects.de/#profile/Invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://portal.ip-projects.de/#profile/Invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

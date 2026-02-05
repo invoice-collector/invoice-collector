@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BeyondPricesCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BeyondPricesCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://v2.beyondpricing.com/dashboard/user/statements",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://v2.beyondpricing.com/dashboard/user/statements",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class UticaNationalInsuranceCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class UticaNationalInsuranceCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://myaccount.uticanational.com/ccc-portal/user/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://myaccount.uticanational.com/ccc-portal/user/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

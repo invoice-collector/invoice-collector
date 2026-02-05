@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TpaConnectAppCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TpaConnectAppCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portal.tpa-connect.app/webapp/#",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://portal.tpa-connect.app/webapp/#",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

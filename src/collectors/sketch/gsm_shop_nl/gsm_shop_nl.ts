@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GsmShopNlCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class GsmShopNlCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.gsm-shop.nl/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "http://www.gsm-shop.nl/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

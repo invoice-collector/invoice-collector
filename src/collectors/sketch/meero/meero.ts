@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MeeroCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MeeroCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.meero.com/customer/fr",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.meero.com/customer/fr",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

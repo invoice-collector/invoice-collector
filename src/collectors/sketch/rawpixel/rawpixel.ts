@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RawpixelCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class RawpixelCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.rawpixel.com/steffi3/billing",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.rawpixel.com/steffi3/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

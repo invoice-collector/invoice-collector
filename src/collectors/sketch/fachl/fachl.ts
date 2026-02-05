@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FachlCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class FachlCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://mein.fachl.at/Abrechnung/Abrechnungen",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://mein.fachl.at/Abrechnung/Abrechnungen",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

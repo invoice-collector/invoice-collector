@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MailpoetCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MailpoetCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://account.mailpoet.com/invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://account.mailpoet.com/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

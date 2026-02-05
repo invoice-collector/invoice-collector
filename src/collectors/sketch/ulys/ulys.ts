@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class UlysCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class UlysCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://espaceabonnes.vinci-autoroutes.com/invoices-consos/factures",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://espaceabonnes.vinci-autoroutes.com/invoices-consos/factures",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

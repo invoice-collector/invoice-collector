@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MailcoachCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MailcoachCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://mailcoach.app/download",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://mailcoach.app/download",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

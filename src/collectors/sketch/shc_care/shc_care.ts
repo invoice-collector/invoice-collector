@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ShcCareCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ShcCareCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://shc-care.de/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://shc-care.de/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

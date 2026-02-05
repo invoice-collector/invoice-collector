@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GrundlInstitutCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class GrundlInstitutCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://lernwelt.grundl-institut.de/meine-bestellungen/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://lernwelt.grundl-institut.de/meine-bestellungen/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

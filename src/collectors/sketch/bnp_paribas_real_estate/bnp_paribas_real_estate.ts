@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BnpParibasRealEstateCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BnpParibasRealEstateCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://extranetclients.repmfrance.bnpparibas.fr/fr/account/statement",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://extranetclients.repmfrance.bnpparibas.fr/fr/account/statement",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MacprovideoCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MacprovideoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.macprovideo.com/profile",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.macprovideo.com/profile",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

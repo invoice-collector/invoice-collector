@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ZenefitsCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ZenefitsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://secure.zenefits.com/accounts/login/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://secure.zenefits.com/accounts/login/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

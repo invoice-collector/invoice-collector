@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SpenditCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SpenditCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.spendit.de",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.spendit.de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

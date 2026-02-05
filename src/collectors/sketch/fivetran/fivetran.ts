@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FivetranCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class FivetranCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://fivetran.com/dashboard/account/billing-usage/billing",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://fivetran.com/dashboard/account/billing-usage/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

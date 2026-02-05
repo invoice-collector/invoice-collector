@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CpamAvisDePaiementAmeliFrCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CpamAvisDePaiementAmeliFrCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.ameli.fr/assure/adresses-et-contacts/vos-paiements-vos-remboursements",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.ameli.fr/assure/adresses-et-contacts/vos-paiements-vos-remboursements",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LomaxCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class LomaxCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.lomax.dk/min-konto/fakturaer/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.lomax.dk/min-konto/fakturaer/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

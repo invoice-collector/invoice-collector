@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ManitobaHydroCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ManitobaHydroCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.hydro.mb.ca/mybillapp/loginf5?action=acctsummary&lang=en_CA",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.hydro.mb.ca/mybillapp/loginf5?action=acctsummary&lang=en_CA",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

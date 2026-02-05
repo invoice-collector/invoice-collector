@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KlearCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class KlearCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://klear.com/settings#/account/general",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://klear.com/settings#/account/general",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

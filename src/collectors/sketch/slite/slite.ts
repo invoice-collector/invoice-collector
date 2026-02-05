@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SliteCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SliteCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://slite.com/organization/select",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://slite.com/organization/select",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

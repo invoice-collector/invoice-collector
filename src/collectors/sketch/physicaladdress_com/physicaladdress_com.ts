@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PhysicaladdressComCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PhysicaladdressComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://physicaladdress.com/virtualizedmail/customerLogin",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://physicaladdress.com/virtualizedmail/customerLogin",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

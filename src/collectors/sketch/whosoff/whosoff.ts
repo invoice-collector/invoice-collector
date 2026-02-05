@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WhosoffCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class WhosoffCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://staff.whosoff.com/login/?Redirect=/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://staff.whosoff.com/login/?Redirect=/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

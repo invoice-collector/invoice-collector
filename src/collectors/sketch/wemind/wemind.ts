@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WemindCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class WemindCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://membre.wemind.io/connexion",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://membre.wemind.io/connexion",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

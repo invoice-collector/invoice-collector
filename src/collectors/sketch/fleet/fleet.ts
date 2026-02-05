@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FleetCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class FleetCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://cockpit.fleet.co/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://cockpit.fleet.co/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

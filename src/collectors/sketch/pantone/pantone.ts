@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PantoneCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PantoneCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.pantone.com/hk/en/customer/account/create",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.pantone.com/hk/en/customer/account/create",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

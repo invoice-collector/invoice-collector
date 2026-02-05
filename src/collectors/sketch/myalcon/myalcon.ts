@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MyalconCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MyalconCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://order.myalcon.ca/alconCA/en_CA/CAD/visioncare/invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://order.myalcon.ca/alconCA/en_CA/CAD/visioncare/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

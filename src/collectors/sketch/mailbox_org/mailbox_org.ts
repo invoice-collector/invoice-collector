@@ -1,5 +1,5 @@
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MailboxOrgCollector extends SketchCollector {
 
@@ -25,8 +25,10 @@ export class MailboxOrgCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://login.mailbox.org/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://login.mailbox.org/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

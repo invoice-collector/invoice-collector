@@ -1,4 +1,4 @@
-import { WebCollector } from '../../web2Collector';
+import { WebCollector } from '../../webCollector';
 import { BureauValleeSelectors } from './selectors';
 import { Driver, Element } from '../../../driver/driver';
 import { CollectorCaptcha, CollectorType, Invoice } from '../../abstractCollector';
@@ -31,7 +31,8 @@ export class BureauValleeCollector extends WebCollector {
         },
         loginUrl: "https://www.bureau-vallee.fr/customer/account/login/",
         entryUrl: "https://www.bureau-vallee.fr/invoice/invoice/",
-        captcha: CollectorCaptcha.NONE
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: false
     }
 
     constructor() {
@@ -69,7 +70,7 @@ export class BureauValleeCollector extends WebCollector {
         }
     }
 
-    async navigate(driver: Driver, params: any): Promise<void> {
+    async navigate(driver: Driver): Promise<void> {
         // Wait for profile container
         await driver.getElement(BureauValleeSelectors.CONTAINER_PROFIL)
         // Go to invoices page
@@ -80,11 +81,11 @@ export class BureauValleeCollector extends WebCollector {
         return await driver.getElement(BureauValleeSelectors.CONTAINER_NO_INVOICE, { raiseException: false, timeout: 5000 }) !== null;
     }
  
-    async getInvoices(driver: Driver, params: any): Promise<Element[]> {
+    async getInvoices(driver: Driver): Promise<Element[]> {
         return await driver.getElements(BureauValleeSelectors.CONTAINER_INVOICE);
     }
 
-    async data(driver: Driver, params: any, element: Element): Promise<Invoice | null> {
+    async data(driver: Driver, element: Element): Promise<Invoice | null> {
         // Get data
         const date = await element.getAttribute(BureauValleeSelectors.CONTAINER_INVOICE_DATE, "textContent");
         const timestamp = utils.timestampFromString(date, "dd'/'MM'/'yyyy", 'fr');
@@ -101,7 +102,7 @@ export class BureauValleeCollector extends WebCollector {
         };
     }
 
-    async download(driver: Driver, params: any, element: Element, invoice: Invoice): Promise<string[]> {
+    async download(driver: Driver, invoice: Invoice): Promise<string[]> {
         // Click on element
         await invoice.downloadButton.leftClick();
         // Wait for the invoice to be downloaded

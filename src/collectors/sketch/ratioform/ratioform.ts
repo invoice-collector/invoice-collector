@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RatioformCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class RatioformCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.ratioform.de/webshop/vs=de/center/main.ipm",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.ratioform.de/webshop/vs=de/center/main.ipm",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

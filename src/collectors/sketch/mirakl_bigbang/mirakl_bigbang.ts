@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MiraklBigbangCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MiraklBigbangCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://bigbangmarketplace.mirakl.net/sellerpayment/shop/shop-billing-cycles?sort=dateCreated%2CDESC&limit=25",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://bigbangmarketplace.mirakl.net/sellerpayment/shop/shop-billing-cycles?sort=dateCreated%2CDESC&limit=25",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

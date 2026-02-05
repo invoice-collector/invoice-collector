@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DigitaldruckFabrikCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DigitaldruckFabrikCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.digitaldruck-fabrik.de/login/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.digitaldruck-fabrik.de/login/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

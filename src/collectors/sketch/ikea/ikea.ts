@@ -1,5 +1,5 @@
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IkeaCollector extends SketchCollector {
 
@@ -25,8 +25,10 @@ export class IkeaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.ikea.com/fr/fr/profile/login?itm_campaign=wlo-user-slider-logged-out&itm_element=customer-service&itm_content=login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.ikea.com/fr/fr/profile/login?itm_campaign=wlo-user-slider-logged-out&itm_element=customer-service&itm_content=login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

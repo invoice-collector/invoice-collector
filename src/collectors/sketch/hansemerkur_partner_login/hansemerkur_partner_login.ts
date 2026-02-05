@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HansemerkurPartnerLoginCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class HansemerkurPartnerLoginCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://b2b.hmrv.de/buchen-verwalten/statistik-abrechnung/abrechnungen",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://b2b.hmrv.de/buchen-verwalten/statistik-abrechnung/abrechnungen",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

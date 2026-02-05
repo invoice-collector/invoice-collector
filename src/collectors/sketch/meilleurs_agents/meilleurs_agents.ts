@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MeilleursAgentsCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MeilleursAgentsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.meilleursagents.com/_signin?show=signin",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.meilleursagents.com/_signin?show=signin",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

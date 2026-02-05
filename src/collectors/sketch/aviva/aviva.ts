@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AvivaCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AvivaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.direct.aviva.co.uk/MyAccount/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.direct.aviva.co.uk/MyAccount/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

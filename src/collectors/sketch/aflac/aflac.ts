@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AflacCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AflacCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://login.aflac.com/?returnURL=https://my.aflac.com/portal/sso/ssologin.aspx",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://login.aflac.com/?returnURL=https://my.aflac.com/portal/sso/ssologin.aspx",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

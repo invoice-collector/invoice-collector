@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OptmyzrCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class OptmyzrCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://tools.optmyzr.com/tools",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://tools.optmyzr.com/tools",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

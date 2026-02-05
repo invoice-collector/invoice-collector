@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ChannelreplyCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ChannelreplyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.channelreply.com/manage#manage-billing-info",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.channelreply.com/manage#manage-billing-info",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TppWholesaleCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TppWholesaleCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.tppwholesale.com.au/login/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.tppwholesale.com.au/login/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

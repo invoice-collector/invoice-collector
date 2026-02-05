@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Amt24SachsenGastetaxCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class Amt24SachsenGastetaxCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://sso.amt24.sachsen.de/idp/profile/SAML2/Redirect/SSO?execution=e3s1",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://sso.amt24.sachsen.de/idp/profile/SAML2/Redirect/SSO?execution=e3s1",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

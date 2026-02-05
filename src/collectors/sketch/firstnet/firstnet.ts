@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FirstnetCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class FirstnetCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://fcontent.att.com/dynamic/iamLRR/LrrController?IAM_OP=login&appName=m14332&refIDFromLogin=1541049028233_438116189_P&targetURL=https%3A%2F%2Foidc.idp.flogin.att.com%2Fisam%2Foidc%2Fendpoint%2Famapp-runtime-PSE%2Fauthorize%3Fresponse_type%3Did_token%",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://fcontent.att.com/dynamic/iamLRR/LrrController?IAM_OP=login&appName=m14332&refIDFromLogin=1541049028233_438116189_P&targetURL=https%3A%2F%2Foidc.idp.flogin.att.com%2Fisam%2Foidc%2Fendpoint%2Famapp-runtime-PSE%2Fauthorize%3Fresponse_type%3Did_token%",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

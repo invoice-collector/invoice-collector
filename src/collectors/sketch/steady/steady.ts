@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SteadyCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SteadyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://steadyhq.com/de/backend/billing/invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://steadyhq.com/de/backend/billing/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

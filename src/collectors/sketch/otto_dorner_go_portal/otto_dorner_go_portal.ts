@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OttoDornerGoPortalCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class OttoDornerGoPortalCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://go.doerner.de",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://go.doerner.de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

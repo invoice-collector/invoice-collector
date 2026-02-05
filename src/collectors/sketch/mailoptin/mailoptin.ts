@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MailoptinCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MailoptinCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.mailoptin.io/login/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://my.mailoptin.io/login/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

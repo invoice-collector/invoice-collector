@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WpcleverCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class WpcleverCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://wpclever.net/my-account",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://wpclever.net/my-account",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

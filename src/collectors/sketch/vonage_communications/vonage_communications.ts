@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VonageCommunicationsCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class VonageCommunicationsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://dashboard.nexmo.com/billing-and-payments/history",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://dashboard.nexmo.com/billing-and-payments/history",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

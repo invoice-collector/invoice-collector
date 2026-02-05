@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MyAyvensManagerCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MyAyvensManagerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://manager.ayvens.fr/portal/aldnetpal/depenses/votre_coffre_fort/factures",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://manager.ayvens.fr/portal/aldnetpal/depenses/votre_coffre_fort/factures",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LivezillaCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class LivezillaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.livezilla.net/shop/de/?action=login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.livezilla.net/shop/de/?action=login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

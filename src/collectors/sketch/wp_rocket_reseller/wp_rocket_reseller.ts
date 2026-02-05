@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WpRocketResellerCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class WpRocketResellerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://wp-rocket.me/de/reseller/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://wp-rocket.me/de/reseller/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

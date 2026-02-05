@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IfmCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class IfmCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.ifm.com/de/de/secure/my-account#!/invoiceList",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.ifm.com/de/de/secure/my-account#!/invoiceList",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

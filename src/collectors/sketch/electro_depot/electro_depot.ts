@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ElectroDepotCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ElectroDepotCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://erreur.electrodepot.pictime.fr/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "http://erreur.electrodepot.pictime.fr/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

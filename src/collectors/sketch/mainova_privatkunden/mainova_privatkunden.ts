@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MainovaPrivatkundenCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MainovaPrivatkundenCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.mainova.de/onlineservice/privatkunden/kundennummer.html",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.mainova.de/onlineservice/privatkunden/kundennummer.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

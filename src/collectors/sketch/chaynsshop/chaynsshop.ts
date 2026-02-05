@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ChaynsshopCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ChaynsshopCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://die-einkaufsbummler.chayns.net/tapp/258527?v=0",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://die-einkaufsbummler.chayns.net/tapp/258527?v=0",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

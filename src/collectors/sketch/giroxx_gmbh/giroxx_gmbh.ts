@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GiroxxGmbhCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class GiroxxGmbhCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://giroxx.de/kundenkonto-auftragsarchiv.html",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://giroxx.de/kundenkonto-auftragsarchiv.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

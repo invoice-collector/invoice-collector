@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SwpStadtwerkePassauCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SwpStadtwerkePassauCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portal.tpponline.de/py/portal/default/index",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://portal.tpponline.de/py/portal/default/index",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ProgressiveWasteCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ProgressiveWasteCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://secure3.i-doxs.net/iesi",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://secure3.i-doxs.net/iesi",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EOptimumCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class EOptimumCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://mitglieder.eoptimum.de/mitgliederportal/start",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://mitglieder.eoptimum.de/mitgliederportal/start",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

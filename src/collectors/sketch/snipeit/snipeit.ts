@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SnipeitCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SnipeitCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://snipeitapp.com/account/invoices/in_1Eb3TLLn2xhxKhITMn4NrvC7/download",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://snipeitapp.com/account/invoices/in_1Eb3TLLn2xhxKhITMn4NrvC7/download",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

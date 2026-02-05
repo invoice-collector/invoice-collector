@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SubstackCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SubstackCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://substack.com/account/login?redirect=%2F&email=&with_password=",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://substack.com/account/login?redirect=%2F&email=&with_password=",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

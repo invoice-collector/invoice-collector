@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ApmCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ApmCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://buergerportal.apm-niemegk.de/objects/96661/documents",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://buergerportal.apm-niemegk.de/objects/96661/documents",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SafecoInsuranceCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SafecoInsuranceCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://customer.safeco.com/accountmanager/billing/summary",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://customer.safeco.com/accountmanager/billing/summary",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

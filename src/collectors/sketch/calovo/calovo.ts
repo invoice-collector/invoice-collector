@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CalovoCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CalovoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://calpit.calovo.com/user/account?anchor=addon-tab-tab",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://calpit.calovo.com/user/account?anchor=addon-tab-tab",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

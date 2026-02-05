@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RealDeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class RealDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.real.de/account/purchases/#unit_status=all&time_span=all",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.real.de/account/purchases/#unit_status=all&time_span=all",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

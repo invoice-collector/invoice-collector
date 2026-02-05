@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OlinnDistributionCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class OlinnDistributionCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://olinn-distribution.com/mon-compte/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://olinn-distribution.com/mon-compte/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

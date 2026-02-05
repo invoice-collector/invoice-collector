@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SwbCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SwbCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://gk-selfservice.swb.de/portal/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://gk-selfservice.swb.de/portal/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

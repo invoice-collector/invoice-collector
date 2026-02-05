@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LbsPrimalianCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class LbsPrimalianCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portail-lbs33.artis.fr/ArtisWebLbs33/portail/ventes/factures/entree.action?cKey=1&cStatus=P&session=fGkPzEhOldEBb3wS&typeLicence=LBS17",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://portail-lbs33.artis.fr/ArtisWebLbs33/portail/ventes/factures/entree.action?cKey=1&cStatus=P&session=fGkPzEhOldEBb3wS&typeLicence=LBS17",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KamateraCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class KamateraCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://console.kamatera.com/billing/history",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://console.kamatera.com/billing/history",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

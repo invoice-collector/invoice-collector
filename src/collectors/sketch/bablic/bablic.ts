@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BablicCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BablicCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.bablic.com",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "http://www.bablic.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

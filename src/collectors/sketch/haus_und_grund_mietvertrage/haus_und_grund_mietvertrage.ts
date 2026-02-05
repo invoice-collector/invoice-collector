@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HausUndGrundMietvertrageCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class HausUndGrundMietvertrageCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.xn--hausundgrundmietvertrge-g8b.de/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.xn--hausundgrundmietvertrge-g8b.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

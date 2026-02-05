@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KreiswerkeMainKinzigCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class KreiswerkeMainKinzigCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.kreiswerke-main-kinzig.de/kundenportal/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.kreiswerke-main-kinzig.de/kundenportal/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

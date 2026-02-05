@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class _5vorflugCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class _5vorflugCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.5vorflug.de",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "http://www.5vorflug.de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ReifenGundlachGmbhCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ReifenGundlachGmbhCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://shop.reifengundlach.de/Start",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://shop.reifengundlach.de/Start",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

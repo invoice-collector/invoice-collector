@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KoodoMobileCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class KoodoMobileCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.koodomobile.com/my-account/billing/bill_summary?INTCMP=KMNew_NavBar_Billing",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.koodomobile.com/my-account/billing/bill_summary?INTCMP=KMNew_NavBar_Billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

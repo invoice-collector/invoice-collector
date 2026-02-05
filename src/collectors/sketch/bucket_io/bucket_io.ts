@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BucketIoCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BucketIoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.bucket.io/#/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.bucket.io/#/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

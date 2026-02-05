@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HenryScheinUsCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class HenryScheinUsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.henryschein.com/us-en/Profiles/Login.aspx",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.henryschein.com/us-en/Profiles/Login.aspx",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

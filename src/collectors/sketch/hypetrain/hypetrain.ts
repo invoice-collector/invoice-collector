@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HypetrainCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class HypetrainCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://thesissbliss.hypetrain.io/workspace-settings/billing",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://thesissbliss.hypetrain.io/workspace-settings/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

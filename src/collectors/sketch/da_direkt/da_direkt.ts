@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DaDirektCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DaDirektCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.da-direkt.de/kundencenter/kundenkonto/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.da-direkt.de/kundencenter/kundenkonto/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

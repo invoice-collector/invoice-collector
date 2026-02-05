@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StadtwerkeLippstadtCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class StadtwerkeLippstadtCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://kundenportal.stadtwerke-lippstadt.de:8082/bkp/rechnungen",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://kundenportal.stadtwerke-lippstadt.de:8082/bkp/rechnungen",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NinoxCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class NinoxCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://ninoxdb.de/de/subscriptions",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://ninoxdb.de/de/subscriptions",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

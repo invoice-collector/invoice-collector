@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WebshipperDkCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class WebshipperDkCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portal.webshipr.com/da/portal/profile/invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://portal.webshipr.com/da/portal/profile/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

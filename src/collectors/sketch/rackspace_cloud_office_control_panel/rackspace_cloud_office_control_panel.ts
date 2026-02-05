@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RackspaceCloudOfficeControlPanelCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class RackspaceCloudOfficeControlPanelCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://cp.rackspace.com/Default.aspx",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://cp.rackspace.com/Default.aspx",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

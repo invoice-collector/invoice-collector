@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TehaKundenportalCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TehaKundenportalCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://login.teha-wd.de/accounting/overview",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://login.teha-wd.de/accounting/overview",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

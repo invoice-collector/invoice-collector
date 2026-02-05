@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EFactFacNissanCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class EFactFacNissanCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://private.cegedim-demat.com/gis-frontoffice/home.do?mdpreset=ok",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://private.cegedim-demat.com/gis-frontoffice/home.do?mdpreset=ok",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

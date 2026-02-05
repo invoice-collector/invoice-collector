@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IntermedShopCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class IntermedShopCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://shop.intermed.de/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://shop.intermed.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

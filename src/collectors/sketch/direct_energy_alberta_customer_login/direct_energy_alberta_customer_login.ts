@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DirectEnergyAlbertaCustomerLoginCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DirectEnergyAlbertaCustomerLoginCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://oam.directenergyregulatedservices.com/home/login.xhtml",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://oam.directenergyregulatedservices.com/home/login.xhtml",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

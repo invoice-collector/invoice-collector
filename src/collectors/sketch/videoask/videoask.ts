@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VideoaskCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class VideoaskCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.videoask.com/app/account?tab=plan_and_billing",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.videoask.com/app/account?tab=plan_and_billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

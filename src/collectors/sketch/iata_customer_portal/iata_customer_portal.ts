@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IataCustomerPortalCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class IataCustomerPortalCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://casslink2.iata.org/iata-cass-frontend-container/output/output-agents",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://casslink2.iata.org/iata-cass-frontend-container/output/output-agents",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class UpscopeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class UpscopeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.upscope.io/settings/teams/bookingkit.de/billing",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.upscope.io/settings/teams/bookingkit.de/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

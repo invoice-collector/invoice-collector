@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AcmeoCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AcmeoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://msp.infinigate.de/login.php",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://msp.infinigate.de/login.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

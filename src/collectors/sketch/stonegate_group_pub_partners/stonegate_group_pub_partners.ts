@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StonegateGroupPubPartnersCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class StonegateGroupPubPartnersCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.stonegatepubpartners.co.uk/sites/myaccount/my-pub/Pages/invoices-documents.aspx",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.stonegatepubpartners.co.uk/sites/myaccount/my-pub/Pages/invoices-documents.aspx",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

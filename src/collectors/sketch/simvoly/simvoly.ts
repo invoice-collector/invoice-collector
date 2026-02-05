@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SimvolyCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SimvolyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://simvoly.com/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://simvoly.com/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

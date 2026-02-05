@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CricketWirelessCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CricketWirelessCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.cricketwireless.com/myaccount.html#/billingHistory",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.cricketwireless.com/myaccount.html#/billingHistory",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

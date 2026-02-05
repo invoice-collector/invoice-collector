@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Mql5MarktCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class Mql5MarktCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.mql5.com/de/users/cbanalyse/accounting",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.mql5.com/de/users/cbanalyse/accounting",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

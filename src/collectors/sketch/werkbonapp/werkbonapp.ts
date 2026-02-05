@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WerkbonappCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class WerkbonappCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.werkbonapp.nl/mijn-account/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.werkbonapp.nl/mijn-account/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

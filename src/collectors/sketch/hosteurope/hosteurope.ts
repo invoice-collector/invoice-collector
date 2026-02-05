@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HosteuropeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class HosteuropeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://kis.hosteurope.de/kundenkonto/rechnungen/index.php",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://kis.hosteurope.de/kundenkonto/rechnungen/index.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

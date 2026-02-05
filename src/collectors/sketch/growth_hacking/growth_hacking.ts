@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GrowthHackingCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class GrowthHackingCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.growth-hacking.io/a/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.growth-hacking.io/a/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

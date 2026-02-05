@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PdfCoCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PdfCoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.pdf.co/account/orders",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.pdf.co/account/orders",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

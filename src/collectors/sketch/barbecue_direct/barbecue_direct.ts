@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BarbecueDirectCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BarbecueDirectCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.webdistrib.com/barbecue-direct/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.webdistrib.com/barbecue-direct/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

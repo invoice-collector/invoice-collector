@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ClickoutilCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ClickoutilCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.clickoutil.com/historique-des-commandes",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.clickoutil.com/historique-des-commandes",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

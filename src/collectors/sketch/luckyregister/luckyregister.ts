@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LuckyregisterCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class LuckyregisterCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://sso.secureserver.net/login?plid=103615&prog_id=Luckyregister&realm=idp&path=%2Fproducts&app=account",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://sso.secureserver.net/login?plid=103615&prog_id=Luckyregister&realm=idp&path=%2Fproducts&app=account",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

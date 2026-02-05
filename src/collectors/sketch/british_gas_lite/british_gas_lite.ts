@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BritishGasLiteCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BritishGasLiteCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://customer.britishgaslite.co.uk/#/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://customer.britishgaslite.co.uk/#/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

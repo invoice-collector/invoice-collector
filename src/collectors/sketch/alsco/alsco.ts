@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AlscoCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AlscoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://atrack.alsco.com/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://atrack.alsco.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

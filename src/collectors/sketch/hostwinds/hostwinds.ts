@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HostwindsCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class HostwindsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://clients.hostwinds.com/clientarea.php?_ga=2.94389849.438283618.1636343183-124337738.1636203898",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://clients.hostwinds.com/clientarea.php?_ga=2.94389849.438283618.1636343183-124337738.1636203898",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CovetrusCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CovetrusCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://covetrus.de/i/konto/start",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://covetrus.de/i/konto/start",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

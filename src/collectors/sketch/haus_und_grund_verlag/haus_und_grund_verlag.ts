@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HausUndGrundVerlagCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class HausUndGrundVerlagCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://ssl.haus-und-grund.com/rechnungen.html",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://ssl.haus-und-grund.com/rechnungen.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

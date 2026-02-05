@@ -1,5 +1,5 @@
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DalkiaCollector extends SketchCollector {
 
@@ -25,8 +25,10 @@ export class DalkiaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://espace-clients.dalkia.fr/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://espace-clients.dalkia.fr/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

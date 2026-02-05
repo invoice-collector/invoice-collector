@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BrowserstackCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BrowserstackCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.browserstack.com/accounts/billing",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.browserstack.com/accounts/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

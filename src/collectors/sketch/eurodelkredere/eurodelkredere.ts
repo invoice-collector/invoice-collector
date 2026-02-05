@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EurodelkredereCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class EurodelkredereCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://keycloak.portal.eurodelkredere.de/auth/realms/euro-delkredere/protocol/openid-connect/auth?client_id=ed-ng-supplier&redirect_uri=https%3A%2F%2Fsupplier.portal.eurodelkredere.de%2Fletters-of-advice&state=28edd79d-f143-4fad-89e1-2985d435dd8b&respons",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://keycloak.portal.eurodelkredere.de/auth/realms/euro-delkredere/protocol/openid-connect/auth?client_id=ed-ng-supplier&redirect_uri=https%3A%2F%2Fsupplier.portal.eurodelkredere.de%2Fletters-of-advice&state=28edd79d-f143-4fad-89e1-2985d435dd8b&respons",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

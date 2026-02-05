@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RevolutBusinessCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class RevolutBusinessCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://business.revolut.com/accounts/transactions",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://business.revolut.com/accounts/transactions",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

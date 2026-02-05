@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HereDeveloperCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class HereDeveloperCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://developer.here.com/billing-management",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://developer.here.com/billing-management",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TuvNordFahrschulserviceCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TuvNordFahrschulserviceCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www4.tuev-nord.de/efa/#/invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www4.tuev-nord.de/efa/#/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

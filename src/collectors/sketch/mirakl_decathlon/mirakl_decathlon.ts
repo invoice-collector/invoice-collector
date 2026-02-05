@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MiraklDecathlonCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MiraklDecathlonCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://marketplace-decathlon-eu.mirakl.net/sellerpayment/shop/shop-billing-cycles",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://marketplace-decathlon-eu.mirakl.net/sellerpayment/shop/shop-billing-cycles",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GothaerCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class GothaerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.gothaer.de/meine-gothaer/portal.htm#/documents",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.gothaer.de/meine-gothaer/portal.htm#/documents",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

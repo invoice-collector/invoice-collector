@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WizaCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class WizaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://wiza.co/?xsln5i53hj2e7a7rjwjumiuhoa=suxroadeng6eyg3n7a32nmkrlq",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://wiza.co/?xsln5i53hj2e7a7rjwjumiuhoa=suxroadeng6eyg3n7a32nmkrlq",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

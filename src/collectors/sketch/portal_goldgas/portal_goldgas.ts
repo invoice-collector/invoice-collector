@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PortalGoldgasCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PortalGoldgasCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portal.goldgas.de/registrierung",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://portal.goldgas.de/registrierung",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

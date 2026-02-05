@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MailfenceCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MailfenceCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://mailfence.com/flatx/index.jsp#tool=prefs&page=receipt",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://mailfence.com/flatx/index.jsp#tool=prefs&page=receipt",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HostingsolutionsItCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class HostingsolutionsItCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://pdc.hostingsolutions.it/MasterCP/MasterLogin.pl",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://pdc.hostingsolutions.it/MasterCP/MasterLogin.pl",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

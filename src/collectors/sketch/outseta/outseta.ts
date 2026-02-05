@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OutsetaCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class OutsetaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://oao.outseta.com/#/app/dashboard",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://oao.outseta.com/#/app/dashboard",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

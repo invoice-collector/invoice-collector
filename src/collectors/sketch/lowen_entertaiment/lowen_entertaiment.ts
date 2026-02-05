@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LowenEntertaimentCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class LowenEntertaimentCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.loewen-kundenportal.de/mein-konto/meine-rechnungen/rechnungen",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.loewen-kundenportal.de/mein-konto/meine-rechnungen/rechnungen",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

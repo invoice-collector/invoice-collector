@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DetercentreCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DetercentreCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://e.detercentre.heegeo.fr/historique-factures.php",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://e.detercentre.heegeo.fr/historique-factures.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

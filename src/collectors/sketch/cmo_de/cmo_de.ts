@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CmoDeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CmoDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://customer.cmo.de/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://customer.cmo.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HarvardBusinessPublishingCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class HarvardBusinessPublishingCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://hbsp.harvard.edu/home/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://hbsp.harvard.edu/home/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

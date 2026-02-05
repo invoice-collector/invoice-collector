@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MeridianCreditUnionCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MeridianCreditUnionCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.meridiancu.ca",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.meridiancu.ca",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

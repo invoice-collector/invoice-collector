@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DejBoxCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DejBoxCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.dejbox.fr/account.jsp?to=solde",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.dejbox.fr/account.jsp?to=solde",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

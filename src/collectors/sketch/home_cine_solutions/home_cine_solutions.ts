@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HomeCineSolutionsCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class HomeCineSolutionsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.homecinesolutions.fr/customer_session/new?return_to=%2Fcustomer",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.homecinesolutions.fr/customer_session/new?return_to=%2Fcustomer",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

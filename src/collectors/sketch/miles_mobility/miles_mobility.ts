@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MilesMobilityCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MilesMobilityCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://abo.miles-mobility.com/en/user/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://abo.miles-mobility.com/en/user/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

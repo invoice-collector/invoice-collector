@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HandyparkenAtCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class HandyparkenAtCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.handyparken.at/mopa3/index.sp#/my-transactions",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.handyparken.at/mopa3/index.sp#/my-transactions",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

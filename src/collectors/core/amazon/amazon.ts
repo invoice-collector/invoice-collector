@@ -1,6 +1,6 @@
 import { Driver, Element } from '../../../driver/driver';
 import { CollectorCaptcha, CollectorType, Invoice } from '../../../collectors/abstractCollector';
-import { WebCollector } from '../../../collectors/web2Collector';
+import { WebCollector } from '../../../collectors/webCollector';
 import { AmazonSelectors } from './selectors';
 import { timestampFromString } from '../../../utils';
 import { TwofaPromise } from '../../../collect/twofaPromise';
@@ -16,7 +16,7 @@ export class AmazonCollector extends WebCollector {
         id: "amazon",
         name: "Amazon (.fr)",
         description: "i18n.collectors.amazon.description",
-        version: "31",
+        version: "32",
         website: "https://www.amazon.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/4/4a/Amazon_icon.svg",
         type: CollectorType.WEB,
@@ -62,6 +62,7 @@ export class AmazonCollector extends WebCollector {
         loginUrl: "https://www.amazon.fr/ap/signin?openid.pape.max_auth_age=0&openid.return_to=https%3A%2F%2Fwww.amazon.fr%2Fgp%2Fcss%2Fyour-account-access%3Fref_%3Dnav_signin&openid.identity=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.assoc_handle=frflex&openid.mode=checkid_setup&openid.claimed_id=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0",
         entryUrl: "https://www.amazon.fr/your-orders/orders",
         captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true
     }
 
     constructor() {
@@ -80,6 +81,10 @@ export class AmazonCollector extends WebCollector {
     }
 
     async login(driver: Driver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
+        // Go to login page
+        await driver.goto(this.config.loginUrl);
+
+        // Wait for page to load
         const fieldPassword = await driver.getElement(AmazonSelectors.FIELD_PASSWORD, { raiseException: false, timeout: 2000 });
 
         // If password field is not visible
@@ -143,12 +148,12 @@ export class AmazonCollector extends WebCollector {
         }
     }
 
-    async navigate(driver: Driver, params: any): Promise<void>{
+    async navigate(driver: Driver): Promise<void>{
         // Get UI language element
         this.language = await driver.getAttribute(AmazonSelectors.CONTAINER_LANGUAGE, "textContent");
     }
 
-    async forEachPage(driver: Driver, params: any, next: () => void): Promise<void> {
+    async forEachPage(driver: Driver, next: () => void): Promise<void> {
         const currentYear = new Date().getFullYear();
 
         for (let year = currentYear; year >= currentYear - 1; year--) {
@@ -174,12 +179,12 @@ export class AmazonCollector extends WebCollector {
         return await driver.getElement(AmazonSelectors.CONTAINER_NO_ORDERS, { raiseException: false, timeout: 100 }) != null;
     }
 
-    async getInvoices(driver: Driver, params: any): Promise<Element[]> {
+    async getInvoices(driver: Driver): Promise<Element[]> {
         // Get order elements
         return await driver.getElements(AmazonSelectors.CONTAINER_ORDER);
     }
 
-    async data(driver: Driver, params: any, element: Element): Promise<Invoice | null>{
+    async data(driver: Driver, element: Element): Promise<Invoice | null>{
         // Get timestamp
         const date = await element.getAttribute(AmazonSelectors.CONTAINER_ORDER_DATE, "textContent");
         const timestamp = timestampFromString(date, 'd MMMM yyyy', this.language);
@@ -204,7 +209,7 @@ export class AmazonCollector extends WebCollector {
         };
     }
 
-    async download(driver: Driver, params: any, element: Element, invoice: Invoice): Promise<string[]> {
+    async download(driver: Driver, invoice: Invoice): Promise<string[]> {
         let documents: string[] = [];
 
         // Get origin

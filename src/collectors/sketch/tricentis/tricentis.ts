@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TricentisCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TricentisCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://support.tricentis.com/community/home.do",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://support.tricentis.com/community/home.do",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

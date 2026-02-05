@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KusmiTeaCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class KusmiTeaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.kusmitea.com/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "http://www.kusmitea.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

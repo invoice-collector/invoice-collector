@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CarboneCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CarboneCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://studio.carbone.io/#/studio",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://studio.carbone.io/#/studio",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

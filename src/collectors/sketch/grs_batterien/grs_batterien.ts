@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GrsBatterienCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class GrsBatterienCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.batterieregister.de/grs-batterien/public/Login.aspx",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.batterieregister.de/grs-batterien/public/Login.aspx",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

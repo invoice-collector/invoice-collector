@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SnovIoCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SnovIoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.snov.io/login?lang=en&signup_source=landing&signup_page=snov.io&cta_type=button",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.snov.io/login?lang=en&signup_source=landing&signup_page=snov.io&cta_type=button",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WonderpushCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class WonderpushCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://dashboard.wonderpush.com/billing/invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://dashboard.wonderpush.com/billing/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

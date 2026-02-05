@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DeadLinkCheckerCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DeadLinkCheckerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.deadlinkchecker.com/reports.asp",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.deadlinkchecker.com/reports.asp",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

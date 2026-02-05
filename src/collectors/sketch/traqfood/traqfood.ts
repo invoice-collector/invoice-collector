@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TraqfoodCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TraqfoodCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.traqfood.com/fr/?gclid=Cj0KCQiA-oqdBhDfARIsAO0TrGHbMT0Xtw7OXdFQDKtHFEVmQ7mMr-UOF33dzJ3RdP9izMSXwisJn_oaAnz1EALw_wcB",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.traqfood.com/fr/?gclid=Cj0KCQiA-oqdBhDfARIsAO0TrGHbMT0Xtw7OXdFQDKtHFEVmQ7mMr-UOF33dzJ3RdP9izMSXwisJn_oaAnz1EALw_wcB",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class QualibetCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class QualibetCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://myplace.schuhe.de/bills/bills",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://myplace.schuhe.de/bills/bills",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

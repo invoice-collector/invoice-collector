@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class UneuroCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class UneuroCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://en.unoeuro.com/controlpanel/login/?return=%2Fcontrolpanel%2F",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://en.unoeuro.com/controlpanel/login/?return=%2Fcontrolpanel%2F",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

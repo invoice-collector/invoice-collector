@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RheinbahnAboonlineCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class RheinbahnAboonlineCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://aboonline.rheinbahn.de/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://aboonline.rheinbahn.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

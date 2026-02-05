@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class UnityPaymentCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class UnityPaymentCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://payments.unity3d.com/portal/viewAllInvoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://payments.unity3d.com/portal/viewAllInvoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

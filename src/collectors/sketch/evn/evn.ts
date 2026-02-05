@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EvnCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class EvnCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.evn.at/CustomerPortal/InvoicesArchive",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.evn.at/CustomerPortal/InvoicesArchive",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

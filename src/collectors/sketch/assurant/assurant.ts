@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AssurantCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AssurantCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://partner.assurant-schutzbrief.de/insuranceAccounting/listPartnerAccountings",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://partner.assurant-schutzbrief.de/insuranceAccounting/listPartnerAccountings",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

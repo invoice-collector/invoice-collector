@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Pm2KeymetricsCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class Pm2KeymetricsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://id.keymetrics.io/api/oauth/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://id.keymetrics.io/api/oauth/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

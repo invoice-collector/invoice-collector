@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SweetprocessCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SweetprocessCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.sweetprocess.com/accounts/login/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.sweetprocess.com/accounts/login/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

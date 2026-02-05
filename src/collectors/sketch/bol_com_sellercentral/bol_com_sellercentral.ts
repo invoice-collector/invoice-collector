@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BolComSellercentralCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BolComSellercentralCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.bol.com/sdd/cashboard/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.bol.com/sdd/cashboard/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

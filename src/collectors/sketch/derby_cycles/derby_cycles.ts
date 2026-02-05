@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DerbyCyclesCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DerbyCyclesCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.derby-cycle-dealer.com/de/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.derby-cycle-dealer.com/de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DtadDeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DtadDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.dtad.de/login/;jsessionid=1C2B5674DA488F938325C8E10B5F20E0",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.dtad.de/login/;jsessionid=1C2B5674DA488F938325C8E10B5F20E0",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GelatoCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class GelatoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://auth.gelato.com/auth/realms/gelato-api/protocol/openid-connect/auth?client_id=api-dashboard&redirect_uri=https%3A%2F%2Fdashboard.gelato.com%2Fauth%2Fsign-in%3Flocale%3Dde_DE&state=91d95fa8-3cfc-4f75-a404-ff11874f0713&response_mode=fragment&respons",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://auth.gelato.com/auth/realms/gelato-api/protocol/openid-connect/auth?client_id=api-dashboard&redirect_uri=https%3A%2F%2Fdashboard.gelato.com%2Fauth%2Fsign-in%3Flocale%3Dde_DE&state=91d95fa8-3cfc-4f75-a404-ff11874f0713&response_mode=fragment&respons",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

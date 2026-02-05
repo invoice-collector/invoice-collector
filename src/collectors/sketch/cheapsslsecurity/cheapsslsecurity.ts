@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CheapsslsecurityCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CheapsslsecurityCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://cheapsslsecurity.com/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://cheapsslsecurity.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FunnelyticsCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class FunnelyticsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.funnelytics.io/login?_fs=3ed242b0-b9fd-4af6-b6fc-d44c9bc1f797",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.funnelytics.io/login?_fs=3ed242b0-b9fd-4af6-b6fc-d44c9bc1f797",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

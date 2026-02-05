@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VabUnifiedPostCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class VabUnifiedPostCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://vab-documents.nxt.unifiedpost.com/link/document/c/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://vab-documents.nxt.unifiedpost.com/link/document/c/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

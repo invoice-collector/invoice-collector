@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VialisCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class VialisCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://espaceclient.vialis.net/pages/Connexion/login.aspx",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://espaceclient.vialis.net/pages/Connexion/login.aspx",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

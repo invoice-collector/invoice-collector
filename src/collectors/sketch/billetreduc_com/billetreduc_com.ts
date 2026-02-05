@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BilletreducComCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BilletreducComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.billetreduc.com/monbrconnec.htm?go=monbrresa.htm%3ftype%3dmesresas",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.billetreduc.com/monbrconnec.htm?go=monbrresa.htm%3ftype%3dmesresas",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

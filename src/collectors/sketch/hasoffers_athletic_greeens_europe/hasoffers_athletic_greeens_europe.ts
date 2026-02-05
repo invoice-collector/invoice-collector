@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HasoffersAthleticGreeensEuropeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class HasoffersAthleticGreeensEuropeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://euroathleticgreens.hasoffers.com/publisher/#!/billing",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "http://euroathleticgreens.hasoffers.com/publisher/#!/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TelenetBeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TelenetBeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www2.telenet.be/content/www-telenet-be/fr/business/klantenservice/raadpleeg-uw-saldo-en-factuur",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www2.telenet.be/content/www-telenet-be/fr/business/klantenservice/raadpleeg-uw-saldo-en-factuur",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

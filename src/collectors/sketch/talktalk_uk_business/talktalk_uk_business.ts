@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TalktalkUkBusinessCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TalktalkUkBusinessCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://supportcentre.talktalkbusiness.co.uk/home",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://supportcentre.talktalkbusiness.co.uk/home",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

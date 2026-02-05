@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AmazonPayeeCentralCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AmazonPayeeCentralCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://payeecentral.amazon.com/Payments",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://payeecentral.amazon.com/Payments",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

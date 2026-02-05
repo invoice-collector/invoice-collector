@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TksTankkartenserviceVelocityCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TksTankkartenserviceVelocityCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.velocityfleet.com/accounts/login/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.velocityfleet.com/accounts/login/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

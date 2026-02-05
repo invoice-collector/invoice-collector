@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AirfranceCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AirfranceCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.airfrance.de/en",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.airfrance.de/en",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

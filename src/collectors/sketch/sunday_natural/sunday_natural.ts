@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SundayNaturalCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SundayNaturalCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.sunday.de/sales/order/history/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.sunday.de/sales/order/history/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

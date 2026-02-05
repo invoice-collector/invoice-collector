@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MakroEsCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MakroEsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://docs.makro.es/?_ga=2.64458799.1836613730.1568624469-1760255380.1568027377",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://docs.makro.es/?_ga=2.64458799.1836613730.1568624469-1760255380.1568027377",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

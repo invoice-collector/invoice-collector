@@ -47,12 +47,13 @@ export class CollectorLoader {
                         try {
                             // Replace enum references with their values before eval
                             let configStr = configMatch[1]
-                            .replace("CollectorState.ACTIVE", `"${CollectorState.ACTIVE.toString()}"`)
+                            .replace("CollectorState.PLANNED", `"${CollectorState.PLANNED.toString()}"`)
                             .replace("CollectorState.DEVELOPMENT", `"${CollectorState.DEVELOPMENT.toString()}"`)
-                            .replace("CollectorState.MAINTENANCE", `"${CollectorState.MAINTENANCE.toString()}"`)
+                            .replace("CollectorState.ACTIVE", `"${CollectorState.ACTIVE.toString()}"`)
                             .replace("CollectorCaptcha.NONE", `"${CollectorCaptcha.NONE.toString()}"`)
                             .replace("CollectorCaptcha.CLOUDFLARE", `"${CollectorCaptcha.CLOUDFLARE.toString()}"`)
                             .replace("CollectorCaptcha.DATADOME", `"${CollectorCaptcha.DATADOME.toString()}"`)
+                            .replace("CollectorCaptcha.RECAPTCHA", `"${CollectorCaptcha.RECAPTCHA.toString()}"`)
                             .replace("CollectorCaptcha.OTHER", `"${CollectorCaptcha.OTHER.toString()}"`)
                             .replace("CollectorType.WEB", `"${CollectorType.WEB.toString()}"`)
                             .replace("CollectorType.AGENT", `"${CollectorType.AGENT.toString()}"`)
@@ -73,7 +74,7 @@ export class CollectorLoader {
                             nbFFilesLoaded++;
                             }
                         } catch (e) {
-                            reject(new Error(`Failed to parse CONFIG in ${file}: ${e}`));
+                            reject(new Error(`Failed to parse CONFIG in ${file}`, { cause: e }));
                         }
                     }
                     else {

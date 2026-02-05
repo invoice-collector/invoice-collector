@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HomedepotComProCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class HomedepotComProCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.homedepot.com/c/professional_contractor",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.homedepot.com/c/professional_contractor",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

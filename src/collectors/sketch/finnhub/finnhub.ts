@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FinnhubCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class FinnhubCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://finnhub.io/dashboard",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://finnhub.io/dashboard",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

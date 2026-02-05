@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MediaTempleCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MediaTempleCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://ac.mediatemple.net/login.mt",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://ac.mediatemple.net/login.mt",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

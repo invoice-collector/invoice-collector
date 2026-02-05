@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ColoauCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ColoauCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portal.coloau.com.au/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://portal.coloau.com.au/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

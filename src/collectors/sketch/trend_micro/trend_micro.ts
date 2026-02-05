@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TrendMicroCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TrendMicroCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://wfbs-svc-nabu.trendmicro.com/wfbs-svc/portal/en/view/index#/reports",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://wfbs-svc-nabu.trendmicro.com/wfbs-svc/portal/en/view/index#/reports",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

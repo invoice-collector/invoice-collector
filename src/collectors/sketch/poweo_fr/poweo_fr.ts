@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PoweoFrCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PoweoFrCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.poweo.be/nl/mijn-klantenrekening/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.poweo.be/nl/mijn-klantenrekening/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

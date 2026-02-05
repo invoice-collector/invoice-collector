@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RacetoolsFrCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class RacetoolsFrCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.racetools.fr/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.racetools.fr/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

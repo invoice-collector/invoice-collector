@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OpinionsystemCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class OpinionsystemCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.opinionsystem.fr/fr-fr/?lang=fr-FR",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.opinionsystem.fr/fr-fr/?lang=fr-FR",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

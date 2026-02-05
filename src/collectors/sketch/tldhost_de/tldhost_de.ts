@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TldhostDeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TldhostDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.tldhost.de/kundencenter/rechnungen/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.tldhost.de/kundencenter/rechnungen/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

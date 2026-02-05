@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RadiusvelocityCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class RadiusvelocityCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.velocityfleet.com/app/invoices/list/fuel/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.velocityfleet.com/app/invoices/list/fuel/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

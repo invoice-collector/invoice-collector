@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FoxyCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class FoxyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://admin.foxycart.com/admin.php?ThisAction=ViewBilling",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://admin.foxycart.com/admin.php?ThisAction=ViewBilling",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

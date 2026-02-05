@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HansemerkurGruppenvertragspartnerCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class HansemerkurGruppenvertragspartnerCollector extends SketchCollector 
                 mandatory: true
             }
         },
-        entryUrl: "https://groupie.hansemerkur.de/oauth2/authorization/kobil-grpdezentral-login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://groupie.hansemerkur.de/oauth2/authorization/kobil-grpdezentral-login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PitchCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PitchCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.pitch.com/app/dashboard/ad3a3e8e-45a9-4af4-98d1-f35f9d42140a/billing",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.pitch.com/app/dashboard/ad3a3e8e-45a9-4af4-98d1-f35f9d42140a/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

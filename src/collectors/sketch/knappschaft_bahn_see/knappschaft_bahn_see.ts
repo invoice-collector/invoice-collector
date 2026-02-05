@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KnappschaftBahnSeeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class KnappschaftBahnSeeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://jwm.kbs.de:443",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://jwm.kbs.de:443",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

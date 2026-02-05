@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OwntagCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class OwntagCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://console.owntag.eu/billing",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://console.owntag.eu/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

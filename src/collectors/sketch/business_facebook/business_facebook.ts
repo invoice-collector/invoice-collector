@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BusinessFacebookCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BusinessFacebookCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://business.facebook.com/ads/manager/billing_history",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://business.facebook.com/ads/manager/billing_history",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

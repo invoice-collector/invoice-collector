@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SodasmartCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SodasmartCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://sodasmart.de/my-account/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://sodasmart.de/my-account/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

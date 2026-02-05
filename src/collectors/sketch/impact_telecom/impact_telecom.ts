@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ImpactTelecomCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ImpactTelecomCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://myaccount.tncii.com",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://myaccount.tncii.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

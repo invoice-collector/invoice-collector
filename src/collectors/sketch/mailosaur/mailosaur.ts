@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MailosaurCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MailosaurCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://mailosaur.com/app/account/billing",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://mailosaur.com/app/account/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

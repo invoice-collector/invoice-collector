@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PhysitrackCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PhysitrackCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://us.physitrack.com/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://us.physitrack.com/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

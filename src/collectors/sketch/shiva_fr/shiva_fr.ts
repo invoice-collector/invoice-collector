@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ShivaFrCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ShivaFrCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portail.shiva.fr/?cookies",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://portail.shiva.fr/?cookies",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

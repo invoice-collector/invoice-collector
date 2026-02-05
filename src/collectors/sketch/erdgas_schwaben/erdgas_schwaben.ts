@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ErdgasSchwabenCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ErdgasSchwabenCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://erdgasschwaben.emobilitycloud.com",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://erdgasschwaben.emobilitycloud.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

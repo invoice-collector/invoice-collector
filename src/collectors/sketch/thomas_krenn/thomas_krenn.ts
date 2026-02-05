@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ThomasKrennCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ThomasKrennCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.thomas-krenn.com/de/service-support/meine-rechnungen.html",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.thomas-krenn.com/de/service-support/meine-rechnungen.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

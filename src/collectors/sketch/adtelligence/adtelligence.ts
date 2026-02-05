@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AdtelligenceCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AdtelligenceCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://adtelligence.com/de/about-us/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://adtelligence.com/de/about-us/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

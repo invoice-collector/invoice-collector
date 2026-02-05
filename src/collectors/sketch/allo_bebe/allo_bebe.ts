@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AlloBebeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AlloBebeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.allobebe.fr/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.allobebe.fr/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

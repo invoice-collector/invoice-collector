@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BundesanzeigerCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BundesanzeigerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://publikations-plattform.de/sp/wexsservlet?page.navid=to_login_page&global_data.designmode=eb&dest=wexsservlet&global_data.language=de#b",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://publikations-plattform.de/sp/wexsservlet?page.navid=to_login_page&global_data.designmode=eb&dest=wexsservlet&global_data.language=de#b",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

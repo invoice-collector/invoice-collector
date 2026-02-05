@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StarfaceCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class StarfaceCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.starface.de/portal/de/index.php?_ga=2.80546839.1662912395.1551639830-1731990487.1551639830",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.starface.de/portal/de/index.php?_ga=2.80546839.1662912395.1551639830-1731990487.1551639830",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

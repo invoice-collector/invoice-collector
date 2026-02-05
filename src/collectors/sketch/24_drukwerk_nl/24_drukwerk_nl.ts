@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class _24DrukwerkNlCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class _24DrukwerkNlCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.24-drukwerk.nl/mijn-account?zenid=shp22s54ojpe07fjrh89fk8tk7",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.24-drukwerk.nl/mijn-account?zenid=shp22s54ojpe07fjrh89fk8tk7",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

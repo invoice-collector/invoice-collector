@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CoffeeCircleCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CoffeeCircleCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.coffeecircle.com/de/account/orders",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.coffeecircle.com/de/account/orders",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

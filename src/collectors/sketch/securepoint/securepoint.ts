@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SecurepointCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SecurepointCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.securepoint.de/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://my.securepoint.de/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

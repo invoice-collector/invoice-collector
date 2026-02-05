@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class YoucanbookMeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class YoucanbookMeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.youcanbook.me/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.youcanbook.me/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

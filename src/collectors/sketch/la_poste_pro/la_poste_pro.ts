@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LaPosteProCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class LaPosteProCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.laposte.fr/professionnel/espaceclient/factures",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.laposte.fr/professionnel/espaceclient/factures",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

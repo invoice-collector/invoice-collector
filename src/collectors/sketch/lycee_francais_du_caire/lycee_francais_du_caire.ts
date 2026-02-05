@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LyceeFrancaisDuCaireCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class LyceeFrancaisDuCaireCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://lfcaire.org/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://lfcaire.org/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

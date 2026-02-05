@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DovetailCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DovetailCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://dovetailapp.com/auth/login/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://dovetailapp.com/auth/login/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

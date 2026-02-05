@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CreatlrCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CreatlrCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://shop.creatlr.com/my-orders/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://shop.creatlr.com/my-orders/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

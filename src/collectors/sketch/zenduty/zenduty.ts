@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ZendutyCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ZendutyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.zenduty.com/dashboard/account/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.zenduty.com/dashboard/account/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BilligerDeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BilligerDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://partner.billiger.de",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://partner.billiger.de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

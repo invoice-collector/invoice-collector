@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WetteronlineCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class WetteronlineCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.wetteronline.de/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.wetteronline.de/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

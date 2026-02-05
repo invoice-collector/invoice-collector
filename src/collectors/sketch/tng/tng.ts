@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TngCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TngCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.mytng.de/group/mytng/mein-vertrag/rechnungsarchiv",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.mytng.de/group/mytng/mein-vertrag/rechnungsarchiv",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

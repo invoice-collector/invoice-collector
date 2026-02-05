@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ThetrainlineBusinessCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ThetrainlineBusinessCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.businesstravel.thetrainline.com/my-account/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.businesstravel.thetrainline.com/my-account/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

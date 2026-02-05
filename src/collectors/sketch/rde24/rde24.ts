@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Rde24Collector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class Rde24Collector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://paiement.rde24.fr/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://paiement.rde24.fr/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GigasatServProcDeDadosLtdaCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class GigasatServProcDeDadosLtdaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://gigasat.com.br/web/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://gigasat.com.br/web/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

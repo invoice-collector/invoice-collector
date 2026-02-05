@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OpenweathermapCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class OpenweathermapCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://home.openweathermap.org/payments",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://home.openweathermap.org/payments",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

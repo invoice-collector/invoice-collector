@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EweTechnikerKrankenkasseCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class EweTechnikerKrankenkasseCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://meine-tk.ewe.de/eCare",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://meine-tk.ewe.de/eCare",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

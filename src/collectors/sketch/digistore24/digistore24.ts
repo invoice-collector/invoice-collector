@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Digistore24Collector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class Digistore24Collector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.digistore24.com/de/reports/payouts",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.digistore24.com/de/reports/payouts",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

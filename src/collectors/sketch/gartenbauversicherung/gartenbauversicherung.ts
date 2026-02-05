@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GartenbauversicherungCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class GartenbauversicherungCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.gartenbau-versicherung.com",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://my.gartenbau-versicherung.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

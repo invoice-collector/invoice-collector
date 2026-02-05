@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GrafanaCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class GrafanaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://grafana.com/orgs/saiga/invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://grafana.com/orgs/saiga/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

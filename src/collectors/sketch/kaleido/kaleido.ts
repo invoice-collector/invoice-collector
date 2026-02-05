@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KaleidoCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class KaleidoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://accounts.kaleido.ai/users/sign_in#payment-billing",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://accounts.kaleido.ai/users/sign_in#payment-billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

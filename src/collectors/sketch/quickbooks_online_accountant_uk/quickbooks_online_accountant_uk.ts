@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class QuickbooksOnlineAccountantUkCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class QuickbooksOnlineAccountantUkCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://c1.qbo.intuit.com/c1/v1608.1641/0/login?redirect=true&accountant-sign-in=&redirect=true&locale=en_gb",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://c1.qbo.intuit.com/c1/v1608.1641/0/login?redirect=true&accountant-sign-in=&redirect=true&locale=en_gb",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

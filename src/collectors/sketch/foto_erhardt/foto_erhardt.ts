@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FotoErhardtCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class FotoErhardtCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.foto-erhardt.de/login.php",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.foto-erhardt.de/login.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TaxuallyCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TaxuallyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.taxually.com/app/transaction-history/active",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.taxually.com/app/transaction-history/active",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

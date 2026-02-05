@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ToomCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ToomCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://toom.de/warenkorb",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://toom.de/warenkorb",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

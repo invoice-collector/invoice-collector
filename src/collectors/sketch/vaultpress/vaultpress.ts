@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VaultpressCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class VaultpressCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://vaultpress.com/login/?action=require_for&url=https%3A%2F%2Fdashboard.vaultpress.com%2F",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://vaultpress.com/login/?action=require_for&url=https%3A%2F%2Fdashboard.vaultpress.com%2F",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

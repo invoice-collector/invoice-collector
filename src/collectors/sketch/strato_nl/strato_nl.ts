@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StratoNlCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class StratoNlCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.strato.nl/apps/CustomerService#/skl",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.strato.nl/apps/CustomerService#/skl",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

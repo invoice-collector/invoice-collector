@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DewibackCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DewibackCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://shop.dewiback.de/de/account/?action=document_archive",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://shop.dewiback.de/de/account/?action=document_archive",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

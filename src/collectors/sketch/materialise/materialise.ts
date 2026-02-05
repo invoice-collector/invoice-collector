@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MaterialiseCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MaterialiseCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://onsite.materialise.com/de/account/login?ReturnUrl=%2fde",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://onsite.materialise.com/de/account/login?ReturnUrl=%2fde",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

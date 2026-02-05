@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CoolsafetyCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CoolsafetyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://coolsafety.nl/login.php",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://coolsafety.nl/login.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

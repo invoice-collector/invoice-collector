@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TopleftCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TopleftCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://linkprotect.cudasvc.com/url?a=https%3a%2f%2fbitsandbytes.topleft.team%2fsettings%2flicensing%2fbilling%2f&c=E,1,8HZRUjhnX5H7JvYVF2cW7jnFEPbBrbxeQQnxoSn2TsbAmBB2O56y9huiuXlAWiASTM2opNpPyi7TXJmq7Llu_qkxe3sdm_h8dSodtQIiQbbH2aoibXELfcpT_tm9&typo=1",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://linkprotect.cudasvc.com/url?a=https%3a%2f%2fbitsandbytes.topleft.team%2fsettings%2flicensing%2fbilling%2f&c=E,1,8HZRUjhnX5H7JvYVF2cW7jnFEPbBrbxeQQnxoSn2TsbAmBB2O56y9huiuXlAWiASTM2opNpPyi7TXJmq7Llu_qkxe3sdm_h8dSodtQIiQbbH2aoibXELfcpT_tm9&typo=1",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

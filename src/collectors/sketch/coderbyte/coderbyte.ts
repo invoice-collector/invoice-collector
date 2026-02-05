@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CoderbyteCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CoderbyteCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://coderbyte.com/dashboard/avimedical-bijzh#settings-plan_and_billing",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://coderbyte.com/dashboard/avimedical-bijzh#settings-plan_and_billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

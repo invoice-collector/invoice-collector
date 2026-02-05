@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DotmailerCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DotmailerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://r1-app.dotmailer.com/account/my-invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://r1-app.dotmailer.com/account/my-invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

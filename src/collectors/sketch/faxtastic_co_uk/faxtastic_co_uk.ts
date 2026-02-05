@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FaxtasticCoUkCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class FaxtasticCoUkCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.faxtastic.co.uk/invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.faxtastic.co.uk/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

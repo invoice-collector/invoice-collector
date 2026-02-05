@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EverreachCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class EverreachCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://everreach.co.uk",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "http://everreach.co.uk",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RightBloggerCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class RightBloggerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://rightblogger.com/signin",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://rightblogger.com/signin",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

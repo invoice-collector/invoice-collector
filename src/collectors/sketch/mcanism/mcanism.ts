@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class McanismCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class McanismCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://skynet.mcanism.com/finance/list",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://skynet.mcanism.com/finance/list",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

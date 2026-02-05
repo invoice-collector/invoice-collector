@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KeytchensCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class KeytchensCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://keytchens.app/invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://keytchens.app/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HighMobileCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class HighMobileCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://csc.high-mobile.de/high-csc/user/bills/list",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://csc.high-mobile.de/high-csc/user/bills/list",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

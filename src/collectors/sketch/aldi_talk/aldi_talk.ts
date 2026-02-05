@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AldiTalkCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AldiTalkCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.alditalk-kundenbetreuung.de/de/konto/kontouebersicht",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.alditalk-kundenbetreuung.de/de/konto/kontouebersicht",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

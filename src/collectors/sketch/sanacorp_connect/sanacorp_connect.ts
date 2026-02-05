@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SanacorpConnectCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SanacorpConnectCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://connect.sanacorp.de/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://connect.sanacorp.de/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

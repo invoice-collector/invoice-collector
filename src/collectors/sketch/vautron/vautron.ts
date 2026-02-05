@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VautronCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class VautronCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://kundencenter.n0q.de/index.php?load=rechnungen",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://kundencenter.n0q.de/index.php?load=rechnungen",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

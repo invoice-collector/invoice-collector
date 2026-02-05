@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HellohqCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class HellohqCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://hq.hellohq.io/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://hq.hellohq.io/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

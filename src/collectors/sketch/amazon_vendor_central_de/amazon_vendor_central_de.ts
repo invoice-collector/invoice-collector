@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AmazonVendorCentralDeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AmazonVendorCentralDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://vendorcentral.amazon.de/gp/vendor/sign-in",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://vendorcentral.amazon.de/gp/vendor/sign-in",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

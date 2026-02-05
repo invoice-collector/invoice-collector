@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DeeplCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DeeplCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.deepl.com/pro-account.html?page=category_invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.deepl.com/pro-account.html?page=category_invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

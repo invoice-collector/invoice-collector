@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EventzoneDeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class EventzoneDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://eventzone.de/artists/4101/subscription",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://eventzone.de/artists/4101/subscription",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SkypeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SkypeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://secure.skype.com/portal/overview",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://secure.skype.com/portal/overview",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

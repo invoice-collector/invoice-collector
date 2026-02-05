@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Check24MerchantCenterAutoCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class Check24MerchantCenterAutoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://merchant-center.auto.check24.de/account/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://merchant-center.auto.check24.de/account/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

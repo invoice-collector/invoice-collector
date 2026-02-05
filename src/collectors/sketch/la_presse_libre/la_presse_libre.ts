@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LaPresseLibreCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class LaPresseLibreCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://beta.lapresselibre.fr/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://beta.lapresselibre.fr/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StadtwerkeBuchholzCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class StadtwerkeBuchholzCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portal.buchholz-stadtwerke.de/powercommerce/ivu/fo/portal/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://portal.buchholz-stadtwerke.de/powercommerce/ivu/fo/portal/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

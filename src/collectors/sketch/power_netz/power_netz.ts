@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PowerNetzCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PowerNetzCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://login.ssl-entry.de",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://login.ssl-entry.de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

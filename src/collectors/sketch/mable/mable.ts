@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MableCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MableCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://dashboard.mable.ai/data_quality/dashboard",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://dashboard.mable.ai/data_quality/dashboard",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

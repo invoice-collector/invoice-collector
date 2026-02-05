@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SipcallCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SipcallCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.sipcall.ch/customer/payment/history",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://my.sipcall.ch/customer/payment/history",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

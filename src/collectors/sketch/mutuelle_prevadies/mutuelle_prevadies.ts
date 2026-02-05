@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MutuellePrevadiesCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MutuellePrevadiesCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.harmonie-mutuelle.fr/web/tout-harmonie#",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.harmonie-mutuelle.fr/web/tout-harmonie#",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

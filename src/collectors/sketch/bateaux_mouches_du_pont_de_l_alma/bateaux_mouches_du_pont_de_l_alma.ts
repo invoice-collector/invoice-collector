@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BateauxMouchesDuPontDeLAlmaCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BateauxMouchesDuPontDeLAlmaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.bateaux-mouches.fr/fr",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.bateaux-mouches.fr/fr",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DominiosCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DominiosCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.dominios.pt",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "http://www.dominios.pt",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

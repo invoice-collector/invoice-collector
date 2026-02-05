@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FluiduiComCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class FluiduiComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.fluidui.com/editor/live/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.fluidui.com/editor/live/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

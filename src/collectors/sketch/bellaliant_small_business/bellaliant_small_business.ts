@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BellaliantSmallBusinessCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BellaliantSmallBusinessCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://productsandservice.bellaliant.ca/BillPresenter/BusinessBill",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://productsandservice.bellaliant.ca/BillPresenter/BusinessBill",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

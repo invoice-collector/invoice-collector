@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MonteurunterkunftDeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MonteurunterkunftDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.monteurunterkunft.de/buchung/login/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.monteurunterkunft.de/buchung/login/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

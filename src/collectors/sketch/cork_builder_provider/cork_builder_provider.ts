@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CorkBuilderProviderCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CorkBuilderProviderCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://grafton.softco.com/CBP/Home/Detail/Monthly%20Transactions/Monthly%20Transactions/AR%20Invoices/5763827",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://grafton.softco.com/CBP/Home/Detail/Monthly%20Transactions/Monthly%20Transactions/AR%20Invoices/5763827",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

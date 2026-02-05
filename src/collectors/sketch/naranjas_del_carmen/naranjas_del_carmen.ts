@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NaranjasDelCarmenCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class NaranjasDelCarmenCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.naranjasdelcarmen.com/mein-konto/pedidos",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.naranjasdelcarmen.com/mein-konto/pedidos",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

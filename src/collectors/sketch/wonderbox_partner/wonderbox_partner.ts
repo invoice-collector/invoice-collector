@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WonderboxPartnerCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class WonderboxPartnerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://espacepartenaire.wonderbox.fr/account/invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://espacepartenaire.wonderbox.fr/account/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

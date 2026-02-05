@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class XpenditureCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class XpenditureCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://manage.xpenditure.com/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://manage.xpenditure.com/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

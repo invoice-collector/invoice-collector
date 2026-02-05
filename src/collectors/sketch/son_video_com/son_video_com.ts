@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SonVideoComCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SonVideoComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.son-video.com/mon-compte/connexion",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.son-video.com/mon-compte/connexion",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

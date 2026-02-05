@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IngramMicroCloudBeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class IngramMicroCloudBeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://cp.be.eu.cloud.im/ccp/v/pa/ccp-billing/history-invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://cp.be.eu.cloud.im/ccp/v/pa/ccp-billing/history-invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

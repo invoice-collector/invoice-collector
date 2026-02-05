@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Server4youComCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class Server4youComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.server4you.com/en/Generic/Auth/Index/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://my.server4you.com/en/Generic/Auth/Index/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

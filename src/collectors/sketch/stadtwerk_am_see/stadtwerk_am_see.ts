@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StadtwerkAmSeeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class StadtwerkAmSeeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portal.stadtwerk-am-see.de/mailbox",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://portal.stadtwerk-am-see.de/mailbox",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

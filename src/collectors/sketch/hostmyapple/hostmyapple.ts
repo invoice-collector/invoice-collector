@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HostmyappleCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class HostmyappleCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portal.hostmyapple.com/portal/clientarea.php?action=invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://portal.hostmyapple.com/portal/clientarea.php?action=invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

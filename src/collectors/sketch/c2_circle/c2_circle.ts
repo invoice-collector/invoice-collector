@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class C2CircleCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class C2CircleCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.c2-circle.com/cyberport/de",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.c2-circle.com/cyberport/de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

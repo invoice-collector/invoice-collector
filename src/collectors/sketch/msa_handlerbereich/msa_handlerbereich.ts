@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MsaHandlerbereichCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MsaHandlerbereichCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.haendlerbereich.de/index.php?x=11&y=9&Filter_Marke=KY&Filter_h=serv&Filter_s=home",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.haendlerbereich.de/index.php?x=11&y=9&Filter_Marke=KY&Filter_h=serv&Filter_s=home",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

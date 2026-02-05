@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TeagCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TeagCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://energiebanking.thueringerenergie.de/powercommerce/teag/fo/portal/eb",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://energiebanking.thueringerenergie.de/powercommerce/teag/fo/portal/eb",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

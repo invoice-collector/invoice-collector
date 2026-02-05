@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TeachizyCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TeachizyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.teachizy.fr/parametres/facturation",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.teachizy.fr/parametres/facturation",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

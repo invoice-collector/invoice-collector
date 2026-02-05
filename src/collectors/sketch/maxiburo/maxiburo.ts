@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MaxiburoCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MaxiburoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.maxiburo.fr/Client/Identification?ReturnUrl=%2fmon-compte%2faccueil.htm",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.maxiburo.fr/Client/Identification?ReturnUrl=%2fmon-compte%2faccueil.htm",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

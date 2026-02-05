@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LifestromCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class LifestromCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.eon.de/de/meineon/start.html",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.eon.de/de/meineon/start.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

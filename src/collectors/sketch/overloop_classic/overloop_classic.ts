@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OverloopClassicCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class OverloopClassicCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.overloop.com/billing/invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.overloop.com/billing/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

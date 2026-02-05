@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BohnenkampCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BohnenkampCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://shop.bohnenkamp.de/invoicehistory/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://shop.bohnenkamp.de/invoicehistory/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

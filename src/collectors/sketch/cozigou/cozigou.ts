@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CozigouCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CozigouCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://client.cozigou.com/invoice/history/index/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://client.cozigou.com/invoice/history/index/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

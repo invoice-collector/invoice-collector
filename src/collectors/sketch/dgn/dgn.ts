@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DgnCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DgnCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.dgn.de/kunde/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.dgn.de/kunde/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

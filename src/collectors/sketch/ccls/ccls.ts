@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CclsCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CclsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.espaceclients.ccls-leasing.fr/espaceclients/initlogin.htm",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.espaceclients.ccls-leasing.fr/espaceclients/initlogin.htm",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

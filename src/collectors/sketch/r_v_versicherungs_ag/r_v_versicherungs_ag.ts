@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RVVersicherungsAgCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class RVVersicherungsAgCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.ruv.de/meineruv/portal/vertraege",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.ruv.de/meineruv/portal/vertraege",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

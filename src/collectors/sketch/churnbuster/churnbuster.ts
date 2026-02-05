@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ChurnbusterCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ChurnbusterCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.churnbuster.io/accounts/paintable-2/live/settings/billing",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.churnbuster.io/accounts/paintable-2/live/settings/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

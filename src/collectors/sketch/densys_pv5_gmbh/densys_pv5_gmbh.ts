@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DensysPv5GmbhCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DensysPv5GmbhCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://densys-pv5.de/Account/Orders.aspx",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://densys-pv5.de/Account/Orders.aspx",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

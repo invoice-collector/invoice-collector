@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DreiAtInternetCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DreiAtInternetCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://kundenzone.drei.at/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "http://kundenzone.drei.at/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

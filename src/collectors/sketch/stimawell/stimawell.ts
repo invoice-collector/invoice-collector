@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StimawellCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class StimawellCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://shop.schwa-medico.de/de/invoice/94613/download?check_logged_in=1",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://shop.schwa-medico.de/de/invoice/94613/download?check_logged_in=1",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

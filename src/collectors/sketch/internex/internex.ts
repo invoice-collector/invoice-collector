@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class InternexCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class InternexCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.internex.at",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.internex.at",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

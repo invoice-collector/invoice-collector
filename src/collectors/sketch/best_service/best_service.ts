@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BestServiceCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BestServiceCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://account.bestservice.com/en/account/orders.html",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://account.bestservice.com/en/account/orders.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

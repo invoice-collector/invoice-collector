@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SedoComCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SedoComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.sedo.com",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "http://www.sedo.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

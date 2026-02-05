@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ArthurOnlineCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ArthurOnlineCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://system.arthuronline.co.uk/johnwilson/charges/index",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://system.arthuronline.co.uk/johnwilson/charges/index",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

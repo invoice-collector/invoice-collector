@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DiscotelCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DiscotelCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://service.discotel.de/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://service.discotel.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ComputerUniverseCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ComputerUniverseCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.computeruniverse.net/en/order/history",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.computeruniverse.net/en/order/history",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

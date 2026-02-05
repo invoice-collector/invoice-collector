@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PresseboxCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PresseboxCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.pressebox.de/mybox",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.pressebox.de/mybox",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

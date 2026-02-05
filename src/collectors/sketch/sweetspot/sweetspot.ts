@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SweetspotCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SweetspotCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://billing.stripe.com/p/session/live_YWNjdF8xTUwzaDhFd0JjRUxIeWtMLF9SejdhUkVzZ1FqQUMyWmk2YklZWDZIaEdMekY1bnMy0100fyrbHgWw",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://billing.stripe.com/p/session/live_YWNjdF8xTUwzaDhFd0JjRUxIeWtMLF9SejdhUkVzZ1FqQUMyWmk2YklZWDZIaEdMekY1bnMy0100fyrbHgWw",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

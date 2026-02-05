@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DeepinfraCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DeepinfraCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://deepinfra.com/login?from=%2Fdash",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://deepinfra.com/login?from=%2Fdash",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

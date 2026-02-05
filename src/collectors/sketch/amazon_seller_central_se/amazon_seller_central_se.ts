@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AmazonSellerCentralSeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AmazonSellerCentralSeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://sellercentral.amazon.se/payments/event/view?resultsPerPage=10&pageNumber=1",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://sellercentral.amazon.se/payments/event/view?resultsPerPage=10&pageNumber=1",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

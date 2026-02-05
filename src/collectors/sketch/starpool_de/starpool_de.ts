@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StarpoolDeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class StarpoolDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.starpool.de/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.starpool.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

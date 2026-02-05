@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CdiscountComPresseCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CdiscountComPresseCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://clients.cdiscount.com/Account/Login.html?_ga=2.153115960.1617114807.1553787937-1533610631.1553187014",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://clients.cdiscount.com/Account/Login.html?_ga=2.153115960.1617114807.1553787937-1533610631.1553187014",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CookieproCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CookieproCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.cookiepro.com/settings/general/billing-and-subscriptions",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.cookiepro.com/settings/general/billing-and-subscriptions",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

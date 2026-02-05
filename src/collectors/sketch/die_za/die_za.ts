@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DieZaCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DieZaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.die-za.de/anmelden",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.die-za.de/anmelden",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

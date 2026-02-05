@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AlanCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AlanCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://alan.com/app/dashboard/pro/admin/paie-et-comptabilite",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://alan.com/app/dashboard/pro/admin/paie-et-comptabilite",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VemaCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class VemaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.vemaeg.de/app/office/dokumente?filter=JTVCJTdCJTIyaWQlMjIlM0ElMjJmdWxsLXRleHQtc2VhcmNoJTIyJTJDJTIydGl0bGUlMjIlM0ElMjJGcmVpdGV4dHN1Y2hlJTNBJTIwVlUtVk0lMjIlMkMlMjJjb25zdHJhaW50JTIyJTNBJTdCJTIyb3BlcmF0b3IlMjIlM0ElMjJlcXVhbCUyMiUyQyUyMmZpZWxkJTIyJ",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.vemaeg.de/app/office/dokumente?filter=JTVCJTdCJTIyaWQlMjIlM0ElMjJmdWxsLXRleHQtc2VhcmNoJTIyJTJDJTIydGl0bGUlMjIlM0ElMjJGcmVpdGV4dHN1Y2hlJTNBJTIwVlUtVk0lMjIlMkMlMjJjb25zdHJhaW50JTIyJTNBJTdCJTIyb3BlcmF0b3IlMjIlM0ElMjJlcXVhbCUyMiUyQyUyMmZpZWxkJTIyJ",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

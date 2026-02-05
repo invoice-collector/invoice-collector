@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GrosbillCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class GrosbillCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.grosbill.com/comptev2/index.php?redirection=compte_accueil",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.grosbill.com/comptev2/index.php?redirection=compte_accueil",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

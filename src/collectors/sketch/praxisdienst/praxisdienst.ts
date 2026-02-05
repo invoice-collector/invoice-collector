@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PraxisdienstCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PraxisdienstCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.praxisdienst.de",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "http://www.praxisdienst.de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

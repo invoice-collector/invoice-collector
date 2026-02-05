@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GridIsCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class GridIsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://grid.is/settings/billing",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://grid.is/settings/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

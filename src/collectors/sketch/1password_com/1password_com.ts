@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class _1passwordComCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class _1passwordComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.1password.com/signin?l=en",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://my.1password.com/signin?l=en",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

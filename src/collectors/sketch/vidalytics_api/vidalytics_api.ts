@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VidalyticsApiCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class VidalyticsApiCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://api.vidalytics.com/oauth/authorize?response_type=token&client_id=app&state=STJlbTVCVDUtcVZfOTBiUW9HdzRtU1AwWDJ3a0pSUDVNZld4YkpSYWt4Y1hG&redirect_uri=https://app.vidalytics.com/dashboard&scope=api",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://api.vidalytics.com/oauth/authorize?response_type=token&client_id=app&state=STJlbTVCVDUtcVZfOTBiUW9HdzRtU1AwWDJ3a0pSUDVNZld4YkpSYWt4Y1hG&redirect_uri=https://app.vidalytics.com/dashboard&scope=api",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

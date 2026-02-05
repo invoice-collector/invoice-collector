@@ -1,15 +1,15 @@
 import axios from 'axios';
 import { Location } from '../proxy/abstractProxy';
-import { Secret } from '../secret_manager/abstractSecretManager';
+import { Secret } from '../model/secret';
 import { TwofaPromise } from '../collect/twofaPromise';
 import { State } from '../model/state';
 import { WebSocketServer } from '../websocket/webSocketServer';
 import { Element } from '../driver/driver';
 
 export enum CollectorState {
+    PLANNED = 'planned',
     DEVELOPMENT = 'development',
-    ACTIVE = 'active',
-    MAINTENANCE = 'maintenance'
+    ACTIVE = 'active'
 }
 
 export enum CollectorType {
@@ -24,6 +24,7 @@ export enum CollectorCaptcha {
     NONE = 'none',
     DATADOME = 'datadome',
     CLOUDFLARE = 'cloudflare',
+    RECAPTCHA = 'recaptcha',
     OTHER = 'other'
 }
 
@@ -65,12 +66,25 @@ export type DownloadedInvoice = Invoice & {
 export type CompleteInvoice = Omit<Invoice, 'downloadButton'> & {
     data: string | null,
     mimetype: string | null,
+    hash: string | null,
     collected_timestamp: number | null,
     downloadButton: Element | null,
     metadata: Record<string, any>,
 }
 
 export abstract class AbstractCollector<C extends Config> {
+
+    static updateCollectorParams(customerEnableInteractiveLogin: boolean, config: Config): boolean {
+        // Compute if interactive login
+        const interactiveLogin = 'enableInteractiveLogin' in config && customerEnableInteractiveLogin && config.enableInteractiveLogin as boolean;
+        // If collector is a WebCollector and interactive login is enabled for customer and for collector
+        if (interactiveLogin) {
+            // Remove all params
+            config.params = {};
+        }
+        return interactiveLogin;
+    }
+
     config: C;
 
     constructor(config: C) {
@@ -96,6 +110,7 @@ export abstract class AbstractCollector<C extends Config> {
         secret: Secret,
         download_from_timestamp: number,
         previousInvoices: any[],
-        location: Location | null
+        location: Location | null,
+        customerEnableInteractiveLogin: boolean
     ): Promise<CompleteInvoice[]>;
 }

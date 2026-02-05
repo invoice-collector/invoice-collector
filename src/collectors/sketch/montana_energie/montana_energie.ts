@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MontanaEnergieCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MontanaEnergieCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://kundenportal.montana-energie.at/customerportal/index.php?page=invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://kundenportal.montana-energie.at/customerportal/index.php?page=invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AsmtPreventionSanteCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AsmtPreventionSanteCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portailasmt65.pulseprevention.com/Documents/Invoicing",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://portailasmt65.pulseprevention.com/Documents/Invoicing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

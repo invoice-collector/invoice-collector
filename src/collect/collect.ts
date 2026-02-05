@@ -1,16 +1,16 @@
 import { CallbackHandler } from "../callback/callback";
 import { AbstractCollector, Config } from "../collectors/abstractCollector";
 import { CollectorLoader } from "../collectors/collectorLoader";
-import { AuthenticationError, DesynchronizationError, DisconnectedError, LoggableError, MaintenanceError, NoInvoiceFoundError } from "../error";
+import { AuthenticationError, DisconnectedError, LoggableError, MaintenanceError, NoInvoiceFoundError } from "../error";
 import { IcCredential } from "../model/credential";
 import { State } from "../model/state";
 import { Customer } from "../model/customer";
 import { User } from "../model/user";
 import { RegistryServer } from "../registryServer";
-import { Secret } from "../secret_manager/abstractSecretManager";
-import { SecretManagerFactory } from "../secret_manager/secretManagerFactory";
 import { TwofaPromise } from "./twofaPromise";
 import { WebSocketServer } from '../websocket/webSocketServer';
+import * as utils from "../utils";
+import { Secret } from "../model/secret";
 
 export class Collect {
 
@@ -59,7 +59,7 @@ export class Collect {
                 this.webSocketServer?.sendState(State._1_PREPARING);
 
                 // Get secret from secret_manager_id
-                secret = await SecretManagerFactory.getSecretManager().getSecret(credential.secret_manager_id);
+                secret = credential.getSecret();
 
                 // Get collector from collector_id
                 collector = await CollectorLoader.get(credential.collector_id);
@@ -73,22 +73,29 @@ export class Collect {
                 // Set collector for twofa promise
                 this.twofa_promise.collector = collector;
 
-                // Check if secret not found
-                if (!secret) {
-                    throw new DesynchronizationError(credential.id, collector);
-                }
-
                 // Collect invoices
-                const newInvoices = await collector.collect_new_invoices(this.state, this.twofa_promise, this.webSocketServer, secret, credential.download_from_timestamp, credential.invoices, user.location);
+                const newInvoices = await collector.collect_new_invoices(
+                    this.state,
+                    this.twofa_promise,
+                    this.webSocketServer,
+                    secret,
+                    credential.download_from_timestamp,
+                    credential.invoices,
+                    user.location,
+                    customer.enableInteractiveLogin
+                );
                 console.log(`Found ${credential.invoices.length + newInvoices.length} invoices during collect and ${newInvoices.length} new`);
                 console.log(`Invoice collection for credential ${this.credential_id} succeed`);
 
                 // If at least one new invoice has been downloaded
                 if(newInvoices.length > 0) {
+                    // Get previous invoices hash
+                    const previousInvoicesHash = credential.invoices.map(inv => inv.hash);
+
                     // Loop through invoices
                     for (const [index, invoice] of newInvoices.entries()) {
                         // If data downloaded and invoice is more recent than the download_from_timestamp
-                        if (invoice.data && credential.download_from_timestamp <= invoice.timestamp) {
+                        if (invoice.data && credential.download_from_timestamp <= invoice.timestamp && !previousInvoicesHash.includes(invoice.hash)) {
                             console.log(`Sending invoice ${index + 1}/${newInvoices.length} (${invoice.id}) to callback`);
 
                             try {
@@ -98,6 +105,9 @@ export class Collect {
 
                                 // Add invoice to credential only if callback successfully reached
                                 credential.addInvoice(invoice);
+
+                                // Wait 1 second between each callback to avoid overwhelming the callback server
+                                await utils.delay(1000);
                             } catch (error) {
                                 console.error(error);
                             }
@@ -198,12 +208,9 @@ export class Collect {
                     // Cancel next collect
                     credential.next_collect_timestamp = Number.NaN;
 
-                    // If secret exists
-                    if (secret) {
-                        // Reset cookies and localStorage
-                        secret.cookies = null;
-                        secret.localStorage = null;
-                    }
+                    // Reset cookies and localStorage
+                    await secret?.setCookies(null);
+                    await secret?.setLocalStorage(null);
                 }
             }
             else if (err instanceof MaintenanceError) {
@@ -233,17 +240,10 @@ export class Collect {
             }
         }
         finally {
-            // If credential exists
-            if (credential) {
-                // Commit credential
-                await credential.commit();
-            }
-
-            // If secret, collector, credential and user exists
-            if (secret && collector && credential && user) {
-                // Get cookies from error
-                await SecretManagerFactory.getSecretManager().updateSecret(credential.secret_manager_id, `${user.customer_id}_${user.id}_${collector.config.id}`, secret);
-            }
+            // Commit credential
+            await credential?.commit();
+            // Commit secret
+            await secret?.commit();
         }
     }
 }

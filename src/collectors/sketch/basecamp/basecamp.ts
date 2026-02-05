@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BasecampCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BasecampCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://launchpad.37signals.com/basecamp",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://launchpad.37signals.com/basecamp",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

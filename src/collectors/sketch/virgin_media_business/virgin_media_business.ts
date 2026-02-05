@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VirginMediaBusinessCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class VirginMediaBusinessCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://mybill.virginmediabusiness.co.uk/group/analysis/downloads",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://mybill.virginmediabusiness.co.uk/group/analysis/downloads",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

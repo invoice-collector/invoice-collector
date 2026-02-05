@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AgorapulseCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AgorapulseCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.agorapulse.com/auth/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.agorapulse.com/auth/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

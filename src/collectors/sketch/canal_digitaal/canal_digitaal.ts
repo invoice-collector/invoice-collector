@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CanalDigitaalCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CanalDigitaalCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.canaldigitaal.nl/mijn-canaldigitaal/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.canaldigitaal.nl/mijn-canaldigitaal/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

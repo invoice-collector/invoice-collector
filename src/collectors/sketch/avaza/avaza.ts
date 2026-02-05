@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AvazaCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AvazaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://mobilemind.avaza.com/subscription",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://mobilemind.avaza.com/subscription",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

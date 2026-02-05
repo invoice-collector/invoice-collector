@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class _42mattersCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class _42mattersCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://42matters.com/user/payments",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://42matters.com/user/payments",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

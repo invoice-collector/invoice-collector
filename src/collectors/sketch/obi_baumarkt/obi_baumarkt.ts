@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ObiBaumarktCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ObiBaumarktCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.obi.de/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.obi.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

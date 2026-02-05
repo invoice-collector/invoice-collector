@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WebgoPartnersCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class WebgoPartnersCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://wpp.webgo.de/user-billings.do",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://wpp.webgo.de/user-billings.do",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

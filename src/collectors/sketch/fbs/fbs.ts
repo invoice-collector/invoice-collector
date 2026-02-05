@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FbsCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class FbsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.fk-server.org/vue/#/abrechnungen",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.fk-server.org/vue/#/abrechnungen",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

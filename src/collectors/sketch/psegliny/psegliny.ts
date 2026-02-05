@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PseglinyCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PseglinyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.psegliny.com/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.psegliny.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

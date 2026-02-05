@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SpigraphCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SpigraphCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://spigraph.valeur-probante.fr/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://spigraph.valeur-probante.fr/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

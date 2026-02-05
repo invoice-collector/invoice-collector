@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FlibcoComCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class FlibcoComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.flibco.com",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.flibco.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

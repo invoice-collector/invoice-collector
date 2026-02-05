@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SpotHitCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SpotHitCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.spot-hit.fr/connexion",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.spot-hit.fr/connexion",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

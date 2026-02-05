@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LogoixCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class LogoixCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.logoix.com/cgi-bin/index.pl",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.logoix.com/cgi-bin/index.pl",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SupabaseCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SupabaseCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://supabase.com/dashboard",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://supabase.com/dashboard",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

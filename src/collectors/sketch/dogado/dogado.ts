@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DogadoCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DogadoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.cloudpit.io/customer/tab/invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.cloudpit.io/customer/tab/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

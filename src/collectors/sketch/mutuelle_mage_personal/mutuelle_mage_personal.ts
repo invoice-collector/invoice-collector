@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MutuelleMagePersonalCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MutuelleMagePersonalCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://espaceperso.mage.fr/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://espaceperso.mage.fr/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

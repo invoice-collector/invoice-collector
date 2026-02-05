@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VeligoCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class VeligoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://mon-espace.veligo-location.fr/home/offer",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://mon-espace.veligo-location.fr/home/offer",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

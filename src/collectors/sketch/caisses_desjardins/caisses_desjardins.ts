@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CaissesDesjardinsCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CaissesDesjardinsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://accweb.mouv.desjardins.com/identifiantunique/identification?domaineVirtuel=desjardins&langueCible=en",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://accweb.mouv.desjardins.com/identifiantunique/identification?domaineVirtuel=desjardins&langueCible=en",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

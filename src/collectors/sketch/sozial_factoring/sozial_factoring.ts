@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SozialFactoringCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SozialFactoringCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.clever-factoring.de/kunde/einrichtungen/F31179/ankaufpositionen/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.clever-factoring.de/kunde/einrichtungen/F31179/ankaufpositionen/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

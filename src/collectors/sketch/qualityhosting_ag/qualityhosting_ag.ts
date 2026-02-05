@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class QualityhostingAgCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class QualityhostingAgCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://customer.qualityhosting.de/Login.aspx",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://customer.qualityhosting.de/Login.aspx",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CompanyhouseAgCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CompanyhouseAgCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.companyhouse.de/user/bestellungen",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.companyhouse.de/user/bestellungen",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

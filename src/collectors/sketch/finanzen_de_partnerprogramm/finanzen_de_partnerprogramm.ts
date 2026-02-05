@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FinanzenDePartnerprogrammCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class FinanzenDePartnerprogrammCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.finanzen.de/partner/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.finanzen.de/partner/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

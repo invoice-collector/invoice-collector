@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GossipTrendsCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class GossipTrendsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://gossiptrends.goaffpro.com/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://gossiptrends.goaffpro.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

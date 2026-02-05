@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OnlypultCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class OnlypultCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://onlypult.com/de/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://onlypult.com/de/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

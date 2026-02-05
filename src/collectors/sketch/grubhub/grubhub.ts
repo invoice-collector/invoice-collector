@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GrubhubCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class GrubhubCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.grubhub.com",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "http://www.grubhub.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

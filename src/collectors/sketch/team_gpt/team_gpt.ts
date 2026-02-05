@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TeamGptCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TeamGptCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://chat.team-gpt.com/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://chat.team-gpt.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

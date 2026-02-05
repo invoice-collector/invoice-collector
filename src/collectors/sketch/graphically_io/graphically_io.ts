@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GraphicallyIoCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class GraphicallyIoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://clients.graphically.io/portal/invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://clients.graphically.io/portal/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

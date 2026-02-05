@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BeetlesHouseAdminCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BeetlesHouseAdminCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://beetleshouse.com/w8wlae0ugdwihmvt/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://beetleshouse.com/w8wlae0ugdwihmvt/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

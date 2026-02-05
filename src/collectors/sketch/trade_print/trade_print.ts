@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TradePrintCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TradePrintCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.tradeprint.co.uk/my-account#invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.tradeprint.co.uk/my-account#invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

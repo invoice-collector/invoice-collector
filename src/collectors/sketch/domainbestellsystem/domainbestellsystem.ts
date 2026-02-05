@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DomainbestellsystemCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DomainbestellsystemCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.domain-bestellsystem.de/login.php",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.domain-bestellsystem.de/login.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

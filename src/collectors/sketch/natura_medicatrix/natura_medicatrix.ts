@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NaturaMedicatrixCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class NaturaMedicatrixCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.naturamedicatrix.fr/en/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.naturamedicatrix.fr/en/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

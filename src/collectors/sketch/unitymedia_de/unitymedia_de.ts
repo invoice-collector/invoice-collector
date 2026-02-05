@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class UnitymediaDeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class UnitymediaDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.unitymedia.de/kundencenter/meine-rechnungen/alle-rechnungen?months=12",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.unitymedia.de/kundencenter/meine-rechnungen/alle-rechnungen?months=12",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

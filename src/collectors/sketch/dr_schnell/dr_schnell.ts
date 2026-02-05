@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DrSchnellCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DrSchnellCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.dr-schnell.com/b2border",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.dr-schnell.com/b2border",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

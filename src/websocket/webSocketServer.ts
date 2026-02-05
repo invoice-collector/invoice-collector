@@ -1,7 +1,7 @@
 import { Server, WebSocket } from 'ws';
 import http from 'http';
 import * as utils from '../utils';
-import { MessageClick, MessageClose, MessageKeydown, MessageScreenshot, MessageState, MessageText, MessageTwofa } from './message';
+import { MessageClick, MessageInteractive, MessageKeydown, MessageScreenshot, MessageState, MessageText, MessageTwofa } from './message';
 import { State } from '../model/state';
 import { Driver } from '../driver/driver';
 import { I18n } from '../i18n';
@@ -71,7 +71,7 @@ export class WebSocketServer {
     public onClick: ((event: MessageClick) => void) | undefined;
     public onKeydown: ((event: MessageKeydown) => void) | undefined;
     public onText: ((event: MessageText) => void) | undefined;
-    public onClose: ((event: MessageClose) => void) | undefined;
+    public onInteractive: ((event: MessageInteractive) => void) | undefined;
 
     constructor(httpServer: http.Server, locale: string, collector: AbstractCollector<Config>) {
         this.path = `${WebSocketServer.PATH}${utils.generate_token()}`;
@@ -142,8 +142,8 @@ export class WebSocketServer {
                 else if (data.type === 'type' && data.text && this.onText) {
                     this.onText(data as MessageText);
                 }
-                else if (data.type === 'close' && data.reason && this.onClose) {
-                    this.onClose(data as MessageClose);
+                else if (data.type === 'interactive' && data.reason && this.onInteractive) {
+                    this.onInteractive(data as MessageInteractive);
                 }
                 else {
                     console.warn('Unknown message type or missing fields:', data);
@@ -196,6 +196,15 @@ export class WebSocketServer {
         const message: MessageState = {
             type: 'state',
             state: state
+        };
+        this.sendMessage(message);
+    }
+
+    public sendInteractiveOpen(instructions: string) {
+        const message: MessageInteractive = {
+            type: 'interactive',
+            reason: 'open',
+            instructions: I18n.get(instructions, this.locale)
         };
         this.sendMessage(message);
     }

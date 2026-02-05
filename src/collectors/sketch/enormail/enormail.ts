@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EnormailCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class EnormailCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.enormail.eu/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.enormail.eu/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ItCenterRiemerCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ItCenterRiemerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "m.holz@itc-riemer.de",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "m.holz@itc-riemer.de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

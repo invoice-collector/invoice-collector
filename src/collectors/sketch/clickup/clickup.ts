@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ClickupCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ClickupCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.clickup.com",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.clickup.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

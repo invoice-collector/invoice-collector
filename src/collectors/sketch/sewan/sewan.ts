@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SewanCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SewanCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://partenaire.sewan.fr/login/?redirect_to=https://partenaire.sewan.fr/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://partenaire.sewan.fr/login/?redirect_to=https://partenaire.sewan.fr/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

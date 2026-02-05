@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SeotestingComCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SeotestingComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.seotesting.com/account/login/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.seotesting.com/account/login/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

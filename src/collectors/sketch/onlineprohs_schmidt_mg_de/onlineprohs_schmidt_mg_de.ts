@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OnlineprohsSchmidtMgDeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class OnlineprohsSchmidtMgDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://onlineprohs.schmidt-mg.de/hs/kontoauszug.csp?getPerfacto=1",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://onlineprohs.schmidt-mg.de/hs/kontoauszug.csp?getPerfacto=1",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WvvEnergieversorgerCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class WvvEnergieversorgerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://onlineservice.wvv.de/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://onlineservice.wvv.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

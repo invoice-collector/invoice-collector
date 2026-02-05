@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KiSchuleCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class KiSchuleCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.ki-hochschule.de/account/billing?tab=billingHistory",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.ki-hochschule.de/account/billing?tab=billingHistory",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

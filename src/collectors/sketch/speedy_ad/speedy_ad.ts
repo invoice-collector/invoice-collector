@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SpeedyAdCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SpeedyAdCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://services.speedy.bg/invoices/?p=invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://services.speedy.bg/invoices/?p=invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

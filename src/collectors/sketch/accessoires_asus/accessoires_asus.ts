@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AccessoiresAsusCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AccessoiresAsusCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.accessoires-asus.com/compte/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.accessoires-asus.com/compte/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

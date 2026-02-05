@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FnacMarketplaceBeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class FnacMarketplaceBeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://secure.fr.fnac.be/identity/server/gateway/signin-signup",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://secure.fr.fnac.be/identity/server/gateway/signin-signup",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

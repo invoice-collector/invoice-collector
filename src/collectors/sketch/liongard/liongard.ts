@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LiongardCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class LiongardCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portal.liongard.com/s/invoice",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://portal.liongard.com/s/invoice",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

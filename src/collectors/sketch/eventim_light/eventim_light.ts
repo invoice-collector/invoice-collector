@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EventimLightCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class EventimLightCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.eventim-light.com/de/events/past",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.eventim-light.com/de/events/past",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PleasantSolutionsStoreCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PleasantSolutionsStoreCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://store.pleasantsolutions.com/Account/SignIn",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://store.pleasantsolutions.com/Account/SignIn",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

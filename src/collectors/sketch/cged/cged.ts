@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CgedCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CgedCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.cged.fr/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.cged.fr/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CityOfAustinEnergyCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CityOfAustinEnergyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://dss-coa.opower.com/dss/overview",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://dss-coa.opower.com/dss/overview",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

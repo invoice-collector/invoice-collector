@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CookieScriptCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CookieScriptCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://cookie-script.com/subscriptions",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://cookie-script.com/subscriptions",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

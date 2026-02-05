@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NextendwebCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class NextendwebCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://secure.nextendweb.com/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://secure.nextendweb.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BackblazeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BackblazeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://secure.backblaze.com/billing.htm?billing_page=backup",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://secure.backblaze.com/billing.htm?billing_page=backup",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StatusIoCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class StatusIoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.status.io/dashboard/6013c4514fe4a10537f38d98/subscription",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.status.io/dashboard/6013c4514fe4a10537f38d98/subscription",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

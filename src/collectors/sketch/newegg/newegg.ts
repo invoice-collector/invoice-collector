@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NeweggCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class NeweggCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://secure.newegg.com/NewMyAccount/AccountLogin.aspx",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://secure.newegg.com/NewMyAccount/AccountLogin.aspx",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

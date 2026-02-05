@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ClipdealerCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ClipdealerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://de.clipdealer.com/index.php?ACTION=profile&page=invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://de.clipdealer.com/index.php?ACTION=profile&page=invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

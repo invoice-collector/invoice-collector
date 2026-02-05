@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SachsennetCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SachsennetCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://sachsennet.plusportal.de/#/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://sachsennet.plusportal.de/#/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

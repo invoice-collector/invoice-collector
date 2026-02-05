@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Ready2orderCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class Ready2orderCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.ready2order.at/#views/settings.php?id=3",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://my.ready2order.at/#views/settings.php?id=3",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

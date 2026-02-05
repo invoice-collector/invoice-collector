@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PacklinkProEsCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PacklinkProEsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://auth.packlink.com/es-ES/pro/login?platform=PRO&platform_country=ES",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://auth.packlink.com/es-ES/pro/login?platform=PRO&platform_country=ES",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

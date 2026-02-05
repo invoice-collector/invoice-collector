@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LucidlinkCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class LucidlinkCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.lucidlink.com/workspaces/068eb1ef-768f-43e7-9e14-8ca8500855c2/settings/billing",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.lucidlink.com/workspaces/068eb1ef-768f-43e7-9e14-8ca8500855c2/settings/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OpenliCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class OpenliCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.openli.com/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.openli.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

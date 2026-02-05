@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AssonaPartnerportalCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AssonaPartnerportalCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://partnerportal.assona.com/pos/index.do",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://partnerportal.assona.com/pos/index.do",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

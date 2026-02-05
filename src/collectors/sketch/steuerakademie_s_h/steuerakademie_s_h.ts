@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SteuerakademieSHCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SteuerakademieSHCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://stbvsh-seminare.de/auctores/scs/imc",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://stbvsh-seminare.de/auctores/scs/imc",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

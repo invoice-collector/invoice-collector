@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SdvServicepartnerDerVersicherungsmaklerAgCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SdvServicepartnerDerVersicherungsmaklerAgCollector extends SketchCo
                 mandatory: true
             }
         },
-        entryUrl: "https://portal.sdv.ag:8443/faces/jsf/masken/mitarbeiter.jsp?conversationContext=1",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://portal.sdv.ag:8443/faces/jsf/masken/mitarbeiter.jsp?conversationContext=1",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PingpingCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PingpingCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://pingping.io/account/subscription",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://pingping.io/account/subscription",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

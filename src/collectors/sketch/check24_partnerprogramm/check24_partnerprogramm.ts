@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Check24PartnerprogrammCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class Check24PartnerprogrammCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.check24-partnerprogramm.de/berichte/gutschriften/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.check24-partnerprogramm.de/berichte/gutschriften/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

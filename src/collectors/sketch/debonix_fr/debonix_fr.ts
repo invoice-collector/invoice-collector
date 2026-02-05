@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DebonixFrCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DebonixFrCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.debonix.fr/customer/account/create/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.debonix.fr/customer/account/create/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

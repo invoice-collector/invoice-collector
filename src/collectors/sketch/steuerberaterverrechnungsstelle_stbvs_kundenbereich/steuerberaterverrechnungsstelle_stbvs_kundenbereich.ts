@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SteuerberaterverrechnungsstelleStbvsKundenbereichCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SteuerberaterverrechnungsstelleStbvsKundenbereichCollector extends 
                 mandatory: true
             }
         },
-        entryUrl: "https://meine-stbvs.com/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://meine-stbvs.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

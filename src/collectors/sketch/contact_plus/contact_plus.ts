@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ContactPlusCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ContactPlusCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.contactsplus.com/subscription",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.contactsplus.com/subscription",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

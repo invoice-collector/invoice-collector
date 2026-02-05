@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Tele2NlCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class Tele2NlCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.tele2.nl/mijn-tele2/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.tele2.nl/mijn-tele2/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

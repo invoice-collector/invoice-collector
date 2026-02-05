@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Flotten24DeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class Flotten24DeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.flotten24.de/cgi-bin/ashop.pl?cart_id=xL6LUMemK3ELRK96.982.499735568&dsco=82&Cookie=&custom=&meinb=yes",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.flotten24.de/cgi-bin/ashop.pl?cart_id=xL6LUMemK3ELRK96.982.499735568&dsco=82&Cookie=&custom=&meinb=yes",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BlazeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BlazeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://blaze.today/invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://blaze.today/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

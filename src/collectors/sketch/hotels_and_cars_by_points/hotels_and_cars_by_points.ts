@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HotelsAndCarsByPointsCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class HotelsAndCarsByPointsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://milesandmore.points.com/me/trips",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://milesandmore.points.com/me/trips",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WazzupCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class WazzupCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.wazzup24.com/login/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.wazzup24.com/login/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

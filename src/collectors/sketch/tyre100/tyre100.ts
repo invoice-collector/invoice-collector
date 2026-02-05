@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Tyre100Collector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class Tyre100Collector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.tyre100.de/de-DE/Account/Login/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.tyre100.de/de-DE/Account/Login/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

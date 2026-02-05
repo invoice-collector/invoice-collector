@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BillpayCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BillpayCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://admin.billpay.de/MerchantInvoiceApproved.action",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://admin.billpay.de/MerchantInvoiceApproved.action",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

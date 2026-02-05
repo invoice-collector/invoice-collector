@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KlarnaMerchantsCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class KlarnaMerchantsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://online.klarna.com/costs.yaws",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://online.klarna.com/costs.yaws",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WorkableCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class WorkableCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.workable.com/signin",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.workable.com/signin",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

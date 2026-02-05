@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BauhausDeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BauhausDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.bauhaus.info/mein-konto/bestellungen/30056485#",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.bauhaus.info/mein-konto/bestellungen/30056485#",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

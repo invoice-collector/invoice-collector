@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SeedboxFrCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SeedboxFrCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.seedbox.fr/compte/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.seedbox.fr/compte/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

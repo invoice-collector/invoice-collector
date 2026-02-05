@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AmazonVendorCentralEsCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AmazonVendorCentralEsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://vendorcentral.amazon.es/gp/vendor/members/contracogs?ref_=vc_ven-ven-home_subNav",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://vendorcentral.amazon.es/gp/vendor/members/contracogs?ref_=vc_ven-ven-home_subNav",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

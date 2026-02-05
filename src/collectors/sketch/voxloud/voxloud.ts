@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VoxloudCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class VoxloudCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://controlpanel.voxloud.com/main/#/app/subscription-review",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://controlpanel.voxloud.com/main/#/app/subscription-review",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

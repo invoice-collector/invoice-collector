@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MartignettiExchangeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MartignettiExchangeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://martignettiexchange.com/profile/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://martignettiexchange.com/profile/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

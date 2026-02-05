@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BrodosNetCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BrodosNetCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.brodos.net/index.php/mpath/svoucher_sales_salvoucher/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.brodos.net/index.php/mpath/svoucher_sales_salvoucher/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

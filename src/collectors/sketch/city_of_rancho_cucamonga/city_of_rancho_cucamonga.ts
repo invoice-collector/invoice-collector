@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CityOfRanchoCucamongaCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CityOfRanchoCucamongaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://rcmu.cityofrc.us/my-account/billing",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://rcmu.cityofrc.us/my-account/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

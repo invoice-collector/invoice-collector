@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SaltChCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SaltChCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://mba.salt.ch/financials/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://mba.salt.ch/financials/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

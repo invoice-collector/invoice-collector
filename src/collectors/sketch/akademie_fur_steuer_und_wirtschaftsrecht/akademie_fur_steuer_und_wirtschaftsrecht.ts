@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AkademieFurSteuerUndWirtschaftsrechtCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AkademieFurSteuerUndWirtschaftsrechtCollector extends SketchCollect
                 mandatory: true
             }
         },
-        entryUrl: "https://www.akademie-stuw.de/eportal",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.akademie-stuw.de/eportal",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

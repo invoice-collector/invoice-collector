@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RsbRetailServiceBankGmbhCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class RsbRetailServiceBankGmbhCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portal.rsb-bank.de/RSBPortal/app/index.jsf",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://portal.rsb-bank.de/RSBPortal/app/index.jsf",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

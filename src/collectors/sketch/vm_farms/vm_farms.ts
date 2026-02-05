@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VmFarmsCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class VmFarmsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://vmfarms.com/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://vmfarms.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

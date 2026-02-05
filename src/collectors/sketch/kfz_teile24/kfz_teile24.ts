@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KfzTeile24Collector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class KfzTeile24Collector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.kfzteile24.de/?gclid=EAIaIQobChMIpNuGjJT6_gIVSrrVCh01awK8EAAYASAAEgJ8DfD_BwE",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.kfzteile24.de/?gclid=EAIaIQobChMIpNuGjJT6_gIVSrrVCh01awK8EAAYASAAEgJ8DfD_BwE",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

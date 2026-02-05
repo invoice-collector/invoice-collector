@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OnehubCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class OnehubCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://ws.onehub.com/account/invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://ws.onehub.com/account/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

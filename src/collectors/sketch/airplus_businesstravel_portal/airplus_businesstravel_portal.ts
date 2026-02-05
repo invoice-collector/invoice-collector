@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AirplusBusinesstravelPortalCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AirplusBusinesstravelPortalCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://businesstravelportal.airplus.com/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://businesstravelportal.airplus.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

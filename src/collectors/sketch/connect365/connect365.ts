@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Connect365Collector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class Connect365Collector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://app.connect365.io",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "http://app.connect365.io",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

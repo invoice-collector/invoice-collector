@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ElevonMerchantServicesCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ElevonMerchantServicesCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.elavon.com",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "http://www.elavon.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

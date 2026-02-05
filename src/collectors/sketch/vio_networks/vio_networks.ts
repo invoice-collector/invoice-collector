@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VioNetworksCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class VioNetworksCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://login.vionetworks.de/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://login.vionetworks.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

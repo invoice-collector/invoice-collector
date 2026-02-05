@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AffinityWaterCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AffinityWaterCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://myonlineaccount.affinitywater.co.uk/Account/Login?ReturnUrl=%2F&ReturnUrl=%2F",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://myonlineaccount.affinitywater.co.uk/Account/Login?ReturnUrl=%2F&ReturnUrl=%2F",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

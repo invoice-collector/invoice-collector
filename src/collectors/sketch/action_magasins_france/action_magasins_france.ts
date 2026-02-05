@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ActionMagasinsFranceCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ActionMagasinsFranceCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.action.com/fr-fr/mon-action/#mes-tickets-de-caisse",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.action.com/fr-fr/mon-action/#mes-tickets-de-caisse",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

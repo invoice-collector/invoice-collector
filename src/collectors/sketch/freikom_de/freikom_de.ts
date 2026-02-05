@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FreikomDeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class FreikomDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www2.purtel.com/res/res100165/index.php?link=login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www2.purtel.com/res/res100165/index.php?link=login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

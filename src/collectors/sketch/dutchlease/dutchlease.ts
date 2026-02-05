@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DutchleaseCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DutchleaseCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://dutchlease.fleetplatform.com/FleetPlatform/s:nl_NL/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://dutchlease.fleetplatform.com/FleetPlatform/s:nl_NL/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SellxedCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SellxedCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.sellxed.com/shop/de/chf/extensions.html",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.sellxed.com/shop/de/chf/extensions.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

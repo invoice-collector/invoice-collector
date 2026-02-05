@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SoundtaxiCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SoundtaxiCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.soundtaxi.net/login.php?language=de&action=process",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.soundtaxi.net/login.php?language=de&action=process",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

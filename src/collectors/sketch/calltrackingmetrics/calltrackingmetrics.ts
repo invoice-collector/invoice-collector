@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CalltrackingmetricsCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CalltrackingmetricsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.calltrackingmetrics.com/payment_methods?agency=1#billing-invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.calltrackingmetrics.com/payment_methods?agency=1#billing-invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

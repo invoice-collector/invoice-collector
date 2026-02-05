@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TransgourmetAtCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TransgourmetAtCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://shop.transgourmet.at/archive",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://shop.transgourmet.at/archive",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

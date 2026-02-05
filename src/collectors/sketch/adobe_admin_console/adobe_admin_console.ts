@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AdobeAdminConsoleCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AdobeAdminConsoleCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://adminconsole.adobe.com/2B7A015D60D18D5C0A495E16@AdobeOrg/account",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://adminconsole.adobe.com/2B7A015D60D18D5C0A495E16@AdobeOrg/account",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

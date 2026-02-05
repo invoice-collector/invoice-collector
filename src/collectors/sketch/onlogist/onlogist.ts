@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OnlogistCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class OnlogistCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "Onlogist.com",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "Onlogist.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

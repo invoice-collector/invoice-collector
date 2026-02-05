@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HopperCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class HopperCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://payments.stunning.co/receipts/1486mxkdfperpsfzinstdbdxd/cus_CfO9mnuPwtisjA",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://payments.stunning.co/receipts/1486mxkdfperpsfzinstdbdxd/cus_CfO9mnuPwtisjA",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

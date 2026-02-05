@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EcotapCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class EcotapCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://ecotap.evc-net.com/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://ecotap.evc-net.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

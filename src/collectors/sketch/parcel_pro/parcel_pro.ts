@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ParcelProCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ParcelProCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.parcelpro.com",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "http://www.parcelpro.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

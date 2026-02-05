@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AllianzDeMaklerportalCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AllianzDeMaklerportalCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://makler.allianz.de/res/startseite/index.html",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://makler.allianz.de/res/startseite/index.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

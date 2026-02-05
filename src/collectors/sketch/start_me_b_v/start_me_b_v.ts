@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StartMeBVCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class StartMeBVCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://start.me/users/sign_in",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://start.me/users/sign_in",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

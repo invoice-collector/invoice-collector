@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KtmBikesCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class KtmBikesCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://shop.ktm-bikes.at/ktm_de_de/sap_customer/listing/invoice/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://shop.ktm-bikes.at/ktm_de_de/sap_customer/listing/invoice/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

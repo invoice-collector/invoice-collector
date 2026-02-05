@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AvuNetzCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AvuNetzCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portal.avu.de/powercommerce/avu/fo/portal/home",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://portal.avu.de/powercommerce/avu/fo/portal/home",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

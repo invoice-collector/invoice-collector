@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DiffyCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DiffyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.diffy.website/#/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.diffy.website/#/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class YellowPagesGroupCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class YellowPagesGroupCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://ypforbusiness.yellowpages.ca/dashboard",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://ypforbusiness.yellowpages.ca/dashboard",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ReisswolfFrankfurtCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ReisswolfFrankfurtCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.reisswolf-frankfurt.de/webportal.html",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.reisswolf-frankfurt.de/webportal.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

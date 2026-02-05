@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OnvistaBankCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class OnvistaBankCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.onvista-bank.de/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.onvista-bank.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

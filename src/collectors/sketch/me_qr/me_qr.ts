@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MeQrCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MeQrCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://me-qr.com/subscription/admin",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://me-qr.com/subscription/admin",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FlightstatsCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class FlightstatsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.flightstats.com/v2/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.flightstats.com/v2/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

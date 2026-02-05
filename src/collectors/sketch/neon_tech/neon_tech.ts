@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NeonTechCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class NeonTechCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://console.neon.tech/app/billing#payment_info",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://console.neon.tech/app/billing#payment_info",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

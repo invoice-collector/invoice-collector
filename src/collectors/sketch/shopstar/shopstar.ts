@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ShopstarCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ShopstarCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.shopstar.pe/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.shopstar.pe/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

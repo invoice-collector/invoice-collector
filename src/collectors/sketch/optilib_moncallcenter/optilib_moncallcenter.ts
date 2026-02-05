@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OptilibMoncallcenterCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class OptilibMoncallcenterCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.mon-callcenter.com/facture.php",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.mon-callcenter.com/facture.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VofficePartnerCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class VofficePartnerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://partner.v-office.com/partner/index?token=eyJhbGciOiJIUzI1NiJ9.eyJjaWQiOjEwNjIzMTM1LCJtaWQiOjI5MjMsInRva2VuIjpudWxsfQ.Rm5LKAcQChQKCpU9t4KxFHEcJ6mR_DpnoYZvBAKq-A0#/p_invoice?id=2774234",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://partner.v-office.com/partner/index?token=eyJhbGciOiJIUzI1NiJ9.eyJjaWQiOjEwNjIzMTM1LCJtaWQiOjI5MjMsInRva2VuIjpudWxsfQ.Rm5LKAcQChQKCpU9t4KxFHEcJ6mR_DpnoYZvBAKq-A0#/p_invoice?id=2774234",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

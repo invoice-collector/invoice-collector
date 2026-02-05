@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GrunderDeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class GrunderDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://mitglieder.gruender.de/mein-konto/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://mitglieder.gruender.de/mein-konto/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

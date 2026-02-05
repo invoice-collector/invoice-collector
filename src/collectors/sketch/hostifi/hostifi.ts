@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HostifiCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class HostifiCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.hostifi.com/billing",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.hostifi.com/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

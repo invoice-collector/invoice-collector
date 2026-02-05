@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class _2degreesMobileCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class _2degreesMobileCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.2degreesmobile.co.nz",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "http://www.2degreesmobile.co.nz",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

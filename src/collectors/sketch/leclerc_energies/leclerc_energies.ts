@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LeclercEnergiesCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class LeclercEnergiesCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.energies.leclerc",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.energies.leclerc",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

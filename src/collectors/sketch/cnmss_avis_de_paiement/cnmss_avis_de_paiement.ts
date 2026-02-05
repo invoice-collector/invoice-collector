@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CnmssAvisDePaiementCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CnmssAvisDePaiementCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.cnmss.fr/professionnel-de-sante/mes-services-en-ligne/amelipro/consulter-vos-paiements-5772.html",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.cnmss.fr/professionnel-de-sante/mes-services-en-ligne/amelipro/consulter-vos-paiements-5772.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

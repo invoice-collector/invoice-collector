@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LusFiberCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class LusFiberCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://esp.lusfiber.com/esp/security/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://esp.lusfiber.com/esp/security/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

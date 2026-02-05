@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ServerprofisCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ServerprofisCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://service.serverprofis.net",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://service.serverprofis.net",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

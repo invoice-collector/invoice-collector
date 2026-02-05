@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class UnitTracCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class UnitTracCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.unittrac.com/Secure/Settings/UTBilling",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.unittrac.com/Secure/Settings/UTBilling",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

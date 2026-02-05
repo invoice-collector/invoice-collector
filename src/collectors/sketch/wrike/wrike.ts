@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WrikeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class WrikeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.wrike.com/login/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.wrike.com/login/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

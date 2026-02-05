@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PaybyphoneFrCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PaybyphoneFrCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://m2.paybyphone.fr/parking",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://m2.paybyphone.fr/parking",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

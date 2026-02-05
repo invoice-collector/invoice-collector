@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FirstDebitInkassoCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class FirstDebitInkassoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portal.firstdebit.de/wl/login.php",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://portal.firstdebit.de/wl/login.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

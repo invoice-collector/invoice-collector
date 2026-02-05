@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HanseMerkurVertriebsportalCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class HanseMerkurVertriebsportalCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://secure.hansemerkur-vertriebsportal.de/service/anwendungen/dokumentencenter",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://secure.hansemerkur-vertriebsportal.de/service/anwendungen/dokumentencenter",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

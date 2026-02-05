@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FairenergieCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class FairenergieCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://fairenergie.emobilitycloud.com",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://fairenergie.emobilitycloud.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

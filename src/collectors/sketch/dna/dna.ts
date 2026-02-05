@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DnaCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DnaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://c.dna.fr/espace-client/mes-factures",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://c.dna.fr/espace-client/mes-factures",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

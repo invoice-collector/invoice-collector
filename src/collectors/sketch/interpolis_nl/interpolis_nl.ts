@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class InterpolisNlCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class InterpolisNlCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.interpolis.nl/inloggen",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.interpolis.nl/inloggen",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KiwiHrCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class KiwiHrCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://billing.stripe.com/session/live_YWNjdF8xRDlUVWdEZ3hvdmVpQUp1LF9McnpQODdZS3FGeExEMGk2dHFSa2NnTlJTSFNCempt01008ksIAlnO",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://billing.stripe.com/session/live_YWNjdF8xRDlUVWdEZ3hvdmVpQUp1LF9McnpQODdZS3FGeExEMGk2dHFSa2NnTlJTSFNCempt01008ksIAlnO",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

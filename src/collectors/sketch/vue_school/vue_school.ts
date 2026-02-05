@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VueSchoolCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class VueSchoolCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://vueschool.io/profile/invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://vueschool.io/profile/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

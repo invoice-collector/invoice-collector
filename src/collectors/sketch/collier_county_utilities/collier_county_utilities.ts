@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CollierCountyUtilitiesCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CollierCountyUtilitiesCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.invoicecloud.com/portal/(S(qbumyc0ayz3zy5kmqgu5e5jl))/2/CustomerGroupLedger.aspx?mode=open",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.invoicecloud.com/portal/(S(qbumyc0ayz3zy5kmqgu5e5jl))/2/CustomerGroupLedger.aspx?mode=open",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

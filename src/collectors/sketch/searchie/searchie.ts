@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SearchieCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SearchieCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.searchie.io/login?_fs=0d684fd8-0964-4299-8a92-85600876d291",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.searchie.io/login?_fs=0d684fd8-0964-4299-8a92-85600876d291",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Helium10Collector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class Helium10Collector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://members.helium10.com/profile/billing",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://members.helium10.com/profile/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

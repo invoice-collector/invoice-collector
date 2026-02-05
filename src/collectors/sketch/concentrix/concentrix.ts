@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ConcentrixCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ConcentrixCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://retaileronline.fdi-logbox.com/documents/invoicingDocuments",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://retaileronline.fdi-logbox.com/documents/invoicingDocuments",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

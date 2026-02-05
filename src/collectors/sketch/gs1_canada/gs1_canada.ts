@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Gs1CanadaCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class Gs1CanadaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.gs1ca.org/app_invoices/onlinePayment/Display.aspx",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.gs1ca.org/app_invoices/onlinePayment/Display.aspx",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

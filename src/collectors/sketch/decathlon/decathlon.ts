@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DecathlonCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DecathlonCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.decathlon.de/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.decathlon.de/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

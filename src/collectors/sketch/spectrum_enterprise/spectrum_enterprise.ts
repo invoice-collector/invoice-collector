@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SpectrumEnterpriseCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SpectrumEnterpriseCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://spectrumenterprise.net/login?signed-out=true",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://spectrumenterprise.net/login?signed-out=true",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

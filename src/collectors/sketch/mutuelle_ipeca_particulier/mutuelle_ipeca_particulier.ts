@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MutuelleIpecaParticulierCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MutuelleIpecaParticulierCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://participants.ipeca.fr/particulier/Pages/Particulier-home-actualite.aspx",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://participants.ipeca.fr/particulier/Pages/Particulier-home-actualite.aspx",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

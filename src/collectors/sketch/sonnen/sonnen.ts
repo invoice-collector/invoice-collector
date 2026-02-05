@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SonnenCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SonnenCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.sonnen.de/documents/invoices?lang=de",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://my.sonnen.de/documents/invoices?lang=de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

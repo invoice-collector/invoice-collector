@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OdidoCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class OdidoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.odido.nl/zakelijk/my/facturen",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.odido.nl/zakelijk/my/facturen",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

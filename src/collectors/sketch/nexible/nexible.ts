@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NexibleCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class NexibleCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.nexible.de/kundenportal/anmelden",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.nexible.de/kundenportal/anmelden",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GathertownCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class GathertownCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.gather.town/dashboard/AqChriOPbROCovtx/konzepthaus%20Web%20Solutions/reservations/subscription",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.gather.town/dashboard/AqChriOPbROCovtx/konzepthaus%20Web%20Solutions/reservations/subscription",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

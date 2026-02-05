@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class _24metricsFraudshieldCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class _24metricsFraudshieldCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://fraudshield.24metrics.com/app#/billing?tab=invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://fraudshield.24metrics.com/app#/billing?tab=invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

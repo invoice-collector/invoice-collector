@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SarsZaCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SarsZaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.sarsefiling.co.za/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.sarsefiling.co.za/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

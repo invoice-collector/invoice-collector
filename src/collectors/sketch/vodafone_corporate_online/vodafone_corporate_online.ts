@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VodafoneCorporateOnlineCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class VodafoneCorporateOnlineCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.vcol.co.uk/home/default.vco",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.vcol.co.uk/home/default.vco",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BfsFinanceScotCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BfsFinanceScotCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://scot.online/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://scot.online/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

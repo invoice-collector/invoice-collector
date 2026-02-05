@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WibuCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class WibuCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.wibu.care/de-de/customer/order/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.wibu.care/de-de/customer/order/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

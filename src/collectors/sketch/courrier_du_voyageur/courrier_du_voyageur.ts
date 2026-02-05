@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CourrierDuVoyageurCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CourrierDuVoyageurCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://mon-compte.courrier-du-voyageur.com/bpi.php?p=ec_account&mapage=fac",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://mon-compte.courrier-du-voyageur.com/bpi.php?p=ec_account&mapage=fac",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

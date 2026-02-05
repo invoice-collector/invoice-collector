@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EpcorCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class EpcorCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.epcor.com/myaccount#/auth/login?returnRouteUrl=%2Fmanage%2Faccounts",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.epcor.com/myaccount#/auth/login?returnRouteUrl=%2Fmanage%2Faccounts",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

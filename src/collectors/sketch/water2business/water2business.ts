@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Water2businessCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class Water2businessCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portal.water2business.co.uk/SignIn?returnUrl=/my-profile/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://portal.water2business.co.uk/SignIn?returnUrl=/my-profile/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

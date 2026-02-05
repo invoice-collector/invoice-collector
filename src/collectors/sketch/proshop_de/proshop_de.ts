@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ProshopDeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ProshopDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.proshop.de/CustomerCenter/Account",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.proshop.de/CustomerCenter/Account",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

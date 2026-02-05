@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FuntainmentB2bCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class FuntainmentB2bCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://funtainment-b2b.de/index.php?ID=18",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://funtainment-b2b.de/index.php?ID=18",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Check24ProfisCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class Check24ProfisCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://experts.handwerk.check24.de/craftsmen/sp/desktop/prime/invoice",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://experts.handwerk.check24.de/craftsmen/sp/desktop/prime/invoice",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BufferCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BufferCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://buffer.com/signin",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://buffer.com/signin",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

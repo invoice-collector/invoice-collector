@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EloviewCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class EloviewCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://manage.eloview.com/3.56.50/accountSettings",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://manage.eloview.com/3.56.50/accountSettings",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

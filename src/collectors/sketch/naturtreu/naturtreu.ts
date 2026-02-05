@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NaturtreuCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class NaturtreuCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://naturtreu.de/account",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://naturtreu.de/account",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

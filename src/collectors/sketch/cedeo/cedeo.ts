@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CedeoCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CedeoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.cedeo.fr/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.cedeo.fr/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

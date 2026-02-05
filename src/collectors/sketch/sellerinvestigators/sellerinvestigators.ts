@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SellerinvestigatorsCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SellerinvestigatorsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://login.carbon6.io/u/login?state=hKFo2SBPZFZ3Z0preFRlVlhGcVZMbllzZ0t3SFpobFRDOTVKQaFur3VuaXZlcnNhbC1sb2dpbqN0aWTZIGJ1RGpxODdhVTdBbTJCRm9JUWZZOFlrcXJKV1FON3BUo2NpZNkgSjF0dXowUEoweVp1ZGFSQzhXMlliT1hLSDhYVVBPVVM",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://login.carbon6.io/u/login?state=hKFo2SBPZFZ3Z0preFRlVlhGcVZMbllzZ0t3SFpobFRDOTVKQaFur3VuaXZlcnNhbC1sb2dpbqN0aWTZIGJ1RGpxODdhVTdBbTJCRm9JUWZZOFlrcXJKV1FON3BUo2NpZNkgSjF0dXowUEoweVp1ZGFSQzhXMlliT1hLSDhYVVBPVVM",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

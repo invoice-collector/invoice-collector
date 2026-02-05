@@ -1,5 +1,5 @@
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SeopCollector extends SketchCollector {
 
@@ -25,8 +25,10 @@ export class SeopCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.seop.fr/mon-compte-en-ligne/je-me-connecte",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.seop.fr/mon-compte-en-ligne/je-me-connecte",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

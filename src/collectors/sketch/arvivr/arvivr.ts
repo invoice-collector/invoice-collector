@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ArvivrCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ArvivrCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://vrp.arvilab.com/client/billing/invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://vrp.arvilab.com/client/billing/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

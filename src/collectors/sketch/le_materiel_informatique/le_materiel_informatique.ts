@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LeMaterielInformatiqueCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class LeMaterielInformatiqueCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.materiel-informatique.fr/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.materiel-informatique.fr/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

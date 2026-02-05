@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MyfenceDeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MyfenceDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.myfence.de/authentifizierung?back=history",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.myfence.de/authentifizierung?back=history",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

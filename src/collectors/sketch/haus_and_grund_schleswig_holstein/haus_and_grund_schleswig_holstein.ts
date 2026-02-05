@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HausAndGrundSchleswigHolsteinCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class HausAndGrundSchleswigHolsteinCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://ssl.hugform-sh.de/login.html",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://ssl.hugform-sh.de/login.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

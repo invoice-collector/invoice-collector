@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VenteUniqueComCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class VenteUniqueComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.vente-unique.com/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.vente-unique.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

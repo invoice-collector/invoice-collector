@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PilotFleetCardCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PilotFleetCardCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portal.pilotflyingj.com/myrewards/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://portal.pilotflyingj.com/myrewards/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

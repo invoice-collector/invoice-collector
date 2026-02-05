@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StadtwerkeLubeckTraveDslCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class StadtwerkeLubeckTraveDslCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.swhl.de",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "http://www.swhl.de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

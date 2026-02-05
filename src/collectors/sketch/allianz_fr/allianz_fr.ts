@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AllianzFrCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AllianzFrCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.allianz.fr/mon-espace-client/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.allianz.fr/mon-espace-client/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

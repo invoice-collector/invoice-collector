@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MadeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MadeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.made.com/customer/account/login/referer/aHR0cHM6Ly93d3cubWFkZS5jb20vY3VzdG9tZXIvYWNjb3VudC9pbmRleC8,/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.made.com/customer/account/login/referer/aHR0cHM6Ly93d3cubWFkZS5jb20vY3VzdG9tZXIvYWNjb3VudC9pbmRleC8,/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

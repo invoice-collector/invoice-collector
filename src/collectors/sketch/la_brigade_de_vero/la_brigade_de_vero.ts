@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LaBrigadeDeVeroCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class LaBrigadeDeVeroCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.labrigadedevero.com/#/panel/formules",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.labrigadedevero.com/#/panel/formules",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

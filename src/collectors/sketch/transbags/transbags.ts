@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TransbagsCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TransbagsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.transbags.de/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.transbags.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

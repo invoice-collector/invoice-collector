@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HolzspielereiCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class HolzspielereiCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://holzspielerei.com/jtl.php",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://holzspielerei.com/jtl.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

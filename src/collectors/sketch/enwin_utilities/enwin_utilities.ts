@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EnwinUtilitiesCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class EnwinUtilitiesCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://myaccount.enwin.com/CC/Login.xml",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://myaccount.enwin.com/CC/Login.xml",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

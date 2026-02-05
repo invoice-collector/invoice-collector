@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MailersendCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MailersendCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.mailersend.com/billing/invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.mailersend.com/billing/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

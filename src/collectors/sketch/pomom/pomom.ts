@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PomomCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PomomCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.lexoffice.de/customerportal/authenticate/133a9abb-727a-4259-8ad6-23fc720a1054",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.lexoffice.de/customerportal/authenticate/133a9abb-727a-4259-8ad6-23fc720a1054",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

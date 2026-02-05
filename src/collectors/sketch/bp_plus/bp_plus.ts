@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BpPlusCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BpPlusCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.bpplus.com/pages/am/Invoice_List.asp",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.bpplus.com/pages/am/Invoice_List.asp",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

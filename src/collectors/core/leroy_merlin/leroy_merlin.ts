@@ -1,4 +1,4 @@
-import { WebCollector } from '../../web2Collector';
+import { WebCollector } from '../../webCollector';
 import { LeroyMerlinSelectors } from './selectors';
 import { Driver, Element } from '../../../driver/driver';
 import { Invoice, CollectorCaptcha, CollectorType } from '../../abstractCollector';
@@ -32,7 +32,8 @@ export class LeroyMerlinCollector extends WebCollector {
         },
         loginUrl: "https://www.leroymerlin.fr/login.html",
         entryUrl: "https://www.leroymerlin.fr/espace-perso/suivi-de-commande.html?auth-mode=login",
-        captcha: CollectorCaptcha.DATADOME
+        captcha: CollectorCaptcha.DATADOME,
+        enableInteractiveLogin: true
     }
 
     constructor() {
@@ -107,11 +108,11 @@ export class LeroyMerlinCollector extends WebCollector {
         }
     }
 
-    async getInvoices(driver: Driver, params: any): Promise<Element[]> {
+    async getInvoices(driver: Driver): Promise<Element[]> {
         return await driver.getElements(LeroyMerlinSelectors.CONTAINER_ORDER);
     }
 
-    async data(driver: Driver, params: any, element: Element): Promise<Invoice | null> {
+    async data(driver: Driver, element: Element): Promise<Invoice | null> {
         // Get url before map
         const link = driver.url();
 
@@ -135,7 +136,7 @@ export class LeroyMerlinCollector extends WebCollector {
     }
 
     // Define custom method to download invoice
-    async download(driver: Driver, params: any, element: Element, invoice: Invoice): Promise<string[]> {
+    async download(driver: Driver, invoice: Invoice): Promise<string[]> {
         // Open details in a new page
         await invoice.downloadButton.middleClick();
 

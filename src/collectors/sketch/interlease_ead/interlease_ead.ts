@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class InterleaseEadCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class InterleaseEadCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://interlease.ws/NEpNOGc1aG00UjM2b3ZvUjVWbzVHSjFKckpnMjFzR3NlN0JLVDA4MG9kRT0=",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://interlease.ws/NEpNOGc1aG00UjM2b3ZvUjVWbzVHSjFKckpnMjFzR3NlN0JLVDA4MG9kRT0=",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

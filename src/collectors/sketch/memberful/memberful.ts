@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MemberfulCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MemberfulCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://signin.memberful.com/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://signin.memberful.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

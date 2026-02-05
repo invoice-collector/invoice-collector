@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MiteCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MiteCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.mite.yo.lk/where_to_login/de/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.mite.yo.lk/where_to_login/de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

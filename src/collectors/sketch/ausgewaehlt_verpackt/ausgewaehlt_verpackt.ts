@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AusgewaehltVerpacktCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AusgewaehltVerpacktCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.ausgewaehlt.com/sales/order/invoice/order_id/5929/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.ausgewaehlt.com/sales/order/invoice/order_id/5929/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

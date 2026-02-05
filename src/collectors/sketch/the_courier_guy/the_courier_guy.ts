@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TheCourierGuyCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TheCourierGuyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://tcgweb16931.pperfect.com/pponline/login.php",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://tcgweb16931.pperfect.com/pponline/login.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

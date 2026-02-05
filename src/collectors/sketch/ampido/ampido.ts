@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AmpidoCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AmpidoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.ampido.com/myRents",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.ampido.com/myRents",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

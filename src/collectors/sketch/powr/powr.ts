@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PowrCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PowrCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.powr.io/users/me/account?id=me",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.powr.io/users/me/account?id=me",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

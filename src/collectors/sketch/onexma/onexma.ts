@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OnexmaCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class OnexmaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.onexma.com/cgi-bin/user.cgi",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.onexma.com/cgi-bin/user.cgi",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

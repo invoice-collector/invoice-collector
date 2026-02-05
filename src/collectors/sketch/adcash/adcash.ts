@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AdcashCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AdcashCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://adcash.myadcash.com/adv_finance/invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://adcash.myadcash.com/adv_finance/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

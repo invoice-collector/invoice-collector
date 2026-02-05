@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OneSaasCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class OneSaasCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://partners.onesaas.com/admin/signin",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://partners.onesaas.com/admin/signin",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

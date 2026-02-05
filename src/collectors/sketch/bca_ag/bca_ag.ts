@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BcaAgCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BcaAgCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://diva.bca.de/#/Organizer/Postfach",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://diva.bca.de/#/Organizer/Postfach",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PromocashCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PromocashCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.promocash.com/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.promocash.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

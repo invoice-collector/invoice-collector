@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VoximplantCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class VoximplantCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://manage.voximplant.com/auth?",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://manage.voximplant.com/auth?",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

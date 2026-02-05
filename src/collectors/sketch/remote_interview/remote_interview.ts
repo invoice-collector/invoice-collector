@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RemoteInterviewCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class RemoteInterviewCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.remoteinterview.io/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.remoteinterview.io/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

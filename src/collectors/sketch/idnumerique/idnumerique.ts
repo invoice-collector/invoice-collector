@@ -1,5 +1,5 @@
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IdNumeriqueCollector extends SketchCollector {
 
@@ -8,7 +8,7 @@ export class IdNumeriqueCollector extends SketchCollector {
         name: "Id numerique",
         description: "i18n.collectors.idnumerique.description",
         version: "0",
-        website: "https://www.idnumerique.fr",
+        website: "https://shop.idnumerique.fr/",
         logo: "https://www.idnumerique.fr/wp-content/uploads/2014/06/logo-header.png",
         type: CollectorType.SKETCH,
         params: {
@@ -25,7 +25,10 @@ export class IdNumeriqueCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://shop.idnumerique.fr/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

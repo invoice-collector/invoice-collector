@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class XavierAnalyticsCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class XavierAnalyticsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://xavier-analytics.com/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://xavier-analytics.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

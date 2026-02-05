@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SmartProspectiveCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SmartProspectiveCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.smartprospective.com/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.smartprospective.com/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

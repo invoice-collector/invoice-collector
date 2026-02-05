@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FormstackCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class FormstackCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.formstack.com/admin/account/settings-view/invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.formstack.com/admin/account/settings-view/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

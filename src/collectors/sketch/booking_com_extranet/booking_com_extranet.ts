@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BookingComExtranetCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BookingComExtranetCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://admin.booking.com",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://admin.booking.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

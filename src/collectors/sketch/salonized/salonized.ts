@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SalonizedCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SalonizedCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.salonized.com/c/15716/l/15795/register/invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.salonized.com/c/15716/l/15795/register/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PascomCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PascomCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.pascom.net/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://my.pascom.net/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

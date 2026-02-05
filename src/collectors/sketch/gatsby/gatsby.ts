@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GatsbyCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class GatsbyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://gatsby.run/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://gatsby.run/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

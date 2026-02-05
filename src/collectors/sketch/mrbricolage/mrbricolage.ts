@@ -1,5 +1,5 @@
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MrBricolageCollector extends SketchCollector {
 
@@ -25,8 +25,10 @@ export class MrBricolageCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.mr-bricolage.fr/paris-montyon/customer/account/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.mr-bricolage.fr/paris-montyon/customer/account/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DeskbookersCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DeskbookersCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.deskbookers.com/en-gb/home",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.deskbookers.com/en-gb/home",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

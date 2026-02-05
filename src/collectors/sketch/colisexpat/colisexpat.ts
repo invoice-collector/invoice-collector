@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ColisexpatCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ColisexpatCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://client.colisexpat.com/de/comptes/displayClientFacture/888678/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://client.colisexpat.com/de/comptes/displayClientFacture/888678/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

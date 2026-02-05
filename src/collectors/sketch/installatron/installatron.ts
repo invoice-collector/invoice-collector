@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class InstallatronCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class InstallatronCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://installatron.com/account/invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://installatron.com/account/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

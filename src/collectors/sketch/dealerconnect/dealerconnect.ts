@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DealerconnectCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DealerconnectCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://dealerconnect.chrysler.com/portal/Controller/Portal",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://dealerconnect.chrysler.com/portal/Controller/Portal",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

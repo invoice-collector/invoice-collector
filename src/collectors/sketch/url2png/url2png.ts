@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Url2pngCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class Url2pngCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.url2png.com/dashboard/invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.url2png.com/dashboard/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

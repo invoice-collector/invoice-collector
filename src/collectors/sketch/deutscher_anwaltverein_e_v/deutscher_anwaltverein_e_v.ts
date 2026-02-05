@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DeutscherAnwaltvereinEVCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DeutscherAnwaltvereinEVCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.portal-anwaltverein.de/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.portal-anwaltverein.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

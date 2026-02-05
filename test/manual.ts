@@ -11,8 +11,6 @@ import readline from 'readline';
 
 import { CollectorLoader } from '../src/collectors/collectorLoader';
 import { LoggableError } from '../src/error';
-import { Secret } from '../src/secret_manager/abstractSecretManager';
-import { Collect } from '../src/collect/collect';
 import { IcCredential } from '../src/model/credential';
 import { State } from '../src/model/state';
 import { I18n } from '../src/i18n';
@@ -20,13 +18,14 @@ import { DatabaseFactory } from '../src/database/databaseFactory';
 import { SecretManagerFactory } from '../src/secret_manager/secretManagerFactory';
 import { WebSocketServer } from '../src/websocket/webSocketServer';
 import * as utils from '../src/utils';
-import { WebCollector } from '../src/collectors/web2Collector';
-import { AbstractCollector, CollectorType, Config } from '../src/collectors/abstractCollector';
+import { WebCollector } from '../src/collectors/webCollector';
+import { AbstractCollector, Config } from '../src/collectors/abstractCollector';
+import { TwofaPromise } from '../src/collect/twofaPromise';
+import { Secret } from '../src/model/secret';
 
 const PORT = parseInt(utils.getEnvVar('PORT')) + 1;
 
 async function getCredentialFromId(credential_id: string): Promise<IcCredential> {
-    await DatabaseFactory.getDatabase().connect();
     const credential = await DatabaseFactory.getDatabase().getCredential(credential_id);
     if(credential == null) {
         throw new Error(`No credential with id "${credential_id}" found.`);
@@ -35,10 +34,12 @@ async function getCredentialFromId(credential_id: string): Promise<IcCredential>
 }
 
 async function getSecretFromCredential(credential: IcCredential): Promise<Secret> {
+    let secret = credential.getSecret();
+    await SecretManagerFactory.load();
     await SecretManagerFactory.getSecretManager().connect();
-    const secret = await SecretManagerFactory.getSecretManager().getSecret(credential.secret_manager_id);
+    secret.value = await SecretManagerFactory.getSecretManager().getValue(credential.secret_id);
     if(secret == null) {
-        throw new Error(`No secret with id "${credential.secret_manager_id}" found.`);
+        throw new Error(`No secret with id "${credential.secret_id}" found.`);
     }
     return secret;
 }
@@ -52,7 +53,7 @@ async function updateSecret(credential: IcCredential | null, secret: Secret | nu
         if (secretHash != newSecretHash) {
             // Update secret in secret manager
             console.log(`Updating secret for credential ${credential.id}`);
-            await SecretManagerFactory.getSecretManager().updateSecret(credential.secret_manager_id, "test.override", secret);
+            await SecretManagerFactory.getSecretManager().updateSecret(secret);
             console.log(`Secret updated!`);
         }
     }
@@ -67,6 +68,7 @@ function getHashFromSecret(secret: Secret): string {
     let credential: IcCredential | null = null;
     let secret: Secret | null = null;
     let secretHash: string | null = null;
+    let useInteractiveLogin: boolean;
 
     let exited = false;
     process.on('SIGINT', async function() {
@@ -90,6 +92,9 @@ function getHashFromSecret(secret: Secret): string {
     });
 
     try {
+        // Connect to database
+        await DatabaseFactory.getDatabase().connect();
+
         // ---------- PART 1 : ASK COLLECTOR ID OR CREDENTIAL ID ----------
 
         // Get collector
@@ -119,6 +124,11 @@ function getHashFromSecret(secret: Secret): string {
             // Get collector
             collector = await CollectorLoader.get(credential.collector_id);
 
+            // Ask user if he wants to test interactive login
+            const enableInteractiveLogin = prompt(`Use interactive login (y/n)? (default y): `).toLowerCase().startsWith('y') ?? true;
+            // Update collector params based on customer settings
+            useInteractiveLogin = AbstractCollector.updateCollectorParams(enableInteractiveLogin, collector.config);
+
             // Mock the collector so that if login method is triggered, it raise an error
             (collector as any).login = async () => {
                 throw new Error("Login method is not allowed");
@@ -129,18 +139,24 @@ function getHashFromSecret(secret: Secret): string {
             // Get collector
             collector = await CollectorLoader.get(id);
 
+            // Ask user if he wants to test interactive login
+            const enableInteractiveLogin = prompt(`Use interactive login (y/n)? (default y): `).toLowerCase().startsWith('y') ?? true;
+            // Update collector params based on customer settings
+            useInteractiveLogin = AbstractCollector.updateCollectorParams(enableInteractiveLogin, collector.config);
+
             // Build secret
-            secret = {
+            secret = new Secret("", {
                 params: {},
                 cookies: null,
                 localStorage: null
-            }
+            });
             let argv_index = 3;
 
             // Loop throught each config
             for(const param_key of Object.keys(collector.config.params)) {
+                const secretParams = await secret.getParams();
                 if(process.argv[argv_index]) {
-                    secret.params[param_key] = process.argv[argv_index]
+                    secretParams[param_key] = process.argv[argv_index]
                     if(param_key.toLowerCase().includes("password") || param_key.toLowerCase().includes("secret") || param_key.toLowerCase().includes("token")) {
                         console.log(`${param_key}: <hidden>`)
                     }
@@ -150,10 +166,10 @@ function getHashFromSecret(secret: Secret): string {
                 }
                 else {
                     if(param_key.toLowerCase().includes("password") || param_key.toLowerCase().includes("secret") || param_key.toLowerCase().includes("token")) {
-                        secret.params[param_key] = prompt.hide(`${param_key}: `);
+                        secretParams[param_key] = prompt.hide(`${param_key}: `);
                     }
                     else {
-                        secret.params[param_key] = prompt(`${param_key}: `);
+                        secretParams[param_key] = prompt(`${param_key}: `);
                     }
                 }
                 argv_index++;
@@ -164,15 +180,6 @@ function getHashFromSecret(secret: Secret): string {
         secretHash = await getHashFromSecret(secret);
 
         // ---------- PART 3 : PERFORM COLLECT ----------
-
-        // Connect to database if is agent collector
-        if(collector.config.type === CollectorType.AGENT) {
-            await DatabaseFactory.getDatabase().connect();
-        }
-
-        // Collect invoices
-        const collect = new Collect("", undefined)
-        collect.state = State.DEFAULT_STATE;
 
         // Create an http server to handle web socket connections
         const httpServer = http.createServer();
@@ -185,26 +192,24 @@ function getHashFromSecret(secret: Secret): string {
         const webSocketPath = webSocketServer.start();
 
         // Connect to web socket server
-        WebCollector.SCREENSHOT_INTERVAL_MS = 1000 * 10; // 10 seconds
         const webSocketClient = new WebSocket(`ws://localhost:${PORT}${webSocketPath}`);
+        // On connection open
         webSocketClient.addEventListener('open', () => {
-            let isFirstScreenshot = true;
+            // On message received
             webSocketClient.addEventListener('message', async (message) => {
+                // Parse message data
                 const parsedData = JSON.parse(message.data.toString());
-                if(parsedData.type == "screenshot") {
-                    if(isFirstScreenshot) {
-                        isFirstScreenshot = false;
-
-                        console.log("Login to the website and press Enter to continue...");
-
-                        // Listen for user input asynchronously
-                        rl.on('line', (input) => {
-                            // Send close message to server
-                            webSocketClient.send(JSON.stringify({ type: 'close', reason: 'ok' }));
-                            // Close readline interface
-                            rl.close();
-                        });
-                    }
+                // If interactive open message
+                if(parsedData.type == "interactive" && parsedData.reason == "open") {
+                    // Display instructions to user
+                    console.log(parsedData.instructions);
+                    // Listen for user input asynchronously
+                    rl.on('line', (input) => {
+                        // Send close message to server
+                        webSocketClient.send(JSON.stringify({ type: 'interactive', reason: 'close' }));
+                        // Close readline interface
+                        rl.close();
+                    });
                 }
                 else if(parsedData.type == "state" && parsedData.state.index == 3) {
                     // Wait until main thread is waiting for twofa code
@@ -217,16 +222,16 @@ function getHashFromSecret(secret: Secret): string {
             });
         });
 
-
         // Collect new invoices
         const newInvoices = await collector.collect_new_invoices(
-            collect.state,
-            collect.twofa_promise,
+            State.DEFAULT_STATE,
+            new TwofaPromise(),
             webSocketServer,
             secret,
             Date.UTC(2000, 0, 1),
             [],
-            null
+            null,
+            useInteractiveLogin
         );
         console.log(`${newInvoices.length} invoices downloaded`);
 
@@ -263,6 +268,25 @@ function getHashFromSecret(secret: Secret): string {
             assert(invoice.data, `Invoice data is not defined`);
             assert(invoice.mimetype, `Invoice mimetype is not defined`);
         }
+
+        // ---------- PART 6 : PERFORM NEW COLLECT WITH COOCKIES AND LOCAL STORAGE ----------
+
+        // Override login method
+        (collector as any).login = async (driver: any, params: any, webSocketServer: WebSocketServer | undefined) => {
+            throw new Error("Login was triggered, but it should not. Cookies and local storage should be used to login, if needed.");
+        };
+        
+        // Collect new invoices
+        await collector.collect_new_invoices(
+            State.DEFAULT_STATE,
+            new TwofaPromise(),
+            undefined,
+            secret,
+            Date.now(),
+            [],
+            null,
+            useInteractiveLogin
+        );
     } catch (error) {
         if (error instanceof Error) {
             error.message = I18n.get(error.message, I18n.DEFAULT_LOCALE);

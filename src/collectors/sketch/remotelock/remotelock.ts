@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RemotelockCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class RemotelockCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://connect.devicewebmanager.com/sign-in",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://connect.devicewebmanager.com/sign-in",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AppleItunesStoreCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AppleItunesStoreCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://reportaproblem.apple.com",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://reportaproblem.apple.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

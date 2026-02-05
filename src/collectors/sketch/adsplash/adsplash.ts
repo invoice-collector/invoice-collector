@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AdsplashCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AdsplashCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://netzwerk.adsplash.de/modules/affili/frontend/de/user/auszahlungen.html",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://netzwerk.adsplash.de/modules/affili/frontend/de/user/auszahlungen.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

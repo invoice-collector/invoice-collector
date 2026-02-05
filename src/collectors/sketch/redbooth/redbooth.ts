@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RedboothCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class RedboothCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://redbooth.com/a/#!/plans/568660/invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://redbooth.com/a/#!/plans/568660/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

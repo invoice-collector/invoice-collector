@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CityOfRedlandsUtilitiesCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CityOfRedlandsUtilitiesCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://myredconnectaccount.org/iwr/billing/billingManager.seam?cid=3694&rvn=1",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://myredconnectaccount.org/iwr/billing/billingManager.seam?cid=3694&rvn=1",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

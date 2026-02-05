@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AlpiqCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AlpiqCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://meine-energie.alpiq.com/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://meine-energie.alpiq.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

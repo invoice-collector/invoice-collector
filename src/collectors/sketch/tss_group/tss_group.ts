@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TssGroupCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TssGroupCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.tss.coop/intranet9/chefsache/rechnungsarchiv.html",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.tss.coop/intranet9/chefsache/rechnungsarchiv.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

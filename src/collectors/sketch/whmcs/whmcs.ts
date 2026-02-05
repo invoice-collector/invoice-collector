@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WhmcsCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class WhmcsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.whmcs.com/members/clientarea.php",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.whmcs.com/members/clientarea.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

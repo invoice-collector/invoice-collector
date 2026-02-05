@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Beaufort12Collector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class Beaufort12Collector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://alpha-deutschland.lightning.force.com/lightning/n/wbsendit__CM_Settings",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://alpha-deutschland.lightning.force.com/lightning/n/wbsendit__CM_Settings",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

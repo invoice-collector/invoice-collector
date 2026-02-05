@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SofatutorCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SofatutorCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.sofatutor.com/account/subscription",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.sofatutor.com/account/subscription",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

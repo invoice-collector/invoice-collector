@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AmpdIoCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AmpdIoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.ampd.io/t/druckerpatronenexpress-j6pq1034nj-web/dashboard/assessment",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.ampd.io/t/druckerpatronenexpress-j6pq1034nj-web/dashboard/assessment",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

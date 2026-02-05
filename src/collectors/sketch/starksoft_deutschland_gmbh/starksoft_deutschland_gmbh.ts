@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StarksoftDeutschlandGmbhCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class StarksoftDeutschlandGmbhCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.insikacenter.de/insikaoffice/script/module/rechnungen/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.insikacenter.de/insikaoffice/script/module/rechnungen/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

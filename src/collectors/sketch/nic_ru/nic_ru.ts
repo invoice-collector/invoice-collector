@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NicRuCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class NicRuCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.nic.ru/manager/payment.cgi?step=pay.inv_list",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.nic.ru/manager/payment.cgi?step=pay.inv_list",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

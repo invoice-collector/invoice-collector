@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class _123inktNlCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class _123inktNlCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.123inkt.nl/customer/login.html",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.123inkt.nl/customer/login.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

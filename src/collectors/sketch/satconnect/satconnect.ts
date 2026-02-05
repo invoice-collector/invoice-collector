@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SatconnectCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SatconnectCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://de.satconnect.com",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "http://de.satconnect.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

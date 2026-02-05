@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GlsGemeinschaftsbankGeschaftskundenCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class GlsGemeinschaftsbankGeschaftskundenCollector extends SketchCollecto
                 mandatory: true
             }
         },
-        entryUrl: "https://www.gls-online-filiale.de/services_cloud/portal",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.gls-online-filiale.de/services_cloud/portal",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

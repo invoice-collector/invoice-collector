@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LEauBordeauxMetropoleProfessionnelsCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class LEauBordeauxMetropoleProfessionnelsCollector extends SketchCollecto
                 mandatory: true
             }
         },
-        entryUrl: "https://moncompte.leaubordeauxmetropole.fr/#/factures",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://moncompte.leaubordeauxmetropole.fr/#/factures",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

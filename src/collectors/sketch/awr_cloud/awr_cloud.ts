@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AwrCloudCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AwrCloudCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.awrcloud.com/invoices.php",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.awrcloud.com/invoices.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HawaiianTelcomCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class HawaiianTelcomCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.hawaiiantel.com/MyAccount/tabid/2089/Default.aspx",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.hawaiiantel.com/MyAccount/tabid/2089/Default.aspx",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

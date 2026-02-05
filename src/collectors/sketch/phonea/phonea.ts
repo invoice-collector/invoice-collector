@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PhoneaCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PhoneaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://login.phonea.de/rechnungen.php",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://login.phonea.de/rechnungen.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

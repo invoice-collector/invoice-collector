@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IntercomCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class IntercomCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.intercom.com/admins/sign_in",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.intercom.com/admins/sign_in",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

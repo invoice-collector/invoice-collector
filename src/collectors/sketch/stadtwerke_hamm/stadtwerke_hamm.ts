@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StadtwerkeHammCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class StadtwerkeHammCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://onlineservice.stadtwerke-hamm.de/internetportal/fo/portal/invoiceDetails",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://onlineservice.stadtwerke-hamm.de/internetportal/fo/portal/invoiceDetails",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

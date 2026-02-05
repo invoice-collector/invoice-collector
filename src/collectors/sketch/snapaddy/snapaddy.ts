@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SnapaddyCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SnapaddyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.snapaddy.com/login?redirect_url=%252F%253Flocale%253Den",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.snapaddy.com/login?redirect_url=%252F%253Flocale%253Den",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

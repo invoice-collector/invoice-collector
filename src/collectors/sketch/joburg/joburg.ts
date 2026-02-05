@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class JoburgCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class JoburgCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://eservices.joburg.org.za/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://eservices.joburg.org.za/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

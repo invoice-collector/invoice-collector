@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Print24ComAtCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class Print24ComAtCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://print24.com/at/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://print24.com/at/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MercedesMeChargeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MercedesMeChargeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://eu.charge.mercedes.me/web/daimler-de/dashboard/invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://eu.charge.mercedes.me/web/daimler-de/dashboard/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

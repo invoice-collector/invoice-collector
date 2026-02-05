@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SodexoServicesCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SodexoServicesCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://essen-bei-sodexo.de/mein-essen.html#/login//plan",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://essen-bei-sodexo.de/mein-essen.html#/login//plan",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

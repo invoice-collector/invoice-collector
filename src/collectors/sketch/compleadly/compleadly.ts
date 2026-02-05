@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CompleadlyCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class CompleadlyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://compleadly.de/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://compleadly.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

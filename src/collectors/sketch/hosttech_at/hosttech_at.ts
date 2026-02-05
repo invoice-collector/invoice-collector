@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HosttechAtCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class HosttechAtCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.hosttech.at/webhosting/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.hosttech.at/webhosting/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

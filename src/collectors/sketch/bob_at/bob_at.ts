@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BobAtCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BobAtCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://rechnung.bob.at",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://rechnung.bob.at",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

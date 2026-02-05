@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BarmerCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class BarmerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://barmer-webmail.t-systems-service.com/Barmer/login/webmailLogin.xhtml?username=fibu@haus-im-warndt.de",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://barmer-webmail.t-systems-service.com/Barmer/login/webmailLogin.xhtml?username=fibu@haus-im-warndt.de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

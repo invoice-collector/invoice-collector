@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Aismt13Collector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class Aismt13Collector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.aismt13.fr/portail-adherents/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.aismt13.fr/portail-adherents/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

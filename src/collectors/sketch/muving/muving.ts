@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MuvingCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class MuvingCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://backend.muving.com/customer.html#invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://backend.muving.com/customer.html#invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

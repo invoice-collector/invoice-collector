@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NextbikeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class NextbikeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://iframe.nextbike.net/iframe/?domain=de&L=en&id=login&nolinks=0&redirect_index=https://www.nextbike.de/en/&redirect_account=https://secure.nextbike.net/de/en/account/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://iframe.nextbike.net/iframe/?domain=de&L=en&id=login&nolinks=0&redirect_index=https://www.nextbike.de/en/&redirect_account=https://secure.nextbike.net/de/en/account/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

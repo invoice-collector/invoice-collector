@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DkvEuroserviceCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DkvEuroserviceCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.dkv-euroservice.com/DKVCockpit/sites/content/invoices/invoices.xhtml",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.dkv-euroservice.com/DKVCockpit/sites/content/invoices/invoices.xhtml",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

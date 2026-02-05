@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IntegromatCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class IntegromatCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.integromat.com/en/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.integromat.com/en/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

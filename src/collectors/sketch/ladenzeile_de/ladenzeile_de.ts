@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LadenzeileDeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class LadenzeileDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.ladenzeile.de/account/registration",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.ladenzeile.de/account/registration",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

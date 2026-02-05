@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FaxDeCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class FaxDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.fax.de/center/invoices",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.fax.de/center/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LumiformappCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class LumiformappCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://admin.lumiformapp.com",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://admin.lumiformapp.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

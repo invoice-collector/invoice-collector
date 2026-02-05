@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RealtimeBoardMiroComCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class RealtimeBoardMiroComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://miro.com/login",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://miro.com/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

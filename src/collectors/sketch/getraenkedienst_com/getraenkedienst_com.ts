@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GetraenkedienstComCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class GetraenkedienstComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.getraenkedienst.com/account",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.getraenkedienst.com/account",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IgleadsCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class IgleadsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://igleads.io",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://igleads.io",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

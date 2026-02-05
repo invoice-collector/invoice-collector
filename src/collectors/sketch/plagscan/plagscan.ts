@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PlagscanCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class PlagscanCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.plagscan.com/login?lang=en",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.plagscan.com/login?lang=en",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

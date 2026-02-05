@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DeployhqCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DeployhqCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://identity.atechmedia.com/login/deploy",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://identity.atechmedia.com/login/deploy",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

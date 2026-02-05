@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HrworksCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class HrworksCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://login.hrworks.de/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://login.hrworks.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

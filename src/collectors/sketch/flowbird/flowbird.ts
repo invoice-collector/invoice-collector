@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FlowbirdCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class FlowbirdCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.flowbirdapp.com",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://my.flowbirdapp.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

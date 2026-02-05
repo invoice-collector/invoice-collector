@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DatapartCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class DatapartCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://mydatapart.de/dp_fs_message/account/login.aspx",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://mydatapart.de/dp_fs_message/account/login.aspx",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TeamretroCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class TeamretroCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://instamotion.teamretro.com/billing/transactions/dqabm989",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://instamotion.teamretro.com/billing/transactions/dqabm989",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

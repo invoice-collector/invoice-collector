@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VillatechDiscounteoCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class VillatechDiscounteoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.villatech.fr/customer/account/login/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.villatech.fr/customer/account/login/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

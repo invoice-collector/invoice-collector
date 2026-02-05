@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AppyPieConnectCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AppyPieConnectCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://connectappypie.com/app/billing",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://connectappypie.com/app/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

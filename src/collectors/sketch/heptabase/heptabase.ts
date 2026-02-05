@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HeptabaseCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class HeptabaseCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.heptabase.com/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.heptabase.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

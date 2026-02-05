@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SixPaymentServicesCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class SixPaymentServicesCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://mypayments.six-payment-services.com/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://mypayments.six-payment-services.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

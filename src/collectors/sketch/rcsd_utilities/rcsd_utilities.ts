@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RcsdUtilitiesCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class RcsdUtilitiesCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.invoicecloud.com/portal/(S(kql2xvubnjjlcksmunpilrp3))/2/CustomerGroupLedger.aspx?mode=open",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.invoicecloud.com/portal/(S(kql2xvubnjjlcksmunpilrp3))/2/CustomerGroupLedger.aspx?mode=open",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

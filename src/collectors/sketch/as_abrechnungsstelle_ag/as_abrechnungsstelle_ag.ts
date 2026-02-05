@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AsAbrechnungsstelleAgCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class AsAbrechnungsstelleAgCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://kunden.as-bremen.de/",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://kunden.as-bremen.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

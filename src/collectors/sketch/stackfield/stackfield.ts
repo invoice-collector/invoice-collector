@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StackfieldCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class StackfieldCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.stackfield.com/de/login.htm",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.stackfield.com/de/login.htm",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

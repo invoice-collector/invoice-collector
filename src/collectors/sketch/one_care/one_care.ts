@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OneCareCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class OneCareCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://identity.onehealthcareid.com/oneapp/index.html",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://identity.onehealthcareid.com/oneapp/index.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

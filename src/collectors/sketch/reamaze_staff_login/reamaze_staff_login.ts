@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ReamazeStaffLoginCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class ReamazeStaffLoginCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.reamaze.com/admin/settings/payment_history",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://www.reamaze.com/admin/settings/payment_history",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {

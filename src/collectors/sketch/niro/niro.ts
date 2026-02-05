@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NiroCollector extends SketchCollector {
 
@@ -26,8 +26,10 @@ export class NiroCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.niro.co/account/billing",
-        state: CollectorState.DEVELOPMENT
+        loginUrl: "https://app.niro.co/account/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
+        state: CollectorState.PLANNED
     }
 
     constructor() {
