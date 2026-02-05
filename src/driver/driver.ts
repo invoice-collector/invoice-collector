@@ -317,24 +317,17 @@ export class Driver {
         }
 
         const elementHandle = await context.evaluateHandle((x, y) => {
-            let currentRoot: DocumentOrShadowRoot = document;
-            let el: globalThis.Element | null = null;
-
-            while (true) {
-                el = currentRoot.elementFromPoint(x, y);
+            function elementFromPointDeep(x: number, y: number, currentRoot: DocumentOrShadowRoot): globalThis.Element | null {
+                const el = currentRoot.elementFromPoint(x, y);
                 if (!el) {
                     return null;
                 }
-
-                // Descend into shadow DOM
                 if (el.shadowRoot) {
-                    currentRoot = el.shadowRoot;
-                    continue;
+                    return elementFromPointDeep(x, y, el.shadowRoot);
                 }
-
-                // No deeper context
                 return el;
             }
+            return elementFromPointDeep(x, y, document);
         }, x, y);
 
         if (!elementHandle) {
