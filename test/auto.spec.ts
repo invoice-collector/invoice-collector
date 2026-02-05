@@ -54,7 +54,6 @@ async function createWebsocketClientAndServer(collector: AbstractCollector<Confi
     const webSocketPath = webSocketServer.start();
 
     // Connect to web socket server
-    WebCollector.SCREENSHOT_INTERVAL_MS = 1000 * 10; // 10 seconds
     const webSocketClient = new WebSocket(`ws://localhost:${PORT}${webSocketPath}`);
     webSocketClient.addEventListener('open', () => {
         let isFirstScreenshot = true;

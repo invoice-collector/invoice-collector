@@ -192,7 +192,6 @@ function getHashFromSecret(secret: Secret): string {
         const webSocketPath = webSocketServer.start();
 
         // Connect to web socket server
-        WebCollector.SCREENSHOT_INTERVAL_MS = 1000 * 10; // 10 seconds
         const webSocketClient = new WebSocket(`ws://localhost:${PORT}${webSocketPath}`);
         // On connection open
         webSocketClient.addEventListener('open', () => {
