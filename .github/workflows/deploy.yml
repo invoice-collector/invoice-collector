@@ -94,7 +94,7 @@ jobs:
         tags: |
             ${{ env.IMAGE_NAME_PREMIUM }}:${{ env.TAG }}
 
-  deploy-to-kubernetes:
+  deploy-premium-image-to-kubernetes:
     runs-on: ubuntu-latest
     needs: publish-premium-image-to-github
 
