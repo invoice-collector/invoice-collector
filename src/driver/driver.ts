@@ -317,7 +317,24 @@ export class Driver {
         }
 
         const elementHandle = await context.evaluateHandle((x, y) => {
-            return document.elementFromPoint(x, y);
+            let currentRoot: DocumentOrShadowRoot = document;
+            let el: globalThis.Element | null = null;
+
+            while (true) {
+                el = currentRoot.elementFromPoint(x, y);
+                if (!el) {
+                    return null;
+                }
+
+                // Descend into shadow DOM
+                if (el.shadowRoot) {
+                    currentRoot = el.shadowRoot;
+                    continue;
+                }
+
+                // No deeper context
+                return el;
+            }
         }, x, y);
 
         if (!elementHandle) {
@@ -804,6 +821,12 @@ export class Element {
                     if (sibling.tagName === element.tagName) nth++;
                 }
                 selector += `:nth-of-type(${nth})`;
+
+                // If parent is null and root node is not document, it means we are in a shadow DOM and we need to get the selector of the parent element in the main DOM
+                if (element.parentElement! === null && element.getRootNode() !== document) {
+                    console.log("We are in a shadow DOM");
+                    return getCssSelector(element.getRootNode().host) + ' >>>> ' + selector;
+                }
                 return getCssSelector(element.parentElement!) + ' > ' + selector;
             }
             return getCssSelector(element);
