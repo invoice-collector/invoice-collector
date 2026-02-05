@@ -575,7 +575,7 @@ export class Driver {
         return data;
     }
 
-    clearDownloadFolder(): void {
+    async clearDownloadFolder(): Promise<void> {
         // Remove download file
         this.downloadedFile = null;
         // Remove all files in the download folder
