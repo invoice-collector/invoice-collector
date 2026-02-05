@@ -192,7 +192,6 @@ function getHashFromSecret(secret: Secret): string {
         const webSocketPath = webSocketServer.start();
 
         // Connect to web socket server
-        WebCollector.SCREENSHOT_INTERVAL_MS = 1000 * 10; // 10 seconds
         const webSocketClient = new WebSocket(`ws://localhost:${PORT}${webSocketPath}`);
         // On connection open
         webSocketClient.addEventListener('open', () => {
@@ -269,6 +268,25 @@ function getHashFromSecret(secret: Secret): string {
             assert(invoice.data, `Invoice data is not defined`);
             assert(invoice.mimetype, `Invoice mimetype is not defined`);
         }
+
+        // ---------- PART 6 : PERFORM NEW COLLECT WITH COOCKIES AND LOCAL STORAGE ----------
+
+        // Override login method
+        (collector as any).login = async (driver: any, params: any, webSocketServer: WebSocketServer | undefined) => {
+            throw new Error("Login was triggered, but it should not. Cookies and local storage should be used to login, if needed.");
+        };
+        
+        // Collect new invoices
+        await collector.collect_new_invoices(
+            State.DEFAULT_STATE,
+            new TwofaPromise(),
+            undefined,
+            secret,
+            Date.now(),
+            [],
+            null,
+            useInteractiveLogin
+        );
     } catch (error) {
         if (error instanceof Error) {
             error.message = I18n.get(error.message, I18n.DEFAULT_LOCALE);

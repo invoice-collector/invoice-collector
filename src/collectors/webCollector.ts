@@ -36,7 +36,6 @@ export enum DocumentStrategy {
 export abstract class WebCollector extends V2Collector<WebConfig> {
 
     static LOGIN_TIMEOUT_MS = 10 * 60 * 1000; // 10 minutes
-    static SCREENSHOT_INTERVAL_MS = 50; // 50 ms
     static DEFAULT_DOCUMENT_STRATEGY = DocumentStrategy.SPLIT;
 
     driver: Driver | null;
@@ -164,7 +163,7 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
                 // If first collect
                 if(webSocketServer) {
                     // Go to login url
-                    await driver.goto(this.config.loginUrl);
+                    await driver.goto(this.config.loginUrl, { navigation: false });
                     // Perform interactive login
                     await this.interactive(driver, webSocketServer, 'i18n.views.interactive.login.instructions');
                     // Save customer area url if not defined
@@ -206,7 +205,7 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
                 await driver.goto(url);
 
                 // Check if user needs to login
-                const needLogin = !driver.url().includes(url);
+                const needLogin = await this.needLogin(driver);
 
                 // If need login, raise error
                 if(needLogin) {
@@ -360,21 +359,13 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
             throw new DisconnectedError(this);
         }
 
-        let screenshotInterval: NodeJS.Timeout | undefined;
-        const promise = new Promise<void>((resolve, reject) => {
+        const interactiveEndPromise = new Promise<void>((resolve, reject) => {
             // Define timeout
             setTimeout(() => {
                 //webSocketServer.close();
                 reject(new AuthenticationError('i18n.collectors.all.login.timeout', this))
             }, WebCollector.LOGIN_TIMEOUT_MS)
 
-            // Take screenshot and send it to the client every 50 ms
-            screenshotInterval = setInterval(async () => {
-                try {
-                    const screenshot = await driver.screenshot();
-                    webSocketServer?.sendScreenshot(screenshot, Driver.VIEWPORT_WIDTH, Driver.VIEWPORT_HEIGHT);
-                } catch (error) {}
-            }, WebCollector.SCREENSHOT_INTERVAL_MS);
 
             // Define what to do on click event
             webSocketServer.onClick = async (event: MessageClick) => {
@@ -418,10 +409,36 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
             webSocketServer.sendInteractiveOpen(instructions);
         });
 
+        // ---------- Screencast ----------
+
+        // Create CDP session
+        const cdp = await driver.page?.createCDPSession();
+        if(!cdp) {
+            throw new Error("CDP session could not be created");
+        }
+        await cdp.send('Page.enable');
+
+        // Listen for screencast frames
+        cdp.on('Page.screencastFrame', async ({ data, sessionId }) => {
+            // Send screenshot to client
+            webSocketServer?.sendScreenshot(data, Driver.VIEWPORT_WIDTH, Driver.VIEWPORT_HEIGHT);
+            // Acknowledge frame
+            await cdp.send('Page.screencastFrameAck', { sessionId });
+        });
+
+        // Start screencast
+        await cdp.send('Page.startScreencast', {
+            format: 'jpeg',         // jpeg = smaller than png
+            quality: 100,           // 0–100
+            maxWidth: Driver.VIEWPORT_WIDTH,
+            maxHeight: Driver.VIEWPORT_HEIGHT,
+            everyNthFrame: 1        // increase to reduce FPS
+        });
+
         try {
-            await promise;
+            await interactiveEndPromise;
         } finally {
-            clearInterval(screenshotInterval);
+            await cdp.send('Page.stopScreencast');
         }
     }
 
