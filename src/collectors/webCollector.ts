@@ -103,7 +103,7 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
                     state.update(State._2_LOGGING_IN);
                     webSocketServer?.sendState(State._2_LOGGING_IN);
 
-                    console.log("User is not logged in, logging in...")
+                    console.log("User is not logged in, logging in...");
 
                     // Login with stored credentials
                     const login_error = await this.login(driver, await secret.getParams(), webSocketServer) || 
@@ -116,7 +116,7 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
                     }
                 }
                 else {
-                    console.log("Successfully used cookies and local storage")
+                    console.log("Successfully used cookies and local storage");
                 }
 
                 // Check if 2fa is required
@@ -126,7 +126,7 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
 
                 // If 2fa is required
                 if (needTwofa) {
-                    console.log(`2FA is required, performing 2FA... (${utils.trim(needTwofa)})`)
+                    console.log(`2FA is required, performing 2FA... (${utils.trim(needTwofa)})`);
 
                     // If the webSocketServer is undefined, it means that the session has expired
                     if (!webSocketServer) {
@@ -212,11 +212,11 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
 
                 // If no webSocketServer, it means that we are in auto login mode
                 if(!webSocketServer) {
-                    console.log("Successfully used cookies and local storage")
+                    console.log("Successfully used cookies and local storage");
                 }
             }
 
-            console.log("User is successfully logged in")
+            console.log("User is successfully logged in");
 
             // Update secret.cookies
             await secret.setCookies(await driver.getCookies(this.config.autoLogin?.cookieNames));
