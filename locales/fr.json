@@ -2615,6 +2615,8 @@
   "i18n.collectors.enormail.description": "Un service d'email temporaire et jetable pour une communication sécurisée et anonyme.",
   "i18n.collectors.enovos.description": "Un fournisseur d'énergie basé au Luxembourg proposant électricité, gaz et solutions renouvelables pour les ménages et les entreprises.",
   "i18n.collectors.enpc_ediser.description": "ENPC EDISER propose des ressources éducatives en ligne et des programmes de formation en ingénierie et développement durable.",
+  "i18n.collectors.ensap.description": "ENSAP est l’Espace Numérique Sécurisé de l’Agent Public.",
+  "i18n.collectors.ensap.identifier.placeholder": "Numéro de sécurité sociale sur 15 caractères",
   "i18n.collectors.enso_datendienste.description": "Un service en ligne allemand offrant des données et des solutions numériques pour la gestion de l'énergie et des infrastructures.",
   "i18n.collectors.entega_medianet.description": "Un fournisseur d'accès internet allemand proposant des services haut débit et des solutions de télévision numérique.",
   "i18n.collectors.entega_privatkunden.description": "Entega est un fournisseur d'énergie allemand proposant électricité, gaz et services associés aux clients particuliers.",
