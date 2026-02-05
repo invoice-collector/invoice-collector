@@ -72,6 +72,9 @@ jobs:
       uses: docker/build-push-action@v6
       with:
         context: .
+        target: prod
+        build-args: |
+          BUILD_ENV=production
         platforms: linux/amd64,linux/arm64
         push: true
         provenance: false
