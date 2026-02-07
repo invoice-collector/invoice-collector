@@ -270,6 +270,7 @@ function getHashFromSecret(secret: Secret): string {
         }
 
         // ---------- PART 6 : PERFORM NEW COLLECT WITH COOCKIES AND LOCAL STORAGE ----------
+        console.log(`Performing new collect with cookies and local storage...`);
 
         // Override login method
         (collector as any).login = async (driver: any, params: any, webSocketServer: WebSocketServer | undefined) => {
