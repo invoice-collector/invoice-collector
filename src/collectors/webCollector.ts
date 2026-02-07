@@ -187,11 +187,11 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
                     }
                 }
 
-                // Compute new url
-                const url = this.config.entryUrl || collectorMemory.entryUrl || collectorMemory.customerAreaUrl;
+                // Compute new entry url
+                this.config.entryUrl = this.config.entryUrl || collectorMemory.entryUrl || collectorMemory.customerAreaUrl;
 
-                // If url is undefined, something whent wrong
-                if(!url) {
+                // If entry url is undefined, something whent wrong
+                if(!this.config.entryUrl) {
                     throw new Error(`Collector ${this.config.id} does not have any of entryUrl, nor customerAreaUrl defined`);
                 }
 
@@ -200,7 +200,7 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
                 webSocketServer?.sendState(State._5_COLLECTING);
 
                 // Go to entry url
-                await driver.goto(url);
+                await driver.goto(this.config.entryUrl);
 
                 // Check if user needs to login
                 const needLogin = await this.needLogin(driver);
