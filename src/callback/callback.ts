@@ -53,17 +53,21 @@ export class CallbackHandler {
     async sendNotificationDisconnected(collector_id: string, credential_id: string,  user_id: string, remote_id: string): Promise<void> {
         console.log(`Sending disconnected notification to callback ${this.callback} for credential ${credential_id}`);
         if (this.callback) {
-            await this.sendRequest({
-                type: "notification_disconnected",
-                collector: collector_id,
-                credential_id: credential_id,
-                user_id: user_id,
-                remote_id: remote_id
-            });
-            console.log(`Callback ${this.callback} successfully reached, disconnected notification sent`);
+            try {
+                await this.sendRequest({
+                    type: "notification_disconnected",
+                    collector: collector_id,
+                    credential_id: credential_id,
+                    user_id: user_id,
+                    remote_id: remote_id
+                });
+                console.log(`Callback ${this.callback} successfully reached, disconnected notification sent`);
+            } catch (error) {
+                console.error(`Failed to send disconnected notification to callback ${this.callback}:`, error);
+            }
         }
         else {
-            throw new Error("Callback URL not defined by customer, skipping disconnected notification request");
+            console.error("Callback URL not defined by customer, skipping disconnected notification request");
         }
     }
 }
