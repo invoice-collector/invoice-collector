@@ -184,9 +184,10 @@ export class Collect {
                 if (credential && user && customer) {
                     // If error occurs and previous collect was successful, send notification
                     if (credential.state.index >= credential.state.max) {
-                        // Send disconnected notification to callback
+                        // Send disconnected notification to callback without waiting
+                        // If it fails, it will be caught by the callback handler and logged
                         const callback = new CallbackHandler(customer);
-                        await callback.sendNotificationDisconnected(credential.collector_id, credential.id, user.id, user.remote_id);
+                        callback.sendNotificationDisconnected(credential.collector_id, credential.id, user.id, user.remote_id);
                     }
 
                     // If authentication error
