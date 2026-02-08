@@ -24,11 +24,12 @@ export class CollectorLoader {
 
     private static async loadFolders(name: string, folder: string, filter: string | null) {
         const strPattern = filter ? `./${folder}/**/${filter}.ts` : `./${folder}/**/*.ts`;
-        const pattern = path.join(__dirname, strPattern);
+        const pattern = path.join(__dirname, strPattern)
+            .replaceAll('\\', '/'); // Ensure pattern uses forward slashes for glob
 
         await new Promise<void>((resolve, reject) => {
             glob(pattern).then((files) => {
-                console.log(`Loading ${name} collectors...`);
+                console.log(`Loading ${files.length} ${name} collectors...`);
                 let nbFFilesLoaded = 0;
                 for (const file of files) {
                     if(file.endsWith('selectors.ts') || file.endsWith('customAgentCollector.ts') || file.endsWith('common.ts') || file.endsWith('Common.ts')) {
