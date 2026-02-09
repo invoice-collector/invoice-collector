@@ -6468,6 +6468,7 @@
   "i18n.collectors.quartix.description": "A leading provider of vehicle tracking and fleet management solutions for businesses.",
   "i18n.collectors.quay.description": "A secure container registry and build platform for storing, managing, and deploying container images.",
   "i18n.collectors.queguiner.description": "Queguiner is a French company specializing in the sale of nautical and fishing equipment.",
+  "i18n.collectors.queguiner.identifier.placeholder": "Account number",
   "i18n.collectors.quentn.description": "Quentn is an all-in-one marketing automation platform for email, SMS, and CRM management.",
   "i18n.collectors.questionpro.description": "An online survey platform for creating, distributing, and analyzing surveys with advanced tools.",
   "i18n.collectors.quetext.description": "An online plagiarism checker and citation assistant for detecting duplicate content.",
