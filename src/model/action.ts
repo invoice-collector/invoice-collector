@@ -91,9 +91,9 @@ export abstract class Action<Context, Result> {
         return element;
     }
 
-    perform(context: Context): Promise<Result> {
+    async perform(context: Context): Promise<Result> {
         try {
-            return this._perform(context);
+            return await this._perform(context);
         }
         catch (e) {
             // Rethrow AuthenticationError and DisconnectedError
