@@ -33,7 +33,6 @@ Le fichier EJS est organisé en sections clairement délimitées par des comment
 - `#add-credential-form-params` - Champs dynamiques générés par JS
 - `#datepicker-since` - Sélecteur de date personnalisé
 - `#form-error` - Alert d'erreur de validation
-- `#hit-sketch` - Section pour collecteurs de type "sketch"
 
 **Comportement** :
 - Les champs sont générés dynamiquement selon `company.params`
