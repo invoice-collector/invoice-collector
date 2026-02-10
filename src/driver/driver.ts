@@ -160,6 +160,11 @@ export class Driver {
         return this.browser.pages();
     }
 
+    async closePage(): Promise<void> {
+        // Close curretn page
+        await this.page?.close();
+    }
+
     async closeExtraPages(): Promise<void> {
         // Get all pages
         let pages = await this.pages();
