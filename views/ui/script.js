@@ -277,8 +277,6 @@ function showForm(company) {
     
     const formParams = document.getElementById('add-credential-form-params');
     const form = document.getElementById('add-credential-form');
-    const hitSketch = document.getElementById('hit-sketch');
-    const hitSketchButton = document.getElementById('hit-sketch-button');
     
     formParams.innerHTML = '';
     form.dataset.collector = company.id;
@@ -295,7 +293,6 @@ function showForm(company) {
     }
 
     form.style.display = 'block';
-    hitSketch.classList.add('ic-hidden');
     
     Object.keys(company.params).forEach(key => {
         const param = company.params[key];

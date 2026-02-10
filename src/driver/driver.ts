@@ -414,14 +414,15 @@ export class Driver {
         raiseException = true,
         timeout = Driver.DEFAULT_TIMEOUT,
         delay = Driver.DEFAULT_DELAY,
-        navigation = true
+        navigation = true,
+        mouseHover = false
     } = {}): Promise<Element | null> {
         if (this.page === null) {
             throw new Error('Page is not initialized.');
         }
         let element = await this.getElement(selector, { raiseException, timeout });
         if(element != null) {
-            await element.leftClick({ timeout, delay, navigation });
+            await element.leftClick({ timeout, delay, navigation, mouseHover });
             return element;
         }
         return null;
@@ -431,11 +432,12 @@ export class Driver {
         raiseException = true,
         timeout = Driver.DEFAULT_TIMEOUT,
         delay = Driver.DEFAULT_DELAY,
-        tries = 5
+        tries = 5,
+        mouseHover = false
     } = {}): Promise<Element | null> {
         let element = await this.getElement(selector, { raiseException, timeout });
         if(element != null) {
-            await element.inputText(text, { tries, timeout, delay });
+            await element.inputText(text, { tries, timeout, delay, mouseHover });
             return element;
         }
         return null;
@@ -444,11 +446,12 @@ export class Driver {
     async dropdownSelect(selector, value: string, {
         raiseException = true,
         timeout = Driver.DEFAULT_TIMEOUT,
-        delay = Driver.DEFAULT_DELAY
+        delay = Driver.DEFAULT_DELAY,
+        mouseHover = false
     } = {}): Promise<Element | null> {
         const element = await this.getElement(selector, { raiseException, timeout });
         if (element) {
-            await element.dropdownSelect(value, { delay });
+            await element.dropdownSelect(value, { delay, mouseHover });
             return element;
         }
         return null;
@@ -729,8 +732,13 @@ export class Element {
     async leftClick({
         timeout = Driver.DEFAULT_TIMEOUT,
         delay = Driver.DEFAULT_DELAY,
-        navigation = true
+        navigation = true,
+        mouseHover = false
     } = {}): Promise<void> {
+        if (mouseHover) {
+            await this.element.hover();
+            await utils.delay(delay);
+        }
         await this.element.click();
         await utils.delay(delay);
         if(navigation === true) {
@@ -769,8 +777,13 @@ export class Element {
         tries = 5,
         timeout = Driver.DEFAULT_TIMEOUT,
         delay = Driver.DEFAULT_DELAY,
-        navigation = false
+        navigation = false,
+        mouseHover = false
     } = {}): Promise<void> {
+        if (mouseHover) {
+            await this.element.hover();
+            await utils.delay(delay);
+        }
         if (tries > 0) {
             let currentValue = null;
             while (currentValue !== text && tries > 0) {
@@ -792,8 +805,13 @@ export class Element {
     }
 
     async dropdownSelect(value: string, {
-        delay = Driver.DEFAULT_DELAY
+        delay = Driver.DEFAULT_DELAY,
+        mouseHover = false
     } = {}): Promise<void> {
+        if (mouseHover) {
+            await this.element.hover();
+            await utils.delay(delay);
+        }
         await this.element.select(value);
         await utils.delay(delay);
     }

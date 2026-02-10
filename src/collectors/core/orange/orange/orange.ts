@@ -11,10 +11,11 @@ export class OrangeCollector extends OrangeCommonCollector {
         id: "orange",
         name: "Orange",
         description: "i18n.collectors.orange.description",
-        version: "23",
+        version: "24",
         website: "https://www.orange.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/c/c8/Orange_logo.svg",
         type: CollectorType.WEB,
+        instructions: "i18n.collectors.orange.instructions",
         params: {
             id: {
                 type: "string",
@@ -98,7 +99,7 @@ export class OrangeCollector extends OrangeCommonCollector {
             // Check if VPN issue displayed
             const vpnError = await driver.getElement(OrangeSelectors.CONTAINER_VPN_ERROR, { raiseException: false, timeout: 100 });
             if (vpnError) {
-                throw new AuthenticationError("i18n.collectors.orange.vpn.error", this);
+                throw new AuthenticationError("i18n.collectors.all.2fa.not_enabled", this);
             }
             throw e;
         }
