@@ -798,6 +798,13 @@ export class Element {
         await utils.delay(delay);
     }
 
+    async mouseHover({
+        delay = Driver.DEFAULT_DELAY
+    } = {}): Promise<void> {
+        await this.element.hover();
+        await utils.delay(delay);
+    }
+
     async getAttribute(selector, attribute: string): Promise<string> {
         return await this.element.$eval(selector.selector, (element, attr) => element.getAttribute(attr) ?? element[attr], attribute);
     }
