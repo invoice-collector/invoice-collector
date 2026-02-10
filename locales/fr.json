@@ -5780,7 +5780,7 @@
   "i18n.collectors.opustrustweb_bidfood.description": "OpusTrustWeb est une plateforme de commande en ligne pour Bidfood, un distributeur majeur dans le secteur de la restauration au Royaume-Uni.",
   "i18n.collectors.oracle_cloud.description": "Une plateforme cloud complète proposant des services de calcul, de stockage et de base de données pour les entreprises.",
   "i18n.collectors.orange.description": "Orange est un opérateur de télécommunications français.",
-  "i18n.collectors.orange.instructions": "L'authentification multi-facteurs (MFA) est requise pour accéder à vos factures Orange. Veuillez activer la MFA dans les paramètres de votre compte.",
+  "i18n.collectors.orange.instructions": "L'authentification multi-facteurs (MFA) est requise pour accéder à vos factures Orange. Veuillez activer la MFA dans les paramètres de votre compte Orange avant d'ajouter ce collecteur.",
   "i18n.collectors.orange_belgium.description": "Un opérateur télécom en Belgique proposant des services mobiles, internet et TV.",
   "i18n.collectors.orange_business.description": "Un fournisseur mondial de services numériques proposant des solutions de connectivité, cloud et cybersécurité pour les entreprises.",
   "i18n.collectors.orange_business_belgium.description": "Une plateforme de services numériques proposant des solutions professionnelles comme la connectivité, le cloud et les services IT en Belgique.",
