@@ -17,7 +17,7 @@ export const AmazonSelectors = {
         info: "use other account button"
     },
     FIELD_EMAIL: {
-        selector: "#ap_email",
+        selector: "input#ap_email, input#ap_email_login",
         info: "login input field"
     },
     BUTTON_CONTINUE: {
@@ -25,7 +25,7 @@ export const AmazonSelectors = {
         info: "continue button field"
     },
     FIELD_PASSWORD: {
-        selector: "#ap_password",
+        selector: "input#ap_password",
         info: "password input field"
     },
     CHECKBOX_REMEMBER_ME: {
