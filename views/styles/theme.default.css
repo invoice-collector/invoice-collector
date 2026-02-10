@@ -581,6 +581,8 @@ body {
   gap: 0.75rem;
   border-left: 4px solid;
   max-width: 56rem;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .ic-alert--error {
