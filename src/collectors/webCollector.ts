@@ -283,11 +283,19 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
                                     firstDownload = false;
                                 }
 
+                                // Get number of pages before download
+                                const pagesBefore = (await driver.pages()).length;
+
                                 // Download invoice
                                 let documents = await this.download(driver, invoice);
 
-                                // Close extra pages opened during download
-                                await driver.closeExtraPages();
+                                // Get number of pages after download
+                                const pagesAfter = (await driver.pages()).length;
+
+                                // Close current page if download opened a new one
+                                if (pagesAfter > pagesBefore) {
+                                    await driver.closePage();
+                                }
 
                                 // If one document downloaded
                                 if (WebCollector.DEFAULT_DOCUMENT_STRATEGY == DocumentStrategy.MERGE && documents.length > 1) {
