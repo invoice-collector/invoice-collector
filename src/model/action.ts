@@ -197,8 +197,10 @@ export class InputTextAction extends Action<InputTextContext, void> {
             throw new Error(`Parameter ${this.args.text} not found in params`);
         }
 
-        let element: Element = await this.getElement(context.driver);
-        await element.inputText(context.params[this.args.text], this.args);
+        await context.driver.inputText({
+                selector: this.cssSelector,
+                info: this.description
+            }, context.params[this.args.text], this.args);
     }
 
     toString(): string {
