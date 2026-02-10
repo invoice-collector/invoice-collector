@@ -15,6 +15,7 @@ export class OrangeCollector extends OrangeCommonCollector {
         website: "https://www.orange.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/c/c8/Orange_logo.svg",
         type: CollectorType.WEB,
+        instructions: "i18n.collectors.orange.instructions",
         params: {
             id: {
                 type: "string",

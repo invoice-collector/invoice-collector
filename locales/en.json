@@ -5780,6 +5780,7 @@
   "i18n.collectors.opustrustweb_bidfood.description": "OpusTrustWeb is an online ordering platform for Bidfood, a leading foodservice distributor in the UK.",
   "i18n.collectors.oracle_cloud.description": "A comprehensive cloud platform offering computing, storage, and database services for enterprises.",
   "i18n.collectors.orange.description": "Orange is a French telecommunications company.",
+  "i18n.collectors.orange.instructions": "Multi-factor authentication (MFA) is required to access your Orange invoices. Please enable MFA in your account settings.",
   "i18n.collectors.orange_belgium.description": "A telecom operator in Belgium offering mobile, internet, and TV services.",
   "i18n.collectors.orange_business.description": "A global digital services provider offering connectivity, cloud, and cybersecurity solutions for enterprises.",
   "i18n.collectors.orange_business_belgium.description": "A digital service platform offering business solutions like connectivity, cloud, and IT services in Belgium.",
