@@ -42,21 +42,22 @@ export class CollectorLoader {
                     const configMatch = content.match(/CONFIG\s*=\s*({[\s\S]*?})\s*constructor/);
                     if (configMatch) {
                         try {
-                            // Replace enum references with their values before eval
                             let configStr = configMatch[1]
-                            .replace("CollectorState.PLANNED", `"${CollectorState.PLANNED.toString()}"`)
-                            .replace("CollectorState.DEVELOPMENT", `"${CollectorState.DEVELOPMENT.toString()}"`)
-                            .replace("CollectorState.ACTIVE", `"${CollectorState.ACTIVE.toString()}"`)
-                            .replace("CollectorCaptcha.NONE", `"${CollectorCaptcha.NONE.toString()}"`)
-                            .replace("CollectorCaptcha.CLOUDFLARE", `"${CollectorCaptcha.CLOUDFLARE.toString()}"`)
-                            .replace("CollectorCaptcha.DATADOME", `"${CollectorCaptcha.DATADOME.toString()}"`)
-                            .replace("CollectorCaptcha.RECAPTCHA", `"${CollectorCaptcha.RECAPTCHA.toString()}"`)
-                            .replace("CollectorCaptcha.OTHER", `"${CollectorCaptcha.OTHER.toString()}"`)
-                            .replace("CollectorType.WEB", `"${CollectorType.WEB.toString()}"`)
-                            .replace("CollectorType.AGENT", `"${CollectorType.AGENT.toString()}"`)
-                            .replace("CollectorType.API", `"${CollectorType.API.toString()}"`)
-                            .replace("CollectorType.EMAIL", `"${CollectorType.EMAIL.toString()}"`)
-                            .replace("CollectorType.SKETCH", `"${CollectorType.SKETCH.toString()}"`)
+
+                            // Replace all occurrences of CollectorState enum values
+                            for (const [key, value] of Object.entries(CollectorState)) {
+                                configStr = configStr.replaceAll(`CollectorState.${key}`, `"${value}"`);
+                            }
+                            
+                            // Replace all occurrences of CollectorCaptcha enum values
+                            for (const [key, value] of Object.entries(CollectorCaptcha)) {
+                                configStr = configStr.replaceAll(`CollectorCaptcha.${key}`, `"${value}"`);
+                            }
+
+                            // Replace all occurrences of CollectorType enum values
+                            for (const [key, value] of Object.entries(CollectorType)) {
+                                configStr = configStr.replaceAll(`CollectorType.${key}`, `"${value}"`);
+                            }
 
                             // Evaluate the config object
                             const config = eval('(' + configStr + ')');
