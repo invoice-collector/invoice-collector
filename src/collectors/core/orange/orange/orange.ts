@@ -9,9 +9,9 @@ export class OrangeCollector extends OrangeCommonCollector {
 
     static CONFIG = {
         id: "orange",
-        name: "Orange",
+        name: "Orange (.fr)",
         description: "i18n.collectors.orange.description",
-        version: "24",
+        version: "25",
         website: "https://www.orange.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/c/c8/Orange_logo.svg",
         type: CollectorType.WEB,

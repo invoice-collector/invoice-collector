@@ -1,29 +1,47 @@
 import axios from 'axios';
 import { Customer } from '../model/customer';
 import { CompleteInvoice } from '../collectors/abstractCollector';
-import { StatusError } from '../error';
+import * as utils from '../utils';
 
 export class CallbackHandler {
+    static DEFAULT_RETRIES: number = 3;
+    static DEFAULT_DELAY_BETWEEN_RETRIES: number = 10000; // 10 seconds
+
     private callback: string;
 
     constructor(customer: Customer) {
         this.callback = customer.callback;
     }
 
-    private async sendRequest(data: object): Promise<void> {
-        try {
-            const response = await axios.post(this.callback, data);
-            
-            // Check if response is successful
-            if (response.status !== 200) {
-                throw new Error(`Callback request failed with status code ${response.status}`);
+    private async sendRequest(data: object, maxRetries: number = CallbackHandler.DEFAULT_RETRIES): Promise<void> {
+        let lastError: Error | null = null;
+        
+        for (let attempt = 1; attempt <= maxRetries; attempt++) {
+            try {
+                const response = await axios.post(this.callback, data);
+                
+                // Check if response is successful
+                if (response.status !== 200) {
+                    throw new Error(`Callback request failed with status code ${response.status}`);
+                }
+                return; // Success, exit the function
+            } catch (error) {
+                if (axios.isAxiosError(error)) {
+                    lastError = new Error(`Callback request failed with status code ${error.code}. Make sure the callback URL is correct and accessible.`, { cause: error });
+                } else {
+                    lastError = new Error(`Callback request failed: ${error}. Make sure the callback URL is correct and accessible`, { cause: error });
+                }
+                
+                console.warn(`Callback request attempt ${attempt}/${maxRetries} failed.`);
+                if (attempt < maxRetries) {
+                    console.warn(`Retrying in ${CallbackHandler.DEFAULT_DELAY_BETWEEN_RETRIES / 1000} s...`);
+                    await utils.delay(CallbackHandler.DEFAULT_DELAY_BETWEEN_RETRIES);
+                }
             }
-        } catch (error) {
-            if (axios.isAxiosError(error)) {
-                throw new Error(`Callback request failed with status code ${error.code}. Make sure the callback URL is correct and accessible.`, { cause: error });
-            }
-            throw new Error(`Callback request failed: ${error}. Make sure the callback URL is correct and accessible`, { cause: error });
         }
+        
+        // All retries exhausted, throw the last error
+        throw lastError;
     }
 
     async sendInvoice(collector_id: string, remote_id: string, invoice: CompleteInvoice): Promise<void> {

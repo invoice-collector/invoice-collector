@@ -197,6 +197,11 @@ export class Server {
                 throw new MissingField("name");
             }
 
+            // Check if email is valid
+            if(email.includes("+")) {
+                throw new StatusError(`Email "${email}" is not valid. Aliases are not allowed.`, 400);
+            }
+
             // Create new customer
             customer = new Customer(email, "", name, "", "", "");
 
