@@ -3,15 +3,18 @@ import { Driver, Element } from '../../../../driver/driver';
 import { CollectorCaptcha, CollectorType, Invoice } from '../../../../collectors/abstractCollector';
 import * as utils from '../../../../utils';
 import { AuthenticationError } from '../../../../error';
-import { OrangeCommonCollector } from '../common/orangeCommon';
+import { OrangeHelper } from '../helper/orangeHelper';
+import { WebSocketServer } from '../../../../websocket/webSocketServer';
+import { TwofaPromise } from '../../../../collect/twofaPromise';
+import { WebCollector } from '../../../webCollector';
 
-export class OrangeCollector extends OrangeCommonCollector {
+export class OrangeCollector extends WebCollector {
 
     static CONFIG = {
         id: "orange",
         name: "Orange (.fr)",
         description: "i18n.collectors.orange.description",
-        version: "25",
+        version: "26",
         website: "https://www.orange.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/c/c8/Orange_logo.svg",
         type: CollectorType.WEB,
@@ -40,6 +43,22 @@ export class OrangeCollector extends OrangeCommonCollector {
 
     constructor() {
         super(OrangeCollector.CONFIG);
+    }
+
+    async needLogin(driver: Driver): Promise<boolean> {
+        return await OrangeHelper.needLogin(driver);
+    }
+
+    async login(driver: Driver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
+        return await OrangeHelper.login(driver, params, webSocketServer);
+    }
+
+    async needTwofa(driver: Driver): Promise<string | void>{
+        return await OrangeHelper.needTwofa(driver);
+    }
+
+    async twofa(driver: Driver, params: any, twofa_promise: TwofaPromise, webSocketServer: WebSocketServer): Promise<string | void> {
+        return await OrangeHelper.twofa(driver, params, twofa_promise, webSocketServer);
     }
 
     async navigate(driver: Driver): Promise<void> {

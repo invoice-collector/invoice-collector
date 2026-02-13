@@ -1,16 +1,15 @@
-import { WebCollector } from '../../../../collectors/webCollector';
 import { OrangeCommonSelectors } from './selectors';
 import { Driver, } from '../../../../driver/driver';
 import { WebSocketServer } from '../../../../websocket/webSocketServer';
 import { TwofaPromise } from '../../../../collect/twofaPromise';
 
-export abstract class OrangeCommonCollector extends WebCollector {
+export class OrangeHelper {
 
-    async needLogin(driver: Driver): Promise<boolean> {
+    static async needLogin(driver: Driver): Promise<boolean> {
         return driver.url().includes("login.orange");
     }
 
-    async login(driver: Driver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
+    static async login(driver: Driver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
         // Refuse cookies
         await driver.leftClick(OrangeCommonSelectors.BUTTON_REFUSE_COOKIES, { raiseException: false, timeout: 5000});
 
@@ -54,7 +53,7 @@ export abstract class OrangeCommonCollector extends WebCollector {
         await driver.leftClick(OrangeCommonSelectors.BUTTON_SKIP_2FA, { raiseException: false, timeout: 2000 });
     }
 
-    async needTwofa(driver: Driver): Promise<string | void>{
+    static async needTwofa(driver: Driver): Promise<string | void>{
         if(driver.url().includes("mobile-connect")){
             // Click on "Authenticate with Mobile Connect" button
             await driver.leftClick(OrangeCommonSelectors.BUTTON_AUTHENTICATE_MOBILE_CONNECT);
@@ -63,7 +62,7 @@ export abstract class OrangeCommonCollector extends WebCollector {
         }
     }
 
-    async twofa(driver: Driver, params: any, twofa_promise: TwofaPromise, webSocketServer: WebSocketServer): Promise<string | void> {
+    static async twofa(driver: Driver, params: any, twofa_promise: TwofaPromise, webSocketServer: WebSocketServer): Promise<string | void> {
         // Get code from UI
         const code = await Promise.race([twofa_promise.code(), webSocketServer.getTwofa()]);
     }
