@@ -26,6 +26,7 @@ export enum CollectorCaptcha {
     CLOUDFLARE = 'cloudflare',
     RECAPTCHA = 'recaptcha',
     FRIENDLY_CAPTCHA = 'friendly_captcha',
+    HCAPTCHA = 'hcaptcha',
     OTHER = 'other'
 }
 
