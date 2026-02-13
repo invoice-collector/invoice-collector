@@ -12,7 +12,7 @@ export class CollectorLoader {
         await this.loadFolders("sketch", "sketch", filter)
         await this.loadFolders("community", "community", filter)
         await this.loadFolders("core", "core", filter)
-        await this.loadFolders("premium", "../premium/collectors", filter)
+        await this.loadFolders("premium", "../premium/collectors/premium", filter)
 
         //Order collectors by id
         CollectorLoader.collectors = new Map([...CollectorLoader.collectors.entries()]
@@ -29,12 +29,11 @@ export class CollectorLoader {
 
         await new Promise<void>((resolve, reject) => {
             glob(pattern).then((files) => {
-                console.log(`Loading ${files.length} ${name} collectors...`);
+                console.log(`Loading ${name} collectors...`);
                 let nbFFilesLoaded = 0;
                 for (const file of files) {
                     if(file.endsWith('selectors.ts') ||
                         file.endsWith('Selectors.ts') ||
-                        file.endsWith('customAgentCollector.ts') ||
                         file.endsWith('common.ts') ||
                         file.endsWith('Common.ts') ||
                         file.endsWith('helper.ts') ||
