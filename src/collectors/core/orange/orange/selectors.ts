@@ -1,4 +1,4 @@
-import { OrangeCommonSelectors } from "../common/selectors";
+import { OrangeCommonSelectors } from "../helper/selectors";
 
 export const OrangeSelectors = {
 

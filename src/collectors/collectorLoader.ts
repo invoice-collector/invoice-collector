@@ -32,7 +32,13 @@ export class CollectorLoader {
                 console.log(`Loading ${files.length} ${name} collectors...`);
                 let nbFFilesLoaded = 0;
                 for (const file of files) {
-                    if(file.endsWith('selectors.ts') || file.endsWith('customAgentCollector.ts') || file.endsWith('common.ts') || file.endsWith('Common.ts')) {
+                    if(file.endsWith('selectors.ts') ||
+                        file.endsWith('Selectors.ts') ||
+                        file.endsWith('customAgentCollector.ts') ||
+                        file.endsWith('common.ts') ||
+                        file.endsWith('Common.ts') ||
+                        file.endsWith('helper.ts') ||
+                        file.endsWith('Helper.ts'))  {
                         continue; // Skip file
                     }
 
