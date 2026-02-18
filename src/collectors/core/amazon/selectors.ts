@@ -91,7 +91,7 @@ export const AmazonSelectors = {
         info: "no orders container"
     },
     CONTAINER_ORDER: {
-        selector: ".order-card .order-header:has(li.yohtmlc-order-level-connections a):has(.a-col-left div.a-column:nth-child(2) div:last-of-type span)",
+        selector: ".order-card .order-header",
         info: "order container"
     },
     CONTAINER_ORDER_DATE: {

@@ -768,7 +768,7 @@ export class Element {
             // Click on the element again
             await this.driver.leftClick({
                 selector: await this.cssSelector(),
-                info: ""
+                info: "middle click"
             });
         }
     }
