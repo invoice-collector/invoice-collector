@@ -16,7 +16,7 @@ export class AmazonCollector extends WebCollector {
         id: "amazon",
         name: "Amazon (.fr)",
         description: "i18n.collectors.amazon.description",
-        version: "33",
+        version: "34",
         website: "https://www.amazon.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/4/4a/Amazon_icon.svg",
         type: CollectorType.WEB,
@@ -184,13 +184,19 @@ export class AmazonCollector extends WebCollector {
         return await driver.getElements(AmazonSelectors.CONTAINER_ORDER);
     }
 
-    async data(driver: Driver, element: Element): Promise<Invoice | null>{
+    async data(driver: Driver, element: Element): Promise<Invoice | null> {
         // Get timestamp
         const date = await element.getAttribute(AmazonSelectors.CONTAINER_ORDER_DATE, "textContent");
         const timestamp = timestampFromString(date, 'd MMMM yyyy', this.language);
 
-        // Cancel invoice if more recent than 2 days
+        // Cancel invoice if more recent than 2 days (invoice not yet available)
         if (timestamp > Date.now() - AmazonCollector.TWO_DAYS_IN_MS){
+            return null;
+        }
+
+        // Cancel invoice if amount is not displayed (order canceled)
+        const amountElement = await element.getElement(AmazonSelectors.CONTAINER_ORDER_AMOUNT);
+        if (!amountElement) {
             return null;
         }
 
