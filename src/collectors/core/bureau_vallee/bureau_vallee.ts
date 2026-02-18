@@ -11,7 +11,7 @@ export class BureauValleeCollector extends WebCollector {
         id: "bureau_vallee",
         name: "Bureau Vallée",
         description: "i18n.collectors.bureau_vallee.description",
-        version: "12",
+        version: "13",
         website: "https://www.bureau-vallee.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Logo-bureau-vallee-2021.png/320px-Logo-bureau-vallee-2021.png",
         type: CollectorType.WEB,
@@ -88,7 +88,7 @@ export class BureauValleeCollector extends WebCollector {
     async data(driver: Driver, element: Element): Promise<Invoice | null> {
         // Get data
         const date = await element.getAttribute(BureauValleeSelectors.CONTAINER_INVOICE_DATE, "textContent");
-        const timestamp = utils.timestampFromString(date, "dd'/'MM'/'yyyy", 'fr');
+        const timestamp = utils.timestampFromString(date, "'Facture du 'dd MMMM yyyy", 'fr');
         const amount = await element.getAttribute(BureauValleeSelectors.CONTAINER_INVOICE_AMOUNT, "textContent");
         const downloadElement = await element.getElement(BureauValleeSelectors.BUTTON_INVOICE_DOWNLOAD);
         const link = await element.getAttribute(BureauValleeSelectors.BUTTON_INVOICE_DOWNLOAD, "href");

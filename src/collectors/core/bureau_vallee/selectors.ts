@@ -55,19 +55,19 @@ export const BureauValleeSelectors = {
         info: "no invoice container"
     },
     CONTAINER_INVOICE: {
-        selector: ".c-orderInvoice__table tbody tr",
+        selector: "table.c-table--invoiceList tbody tr",
         info: "invoice container"
     },
     CONTAINER_INVOICE_DATE: {
-        selector: "td:nth-of-type(1) strong",
+        selector: "th:nth-of-type(1)",
         info: "invoice date container"
     },
     CONTAINER_INVOICE_AMOUNT: {
-        selector: "td:nth-of-type(3) .price",
+        selector: "td:nth-of-type(2) span.c-price",
         info: "invoice amount container"
     },
     BUTTON_INVOICE_DOWNLOAD: {
-        selector: "td:nth-of-type(4) a",
+        selector: "td:nth-of-type(3) a",
         info: "invoice download button"
     }
 }
