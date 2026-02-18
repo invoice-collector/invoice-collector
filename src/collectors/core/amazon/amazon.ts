@@ -16,7 +16,7 @@ export class AmazonCollector extends WebCollector {
         id: "amazon",
         name: "Amazon (.fr)",
         description: "i18n.collectors.amazon.description",
-        version: "34",
+        version: "35",
         website: "https://www.amazon.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/4/4a/Amazon_icon.svg",
         type: CollectorType.WEB,
@@ -195,7 +195,7 @@ export class AmazonCollector extends WebCollector {
         }
 
         // Cancel invoice if amount is not displayed (order canceled)
-        const amountElement = await element.getElement(AmazonSelectors.CONTAINER_ORDER_AMOUNT);
+        const amountElement = await element.getElement(AmazonSelectors.CONTAINER_ORDER_AMOUNT, { raiseException: false });
         if (!amountElement) {
             return null;
         }
