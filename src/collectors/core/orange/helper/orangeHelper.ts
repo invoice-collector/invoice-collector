@@ -72,22 +72,32 @@ export class OrangeHelper {
     }
 
     static async forEachPage(driver: Driver, isOrange: boolean, next: () => void): Promise<void> {
-        // Get offers on page
-        const offers = isOrange ?
-            await driver.getElements(OrangeHelperSelectors.CONTAINER_OFFERS_ORANGE) :
-            await driver.getElements(OrangeHelperSelectors.CONTAINER_OFFERS_SOSH);
-        
-        console.log(`OrangeHelper: Found ${offers.length} offer(s)`);
+        // If need to select offer
+        const needOfferSelection = driver.url().includes("selectionner-un-contrat");
+        if (needOfferSelection) {
+            // Get offers on page
+            const offers = isOrange ?
+                await driver.getElements(OrangeHelperSelectors.CONTAINER_OFFERS_ORANGE) :
+                await driver.getElements(OrangeHelperSelectors.CONTAINER_OFFERS_SOSH);
+            
+            console.log(`OrangeHelper: Found ${offers.length} offer(s)`);
 
-        // For each offer
-        for (const offer of offers) {
-            console.log(`OrangeHelper: Processing offer number ${offers.indexOf(offer) + 1}`);
-            // Open offer in new page
-            await offer.middleClick();
-            // Perform collect
+            // For each offer
+            for (const offer of offers) {
+                console.log(`OrangeHelper: Processing offer number ${offers.indexOf(offer) + 1}`);
+                // Get href from link
+                const offerInvoicesLink = driver.origin() + await offer.getAttribute(OrangeHelperSelectors.CONTAINER_OFFERS_LINK, "href");
+                console.log(`OrangeHelper: Offer link is ${offerInvoicesLink}`);
+                // Open offer in new page
+                await driver.newPage(offerInvoicesLink);
+                // Perform collect
+                await next();
+                // Close extra pages and go back to offers list
+                await driver.closeExtraPages();
+            }
+        } else {
+            // If no offer selection, just perform collect
             await next();
-            // Close extra pages and go back to offers list
-            await driver.closeExtraPages();
         }
     }
                  

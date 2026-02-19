@@ -67,6 +67,10 @@ export const OrangeHelperSelectors = {
         selector: "ecm-selector-contract > div > div > div > div > ul > li > ecm-mat-item-list:has(span.icon-device-smart-phone)",
         info: "container offers for Sosh"
     },
+    CONTAINER_OFFERS_LINK: {
+        selector: "a[data-e2e]",
+        info: "container offers link"
+    },
 
     // GET INVOICES
 
