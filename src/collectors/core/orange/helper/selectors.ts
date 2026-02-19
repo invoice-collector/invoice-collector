@@ -1,4 +1,4 @@
-export const OrangeCommonSelectors = {
+export const OrangeHelperSelectors = {
 
     // COOKIES
 
@@ -55,5 +55,46 @@ export const OrangeCommonSelectors = {
     CONTAINER_MOBILE_CONNECT_INSTRUCTION: {
         selector: ".text-start",
         info: "mobile connect instruction container"
+    },
+
+    // FOR EACH PAGE
+
+    CONTAINER_OFFERS_ORANGE: {
+        selector: "ecm-selector-contract > div > div > div > div > ul > li > ecm-mat-item-list:has(img[src*='logo-orange'])",
+        info: "container offers for Orange"
+    },
+    CONTAINER_OFFERS_SOSH: {
+        selector: "ecm-selector-contract > div > div > div > div > ul > li > ecm-mat-item-list:has(span.icon-device-smart-phone)",
+        info: "container offers for Sosh"
+    },
+
+    // GET INVOICES
+
+    CONTAINER_INVOICE: {
+        selector: "bills-history-table tbody tr",
+        info: "invoice container"
+    },
+
+    // DATA
+
+    
+    BUTTON_PDF: {
+        selector: "a.bp-downloadIcon",
+        info: "invoice PDF download button"
+    },
+    CONTAINER_DATE: {
+        selector: ".bp-dateColumn span",
+        info: "invoice date container"
+    },
+    CONTAINER_AMOUNT: {
+        selector: ".bp-amountColumn span",
+        info: "invoice amount container"
+    },
+
+    // DOWNLOAD PAGE
+
+    CONTAINER_VPN_ERROR: {
+        selector: "ecm-layout-container .feedback .feedback-text:nth-of-type(1)",
+        info: "VPN error container"
     }
 }

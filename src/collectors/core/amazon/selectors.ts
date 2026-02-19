@@ -37,11 +37,11 @@ export const AmazonSelectors = {
         info: "submit form button"
     },
     CONTAINER_LOGIN_ALERT: {
-        selector: "div[id='auth-email-invalid-claim-alert'][style*='block'] div[class='a-alert-content'], div[id='auth-error-message-box'] div[class='a-alert-content']",
+        selector: "#invalid-email-alert:not([aok-hidden]) div.a-alert-content",
         info: "login alert container"
     },
     CONTAINER_PASSWORD_ALERT: {
-        selector: "#auth-error-message-box .a-alert-content",
+        selector: "#auth-error-message-box:not([aok-hidden]) div.a-alert-content",
         info: "password alert container"
     },
     CONTAINER_CAPTCHA: {
