@@ -99,6 +99,7 @@ export class OrangeHelper {
         // Get url before map
         const link = driver.url();
         const contractId = link.match(/\/facture-paiement\/(\d+)\//)?.[1];
+        console.log(`OrangeHelper: Extracted contract id ${contractId} from url`);
 
         // Return invoice
         const pdfElement = await element.getElement(OrangeHelperSelectors.BUTTON_PDF);
