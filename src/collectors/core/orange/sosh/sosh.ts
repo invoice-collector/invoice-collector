@@ -64,7 +64,7 @@ export class SoshCollector extends WebCollector {
     }
 
     async forEachPage(driver: Driver, next: () => void): Promise<void> {
-        return await OrangeHelper.forEachPage(driver, false, next);
+        return await OrangeHelper.forEachPage(driver, next);
     }
     
     async getInvoices(driver: Driver): Promise<Element[]> {

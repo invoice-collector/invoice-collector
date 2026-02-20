@@ -77,7 +77,7 @@ export class OrangeCollector extends WebCollector {
     }
 
     async forEachPage(driver: Driver, next: () => void): Promise<void> {
-        return await OrangeHelper.forEachPage(driver, true, next);
+        return await OrangeHelper.forEachPage(driver, next);
     }
 
     async getInvoices(driver: Driver): Promise<Element[]> {

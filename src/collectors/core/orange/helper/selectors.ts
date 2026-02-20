@@ -59,13 +59,9 @@ export const OrangeHelperSelectors = {
 
     // FOR EACH PAGE
 
-    CONTAINER_OFFERS_ORANGE: {
-        selector: "ecm-selector-contract > div > div > div > div > ul > li > ecm-mat-item-list:has(img[src*='logo-orange'])",
-        info: "container offers for Orange"
-    },
-    CONTAINER_OFFERS_SOSH: {
-        selector: "ecm-selector-contract > div > div > div > div > ul > li > ecm-mat-item-list:has(span.icon-device-smart-phone)",
-        info: "container offers for Sosh"
+    CONTAINER_OFFERS: {
+        selector: "ecm-selector-contract > div > div > div > div:nth-of-type(1) > ul > li > ecm-mat-item-list",
+        info: "container offers"
     },
     CONTAINER_OFFERS_LINK: {
         selector: "a[data-e2e]",

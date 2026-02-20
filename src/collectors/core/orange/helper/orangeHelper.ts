@@ -71,14 +71,12 @@ export class OrangeHelper {
         const code = await Promise.race([twofa_promise.code(), webSocketServer.getTwofa()]);
     }
 
-    static async forEachPage(driver: Driver, isOrange: boolean, next: () => void): Promise<void> {
+    static async forEachPage(driver: Driver, next: () => void): Promise<void> {
         // If need to select offer
         const needOfferSelection = driver.url().includes("selectionner-un-contrat");
         if (needOfferSelection) {
             // Get offers on page
-            const offers = isOrange ?
-                await driver.getElements(OrangeHelperSelectors.CONTAINER_OFFERS_ORANGE) :
-                await driver.getElements(OrangeHelperSelectors.CONTAINER_OFFERS_SOSH);
+            const offers = await driver.getElements(OrangeHelperSelectors.CONTAINER_OFFERS);
             
             console.log(`OrangeHelper: Found ${offers.length} offer(s)`);
 
