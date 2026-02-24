@@ -17,10 +17,10 @@
   --muted: #6b7280;          /* gray-500 */
   --placeholder: #9ca3af;    /* gray-400 */
 
-  /* Primary - Blue */
-  --primary: #2563eb;        /* blue-600 */
-  --primary-hover: #3b82f6;  /* blue-500 */
-  --primary-focus: rgba(59, 130, 246, 0.5); /* ring-2 ring-blue-500 */
+  /* Primary - Green */
+  --primary: #059669;        /* green-600 */
+  --primary-hover: #047857;  /* green-700 */
+  --primary-focus: rgba(5, 150, 105, 0.5); /* ring-2 ring-green-500 */
 
   /* Secondary */
   --secondary: #f3f4f6;      /* gray-100 */
