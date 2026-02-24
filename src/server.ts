@@ -2,9 +2,8 @@ import { DatabaseFactory } from './database/databaseFactory';
 import { Secret } from './model/secret';
 import { SecretManagerFactory } from './secret_manager/secretManagerFactory';
 import { OauthError, MissingField, MissingParams, StatusError, AuthenticationBearerError } from './error';
-import { generate_token } from './utils';
 import { CollectorLoader } from './collectors/collectorLoader';
-import { User } from './model/user';
+import { User, UserStats } from './model/user';
 import { Customer, Stats } from './model/customer';
 import { IcCredential } from './model/credential';
 import { CollectTask } from './collect/collectTask';
@@ -22,21 +21,26 @@ import { WebSocketServer } from './websocket/webSocketServer';
 
 export class Server {
 
-    static OAUTH_TOKEN_VALIDITY_DURATION_MS = Number(utils.getEnvVar("OAUTH_TOKEN_VALIDITY_DURATION_MS", "1800000"));
-    static RESET_PASSWORD_TOKEN_VALIDITY_DURATION_MS = Number(utils.getEnvVar("RESET_PASSWORD_TOKEN_VALIDITY_DURATION_MS", "3600000"));
-    static UI_BEARER_VALIDITY_DURATION_MS = Number(utils.getEnvVar("UI_BEARER_VALIDITY_DURATION_MS", "3600000"));
+    static OAUTH_TOKEN_VALIDITY_DURATION_MS = Number(utils.getEnvVar("OAUTH_TOKEN_VALIDITY_DURATION_MS", "1800000"));                   // 30 minutes in milliseconds
+    static RESET_PASSWORD_TOKEN_VALIDITY_DURATION_MS = Number(utils.getEnvVar("RESET_PASSWORD_TOKEN_VALIDITY_DURATION_MS", "3600000")); // 1 hour in milliseconds
+    static UI_BEARER_VALIDITY_DURATION_MS = Number(utils.getEnvVar("UI_BEARER_VALIDITY_DURATION_MS", "3600000"));                       // 1 hour in milliseconds
     static IS_SELF_HOSTED: boolean = utils.getEnvVar("IS_SELF_HOSTED", "true").toLowerCase() === "true";
 
-    uiTokens: { [key: string]: User };
-    resetTokens: { [key: string]: string };
-    uiBearers: { [key: string]: string };
+    customerUiBearers: { [key: string]: string };
+    customerResetTokens: { [key: string]: string };
+    userUiBearers: { [key: string]: string };
+    userUiTokens: { [key: string]: User };
+    userResetTokens: { [key: string]: string };
+
     collect_task: CollectTask;
     httpServer: any;
 
     constructor() {
-        this.uiTokens = {};
-        this.resetTokens = {};
-        this.uiBearers = {};
+        this.customerUiBearers = {};
+        this.customerResetTokens = {};
+        this.userUiBearers = {};
+        this.userUiTokens = {};
+        this.userResetTokens = {};
         this.collect_task = new CollectTask();
 	}
 
@@ -140,7 +144,8 @@ export class Server {
         email: string | undefined,
         password: string | undefined
     ): Promise<{
-        bearer: string
+        bearer: string,
+        type: string
     }> {
         // Check if email field is missing
         if(!email) {
@@ -155,26 +160,57 @@ export class Server {
         // Get customer from email
         const customer = await Customer.fromEmailAndPassword(email, utils.hash_string(password));
 
-        // Check if customer exists
-        if(!customer) {
-            throw new StatusError("Invalid credentials", 401);
+        // If customer exists
+        if(customer) {
+            // Generate session bearer token
+            const customerUiBearer = utils.generate_bearer(utils.BearerType.CUSTOMER_SESSION);
+
+            // Compute hashed bearer
+            const hashedCustomerUiBearer = utils.hash_string(customerUiBearer);
+
+            // Map bearer token with customer
+            this.customerUiBearers[hashedCustomerUiBearer] = customer.id;
+
+            // Schedule token delete after validity duration
+            setTimeout(() => {
+                delete this.customerUiBearers[hashedCustomerUiBearer];
+            }, Server.UI_BEARER_VALIDITY_DURATION_MS);
+
+            // Return bearer token
+            return {
+                bearer: customerUiBearer,
+                type: "customer"
+            };
         }
+        else {
+            // Get user from remote_id and password
+            const user = await User.fromRemoteIdAndPassword(email, utils.hash_string(password));
+            
+            // Check if user exists
+            if(!user) {
+                throw new StatusError("Invalid credentials", 401);
+            }
 
-        // Generate session bearer token
-        const uiBearer = utils.generate_bearer(utils.BearerType.SESSION);
+            // Generate session bearer token
+            const userUiBearer = utils.generate_bearer(utils.BearerType.USER_SESSION);
 
-        // Compute hashed bearer
-        const hashed_bearer = utils.hash_string(uiBearer);
+            // Compute hashed bearer
+            const hashedUserUiBearer = utils.hash_string(userUiBearer);
 
-        // Map bearer token with customer
-        this.uiBearers[hashed_bearer] = customer.id;
+            // Map bearer token with user
+            this.userUiBearers[hashedUserUiBearer] = user.id;
 
-        // Schedule token delete after validity duration
-        setTimeout(() => {
-            delete this.uiBearers[hashed_bearer];
-        }, Server.UI_BEARER_VALIDITY_DURATION_MS);
+            // Schedule token delete after validity duration
+            setTimeout(() => {
+                delete this.userUiBearers[hashedUserUiBearer];
+            }, Server.UI_BEARER_VALIDITY_DURATION_MS);
 
-        return { bearer: uiBearer };
+            // Return bearer token
+            return {
+                bearer: userUiBearer,
+                type: "user"
+            };
+        }
     }
 
     // NO AUTHENTICATION
@@ -216,11 +252,11 @@ export class Server {
         const resetToken = utils.generate_token();
 
         // Map reset token with customer
-        this.resetTokens[resetToken] = customer.id;
+        this.customerResetTokens[resetToken] = customer.id;
 
         // Schedule token delete after validity duration
         setTimeout(() => {
-            delete this.resetTokens[resetToken];
+            delete this.customerResetTokens[resetToken];
         }, Server.RESET_PASSWORD_TOKEN_VALIDITY_DURATION_MS);
 
         // Send reset password email
@@ -229,30 +265,61 @@ export class Server {
 
     // RESET TOKEN AUTHENTICATION
     public async post_reset(
-        token: any,
-        password: string | undefined
+        resetToken: any,
+        password: string
     ): Promise<void> {
-        // Check if token field is missing
-        if(!token) {
+
+        // Check if reset token exists and is a string
+        if (!resetToken ||typeof resetToken !== 'string') {
             throw new MissingField("token");
         }
 
-        // Check if password field is missing
-        if(!password) {
+        // Check if password exists and is a string
+        if (!password || typeof password !== 'string') {
             throw new MissingField("password");
         }
 
-        // Get customer from reset token
-        const customer = await this.getCustomerFromResetToken(token);
+        // If reset token belongs to a customer
+        if(this.customerResetTokens.hasOwnProperty(resetToken)) {
+            // Get customer from id
+            const customer = await Customer.fromId(this.customerResetTokens[resetToken]);
 
-        // Set new password
-        customer.password = utils.hash_string(password);
+            // Check if customer exists
+            if(!customer) {
+                throw new StatusError(`Customer with id "${this.customerResetTokens[resetToken]}" not found.`, 400);
+            }
 
-        // Commit changes in database
-        await customer.commit();
+            // Set new password
+            customer.password = utils.hash_string(password);
 
-        // Delete reset token
-        delete this.resetTokens[token];
+            // Commit changes in database
+            await customer.commit();
+
+            // Delete customer reset token
+            delete this.customerResetTokens[resetToken];
+        }
+        // If reset token belongs to a user
+        else if(this.userResetTokens.hasOwnProperty(resetToken)) {
+            // Get user from id
+            const user = await User.fromId(this.userResetTokens[resetToken]);
+
+            // Check if user exists
+            if(!user) {
+                throw new StatusError(`User with id "${this.userResetTokens[resetToken]}" not found.`, 400);
+            }
+
+            // Set new password
+            user.password = utils.hash_string(password);
+
+            // Commit changes in database
+            await user.commit();
+
+            // Delete user reset token
+            delete this.userResetTokens[resetToken];
+        }
+        else {
+            throw new StatusError("Invalid reset token. Your reset link probably expired.", 401);
+        }
     }
 
     // ---------- CUSTOMER ENDPOINTS ----------
@@ -388,7 +455,8 @@ export class Server {
         customer_id: string,
         remote_id: string,
         locale: string,
-        createdAt: number
+        createdAt: number,
+        stats: UserStats
     }[]> {
         // Get customer from bearer
         const customer = await this.getCustomerFromBearer(bearer);
@@ -397,15 +465,20 @@ export class Server {
         const users = await customer.getUsers();
 
         // Return users
-        return users.map((user) => {
+        return await Promise.all(users.map(async (user) => {
+            // Get user stats
+            const stats = await user.getStats();
+
+            // Return user with credentials count
             return {
                 id: user.id,
                 customer_id: user.customer_id,
                 remote_id: user.remote_id,
                 locale: user.locale,
-                createdAt: user.createdAt
+                createdAt: user.createdAt,
+                stats: stats
             };
-        });
+        }));
     }
 
     // BEARER AUTHENTICATION
@@ -420,7 +493,8 @@ export class Server {
         remote_id: string,
         locale: string,
         createdAt: number,
-        token: string
+        token: string,
+        stats: UserStats
     }> {
         // Get customer from bearer
         const customer = await this.getCustomerFromBearer(bearer);
@@ -461,7 +535,7 @@ export class Server {
             // Get user location
             const location = await ProxyFactory.getProxy().locate(ip);
             // Create user
-            user = new User(customer.id, remote_id, location, locale);
+            user = new User(customer.id, remote_id, User.DEFAULT_PASSWORD, location, locale, Date.now());
         }
         else {
             // Update user locale
@@ -481,15 +555,18 @@ export class Server {
         await user.commit();
 
         // Generate oauth token
-        const uiToken = generate_token();
+        const uiToken = utils.generate_token();
 
         // Map token with user
-        this.uiTokens[uiToken] = user;
+        this.userUiTokens[uiToken] = user;
 
         // Schedule token delete after validity duration
         setTimeout(() => {
-            delete this.uiTokens[uiToken];
+            delete this.userUiTokens[uiToken];
         }, Server.OAUTH_TOKEN_VALIDITY_DURATION_MS);
+
+        // Get user stats
+        const stats = await user.getStats();
 
         return {
             id: user.id,
@@ -498,8 +575,56 @@ export class Server {
             locale: user.locale,
             createdAt: user.createdAt,
             token: uiToken,
+            stats: stats
         }
     }
+
+    // BEARER AUTHENTICATION
+    public async get_user(bearer: string | undefined, user_id: string | undefined): Promise<{
+        id: string,
+        remote_id: string,
+        locale: string,
+        createdAt: number,
+        resetToken: string,
+        customer: {
+            name: string
+        },
+        stats: UserStats
+    }> {
+        // Get user from bearer
+        const user = await this.getUserFromBearerOrToken(bearer, user_id, null);
+
+        // Generate user reset token
+        const resetToken = utils.generate_token();
+
+        // Map reset token with user
+        this.userResetTokens[resetToken] = user.id;
+
+        // Schedule token delete after validity duration
+        setTimeout(() => {
+            delete this.userResetTokens[resetToken];
+        }, Server.RESET_PASSWORD_TOKEN_VALIDITY_DURATION_MS);
+
+        // Get customer from user
+        const customer = await user.getCustomer();
+
+        // Get user stats
+        const stats = await user.getStats();
+
+        // Return user
+        return {
+            id: user.id,
+            remote_id: user.remote_id,
+            locale: user.locale,
+            createdAt: user.createdAt,
+            resetToken: resetToken,
+            customer: {
+                name: customer.name
+            },
+            stats: stats
+        };
+    }
+
 
     // BEARER AUTHENTICATION
     public async delete_user(bearer: string | undefined, user_id: string) {
@@ -523,9 +648,9 @@ export class Server {
         await user.delete();
 
         // Delete user from ui token mapping
-        for (let uiToken in this.uiTokens) {
-            if (this.uiTokens[uiToken].id === user.id) {
-                delete this.uiTokens[uiToken];
+        for (let uiToken in this.userUiTokens) {
+            if (this.userUiTokens[uiToken].id === user.id) {
+                delete this.userUiTokens[uiToken];
             }
         }
     }
@@ -1034,27 +1159,10 @@ export class Server {
 
     private getUserFromUiToken(uiToken: any): User {
         // Check if token is missing or incorrect
-        if(!uiToken || !this.uiTokens.hasOwnProperty(uiToken) || typeof uiToken !== 'string') {
+        if(!uiToken || !this.userUiTokens.hasOwnProperty(uiToken) || typeof uiToken !== 'string') {
             throw new OauthError();
         }
-        return this.uiTokens[uiToken];
-    }
-
-    private async getCustomerFromResetToken(resetToken: string): Promise<Customer> {
-        // Check if reset token is missing or incorrect
-        if(!resetToken || !this.resetTokens.hasOwnProperty(resetToken) || typeof resetToken !== 'string') {
-            throw new StatusError("Invalid reset token. Your reset link probably expired.", 401);
-        }
-
-        // Get customer from id
-        const customer = await DatabaseFactory.getDatabase().getCustomer(this.resetTokens[resetToken]);
-
-        // Check if customer exists
-        if(!customer) {
-            throw new StatusError(`Customer with id "${this.resetTokens[resetToken]}" not found.`, 400);
-        }
-
-        return customer;
+        return this.userUiTokens[uiToken];
     }
 
     private async getCustomerFromBearerOrToken(bearer: string | undefined, token: any): Promise<Customer> {
@@ -1065,8 +1173,17 @@ export class Server {
             return await user.getCustomer();
         }
         else if (bearer) {
-            // Get customer from bearer
-            return await this.getCustomerFromBearer(bearer);
+            // If is a user bearer, get user from bearer
+            if(bearer.startsWith(`Bearer ${utils.BearerType.USER_SESSION}`)) {
+                // Get user from bearer
+                const user = await this.getUserFromBearer(bearer);
+                // Get customer from user
+                return await user.getCustomer();
+            }
+            else {
+                // Get customer from bearer
+                return await this.getCustomerFromBearer(bearer);
+            }
         }
         else {
             throw new StatusError(`Provide a Bearer token or a "token" field in the query.`, 400);
@@ -1074,11 +1191,13 @@ export class Server {
     }
 
     private async getUserFromBearerOrToken(bearer: string | undefined, user_id: string | undefined, token: any): Promise<User> {
+        // If token provided, get user from token
         if (token) {
             // Get user from token
             return this.getUserFromUiToken(token);
         }
-        else if (bearer) {
+        // If bearer and user_id provided, get user from customer bearer
+        else if (bearer && user_id) {
             // Check if user_id is provided
             if (!user_id) {
                 throw new MissingField("user_id");
@@ -1095,6 +1214,11 @@ export class Server {
 
             return user;
         }
+        // If only bearer provided, get user from bearer
+        else if (bearer && !user_id) {
+            // Get user from bearer
+            return await this.getUserFromBearer(bearer);
+        }
         else {
             throw new StatusError(`Provide a Bearer token or a "token" field in the query.`, 400);
         }
@@ -1110,13 +1234,13 @@ export class Server {
         const hashed_bearer = utils.hash_string(bearer.split(' ')[1]);
 
         let customer: Customer | null;
-        // Check if uiBearers contains the hashed bearer
-        if (this.uiBearers.hasOwnProperty(hashed_bearer)) {
+        // Check if customerUiBearers contains the hashed bearer
+        if (this.customerUiBearers.hasOwnProperty(hashed_bearer)) {
             // Get customer id from uiBearers
-            const customer_id = this.uiBearers[hashed_bearer];
+            const customer_id = this.customerUiBearers[hashed_bearer];
 
             // Get customer from id
-            customer = await DatabaseFactory.getDatabase().getCustomer(customer_id);
+            customer = await Customer.fromId(customer_id);
         }
         else {
             // Get customer from bearer
@@ -1129,5 +1253,33 @@ export class Server {
         }
 
         return customer;
+    }
+
+    private async getUserFromBearer(bearer: string | undefined): Promise<User> {
+        // Check if bearer is missing
+        if (!bearer || !bearer.startsWith("Bearer ")) {
+            throw new AuthenticationBearerError()
+        }
+
+        // Get hashed bearer
+        const hashed_bearer = utils.hash_string(bearer.split(' ')[1]);
+
+        // If the bearer is not in userUiBearers
+        if(!this.userUiBearers.hasOwnProperty(hashed_bearer)) {
+            throw new AuthenticationBearerError()
+        }
+
+        // Get user id from uiBearers
+        const user_id = this.userUiBearers[hashed_bearer];
+
+        // Get user from id
+        const user = await User.fromId(user_id);
+
+        // Check if user exists
+        if (!user) {
+            throw new AuthenticationBearerError();
+        }
+
+        return user;
     }
 }
