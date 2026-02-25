@@ -11,10 +11,20 @@ export enum Theme {
     OCEAN = 'ocean'
 }
 
-export interface Stats {
+export interface CustomerStats {
     users: number;
     credentials: number;
-    invoicesThisMonth: number;
+    invoices: number;
+    byMonth: {
+        [key: string]: {
+            users: number;
+            credentials: number;
+            invoices: number;
+        }
+    };
+    collectors: {
+        [key: string]: number;
+    };
 }
 export class Customer {
 
@@ -150,7 +160,7 @@ export class Customer {
         return await DatabaseFactory.getDatabase().getUserBellongingToCustomer(user_id, this.id);
     }
 
-    async getStats(): Promise<Stats> {
+    async getStats(): Promise<CustomerStats> {
         const stats = await DatabaseFactory.getDatabase().getCustomerStats(this.id);
 
         // Check if stats are null

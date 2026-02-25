@@ -1,4 +1,4 @@
-import { Customer, Stats } from "../model/customer";
+import { Customer, CustomerStats } from "../model/customer";
 import { User } from "../model/user";
 import { IcCredential } from "../model/credential";
 import { CollectorMemory } from "../model/collectorMemory";
@@ -32,7 +32,7 @@ export abstract class AbstractDatabase {
 
     abstract updateCustomer(customer: Customer): Promise<void>;
 
-    abstract getCustomerStats(customer_id: string): Promise<Stats|null>;
+    abstract getCustomerStats(customer_id: string): Promise<CustomerStats|null>;
 
     // USER
 

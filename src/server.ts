@@ -4,7 +4,7 @@ import { SecretManagerFactory } from './secret_manager/secretManagerFactory';
 import { OauthError, MissingField, MissingParams, StatusError, AuthenticationBearerError } from './error';
 import { CollectorLoader } from './collectors/collectorLoader';
 import { User, UserStats } from './model/user';
-import { Customer, Stats } from './model/customer';
+import { Customer, CustomerStats } from './model/customer';
 import { IcCredential } from './model/credential';
 import { CollectTask } from './collect/collectTask';
 import { ProxyFactory } from './proxy/proxyFactory';
@@ -545,7 +545,7 @@ export class Server {
         return { bearer: newBearer };
     }
 
-    public async getCustomerStats(bearer: string | undefined): Promise<Stats>{
+    public async getCustomerStats(bearer: string | undefined): Promise<CustomerStats>{
         // Get customer from bearer
         const customer = await this.getCustomerFromBearer(bearer);
 

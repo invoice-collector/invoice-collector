@@ -1,6 +1,6 @@
 import { MongoClient, Db, ObjectId } from "mongodb";
 import { AbstractDatabase } from "./abstractDatabase";
-import { Customer, Stats } from "../model/customer";
+import { Customer, CustomerStats } from "../model/customer";
 import { User } from "../model/user";
 import { IcCredential } from "../model/credential";
 import * as utils from "../utils";
@@ -171,7 +171,7 @@ export class MongoDB extends AbstractDatabase {
         );
     }
 
-    async getCustomerStats(customer_id: string): Promise<Stats | null> {
+    async getCustomerStats(customer_id: string): Promise<CustomerStats | null> {
         if (!this.db) {
             throw new Error("Database is not connected");
         }
@@ -180,7 +180,70 @@ export class MongoDB extends AbstractDatabase {
         if (documents.length === 0) {
             return null;
         }
-        return documents[0].stats as Stats;
+
+        const document = documents[0];
+
+        // Calculate totals
+        const totalUsers = document.usersByMonth.reduce((sum, item) => sum + item.user_count, 0);
+        const totalCredentials = document.credentialsByMonth.reduce((sum, item) => sum + item.credential_count, 0);
+        const totalInvoices = document.invoicesByMonth.reduce((sum, item) => sum + item.invoice_count, 0);
+
+        // Build byMonth object
+        const byMonth: { [key: string]: { users: number; credentials: number; invoices: number } } = {};
+        
+        // Add users
+        document.usersByMonth.forEach(item => {
+            if (item.month) {
+                if (!byMonth[item.month]) {
+                    byMonth[item.month] = { users: 0, credentials: 0, invoices: 0 };
+                }
+                byMonth[item.month].users = item.user_count;
+            }
+        });
+
+        // Add credentials
+        document.credentialsByMonth.forEach(item => {
+            if (item.month) {
+                if (!byMonth[item.month]) {
+                    byMonth[item.month] = { users: 0, credentials: 0, invoices: 0 };
+                }
+                byMonth[item.month].credentials = item.credential_count;
+            }
+        });
+
+        // Add invoices
+        document.invoicesByMonth.forEach(item => {
+            if (item.month) {
+                if (!byMonth[item.month]) {
+                    byMonth[item.month] = { users: 0, credentials: 0, invoices: 0 };
+                }
+                byMonth[item.month].invoices = item.invoice_count;
+            }
+        });
+
+        // Sort byMonth by month descending
+        const sortedByMonth: { [key: string]: { users: number; credentials: number; invoices: number } } = {};
+        Object.keys(byMonth).sort((a, b) => (a < b ? 1 : -1)).forEach(key => {
+            sortedByMonth[key] = byMonth[key];
+        });
+
+        // Build byMonth object
+        const collectors: { [key: string]: number } = {};
+
+        // Add collectors
+        document.collectorStats.forEach(item => {
+            collectors[item.collector_id] = item.credential_count;
+        });
+
+        const stats: CustomerStats = {
+            users: totalUsers,
+            credentials: totalCredentials,
+            invoices: totalInvoices,
+            byMonth: sortedByMonth,
+            collectors: collectors
+        };
+
+        return stats;
     }
 
     // USER
