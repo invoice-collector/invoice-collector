@@ -26,6 +26,8 @@ export abstract class AbstractDatabase {
 
     abstract getCustomerFromEmailAndPassword(email: string, password: string): Promise<Customer|null>;
 
+    abstract getCustomerFromInviteId(inviteId: string): Promise<Customer|null>;
+
     abstract getCustomer(customer_id: string): Promise<Customer|null>;
 
     abstract updateCustomer(customer: Customer): Promise<void>;
@@ -37,6 +39,8 @@ export abstract class AbstractDatabase {
     abstract getUsers(customer_id: string): Promise<User[]>;
 
     abstract getUser(user_id: string): Promise<User|null>;
+    
+    abstract getUserFromRemoteId(remoteId: string): Promise<User|null>;
     
     abstract getUserFromRemoteIdAndPassword(remoteId: string, password: string): Promise<User|null>;
 

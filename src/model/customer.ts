@@ -21,8 +21,10 @@ export class Customer {
     static DEFAULT_EMAIL = "";
     static DEFAULT_PASSWORD = "";
     static DEFAULT_NAME = "default";
+    static DEFAULT_CID = "";
     static DEFAULT_CALLBACK = "";
     static DEFAULT_REMOTE_ID = "";
+    static DEFAULT_BEARER = "";
     static DEFAULT_SUBSCRIBED_COLLECTORS: string[] = [];
     static DEFAULT_IS_SUBSCRIBED_TO_ALL = true;
     static DEFAULT_ENABLE_INTERACTIVE_LOGIN = true;
@@ -56,6 +58,11 @@ export class Customer {
         return await DatabaseFactory.getDatabase().getCustomerFromEmailAndPassword(email, password);
     }
 
+    static async fromInviteId(inviteId: string): Promise<Customer|null> {
+        // Get customer from invite id
+        return await DatabaseFactory.getDatabase().getCustomerFromInviteId(inviteId);
+    }
+
     static async createDefault(): Promise<{bearer: string, customer: Customer}> {
         // Generate default api bearer
         const bearer = utils.generate_bearer(utils.BearerType.API);
@@ -63,9 +70,12 @@ export class Customer {
             Customer.DEFAULT_EMAIL,
             Customer.DEFAULT_PASSWORD,
             Customer.DEFAULT_NAME,
+            Customer.DEFAULT_CID,
             Customer.DEFAULT_CALLBACK,
             Customer.DEFAULT_REMOTE_ID,
-            utils.hash_string(bearer)
+            utils.hash_string(bearer),
+            utils.convertNameToInviteId(Customer.DEFAULT_NAME),
+            Date.now()
         );
         return {
             bearer,
@@ -77,9 +87,11 @@ export class Customer {
     email: string;
     password: string;
     name: string;
+    cid: string;
     callback: string;
     remoteId: string;
     bearer: string;
+    inviteId: string;
     createdAt: number;
     theme: Theme;
     subscribedCollectors: string[];
@@ -93,17 +105,19 @@ export class Customer {
         email: string,
         password: string,
         name: string,
+        cid: string,
         callback: string,
         remoteId: string,
         bearer: string,
-        createdAt: number = Date.now(),
+        inviteId: string,
+        createdAt: number,
         theme: Theme = Theme.DEFAULT,
         subscribedCollectors: string[] = Customer.DEFAULT_SUBSCRIBED_COLLECTORS,
         isSubscribedToAll: boolean = Customer.DEFAULT_IS_SUBSCRIBED_TO_ALL,
         enableInteractiveLogin: boolean = Customer.DEFAULT_ENABLE_INTERACTIVE_LOGIN,
         displaySketchCollectors: boolean = Customer.DEFAULT_DISPLAY_SKETCH_COLLECTORS,
         maxDelayBetweenCollect: number = Customer.DEFAULT_MAX_DELAY_BETWEEN_COLLECT,
-        plan: Plan = Server.IS_SELF_HOSTED ? Plan.FREE : Plan.TRIAL
+        plan: Plan = Server.IS_SELF_HOSTED ? Plan.FREE : Plan.TRIAL,
     ) {
         this.id = "";
         this.email = email;
@@ -111,7 +125,9 @@ export class Customer {
         this.name = name;
         this.callback = callback;
         this.remoteId = remoteId;
+        this.cid = cid;
         this.bearer = bearer;
+        this.inviteId = inviteId;
         this.createdAt = createdAt;
         this.theme = theme;
         this.subscribedCollectors = subscribedCollectors;

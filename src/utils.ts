@@ -225,3 +225,30 @@ export function checkAmountContainsCurrencySymbol(amount: string): void {
         throw new Error(`Amount "${amount}" does not contain a currency symbol.`);
     }
 }
+
+export function checkEmailIsValid(email: string): boolean {
+    // Check if email is empty
+    if (!email || email.trim() === "") {
+        return false;
+    }
+
+    // Check if email is valid
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+        return false;
+    }
+    return true;
+}
+
+export function convertNameToInviteId(name: string): string {
+    // Remove all special characters by nothing
+    name = name.trim().toLowerCase().replace(/[^a-z0-9\s]+/g, '');
+
+    // Replace all spaces by dashes
+    name = name.replace(/\s+/g, '-');
+
+    // Add a random 5 characters string at the end to ensure uniqueness
+    name = name + '-' + crypto.randomBytes(3).toString('hex');
+
+    return name;
+}

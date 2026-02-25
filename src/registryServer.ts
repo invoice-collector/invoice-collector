@@ -136,7 +136,9 @@ You are still able to use the product but some features may not work as expected
         };
     }
 
-    public async sendResetPasswordEmail(email: string, resetToken: string): Promise<void> {
+    public async sendResetPasswordEmail(email: string, resetToken: string): Promise<string> {
+        // Build reset password link
+        const resetLink = `${RegistryServer.FRONTEND}/reset-password?token=${resetToken}`;
         // Send email
         console.log("Sending reset password email to", email);
         await this.sendEmail(
@@ -145,12 +147,13 @@ You are still able to use the product but some features may not work as expected
             [
                 { text: `Hello`, bold: false, center: false, italic: false },
                 { text: `You requested to change your password. Please use the following link:`, bold: false, center: false, italic: false },
-                { text: `<a href="${RegistryServer.FRONTEND}/reset-password?token=${resetToken}" rel="nofollow noopener noreferrer">Define a new password</a>`, bold: true, center: true, italic: false },
+                { text: `<a href="${resetLink}" rel="nofollow noopener noreferrer">Define a new password</a>`, bold: true, center: true, italic: false },
                 { text: `This link is valid for ${Math.round(Server.RESET_PASSWORD_TOKEN_VALIDITY_DURATION_MS / 60000)} minutes.`, bold: false, center: false, italic: false },
                 { text: null, bold: false, center: false, italic: false },
                 { text: "You are not the requestor? Kindly ignore this message.", bold: false, center: false, italic: true }
             ]
         );
+        return resetLink;
     }
 
     private async sendEmail(
