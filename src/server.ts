@@ -428,6 +428,8 @@ export class Server {
         name: string,
         callback: string,
         remoteId: string,
+        cid: string,
+        inviteId: string,
         createdAt: number,
         theme: string,
         subscribedCollectors: string[],
@@ -446,6 +448,8 @@ export class Server {
             name: customer.name,
             callback: customer.callback,
             remoteId: customer.remoteId,
+            cid: customer.cid,
+            inviteId: customer.inviteId,
             createdAt: customer.createdAt,
             theme: customer.theme,
             subscribedCollectors: customer.subscribedCollectors,
@@ -463,6 +467,7 @@ export class Server {
         name: string | undefined,
         callback: string | undefined,
         remoteId: string | undefined,
+        cid: string | undefined,
         theme: string | undefined,
         subscribedCollectors: string[] | undefined,
         isSubscribedToAll: boolean | undefined,
@@ -485,6 +490,11 @@ export class Server {
         // Check if remoteId field is present
         if(remoteId) {
             customer.remoteId = remoteId;
+        }
+
+        // Check if cid field is present
+        if(cid) {
+            customer.cid = cid;
         }
 
         // Check if theme field is present
@@ -551,6 +561,8 @@ export class Server {
         id: string,
         customer_id: string,
         remote_id: string,
+        name: string,
+        cid: string,
         locale: string,
         createdAt: number,
         stats: UserStats
@@ -571,6 +583,8 @@ export class Server {
                 id: user.id,
                 customer_id: user.customer_id,
                 remote_id: user.remote_id,
+                name: user.name,
+                cid: user.cid,
                 locale: user.locale,
                 createdAt: user.createdAt,
                 stats: stats
@@ -588,6 +602,8 @@ export class Server {
         id: string,
         customer_id: string,
         remote_id: string,
+        name: string,
+        cid: string,
         locale: string,
         createdAt: number,
         token: string,
@@ -678,6 +694,8 @@ export class Server {
             id: user.id,
             customer_id: user.customer_id,
             remote_id: user.remote_id,
+            name: user.name,
+            cid: user.cid,
             locale: user.locale,
             createdAt: user.createdAt,
             token: uiToken,
@@ -688,11 +706,15 @@ export class Server {
     // BEARER AUTHENTICATION
     public async get_user(bearer: string | undefined, user_id: string | undefined): Promise<{
         id: string,
+        customer_id: string,
         remote_id: string,
+        name: string,
+        cid: string,
         locale: string,
         createdAt: number,
         customer: {
-            name: string
+            name: string,
+            cid: string
         },
         stats: UserStats
     }> {
@@ -708,11 +730,15 @@ export class Server {
         // Return user
         return {
             id: user.id,
+            customer_id: user.customer_id,
             remote_id: user.remote_id,
+            name: user.name,
+            cid: user.cid,
             locale: user.locale,
             createdAt: user.createdAt,
             customer: {
-                name: customer.name
+                name: customer.name,
+                cid: customer.cid
             },
             stats: stats
         };
