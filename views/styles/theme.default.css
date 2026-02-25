@@ -18,9 +18,9 @@
   --placeholder: #9ca3af;    /* gray-400 */
 
   /* Primary - Green */
-  --primary: #059669;        /* green-600 */
-  --primary-hover: #047857;  /* green-700 */
-  --primary-focus: rgba(5, 150, 105, 0.5); /* ring-2 ring-green-500 */
+  --primary: #16a34a;        /* green-600 */
+  --primary-hover: #15803d;  /* green-700 */
+  --primary-focus: rgba(22, 163, 74, 0.5); /* ring-2 ring-green-500 */
 
   /* Secondary */
   --secondary: #f3f4f6;      /* gray-100 */
@@ -33,8 +33,8 @@
   --card-special-hover: #f3f4f6;
 
   /* Status - Success */
-  --success: #059669;        /* green-600 */
-  --success-hover: #047857;  /* green-700 */
+  --success: #16a34a;        /* green-600 */
+  --success-hover: #15803d;  /* green-700 */
   --success-bg: #dcfce7;     /* green-100 */
   --success-text: #166534;   /* green-800 */
 
