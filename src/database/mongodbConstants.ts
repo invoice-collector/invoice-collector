@@ -1,74 +1,185 @@
 import { Document } from "mongodb";
 
 export const buildCustomerStatsPipeline = (matcher: object): Document[] => {
-    const now = new Date();
-    const startOfMonth = new Date(now.getFullYear(), now.getMonth(), 1).getTime();
     return [
+        // Match the customer
         { $match: matcher },
+
+        // Facet to compute collector_id mapping, users created by month, invoices per month, and credentials created by month
         {
-            $lookup: {
-                from: "users",
-                localField: "_id",
-                foreignField: "customer_id",
-                as: "users"
-            }
-        },
-        { $unwind: { path: "$users", preserveNullAndEmptyArrays: true } },
-        {
-            $lookup: {
-                from: "credentials",
-                localField: "users._id",
-                foreignField: "user_id",
-                as: "credentials"
-            }
-        },
-        { $unwind: { path: "$credentials", preserveNullAndEmptyArrays: true } },
-        {
-        $addFields: {
-            invoicesThisMonth: {
-                $cond: [
-                    { $isArray: "$credentials.invoices" },
+            $facet: {
+                // Facet for collector_id mapping
+                collectorStats: [
                     {
-                        $size: {
-                            $filter: {
-                            input: "$credentials.invoices",
-                            as: "invoice",
-                            cond: { $gte: ["$$invoice.collected_timestamp", startOfMonth] }
+                        $lookup: {
+                            from: "users",
+                            localField: "_id",
+                            foreignField: "customer_id",
+                            as: "users"
+                        }
+                    },
+                    { $unwind: { path: "$users", preserveNullAndEmptyArrays: false } },
+                    {
+                        $lookup: {
+                            from: "credentials",
+                            localField: "users._id",
+                            foreignField: "user_id",
+                            as: "credentials"
+                        }
+                    },
+                    { $unwind: { path: "$credentials", preserveNullAndEmptyArrays: false } },
+                    {
+                        $group: {
+                            _id: "$credentials.collector_id",
+                            count: { $sum: 1 }
+                        }
+                    },
+                    {
+                        $project: {
+                            collector_id: "$_id",
+                            credential_count: "$count",
+                            _id: 0
+                        }
+                    },
+                    {
+                        $sort: { credential_count: -1 }
+                    }
+                ],
+
+                // Facet for users created by month
+                usersByMonth: [
+                    {
+                        $lookup: {
+                            from: "users",
+                            localField: "_id",
+                            foreignField: "customer_id",
+                            as: "users"
+                        }
+                    },
+                    { $unwind: { path: "$users", preserveNullAndEmptyArrays: false } },
+                    {
+                        $addFields: {
+                            month: {
+                                $dateToString: {
+                                    format: "%Y-%m",
+                                    date: { $toDate: "$users.createdAt" }
+                                }
                             }
                         }
                     },
-                    0
+                    {
+                        $group: {
+                            _id: "$month",
+                            user_count: { $sum: 1 }
+                        }
+                    },
+                    {
+                        $project: {
+                            month: "$_id",
+                            user_count: 1,
+                            _id: 0
+                        }
+                    },
+                    { $sort: { month: -1 } }
+                ],
+
+                // Facet for invoices collected by month
+                invoicesByMonth: [
+                    {
+                        $lookup: {
+                            from: "users",
+                            localField: "_id",
+                            foreignField: "customer_id",
+                            as: "users"
+                        }
+                    },
+                    { $unwind: { path: "$users", preserveNullAndEmptyArrays: false } },
+                    {
+                        $lookup: {
+                            from: "credentials",
+                            localField: "users._id",
+                            foreignField: "user_id",
+                            as: "credentials"
+                        }
+                    },
+                    { $unwind: { path: "$credentials", preserveNullAndEmptyArrays: false } },
+                    { $unwind: { path: "$credentials.invoices", preserveNullAndEmptyArrays: false } },
+                    {
+                        $match: {
+                            "credentials.invoices.collected_timestamp": { $exists: true, $ne: null }
+                        }
+                    },
+                    {
+                        $addFields: {
+                            month: {
+                                $dateToString: {
+                                    format: "%Y-%m",
+                                    date: { $toDate: "$credentials.invoices.collected_timestamp" }
+                                }
+                            }
+                        }
+                    },
+                    {
+                        $group: {
+                            _id: "$month",
+                            invoice_count: { $sum: 1 }
+                        }
+                    },
+                    {
+                        $project: {
+                            month: "$_id",
+                            invoice_count: 1,
+                            _id: 0
+                        }
+                    },
+                    { $sort: { month: -1 } }
+                ],
+
+                // Facet for credentials created by month
+                credentialsByMonth: [
+                    {
+                        $lookup: {
+                            from: "users",
+                            localField: "_id",
+                            foreignField: "customer_id",
+                            as: "users"
+                        }
+                    },
+                    { $unwind: { path: "$users", preserveNullAndEmptyArrays: false } },
+                    {
+                        $lookup: {
+                            from: "credentials",
+                            localField: "users._id",
+                            foreignField: "user_id",
+                            as: "credentials"
+                        }
+                    },
+                    { $unwind: { path: "$credentials", preserveNullAndEmptyArrays: false } },
+                    {
+                        $addFields: {
+                            month: {
+                                $dateToString: {
+                                    format: "%Y-%m",
+                                    date: { $toDate: "$credentials.create_timestamp" }
+                                }
+                            }
+                        }
+                    },
+                    {
+                        $group: {
+                            _id: "$month",
+                            credential_count: { $sum: 1 }
+                        }
+                    },
+                    {
+                        $project: {
+                            month: "$_id",
+                            credential_count: 1,
+                            _id: 0
+                        }
+                    },
+                    { $sort: { month: -1 } }
                 ]
-            }
-        }
-        },
-        {
-            $group: {
-                _id: "$_id",
-                email: { $first: "$email" },
-                password: { $first: "$password" },
-                name: { $first: "$name" },
-                callback: { $first: "$callback" },
-                remoteId: { $first: "$remoteId" },
-                bearer: { $first: "$bearer" },
-                theme: { $first: "$theme" },
-                subscribedCollectors: { $first: "$subscribedCollectors" },
-                isSubscribedToAll: { $first: "$isSubscribedToAll" },
-                displaySketchCollectors: { $first: "$displaySketchCollectors" },
-                maxDelayBetweenCollect: { $first: "$maxDelayBetweenCollect" },
-                plan: { $first: "$plan" },
-                usersSet: { $addToSet: "$users._id" },
-                credentialsSet: { $addToSet: "$credentials._id" },
-                invoicesCount: { $sum: "$invoicesThisMonth" }
-            }
-        },
-        {
-            $addFields: {
-                stats: {
-                    users: { $size: "$usersSet" },
-                    credentials: { $size: "$credentialsSet" },
-                    invoicesThisMonth: "$invoicesCount"
-                }
             }
         }
     ];
