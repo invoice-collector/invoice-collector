@@ -239,6 +239,36 @@ app.post('/api/v1/user', async (req, res) => {
 });
 
 // BEARER AUTHENTICATION
+app.get('/api/v1/user/:user_id', async (req, res) => {
+    try {
+        // Get user
+        console.log('GET user');
+        const response = await server.get_user(req.headers.authorization, req.params.user_id);
+
+        // Build response
+        res.setHeader('Content-Type', 'application/json');
+        res.end(JSON.stringify(response));
+    } catch (e) {
+        handle_error(e, req, res);
+    }
+});
+
+// BEARER AUTHENTICATION
+app.get('/api/v1/user', async (req, res) => {
+    try {
+        // Get user
+        console.log('GET user');
+        const response = await server.get_user(req.headers.authorization, undefined);
+
+        // Build response
+        res.setHeader('Content-Type', 'application/json');
+        res.end(JSON.stringify(response));
+    } catch (e) {
+        handle_error(e, req, res);
+    }
+});
+
+// BEARER AUTHENTICATION
 app.delete('/api/v1/user/:user_id', async (req, res) => {
     try {
         // Delete user
@@ -274,7 +304,7 @@ app.get('/api/v1/credentials', async (req, res) => {
     try {
         // Get credentials
         console.log(`GET credentials`);
-        const credentials = await server.get_credentials(undefined, undefined, req.query.token)
+        const credentials = await server.get_credentials(req.headers.authorization, undefined, req.query.token)
 
         // Build response
         res.setHeader('Content-Type', 'application/json');
@@ -312,7 +342,7 @@ app.post('/api/v1/credential', async (req, res) => {
         // Save credential
         console.log(`POST credential`);
         const response = await server.post_credential(
-            undefined,
+            req.headers.authorization,
             undefined,
             req.query.token,
             req.body.collector,
@@ -346,7 +376,7 @@ app.get('/api/v1/user/:user_id/credential/:credential_id', async (req, res) => {
 app.get('/api/v1/credential/:credential_id', async (req, res) => {
     try {
         // Get credential status
-        const response = await server.get_credential(undefined, undefined, req.query.token, req.params.credential_id);
+        const response = await server.get_credential(req.headers.authorization, undefined, req.query.token, req.params.credential_id);
 
         // Build response
         res.setHeader('Content-Type', 'application/json');
@@ -375,7 +405,7 @@ app.delete('/api/v1/credential/:credential_id', async (req, res) => {
     try {
         // Delete credential
         console.log(`DELETE credential ${req.params.credential_id}`);
-        await server.delete_credential(undefined, undefined, req.query.token, req.params.credential_id);
+        await server.delete_credential(req.headers.authorization, undefined, req.query.token, req.params.credential_id);
 
         // Build response
         res.end()
@@ -403,7 +433,7 @@ app.post('/api/v1/credential/:credential_id/2fa', async (req, res) => {
     try {
         // Post 2fa
         console.log(`POST 2fa ${req.params.credential_id} (DEPRECATED, use websockets instead)`);
-        await server.post_credential_2fa(undefined, undefined, req.query.token, req.params.credential_id, req.body.code);
+        await server.post_credential_2fa(req.headers.authorization, undefined, req.query.token, req.params.credential_id, req.body.code);
 
         // Build response
         res.end()
@@ -432,7 +462,7 @@ app.post('/api/v1/credential/:credential_id/collect', async (req, res) => {
     try {
         // Post collect
         console.log(`POST collect ${req.params.credential_id}`);
-        const response = await server.post_credential_collect(undefined, undefined, req.query.token, req.params.credential_id);
+        const response = await server.post_credential_collect(req.headers.authorization, undefined, req.query.token, req.params.credential_id);
 
         // Build response
         res.setHeader('Content-Type', 'application/json');

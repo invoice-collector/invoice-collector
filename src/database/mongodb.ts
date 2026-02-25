@@ -187,6 +187,7 @@ export class MongoDB extends AbstractDatabase {
             let user = new User(
                 document.customer_id.toString(),
                 document.remote_id,
+                document.password,
                 document.location,
                 document.locale,
                 document.createdAt
@@ -209,6 +210,30 @@ export class MongoDB extends AbstractDatabase {
         let user = new User(
             document.customer_id.toString(),
             document.remote_id,
+            document.password,
+            document.location,
+            document.locale,
+            document.createdAt
+        );
+        user.id = document._id.toString();
+        return user;
+    }
+
+    async getUserFromRemoteIdAndPassword(remoteId: string, password: string): Promise<User|null> {
+        if (!this.db) {
+            throw new Error("Database is not connected");
+        }
+        const document = await this.db.collection(MongoDB.USER_COLLECTION).findOne({
+            remote_id: remoteId,
+            password: password
+        });
+        if (!document) {
+            return null;
+        }
+        let user = new User(
+            document.customer_id.toString(),
+            document.remote_id,
+            document.password,
             document.location,
             document.locale,
             document.createdAt
@@ -231,6 +256,7 @@ export class MongoDB extends AbstractDatabase {
         let user = new User(
             document.customer_id.toString(),
             document.remote_id,
+            document.password,
             document.location,
             document.locale,
             document.createdAt
@@ -253,6 +279,7 @@ export class MongoDB extends AbstractDatabase {
         let user = new User(
             document.customer_id.toString(),
             document.remote_id,
+            document.password,
             document.location,
             document.locale,
             document.createdAt
@@ -268,6 +295,7 @@ export class MongoDB extends AbstractDatabase {
         const document = await this.db.collection(MongoDB.USER_COLLECTION).insertOne({
             customer_id: new ObjectId(user.customer_id),
             remote_id: user.remote_id,
+            password: user.password,
             location: user.location,
             locale: user.locale,
             createdAt: user.createdAt
@@ -285,6 +313,7 @@ export class MongoDB extends AbstractDatabase {
             { $set: {
                 customer_id: new ObjectId(user.customer_id),
                 remote_id: user.remote_id,
+                password: user.password,
                 location: user.location,
                 locale: user.locale
             }}

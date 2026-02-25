@@ -5,11 +5,36 @@ import { SecretManagerFactory } from "../secret_manager/secretManagerFactory";
 import { IcCredential } from "./credential";
 import { Customer } from "./customer";
 
+export enum UserStatus {
+    ACTIVE = "active",
+    PENDING = "pending",
+    ERROR = "error"
+}
+
+export interface UserStats {
+    credentials: number;
+    invoices: number;
+    status: UserStatus;
+}
+
 export class User {
+
+    static DEFAULT_PASSWORD = "";
+
+    static async fromId(id: string): Promise<User|null> {
+        // Get user from id
+        return await DatabaseFactory.getDatabase().getUser(id);
+    }
+
+    static async fromRemoteIdAndPassword(remoteId: string, password: string): Promise<User|null> {
+        // Get user from remote_id and password
+        return await DatabaseFactory.getDatabase().getUserFromRemoteIdAndPassword(remoteId, password);
+    }
 
     id: string;
     customer_id: string;
     remote_id: string;
+    password: string;
     location: Location | null;
     locale: string;
     createdAt: number;
@@ -17,13 +42,15 @@ export class User {
     constructor(
         customer_id: string,
         remote_id: string,
+        password: string,
         location: Location | null,
         locale: string,
-        createdAt: number = Date.now(),
+        createdAt: number,
     ) {
         this.id = "";
         this.customer_id = customer_id;
         this.remote_id = remote_id;
+        this.password = password;
         this.location = location;
         this.locale = locale;
         this.createdAt = createdAt;
@@ -73,5 +100,29 @@ export class User {
 
         // Delete the user
         await DatabaseFactory.getDatabase().deleteUser(this.id);
+    }
+
+    async getStats(): Promise<UserStats> {
+        // Get credentials
+        const credentials = await this.getCredentials();
+
+        // Get invoices count
+        const invoices = credentials.reduce((acc, credential) => acc + credential.invoices.length, 0);
+
+        // Compute status
+        let status = UserStatus.ACTIVE;
+        if(credentials.length === 0) {
+            status = UserStatus.PENDING;
+        }
+        else if (credentials.some(credential => credential.state.isError())) {
+            status = UserStatus.ERROR;
+        }
+
+        // Return stats
+        return {
+            credentials: credentials.length,
+            invoices: invoices,
+            status: status
+        };
     }
 }

@@ -10,7 +10,8 @@ import { CompleteInvoice } from './collectors/abstractCollector';
 const FAKE_INVOICE_FILE = path.resolve(__dirname, '../data/fake_invoice.pdf');
 
 export enum BearerType {
-    SESSION = "sess",
+    CUSTOMER_SESSION = "c_sess",
+    USER_SESSION = "u_sess",
     API = "api"
 }
 

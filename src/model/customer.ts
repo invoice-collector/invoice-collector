@@ -41,6 +41,11 @@ export class Customer {
         return customer;
     }
 
+    static async fromId(id: string): Promise<Customer|null> {
+        // Get customer from id
+        return await DatabaseFactory.getDatabase().getCustomer(id);
+    }
+
     static async fromEmail(email: string): Promise<Customer|null> {
         // Get customer from email
         return await DatabaseFactory.getDatabase().getCustomerFromEmail(email);
