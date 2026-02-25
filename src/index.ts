@@ -111,10 +111,32 @@ app.post('/api/v1/signup', async (req, res) => {
     try {
         // Perform signup
         console.log('POST signup');
-        await server.post_signup(req.body.email, req.body.name);
+        const response = await server.post_signup(
+            req.body.email,
+            req.body.name,
+            req.body.cid,
+            req.body.locale,
+            req.body.inviteId,
+        );
 
         // Build response
-        res.end()
+        res.setHeader('Content-Type', 'application/json');
+        res.end(JSON.stringify(response));
+    } catch (e) {
+        handle_error(e, req, res);
+    }
+});
+
+// NO AUTHENTICATION
+app.post('/api/v1/forgot', async (req, res) => {
+    try {
+        // Perform forgot password
+        console.log('POST forgot');
+        const response = await server.post_forgot(req.body.email);
+
+        // Build response
+        res.setHeader('Content-Type', 'application/json');
+        res.end(JSON.stringify(response));
     } catch (e) {
         handle_error(e, req, res);
     }
@@ -161,6 +183,7 @@ app.post('/api/v1/customer', async (req, res) => {
             req.body.name,
             req.body.callback,
             req.body.remoteId,
+            req.body.cid,
             req.body.theme,
             req.body.subscribedCollectors,
             req.body.isSubscribedToAll,

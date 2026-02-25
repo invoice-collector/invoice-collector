@@ -216,51 +216,148 @@ export class Server {
     // NO AUTHENTICATION
     public async post_signup(
         email: string | undefined,
-        name: string | undefined
-    ): Promise<void> {
+        name: string | undefined,
+        cid: string | undefined,
+        locale: string | undefined,
+        inviteId: string | undefined
+    ): Promise<{
+        resetLink: string
+    }> {
         // Check if email field is missing
         if(!email) {
             throw new MissingField("email");
         }
 
+        // Check if name field is missing
+        if(!name) {
+            throw new MissingField("name");
+        }
+
+        // Check if cid field is missing
+        if(!cid) {
+            throw new MissingField("cid");
+        }
+
+        // Check if email is valid
+        if(!utils.checkEmailIsValid(email)) {
+            throw new StatusError(`Email "${email}" is not valid.`, 400);
+        }
+
+        // Check if email contains alias
+        if(email.includes("+")) {
+            throw new StatusError(`Email "${email}" is not valid. Aliases are not allowed.`, 400);
+        }
+
         // Check if customer already exists
         let customer = await Customer.fromEmail(email);
 
-        // If customer does not exist, create it
-        if(!customer) {
-            // Check if name field is missing
-            if(!name) {
-                throw new MissingField("name");
+        // Check if user already exists
+        let user = await User.fromRemoteId(email);
+
+        // If customer or user exists, raise error
+        if(customer || user) {
+            throw new StatusError(`An account with email "${email}" already exists. Please log in instead.`, 400);
+        }
+
+        // If inviteId is provided, it is a user signup
+        if (inviteId) {
+            // Get customer id from invite id
+            customer = await Customer.fromInviteId(inviteId);
+
+            // If no customer found for invite id, raise error
+            if (!customer) {
+                throw new StatusError(`No customer found for invite ID "${inviteId}".`, 400);
             }
 
-            // Check if email is valid
-            if(email.includes("+")) {
-                throw new StatusError(`Email "${email}" is not valid. Aliases are not allowed.`, 400);
-            }
+            // Create new user for existing customer
+            user = new User(
+                customer.id,
+                email,
+                User.DEFAULT_PASSWORD,
+                name,
+                cid,
+                null,
+                locale || I18n.DEFAULT_LOCALE,
+                Date.now()
+            );
 
+            // Commit changes in database
+            await user.commit();
+
+            // Send welcome email
+            await RegistryServer.getInstance().sendWelcomeEmail(email, user.locale);
+
+            // Handle password reset for user
+            const resetLink = await this.handleUserResetPassword(user);
+
+            // Return reset link
+            return { resetLink };
+        }
+        else {
             // Create new customer
-            customer = new Customer(email, "", name, "", "", "");
+            customer = new Customer(
+                email,
+                Customer.DEFAULT_PASSWORD,
+                name,
+                cid,
+                Customer.DEFAULT_CALLBACK,
+                Customer.DEFAULT_REMOTE_ID,
+                Customer.DEFAULT_BEARER,
+                utils.convertNameToInviteId(name),
+                Date.now()
+            );
 
             // Commit changes in database
             await customer.commit();
 
             // Send welcome email
-            await RegistryServer.getInstance().sendWelcomeEmail(email, "en");
+            await RegistryServer.getInstance().sendWelcomeEmail(email, locale || I18n.DEFAULT_LOCALE);
+
+            // Handle password reset for customer
+            const resetLink = await this.handleCustomerResetPassword(customer);
+
+            // Return reset link
+            return { resetLink };
+        }
+    }
+
+    // NO AUTHENTICATION
+    public async post_forgot(
+        email: string | undefined
+    ): Promise<{
+        resetLink: string
+    }> {
+        // Check if email field is missing
+        if(!email) {
+            throw new MissingField("email");
         }
 
-        // Generate reset token
-        const resetToken = utils.generate_token();
+        // Get customer from email
+        let customer = await Customer.fromEmail(email);
 
-        // Map reset token with customer
-        this.customerResetTokens[resetToken] = customer.id;
+        // If customer exists
+        if(customer) {
+            // Generate reset token
+            const resetLink = await this.handleCustomerResetPassword(customer);
 
-        // Schedule token delete after validity duration
-        setTimeout(() => {
-            delete this.customerResetTokens[resetToken];
-        }, Server.RESET_PASSWORD_TOKEN_VALIDITY_DURATION_MS);
+            // Return reset link
+            return { resetLink };
+        }
 
-        // Send reset password email
-        await RegistryServer.getInstance().sendResetPasswordEmail(email, resetToken);
+        // Check if customer already exists
+        let user = await User.fromRemoteId(email);
+
+        // If user exists
+        if(user) {
+            // Generate reset token and return it
+            const resetLink = await this.handleUserResetPassword(user);
+
+            // Return reset link
+            return { resetLink };
+        }
+
+        // If not customer or user found, raise error
+        throw new StatusError(`No account found for email "${email}".`, 400);
     }
 
     // RESET TOKEN AUTHENTICATION
@@ -331,6 +428,8 @@ export class Server {
         name: string,
         callback: string,
         remoteId: string,
+        cid: string,
+        inviteId: string,
         createdAt: number,
         theme: string,
         subscribedCollectors: string[],
@@ -349,6 +448,8 @@ export class Server {
             name: customer.name,
             callback: customer.callback,
             remoteId: customer.remoteId,
+            cid: customer.cid,
+            inviteId: customer.inviteId,
             createdAt: customer.createdAt,
             theme: customer.theme,
             subscribedCollectors: customer.subscribedCollectors,
@@ -366,6 +467,7 @@ export class Server {
         name: string | undefined,
         callback: string | undefined,
         remoteId: string | undefined,
+        cid: string | undefined,
         theme: string | undefined,
         subscribedCollectors: string[] | undefined,
         isSubscribedToAll: boolean | undefined,
@@ -388,6 +490,11 @@ export class Server {
         // Check if remoteId field is present
         if(remoteId) {
             customer.remoteId = remoteId;
+        }
+
+        // Check if cid field is present
+        if(cid) {
+            customer.cid = cid;
         }
 
         // Check if theme field is present
@@ -454,6 +561,8 @@ export class Server {
         id: string,
         customer_id: string,
         remote_id: string,
+        name: string,
+        cid: string,
         locale: string,
         createdAt: number,
         stats: UserStats
@@ -474,6 +583,8 @@ export class Server {
                 id: user.id,
                 customer_id: user.customer_id,
                 remote_id: user.remote_id,
+                name: user.name,
+                cid: user.cid,
                 locale: user.locale,
                 createdAt: user.createdAt,
                 stats: stats
@@ -491,6 +602,8 @@ export class Server {
         id: string,
         customer_id: string,
         remote_id: string,
+        name: string,
+        cid: string,
         locale: string,
         createdAt: number,
         token: string,
@@ -535,7 +648,16 @@ export class Server {
             // Get user location
             const location = await ProxyFactory.getProxy().locate(ip);
             // Create user
-            user = new User(customer.id, remote_id, User.DEFAULT_PASSWORD, location, locale, Date.now());
+            user = new User(
+                customer.id,
+                remote_id,
+                User.DEFAULT_PASSWORD,
+                User.DEFAULT_NAME,
+                User.DEFAULT_CID,
+                location,
+                locale,
+                Date.now()
+            );
         }
         else {
             // Update user locale
@@ -572,6 +694,8 @@ export class Server {
             id: user.id,
             customer_id: user.customer_id,
             remote_id: user.remote_id,
+            name: user.name,
+            cid: user.cid,
             locale: user.locale,
             createdAt: user.createdAt,
             token: uiToken,
@@ -582,28 +706,20 @@ export class Server {
     // BEARER AUTHENTICATION
     public async get_user(bearer: string | undefined, user_id: string | undefined): Promise<{
         id: string,
+        customer_id: string,
         remote_id: string,
+        name: string,
+        cid: string,
         locale: string,
         createdAt: number,
-        resetToken: string,
         customer: {
-            name: string
+            name: string,
+            cid: string
         },
         stats: UserStats
     }> {
         // Get user from bearer
         const user = await this.getUserFromBearerOrToken(bearer, user_id, null);
-
-        // Generate user reset token
-        const resetToken = utils.generate_token();
-
-        // Map reset token with user
-        this.userResetTokens[resetToken] = user.id;
-
-        // Schedule token delete after validity duration
-        setTimeout(() => {
-            delete this.userResetTokens[resetToken];
-        }, Server.RESET_PASSWORD_TOKEN_VALIDITY_DURATION_MS);
 
         // Get customer from user
         const customer = await user.getCustomer();
@@ -614,12 +730,15 @@ export class Server {
         // Return user
         return {
             id: user.id,
+            customer_id: user.customer_id,
             remote_id: user.remote_id,
+            name: user.name,
+            cid: user.cid,
             locale: user.locale,
             createdAt: user.createdAt,
-            resetToken: resetToken,
             customer: {
-                name: customer.name
+                name: customer.name,
+                cid: customer.cid
             },
             stats: stats
         };
@@ -1281,5 +1400,37 @@ export class Server {
         }
 
         return user;
+    }
+
+    private async handleUserResetPassword(user: User): Promise<string> {
+        // Generate reset token
+        const resetToken = utils.generate_token();
+
+        // Map reset token with user
+        this.userResetTokens[resetToken] = user.id;
+
+        // Schedule token delete after validity duration
+        setTimeout(() => {
+            delete this.userResetTokens[resetToken];
+        }, Server.RESET_PASSWORD_TOKEN_VALIDITY_DURATION_MS);
+
+        // Send reset password email
+        return await RegistryServer.getInstance().sendResetPasswordEmail(user.remote_id, resetToken);
+    }
+
+    private async handleCustomerResetPassword(customer: Customer): Promise<string> {
+        // Generate reset token
+        const resetToken = utils.generate_token();
+
+        // Map reset token with customer
+        this.customerResetTokens[resetToken] = customer.id;
+
+        // Schedule token delete after validity duration
+        setTimeout(() => {
+            delete this.customerResetTokens[resetToken];
+        }, Server.RESET_PASSWORD_TOKEN_VALIDITY_DURATION_MS);
+
+        // Send reset password email
+        return await RegistryServer.getInstance().sendResetPasswordEmail(customer.email, resetToken);
     }
 }

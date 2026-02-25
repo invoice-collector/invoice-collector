@@ -75,12 +75,14 @@ export class MongoDB extends AbstractDatabase {
             throw new Error("Database is not connected");
         }
         const document = await this.db.collection(MongoDB.CUSTOMER_COLLECTION).insertOne({
-            name: customer.name,
             email: customer.email,
             password: customer.password,
+            name: customer.name,
+            cid: customer.cid,
             callback: customer.callback,
             remoteId: customer.remoteId,
             bearer: customer.bearer,
+            inviteId: customer.inviteId,
             createdAt: customer.createdAt,
             theme: customer.theme,
             subscribedCollectors: customer.subscribedCollectors,
@@ -106,9 +108,11 @@ export class MongoDB extends AbstractDatabase {
             document.email,
             document.password,
             document.name,
+            document.cid,
             document.callback,
             document.remoteId,
             document.bearer,
+            document.inviteId,
             document.createdAt,
             document.theme,
             document.subscribedCollectors,
@@ -133,6 +137,10 @@ export class MongoDB extends AbstractDatabase {
     async getCustomerFromEmailAndPassword(email: string, password: string): Promise<Customer|null> {
         return await this.getCustomerFromMatcher({ email, password });
     }
+    
+    async getCustomerFromInviteId(inviteId: string): Promise<Customer|null> {
+        return await this.getCustomerFromMatcher({ inviteId });
+    }
 
     async getCustomer(customer_id: string): Promise<Customer|null> {
         return await this.getCustomerFromMatcher({ _id: new ObjectId(customer_id) });
@@ -148,6 +156,7 @@ export class MongoDB extends AbstractDatabase {
                 email: customer.email,
                 password: customer.password,
                 name: customer.name,
+                cid: customer.cid,
                 callback: customer.callback,
                 remoteId: customer.remoteId,
                 bearer: customer.bearer,
@@ -188,6 +197,8 @@ export class MongoDB extends AbstractDatabase {
                 document.customer_id.toString(),
                 document.remote_id,
                 document.password,
+                document.name,
+                document.cid,
                 document.location,
                 document.locale,
                 document.createdAt
@@ -197,13 +208,11 @@ export class MongoDB extends AbstractDatabase {
         });
     }
 
-    async getUser(user_id: string): Promise<User|null> {
+    private async getUserFromMatcher(matcher: object): Promise<User|null> {
         if (!this.db) {
             throw new Error("Database is not connected");
         }
-        const document = await this.db.collection(MongoDB.USER_COLLECTION).findOne({
-            _id: new ObjectId(user_id)
-        });
+        const document = await this.db.collection(MongoDB.USER_COLLECTION).findOne(matcher);
         if (!document) {
             return null;
         }
@@ -211,81 +220,43 @@ export class MongoDB extends AbstractDatabase {
             document.customer_id.toString(),
             document.remote_id,
             document.password,
+            document.name,
+            document.cid,
             document.location,
             document.locale,
             document.createdAt
         );
         user.id = document._id.toString();
         return user;
+    }
+
+    async getUser(user_id: string): Promise<User|null> {
+        return await this.getUserFromMatcher({ _id: new ObjectId(user_id) });
+    }
+
+    async getUserFromRemoteId(remoteId: string): Promise<User|null> {
+        return await this.getUserFromMatcher({ remote_id: remoteId });
     }
 
     async getUserFromRemoteIdAndPassword(remoteId: string, password: string): Promise<User|null> {
-        if (!this.db) {
-            throw new Error("Database is not connected");
-        }
-        const document = await this.db.collection(MongoDB.USER_COLLECTION).findOne({
+        return await this.getUserFromMatcher({
             remote_id: remoteId,
             password: password
         });
-        if (!document) {
-            return null;
-        }
-        let user = new User(
-            document.customer_id.toString(),
-            document.remote_id,
-            document.password,
-            document.location,
-            document.locale,
-            document.createdAt
-        );
-        user.id = document._id.toString();
-        return user;
     }
 
     async getUserFromCustomerIdAndRemoteId(customer_id: string, remote_id: string): Promise<User|null> {
-        if (!this.db) {
-            throw new Error("Database is not connected");
-        }
-        const document = await this.db.collection(MongoDB.USER_COLLECTION).findOne({
+        return await this.getUserFromMatcher({
             customer_id: new ObjectId(customer_id),
             remote_id
         });
-        if (!document) {
-            return null;
-        }
-        let user = new User(
-            document.customer_id.toString(),
-            document.remote_id,
-            document.password,
-            document.location,
-            document.locale,
-            document.createdAt
-        );
-        user.id = document._id.toString();
-        return user;
     }
 
     async getUserBellongingToCustomer(user_id: string, customer_id: string): Promise<User|null> {
-        if (!this.db) {
-            throw new Error("Database is not connected");
-        }
-        const document = await this.db.collection(MongoDB.USER_COLLECTION).findOne({
+        return await this.getUserFromMatcher({
             _id: new ObjectId(user_id),
             customer_id: new ObjectId(customer_id)
         });
-        if (!document) {
-            return null;
-        }
-        let user = new User(
-            document.customer_id.toString(),
-            document.remote_id,
-            document.password,
-            document.location,
-            document.locale,
-            document.createdAt
-        );
-        user.id = document._id.toString();
-        return user;
     }
 
     async createUser(user: User): Promise<User> {
@@ -296,6 +267,8 @@ export class MongoDB extends AbstractDatabase {
             customer_id: new ObjectId(user.customer_id),
             remote_id: user.remote_id,
             password: user.password,
+            name: user.name,
+            cid: user.cid,
             location: user.location,
             locale: user.locale,
             createdAt: user.createdAt
@@ -314,6 +287,8 @@ export class MongoDB extends AbstractDatabase {
                 customer_id: new ObjectId(user.customer_id),
                 remote_id: user.remote_id,
                 password: user.password,
+                name: user.name,
+                cid: user.cid,
                 location: user.location,
                 locale: user.locale
             }}

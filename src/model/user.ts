@@ -20,10 +20,17 @@ export interface UserStats {
 export class User {
 
     static DEFAULT_PASSWORD = "";
+    static DEFAULT_NAME = "";
+    static DEFAULT_CID = "";
 
     static async fromId(id: string): Promise<User|null> {
         // Get user from id
         return await DatabaseFactory.getDatabase().getUser(id);
+    }
+
+    static async fromRemoteId(remoteId: string): Promise<User|null> {
+        // Get user from remote_id
+        return await DatabaseFactory.getDatabase().getUserFromRemoteId(remoteId);
     }
 
     static async fromRemoteIdAndPassword(remoteId: string, password: string): Promise<User|null> {
@@ -35,6 +42,8 @@ export class User {
     customer_id: string;
     remote_id: string;
     password: string;
+    name: string;
+    cid: string;
     location: Location | null;
     locale: string;
     createdAt: number;
@@ -43,6 +52,8 @@ export class User {
         customer_id: string,
         remote_id: string,
         password: string,
+        name: string,
+        cid: string,
         location: Location | null,
         locale: string,
         createdAt: number,
@@ -51,6 +62,8 @@ export class User {
         this.customer_id = customer_id;
         this.remote_id = remote_id;
         this.password = password;
+        this.name = name;
+        this.cid = cid;
         this.location = location;
         this.locale = locale;
         this.createdAt = createdAt;
