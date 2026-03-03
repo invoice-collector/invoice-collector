@@ -48,7 +48,7 @@ export class CallbackHandler {
         if (this.callback) {
             await this.sendRequest({
                 type: "invoice",
-                collector: collector.id,
+                collector: collector,
                 remote_id: remote_id,
                 invoice: {
                     id: invoice.id,
@@ -73,7 +73,7 @@ export class CallbackHandler {
         if (this.callback) {
             await this.sendRequest({
                 type: "notification_disconnected",
-                collector: collector.id,
+                collector: collector,
                 credential_id: credential_id,
                 user_id: user_id,
                 remote_id: remote_id
