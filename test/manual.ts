@@ -207,8 +207,6 @@ function getHashFromSecret(secret: Secret): string {
                     rl.on('line', (input) => {
                         // Send close message to server
                         webSocketClient.send(JSON.stringify({ type: 'interactive', reason: 'close' }));
-                        // Close readline interface
-                        rl.close();
                     });
                 }
                 else if(parsedData.type == "state" && parsedData.state.index == 3) {
