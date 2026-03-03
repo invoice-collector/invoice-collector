@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { Customer } from '../model/customer';
-import { CompleteInvoice } from '../collectors/abstractCollector';
+import { CompleteInvoice, Config } from '../collectors/abstractCollector';
 import * as utils from '../utils';
 
 export class CallbackHandler {
@@ -44,11 +44,11 @@ export class CallbackHandler {
         throw lastError;
     }
 
-    async sendInvoice(collector_id: string, remote_id: string, invoice: CompleteInvoice): Promise<void> {
+    async sendInvoice(collector: Config, remote_id: string, invoice: CompleteInvoice): Promise<void> {
         if (this.callback) {
             await this.sendRequest({
                 type: "invoice",
-                collector: collector_id,
+                collector: collector,
                 remote_id: remote_id,
                 invoice: {
                     id: invoice.id,
@@ -68,12 +68,12 @@ export class CallbackHandler {
         }
     }
 
-    async sendNotificationDisconnected(collector_id: string, credential_id: string,  user_id: string, remote_id: string): Promise<void> {
+    async sendNotificationDisconnected(collector: Config, credential_id: string,  user_id: string, remote_id: string): Promise<void> {
         console.log(`Sending disconnected notification to callback ${this.callback} for credential ${credential_id}`);
         if (this.callback) {
             await this.sendRequest({
                 type: "notification_disconnected",
-                collector: collector_id,
+                collector: collector,
                 credential_id: credential_id,
                 user_id: user_id,
                 remote_id: remote_id

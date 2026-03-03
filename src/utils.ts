@@ -5,7 +5,7 @@ import * as crypto from 'crypto';
 import date_fns from 'date-fns';
 import { PDFDocument } from 'pdf-lib';
 import { fr, enGB, enUS } from 'date-fns/locale';
-import { CompleteInvoice } from './collectors/abstractCollector';
+import { CollectorState, CollectorType, CompleteInvoice, Config } from './collectors/abstractCollector';
 
 const FAKE_INVOICE_FILE = path.resolve(__dirname, '../data/fake_invoice.pdf');
 
@@ -178,7 +178,11 @@ export function getEnvVar(envVar: string, fallback: string | undefined = undefin
     return value;
 }
 
-export function createFakeInvoice(): { collector_id: string, remote_id: string, invoice: CompleteInvoice } {
+export function createFakeInvoice(): {
+        collector: Config,
+        remote_id: string,
+        invoice: CompleteInvoice
+    } {
     const data = fs.readFileSync(FAKE_INVOICE_FILE, {encoding: 'base64'});
     const invoice = {
         id: "INV-3337",
@@ -193,23 +197,51 @@ export function createFakeInvoice(): { collector_id: string, remote_id: string, 
         collected_timestamp: Date.now()
     };
     return {
-        collector_id: "sliced_invoices",
+        collector: createFakeCollectorConfig(),
         remote_id: "R121439",
         invoice
     }
 }
 
 export function createFakeNotificationDisconnected(): {
-        collector_id: string,
+        collector: Config,
         credential_id: string,
         user_id: string,
         remote_id: string
     } {
     return {
-        collector_id: "sliced_invoices",
+        collector: createFakeCollectorConfig(),
         credential_id: "6776b5258821de266afbc3f6",
         user_id: "687108e5dce5050bc8ca53c1",
         remote_id: "R121439",
+    };
+}
+
+export function createFakeCollectorConfig(): Config {
+    return {
+        id: "sliced_invoices",
+        name: "Sliced Invoices",
+        description: "A fake collector for testing purposes",
+        instructions: "Follow the instructions",
+        version: "12",
+        website: "https://slicedinvoices.com",
+        logo: "https://slicedinvoices.com/wp-content/uploads/2018/04/sliced-invoices-logo-1.png",
+        type: CollectorType.WEB,
+        params: {
+            email: {
+                type: "email",
+                name: "i18n.collectors.all.email",
+                placeholder: "i18n.collectors.all.email.placeholder",
+                mandatory: true
+            },
+            password: {
+                type: "password",
+                name: "i18n.collectors.all.password",
+                placeholder: "i18n.collectors.all.password.placeholder",
+                mandatory: true
+            }
+        },
+        state: CollectorState.ACTIVE
     };
 }
 

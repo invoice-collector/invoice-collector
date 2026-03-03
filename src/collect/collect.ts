@@ -101,7 +101,7 @@ export class Collect {
                             try {
                                 // Send invoice to callback
                                 const callback = new CallbackHandler(customer);
-                                await callback.sendInvoice(credential.collector_id, user.remote_id, invoice);
+                                await callback.sendInvoice(collector.config, user.remote_id, invoice);
 
                                 // Add invoice to credential only if callback successfully reached
                                 credential.addInvoice(invoice);
@@ -181,13 +181,13 @@ export class Collect {
             else if (err instanceof AuthenticationError || err instanceof DisconnectedError) {
                 console.warn(`Invoice collection for credential ${this.credential_id} has failed: ${err.message}`);
                 // If credential exists
-                if (credential && user && customer) {
+                if (credential && user && customer && collector) {
                     // If error occurs and previous collect was successful, send notification
                     if (credential.state.index >= credential.state.max) {
                         // Send disconnected notification to callback without waiting
                         // If it fails, it will be logged
                         const callback = new CallbackHandler(customer);
-                        callback.sendNotificationDisconnected(credential.collector_id, credential.id, user.id, user.remote_id)
+                        callback.sendNotificationDisconnected(collector.config, credential.id, user.id, user.remote_id)
                             .catch((error) => {
                                 console.error(error);
                             });
