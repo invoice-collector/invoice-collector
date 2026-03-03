@@ -18,7 +18,7 @@ export const OpenaiSelectors = {
         info: "email error container"
     },
     FIELD_PASSWORD: {
-        selector: "input[autocomplete='current-password']",
+        selector: "input[name='current-password']",
         info: "password input field"
     },
     BUTTON_PASSWORD_CONTINUE: {
