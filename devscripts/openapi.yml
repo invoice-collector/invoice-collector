@@ -25,6 +25,24 @@ components:
       name: token
       description: UI token obtained from POST /user
   schemas:
+    email:
+      type: string
+      description: Email address.
+      format: email
+      example: customer@example.com
+    password:
+      type: string
+      description: Password.
+      format: password
+      example: securepassword123!
+    name:
+      type: string
+      description: Company name or user name.
+      example: Awesome Company Name
+    cid:
+      type: string
+      description: Company Identification Number.
+      example: C123456
     locale:
       type: string
       description: Language of the user.
@@ -33,6 +51,10 @@ components:
         - fr
       default: en
       example: fr
+    inviteId:
+      type: string
+      description: If provided, creates a user under the customer matching this invite ID
+      example: awesome-comany-xyz
     bearerResponse:
       type: object
       properties:
@@ -40,8 +62,16 @@ components:
           type: string
           description: Bearer token to be used in the Authorization header.
           example: qHcFyrYj.....yQ77/q0=
+        type:
+          type: string
+          description: Type of the bearer token.
+          enum:
+            - customer
+            - user
+          example: customer
       required:
         - bearer
+        - type
     remoteId:
       type: string
       description: Remote id of the user.
@@ -336,9 +366,7 @@ components:
           description: Id of the customer.
           example: 6795130f170ba4496dc30642
         email:
-          type: string
-          description: Email of the customer.
-          example: customer@company.com
+          $ref: "#/components/schemas/email"
         name:
           type: string
           description: Name of the customer.
@@ -543,6 +571,20 @@ components:
         - collected_timestamp
         - link
         - data
+    feedback:
+      type: object
+      required:
+        - type
+        - message
+      properties:
+        type:
+          type: string
+          description: Type of feedback.
+          example: custom
+        message:
+          type: string
+          description: Feedback message.
+          example: This is a feedback message.
 tags:
   - name: General
     description: General endpoints (UI, callbacks, feedback)
@@ -704,15 +746,7 @@ paths:
         content:
           application/json:
             schema:
-              type: object
-              required:
-                - type
-                - message
-              properties:
-                type:
-                  type: string
-                message:
-                  type: string
+              $ref: "#/components/schemas/feedback"
       responses:
         "200":
           description: Feedback sent successfully
@@ -752,25 +786,16 @@ paths:
                 - password
               properties:
                 email:
-                  type: string
-                  format: email
+                  $ref: "#/components/schemas/email"
                 password:
-                  type: string
+                  $ref: "#/components/schemas/password"
       responses:
         "200":
           description: Login successful
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  bearer:
-                    type: string
-                  type:
-                    type: string
-                    enum:
-                      - customer
-                      - user
+                $ref: "#/components/schemas/bearerResponse"
         "400":
           description: Missing field
           content:
@@ -807,18 +832,15 @@ paths:
                 - cid
               properties:
                 email:
-                  type: string
-                  format: email
+                  $ref: "#/components/schemas/email"
                 name:
-                  type: string
+                  $ref: "#/components/schemas/name"
                 cid:
-                  type: string
+                  $ref: "#/components/schemas/cid"
                 locale:
-                  type: string
+                  $ref: "#/components/schemas/locale"
                 inviteId:
-                  type: string
-                  description: If provided, creates a user under the customer matching this invite
-                    ID
+                  $ref: "#/components/schemas/inviteId"
       responses:
         "200":
           description: Signup successful
@@ -827,8 +849,8 @@ paths:
               schema:
                 type: object
                 properties:
-                  resetLink:
-                    type: string
+                  resetToken:
+                    $ref: "#/components/schemas/resetToken"
         "400":
           description: Validation error
           content:
@@ -857,18 +879,17 @@ paths:
                 - email
               properties:
                 email:
-                  type: string
-                  format: email
+                  $ref: "#/components/schemas/email"
       responses:
         "200":
-          description: Reset link sent
+          description: Success
           content:
             application/json:
               schema:
                 type: object
                 properties:
-                  resetLink:
-                    type: string
+                  resetToken:
+                    $ref: "#/components/schemas/resetToken"
         "400":
           description: Account not found or missing field
           content:

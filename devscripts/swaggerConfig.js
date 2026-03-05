@@ -1,3 +1,5 @@
+const { name } = require( 'ejs' );
+const { type } = require( 'os' );
 const path = require('path');
 
 const SWAGGER_DEFINITION = {
@@ -34,12 +36,39 @@ const SWAGGER_DEFINITION = {
             },
             schemas: {
                 // --- Simple / reusable type schemas ---
+                email: {
+                    type: 'string',
+                    description: 'Email address.',
+                    format: 'email',
+                    example: 'customer@example.com',
+                },
+                password: {
+                    type: 'string',
+                    description: 'Password.',
+                    format: 'password',
+                    example: 'securepassword123!',
+                },
+                name: {
+                    type: 'string',
+                    description: 'Company name or user name.',
+                    example: 'Awesome Company Name',
+                },
+                cid: {
+                    type: 'string',
+                    description: 'Company Identification Number.',
+                    example: 'C123456',
+                },
                 locale: {
                     type: 'string',
                     description: 'Language of the user.',
                     enum: ['en', 'fr'],
                     default: 'en',
                     example: 'fr',
+                },
+                inviteId: {
+                    type: 'string',
+                    description: 'If provided, creates a user under the customer matching this invite ID',
+                    example: 'awesome-comany-xyz',
                 },
                 bearerResponse: {
                     type: 'object',
@@ -49,8 +78,14 @@ const SWAGGER_DEFINITION = {
                             description: 'Bearer token to be used in the Authorization header.',
                             example: 'qHcFyrYj.....yQ77/q0=',
                         },
+                        type: {
+                            type: 'string',
+                            description: 'Type of the bearer token.',
+                            enum: ['customer', 'user'],
+                            example: 'customer',
+                        },
                     },
-                    required: ['bearer'],
+                    required: ['bearer', 'type'],
                 },
                 remoteId: {
                     type: 'string',
@@ -197,7 +232,7 @@ const SWAGGER_DEFINITION = {
                     type: 'object',
                     properties: {
                         id: { type: 'string', description: 'Id of the customer.', example: '6795130f170ba4496dc30642' },
-                        email: { type: 'string', description: 'Email of the customer.', example: 'customer@company.com' },
+                        email: { $ref: '#/components/schemas/email' },
                         name: { type: 'string', description: 'Name of the customer.', example: 'Awesome Company Name' },
                         callback: { type: 'string', description: 'Callback url at which the new invoices are sent.', example: 'https://your.infrastructure.com/path/to/callback' },
                         remoteId: { type: 'string', description: 'Remote id of your company in your system.', example: 'R121439' },
@@ -294,6 +329,14 @@ const SWAGGER_DEFINITION = {
                         mimetype: { type: 'string', description: 'MIME type of the invoice.', example: 'application/pdf' },
                     },
                     required: ['id', 'type', 'mimetype', 'timestamp', 'collected_timestamp', 'link', 'data'],
+                },
+                feedback: {
+                    type: 'object',
+                    required: ['type', 'message'],
+                    properties: {
+                        type: { type: 'string', description: 'Type of feedback.', example: 'custom' },
+                        message: { type: 'string', description: 'Feedback message.', example: 'This is a feedback message.' },
+                    },
                 },
             },
         },

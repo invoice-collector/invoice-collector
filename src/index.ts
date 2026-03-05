@@ -223,13 +223,7 @@ app.get('/api/v1/test/callback/:type', async (req, res) => {
  *       content:
  *         application/json:
  *           schema:
- *             type: object
- *             required: [type, message]
- *             properties:
- *               type:
- *                 type: string
- *               message:
- *                 type: string
+ *             $ref: '#/components/schemas/feedback'
  *     responses:
  *       200:
  *         description: Feedback sent successfully
@@ -284,23 +278,16 @@ app.post('/api/v1/feedback', async (req, res) => {
  *             required: [email, password]
  *             properties:
  *               email:
- *                 type: string
- *                 format: email
+ *                 $ref: '#/components/schemas/email'
  *               password:
- *                 type: string
+ *                 $ref: '#/components/schemas/password'
  *     responses:
  *       200:
  *         description: Login successful
  *         content:
  *           application/json:
  *             schema:
- *               type: object
- *               properties:
- *                 bearer:
- *                   type: string
- *                 type:
- *                   type: string
- *                   enum: [customer, user]
+ *               $ref: '#/components/schemas/bearerResponse'
  *       400:
  *         description: Missing field
  *         content:
@@ -351,17 +338,15 @@ app.post('/api/v1/login', async (req, res) => {
  *             required: [email, name, cid]
  *             properties:
  *               email:
- *                 type: string
- *                 format: email
+ *                 $ref: '#/components/schemas/email'
  *               name:
- *                 type: string
+ *                 $ref: '#/components/schemas/name'
  *               cid:
- *                 type: string
+ *                 $ref: '#/components/schemas/cid'
  *               locale:
- *                 type: string
+ *                 $ref: '#/components/schemas/locale'
  *               inviteId:
- *                 type: string
- *                 description: If provided, creates a user under the customer matching this invite ID
+ *                 $ref: '#/components/schemas/inviteId'
  *     responses:
  *       200:
  *         description: Signup successful
@@ -370,8 +355,8 @@ app.post('/api/v1/login', async (req, res) => {
  *             schema:
  *               type: object
  *               properties:
- *                 resetLink:
- *                   type: string
+ *                 resetToken:
+ *                   $ref: '#/components/schemas/resetToken'
  *       400:
  *         description: Validation error
  *         content:
@@ -422,18 +407,17 @@ app.post('/api/v1/signup', async (req, res) => {
  *             required: [email]
  *             properties:
  *               email:
- *                 type: string
- *                 format: email
+ *                 $ref: '#/components/schemas/email'
  *     responses:
  *       200:
- *         description: Reset link sent
+ *         description: Success
  *         content:
  *           application/json:
  *             schema:
  *               type: object
  *               properties:
- *                 resetLink:
- *                   type: string
+ *                 resetToken:
+ *                   $ref: '#/components/schemas/resetToken'
  *       400:
  *         description: Account not found or missing field
  *         content:
