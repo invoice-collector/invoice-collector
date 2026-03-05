@@ -88,7 +88,12 @@ const SWAGGER_DEFINITION = {
                     nullable: true,
                     example: '/api/v1/ws/30f6a13e919ceab0094e6df042166210fc00177dd392d2d2ae8b751946cbfecdb7f6e3fec3ec2d93db2a27a364dd6997adc88e439a3b96d34fe7d0257b27a616',
                 },
-
+                callbackType: {
+                    type: 'string',
+                    enum: ['invoice', 'notification_disconnected'],
+                    description: 'Type of event to send to the callback.',
+                    example: 'invoice',
+                },
                 // --- Object schemas ---
                 Error: {
                     type: 'object',

@@ -110,9 +110,7 @@ app.get('/api/v1/ui', async (req, res) => {
  *         in: path
  *         required: true
  *         schema:
- *           type: string
- *           enum: [invoice, notification_disconnected]
- *         description: Callback type to test
+ *           $ref: '#/components/schemas/callbackType'
  *     responses:
  *       200:
  *         description: Callback sent successfully
@@ -146,15 +144,9 @@ app.get('/api/v1/ui', async (req, res) => {
  *                     type: object
  *                     properties:
  *                       type:
- *                         type: string
- *                         description: Type of the payload.
- *                         enum:
- *                           - invoice
- *                         example: invoice
+ *                         $ref: '#/components/schemas/callbackType'
  *                       remote_id:
- *                         type: string
- *                         description: Remote id of the user.
- *                         example: R121439
+ *                         $ref: '#/components/schemas/remote_id'
  *                       invoice:
  *                         $ref: "#/components/schemas/Invoice"
  *                       collector:
@@ -180,17 +172,13 @@ app.get('/api/v1/ui', async (req, res) => {
  *                     type: object
  *                     properties:
  *                       type:
- *                         type: string
- *                         description: Type of the payload.
- *                         example: notification_disconnected
+ *                         $ref: '#/components/schemas/callbackType'
  *                       credential_id:
  *                        $ref: '#/components/schemas/credential_id'
  *                       user_id:
  *                        $ref: '#/components/schemas/user_id'
  *                       remote_id:
- *                         type: string
- *                         description: Remote id of the user.
- *                         example: R121439
+ *                         $ref: '#/components/schemas/remote_id'
  *                       collector:
  *                         $ref: "#/components/schemas/CollectorConfig"
  *                     required:
