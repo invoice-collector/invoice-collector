@@ -695,13 +695,13 @@ paths:
             credential, the current progress will be shown.
       responses:
         "200":
-          description: Rendered HTML page
+          description: Success
           content:
             text/html:
               schema:
                 type: string
         "401":
-          description: Invalid or expired token
+          description: Authentication error
           content:
             application/json:
               schema:
@@ -728,9 +728,9 @@ paths:
             $ref: "#/components/schemas/callbackType"
       responses:
         "200":
-          description: Callback sent successfully
+          description: Success
         "400":
-          description: Unsupported type
+          description: Bad request
           content:
             application/json:
               schema:
@@ -826,9 +826,9 @@ paths:
               $ref: "#/components/schemas/feedback"
       responses:
         "200":
-          description: Feedback sent successfully
+          description: Success
         "400":
-          description: Missing field
+          description: Bad request
           content:
             application/json:
               schema:
@@ -868,19 +868,19 @@ paths:
                   $ref: "#/components/schemas/password"
       responses:
         "200":
-          description: Login successful
+          description: Success
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/bearerResponse"
         "400":
-          description: Missing field
+          description: Bad request
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/error"
         "401":
-          description: Invalid credentials
+          description: Authentication error
           content:
             application/json:
               schema:
@@ -920,7 +920,7 @@ paths:
                   $ref: "#/components/schemas/inviteId"
       responses:
         "200":
-          description: Signup successful
+          description: Success
           content:
             application/json:
               schema:
@@ -931,7 +931,7 @@ paths:
                   resetToken:
                     $ref: "#/components/schemas/resetToken"
         "400":
-          description: Validation error
+          description: Bad request
           content:
             application/json:
               schema:
@@ -972,7 +972,7 @@ paths:
                   resetToken:
                     $ref: "#/components/schemas/resetToken"
         "400":
-          description: Account not found or missing field
+          description: Bad request
           content:
             application/json:
               schema:
@@ -1010,15 +1010,15 @@ paths:
                   $ref: "#/components/schemas/password"
       responses:
         "200":
-          description: Password reset successfully
+          description: Success
         "400":
-          description: Missing field
+          description: Bad request
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/error"
         "401":
-          description: Invalid or expired token
+          description: Authentication error
           content:
             application/json:
               schema:
@@ -1039,7 +1039,7 @@ paths:
         - CustomerBearerAuth: []
       responses:
         "200":
-          description: Customer details
+          description: Success
           content:
             application/json:
               schema:
@@ -1090,7 +1090,7 @@ paths:
                   $ref: "#/components/schemas/displaySketchCollectors"
       responses:
         "200":
-          description: Updated customer details
+          description: Success
           content:
             application/json:
               schema:
@@ -1117,7 +1117,7 @@ paths:
         - CustomerBearerAuth: []
       responses:
         "200":
-          description: New bearer token
+          description: Success
           content:
             application/json:
               schema:
@@ -1144,7 +1144,7 @@ paths:
         - CustomerBearerAuth: []
       responses:
         "200":
-          description: Customer statistics
+          description: Success
           content:
             application/json:
               schema:
@@ -1172,7 +1172,7 @@ paths:
         - CustomerBearerAuth: []
       responses:
         "200":
-          description: List of users
+          description: Success
           content:
             application/json:
               schema:
@@ -1216,13 +1216,13 @@ paths:
                   $ref: "#/components/schemas/ip"
       responses:
         "200":
-          description: User details with token
+          description: Success
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/userWithToken"
         "400":
-          description: Missing or invalid field
+          description: Bad request
           content:
             application/json:
               schema:
@@ -1255,7 +1255,7 @@ paths:
         - UserBearerAuth: []
       responses:
         "200":
-          description: User details
+          description: Success
           content:
             application/json:
               schema:
@@ -1288,13 +1288,13 @@ paths:
             $ref: "#/components/schemas/userId"
       responses:
         "200":
-          description: User details
+          description: Success
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/user"
         "400":
-          description: User not found
+          description: Bad request
           content:
             application/json:
               schema:
@@ -1342,13 +1342,13 @@ paths:
                   $ref: "#/components/schemas/locale"
       responses:
         "200":
-          description: Updated user details
+          description: Success
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/user"
         "400":
-          description: Validation error
+          description: Bad request
           content:
             application/json:
               schema:
@@ -1380,9 +1380,9 @@ paths:
             $ref: "#/components/schemas/userId"
       responses:
         "200":
-          description: User deleted successfully
+          description: Success
         "400":
-          description: User not found
+          description: Bad request
           content:
             application/json:
               schema:
@@ -1415,7 +1415,7 @@ paths:
             $ref: "#/components/schemas/userId"
       responses:
         "200":
-          description: List of credentials
+          description: Success
           content:
             application/json:
               schema:
@@ -1445,7 +1445,7 @@ paths:
         - TokenAuth: []
       responses:
         "200":
-          description: List of credentials
+          description: Success
           content:
             application/json:
               schema:
@@ -1499,13 +1499,13 @@ paths:
                     invoices will be downloaded starting from today._
       responses:
         "200":
-          description: Created credential
+          description: Success
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/credential"
         "400":
-          description: Missing or invalid field
+          description: Bad request
           content:
             application/json:
               schema:
@@ -1558,13 +1558,13 @@ paths:
                     invoices will be downloaded starting from today._
       responses:
         "200":
-          description: Created credential
+          description: Success
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/credential"
         "400":
-          description: Missing or invalid field
+          description: Bad request
           content:
             application/json:
               schema:
@@ -1608,13 +1608,13 @@ paths:
             $ref: "#/components/schemas/credentialId"
       responses:
         "200":
-          description: Credential details
+          description: Success
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/credential"
         "400":
-          description: Credential not found
+          description: Bad request
           content:
             application/json:
               schema:
@@ -1657,9 +1657,9 @@ paths:
             $ref: "#/components/schemas/credentialId"
       responses:
         "200":
-          description: Credential deleted successfully
+          description: Success
         "400":
-          description: Credential not found
+          description: Bad request
           content:
             application/json:
               schema:
@@ -1699,13 +1699,13 @@ paths:
             $ref: "#/components/schemas/credentialId"
       responses:
         "200":
-          description: Credential details
+          description: Success
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/credential"
         "400":
-          description: Credential not found
+          description: Bad request
           content:
             application/json:
               schema:
@@ -1744,9 +1744,9 @@ paths:
             $ref: "#/components/schemas/credentialId"
       responses:
         "200":
-          description: Credential deleted successfully
+          description: Success
         "400":
-          description: Credential not found
+          description: Bad request
           content:
             application/json:
               schema:
@@ -1803,9 +1803,9 @@ paths:
                   $ref: "#/components/schemas/twofaCode"
       responses:
         "200":
-          description: 2FA code submitted
+          description: Success
         "400":
-          description: Missing field or no collect in progress
+          description: Bad request
           content:
             application/json:
               schema:
@@ -1858,9 +1858,9 @@ paths:
                   $ref: "#/components/schemas/twofaCode"
       responses:
         "200":
-          description: 2FA code submitted
+          description: Success
         "400":
-          description: Missing field or no collect in progress
+          description: Bad request
           content:
             application/json:
               schema:
@@ -1905,7 +1905,7 @@ paths:
             $ref: "#/components/schemas/credentialId"
       responses:
         "200":
-          description: Collection started or already in progress
+          description: Success
           content:
             application/json:
               schema:
@@ -1914,7 +1914,7 @@ paths:
                   wsPath:
                     $ref: "#/components/schemas/wsPath"
         "400":
-          description: Credential not found
+          description: Bad request
           content:
             application/json:
               schema:
@@ -1955,7 +1955,7 @@ paths:
             $ref: "#/components/schemas/credentialId"
       responses:
         "200":
-          description: Collection started or already in progress
+          description: Success
           content:
             application/json:
               schema:
@@ -1964,7 +1964,7 @@ paths:
                   wsPath:
                     $ref: "#/components/schemas/wsPath"
         "400":
-          description: Credential not found
+          description: Bad request
           content:
             application/json:
               schema:
@@ -2008,7 +2008,7 @@ paths:
           description: Locale for translated collector names and descriptions
       responses:
         "200":
-          description: List of collector configurations
+          description: Success
           content:
             application/json:
               schema:
@@ -2016,7 +2016,7 @@ paths:
                 items:
                   $ref: "#/components/schemas/collectorConfig"
         "400":
-          description: Unsupported locale
+          description: Bad request
           content:
             application/json:
               schema:
