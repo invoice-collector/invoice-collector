@@ -12,6 +12,7 @@
     "test.cicd.locales": "node --experimental-vm-modules node_modules/jest/bin/jest.js --forceExit test/cicd/locales.spec.ts",
     "test.cicd.collectors": "node --experimental-vm-modules node_modules/jest/bin/jest.js --forceExit test/cicd/collectors.spec.ts",
     "test.cicd.compilation": "tsc --noEmit",
+    "build.openapi": "node devscripts/build_openapi.js",
     "debug": "nodemon --inspect=0.0.0.0:9229 --signal SIGINT --nolazy -L src/index.ts"
   },
   "dependencies": {
@@ -45,8 +46,10 @@
     "node-fetch": "^2.7.0",
     "nodemon": "^3.1.7",
     "prompt-sync": "^4.2.0",
+    "swagger-jsdoc": "^6.2.8",
     "ts-jest": "^29.2.6",
-    "ts-node-dev": "^2.0.0"
+    "ts-node-dev": "^2.0.0",
+    "yaml": "^2.8.2"
   },
   "nodemonConfig": {
     "watch": [
