@@ -213,7 +213,7 @@ app.get('/api/v1/test/callback/:type', async (req, res) => {
  *   post:
  *     tags: [General]
  *     summary: Send feedback
- *     description: Sends feedback to the registry server. Bearer or Token authentication.
+ *     description: Sends feedback to the Invoice-Collector team. _You need to authenticate using token or bearer._
  *     security:
  *       - CustomerBearerAuth: []
  *       - UserBearerAuth: []
@@ -354,6 +354,7 @@ app.post('/api/v1/login', async (req, res) => {
  *           application/json:
  *             schema:
  *               type: object
+ *               required: [resetToken]
  *               properties:
  *                 resetToken:
  *                   $ref: '#/components/schemas/resetToken'
@@ -415,6 +416,7 @@ app.post('/api/v1/signup', async (req, res) => {
  *           application/json:
  *             schema:
  *               type: object
+ *               required: [resetToken]
  *               properties:
  *                 resetToken:
  *                   $ref: '#/components/schemas/resetToken'
@@ -452,14 +454,14 @@ app.post('/api/v1/forgot', async (req, res) => {
  *   post:
  *     tags: [Authentication]
  *     summary: Reset password
- *     description: Resets the password using a reset token. No authentication required.
+ *     description: Resets the password using a reset token.
  *     parameters:
  *       - name: token
  *         in: query
  *         required: true
+ *         description: Token to be used for password reset. _You can get it using the `POST /signup` endpoint._
  *         schema:
- *           type: string
- *         description: Password reset token
+ *           $ref: '#/components/schemas/resetToken'
  *     requestBody:
  *       required: true
  *       content:
@@ -469,7 +471,7 @@ app.post('/api/v1/forgot', async (req, res) => {
  *             required: [password]
  *             properties:
  *               password:
- *                 type: string
+ *                 $ref: '#/components/schemas/password'
  *     responses:
  *       200:
  *         description: Password reset successfully
@@ -569,25 +571,23 @@ app.get('/api/v1/customer', async (req, res) => {
  *             type: object
  *             properties:
  *               name:
- *                 type: string
+ *                 $ref: '#/components/schemas/name'
  *               callback:
- *                 type: string
+ *                 $ref: '#/components/schemas/callback'
  *               remoteId:
- *                 type: string
+ *                 $ref: '#/components/schemas/customerRemoteId'
  *               cid:
- *                 type: string
+ *                 $ref: '#/components/schemas/cid'
  *               theme:
- *                 type: string
+ *                 $ref: '#/components/schemas/theme'
  *               subscribedCollectors:
- *                 type: array
- *                 items:
- *                   type: string
+ *                 $ref: '#/components/schemas/subscribedCollectors'
  *               isSubscribedToAll:
- *                 type: boolean
+ *                 $ref: '#/components/schemas/isSubscribedToAll'
  *               enableInteractiveLogin:
- *                 type: boolean
+ *                 $ref: '#/components/schemas/enableInteractiveLogin'
  *               displaySketchCollectors:
- *                 type: boolean
+ *                 $ref: '#/components/schemas/displaySketchCollectors'
  *     responses:
  *       200:
  *         description: Updated customer details
@@ -740,9 +740,7 @@ app.get('/api/v1/customer/stats', async (req, res) => {
  *         content:
  *           application/json:
  *             schema:
- *               type: array
- *               items:
- *                 $ref: '#/components/schemas/userListItem'
+ *               $ref: '#/components/schemas/userListItem'
  *       401:
  *         description: Authentication error
  *         content:
@@ -789,13 +787,11 @@ app.get('/api/v1/users', async (req, res) => {
  *             required: [remoteId, locale]
  *             properties:
  *               remoteId:
- *                 type: string
- *                 description: Also accepted as remote_id
+ *                 $ref: '#/components/schemas/remoteId'
  *               locale:
- *                 type: string
+ *                 $ref: '#/components/schemas/locale'
  *               ip:
- *                 type: string
- *                 description: User IP for geolocation
+ *                 $ref: '#/components/schemas/ip'
  *     responses:
  *       200:
  *         description: User details with token
@@ -850,7 +846,7 @@ app.post('/api/v1/user', async (req, res) => {
 
 /**
  * @openapi
- * /user/{user_id}:
+ * /user/{userId}:
  *   get:
  *     tags: [User]
  *     summary: Get user by ID
@@ -858,7 +854,7 @@ app.post('/api/v1/user', async (req, res) => {
  *     security:
  *       - CustomerBearerAuth: []
  *     parameters:
- *       - name: user_id
+ *       - name: userId
  *         in: path
  *         required: true
  *         schema:
@@ -963,7 +959,7 @@ app.get('/api/v1/user', async (req, res) => {
  *         in: path
  *         required: true
  *         schema:
- *           type: string
+ *           $ref: "#/components/schemas/userId"
  *     requestBody:
  *       required: true
  *       content:
@@ -972,13 +968,13 @@ app.get('/api/v1/user', async (req, res) => {
  *             type: object
  *             properties:
  *               remoteId:
- *                 type: string
+ *                 $ref: '#/components/schemas/remoteId'
  *               name:
- *                 type: string
+ *                 $ref: '#/components/schemas/name'
  *               cid:
- *                 type: string
+ *                 $ref: '#/components/schemas/cid'
  *               locale:
- *                 type: string
+ *                 $ref: '#/components/schemas/locale'
  *     responses:
  *       200:
  *         description: Updated user details
@@ -1029,7 +1025,7 @@ app.put('/api/v1/user/:userId', async (req, res) => {
 
 /**
  * @openapi
- * /user/{user_id}:
+ * /user/{userId}:
  *   delete:
  *     tags: [User]
  *     summary: Delete user
@@ -1037,7 +1033,7 @@ app.put('/api/v1/user/:userId', async (req, res) => {
  *     security:
  *       - CustomerBearerAuth: []
  *     parameters:
- *       - name: user_id
+ *       - name: userId
  *         in: path
  *         required: true
  *         schema:
@@ -1082,7 +1078,7 @@ app.delete('/api/v1/user/:user_id', async (req, res) => {
 
 /**
  * @openapi
- * /user/{user_id}/credentials:
+ * /user/{userId}/credentials:
  *   get:
  *     tags: [Credential (Bearer)]
  *     summary: List credentials (Bearer)
@@ -1090,7 +1086,7 @@ app.delete('/api/v1/user/:user_id', async (req, res) => {
  *     security:
  *       - CustomerBearerAuth: []
  *     parameters:
- *       - name: user_id
+ *       - name: userId
  *         in: path
  *         required: true
  *         schema:
@@ -1142,12 +1138,6 @@ app.get('/api/v1/user/:user_id/credentials', async (req, res) => {
  *     security:
  *       - UserBearerAuth: []
  *       - TokenAuth: []
- *     parameters:
- *       - name: token
- *         in: query
- *         required: true
- *         schema:
- *           type: string
  *     responses:
  *       200:
  *         description: List of credentials
@@ -1187,7 +1177,7 @@ app.get('/api/v1/credentials', async (req, res) => {
 
 /**
  * @openapi
- * /user/{user_id}/credential:
+ * /user/{userId}/credential:
  *   post:
  *     tags: [Credential (Bearer)]
  *     summary: Create credential (Bearer)
@@ -1195,7 +1185,7 @@ app.get('/api/v1/credentials', async (req, res) => {
  *     security:
  *       - CustomerBearerAuth: []
  *     parameters:
- *       - name: user_id
+ *       - name: userId
  *         in: path
  *         required: true
  *         schema:
@@ -1209,14 +1199,13 @@ app.get('/api/v1/credentials', async (req, res) => {
  *             required: [collector, params]
  *             properties:
  *               collector:
- *                 type: string
- *                 description: Collector ID
+ *                 $ref: "#/components/schemas/collectorId"
  *               params:
- *                 type: object
- *                 description: Collector-specific parameters
+ *                 $ref: "#/components/schemas/credentialParams"
  *               download_from_timestamp:
- *                 type: integer
- *                 description: Unix timestamp in ms to download invoices from
+ *                 allOf:
+ *                   - $ref: "#/components/schemas/downloadFromTimestamp"
+ *                 description: 'Timestamp to start downloading invoices from in ms. _If empty, invoices will be downloaded starting from today._'
  *     responses:
  *       200:
  *         description: Created credential
@@ -1281,12 +1270,6 @@ app.post('/api/v1/user/:user_id/credential', async (req, res) => {
  *     security:
  *       - UserBearerAuth: []
  *       - TokenAuth: []
- *     parameters:
- *       - name: token
- *         in: query
- *         required: true
- *         schema:
- *           type: string
  *     requestBody:
  *       required: true
  *       content:
@@ -1296,14 +1279,13 @@ app.post('/api/v1/user/:user_id/credential', async (req, res) => {
  *             required: [collector, params]
  *             properties:
  *               collector:
- *                 type: string
- *                 description: Collector ID
+ *                 $ref: "#/components/schemas/collectorId"
  *               params:
- *                 type: object
- *                 description: Collector-specific parameters
+ *                 $ref: "#/components/schemas/credentialParams"
  *               download_from_timestamp:
- *                 type: integer
- *                 description: Unix timestamp in ms to download invoices from
+ *                 allOf:
+ *                   - $ref: "#/components/schemas/downloadFromTimestamp"
+ *                 description: 'Timestamp to start downloading invoices from in ms. _If empty, invoices will be downloaded starting from today._'
  *     responses:
  *       200:
  *         description: Created credential
@@ -1360,7 +1342,7 @@ app.post('/api/v1/credential', async (req, res) => {
 
 /**
  * @openapi
- * /user/{user_id}/credential/{credential_id}:
+ * /user/{userId}/credential/{credentialId}:
  *   get:
  *     tags: [Credential (Bearer)]
  *     summary: Get credential (Bearer)
@@ -1368,7 +1350,7 @@ app.post('/api/v1/credential', async (req, res) => {
  *     security:
  *       - CustomerBearerAuth: []
  *     parameters:
- *       - name: user_id
+ *       - name: userId
  *         in: path
  *         required: true
  *         schema:
@@ -1377,7 +1359,7 @@ app.post('/api/v1/credential', async (req, res) => {
  *         in: path
  *         required: true
  *         schema:
- *           type: string
+ *           $ref: "#/components/schemas/credentialId"
  *     responses:
  *       200:
  *         description: Credential details
@@ -1426,7 +1408,7 @@ app.get('/api/v1/user/:user_id/credential/:credential_id', async (req, res) => {
 
 /**
  * @openapi
- * /credential/{credential_id}:
+ * /credential/{credentialId}:
  *   get:
  *     tags: [Credential (Token)]
  *     summary: Get credential (Token)
@@ -1439,12 +1421,7 @@ app.get('/api/v1/user/:user_id/credential/:credential_id', async (req, res) => {
  *         in: path
  *         required: true
  *         schema:
- *           type: string
- *       - name: token
- *         in: query
- *         required: true
- *         schema:
- *           type: string
+ *           $ref: "#/components/schemas/credentialId"
  *     responses:
  *       200:
  *         description: Credential details
@@ -1493,7 +1470,7 @@ app.get('/api/v1/credential/:credential_id', async (req, res) => {
 
 /**
  * @openapi
- * /user/{user_id}/credential/{credential_id}:
+ * /user/{userId}/credential/{credentialId}:
  *   delete:
  *     tags: [Credential (Bearer)]
  *     summary: Delete credential (Bearer)
@@ -1501,7 +1478,7 @@ app.get('/api/v1/credential/:credential_id', async (req, res) => {
  *     security:
  *       - CustomerBearerAuth: []
  *     parameters:
- *       - name: user_id
+ *       - name: userId
  *         in: path
  *         required: true
  *         schema:
@@ -1510,7 +1487,7 @@ app.get('/api/v1/credential/:credential_id', async (req, res) => {
  *         in: path
  *         required: true
  *         schema:
- *           type: string
+ *           $ref: "#/components/schemas/credentialId"
  *     responses:
  *       200:
  *         description: Credential deleted successfully
@@ -1555,7 +1532,7 @@ app.delete('/api/v1/user/:user_id/credential/:credential_id', async (req, res) =
 
 /**
  * @openapi
- * /credential/{credential_id}:
+ * /credential/{credentialId}:
  *   delete:
  *     tags: [Credential (Token)]
  *     summary: Delete credential (Token)
@@ -1568,12 +1545,7 @@ app.delete('/api/v1/user/:user_id/credential/:credential_id', async (req, res) =
  *         in: path
  *         required: true
  *         schema:
- *           type: string
- *       - name: token
- *         in: query
- *         required: true
- *         schema:
- *           type: string
+ *           $ref: "#/components/schemas/credentialId"
  *     responses:
  *       200:
  *         description: Credential deleted successfully
@@ -1618,7 +1590,7 @@ app.delete('/api/v1/credential/:credential_id', async (req, res) => {
 
 /**
  * @openapi
- * /user/{user_id}/credential/{credential_id}/2fa:
+ * /user/{userId}/credential/{credentialId}/2fa:
  *   post:
  *     tags: [Credential (Bearer)]
  *     summary: Submit 2FA code (Bearer)
@@ -1627,7 +1599,7 @@ app.delete('/api/v1/credential/:credential_id', async (req, res) => {
  *     security:
  *       - CustomerBearerAuth: []
  *     parameters:
- *       - name: user_id
+ *       - name: userId
  *         in: path
  *         required: true
  *         schema:
@@ -1636,7 +1608,7 @@ app.delete('/api/v1/credential/:credential_id', async (req, res) => {
  *         in: path
  *         required: true
  *         schema:
- *           type: string
+ *           $ref: "#/components/schemas/credentialId"
  *     requestBody:
  *       required: true
  *       content:
@@ -1646,7 +1618,7 @@ app.delete('/api/v1/credential/:credential_id', async (req, res) => {
  *             required: [code]
  *             properties:
  *               code:
- *                 type: string
+ *                 $ref: '#/components/schemas/twofaCode'
  *     responses:
  *       200:
  *         description: 2FA code submitted
@@ -1691,7 +1663,7 @@ app.post('/api/v1/user/:user_id/credential/:credential_id/2fa', async (req, res)
 
 /**
  * @openapi
- * /credential/{credential_id}/2fa:
+ * /credential/{credentialId}/2fa:
  *   post:
  *     tags: [Credential (Token)]
  *     summary: Submit 2FA code (Token)
@@ -1705,12 +1677,7 @@ app.post('/api/v1/user/:user_id/credential/:credential_id/2fa', async (req, res)
  *         in: path
  *         required: true
  *         schema:
- *           type: string
- *       - name: token
- *         in: query
- *         required: true
- *         schema:
- *           type: string
+ *           $ref: "#/components/schemas/credentialId"
  *     requestBody:
  *       required: true
  *       content:
@@ -1720,7 +1687,7 @@ app.post('/api/v1/user/:user_id/credential/:credential_id/2fa', async (req, res)
  *             required: [code]
  *             properties:
  *               code:
- *                 type: string
+ *                 $ref: '#/components/schemas/twofaCode'
  *     responses:
  *       200:
  *         description: 2FA code submitted
@@ -1765,7 +1732,7 @@ app.post('/api/v1/credential/:credential_id/2fa', async (req, res) => {
 
 /**
  * @openapi
- * /user/{user_id}/credential/{credential_id}/collect:
+ * /user/{userId}/credential/{credentialId}/collect:
  *   post:
  *     tags: [Credential (Bearer)]
  *     summary: Trigger collection (Bearer)
@@ -1773,7 +1740,7 @@ app.post('/api/v1/credential/:credential_id/2fa', async (req, res) => {
  *     security:
  *       - CustomerBearerAuth: []
  *     parameters:
- *       - name: user_id
+ *       - name: userId
  *         in: path
  *         required: true
  *         schema:
@@ -1782,7 +1749,7 @@ app.post('/api/v1/credential/:credential_id/2fa', async (req, res) => {
  *         in: path
  *         required: true
  *         schema:
- *           type: string
+ *           $ref: "#/components/schemas/credentialId"
  *     responses:
  *       200:
  *         description: Collection started or already in progress
@@ -1792,9 +1759,7 @@ app.post('/api/v1/credential/:credential_id/2fa', async (req, res) => {
  *               type: object
  *               properties:
  *                 wsPath:
- *                   type: string
- *                   nullable: true
- *                   description: WebSocket path to monitor collection progress
+ *                   $ref: '#/components/schemas/wsPath'
  *       400:
  *         description: Credential not found
  *         content:
@@ -1837,7 +1802,7 @@ app.post('/api/v1/user/:user_id/credential/:credential_id/collect', async (req, 
 
 /**
  * @openapi
- * /credential/{credential_id}/collect:
+ * /credential/{credentialId}/collect:
  *   post:
  *     tags: [Credential (Token)]
  *     summary: Trigger collection (Token)
@@ -1846,16 +1811,11 @@ app.post('/api/v1/user/:user_id/credential/:credential_id/collect', async (req, 
  *       - UserBearerAuth: []
  *       - TokenAuth: []
  *     parameters:
- *       - name: credential_id
+ *       - name: credentialId
  *         in: path
  *         required: true
  *         schema:
- *           type: string
- *       - name: token
- *         in: query
- *         required: true
- *         schema:
- *           type: string
+ *           $ref: "#/components/schemas/credentialId"
  *     responses:
  *       200:
  *         description: Collection started or already in progress
@@ -1865,9 +1825,7 @@ app.post('/api/v1/user/:user_id/credential/:credential_id/collect', async (req, 
  *               type: object
  *               properties:
  *                 wsPath:
- *                   type: string
- *                   nullable: true
- *                   description: WebSocket path to monitor collection progress
+ *                   $ref: '#/components/schemas/wsPath'
  *       400:
  *         description: Credential not found
  *         content:
@@ -1916,7 +1874,7 @@ app.post('/api/v1/credential/:credential_id/collect', async (req, res) => {
  *   get:
  *     tags: [General]
  *     summary: List collectors
- *     description: Returns all available collectors. Bearer or Token authentication.
+ *     description: Returns all available collectors. _You can authenticate using token or bearer. If an authentication is provided, only the collectors the customer is subscribed to will be returned._
  *     security:
  *       - CustomerBearerAuth: []
  *       - UserBearerAuth: []
@@ -1926,7 +1884,7 @@ app.post('/api/v1/credential/:credential_id/collect', async (req, res) => {
  *         in: query
  *         required: false
  *         schema:
- *           type: string
+ *           $ref: "#/components/schemas/locale"
  *         description: Locale for translated collector names and descriptions
  *     responses:
  *       200:

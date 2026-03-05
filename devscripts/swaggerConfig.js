@@ -89,8 +89,19 @@ const SWAGGER_DEFINITION = {
                 },
                 remoteId: {
                     type: 'string',
-                    description: 'Remote id of the user.',
+                    description: 'Remote id of the user in your system.',
                     example: 'R121439',
+                },
+                customerRemoteId: {
+                    type: 'string',
+                    description: 'Remote id of your company in your system. _Invoice-Collector\'s invoices will be sent along with this id to the callback URL._',
+                    example: 'R121439',
+                },
+                ip:{
+                    type: 'string',
+                    description: 'IP address of the user for geolocation.',
+                    format: 'ipv4',
+                    example: '78.123.45.67',
                 },
                 token: {
                     type: 'string',
@@ -123,12 +134,60 @@ const SWAGGER_DEFINITION = {
                     nullable: true,
                     example: '/api/v1/ws/30f6a13e919ceab0094e6df042166210fc00177dd392d2d2ae8b751946cbfecdb7f6e3fec3ec2d93db2a27a364dd6997adc88e439a3b96d34fe7d0257b27a616',
                 },
+                twofaCode: {
+                    type: 'string',
+                    description: '2FA code to use.',
+                    example: '359731',
+                },
                 callbackType: {
                     type: 'string',
                     enum: ['invoice', 'notification_disconnected'],
                     description: 'Type of event to send to the callback.',
                     example: 'invoice',
                 },
+                callback: {
+                    type: 'string',
+                    description: 'Callback url at which the new invoices are sent.',
+                    example: 'https://your.infrastructure.com/path/to/callback'
+                },
+                theme: {
+                    type: 'string',
+                    description: 'Theme of the customer.',
+                    enum: ['default', 'ocean'],
+                    example: 'default'
+                },
+                subscribedCollectors: {
+                    type: 'array',
+                    description: 'List of collector ids the customer is subscribed to.',
+                    items: { type: 'string' },
+                    example: ['amazon', 'shopify', 'free'],
+                },
+                isSubscribedToAll: {
+                    type: 'boolean',
+                    description: 'Whether the customer is subscribed to all collectors. If true, the subscribedCollectors field is ignored.',
+                    example: false
+                },
+                enableInteractiveLogin: {
+                    type: 'boolean',
+                    description: 'Whether the customer has enabled interactive login for collectors that support it.',
+                    example: true
+                },
+                displaySketchCollectors: {
+                    type: 'boolean',
+                    description: 'Whether to display sketch collectors.',
+                    example: false
+                },
+                collectorId: {
+                    type: 'string',
+                    description: 'Id of the collector.',
+                    example: 'free'
+                },
+                downloadFromTimestamp: {
+                    type: 'number',
+                    description: 'Download from timestamp in ms.',
+                    example: 1745229203582
+                },
+                        
                 // --- Object schemas ---
                 error: {
                     type: 'object',
@@ -173,14 +232,33 @@ const SWAGGER_DEFINITION = {
                 userStats: {
                     type: 'object',
                     properties: {
-                        credentialsCount: { type: 'integer' },
+                        credentials: { type: 'integer', description: 'Number of credentials for the user.', example: 5 },
+                        invoices: { type: 'integer', description: 'Number of invoices for the user.', example: 10 },
+                        status: { type: 'string', description: 'Status of the user.', example: 'active' },
                     },
                 },
                 customerStats: {
                     type: 'object',
                     properties: {
-                        usersCount: { type: 'integer' },
-                        credentialsCount: { type: 'integer' },
+                        users: { type: 'integer', description: 'Number of users under the customer.', example: 5 },
+                        credentials: { type: 'integer', description: 'Number of credentials under the customer.', example: 10 },
+                        invoices: { type: 'integer', description: 'Number of invoices under the customer.', example: 50 },
+                        byMonth: {
+                            type: 'object',
+                            additionalProperties: {
+                                type: 'object',
+                                properties: {
+                                    users: { type: 'integer' },
+                                    credentials: { type: 'integer' },
+                                    invoices: { type: 'integer' },
+                                },
+                                required: ['users', 'credentials', 'invoices'],
+                            },
+                        },
+                        collectors: {
+                            type: 'object',
+                            additionalProperties: { type: 'integer' },
+                        },
                     },
                 },
                 state: {
@@ -206,7 +284,7 @@ const SWAGGER_DEFINITION = {
                 collectorConfig: {
                     type: 'object',
                     properties: {
-                        id: { type: 'string', description: 'Id of the collector.', example: 'free' },
+                        id: { $ref: '#/components/schemas/collectorId' },
                         name: { type: 'string', description: 'Name of the collector.', example: 'Free' },
                         description: { type: 'string', description: 'Description of the collector.', example: 'Free is a French telecommunications company' },
                         instructions: { type: 'string', description: 'Instructions to setup the collector.', example: 'Go to ... and do ...' },
@@ -234,22 +312,17 @@ const SWAGGER_DEFINITION = {
                         id: { type: 'string', description: 'Id of the customer.', example: '6795130f170ba4496dc30642' },
                         email: { $ref: '#/components/schemas/email' },
                         name: { type: 'string', description: 'Name of the customer.', example: 'Awesome Company Name' },
-                        callback: { type: 'string', description: 'Callback url at which the new invoices are sent.', example: 'https://your.infrastructure.com/path/to/callback' },
+                        callback: { $ref: '#/components/schemas/callback' },
                         remoteId: { type: 'string', description: 'Remote id of your company in your system.', example: 'R121439' },
-                        theme: { type: 'string', description: 'Theme of the customer.', example: 'dark' },
-                        subscribedCollectors: {
-                            type: 'array',
-                            description: 'List of collector ids the customer is subscribed to.',
-                            items: { type: 'string' },
-                            example: ['amazon', 'shopify', 'free'],
-                        },
-                        isSubscribedToAll: { type: 'boolean', description: 'Whether the customer is subscribed to all collectors. If true, the subscribedCollectors field is ignored.', example: false },
-                        enableInteractiveLogin: { type: 'boolean', description: 'Whether the customer has enabled interactive login for collectors that support it.', example: true },
-                        displaySketchCollectors: { type: 'boolean', description: 'Whether to display sketch collectors.', example: false },
+                        theme: { $ref: '#/components/schemas/theme' },
+                        subscribedCollectors: { $ref: '#/components/schemas/subscribedCollectors' },
+                        isSubscribedToAll: { $ref: '#/components/schemas/isSubscribedToAll' },
+                        enableInteractiveLogin: { $ref: '#/components/schemas/enableInteractiveLogin' },
+                        displaySketchCollectors: { $ref: '#/components/schemas/displaySketchCollectors' },
                         maxDelayBetweenCollect: { type: 'number', description: 'Maximum delay between two collects in ms.', example: 2592000000 },
                         plan: { $ref: '#/components/schemas/plan' },
                     },
-                    required: ['id', 'email', 'name', 'callback', 'theme', 'subscribedCollectors', 'isSubscribedToAll', 'displaySketchCollectors', 'maxDelayBetweenCollect', 'plan'],
+                    required: ['id', 'email', 'name', 'callback', 'theme', 'subscribedCollectors', 'isSubscribedToAll', 'enableInteractiveLogin', 'displaySketchCollectors', 'maxDelayBetweenCollect', 'plan'],
                 },
                 user: {
                     type: 'object',
@@ -258,6 +331,7 @@ const SWAGGER_DEFINITION = {
                         customer_id: { type: 'string', description: 'Id of the customer.', example: '6795130f170ba4496dc30642' },
                         remote_id: { $ref: '#/components/schemas/remoteId' },
                         locale: { $ref: '#/components/schemas/locale' },
+                        stats: { $ref: '#/components/schemas/userStats' },
                     },
                     required: ['id', 'customer_id', 'remote_id', 'locale'],
                 },
@@ -277,16 +351,19 @@ const SWAGGER_DEFINITION = {
                     ],
                     required: ['token'],
                 },
-                userListItem: {
-                    allOf: [
-                        { $ref: '#/components/schemas/user' },
-                        {
-                            type: 'object',
-                            properties: {
-                                stats: { $ref: '#/components/schemas/userStats' },
-                            },
-                        },
-                    ],
+                userListItem: {                    
+                   type: 'array',
+                   description: 'List of users.',
+                   items: { $ref: '#/components/schemas/user' },
+                },
+                credentialParams: {
+                    type: 'object',
+                    description: 'Parameters required by the collector.',
+                    example: {
+                        id: "fbx123456789",
+                        password: "Y%2j7Fc$#$y",
+                        note: "The company Free account",
+                    },
                 },
                 credential: {
                     type: 'object',
@@ -295,7 +372,7 @@ const SWAGGER_DEFINITION = {
                         user_id: { type: 'string', description: 'Id of the user.', example: '687108e5dce5050bc8ca53c1' },
                         note: { type: 'string', description: 'Custom note for this credential.', example: 'Regular account' },
                         create_timestamp: { type: 'number', description: 'Creation timestamp.', example: 1745229262287 },
-                        download_from_timestamp: { type: 'number', description: 'Download from timestamp.', example: 1745229203582 },
+                        download_from_timestamp: { $ref: '#/components/schemas/downloadFromTimestamp' },
                         last_collect_timestamp: { type: 'number', description: 'Last collect timestamp.', example: 1745229265118 },
                         next_collect_timestamp: { type: 'number', description: 'Next collect timestamp.', example: 1746000402000 },
                         invoices: {
@@ -347,7 +424,6 @@ const SWAGGER_DEFINITION = {
             { name: 'User', description: 'User management' },
             { name: 'Credential (Bearer)', description: 'Credential and collection management' },
             { name: 'Credential (Token)', description: 'Credential and collection management' },
-            { name: 'Collector', description: 'Collector listing' },
         ],
     }
 };

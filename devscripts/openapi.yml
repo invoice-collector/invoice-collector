@@ -74,8 +74,18 @@ components:
         - type
     remoteId:
       type: string
-      description: Remote id of the user.
+      description: Remote id of the user in your system.
       example: R121439
+    customerRemoteId:
+      type: string
+      description: Remote id of your company in your system. _Invoice-Collector's
+        invoices will be sent along with this id to the callback URL._
+      example: R121439
+    ip:
+      type: string
+      description: IP address of the user for geolocation.
+      format: ipv4
+      example: 78.123.45.67
     token:
       type: string
       description: Token to be used by the client. You can get it using the POST /user
@@ -105,6 +115,10 @@ components:
         collect is in progress.
       nullable: true
       example: /api/v1/ws/30f6a13e919ceab0094e6df042166210fc00177dd392d2d2ae8b751946cbfecdb7f6e3fec3ec2d93db2a27a364dd6997adc88e439a3b96d34fe7d0257b27a616
+    twofaCode:
+      type: string
+      description: 2FA code to use.
+      example: "359731"
     callbackType:
       type: string
       enum:
@@ -112,6 +126,48 @@ components:
         - notification_disconnected
       description: Type of event to send to the callback.
       example: invoice
+    callback:
+      type: string
+      description: Callback url at which the new invoices are sent.
+      example: https://your.infrastructure.com/path/to/callback
+    theme:
+      type: string
+      description: Theme of the customer.
+      enum:
+        - default
+        - ocean
+      example: default
+    subscribedCollectors:
+      type: array
+      description: List of collector ids the customer is subscribed to.
+      items:
+        type: string
+      example:
+        - amazon
+        - shopify
+        - free
+    isSubscribedToAll:
+      type: boolean
+      description: Whether the customer is subscribed to all collectors. If true, the
+        subscribedCollectors field is ignored.
+      example: false
+    enableInteractiveLogin:
+      type: boolean
+      description: Whether the customer has enabled interactive login for collectors
+        that support it.
+      example: true
+    displaySketchCollectors:
+      type: boolean
+      description: Whether to display sketch collectors.
+      example: false
+    collectorId:
+      type: string
+      description: Id of the collector.
+      example: free
+    downloadFromTimestamp:
+      type: number
+      description: Download from timestamp in ms.
+      example: 1745229203582
     error:
       type: object
       properties:
@@ -200,15 +256,52 @@ components:
     userStats:
       type: object
       properties:
-        credentialsCount:
+        credentials:
           type: integer
+          description: Number of credentials for the user.
+          example: 5
+        invoices:
+          type: integer
+          description: Number of invoices for the user.
+          example: 10
+        status:
+          type: string
+          description: Status of the user.
+          example: active
     customerStats:
       type: object
       properties:
-        usersCount:
+        users:
           type: integer
-        credentialsCount:
+          description: Number of users under the customer.
+          example: 5
+        credentials:
           type: integer
+          description: Number of credentials under the customer.
+          example: 10
+        invoices:
+          type: integer
+          description: Number of invoices under the customer.
+          example: 50
+        byMonth:
+          type: object
+          additionalProperties:
+            type: object
+            properties:
+              users:
+                type: integer
+              credentials:
+                type: integer
+              invoices:
+                type: integer
+            required:
+              - users
+              - credentials
+              - invoices
+        collectors:
+          type: object
+          additionalProperties:
+            type: integer
     state:
       type: object
       properties:
@@ -267,9 +360,7 @@ components:
       type: object
       properties:
         id:
-          type: string
-          description: Id of the collector.
-          example: free
+          $ref: "#/components/schemas/collectorId"
         name:
           type: string
           description: Name of the collector.
@@ -372,40 +463,21 @@ components:
           description: Name of the customer.
           example: Awesome Company Name
         callback:
-          type: string
-          description: Callback url at which the new invoices are sent.
-          example: https://your.infrastructure.com/path/to/callback
+          $ref: "#/components/schemas/callback"
         remoteId:
           type: string
           description: Remote id of your company in your system.
           example: R121439
         theme:
-          type: string
-          description: Theme of the customer.
-          example: dark
+          $ref: "#/components/schemas/theme"
         subscribedCollectors:
-          type: array
-          description: List of collector ids the customer is subscribed to.
-          items:
-            type: string
-          example:
-            - amazon
-            - shopify
-            - free
+          $ref: "#/components/schemas/subscribedCollectors"
         isSubscribedToAll:
-          type: boolean
-          description: Whether the customer is subscribed to all collectors. If true, the
-            subscribedCollectors field is ignored.
-          example: false
+          $ref: "#/components/schemas/isSubscribedToAll"
         enableInteractiveLogin:
-          type: boolean
-          description: Whether the customer has enabled interactive login for collectors
-            that support it.
-          example: true
+          $ref: "#/components/schemas/enableInteractiveLogin"
         displaySketchCollectors:
-          type: boolean
-          description: Whether to display sketch collectors.
-          example: false
+          $ref: "#/components/schemas/displaySketchCollectors"
         maxDelayBetweenCollect:
           type: number
           description: Maximum delay between two collects in ms.
@@ -420,6 +492,7 @@ components:
         - theme
         - subscribedCollectors
         - isSubscribedToAll
+        - enableInteractiveLogin
         - displaySketchCollectors
         - maxDelayBetweenCollect
         - plan
@@ -438,6 +511,8 @@ components:
           $ref: "#/components/schemas/remoteId"
         locale:
           $ref: "#/components/schemas/locale"
+        stats:
+          $ref: "#/components/schemas/userStats"
       required:
         - id
         - customer_id
@@ -455,12 +530,17 @@ components:
       required:
         - token
     userListItem:
-      allOf:
-        - $ref: "#/components/schemas/user"
-        - type: object
-          properties:
-            stats:
-              $ref: "#/components/schemas/userStats"
+      type: array
+      description: List of users.
+      items:
+        $ref: "#/components/schemas/user"
+    credentialParams:
+      type: object
+      description: Parameters required by the collector.
+      example:
+        id: fbx123456789
+        password: Y%2j7Fc$#$y
+        note: The company Free account
     credential:
       type: object
       properties:
@@ -481,9 +561,7 @@ components:
           description: Creation timestamp.
           example: 1745229262287
         download_from_timestamp:
-          type: number
-          description: Download from timestamp.
-          example: 1745229203582
+          $ref: "#/components/schemas/downloadFromTimestamp"
         last_collect_timestamp:
           type: number
           description: Last collect timestamp.
@@ -598,8 +676,6 @@ tags:
     description: Credential and collection management
   - name: Credential (Token)
     description: Credential and collection management
-  - name: Collector
-    description: Collector listing
 paths:
   /ui:
     get:
@@ -736,7 +812,8 @@ paths:
       tags:
         - General
       summary: Send feedback
-      description: Sends feedback to the registry server. Bearer or Token authentication.
+      description: Sends feedback to the Invoice-Collector team. _You need to
+        authenticate using token or bearer._
       security:
         - CustomerBearerAuth: []
         - UserBearerAuth: []
@@ -848,6 +925,8 @@ paths:
             application/json:
               schema:
                 type: object
+                required:
+                  - resetToken
                 properties:
                   resetToken:
                     $ref: "#/components/schemas/resetToken"
@@ -887,6 +966,8 @@ paths:
             application/json:
               schema:
                 type: object
+                required:
+                  - resetToken
                 properties:
                   resetToken:
                     $ref: "#/components/schemas/resetToken"
@@ -907,14 +988,15 @@ paths:
       tags:
         - Authentication
       summary: Reset password
-      description: Resets the password using a reset token. No authentication required.
+      description: Resets the password using a reset token.
       parameters:
         - name: token
           in: query
           required: true
+          description: Token to be used for password reset. _You can get it using the
+            `POST /signup` endpoint._
           schema:
-            type: string
-          description: Password reset token
+            $ref: "#/components/schemas/resetToken"
       requestBody:
         required: true
         content:
@@ -925,7 +1007,7 @@ paths:
                 - password
               properties:
                 password:
-                  type: string
+                  $ref: "#/components/schemas/password"
       responses:
         "200":
           description: Password reset successfully
@@ -989,25 +1071,23 @@ paths:
               type: object
               properties:
                 name:
-                  type: string
+                  $ref: "#/components/schemas/name"
                 callback:
-                  type: string
+                  $ref: "#/components/schemas/callback"
                 remoteId:
-                  type: string
+                  $ref: "#/components/schemas/customerRemoteId"
                 cid:
-                  type: string
+                  $ref: "#/components/schemas/cid"
                 theme:
-                  type: string
+                  $ref: "#/components/schemas/theme"
                 subscribedCollectors:
-                  type: array
-                  items:
-                    type: string
+                  $ref: "#/components/schemas/subscribedCollectors"
                 isSubscribedToAll:
-                  type: boolean
+                  $ref: "#/components/schemas/isSubscribedToAll"
                 enableInteractiveLogin:
-                  type: boolean
+                  $ref: "#/components/schemas/enableInteractiveLogin"
                 displaySketchCollectors:
-                  type: boolean
+                  $ref: "#/components/schemas/displaySketchCollectors"
       responses:
         "200":
           description: Updated customer details
@@ -1096,9 +1176,7 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: "#/components/schemas/userListItem"
+                $ref: "#/components/schemas/userListItem"
         "401":
           description: Authentication error
           content:
@@ -1131,13 +1209,11 @@ paths:
                 - locale
               properties:
                 remoteId:
-                  type: string
-                  description: Also accepted as remote_id
+                  $ref: "#/components/schemas/remoteId"
                 locale:
-                  type: string
+                  $ref: "#/components/schemas/locale"
                 ip:
-                  type: string
-                  description: User IP for geolocation
+                  $ref: "#/components/schemas/ip"
       responses:
         "200":
           description: User details with token
@@ -1196,7 +1272,7 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/error"
-  /user/{user_id}:
+  /user/{userId}:
     get:
       tags:
         - User
@@ -1205,7 +1281,7 @@ paths:
       security:
         - CustomerBearerAuth: []
       parameters:
-        - name: user_id
+        - name: userId
           in: path
           required: true
           schema:
@@ -1235,41 +1311,6 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/error"
-    delete:
-      tags:
-        - User
-      summary: Delete user
-      description: Deletes a user and all associated credentials. Bearer authentication.
-      security:
-        - CustomerBearerAuth: []
-      parameters:
-        - name: user_id
-          in: path
-          required: true
-          schema:
-            $ref: "#/components/schemas/userId"
-      responses:
-        "200":
-          description: User deleted successfully
-        "400":
-          description: User not found
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/error"
-        "401":
-          description: Authentication error
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/error"
-        "500":
-          description: Internal server error
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/error"
-  /user/{userId}:
     put:
       tags:
         - User
@@ -1283,7 +1324,7 @@ paths:
           in: path
           required: true
           schema:
-            type: string
+            $ref: "#/components/schemas/userId"
       requestBody:
         required: true
         content:
@@ -1292,13 +1333,13 @@ paths:
               type: object
               properties:
                 remoteId:
-                  type: string
+                  $ref: "#/components/schemas/remoteId"
                 name:
-                  type: string
+                  $ref: "#/components/schemas/name"
                 cid:
-                  type: string
+                  $ref: "#/components/schemas/cid"
                 locale:
-                  type: string
+                  $ref: "#/components/schemas/locale"
       responses:
         "200":
           description: Updated user details
@@ -1324,7 +1365,41 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/error"
-  /user/{user_id}/credentials:
+    delete:
+      tags:
+        - User
+      summary: Delete user
+      description: Deletes a user and all associated credentials. Bearer authentication.
+      security:
+        - CustomerBearerAuth: []
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          schema:
+            $ref: "#/components/schemas/userId"
+      responses:
+        "200":
+          description: User deleted successfully
+        "400":
+          description: User not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/error"
+        "401":
+          description: Authentication error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/error"
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/error"
+  /user/{userId}/credentials:
     get:
       tags:
         - Credential (Bearer)
@@ -1333,7 +1408,7 @@ paths:
       security:
         - CustomerBearerAuth: []
       parameters:
-        - name: user_id
+        - name: userId
           in: path
           required: true
           schema:
@@ -1368,12 +1443,6 @@ paths:
       security:
         - UserBearerAuth: []
         - TokenAuth: []
-      parameters:
-        - name: token
-          in: query
-          required: true
-          schema:
-            type: string
       responses:
         "200":
           description: List of credentials
@@ -1395,7 +1464,7 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/error"
-  /user/{user_id}/credential:
+  /user/{userId}/credential:
     post:
       tags:
         - Credential (Bearer)
@@ -1404,7 +1473,7 @@ paths:
       security:
         - CustomerBearerAuth: []
       parameters:
-        - name: user_id
+        - name: userId
           in: path
           required: true
           schema:
@@ -1420,14 +1489,14 @@ paths:
                 - params
               properties:
                 collector:
-                  type: string
-                  description: Collector ID
+                  $ref: "#/components/schemas/collectorId"
                 params:
-                  type: object
-                  description: Collector-specific parameters
+                  $ref: "#/components/schemas/credentialParams"
                 download_from_timestamp:
-                  type: integer
-                  description: Unix timestamp in ms to download invoices from
+                  allOf:
+                    - $ref: "#/components/schemas/downloadFromTimestamp"
+                  description: Timestamp to start downloading invoices from in ms. _If empty,
+                    invoices will be downloaded starting from today._
       responses:
         "200":
           description: Created credential
@@ -1468,12 +1537,6 @@ paths:
       security:
         - UserBearerAuth: []
         - TokenAuth: []
-      parameters:
-        - name: token
-          in: query
-          required: true
-          schema:
-            type: string
       requestBody:
         required: true
         content:
@@ -1485,14 +1548,14 @@ paths:
                 - params
               properties:
                 collector:
-                  type: string
-                  description: Collector ID
+                  $ref: "#/components/schemas/collectorId"
                 params:
-                  type: object
-                  description: Collector-specific parameters
+                  $ref: "#/components/schemas/credentialParams"
                 download_from_timestamp:
-                  type: integer
-                  description: Unix timestamp in ms to download invoices from
+                  allOf:
+                    - $ref: "#/components/schemas/downloadFromTimestamp"
+                  description: Timestamp to start downloading invoices from in ms. _If empty,
+                    invoices will be downloaded starting from today._
       responses:
         "200":
           description: Created credential
@@ -1524,7 +1587,7 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/error"
-  /user/{user_id}/credential/{credential_id}:
+  /user/{userId}/credential/{credentialId}:
     get:
       tags:
         - Credential (Bearer)
@@ -1533,7 +1596,7 @@ paths:
       security:
         - CustomerBearerAuth: []
       parameters:
-        - name: user_id
+        - name: userId
           in: path
           required: true
           schema:
@@ -1542,7 +1605,7 @@ paths:
           in: path
           required: true
           schema:
-            type: string
+            $ref: "#/components/schemas/credentialId"
       responses:
         "200":
           description: Credential details
@@ -1582,7 +1645,7 @@ paths:
       security:
         - CustomerBearerAuth: []
       parameters:
-        - name: user_id
+        - name: userId
           in: path
           required: true
           schema:
@@ -1591,7 +1654,7 @@ paths:
           in: path
           required: true
           schema:
-            type: string
+            $ref: "#/components/schemas/credentialId"
       responses:
         "200":
           description: Credential deleted successfully
@@ -1619,7 +1682,7 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/error"
-  /credential/{credential_id}:
+  /credential/{credentialId}:
     get:
       tags:
         - Credential (Token)
@@ -1633,12 +1696,7 @@ paths:
           in: path
           required: true
           schema:
-            type: string
-        - name: token
-          in: query
-          required: true
-          schema:
-            type: string
+            $ref: "#/components/schemas/credentialId"
       responses:
         "200":
           description: Credential details
@@ -1683,12 +1741,7 @@ paths:
           in: path
           required: true
           schema:
-            type: string
-        - name: token
-          in: query
-          required: true
-          schema:
-            type: string
+            $ref: "#/components/schemas/credentialId"
       responses:
         "200":
           description: Credential deleted successfully
@@ -1716,7 +1769,7 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/error"
-  /user/{user_id}/credential/{credential_id}/2fa:
+  /user/{userId}/credential/{credentialId}/2fa:
     post:
       tags:
         - Credential (Bearer)
@@ -1727,7 +1780,7 @@ paths:
       security:
         - CustomerBearerAuth: []
       parameters:
-        - name: user_id
+        - name: userId
           in: path
           required: true
           schema:
@@ -1736,7 +1789,7 @@ paths:
           in: path
           required: true
           schema:
-            type: string
+            $ref: "#/components/schemas/credentialId"
       requestBody:
         required: true
         content:
@@ -1747,7 +1800,7 @@ paths:
                 - code
               properties:
                 code:
-                  type: string
+                  $ref: "#/components/schemas/twofaCode"
       responses:
         "200":
           description: 2FA code submitted
@@ -1775,7 +1828,7 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/error"
-  /credential/{credential_id}/2fa:
+  /credential/{credentialId}/2fa:
     post:
       tags:
         - Credential (Token)
@@ -1791,12 +1844,7 @@ paths:
           in: path
           required: true
           schema:
-            type: string
-        - name: token
-          in: query
-          required: true
-          schema:
-            type: string
+            $ref: "#/components/schemas/credentialId"
       requestBody:
         required: true
         content:
@@ -1807,7 +1855,7 @@ paths:
                 - code
               properties:
                 code:
-                  type: string
+                  $ref: "#/components/schemas/twofaCode"
       responses:
         "200":
           description: 2FA code submitted
@@ -1835,7 +1883,7 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/error"
-  /user/{user_id}/credential/{credential_id}/collect:
+  /user/{userId}/credential/{credentialId}/collect:
     post:
       tags:
         - Credential (Bearer)
@@ -1845,7 +1893,7 @@ paths:
       security:
         - CustomerBearerAuth: []
       parameters:
-        - name: user_id
+        - name: userId
           in: path
           required: true
           schema:
@@ -1854,7 +1902,7 @@ paths:
           in: path
           required: true
           schema:
-            type: string
+            $ref: "#/components/schemas/credentialId"
       responses:
         "200":
           description: Collection started or already in progress
@@ -1864,9 +1912,7 @@ paths:
                 type: object
                 properties:
                   wsPath:
-                    type: string
-                    nullable: true
-                    description: WebSocket path to monitor collection progress
+                    $ref: "#/components/schemas/wsPath"
         "400":
           description: Credential not found
           content:
@@ -1891,7 +1937,7 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/error"
-  /credential/{credential_id}/collect:
+  /credential/{credentialId}/collect:
     post:
       tags:
         - Credential (Token)
@@ -1902,16 +1948,11 @@ paths:
         - UserBearerAuth: []
         - TokenAuth: []
       parameters:
-        - name: credential_id
+        - name: credentialId
           in: path
           required: true
           schema:
-            type: string
-        - name: token
-          in: query
-          required: true
-          schema:
-            type: string
+            $ref: "#/components/schemas/credentialId"
       responses:
         "200":
           description: Collection started or already in progress
@@ -1921,9 +1962,7 @@ paths:
                 type: object
                 properties:
                   wsPath:
-                    type: string
-                    nullable: true
-                    description: WebSocket path to monitor collection progress
+                    $ref: "#/components/schemas/wsPath"
         "400":
           description: Credential not found
           content:
@@ -1953,7 +1992,9 @@ paths:
       tags:
         - General
       summary: List collectors
-      description: Returns all available collectors. Bearer or Token authentication.
+      description: Returns all available collectors. _You can authenticate using token
+        or bearer. If an authentication is provided, only the collectors the
+        customer is subscribed to will be returned._
       security:
         - CustomerBearerAuth: []
         - UserBearerAuth: []
@@ -1963,7 +2004,7 @@ paths:
           in: query
           required: false
           schema:
-            type: string
+            $ref: "#/components/schemas/locale"
           description: Locale for translated collector names and descriptions
       responses:
         "200":
