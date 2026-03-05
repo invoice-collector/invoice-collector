@@ -16,6 +16,7 @@ env:
   IMAGE_NAME_PREMIUM: ghcr.io/invoice-collector/invoice-collector-premium
   DEPLOYMENT_NAME_DEMO: invoice-collector-demo
   DEPLOYMENT_NAME_PROD: invoice-collector-prod
+  DOCKER_BUILD_RECORD_UPLOAD: false
 
 permissions:
   contents: write
