@@ -816,7 +816,7 @@ export class Server {
             }
             // Check if remote_id is already used by another user of the same customer
             const userFromRemoteId = await customer.getUserFromRemoteId(remote_id);
-            if (userFromRemoteId) {
+            if (userFromRemoteId && userFromRemoteId.id !== user.id) {
                 throw new StatusError(`Remote ID "${remote_id}" is already used by another user.`, 400);
             }
             user.remote_id = remote_id;
