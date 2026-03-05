@@ -63,13 +63,13 @@ function handle_error(e, req, res){
  *        description: Id of the credential. If provided, a collect will be started for this credential. If a collect is already in progress for this credential, the current progress will be shown.
  *     responses:
  *       200:
- *         description: Rendered HTML page
+ *         description: Success
  *         content:
  *           text/html:
  *             schema:
  *               type: string
  *       401:
- *         description: Invalid or expired token
+ *         description: Authentication error
  *         content:
  *           application/json:
  *             schema:
@@ -86,7 +86,9 @@ app.get('/api/v1/ui', async (req, res) => {
     try {
         // Get UI context
         console.log(`GET ui`);
-        const context = await server.get_ui(req.query.token);
+        const context = await server.get_ui(
+            req.query.token
+        );
 
         // Render ui.ejs
         req.setLocale(context.locale);
@@ -113,9 +115,9 @@ app.get('/api/v1/ui', async (req, res) => {
  *           $ref: '#/components/schemas/callbackType'
  *     responses:
  *       200:
- *         description: Callback sent successfully
+ *         description: Success
  *       400:
- *         description: Unsupported type
+ *         description: Bad request
  *         content:
  *           application/json:
  *             schema:
@@ -198,7 +200,10 @@ app.get('/api/v1/test/callback/:type', async (req, res) => {
     try {
         // Test callback
         console.log('GET test_callback');
-        await server.get_test_callback(req.headers.authorization, req.params.type);
+        await server.get_test_callback(
+            req.headers.authorization,
+            req.params.type
+        );
 
         // Build response
         res.end()
@@ -226,9 +231,9 @@ app.get('/api/v1/test/callback/:type', async (req, res) => {
  *             $ref: '#/components/schemas/feedback'
  *     responses:
  *       200:
- *         description: Feedback sent successfully
+ *         description: Success
  *       400:
- *         description: Missing field
+ *         description: Bad request
  *         content:
  *           application/json:
  *             schema:
@@ -251,7 +256,12 @@ app.post('/api/v1/feedback', async (req, res) => {
     try {
         // Send feedback
         console.log('POST feedback');
-        await server.post_feedback(req.headers.authorization, req.query.token, req.body.type, req.body.message);
+        await server.post_feedback(
+            req.headers.authorization,
+            req.query.token,
+            req.body.type,
+            req.body.message
+        );
 
         // Build response
         res.end()
@@ -283,19 +293,19 @@ app.post('/api/v1/feedback', async (req, res) => {
  *                 $ref: '#/components/schemas/password'
  *     responses:
  *       200:
- *         description: Login successful
+ *         description: Success
  *         content:
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/bearerResponse'
  *       400:
- *         description: Missing field
+ *         description: Bad request
  *         content:
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/error'
  *       401:
- *         description: Invalid credentials
+ *         description: Authentication error
  *         content:
  *           application/json:
  *             schema:
@@ -312,7 +322,10 @@ app.post('/api/v1/login', async (req, res) => {
     try {
         // Perform login
         console.log('POST login');
-        const response = await server.post_login(req.body.email, req.body.password);
+        const response = await server.post_login(
+            req.body.email,
+            req.body.password
+        );
 
         // Build response
         res.setHeader('Content-Type', 'application/json');
@@ -349,7 +362,7 @@ app.post('/api/v1/login', async (req, res) => {
  *                 $ref: '#/components/schemas/inviteId'
  *     responses:
  *       200:
- *         description: Signup successful
+ *         description: Success
  *         content:
  *           application/json:
  *             schema:
@@ -359,7 +372,7 @@ app.post('/api/v1/login', async (req, res) => {
  *                 resetToken:
  *                   $ref: '#/components/schemas/resetToken'
  *       400:
- *         description: Validation error
+ *         description: Bad request
  *         content:
  *           application/json:
  *             schema:
@@ -421,7 +434,7 @@ app.post('/api/v1/signup', async (req, res) => {
  *                 resetToken:
  *                   $ref: '#/components/schemas/resetToken'
  *       400:
- *         description: Account not found or missing field
+ *         description: Bad request
  *         content:
  *           application/json:
  *             schema:
@@ -438,7 +451,9 @@ app.post('/api/v1/forgot', async (req, res) => {
     try {
         // Perform forgot password
         console.log('POST forgot');
-        const response = await server.post_forgot(req.body.email);
+        const response = await server.post_forgot(
+            req.body.email
+        );
 
         // Build response
         res.setHeader('Content-Type', 'application/json');
@@ -474,15 +489,15 @@ app.post('/api/v1/forgot', async (req, res) => {
  *                 $ref: '#/components/schemas/password'
  *     responses:
  *       200:
- *         description: Password reset successfully
+ *         description: Success
  *       400:
- *         description: Missing field
+ *         description: Bad request
  *         content:
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/error'
  *       401:
- *         description: Invalid or expired token
+ *         description: Authentication error
  *         content:
  *           application/json:
  *             schema:
@@ -499,7 +514,10 @@ app.post('/api/v1/reset', async (req, res) => {
     try {
         // Perform reset password
         console.log('POST reset');
-        await server.post_reset(req.query.token, req.body.password);
+        await server.post_reset(
+            req.query.token,
+            req.body.password
+        );
 
         // Build response
         res.end()
@@ -521,7 +539,7 @@ app.post('/api/v1/reset', async (req, res) => {
  *       - CustomerBearerAuth: []
  *     responses:
  *       200:
- *         description: Customer details
+ *         description: Success
  *         content:
  *           application/json:
  *             schema:
@@ -544,7 +562,9 @@ app.get('/api/v1/customer', async (req, res) => {
     try {
         // Get customer
         console.log(`GET customer`);
-        const response = await server.get_customer(req.headers.authorization);
+        const response = await server.get_customer(
+            req.headers.authorization
+        );
 
         // Build response
         res.setHeader('Content-Type', 'application/json');
@@ -590,7 +610,7 @@ app.get('/api/v1/customer', async (req, res) => {
  *                 $ref: '#/components/schemas/displaySketchCollectors'
  *     responses:
  *       200:
- *         description: Updated customer details
+ *         description: Success
  *         content:
  *           application/json:
  *             schema:
@@ -645,7 +665,7 @@ app.put('/api/v1/customer', async (req, res) => {
  *       - CustomerBearerAuth: []
  *     responses:
  *       200:
- *         description: New bearer token
+ *         description: Success
  *         content:
  *           application/json:
  *             schema:
@@ -668,7 +688,9 @@ app.post('/api/v1/customer/bearer', async (req, res) => {
     try {
         // Generate a new bearer for customer
         console.log(`POST customer bearer`);
-        const response = await server.post_customer_bearer(req.headers.authorization);
+        const response = await server.post_customer_bearer(
+            req.headers.authorization
+        );
 
         // Build response
         res.setHeader('Content-Type', 'application/json');
@@ -690,7 +712,7 @@ app.post('/api/v1/customer/bearer', async (req, res) => {
  *       - CustomerBearerAuth: []
  *     responses:
  *       200:
- *         description: Customer statistics
+ *         description: Success
  *         content:
  *           application/json:
  *             schema:
@@ -713,7 +735,9 @@ app.get('/api/v1/customer/stats', async (req, res) => {
     try {
         // Get customer stats
         console.log(`GET customer stats`);
-        const response = await server.getCustomerStats(req.headers.authorization);
+        const response = await server.getCustomerStats(
+            req.headers.authorization
+        );
 
         // Build response
         res.setHeader('Content-Type', 'application/json');
@@ -736,7 +760,7 @@ app.get('/api/v1/customer/stats', async (req, res) => {
  *       - CustomerBearerAuth: []
  *     responses:
  *       200:
- *         description: List of users
+ *         description: Success
  *         content:
  *           application/json:
  *             schema:
@@ -759,7 +783,9 @@ app.get('/api/v1/users', async (req, res) => {
     try {
         // List users
         console.log(`GET users`);
-        const response = await server.get_users(req.headers.authorization);
+        const response = await server.get_users(
+            req.headers.authorization
+        );
 
         // Build response
         res.setHeader('Content-Type', 'application/json');
@@ -794,13 +820,13 @@ app.get('/api/v1/users', async (req, res) => {
  *                 $ref: '#/components/schemas/ip'
  *     responses:
  *       200:
- *         description: User details with token
+ *         description: Success
  *         content:
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/userWithToken'
  *       400:
- *         description: Missing or invalid field
+ *         description: Bad request
  *         content:
  *           application/json:
  *             schema:
@@ -861,13 +887,13 @@ app.post('/api/v1/user', async (req, res) => {
  *           $ref: "#/components/schemas/userId"
  *     responses:
  *       200:
- *         description: User details
+ *         description: Success
  *         content:
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/user'
  *       400:
- *         description: User not found
+ *         description: Bad request
  *         content:
  *           application/json:
  *             schema:
@@ -890,7 +916,10 @@ app.get('/api/v1/user/:user_id', async (req, res) => {
     try {
         // Get user
         console.log('GET user');
-        const response = await server.get_user(req.headers.authorization, req.params.user_id);
+        const response = await server.get_user(
+            req.headers.authorization,
+            req.params.user_id
+        );
 
         // Build response
         res.setHeader('Content-Type', 'application/json');
@@ -911,7 +940,7 @@ app.get('/api/v1/user/:user_id', async (req, res) => {
  *       - UserBearerAuth: []
  *     responses:
  *       200:
- *         description: User details
+ *         description: Success
  *         content:
  *           application/json:
  *             schema:
@@ -934,7 +963,10 @@ app.get('/api/v1/user', async (req, res) => {
     try {
         // Get user
         console.log('GET user');
-        const response = await server.get_user(req.headers.authorization, undefined);
+        const response = await server.get_user(
+            req.headers.authorization,
+            undefined
+        );
 
         // Build response
         res.setHeader('Content-Type', 'application/json');
@@ -977,13 +1009,13 @@ app.get('/api/v1/user', async (req, res) => {
  *                 $ref: '#/components/schemas/locale'
  *     responses:
  *       200:
- *         description: Updated user details
+ *         description: Success
  *         content:
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/user'
  *       400:
- *         description: Validation error
+ *         description: Bad request
  *         content:
  *           application/json:
  *             schema:
@@ -1040,9 +1072,9 @@ app.put('/api/v1/user/:userId', async (req, res) => {
  *           $ref: "#/components/schemas/userId"
  *     responses:
  *       200:
- *         description: User deleted successfully
+ *         description: Success
  *       400:
- *         description: User not found
+ *         description: Bad request
  *         content:
  *           application/json:
  *             schema:
@@ -1065,7 +1097,10 @@ app.delete('/api/v1/user/:user_id', async (req, res) => {
     try {
         // Delete user
         console.log('DELETE user');
-        await server.delete_user(req.headers.authorization, req.params.user_id);
+        await server.delete_user(
+            req.headers.authorization,
+            req.params.user_id
+        );
 
         // Build response
         res.end()
@@ -1093,7 +1128,7 @@ app.delete('/api/v1/user/:user_id', async (req, res) => {
  *           $ref: "#/components/schemas/userId"
  *     responses:
  *       200:
- *         description: List of credentials
+ *         description: Success
  *         content:
  *           application/json:
  *             schema:
@@ -1118,7 +1153,11 @@ app.get('/api/v1/user/:user_id/credentials', async (req, res) => {
     try {
         // Get credentials
         console.log(`GET credentials`);
-        const credentials = await server.get_credentials(req.headers.authorization, req.params.user_id, undefined);
+        const credentials = await server.get_credentials(
+            req.headers.authorization,
+            req.params.user_id,
+            undefined
+        );
 
         // Build response
         res.setHeader('Content-Type', 'application/json');
@@ -1140,7 +1179,7 @@ app.get('/api/v1/user/:user_id/credentials', async (req, res) => {
  *       - TokenAuth: []
  *     responses:
  *       200:
- *         description: List of credentials
+ *         description: Success
  *         content:
  *           application/json:
  *             schema:
@@ -1165,7 +1204,11 @@ app.get('/api/v1/credentials', async (req, res) => {
     try {
         // Get credentials
         console.log(`GET credentials`);
-        const credentials = await server.get_credentials(req.headers.authorization, undefined, req.query.token)
+        const credentials = await server.get_credentials(
+            req.headers.authorization,
+            undefined,
+            req.query.token
+        );
 
         // Build response
         res.setHeader('Content-Type', 'application/json');
@@ -1208,13 +1251,13 @@ app.get('/api/v1/credentials', async (req, res) => {
  *                 description: 'Timestamp to start downloading invoices from in ms. _If empty, invoices will be downloaded starting from today._'
  *     responses:
  *       200:
- *         description: Created credential
+ *         description: Success
  *         content:
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/credential'
  *       400:
- *         description: Missing or invalid field
+ *         description: Bad request
  *         content:
  *           application/json:
  *             schema:
@@ -1288,13 +1331,13 @@ app.post('/api/v1/user/:user_id/credential', async (req, res) => {
  *                 description: 'Timestamp to start downloading invoices from in ms. _If empty, invoices will be downloaded starting from today._'
  *     responses:
  *       200:
- *         description: Created credential
+ *         description: Success
  *         content:
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/credential'
  *       400:
- *         description: Missing or invalid field
+ *         description: Bad request
  *         content:
  *           application/json:
  *             schema:
@@ -1362,13 +1405,13 @@ app.post('/api/v1/credential', async (req, res) => {
  *           $ref: "#/components/schemas/credentialId"
  *     responses:
  *       200:
- *         description: Credential details
+ *         description: Success
  *         content:
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/credential'
  *       400:
- *         description: Credential not found
+ *         description: Bad request
  *         content:
  *           application/json:
  *             schema:
@@ -1396,7 +1439,12 @@ app.post('/api/v1/credential', async (req, res) => {
 app.get('/api/v1/user/:user_id/credential/:credential_id', async (req, res) => {
     try {
         // Get credential status
-        const response = await server.get_credential(req.headers.authorization, req.params.user_id, undefined, req.params.credential_id);
+        const response = await server.get_credential(
+            req.headers.authorization,
+            req.params.user_id,
+            undefined,
+            req.params.credential_id
+        );
 
         // Build response
         res.setHeader('Content-Type', 'application/json');
@@ -1424,13 +1472,13 @@ app.get('/api/v1/user/:user_id/credential/:credential_id', async (req, res) => {
  *           $ref: "#/components/schemas/credentialId"
  *     responses:
  *       200:
- *         description: Credential details
+ *         description: Success
  *         content:
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/credential'
  *       400:
- *         description: Credential not found
+ *         description: Bad request
  *         content:
  *           application/json:
  *             schema:
@@ -1458,7 +1506,12 @@ app.get('/api/v1/user/:user_id/credential/:credential_id', async (req, res) => {
 app.get('/api/v1/credential/:credential_id', async (req, res) => {
     try {
         // Get credential status
-        const response = await server.get_credential(req.headers.authorization, undefined, req.query.token, req.params.credential_id);
+        const response = await server.get_credential(
+            req.headers.authorization,
+            undefined,
+            req.query.token,
+            req.params.credential_id
+        );
 
         // Build response
         res.setHeader('Content-Type', 'application/json');
@@ -1490,9 +1543,9 @@ app.get('/api/v1/credential/:credential_id', async (req, res) => {
  *           $ref: "#/components/schemas/credentialId"
  *     responses:
  *       200:
- *         description: Credential deleted successfully
+ *         description: Success
  *       400:
- *         description: Credential not found
+ *         description: Bad request
  *         content:
  *           application/json:
  *             schema:
@@ -1521,7 +1574,12 @@ app.delete('/api/v1/user/:user_id/credential/:credential_id', async (req, res) =
     try {
         // Delete credential
         console.log(`DELETE credential ${req.params.credential_id}`);
-        await server.delete_credential(req.headers.authorization, req.params.user_id, undefined, req.params.credential_id);
+        await server.delete_credential(
+            req.headers.authorization,
+            req.params.user_id,
+            undefined,
+            req.params.credential_id
+        );
 
         // Build response
         res.end()
@@ -1548,9 +1606,9 @@ app.delete('/api/v1/user/:user_id/credential/:credential_id', async (req, res) =
  *           $ref: "#/components/schemas/credentialId"
  *     responses:
  *       200:
- *         description: Credential deleted successfully
+ *         description: Success
  *       400:
- *         description: Credential not found
+ *         description: Bad request
  *         content:
  *           application/json:
  *             schema:
@@ -1579,7 +1637,12 @@ app.delete('/api/v1/credential/:credential_id', async (req, res) => {
     try {
         // Delete credential
         console.log(`DELETE credential ${req.params.credential_id}`);
-        await server.delete_credential(req.headers.authorization, undefined, req.query.token, req.params.credential_id);
+        await server.delete_credential(
+            req.headers.authorization,
+            undefined,
+            req.query.token,
+            req.params.credential_id
+        );
 
         // Build response
         res.end()
@@ -1621,9 +1684,9 @@ app.delete('/api/v1/credential/:credential_id', async (req, res) => {
  *                 $ref: '#/components/schemas/twofaCode'
  *     responses:
  *       200:
- *         description: 2FA code submitted
+ *         description: Success
  *       400:
- *         description: Missing field or no collect in progress
+ *         description: Bad request
  *         content:
  *           application/json:
  *             schema:
@@ -1652,7 +1715,13 @@ app.post('/api/v1/user/:user_id/credential/:credential_id/2fa', async (req, res)
     try {
         // Post 2fa
         console.log(`POST 2fa ${req.params.credential_id} (DEPRECATED, use websockets instead)`);
-        await server.post_credential_2fa(req.headers.authorization, req.params.user_id, undefined, req.params.credential_id, req.body.code);
+        await server.post_credential_2fa(
+            req.headers.authorization,
+            req.params.user_id,
+            undefined,
+            req.params.credential_id,
+            req.body.code
+        );
 
         // Build response
         res.end()
@@ -1690,9 +1759,9 @@ app.post('/api/v1/user/:user_id/credential/:credential_id/2fa', async (req, res)
  *                 $ref: '#/components/schemas/twofaCode'
  *     responses:
  *       200:
- *         description: 2FA code submitted
+ *         description: Success
  *       400:
- *         description: Missing field or no collect in progress
+ *         description: Bad request
  *         content:
  *           application/json:
  *             schema:
@@ -1721,7 +1790,13 @@ app.post('/api/v1/credential/:credential_id/2fa', async (req, res) => {
     try {
         // Post 2fa
         console.log(`POST 2fa ${req.params.credential_id} (DEPRECATED, use websockets instead)`);
-        await server.post_credential_2fa(req.headers.authorization, undefined, req.query.token, req.params.credential_id, req.body.code);
+        await server.post_credential_2fa(
+            req.headers.authorization,
+            undefined,
+            req.query.token,
+            req.params.credential_id,
+            req.body.code
+        );
 
         // Build response
         res.end()
@@ -1752,7 +1827,7 @@ app.post('/api/v1/credential/:credential_id/2fa', async (req, res) => {
  *           $ref: "#/components/schemas/credentialId"
  *     responses:
  *       200:
- *         description: Collection started or already in progress
+ *         description: Success
  *         content:
  *           application/json:
  *             schema:
@@ -1761,7 +1836,7 @@ app.post('/api/v1/credential/:credential_id/2fa', async (req, res) => {
  *                 wsPath:
  *                   $ref: '#/components/schemas/wsPath'
  *       400:
- *         description: Credential not found
+ *         description: Bad request
  *         content:
  *           application/json:
  *             schema:
@@ -1790,7 +1865,12 @@ app.post('/api/v1/user/:user_id/credential/:credential_id/collect', async (req, 
     try {
         // Post collect
         console.log(`POST collect ${req.params.credential_id}`);
-        const response = await server.post_credential_collect(req.headers.authorization, req.params.user_id, undefined, req.params.credential_id);
+        const response = await server.post_credential_collect(
+            req.headers.authorization,
+            req.params.user_id,
+            undefined,
+            req.params.credential_id
+        );
 
         // Build response
         res.setHeader('Content-Type', 'application/json');
@@ -1818,7 +1898,7 @@ app.post('/api/v1/user/:user_id/credential/:credential_id/collect', async (req, 
  *           $ref: "#/components/schemas/credentialId"
  *     responses:
  *       200:
- *         description: Collection started or already in progress
+ *         description: Success
  *         content:
  *           application/json:
  *             schema:
@@ -1827,7 +1907,7 @@ app.post('/api/v1/user/:user_id/credential/:credential_id/collect', async (req, 
  *                 wsPath:
  *                   $ref: '#/components/schemas/wsPath'
  *       400:
- *         description: Credential not found
+ *         description: Bad request
  *         content:
  *           application/json:
  *             schema:
@@ -1856,7 +1936,12 @@ app.post('/api/v1/credential/:credential_id/collect', async (req, res) => {
     try {
         // Post collect
         console.log(`POST collect ${req.params.credential_id}`);
-        const response = await server.post_credential_collect(req.headers.authorization, undefined, req.query.token, req.params.credential_id);
+        const response = await server.post_credential_collect(
+            req.headers.authorization,
+            undefined,
+            req.query.token,
+            req.params.credential_id
+        );
 
         // Build response
         res.setHeader('Content-Type', 'application/json');
@@ -1888,7 +1973,7 @@ app.post('/api/v1/credential/:credential_id/collect', async (req, res) => {
  *         description: Locale for translated collector names and descriptions
  *     responses:
  *       200:
- *         description: List of collector configurations
+ *         description: Success
  *         content:
  *           application/json:
  *             schema:
@@ -1896,7 +1981,7 @@ app.post('/api/v1/credential/:credential_id/collect', async (req, res) => {
  *               items:
  *                 $ref: '#/components/schemas/collectorConfig'
  *       400:
- *         description: Unsupported locale
+ *         description: Bad request
  *         content:
  *           application/json:
  *             schema:
@@ -1919,7 +2004,11 @@ app.get('/api/v1/collectors', async (req, res) => {
     try {
         // List all collectors
         console.log(`GET collectors`);
-        const response = await server.get_collectors(req.headers.authorization, req.query.token, req.query.locale);
+        const response = await server.get_collectors(
+            req.headers.authorization,
+            req.query.token,
+            req.query.locale
+        );
 
         // Build response
         res.setHeader('Content-Type', 'application/json');
