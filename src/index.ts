@@ -174,11 +174,11 @@ app.get('/api/v1/customer', async (req, res) => {
 });
 
 // BEARER AUTHENTICATION
-app.post('/api/v1/customer', async (req, res) => {
+app.put('/api/v1/customer', async (req, res) => {
     try {
         // Save customer
-        console.log(`POST customer`);
-        await server.post_customer(
+        console.log(`PUT customer`);
+        const response = await server.put_customer(
             req.headers.authorization,
             req.body.name,
             req.body.callback,
@@ -192,7 +192,8 @@ app.post('/api/v1/customer', async (req, res) => {
         );
 
         // Build response
-        res.end();
+        res.setHeader('Content-Type', 'application/json');
+        res.end(JSON.stringify(response));
     } catch (e) {
         handle_error(e, req, res);
     }
@@ -251,7 +252,12 @@ app.post('/api/v1/user', async (req, res) => {
     try {
         // Perform authorization
         console.log('POST user');
-        const response = await server.post_user(req.headers.authorization, req.body.remote_id, req.body.locale, req.body.ip);
+        const response = await server.post_user(
+            req.headers.authorization,
+            req.body.remoteId || req.body.remote_id,
+            req.body.locale,
+            req.body.ip
+        );
 
         // Build response
         res.setHeader('Content-Type', 'application/json');
@@ -282,6 +288,28 @@ app.get('/api/v1/user', async (req, res) => {
         // Get user
         console.log('GET user');
         const response = await server.get_user(req.headers.authorization, undefined);
+
+        // Build response
+        res.setHeader('Content-Type', 'application/json');
+        res.end(JSON.stringify(response));
+    } catch (e) {
+        handle_error(e, req, res);
+    }
+});
+
+// BEARER AUTHENTICATION
+app.put('/api/v1/user/:userId', async (req, res) => {
+    try {
+        // Update user
+        console.log('PUT user');
+        const response = await server.put_user(
+            req.headers.authorization,
+            req.params.userId,
+            req.body.remoteId,
+            req.body.name,
+            req.body.cid,
+            req.body.locale
+        );
 
         // Build response
         res.setHeader('Content-Type', 'application/json');
