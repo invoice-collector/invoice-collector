@@ -442,6 +442,7 @@ export class Server {
         // Get customer from bearer
         const customer = await this.getCustomerFromBearer(bearer);
 
+        // Return customer
         return {
             id: customer.id,
             email: customer.email,
@@ -462,7 +463,7 @@ export class Server {
     }
 
     // BEARER AUTHENTICATION
-    public async post_customer(
+    public async put_customer(
         bearer: string | undefined,
         name: string | undefined,
         callback: string | undefined,
@@ -473,7 +474,23 @@ export class Server {
         isSubscribedToAll: boolean | undefined,
         enableInteractiveLogin: boolean | undefined,
         displaySketchCollectors: boolean | undefined
-    ): Promise<void> {
+    ): Promise<{
+        id: string,
+        email: string,
+        name: string,
+        callback: string,
+        remoteId: string,
+        cid: string,
+        inviteId: string,
+        createdAt: number,
+        theme: string,
+        subscribedCollectors: string[],
+        isSubscribedToAll: boolean,
+        enableInteractiveLogin: boolean,
+        displaySketchCollectors: boolean,
+        maxDelayBetweenCollect: number,
+        plan: Plan
+    }> {
         // Get customer from bearer
         const customer = await this.getCustomerFromBearer(bearer);
 
@@ -520,6 +537,25 @@ export class Server {
 
         // Commit changes in database
         await customer.commit();
+
+        // Return customer
+        return {
+            id: customer.id,
+            email: customer.email,
+            name: customer.name,
+            callback: customer.callback,
+            remoteId: customer.remoteId,
+            cid: customer.cid,
+            inviteId: customer.inviteId,
+            createdAt: customer.createdAt,
+            theme: customer.theme,
+            subscribedCollectors: customer.subscribedCollectors,
+            isSubscribedToAll: customer.isSubscribedToAll,
+            enableInteractiveLogin: customer.enableInteractiveLogin,
+            displaySketchCollectors: customer.displaySketchCollectors,
+            maxDelayBetweenCollect: customer.maxDelayBetweenCollect,
+            plan: customer.plan
+        };
     }
 
     // BEARER AUTHENTICATION
