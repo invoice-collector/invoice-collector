@@ -52,9 +52,15 @@ function handle_error(e, req, res){
  *   get:
  *     tags: [General]
  *     summary: Get UI page
- *     description: Returns the rendered UI page for the user. Token authentication.
+ *     description: Returns a UI page for the user to add credentials.
  *     security:
  *      - TokenAuth: []
+ *     parameters:
+ *      - name: credential_id
+ *        in: query
+ *        schema:
+ *          $ref: '#/components/schemas/credential_id'
+ *        description: Id of the credential. If provided, a collect will be started for this credential. If a collect is already in progress for this credential, the current progress will be shown.
  *     responses:
  *       200:
  *         description: Rendered HTML page
@@ -1936,7 +1942,7 @@ app.post('/api/v1/credential/:credential_id/collect', async (req, res) => {
  * @openapi
  * /collectors:
  *   get:
- *     tags: [Collector]
+ *     tags: [General]
  *     summary: List collectors
  *     description: Returns all available collectors. Bearer or Token authentication.
  *     security:
