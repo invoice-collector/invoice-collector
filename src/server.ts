@@ -780,6 +780,90 @@ export class Server {
         };
     }
 
+    // BEARER AUTHENTICATION
+    public async put_user(
+        bearer: string | undefined,
+        user_id: string | undefined,
+        remote_id: string | undefined,
+        name: string | undefined,
+        cid: string | undefined,
+        locale: string | undefined
+    ): Promise<{
+        id: string,
+        customer_id: string,
+        remote_id: string,
+        name: string,
+        cid: string,
+        locale: string,
+        createdAt: number,
+        customer: {
+            name: string,
+            cid: string
+        },
+        stats: UserStats
+    }> {
+        // Get user from bearer
+        const user = await this.getUserFromBearerOrToken(bearer, user_id, null);
+
+        // Get customer from user
+        const customer = await user.getCustomer();
+
+        // Check if remote_id field is present
+        if(remote_id) {
+            // Check if remote_id contains space
+            if(remote_id.includes(" ")) {
+                throw new StatusError(`Remote ID "${remote_id}" cannot contain spaces.`, 400);
+            }
+            // Check if remote_id is already used by another user of the same customer
+            const userFromRemoteId = await customer.getUserFromRemoteId(remote_id);
+            if (userFromRemoteId) {
+                throw new StatusError(`Remote ID "${remote_id}" is already used by another user.`, 400);
+            }
+            user.remote_id = remote_id;
+        }
+
+        // Check if name field is present
+        if(name) {
+            user.name = name;
+        }
+
+        // Check if cid field is present
+        if(cid) {
+            user.cid = cid;
+        }
+
+        // Check if locale field is present
+        if(locale) {
+            // Check if locale is supported
+            if(locale && !I18n.LOCALES.includes(locale)) {
+                throw new StatusError(`Locale "${locale}" not supported. Available locales are: ${I18n.LOCALES.join(", ")}.`, 400);
+            }
+            user.locale = locale;
+        }
+
+        // Commit changes in database
+        await user.commit();
+
+        // Get user stats
+        const stats = await user.getStats();
+
+        // Return user
+        return {
+            id: user.id,
+            customer_id: user.customer_id,
+            remote_id: user.remote_id,
+            name: user.name,
+            cid: user.cid,
+            locale: user.locale,
+            createdAt: user.createdAt,
+            customer: {
+                name: customer.name,
+                cid: customer.cid
+            },
+            stats: stats
+        };
+    }
+
 
     // BEARER AUTHENTICATION
     public async delete_user(bearer: string | undefined, user_id: string) {

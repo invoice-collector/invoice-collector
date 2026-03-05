@@ -298,6 +298,28 @@ app.get('/api/v1/user', async (req, res) => {
 });
 
 // BEARER AUTHENTICATION
+app.put('/api/v1/user/:userId', async (req, res) => {
+    try {
+        // Update user
+        console.log('PUT user');
+        const response = await server.put_user(
+            req.headers.authorization,
+            req.params.userId,
+            req.body.remoteId,
+            req.body.name,
+            req.body.cid,
+            req.body.locale
+        );
+
+        // Build response
+        res.setHeader('Content-Type', 'application/json');
+        res.end(JSON.stringify(response));
+    } catch (e) {
+        handle_error(e, req, res);
+    }
+});
+
+// BEARER AUTHENTICATION
 app.delete('/api/v1/user/:user_id', async (req, res) => {
     try {
         // Delete user
