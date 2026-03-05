@@ -221,7 +221,7 @@ export class Server {
         locale: string | undefined,
         inviteId: string | undefined
     ): Promise<{
-        resetLink: string
+        resetToken: string
     }> {
         // Check if email field is missing
         if(!email) {
@@ -288,10 +288,10 @@ export class Server {
             await RegistryServer.getInstance().sendWelcomeEmail(email, user.locale);
 
             // Handle password reset for user
-            const resetLink = await this.handleUserResetPassword(user);
+            const resetToken = await this.handleUserResetPassword(user);
 
-            // Return reset link
-            return { resetLink };
+            // Return reset token
+            return { resetToken: resetToken };
         }
         else {
             // Create new customer
@@ -314,10 +314,10 @@ export class Server {
             await RegistryServer.getInstance().sendWelcomeEmail(email, locale || I18n.DEFAULT_LOCALE);
 
             // Handle password reset for customer
-            const resetLink = await this.handleCustomerResetPassword(customer);
+            const resetToken = await this.handleCustomerResetPassword(customer);
 
-            // Return reset link
-            return { resetLink };
+            // Return reset token
+            return { resetToken: resetToken };
         }
     }
 
@@ -325,7 +325,7 @@ export class Server {
     public async post_forgot(
         email: string | undefined
     ): Promise<{
-        resetLink: string
+        resetToken: string
     }> {
         // Check if email field is missing
         if(!email) {
@@ -338,10 +338,10 @@ export class Server {
         // If customer exists
         if(customer) {
             // Generate reset token
-            const resetLink = await this.handleCustomerResetPassword(customer);
+            const resetToken = await this.handleCustomerResetPassword(customer);
 
-            // Return reset link
-            return { resetLink };
+            // Return reset token
+            return { resetToken: resetToken };
         }
 
         // Check if customer already exists
@@ -350,10 +350,10 @@ export class Server {
         // If user exists
         if(user) {
             // Generate reset token and return it
-            const resetLink = await this.handleUserResetPassword(user);
+            const resetToken = await this.handleUserResetPassword(user);
 
-            // Return reset link
-            return { resetLink };
+            // Return reset token
+            return { resetToken: resetToken };
         }
 
         // If not customer or user found, raise error
@@ -1535,7 +1535,10 @@ export class Server {
         }, Server.RESET_PASSWORD_TOKEN_VALIDITY_DURATION_MS);
 
         // Send reset password email
-        return await RegistryServer.getInstance().sendResetPasswordEmail(user.remote_id, resetToken);
+        await RegistryServer.getInstance().sendResetPasswordEmail(user.remote_id, resetToken);
+
+        // Return token
+        return resetToken;
     }
 
     private async handleCustomerResetPassword(customer: Customer): Promise<string> {
@@ -1551,6 +1554,9 @@ export class Server {
         }, Server.RESET_PASSWORD_TOKEN_VALIDITY_DURATION_MS);
 
         // Send reset password email
-        return await RegistryServer.getInstance().sendResetPasswordEmail(customer.email, resetToken);
+        await RegistryServer.getInstance().sendResetPasswordEmail(customer.email, resetToken);
+
+        // Return token
+        return resetToken;
     }
 }

@@ -1,0 +1,431 @@
+const { name } = require( 'ejs' );
+const { type } = require( 'os' );
+const path = require('path');
+
+const SWAGGER_DEFINITION = {
+    apis: [path.join(__dirname, '..', 'src', 'index.ts'), path.join(__dirname, '..', 'src', 'index.js')],
+    definition: {
+        openapi: '3.0.3',
+        info: {
+            title: 'Invoice Collector API',
+            description: 'API for managing invoice collection, customers, users, credentials, and collectors.',
+            version: '1.0.0',
+        },
+        servers: [
+            { url: 'https://api.invoice-collector.com/api/v1', description: 'Production API' },
+            { url: 'https://localhost:8080/api/v1', description: 'Local API' }
+        ],
+        components: {
+            securitySchemes: {
+                CustomerBearerAuth: {
+                    type: 'http',
+                    scheme: 'bearer',
+                    description: 'Bearer token to authenticate the customer.',
+                },
+                UserBearerAuth: {
+                    type: 'http',
+                    scheme: 'bearer',
+                    description: 'Bearer token to authenticate the user.',
+                },
+                TokenAuth: {
+                    type: 'apiKey',
+                    in: 'query',
+                    name: 'token',
+                    description: 'UI token obtained from POST /user',
+                },
+            },
+            schemas: {
+                // --- Simple / reusable type schemas ---
+                email: {
+                    type: 'string',
+                    description: 'Email address.',
+                    format: 'email',
+                    example: 'customer@example.com',
+                },
+                password: {
+                    type: 'string',
+                    description: 'Password.',
+                    format: 'password',
+                    example: 'securepassword123!',
+                },
+                name: {
+                    type: 'string',
+                    description: 'Company name or user name.',
+                    example: 'Awesome Company Name',
+                },
+                cid: {
+                    type: 'string',
+                    description: 'Company Identification Number.',
+                    example: 'C123456',
+                },
+                locale: {
+                    type: 'string',
+                    description: 'Language of the user.',
+                    enum: ['en', 'fr'],
+                    default: 'en',
+                    example: 'fr',
+                },
+                inviteId: {
+                    type: 'string',
+                    description: 'If provided, creates a user under the customer matching this invite ID',
+                    example: 'awesome-comany-xyz',
+                },
+                bearerResponse: {
+                    type: 'object',
+                    properties: {
+                        bearer: {
+                            type: 'string',
+                            description: 'Bearer token to be used in the Authorization header.',
+                            example: 'qHcFyrYj.....yQ77/q0=',
+                        },
+                        type: {
+                            type: 'string',
+                            description: 'Type of the bearer token.',
+                            enum: ['customer', 'user'],
+                            example: 'customer',
+                        },
+                    },
+                    required: ['bearer', 'type'],
+                },
+                remoteId: {
+                    type: 'string',
+                    description: 'Remote id of the user in your system.',
+                    example: 'R121439',
+                },
+                customerRemoteId: {
+                    type: 'string',
+                    description: 'Remote id of your company in your system. _Invoice-Collector\'s invoices will be sent along with this id to the callback URL._',
+                    example: 'R121439',
+                },
+                ip:{
+                    type: 'string',
+                    description: 'IP address of the user for geolocation.',
+                    format: 'ipv4',
+                    example: '78.123.45.67',
+                },
+                token: {
+                    type: 'string',
+                    description: 'Token to be used by the client. You can get it using the POST /user endpoint.',
+                    example: '<token>',
+                },
+                resetToken: {
+                    type: 'string',
+                    description: 'Token to be used for password reset. You can get it using the POST /signup endpoint.',
+                    example: '<reset_token>',
+                },
+                credentialId: {
+                    type: 'string',
+                    description: 'Id of the credential.',
+                    example: '6776b5258821de266afbc3f6',
+                },
+                userId: {
+                    type: 'string',
+                    description: 'Id of the user or _me_ for the current user.',
+                    example: '687f40dab93991306da5ccf3',
+                },
+                credentials: {
+                    type: 'array',
+                    description: 'List of credentials.',
+                    items: { $ref: '#/components/schemas/credential' },
+                },
+                wsPath: {
+                    type: 'string',
+                    description: 'WebSocket path to connect to for real-time updates. null if no collect is in progress.',
+                    nullable: true,
+                    example: '/api/v1/ws/30f6a13e919ceab0094e6df042166210fc00177dd392d2d2ae8b751946cbfecdb7f6e3fec3ec2d93db2a27a364dd6997adc88e439a3b96d34fe7d0257b27a616',
+                },
+                twofaCode: {
+                    type: 'string',
+                    description: '2FA code to use.',
+                    example: '359731',
+                },
+                callbackType: {
+                    type: 'string',
+                    enum: ['invoice', 'notification_disconnected'],
+                    description: 'Type of event to send to the callback.',
+                    example: 'invoice',
+                },
+                callback: {
+                    type: 'string',
+                    description: 'Callback url at which the new invoices are sent.',
+                    example: 'https://your.infrastructure.com/path/to/callback'
+                },
+                theme: {
+                    type: 'string',
+                    description: 'Theme of the customer.',
+                    enum: ['default', 'ocean'],
+                    example: 'default'
+                },
+                subscribedCollectors: {
+                    type: 'array',
+                    description: 'List of collector ids the customer is subscribed to.',
+                    items: { type: 'string' },
+                    example: ['amazon', 'shopify', 'free'],
+                },
+                isSubscribedToAll: {
+                    type: 'boolean',
+                    description: 'Whether the customer is subscribed to all collectors. If true, the subscribedCollectors field is ignored.',
+                    example: false
+                },
+                enableInteractiveLogin: {
+                    type: 'boolean',
+                    description: 'Whether the customer has enabled interactive login for collectors that support it.',
+                    example: true
+                },
+                displaySketchCollectors: {
+                    type: 'boolean',
+                    description: 'Whether to display sketch collectors.',
+                    example: false
+                },
+                collectorId: {
+                    type: 'string',
+                    description: 'Id of the collector.',
+                    example: 'free'
+                },
+                downloadFromTimestamp: {
+                    type: 'number',
+                    description: 'Download from timestamp in ms.',
+                    example: 1745229203582
+                },
+                        
+                // --- Object schemas ---
+                error: {
+                    type: 'object',
+                    properties: {
+                        type: {
+                            type: 'string',
+                            description: 'Type of the error.',
+                            default: 'error',
+                            enum: ['error'],
+                            example: 'error',
+                        },
+                        message: {
+                            type: 'string',
+                            description: 'Error message.',
+                        },
+                    },
+                    required: ['type', 'message'],
+                },
+                plan: {
+                    type: 'object',
+                    properties: {
+                        id: { type: 'string', description: 'Id of the plan.', example: 'basic' },
+                        name: { type: 'string', description: 'Name of the plan.', example: 'Basic' },
+                        maxUsers: { type: 'number', description: 'Maximum number of users allowed. If -1, no limit.', example: 10 },
+                        maxCredentials: { type: 'number', description: 'Maximum number of credentials allowed. If -1, no limit.', example: 50 },
+                        maxInvoicesPerMonth: { type: 'number', description: 'Maximum number of invoices per month. If -1, no limit.', example: -1 },
+                        maxCollectors: { type: 'number', description: 'Maximum number of collectors allowed. If -1, no limit.', example: -1 },
+                        priceBase: { type: 'number', description: 'Base price of the plan in €.', example: 10 },
+                        pricePerUser: { type: 'number', description: 'Price per additional user in €.', example: 2.99 },
+                        pricePerCredential: { type: 'number', description: 'Price per additional credential in €.', example: 0 },
+                        pricePerInvoice: { type: 'number', description: 'Price per additional invoice in €.', example: 1 },
+                        pricePerCollector: { type: 'number', description: 'Price per additional collector in €.', example: 0 },
+                        features: {
+                            type: 'array',
+                            description: 'List of features included in the plan.',
+                            items: { type: 'string' },
+                            example: ['10 users', '50 collectors', 'Unlimited invoices per month'],
+                        },
+                    },
+                    required: ['id', 'name', 'maxUsers', 'maxCredentials', 'maxInvoicesPerMonth', 'maxCollectors', 'priceBase', 'pricePerUser', 'pricePerCredential', 'pricePerInvoice', 'pricePerCollector', 'features'],
+                },
+                userStats: {
+                    type: 'object',
+                    properties: {
+                        credentials: { type: 'integer', description: 'Number of credentials for the user.', example: 5 },
+                        invoices: { type: 'integer', description: 'Number of invoices for the user.', example: 10 },
+                        status: { type: 'string', description: 'Status of the user.', example: 'active' },
+                    },
+                },
+                customerStats: {
+                    type: 'object',
+                    properties: {
+                        users: { type: 'integer', description: 'Number of users under the customer.', example: 5 },
+                        credentials: { type: 'integer', description: 'Number of credentials under the customer.', example: 10 },
+                        invoices: { type: 'integer', description: 'Number of invoices under the customer.', example: 50 },
+                        byMonth: {
+                            type: 'object',
+                            additionalProperties: {
+                                type: 'object',
+                                properties: {
+                                    users: { type: 'integer' },
+                                    credentials: { type: 'integer' },
+                                    invoices: { type: 'integer' },
+                                },
+                                required: ['users', 'credentials', 'invoices'],
+                            },
+                        },
+                        collectors: {
+                            type: 'object',
+                            additionalProperties: { type: 'integer' },
+                        },
+                    },
+                },
+                state: {
+                    type: 'object',
+                    properties: {
+                        index: { type: 'number', description: 'Index of the state. A negative index means that the state is in error. An index equal to max means that the process is finished.', example: 2 },
+                        max: { type: 'number', description: 'Maximum index of the state. This is used to know the progress.', example: 6 },
+                        title: { type: 'string', description: 'Title of the state.', example: '2FA' },
+                        message: { type: 'string', description: 'Message to be displayed to the user.', example: 'Please enter the code received by SMS.' },
+                    },
+                    required: ['index', 'max', 'title', 'message'],
+                },
+                collectorParam: {
+                    type: 'object',
+                    properties: {
+                        type: { type: 'string', description: 'Type of the parameter.', enum: ['string', 'number', 'boolean', 'enum'], example: 'string' },
+                        name: { type: 'string', description: 'Name of the parameter.', example: 'Email' },
+                        placeholder: { type: 'string', description: 'Placeholder of the parameter.', example: 'Email of the account' },
+                        mandatory: { type: 'boolean', description: 'Whether the parameter is mandatory or not.', example: true },
+                    },
+                    required: ['type', 'name', 'placeholder', 'mandatory'],
+                },
+                collectorConfig: {
+                    type: 'object',
+                    properties: {
+                        id: { $ref: '#/components/schemas/collectorId' },
+                        name: { type: 'string', description: 'Name of the collector.', example: 'Free' },
+                        description: { type: 'string', description: 'Description of the collector.', example: 'Free is a French telecommunications company' },
+                        instructions: { type: 'string', description: 'Instructions to setup the collector.', example: 'Go to ... and do ...' },
+                        version: { type: 'string', description: 'Version of the collector.', example: '1' },
+                        type: { type: 'string', description: 'Type of collector.', enum: ['sketch', 'agent', 'web', 'api'], example: 'web' },
+                        website: { type: 'string', description: 'Link to the website of the collector.', format: 'uri', example: 'https://www.free.fr' },
+                        logo: { type: 'string', description: 'Link to the logo of the collector.', format: 'uri', example: 'https://fr.wikipedia.org/wiki/Free_(entreprise)#/media/Fichier:Free_logo.svg' },
+                        params: {
+                            type: 'object',
+                            description: 'List of parameters that the collector requires.',
+                            additionalProperties: { $ref: '#/components/schemas/collectorParam' },
+                        },
+                        captcha: { type: 'string', description: 'Captcha used by the collector.', enum: ['none', 'cloudflare', 'datadome', 'recaptcha', 'other'], example: 'cloudflare' },
+                        enableInteractiveLogin: { type: 'boolean', description: 'Whether the interactive login is enabled for this collector.', example: true },
+                        state: { type: 'string', description: 'State of the collector.', enum: ['planned', 'development', 'active'], example: 'active' },
+                        loginUrl: { type: 'string', description: 'URL to the login page of the collector. For collectors of type sketch, web and agent only.', example: 'https://www.mycollector.com/login' },
+                        entryUrl: { type: 'string', description: 'URL to the invoices page of the collector. For collectors of type web and agent only.', example: 'https://www.mycollector.com/customer/invoices' },
+                        baseUrl: { type: 'string', description: 'Base URL of the collector. For collectors of type api only.', example: 'https://api.mycollector.com' },
+                    },
+                    required: ['id', 'name', 'description', 'version', 'type', 'website', 'logo', 'params', 'captcha', 'enableInteractiveLogin', 'state'],
+                },
+                customer: {
+                    type: 'object',
+                    properties: {
+                        id: { type: 'string', description: 'Id of the customer.', example: '6795130f170ba4496dc30642' },
+                        email: { $ref: '#/components/schemas/email' },
+                        name: { type: 'string', description: 'Name of the customer.', example: 'Awesome Company Name' },
+                        callback: { $ref: '#/components/schemas/callback' },
+                        remoteId: { type: 'string', description: 'Remote id of your company in your system.', example: 'R121439' },
+                        theme: { $ref: '#/components/schemas/theme' },
+                        subscribedCollectors: { $ref: '#/components/schemas/subscribedCollectors' },
+                        isSubscribedToAll: { $ref: '#/components/schemas/isSubscribedToAll' },
+                        enableInteractiveLogin: { $ref: '#/components/schemas/enableInteractiveLogin' },
+                        displaySketchCollectors: { $ref: '#/components/schemas/displaySketchCollectors' },
+                        maxDelayBetweenCollect: { type: 'number', description: 'Maximum delay between two collects in ms.', example: 2592000000 },
+                        plan: { $ref: '#/components/schemas/plan' },
+                    },
+                    required: ['id', 'email', 'name', 'callback', 'theme', 'subscribedCollectors', 'isSubscribedToAll', 'enableInteractiveLogin', 'displaySketchCollectors', 'maxDelayBetweenCollect', 'plan'],
+                },
+                user: {
+                    type: 'object',
+                    properties: {
+                        id: { type: 'string', description: 'Id of the user.', example: '6776b5258821de266afbc3f6' },
+                        customer_id: { type: 'string', description: 'Id of the customer.', example: '6795130f170ba4496dc30642' },
+                        remote_id: { $ref: '#/components/schemas/remoteId' },
+                        locale: { $ref: '#/components/schemas/locale' },
+                        stats: { $ref: '#/components/schemas/userStats' },
+                    },
+                    required: ['id', 'customer_id', 'remote_id', 'locale'],
+                },
+                userWithToken: {
+                    allOf: [
+                        { $ref: '#/components/schemas/user' },
+                        {
+                            type: 'object',
+                            properties: {
+                                token: {
+                                    type: 'string',
+                                    description: 'Token to be used by the client.',
+                                    example: '69b67c9f...be77ffeb',
+                                },
+                            },
+                        },
+                    ],
+                    required: ['token'],
+                },
+                userListItem: {                    
+                   type: 'array',
+                   description: 'List of users.',
+                   items: { $ref: '#/components/schemas/user' },
+                },
+                credentialParams: {
+                    type: 'object',
+                    description: 'Parameters required by the collector.',
+                    example: {
+                        id: "fbx123456789",
+                        password: "Y%2j7Fc$#$y",
+                        note: "The company Free account",
+                    },
+                },
+                credential: {
+                    type: 'object',
+                    properties: {
+                        id: { type: 'string', description: 'Id of the credential.', example: '6776b5258821de266afbc3f6' },
+                        user_id: { type: 'string', description: 'Id of the user.', example: '687108e5dce5050bc8ca53c1' },
+                        note: { type: 'string', description: 'Custom note for this credential.', example: 'Regular account' },
+                        create_timestamp: { type: 'number', description: 'Creation timestamp.', example: 1745229262287 },
+                        download_from_timestamp: { $ref: '#/components/schemas/downloadFromTimestamp' },
+                        last_collect_timestamp: { type: 'number', description: 'Last collect timestamp.', example: 1745229265118 },
+                        next_collect_timestamp: { type: 'number', description: 'Next collect timestamp.', example: 1746000402000 },
+                        invoices: {
+                            type: 'array',
+                            description: 'List of invoices collected by this credential.',
+                            items: {
+                                type: 'object',
+                                properties: {
+                                    id: { type: 'string', description: 'Id of the invoice.', example: '45FDD1544' },
+                                    timestamp: { type: 'integer', description: 'Timestamp when the invoice was created in ms.', example: 17316031963975 },
+                                    collected_timestamp: { type: 'integer', description: 'Timestamp when the invoice was collected in ms. null if the invoice was not collected.', example: 17316032013467 },
+                                },
+                                required: ['id', 'timestamp', 'collected_timestamp'],
+                            },
+                        },
+                        state: { $ref: '#/components/schemas/state' },
+                        collector: { $ref: '#/components/schemas/collectorConfig' },
+                        wsPath: { $ref: '#/components/schemas/wsPath' },
+                    },
+                    required: ['id', 'user_id', 'note', 'create_timestamp', 'last_collect_timestamp', 'next_collect_timestamp', 'state', 'invoices', 'collector', 'wsPath'],
+                },
+                invoice: {
+                    type: 'object',
+                    properties: {
+                        id: { type: 'string', description: 'Id of the invoice.', example: '45FDD1544' },
+                        timestamp: { type: 'integer', description: 'Timestamp when the invoice was created in ms.', example: 17316031963975 },
+                        collected_timestamp: { type: 'integer', description: 'Timestamp when the invoice was collected in ms.', example: 17316032013467 },
+                        amount: { type: 'string', description: 'Amount of the invoice.', example: '45.78€' },
+                        link: { type: 'string', description: 'Link from which the invoice was downloaded.', example: 'https://mycollector/direct/link/to/my/invoice' },
+                        data: { type: 'string', description: 'Base64 encoded invoice.', example: 'iVBORw0KGgoAAAAN...RU5ErkJggg==' },
+                        mimetype: { type: 'string', description: 'MIME type of the invoice.', example: 'application/pdf' },
+                    },
+                    required: ['id', 'type', 'mimetype', 'timestamp', 'collected_timestamp', 'link', 'data'],
+                },
+                feedback: {
+                    type: 'object',
+                    required: ['type', 'message'],
+                    properties: {
+                        type: { type: 'string', description: 'Type of feedback.', example: 'custom' },
+                        message: { type: 'string', description: 'Feedback message.', example: 'This is a feedback message.' },
+                    },
+                },
+            },
+        },
+        tags: [
+            { name: 'General', description: 'General endpoints (UI, callbacks, feedback)' },
+            { name: 'Authentication', description: 'Login, signup, password reset' },
+            { name: 'Customer', description: 'Customer management' },
+            { name: 'User', description: 'User management' },
+            { name: 'Credential (Bearer)', description: 'Credential and collection management' },
+            { name: 'Credential (Token)', description: 'Credential and collection management' },
+        ],
+    }
+};
+
+exports.SWAGGER_DEFINITION = SWAGGER_DEFINITION;

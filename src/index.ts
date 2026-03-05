@@ -32,26 +32,63 @@ function handle_error(e, req, res){
     }
     else {
         console.error(e);
-        let reason;
+        let message;
         if (DEBUG_ENABLED) {
-            reason = e.message;
+            message = e.message;
         }
         else {
-            reason = "Internal server error"
+            message = "Internal server error"
         }
         res.setHeader('Content-Type', 'application/json');
-        res.status(500).end(JSON.stringify({type: "error", reason}));
+        res.status(500).end(JSON.stringify({type: "error", message}));
     }
 }
 
 // ---------- GENERAL ENDPOINTS ----------
 
+/**
+ * @openapi
+ * /ui:
+ *   get:
+ *     tags: [General]
+ *     summary: Get UI page
+ *     description: Returns a UI page for the user to add credentials.
+ *     security:
+ *      - TokenAuth: []
+ *     parameters:
+ *      - name: credential_id
+ *        in: query
+ *        schema:
+ *          $ref: '#/components/schemas/credentialId'
+ *        description: Id of the credential. If provided, a collect will be started for this credential. If a collect is already in progress for this credential, the current progress will be shown.
+ *     responses:
+ *       200:
+ *         description: Success
+ *         content:
+ *           text/html:
+ *             schema:
+ *               type: string
+ *       401:
+ *         description: Authentication error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       500:
+ *         description: Internal server error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ */
 // TOKEN AUTHENTICATION
 app.get('/api/v1/ui', async (req, res) => {
     try {
         // Get UI context
         console.log(`GET ui`);
-        const context = await server.get_ui(req.query.token);
+        const context = await server.get_ui(
+            req.query.token
+        );
 
         // Render ui.ejs
         req.setLocale(context.locale);
@@ -61,12 +98,112 @@ app.get('/api/v1/ui', async (req, res) => {
     }
 });
 
+/**
+ * @openapi
+ * /test/callback/{type}:
+ *   get:
+ *     tags: [General]
+ *     summary: Test callback
+ *     description: Sends a test callback of the specified type. Bearer authentication.
+ *     security:
+ *       - CustomerBearerAuth: []
+ *     parameters:
+ *       - name: type
+ *         in: path
+ *         required: true
+ *         schema:
+ *           $ref: '#/components/schemas/callbackType'
+ *     responses:
+ *       200:
+ *         description: Success
+ *       400:
+ *         description: Bad request
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       401:
+ *         description: Authentication error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       500:
+ *         description: Internal server error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *     callbacks:
+ *       onInvoiceCollected:
+ *         Invoice:
+ *           post:
+ *             requestBody:
+ *               required: true
+ *               content:
+ *                 application/json:
+ *                   schema:
+ *                     type: object
+ *                     properties:
+ *                       type:
+ *                         $ref: '#/components/schemas/callbackType'
+ *                       remote_id:
+ *                         $ref: '#/components/schemas/remoteId'
+ *                       invoice:
+ *                         $ref: "#/components/schemas/invoice"
+ *                       collector:
+ *                         $ref: "#/components/schemas/collectorConfig"
+ *                     required:
+ *                       - type
+ *                       - remote_id
+ *                       - invoice
+ *                       - collector
+ *             responses:
+ *               '200':
+ *                 description: Success
+ *               '400':
+ *                 description: Error
+ *       onCollectorDisconnected:
+ *         Notification Disconnected:
+ *           post:
+ *             requestBody:
+ *               required: true
+ *               content:
+ *                 application/json:
+ *                   schema:
+ *                     type: object
+ *                     properties:
+ *                       type:
+ *                         $ref: '#/components/schemas/callbackType'
+ *                       credential_id:
+ *                        $ref: '#/components/schemas/credentialId'
+ *                       user_id:
+ *                        $ref: '#/components/schemas/userId'
+ *                       remote_id:
+ *                         $ref: '#/components/schemas/remoteId'
+ *                       collector:
+ *                         $ref: "#/components/schemas/collectorConfig"
+ *                     required:
+ *                       - type
+ *                       - credential_id
+ *                       - user_id
+ *                       - remote_id
+ *                       - collector
+ *             responses:
+ *               '200':
+ *                 description: Success
+ *               '400':
+ *                 description: Error
+ */
 // BEARER AUTHENTICATION
 app.get('/api/v1/test/callback/:type', async (req, res) => {
     try {
         // Test callback
         console.log('GET test_callback');
-        await server.get_test_callback(req.headers.authorization, req.params.type);
+        await server.get_test_callback(
+            req.headers.authorization,
+            req.params.type
+        );
 
         // Build response
         res.end()
@@ -75,12 +212,56 @@ app.get('/api/v1/test/callback/:type', async (req, res) => {
     }
 });
 
+/**
+ * @openapi
+ * /feedback:
+ *   post:
+ *     tags: [General]
+ *     summary: Send feedback
+ *     description: Sends feedback to the Invoice-Collector team. _You need to authenticate using token or bearer._
+ *     security:
+ *       - CustomerBearerAuth: []
+ *       - UserBearerAuth: []
+ *       - TokenAuth: []
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: '#/components/schemas/feedback'
+ *     responses:
+ *       200:
+ *         description: Success
+ *       400:
+ *         description: Bad request
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       401:
+ *         description: Authentication error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       500:
+ *         description: Internal server error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ */
 // BEARER OR TOKEN AUTHENTICATION
 app.post('/api/v1/feedback', async (req, res) => {
     try {
         // Send feedback
         console.log('POST feedback');
-        await server.post_feedback(req.headers.authorization, req.query.token, req.body.type, req.body.message);
+        await server.post_feedback(
+            req.headers.authorization,
+            req.query.token,
+            req.body.type,
+            req.body.message
+        );
 
         // Build response
         res.end()
@@ -91,12 +272,60 @@ app.post('/api/v1/feedback', async (req, res) => {
 
 // ---------- LOGIN/SIGNUP/RESET ENDPOINTS ----------
 
+/**
+ * @openapi
+ * /login:
+ *   post:
+ *     tags: [Authentication]
+ *     summary: Login
+ *     description: Authenticates a customer or user and returns a bearer token. No authentication required.
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required: [email, password]
+ *             properties:
+ *               email:
+ *                 $ref: '#/components/schemas/email'
+ *               password:
+ *                 $ref: '#/components/schemas/password'
+ *     responses:
+ *       200:
+ *         description: Success
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/bearerResponse'
+ *       400:
+ *         description: Bad request
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       401:
+ *         description: Authentication error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       500:
+ *         description: Internal server error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ */
 // NO AUTHENTICATION
 app.post('/api/v1/login', async (req, res) => {
     try {
         // Perform login
         console.log('POST login');
-        const response = await server.post_login(req.body.email, req.body.password);
+        const response = await server.post_login(
+            req.body.email,
+            req.body.password
+        );
 
         // Build response
         res.setHeader('Content-Type', 'application/json');
@@ -106,6 +335,55 @@ app.post('/api/v1/login', async (req, res) => {
     }
 });
 
+/**
+ * @openapi
+ * /signup:
+ *   post:
+ *     tags: [Authentication]
+ *     summary: Sign up
+ *     description: Creates a new customer or user account. No authentication required.
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required: [email, name, cid]
+ *             properties:
+ *               email:
+ *                 $ref: '#/components/schemas/email'
+ *               name:
+ *                 $ref: '#/components/schemas/name'
+ *               cid:
+ *                 $ref: '#/components/schemas/cid'
+ *               locale:
+ *                 $ref: '#/components/schemas/locale'
+ *               inviteId:
+ *                 $ref: '#/components/schemas/inviteId'
+ *     responses:
+ *       200:
+ *         description: Success
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               required: [resetToken]
+ *               properties:
+ *                 resetToken:
+ *                   $ref: '#/components/schemas/resetToken'
+ *       400:
+ *         description: Bad request
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       500:
+ *         description: Internal server error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ */
 // NO AUTHENTICATION
 app.post('/api/v1/signup', async (req, res) => {
     try {
@@ -127,12 +405,55 @@ app.post('/api/v1/signup', async (req, res) => {
     }
 });
 
+/**
+ * @openapi
+ * /forgot:
+ *   post:
+ *     tags: [Authentication]
+ *     summary: Forgot password
+ *     description: Sends a password reset email. No authentication required.
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required: [email]
+ *             properties:
+ *               email:
+ *                 $ref: '#/components/schemas/email'
+ *     responses:
+ *       200:
+ *         description: Success
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               required: [resetToken]
+ *               properties:
+ *                 resetToken:
+ *                   $ref: '#/components/schemas/resetToken'
+ *       400:
+ *         description: Bad request
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       500:
+ *         description: Internal server error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ */
 // NO AUTHENTICATION
 app.post('/api/v1/forgot', async (req, res) => {
     try {
         // Perform forgot password
         console.log('POST forgot');
-        const response = await server.post_forgot(req.body.email);
+        const response = await server.post_forgot(
+            req.body.email
+        );
 
         // Build response
         res.setHeader('Content-Type', 'application/json');
@@ -142,12 +463,61 @@ app.post('/api/v1/forgot', async (req, res) => {
     }
 });
 
+/**
+ * @openapi
+ * /reset:
+ *   post:
+ *     tags: [Authentication]
+ *     summary: Reset password
+ *     description: Resets the password using a reset token.
+ *     parameters:
+ *       - name: token
+ *         in: query
+ *         required: true
+ *         description: Token to be used for password reset. _You can get it using the `POST /signup` endpoint._
+ *         schema:
+ *           $ref: '#/components/schemas/resetToken'
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required: [password]
+ *             properties:
+ *               password:
+ *                 $ref: '#/components/schemas/password'
+ *     responses:
+ *       200:
+ *         description: Success
+ *       400:
+ *         description: Bad request
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       401:
+ *         description: Authentication error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       500:
+ *         description: Internal server error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ */
 // NO AUTHENTICATION
 app.post('/api/v1/reset', async (req, res) => {
     try {
         // Perform reset password
         console.log('POST reset');
-        await server.post_reset(req.query.token, req.body.password);
+        await server.post_reset(
+            req.query.token,
+            req.body.password
+        );
 
         // Build response
         res.end()
@@ -158,12 +528,43 @@ app.post('/api/v1/reset', async (req, res) => {
 
 // ---------- CUSTOMER ENDPOINTS ----------
 
+/**
+ * @openapi
+ * /customer:
+ *   get:
+ *     tags: [Customer]
+ *     summary: Get customer
+ *     description: Returns the authenticated customer's details. Bearer authentication.
+ *     security:
+ *       - CustomerBearerAuth: []
+ *     responses:
+ *       200:
+ *         description: Success
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/customer'
+ *       401:
+ *         description: Authentication error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       500:
+ *         description: Internal server error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ */
 // BEARER AUTHENTICATION
 app.get('/api/v1/customer', async (req, res) => {
     try {
         // Get customer
         console.log(`GET customer`);
-        const response = await server.get_customer(req.headers.authorization);
+        const response = await server.get_customer(
+            req.headers.authorization
+        );
 
         // Build response
         res.setHeader('Content-Type', 'application/json');
@@ -173,6 +574,60 @@ app.get('/api/v1/customer', async (req, res) => {
     }
 });
 
+/**
+ * @openapi
+ * /customer:
+ *   put:
+ *     tags: [Customer]
+ *     summary: Update customer
+ *     description: Updates the authenticated customer's details. Bearer authentication.
+ *     security:
+ *       - CustomerBearerAuth: []
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               name:
+ *                 $ref: '#/components/schemas/name'
+ *               callback:
+ *                 $ref: '#/components/schemas/callback'
+ *               remoteId:
+ *                 $ref: '#/components/schemas/customerRemoteId'
+ *               cid:
+ *                 $ref: '#/components/schemas/cid'
+ *               theme:
+ *                 $ref: '#/components/schemas/theme'
+ *               subscribedCollectors:
+ *                 $ref: '#/components/schemas/subscribedCollectors'
+ *               isSubscribedToAll:
+ *                 $ref: '#/components/schemas/isSubscribedToAll'
+ *               enableInteractiveLogin:
+ *                 $ref: '#/components/schemas/enableInteractiveLogin'
+ *               displaySketchCollectors:
+ *                 $ref: '#/components/schemas/displaySketchCollectors'
+ *     responses:
+ *       200:
+ *         description: Success
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/customer'
+ *       401:
+ *         description: Authentication error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       500:
+ *         description: Internal server error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ */
 // BEARER AUTHENTICATION
 app.put('/api/v1/customer', async (req, res) => {
     try {
@@ -199,12 +654,43 @@ app.put('/api/v1/customer', async (req, res) => {
     }
 });
 
+/**
+ * @openapi
+ * /customer/bearer:
+ *   post:
+ *     tags: [Customer]
+ *     summary: Generate new API bearer
+ *     description: Generates a new API bearer token for the customer. Bearer authentication.
+ *     security:
+ *       - CustomerBearerAuth: []
+ *     responses:
+ *       200:
+ *         description: Success
+ *         content:
+ *           application/json:
+ *             schema:
+ *              $ref: '#/components/schemas/bearerResponse'
+ *       401:
+ *         description: Authentication error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       500:
+ *         description: Internal server error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ */
 // BEARER AUTHENTICATION
 app.post('/api/v1/customer/bearer', async (req, res) => {
     try {
         // Generate a new bearer for customer
         console.log(`POST customer bearer`);
-        const response = await server.post_customer_bearer(req.headers.authorization);
+        const response = await server.post_customer_bearer(
+            req.headers.authorization
+        );
 
         // Build response
         res.setHeader('Content-Type', 'application/json');
@@ -215,12 +701,43 @@ app.post('/api/v1/customer/bearer', async (req, res) => {
     }
 });
 
+/**
+ * @openapi
+ * /customer/stats:
+ *   get:
+ *     tags: [Customer]
+ *     summary: Get customer stats
+ *     description: Returns statistics for the authenticated customer. Bearer authentication.
+ *     security:
+ *       - CustomerBearerAuth: []
+ *     responses:
+ *       200:
+ *         description: Success
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/customerStats'
+ *       401:
+ *         description: Authentication error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       500:
+ *         description: Internal server error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ */
 // BEARER AUTHENTICATION
 app.get('/api/v1/customer/stats', async (req, res) => {
     try {
         // Get customer stats
         console.log(`GET customer stats`);
-        const response = await server.getCustomerStats(req.headers.authorization);
+        const response = await server.getCustomerStats(
+            req.headers.authorization
+        );
 
         // Build response
         res.setHeader('Content-Type', 'application/json');
@@ -232,12 +749,43 @@ app.get('/api/v1/customer/stats', async (req, res) => {
 
 // ---------- USER ENDPOINTS ----------
 
+/**
+ * @openapi
+ * /users:
+ *   get:
+ *     tags: [User]
+ *     summary: List users
+ *     description: Returns all users belonging to the authenticated customer. Bearer authentication.
+ *     security:
+ *       - CustomerBearerAuth: []
+ *     responses:
+ *       200:
+ *         description: Success
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/userListItem'
+ *       401:
+ *         description: Authentication error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       500:
+ *         description: Internal server error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ */
 // BEARER AUTHENTICATION
 app.get('/api/v1/users', async (req, res) => {
     try {
         // List users
         console.log(`GET users`);
-        const response = await server.get_users(req.headers.authorization);
+        const response = await server.get_users(
+            req.headers.authorization
+        );
 
         // Build response
         res.setHeader('Content-Type', 'application/json');
@@ -247,6 +795,61 @@ app.get('/api/v1/users', async (req, res) => {
     }
 });
 
+/**
+ * @openapi
+ * /user:
+ *   post:
+ *     tags: [User]
+ *     summary: Create or get user
+ *     description: Creates a new user or returns an existing one by remote_id. Returns a UI token. Bearer authentication.
+ *     security:
+ *       - CustomerBearerAuth: []
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required: [remoteId, locale]
+ *             properties:
+ *               remoteId:
+ *                 $ref: '#/components/schemas/remoteId'
+ *               locale:
+ *                 $ref: '#/components/schemas/locale'
+ *               ip:
+ *                 $ref: '#/components/schemas/ip'
+ *     responses:
+ *       200:
+ *         description: Success
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/userWithToken'
+ *       400:
+ *         description: Bad request
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       401:
+ *         description: Authentication error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       403:
+ *         description: User limit reached
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       500:
+ *         description: Internal server error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ */
 // BEARER AUTHENTICATION
 app.post('/api/v1/user', async (req, res) => {
     try {
@@ -267,12 +870,56 @@ app.post('/api/v1/user', async (req, res) => {
     }
 });
 
+/**
+ * @openapi
+ * /user/{userId}:
+ *   get:
+ *     tags: [User]
+ *     summary: Get user by ID
+ *     description: Returns a specific user by ID. Bearer authentication.
+ *     security:
+ *       - CustomerBearerAuth: []
+ *     parameters:
+ *       - name: userId
+ *         in: path
+ *         required: true
+ *         schema:
+ *           $ref: "#/components/schemas/userId"
+ *     responses:
+ *       200:
+ *         description: Success
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/user'
+ *       400:
+ *         description: Bad request
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       401:
+ *         description: Authentication error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       500:
+ *         description: Internal server error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ */
 // BEARER AUTHENTICATION
 app.get('/api/v1/user/:user_id', async (req, res) => {
     try {
         // Get user
         console.log('GET user');
-        const response = await server.get_user(req.headers.authorization, req.params.user_id);
+        const response = await server.get_user(
+            req.headers.authorization,
+            req.params.user_id
+        );
 
         // Build response
         res.setHeader('Content-Type', 'application/json');
@@ -282,12 +929,44 @@ app.get('/api/v1/user/:user_id', async (req, res) => {
     }
 });
 
+/**
+ * @openapi
+ * /user:
+ *   get:
+ *     tags: [User]
+ *     summary: Get current user
+ *     description: Returns the user associated with the bearer token. Bearer authentication (user session).
+ *     security:
+ *       - UserBearerAuth: []
+ *     responses:
+ *       200:
+ *         description: Success
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/user'
+ *       401:
+ *         description: Authentication error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       500:
+ *         description: Internal server error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ */
 // BEARER AUTHENTICATION
 app.get('/api/v1/user', async (req, res) => {
     try {
         // Get user
         console.log('GET user');
-        const response = await server.get_user(req.headers.authorization, undefined);
+        const response = await server.get_user(
+            req.headers.authorization,
+            undefined
+        );
 
         // Build response
         res.setHeader('Content-Type', 'application/json');
@@ -297,6 +976,63 @@ app.get('/api/v1/user', async (req, res) => {
     }
 });
 
+/**
+ * @openapi
+ * /user/{userId}:
+ *   put:
+ *     tags: [User]
+ *     summary: Update user
+ *     description: Updates a user's details. Bearer authentication.
+ *     security:
+ *       - CustomerBearerAuth: []
+ *       - UserBearerAuth: []
+ *     parameters:
+ *       - name: userId
+ *         in: path
+ *         required: true
+ *         schema:
+ *           $ref: "#/components/schemas/userId"
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               remoteId:
+ *                 $ref: '#/components/schemas/remoteId'
+ *               name:
+ *                 $ref: '#/components/schemas/name'
+ *               cid:
+ *                 $ref: '#/components/schemas/cid'
+ *               locale:
+ *                 $ref: '#/components/schemas/locale'
+ *     responses:
+ *       200:
+ *         description: Success
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/user'
+ *       400:
+ *         description: Bad request
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       401:
+ *         description: Authentication error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       500:
+ *         description: Internal server error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ */
 // BEARER AUTHENTICATION
 app.put('/api/v1/user/:userId', async (req, res) => {
     try {
@@ -319,12 +1055,52 @@ app.put('/api/v1/user/:userId', async (req, res) => {
     }
 });
 
+/**
+ * @openapi
+ * /user/{userId}:
+ *   delete:
+ *     tags: [User]
+ *     summary: Delete user
+ *     description: Deletes a user and all associated credentials. Bearer authentication.
+ *     security:
+ *       - CustomerBearerAuth: []
+ *     parameters:
+ *       - name: userId
+ *         in: path
+ *         required: true
+ *         schema:
+ *           $ref: "#/components/schemas/userId"
+ *     responses:
+ *       200:
+ *         description: Success
+ *       400:
+ *         description: Bad request
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       401:
+ *         description: Authentication error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       500:
+ *         description: Internal server error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ */
 // BEARER AUTHENTICATION
 app.delete('/api/v1/user/:user_id', async (req, res) => {
     try {
         // Delete user
         console.log('DELETE user');
-        await server.delete_user(req.headers.authorization, req.params.user_id);
+        await server.delete_user(
+            req.headers.authorization,
+            req.params.user_id
+        );
 
         // Build response
         res.end()
@@ -335,12 +1111,53 @@ app.delete('/api/v1/user/:user_id', async (req, res) => {
 
 // ---------- CREDENTIAL ENDPOINTS ----------
 
+/**
+ * @openapi
+ * /user/{userId}/credentials:
+ *   get:
+ *     tags: [Credential (Bearer)]
+ *     summary: List credentials (Bearer)
+ *     description: Returns all credentials for a user. Bearer authentication.
+ *     security:
+ *       - CustomerBearerAuth: []
+ *     parameters:
+ *       - name: userId
+ *         in: path
+ *         required: true
+ *         schema:
+ *           $ref: "#/components/schemas/userId"
+ *     responses:
+ *       200:
+ *         description: Success
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: '#/components/schemas/credential'
+ *       401:
+ *         description: Authentication error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       500:
+ *         description: Internal server error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ */
 // BEARER AUTHENTICATION
 app.get('/api/v1/user/:user_id/credentials', async (req, res) => {
     try {
         // Get credentials
         console.log(`GET credentials`);
-        const credentials = await server.get_credentials(req.headers.authorization, req.params.user_id, undefined);
+        const credentials = await server.get_credentials(
+            req.headers.authorization,
+            req.params.user_id,
+            undefined
+        );
 
         // Build response
         res.setHeader('Content-Type', 'application/json');
@@ -350,12 +1167,48 @@ app.get('/api/v1/user/:user_id/credentials', async (req, res) => {
     }
 });
 
+/**
+ * @openapi
+ * /credentials:
+ *   get:
+ *     tags: [Credential (Token)]
+ *     summary: List credentials (Token)
+ *     description: Returns all credentials for the authenticated user. Token authentication.
+ *     security:
+ *       - UserBearerAuth: []
+ *       - TokenAuth: []
+ *     responses:
+ *       200:
+ *         description: Success
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: '#/components/schemas/credential'
+ *       401:
+ *         description: Authentication error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       500:
+ *         description: Internal server error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ */
 // TOKEN AUTHENTICATION
 app.get('/api/v1/credentials', async (req, res) => {
     try {
         // Get credentials
         console.log(`GET credentials`);
-        const credentials = await server.get_credentials(req.headers.authorization, undefined, req.query.token)
+        const credentials = await server.get_credentials(
+            req.headers.authorization,
+            undefined,
+            req.query.token
+        );
 
         // Build response
         res.setHeader('Content-Type', 'application/json');
@@ -365,6 +1218,69 @@ app.get('/api/v1/credentials', async (req, res) => {
     }
 });
 
+/**
+ * @openapi
+ * /user/{userId}/credential:
+ *   post:
+ *     tags: [Credential (Bearer)]
+ *     summary: Create credential (Bearer)
+ *     description: Creates a new credential and starts collection. Bearer authentication.
+ *     security:
+ *       - CustomerBearerAuth: []
+ *     parameters:
+ *       - name: userId
+ *         in: path
+ *         required: true
+ *         schema:
+ *           $ref: "#/components/schemas/userId"
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required: [collector, params]
+ *             properties:
+ *               collector:
+ *                 $ref: "#/components/schemas/collectorId"
+ *               params:
+ *                 $ref: "#/components/schemas/credentialParams"
+ *               download_from_timestamp:
+ *                 allOf:
+ *                   - $ref: "#/components/schemas/downloadFromTimestamp"
+ *                 description: 'Timestamp to start downloading invoices from in ms. _If empty, invoices will be downloaded starting from today._'
+ *     responses:
+ *       200:
+ *         description: Success
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/credential'
+ *       400:
+ *         description: Bad request
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       401:
+ *         description: Authentication error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       403:
+ *         description: Credential limit reached or collector not subscribed
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       500:
+ *         description: Internal server error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ */
 // BEARER AUTHENTICATION
 app.post('/api/v1/user/:user_id/credential', async (req, res) => {
     try {
@@ -387,6 +1303,64 @@ app.post('/api/v1/user/:user_id/credential', async (req, res) => {
     }
 });
 
+/**
+ * @openapi
+ * /credential:
+ *   post:
+ *     tags: [Credential (Token)]
+ *     summary: Create credential (Token)
+ *     description: Creates a new credential and starts collection. Token authentication.
+ *     security:
+ *       - UserBearerAuth: []
+ *       - TokenAuth: []
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required: [collector, params]
+ *             properties:
+ *               collector:
+ *                 $ref: "#/components/schemas/collectorId"
+ *               params:
+ *                 $ref: "#/components/schemas/credentialParams"
+ *               download_from_timestamp:
+ *                 allOf:
+ *                   - $ref: "#/components/schemas/downloadFromTimestamp"
+ *                 description: 'Timestamp to start downloading invoices from in ms. _If empty, invoices will be downloaded starting from today._'
+ *     responses:
+ *       200:
+ *         description: Success
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/credential'
+ *       400:
+ *         description: Bad request
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       401:
+ *         description: Authentication error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       403:
+ *         description: Credential limit reached or collector not subscribed
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       500:
+ *         description: Internal server error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ */
 // TOKEN AUTHENTICATION
 app.post('/api/v1/credential', async (req, res) => {
     try {
@@ -409,11 +1383,68 @@ app.post('/api/v1/credential', async (req, res) => {
     }
 });
 
+/**
+ * @openapi
+ * /user/{userId}/credential/{credentialId}:
+ *   get:
+ *     tags: [Credential (Bearer)]
+ *     summary: Get credential (Bearer)
+ *     description: Returns a specific credential by ID. Bearer authentication.
+ *     security:
+ *       - CustomerBearerAuth: []
+ *     parameters:
+ *       - name: userId
+ *         in: path
+ *         required: true
+ *         schema:
+ *           $ref: "#/components/schemas/userId"
+ *       - name: credential_id
+ *         in: path
+ *         required: true
+ *         schema:
+ *           $ref: "#/components/schemas/credentialId"
+ *     responses:
+ *       200:
+ *         description: Success
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/credential'
+ *       400:
+ *         description: Bad request
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       401:
+ *         description: Authentication error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       403:
+ *         description: Credential does not belong to user
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       500:
+ *         description: Internal server error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ */
 // BEARER AUTHENTICATION
 app.get('/api/v1/user/:user_id/credential/:credential_id', async (req, res) => {
     try {
         // Get credential status
-        const response = await server.get_credential(req.headers.authorization, req.params.user_id, undefined, req.params.credential_id);
+        const response = await server.get_credential(
+            req.headers.authorization,
+            req.params.user_id,
+            undefined,
+            req.params.credential_id
+        );
 
         // Build response
         res.setHeader('Content-Type', 'application/json');
@@ -423,11 +1454,64 @@ app.get('/api/v1/user/:user_id/credential/:credential_id', async (req, res) => {
     }
 });
 
+/**
+ * @openapi
+ * /credential/{credentialId}:
+ *   get:
+ *     tags: [Credential (Token)]
+ *     summary: Get credential (Token)
+ *     description: Returns a specific credential by ID. Token authentication.
+ *     security:
+ *       - UserBearerAuth: []
+ *       - TokenAuth: []
+ *     parameters:
+ *       - name: credential_id
+ *         in: path
+ *         required: true
+ *         schema:
+ *           $ref: "#/components/schemas/credentialId"
+ *     responses:
+ *       200:
+ *         description: Success
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/credential'
+ *       400:
+ *         description: Bad request
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       401:
+ *         description: Authentication error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       403:
+ *         description: Credential does not belong to user
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       500:
+ *         description: Internal server error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ */
 // TOKEN AUTHENTICATION
 app.get('/api/v1/credential/:credential_id', async (req, res) => {
     try {
         // Get credential status
-        const response = await server.get_credential(req.headers.authorization, undefined, req.query.token, req.params.credential_id);
+        const response = await server.get_credential(
+            req.headers.authorization,
+            undefined,
+            req.query.token,
+            req.params.credential_id
+        );
 
         // Build response
         res.setHeader('Content-Type', 'application/json');
@@ -437,12 +1521,65 @@ app.get('/api/v1/credential/:credential_id', async (req, res) => {
     }
 });
 
+/**
+ * @openapi
+ * /user/{userId}/credential/{credentialId}:
+ *   delete:
+ *     tags: [Credential (Bearer)]
+ *     summary: Delete credential (Bearer)
+ *     description: Deletes a credential. Bearer authentication.
+ *     security:
+ *       - CustomerBearerAuth: []
+ *     parameters:
+ *       - name: userId
+ *         in: path
+ *         required: true
+ *         schema:
+ *           $ref: "#/components/schemas/userId"
+ *       - name: credential_id
+ *         in: path
+ *         required: true
+ *         schema:
+ *           $ref: "#/components/schemas/credentialId"
+ *     responses:
+ *       200:
+ *         description: Success
+ *       400:
+ *         description: Bad request
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       401:
+ *         description: Authentication error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       403:
+ *         description: Credential does not belong to user
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       500:
+ *         description: Internal server error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ */
 // BEARER AUTHENTICATION
 app.delete('/api/v1/user/:user_id/credential/:credential_id', async (req, res) => {
     try {
         // Delete credential
         console.log(`DELETE credential ${req.params.credential_id}`);
-        await server.delete_credential(req.headers.authorization, req.params.user_id, undefined, req.params.credential_id);
+        await server.delete_credential(
+            req.headers.authorization,
+            req.params.user_id,
+            undefined,
+            req.params.credential_id
+        );
 
         // Build response
         res.end()
@@ -451,12 +1588,61 @@ app.delete('/api/v1/user/:user_id/credential/:credential_id', async (req, res) =
     }
 });
 
+/**
+ * @openapi
+ * /credential/{credentialId}:
+ *   delete:
+ *     tags: [Credential (Token)]
+ *     summary: Delete credential (Token)
+ *     description: Deletes a credential. Token authentication.
+ *     security:
+ *       - UserBearerAuth: []
+ *       - TokenAuth: []
+ *     parameters:
+ *       - name: credential_id
+ *         in: path
+ *         required: true
+ *         schema:
+ *           $ref: "#/components/schemas/credentialId"
+ *     responses:
+ *       200:
+ *         description: Success
+ *       400:
+ *         description: Bad request
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       401:
+ *         description: Authentication error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       403:
+ *         description: Credential does not belong to user
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       500:
+ *         description: Internal server error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ */
 // TOKEN AUTHENTICATION
 app.delete('/api/v1/credential/:credential_id', async (req, res) => {
     try {
         // Delete credential
         console.log(`DELETE credential ${req.params.credential_id}`);
-        await server.delete_credential(req.headers.authorization, undefined, req.query.token, req.params.credential_id);
+        await server.delete_credential(
+            req.headers.authorization,
+            undefined,
+            req.query.token,
+            req.params.credential_id
+        );
 
         // Build response
         res.end()
@@ -465,12 +1651,77 @@ app.delete('/api/v1/credential/:credential_id', async (req, res) => {
     }
 });
 
+/**
+ * @openapi
+ * /user/{userId}/credential/{credentialId}/2fa:
+ *   post:
+ *     tags: [Credential (Bearer)]
+ *     summary: Submit 2FA code (Bearer)
+ *     description: Submits a 2FA code for an ongoing collection. Deprecated - use websockets instead. Bearer authentication.
+ *     deprecated: true
+ *     security:
+ *       - CustomerBearerAuth: []
+ *     parameters:
+ *       - name: userId
+ *         in: path
+ *         required: true
+ *         schema:
+ *           $ref: "#/components/schemas/userId"
+ *       - name: credential_id
+ *         in: path
+ *         required: true
+ *         schema:
+ *           $ref: "#/components/schemas/credentialId"
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required: [code]
+ *             properties:
+ *               code:
+ *                 $ref: '#/components/schemas/twofaCode'
+ *     responses:
+ *       200:
+ *         description: Success
+ *       400:
+ *         description: Bad request
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       401:
+ *         description: Authentication error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       403:
+ *         description: Credential does not belong to user
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       500:
+ *         description: Internal server error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ */
 // BEARER AUTHENTICATION
 app.post('/api/v1/user/:user_id/credential/:credential_id/2fa', async (req, res) => {
     try {
         // Post 2fa
         console.log(`POST 2fa ${req.params.credential_id} (DEPRECATED, use websockets instead)`);
-        await server.post_credential_2fa(req.headers.authorization, req.params.user_id, undefined, req.params.credential_id, req.body.code);
+        await server.post_credential_2fa(
+            req.headers.authorization,
+            req.params.user_id,
+            undefined,
+            req.params.credential_id,
+            req.body.code
+        );
 
         // Build response
         res.end()
@@ -479,12 +1730,73 @@ app.post('/api/v1/user/:user_id/credential/:credential_id/2fa', async (req, res)
     }
 });
 
+/**
+ * @openapi
+ * /credential/{credentialId}/2fa:
+ *   post:
+ *     tags: [Credential (Token)]
+ *     summary: Submit 2FA code (Token)
+ *     description: Submits a 2FA code for an ongoing collection. Deprecated - use websockets instead. Token authentication.
+ *     deprecated: true
+ *     security:
+ *       - UserBearerAuth: []
+ *       - TokenAuth: []
+ *     parameters:
+ *       - name: credential_id
+ *         in: path
+ *         required: true
+ *         schema:
+ *           $ref: "#/components/schemas/credentialId"
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required: [code]
+ *             properties:
+ *               code:
+ *                 $ref: '#/components/schemas/twofaCode'
+ *     responses:
+ *       200:
+ *         description: Success
+ *       400:
+ *         description: Bad request
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       401:
+ *         description: Authentication error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       403:
+ *         description: Credential does not belong to user
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       500:
+ *         description: Internal server error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ */
 // TOKEN AUTHENTICATION
 app.post('/api/v1/credential/:credential_id/2fa', async (req, res) => {
     try {
         // Post 2fa
         console.log(`POST 2fa ${req.params.credential_id} (DEPRECATED, use websockets instead)`);
-        await server.post_credential_2fa(req.headers.authorization, undefined, req.query.token, req.params.credential_id, req.body.code);
+        await server.post_credential_2fa(
+            req.headers.authorization,
+            undefined,
+            req.query.token,
+            req.params.credential_id,
+            req.body.code
+        );
 
         // Build response
         res.end()
@@ -493,12 +1805,72 @@ app.post('/api/v1/credential/:credential_id/2fa', async (req, res) => {
     }
 });
 
+/**
+ * @openapi
+ * /user/{userId}/credential/{credentialId}/collect:
+ *   post:
+ *     tags: [Credential (Bearer)]
+ *     summary: Trigger collection (Bearer)
+ *     description: Triggers a new collection for a credential or returns the existing one. Bearer authentication.
+ *     security:
+ *       - CustomerBearerAuth: []
+ *     parameters:
+ *       - name: userId
+ *         in: path
+ *         required: true
+ *         schema:
+ *           $ref: "#/components/schemas/userId"
+ *       - name: credential_id
+ *         in: path
+ *         required: true
+ *         schema:
+ *           $ref: "#/components/schemas/credentialId"
+ *     responses:
+ *       200:
+ *         description: Success
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 wsPath:
+ *                   $ref: '#/components/schemas/wsPath'
+ *       400:
+ *         description: Bad request
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       401:
+ *         description: Authentication error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       403:
+ *         description: Credential does not belong to user
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       500:
+ *         description: Internal server error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ */
 // BEARER AUTHENTICATION
 app.post('/api/v1/user/:user_id/credential/:credential_id/collect', async (req, res) => {
     try {
         // Post collect
         console.log(`POST collect ${req.params.credential_id}`);
-        const response = await server.post_credential_collect(req.headers.authorization, req.params.user_id, undefined, req.params.credential_id);
+        const response = await server.post_credential_collect(
+            req.headers.authorization,
+            req.params.user_id,
+            undefined,
+            req.params.credential_id
+        );
 
         // Build response
         res.setHeader('Content-Type', 'application/json');
@@ -508,12 +1880,68 @@ app.post('/api/v1/user/:user_id/credential/:credential_id/collect', async (req, 
     }
 });
 
+/**
+ * @openapi
+ * /credential/{credentialId}/collect:
+ *   post:
+ *     tags: [Credential (Token)]
+ *     summary: Trigger collection (Token)
+ *     description: Triggers a new collection for a credential or returns the existing one. Token authentication.
+ *     security:
+ *       - UserBearerAuth: []
+ *       - TokenAuth: []
+ *     parameters:
+ *       - name: credentialId
+ *         in: path
+ *         required: true
+ *         schema:
+ *           $ref: "#/components/schemas/credentialId"
+ *     responses:
+ *       200:
+ *         description: Success
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 wsPath:
+ *                   $ref: '#/components/schemas/wsPath'
+ *       400:
+ *         description: Bad request
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       401:
+ *         description: Authentication error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       403:
+ *         description: Credential does not belong to user
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       500:
+ *         description: Internal server error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ */
 // TOKEN AUTHENTICATION
 app.post('/api/v1/credential/:credential_id/collect', async (req, res) => {
     try {
         // Post collect
         console.log(`POST collect ${req.params.credential_id}`);
-        const response = await server.post_credential_collect(req.headers.authorization, undefined, req.query.token, req.params.credential_id);
+        const response = await server.post_credential_collect(
+            req.headers.authorization,
+            undefined,
+            req.query.token,
+            req.params.credential_id
+        );
 
         // Build response
         res.setHeader('Content-Type', 'application/json');
@@ -525,12 +1953,62 @@ app.post('/api/v1/credential/:credential_id/collect', async (req, res) => {
 
 // ---------- COLLECTOR ENDPOINTS ----------
 
+/**
+ * @openapi
+ * /collectors:
+ *   get:
+ *     tags: [General]
+ *     summary: List collectors
+ *     description: Returns all available collectors. _You can authenticate using token or bearer. If an authentication is provided, only the collectors the customer is subscribed to will be returned._
+ *     security:
+ *       - CustomerBearerAuth: []
+ *       - UserBearerAuth: []
+ *       - TokenAuth: []
+ *     parameters:
+ *       - name: locale
+ *         in: query
+ *         required: false
+ *         schema:
+ *           $ref: "#/components/schemas/locale"
+ *         description: Locale for translated collector names and descriptions
+ *     responses:
+ *       200:
+ *         description: Success
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: '#/components/schemas/collectorConfig'
+ *       400:
+ *         description: Bad request
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       401:
+ *         description: Authentication error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       500:
+ *         description: Internal server error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ */
 // BEARER OR TOKEN AUTHENTICATION
 app.get('/api/v1/collectors', async (req, res) => {
     try {
         // List all collectors
         console.log(`GET collectors`);
-        const response = await server.get_collectors(req.headers.authorization, req.query.token, req.query.locale);
+        const response = await server.get_collectors(
+            req.headers.authorization,
+            req.query.token,
+            req.query.locale
+        );
 
         // Build response
         res.setHeader('Content-Type', 'application/json');
