@@ -25,7 +25,7 @@ components:
       name: token
       description: UI token obtained from POST /user
   schemas:
-    Locale:
+    locale:
       type: string
       description: Language of the user.
       enum:
@@ -33,7 +33,7 @@ components:
         - fr
       default: en
       example: fr
-    BearerResponse:
+    bearerResponse:
       type: object
       properties:
         bearer:
@@ -42,7 +42,7 @@ components:
           example: qHcFyrYj.....yQ77/q0=
       required:
         - bearer
-    remote_id:
+    remoteId:
       type: string
       description: Remote id of the user.
       example: R121439
@@ -51,16 +51,16 @@ components:
       description: Token to be used by the client. You can get it using the POST /user
         endpoint.
       example: <token>
-    reset_token:
+    resetToken:
       type: string
       description: Token to be used for password reset. You can get it using the POST
         /signup endpoint.
       example: <reset_token>
-    credential_id:
+    credentialId:
       type: string
       description: Id of the credential.
       example: 6776b5258821de266afbc3f6
-    user_id:
+    userId:
       type: string
       description: Id of the user or _me_ for the current user.
       example: 687f40dab93991306da5ccf3
@@ -68,14 +68,21 @@ components:
       type: array
       description: List of credentials.
       items:
-        $ref: "#/components/schemas/Credential"
+        $ref: "#/components/schemas/credential"
     wsPath:
       type: string
       description: WebSocket path to connect to for real-time updates. null if no
         collect is in progress.
       nullable: true
       example: /api/v1/ws/30f6a13e919ceab0094e6df042166210fc00177dd392d2d2ae8b751946cbfecdb7f6e3fec3ec2d93db2a27a364dd6997adc88e439a3b96d34fe7d0257b27a616
-    Error:
+    callbackType:
+      type: string
+      enum:
+        - invoice
+        - notification_disconnected
+      description: Type of event to send to the callback.
+      example: invoice
+    error:
       type: object
       properties:
         type:
@@ -91,7 +98,7 @@ components:
       required:
         - type
         - message
-    Plan:
+    plan:
       type: object
       properties:
         id:
@@ -160,19 +167,19 @@ components:
         - pricePerInvoice
         - pricePerCollector
         - features
-    UserStats:
+    userStats:
       type: object
       properties:
         credentialsCount:
           type: integer
-    CustomerStats:
+    customerStats:
       type: object
       properties:
         usersCount:
           type: integer
         credentialsCount:
           type: integer
-    State:
+    state:
       type: object
       properties:
         index:
@@ -197,7 +204,7 @@ components:
         - max
         - title
         - message
-    CollectorParam:
+    collectorParam:
       type: object
       properties:
         type:
@@ -226,7 +233,7 @@ components:
         - name
         - placeholder
         - mandatory
-    CollectorConfig:
+    collectorConfig:
       type: object
       properties:
         id:
@@ -272,7 +279,7 @@ components:
           type: object
           description: List of parameters that the collector requires.
           additionalProperties:
-            $ref: "#/components/schemas/CollectorParam"
+            $ref: "#/components/schemas/collectorParam"
         captcha:
           type: string
           description: Captcha used by the collector.
@@ -321,7 +328,7 @@ components:
         - captcha
         - enableInteractiveLogin
         - state
-    Customer:
+    customer:
       type: object
       properties:
         id:
@@ -376,7 +383,7 @@ components:
           description: Maximum delay between two collects in ms.
           example: 2592000000
         plan:
-          $ref: "#/components/schemas/Plan"
+          $ref: "#/components/schemas/plan"
       required:
         - id
         - email
@@ -388,7 +395,7 @@ components:
         - displaySketchCollectors
         - maxDelayBetweenCollect
         - plan
-    User:
+    user:
       type: object
       properties:
         id:
@@ -400,17 +407,17 @@ components:
           description: Id of the customer.
           example: 6795130f170ba4496dc30642
         remote_id:
-          $ref: "#/components/schemas/remote_id"
+          $ref: "#/components/schemas/remoteId"
         locale:
-          $ref: "#/components/schemas/Locale"
+          $ref: "#/components/schemas/locale"
       required:
         - id
         - customer_id
         - remote_id
         - locale
-    UserWithToken:
+    userWithToken:
       allOf:
-        - $ref: "#/components/schemas/User"
+        - $ref: "#/components/schemas/user"
         - type: object
           properties:
             token:
@@ -419,14 +426,14 @@ components:
               example: 69b67c9f...be77ffeb
       required:
         - token
-    UserListItem:
+    userListItem:
       allOf:
-        - $ref: "#/components/schemas/User"
+        - $ref: "#/components/schemas/user"
         - type: object
           properties:
             stats:
-              $ref: "#/components/schemas/UserStats"
-    Credential:
+              $ref: "#/components/schemas/userStats"
+    credential:
       type: object
       properties:
         id:
@@ -481,9 +488,9 @@ components:
               - timestamp
               - collected_timestamp
         state:
-          $ref: "#/components/schemas/State"
+          $ref: "#/components/schemas/state"
         collector:
-          $ref: "#/components/schemas/CollectorConfig"
+          $ref: "#/components/schemas/collectorConfig"
         wsPath:
           $ref: "#/components/schemas/wsPath"
       required:
@@ -497,7 +504,7 @@ components:
         - invoices
         - collector
         - wsPath
-    Invoice:
+    invoice:
       type: object
       properties:
         id:
@@ -564,7 +571,7 @@ paths:
         - name: credential_id
           in: query
           schema:
-            $ref: "#/components/schemas/credential_id"
+            $ref: "#/components/schemas/credentialId"
           description: Id of the credential. If provided, a collect will be started for
             this credential. If a collect is already in progress for this
             credential, the current progress will be shown.
@@ -580,13 +587,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: "#/components/schemas/error"
         "500":
           description: Internal server error
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: "#/components/schemas/error"
   /test/callback/{type}:
     get:
       tags:
@@ -600,11 +607,7 @@ paths:
           in: path
           required: true
           schema:
-            type: string
-            enum:
-              - invoice
-              - notification_disconnected
-          description: Callback type to test
+            $ref: "#/components/schemas/callbackType"
       responses:
         "200":
           description: Callback sent successfully
@@ -613,19 +616,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: "#/components/schemas/error"
         "401":
           description: Authentication error
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: "#/components/schemas/error"
         "500":
           description: Internal server error
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: "#/components/schemas/error"
       callbacks:
         onInvoiceCollected:
           Invoice:
@@ -638,19 +641,13 @@ paths:
                       type: object
                       properties:
                         type:
-                          type: string
-                          description: Type of the payload.
-                          enum:
-                            - invoice
-                          example: invoice
+                          $ref: "#/components/schemas/callbackType"
                         remote_id:
-                          type: string
-                          description: Remote id of the user.
-                          example: R121439
+                          $ref: "#/components/schemas/remoteId"
                         invoice:
-                          $ref: "#/components/schemas/Invoice"
+                          $ref: "#/components/schemas/invoice"
                         collector:
-                          $ref: "#/components/schemas/CollectorConfig"
+                          $ref: "#/components/schemas/collectorConfig"
                       required:
                         - type
                         - remote_id
@@ -672,19 +669,15 @@ paths:
                       type: object
                       properties:
                         type:
-                          type: string
-                          description: Type of the payload.
-                          example: notification_disconnected
+                          $ref: "#/components/schemas/callbackType"
                         credential_id:
-                          $ref: "#/components/schemas/credential_id"
+                          $ref: "#/components/schemas/credentialId"
                         user_id:
-                          $ref: "#/components/schemas/user_id"
+                          $ref: "#/components/schemas/userId"
                         remote_id:
-                          type: string
-                          description: Remote id of the user.
-                          example: R121439
+                          $ref: "#/components/schemas/remoteId"
                         collector:
-                          $ref: "#/components/schemas/CollectorConfig"
+                          $ref: "#/components/schemas/collectorConfig"
                       required:
                         - type
                         - credential_id
@@ -728,19 +721,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: "#/components/schemas/error"
         "401":
           description: Authentication error
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: "#/components/schemas/error"
         "500":
           description: Internal server error
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: "#/components/schemas/error"
   /login:
     post:
       tags:
@@ -783,19 +776,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: "#/components/schemas/error"
         "401":
           description: Invalid credentials
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: "#/components/schemas/error"
         "500":
           description: Internal server error
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: "#/components/schemas/error"
   /signup:
     post:
       tags:
@@ -841,13 +834,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: "#/components/schemas/error"
         "500":
           description: Internal server error
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: "#/components/schemas/error"
   /forgot:
     post:
       tags:
@@ -881,13 +874,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: "#/components/schemas/error"
         "500":
           description: Internal server error
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: "#/components/schemas/error"
   /reset:
     post:
       tags:
@@ -920,19 +913,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: "#/components/schemas/error"
         "401":
           description: Invalid or expired token
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: "#/components/schemas/error"
         "500":
           description: Internal server error
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: "#/components/schemas/error"
   /customer:
     get:
       tags:
@@ -947,19 +940,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Customer"
+                $ref: "#/components/schemas/customer"
         "401":
           description: Authentication error
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: "#/components/schemas/error"
         "500":
           description: Internal server error
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: "#/components/schemas/error"
     put:
       tags:
         - Customer
@@ -1000,19 +993,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Customer"
+                $ref: "#/components/schemas/customer"
         "401":
           description: Authentication error
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: "#/components/schemas/error"
         "500":
           description: Internal server error
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: "#/components/schemas/error"
   /customer/bearer:
     post:
       tags:
@@ -1027,19 +1020,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/BearerResponse"
+                $ref: "#/components/schemas/bearerResponse"
         "401":
           description: Authentication error
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: "#/components/schemas/error"
         "500":
           description: Internal server error
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: "#/components/schemas/error"
   /customer/stats:
     get:
       tags:
@@ -1054,19 +1047,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/CustomerStats"
+                $ref: "#/components/schemas/customerStats"
         "401":
           description: Authentication error
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: "#/components/schemas/error"
         "500":
           description: Internal server error
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: "#/components/schemas/error"
   /users:
     get:
       tags:
@@ -1084,19 +1077,19 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/UserListItem"
+                  $ref: "#/components/schemas/userListItem"
         "401":
           description: Authentication error
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: "#/components/schemas/error"
         "500":
           description: Internal server error
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: "#/components/schemas/error"
   /user:
     post:
       tags:
@@ -1130,31 +1123,31 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/UserWithToken"
+                $ref: "#/components/schemas/userWithToken"
         "400":
           description: Missing or invalid field
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: "#/components/schemas/error"
         "401":
           description: Authentication error
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: "#/components/schemas/error"
         "403":
           description: User limit reached
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: "#/components/schemas/error"
         "500":
           description: Internal server error
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: "#/components/schemas/error"
     get:
       tags:
         - User
@@ -1169,19 +1162,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/User"
+                $ref: "#/components/schemas/user"
         "401":
           description: Authentication error
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: "#/components/schemas/error"
         "500":
           description: Internal server error
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: "#/components/schemas/error"
   /user/{user_id}:
     get:
       tags:
@@ -1195,32 +1188,32 @@ paths:
           in: path
           required: true
           schema:
-            $ref: "#/components/schemas/user_id"
+            $ref: "#/components/schemas/userId"
       responses:
         "200":
           description: User details
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/User"
+                $ref: "#/components/schemas/user"
         "400":
           description: User not found
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: "#/components/schemas/error"
         "401":
           description: Authentication error
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: "#/components/schemas/error"
         "500":
           description: Internal server error
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: "#/components/schemas/error"
     delete:
       tags:
         - User
@@ -1233,7 +1226,7 @@ paths:
           in: path
           required: true
           schema:
-            $ref: "#/components/schemas/user_id"
+            $ref: "#/components/schemas/userId"
       responses:
         "200":
           description: User deleted successfully
@@ -1242,19 +1235,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: "#/components/schemas/error"
         "401":
           description: Authentication error
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: "#/components/schemas/error"
         "500":
           description: Internal server error
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: "#/components/schemas/error"
   /user/{userId}:
     put:
       tags:
@@ -1291,25 +1284,25 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/User"
+                $ref: "#/components/schemas/user"
         "400":
           description: Validation error
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: "#/components/schemas/error"
         "401":
           description: Authentication error
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: "#/components/schemas/error"
         "500":
           description: Internal server error
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: "#/components/schemas/error"
   /user/{user_id}/credentials:
     get:
       tags:
@@ -1323,7 +1316,7 @@ paths:
           in: path
           required: true
           schema:
-            $ref: "#/components/schemas/user_id"
+            $ref: "#/components/schemas/userId"
       responses:
         "200":
           description: List of credentials
@@ -1332,19 +1325,19 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/Credential"
+                  $ref: "#/components/schemas/credential"
         "401":
           description: Authentication error
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: "#/components/schemas/error"
         "500":
           description: Internal server error
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: "#/components/schemas/error"
   /credentials:
     get:
       tags:
@@ -1368,19 +1361,19 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/Credential"
+                  $ref: "#/components/schemas/credential"
         "401":
           description: Authentication error
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: "#/components/schemas/error"
         "500":
           description: Internal server error
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: "#/components/schemas/error"
   /user/{user_id}/credential:
     post:
       tags:
@@ -1394,7 +1387,7 @@ paths:
           in: path
           required: true
           schema:
-            $ref: "#/components/schemas/user_id"
+            $ref: "#/components/schemas/userId"
       requestBody:
         required: true
         content:
@@ -1420,31 +1413,31 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Credential"
+                $ref: "#/components/schemas/credential"
         "400":
           description: Missing or invalid field
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: "#/components/schemas/error"
         "401":
           description: Authentication error
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: "#/components/schemas/error"
         "403":
           description: Credential limit reached or collector not subscribed
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: "#/components/schemas/error"
         "500":
           description: Internal server error
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: "#/components/schemas/error"
   /credential:
     post:
       tags:
@@ -1485,31 +1478,31 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Credential"
+                $ref: "#/components/schemas/credential"
         "400":
           description: Missing or invalid field
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: "#/components/schemas/error"
         "401":
           description: Authentication error
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: "#/components/schemas/error"
         "403":
           description: Credential limit reached or collector not subscribed
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: "#/components/schemas/error"
         "500":
           description: Internal server error
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: "#/components/schemas/error"
   /user/{user_id}/credential/{credential_id}:
     get:
       tags:
@@ -1523,7 +1516,7 @@ paths:
           in: path
           required: true
           schema:
-            $ref: "#/components/schemas/user_id"
+            $ref: "#/components/schemas/userId"
         - name: credential_id
           in: path
           required: true
@@ -1535,31 +1528,31 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Credential"
+                $ref: "#/components/schemas/credential"
         "400":
           description: Credential not found
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: "#/components/schemas/error"
         "401":
           description: Authentication error
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: "#/components/schemas/error"
         "403":
           description: Credential does not belong to user
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: "#/components/schemas/error"
         "500":
           description: Internal server error
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: "#/components/schemas/error"
     delete:
       tags:
         - Credential (Bearer)
@@ -1572,7 +1565,7 @@ paths:
           in: path
           required: true
           schema:
-            $ref: "#/components/schemas/user_id"
+            $ref: "#/components/schemas/userId"
         - name: credential_id
           in: path
           required: true
@@ -1586,25 +1579,25 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: "#/components/schemas/error"
         "401":
           description: Authentication error
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: "#/components/schemas/error"
         "403":
           description: Credential does not belong to user
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: "#/components/schemas/error"
         "500":
           description: Internal server error
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: "#/components/schemas/error"
   /credential/{credential_id}:
     get:
       tags:
@@ -1631,31 +1624,31 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Credential"
+                $ref: "#/components/schemas/credential"
         "400":
           description: Credential not found
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: "#/components/schemas/error"
         "401":
           description: Authentication error
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: "#/components/schemas/error"
         "403":
           description: Credential does not belong to user
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: "#/components/schemas/error"
         "500":
           description: Internal server error
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: "#/components/schemas/error"
     delete:
       tags:
         - Credential (Token)
@@ -1683,25 +1676,25 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: "#/components/schemas/error"
         "401":
           description: Authentication error
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: "#/components/schemas/error"
         "403":
           description: Credential does not belong to user
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: "#/components/schemas/error"
         "500":
           description: Internal server error
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: "#/components/schemas/error"
   /user/{user_id}/credential/{credential_id}/2fa:
     post:
       tags:
@@ -1717,7 +1710,7 @@ paths:
           in: path
           required: true
           schema:
-            $ref: "#/components/schemas/user_id"
+            $ref: "#/components/schemas/userId"
         - name: credential_id
           in: path
           required: true
@@ -1742,25 +1735,25 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: "#/components/schemas/error"
         "401":
           description: Authentication error
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: "#/components/schemas/error"
         "403":
           description: Credential does not belong to user
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: "#/components/schemas/error"
         "500":
           description: Internal server error
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: "#/components/schemas/error"
   /credential/{credential_id}/2fa:
     post:
       tags:
@@ -1802,25 +1795,25 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: "#/components/schemas/error"
         "401":
           description: Authentication error
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: "#/components/schemas/error"
         "403":
           description: Credential does not belong to user
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: "#/components/schemas/error"
         "500":
           description: Internal server error
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: "#/components/schemas/error"
   /user/{user_id}/credential/{credential_id}/collect:
     post:
       tags:
@@ -1835,7 +1828,7 @@ paths:
           in: path
           required: true
           schema:
-            $ref: "#/components/schemas/user_id"
+            $ref: "#/components/schemas/userId"
         - name: credential_id
           in: path
           required: true
@@ -1858,25 +1851,25 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: "#/components/schemas/error"
         "401":
           description: Authentication error
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: "#/components/schemas/error"
         "403":
           description: Credential does not belong to user
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: "#/components/schemas/error"
         "500":
           description: Internal server error
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: "#/components/schemas/error"
   /credential/{credential_id}/collect:
     post:
       tags:
@@ -1915,25 +1908,25 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: "#/components/schemas/error"
         "401":
           description: Authentication error
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: "#/components/schemas/error"
         "403":
           description: Credential does not belong to user
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: "#/components/schemas/error"
         "500":
           description: Internal server error
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: "#/components/schemas/error"
   /collectors:
     get:
       tags:
@@ -1959,22 +1952,22 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/CollectorConfig"
+                  $ref: "#/components/schemas/collectorConfig"
         "400":
           description: Unsupported locale
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: "#/components/schemas/error"
         "401":
           description: Authentication error
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: "#/components/schemas/error"
         "500":
           description: Internal server error
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                $ref: "#/components/schemas/error"

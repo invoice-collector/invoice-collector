@@ -34,14 +34,14 @@ const SWAGGER_DEFINITION = {
             },
             schemas: {
                 // --- Simple / reusable type schemas ---
-                Locale: {
+                locale: {
                     type: 'string',
                     description: 'Language of the user.',
                     enum: ['en', 'fr'],
                     default: 'en',
                     example: 'fr',
                 },
-                BearerResponse: {
+                bearerResponse: {
                     type: 'object',
                     properties: {
                         bearer: {
@@ -52,7 +52,7 @@ const SWAGGER_DEFINITION = {
                     },
                     required: ['bearer'],
                 },
-                remote_id: {
+                remoteId: {
                     type: 'string',
                     description: 'Remote id of the user.',
                     example: 'R121439',
@@ -62,17 +62,17 @@ const SWAGGER_DEFINITION = {
                     description: 'Token to be used by the client. You can get it using the POST /user endpoint.',
                     example: '<token>',
                 },
-                reset_token: {
+                resetToken: {
                     type: 'string',
                     description: 'Token to be used for password reset. You can get it using the POST /signup endpoint.',
                     example: '<reset_token>',
                 },
-                credential_id: {
+                credentialId: {
                     type: 'string',
                     description: 'Id of the credential.',
                     example: '6776b5258821de266afbc3f6',
                 },
-                user_id: {
+                userId: {
                     type: 'string',
                     description: 'Id of the user or _me_ for the current user.',
                     example: '687f40dab93991306da5ccf3',
@@ -80,7 +80,7 @@ const SWAGGER_DEFINITION = {
                 credentials: {
                     type: 'array',
                     description: 'List of credentials.',
-                    items: { $ref: '#/components/schemas/Credential' },
+                    items: { $ref: '#/components/schemas/credential' },
                 },
                 wsPath: {
                     type: 'string',
@@ -95,7 +95,7 @@ const SWAGGER_DEFINITION = {
                     example: 'invoice',
                 },
                 // --- Object schemas ---
-                Error: {
+                error: {
                     type: 'object',
                     properties: {
                         type: {
@@ -112,7 +112,7 @@ const SWAGGER_DEFINITION = {
                     },
                     required: ['type', 'message'],
                 },
-                Plan: {
+                plan: {
                     type: 'object',
                     properties: {
                         id: { type: 'string', description: 'Id of the plan.', example: 'basic' },
@@ -135,20 +135,20 @@ const SWAGGER_DEFINITION = {
                     },
                     required: ['id', 'name', 'maxUsers', 'maxCredentials', 'maxInvoicesPerMonth', 'maxCollectors', 'priceBase', 'pricePerUser', 'pricePerCredential', 'pricePerInvoice', 'pricePerCollector', 'features'],
                 },
-                UserStats: {
+                userStats: {
                     type: 'object',
                     properties: {
                         credentialsCount: { type: 'integer' },
                     },
                 },
-                CustomerStats: {
+                customerStats: {
                     type: 'object',
                     properties: {
                         usersCount: { type: 'integer' },
                         credentialsCount: { type: 'integer' },
                     },
                 },
-                State: {
+                state: {
                     type: 'object',
                     properties: {
                         index: { type: 'number', description: 'Index of the state. A negative index means that the state is in error. An index equal to max means that the process is finished.', example: 2 },
@@ -158,7 +158,7 @@ const SWAGGER_DEFINITION = {
                     },
                     required: ['index', 'max', 'title', 'message'],
                 },
-                CollectorParam: {
+                collectorParam: {
                     type: 'object',
                     properties: {
                         type: { type: 'string', description: 'Type of the parameter.', enum: ['string', 'number', 'boolean', 'enum'], example: 'string' },
@@ -168,7 +168,7 @@ const SWAGGER_DEFINITION = {
                     },
                     required: ['type', 'name', 'placeholder', 'mandatory'],
                 },
-                CollectorConfig: {
+                collectorConfig: {
                     type: 'object',
                     properties: {
                         id: { type: 'string', description: 'Id of the collector.', example: 'free' },
@@ -182,7 +182,7 @@ const SWAGGER_DEFINITION = {
                         params: {
                             type: 'object',
                             description: 'List of parameters that the collector requires.',
-                            additionalProperties: { $ref: '#/components/schemas/CollectorParam' },
+                            additionalProperties: { $ref: '#/components/schemas/collectorParam' },
                         },
                         captcha: { type: 'string', description: 'Captcha used by the collector.', enum: ['none', 'cloudflare', 'datadome', 'recaptcha', 'other'], example: 'cloudflare' },
                         enableInteractiveLogin: { type: 'boolean', description: 'Whether the interactive login is enabled for this collector.', example: true },
@@ -193,7 +193,7 @@ const SWAGGER_DEFINITION = {
                     },
                     required: ['id', 'name', 'description', 'version', 'type', 'website', 'logo', 'params', 'captcha', 'enableInteractiveLogin', 'state'],
                 },
-                Customer: {
+                customer: {
                     type: 'object',
                     properties: {
                         id: { type: 'string', description: 'Id of the customer.', example: '6795130f170ba4496dc30642' },
@@ -212,23 +212,23 @@ const SWAGGER_DEFINITION = {
                         enableInteractiveLogin: { type: 'boolean', description: 'Whether the customer has enabled interactive login for collectors that support it.', example: true },
                         displaySketchCollectors: { type: 'boolean', description: 'Whether to display sketch collectors.', example: false },
                         maxDelayBetweenCollect: { type: 'number', description: 'Maximum delay between two collects in ms.', example: 2592000000 },
-                        plan: { $ref: '#/components/schemas/Plan' },
+                        plan: { $ref: '#/components/schemas/plan' },
                     },
                     required: ['id', 'email', 'name', 'callback', 'theme', 'subscribedCollectors', 'isSubscribedToAll', 'displaySketchCollectors', 'maxDelayBetweenCollect', 'plan'],
                 },
-                User: {
+                user: {
                     type: 'object',
                     properties: {
                         id: { type: 'string', description: 'Id of the user.', example: '6776b5258821de266afbc3f6' },
                         customer_id: { type: 'string', description: 'Id of the customer.', example: '6795130f170ba4496dc30642' },
-                        remote_id: { $ref: '#/components/schemas/remote_id' },
-                        locale: { $ref: '#/components/schemas/Locale' },
+                        remote_id: { $ref: '#/components/schemas/remoteId' },
+                        locale: { $ref: '#/components/schemas/locale' },
                     },
                     required: ['id', 'customer_id', 'remote_id', 'locale'],
                 },
-                UserWithToken: {
+                userWithToken: {
                     allOf: [
-                        { $ref: '#/components/schemas/User' },
+                        { $ref: '#/components/schemas/user' },
                         {
                             type: 'object',
                             properties: {
@@ -242,18 +242,18 @@ const SWAGGER_DEFINITION = {
                     ],
                     required: ['token'],
                 },
-                UserListItem: {
+                userListItem: {
                     allOf: [
-                        { $ref: '#/components/schemas/User' },
+                        { $ref: '#/components/schemas/user' },
                         {
                             type: 'object',
                             properties: {
-                                stats: { $ref: '#/components/schemas/UserStats' },
+                                stats: { $ref: '#/components/schemas/userStats' },
                             },
                         },
                     ],
                 },
-                Credential: {
+                credential: {
                     type: 'object',
                     properties: {
                         id: { type: 'string', description: 'Id of the credential.', example: '6776b5258821de266afbc3f6' },
@@ -276,13 +276,13 @@ const SWAGGER_DEFINITION = {
                                 required: ['id', 'timestamp', 'collected_timestamp'],
                             },
                         },
-                        state: { $ref: '#/components/schemas/State' },
-                        collector: { $ref: '#/components/schemas/CollectorConfig' },
+                        state: { $ref: '#/components/schemas/state' },
+                        collector: { $ref: '#/components/schemas/collectorConfig' },
                         wsPath: { $ref: '#/components/schemas/wsPath' },
                     },
                     required: ['id', 'user_id', 'note', 'create_timestamp', 'last_collect_timestamp', 'next_collect_timestamp', 'state', 'invoices', 'collector', 'wsPath'],
                 },
-                Invoice: {
+                invoice: {
                     type: 'object',
                     properties: {
                         id: { type: 'string', description: 'Id of the invoice.', example: '45FDD1544' },
