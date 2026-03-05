@@ -5,41 +5,161 @@ info:
     and collectors.
   version: 1.0.0
 servers:
-  - url: /api/v1
-    description: API v1
+  - url: https://api.invoice-collector.com/api/v1
+    description: Production API
+  - url: https://localhost:8080/api/v1
+    description: Local API
 components:
   securitySchemes:
     CustomerBearerAuth:
       type: http
       scheme: bearer
-      description: Customer bearer token
+      description: Bearer token to authenticate the customer.
     UserBearerAuth:
       type: http
       scheme: bearer
-      description: User bearer token
+      description: Bearer token to authenticate the user.
     TokenAuth:
       type: apiKey
       in: query
       name: token
       description: UI token obtained from POST /user
   schemas:
+    Locale:
+      type: string
+      description: Language of the user.
+      enum:
+        - en
+        - fr
+      default: en
+      example: fr
+    BearerResponse:
+      type: object
+      properties:
+        bearer:
+          type: string
+          description: Bearer token to be used in the Authorization header.
+          example: qHcFyrYj.....yQ77/q0=
+      required:
+        - bearer
+    remote_id:
+      type: string
+      description: Remote id of the user.
+      example: R121439
+    token:
+      type: string
+      description: Token to be used by the client. You can get it using the POST /user
+        endpoint.
+      example: <token>
+    reset_token:
+      type: string
+      description: Token to be used for password reset. You can get it using the POST
+        /signup endpoint.
+      example: <reset_token>
+    credential_id:
+      type: string
+      description: Id of the credential.
+      example: 6776b5258821de266afbc3f6
+    user_id:
+      type: string
+      description: Id of the user or _me_ for the current user.
+      example: 687f40dab93991306da5ccf3
+    credentials:
+      type: array
+      description: List of credentials.
+      items:
+        $ref: "#/components/schemas/Credential"
+    wsPath:
+      type: string
+      description: WebSocket path to connect to for real-time updates. null if no
+        collect is in progress.
+      nullable: true
+      example: /api/v1/ws/30f6a13e919ceab0094e6df042166210fc00177dd392d2d2ae8b751946cbfecdb7f6e3fec3ec2d93db2a27a364dd6997adc88e439a3b96d34fe7d0257b27a616
     Error:
       type: object
       properties:
         type:
           type: string
+          description: Type of the error.
+          default: error
+          enum:
+            - error
           example: error
         message:
           type: string
-        reason:
-          type: string
+          description: Error message.
+      required:
+        - type
+        - message
     Plan:
       type: object
       properties:
+        id:
+          type: string
+          description: Id of the plan.
+          example: basic
+        name:
+          type: string
+          description: Name of the plan.
+          example: Basic
         maxUsers:
-          type: integer
+          type: number
+          description: Maximum number of users allowed. If -1, no limit.
+          example: 10
         maxCredentials:
-          type: integer
+          type: number
+          description: Maximum number of credentials allowed. If -1, no limit.
+          example: 50
+        maxInvoicesPerMonth:
+          type: number
+          description: Maximum number of invoices per month. If -1, no limit.
+          example: -1
+        maxCollectors:
+          type: number
+          description: Maximum number of collectors allowed. If -1, no limit.
+          example: -1
+        priceBase:
+          type: number
+          description: Base price of the plan in €.
+          example: 10
+        pricePerUser:
+          type: number
+          description: Price per additional user in €.
+          example: 2.99
+        pricePerCredential:
+          type: number
+          description: Price per additional credential in €.
+          example: 0
+        pricePerInvoice:
+          type: number
+          description: Price per additional invoice in €.
+          example: 1
+        pricePerCollector:
+          type: number
+          description: Price per additional collector in €.
+          example: 0
+        features:
+          type: array
+          description: List of features included in the plan.
+          items:
+            type: string
+          example:
+            - 10 users
+            - 50 collectors
+            - Unlimited invoices per month
+      required:
+        - id
+        - name
+        - maxUsers
+        - maxCredentials
+        - maxInvoicesPerMonth
+        - maxCollectors
+        - priceBase
+        - pricePerUser
+        - pricePerCredential
+        - pricePerInvoice
+        - pricePerCollector
+        - features
     UserStats:
       type: object
       properties:
@@ -55,169 +175,367 @@ components:
     State:
       type: object
       properties:
-        code:
-          type: integer
+        index:
+          type: number
+          description: Index of the state. A negative index means that the state is in
+            error. An index equal to max means that the process is finished.
+          example: 2
+        max:
+          type: number
+          description: Maximum index of the state. This is used to know the progress.
+          example: 6
         title:
           type: string
+          description: Title of the state.
+          example: 2FA
         message:
           type: string
+          description: Message to be displayed to the user.
+          example: Please enter the code received by SMS.
+      required:
+        - index
+        - max
+        - title
+        - message
     CollectorParam:
       type: object
       properties:
-        name:
-          type: string
-        placeholder:
-          type: string
-        mandatory:
-          type: boolean
         type:
           type: string
+          description: Type of the parameter.
+          enum:
+            - string
+            - number
+            - boolean
+            - enum
+          example: string
+        name:
+          type: string
+          description: Name of the parameter.
+          example: Email
+        placeholder:
+          type: string
+          description: Placeholder of the parameter.
+          example: Email of the account
+        mandatory:
+          type: boolean
+          description: Whether the parameter is mandatory or not.
+          example: true
+      required:
+        - type
+        - name
+        - placeholder
+        - mandatory
     CollectorConfig:
       type: object
       properties:
         id:
           type: string
+          description: Id of the collector.
+          example: free
         name:
           type: string
+          description: Name of the collector.
+          example: Free
         description:
           type: string
+          description: Description of the collector.
+          example: Free is a French telecommunications company
         instructions:
           type: string
+          description: Instructions to setup the collector.
+          example: Go to ... and do ...
+        version:
+          type: string
+          description: Version of the collector.
+          example: "1"
         type:
           type: string
+          description: Type of collector.
+          enum:
+            - sketch
+            - agent
+            - web
+            - api
+          example: web
+        website:
+          type: string
+          description: Link to the website of the collector.
+          format: uri
+          example: https://www.free.fr
+        logo:
+          type: string
+          description: Link to the logo of the collector.
+          format: uri
+          example: https://fr.wikipedia.org/wiki/Free_(entreprise)#/media/Fichier:Free_logo.svg
         params:
           type: object
+          description: List of parameters that the collector requires.
           additionalProperties:
             $ref: "#/components/schemas/CollectorParam"
+        captcha:
+          type: string
+          description: Captcha used by the collector.
+          enum:
+            - none
+            - cloudflare
+            - datadome
+            - recaptcha
+            - other
+          example: cloudflare
+        enableInteractiveLogin:
+          type: boolean
+          description: Whether the interactive login is enabled for this collector.
+          example: true
+        state:
+          type: string
+          description: State of the collector.
+          enum:
+            - planned
+            - development
+            - active
+          example: active
+        loginUrl:
+          type: string
+          description: URL to the login page of the collector. For collectors of type
+            sketch, web and agent only.
+          example: https://www.mycollector.com/login
+        entryUrl:
+          type: string
+          description: URL to the invoices page of the collector. For collectors of type
+            web and agent only.
+          example: https://www.mycollector.com/customer/invoices
+        baseUrl:
+          type: string
+          description: Base URL of the collector. For collectors of type api only.
+          example: https://api.mycollector.com
+      required:
+        - id
+        - name
+        - description
+        - version
+        - type
+        - website
+        - logo
+        - params
+        - captcha
+        - enableInteractiveLogin
+        - state
     Customer:
       type: object
       properties:
         id:
           type: string
+          description: Id of the customer.
+          example: 6795130f170ba4496dc30642
         email:
           type: string
+          description: Email of the customer.
+          example: customer@company.com
         name:
           type: string
+          description: Name of the customer.
+          example: Awesome Company Name
         callback:
           type: string
+          description: Callback url at which the new invoices are sent.
+          example: https://your.infrastructure.com/path/to/callback
         remoteId:
           type: string
-        cid:
-          type: string
-        inviteId:
-          type: string
-        createdAt:
-          type: integer
+          description: Remote id of your company in your system.
+          example: R121439
         theme:
           type: string
+          description: Theme of the customer.
+          example: dark
         subscribedCollectors:
           type: array
+          description: List of collector ids the customer is subscribed to.
           items:
             type: string
+          example:
+            - amazon
+            - shopify
+            - free
         isSubscribedToAll:
           type: boolean
+          description: Whether the customer is subscribed to all collectors. If true, the
+            subscribedCollectors field is ignored.
+          example: false
         enableInteractiveLogin:
           type: boolean
+          description: Whether the customer has enabled interactive login for collectors
+            that support it.
+          example: true
         displaySketchCollectors:
           type: boolean
+          description: Whether to display sketch collectors.
+          example: false
         maxDelayBetweenCollect:
-          type: integer
+          type: number
+          description: Maximum delay between two collects in ms.
+          example: 2592000000
         plan:
           $ref: "#/components/schemas/Plan"
+      required:
+        - id
+        - email
+        - name
+        - callback
+        - theme
+        - subscribedCollectors
+        - isSubscribedToAll
+        - displaySketchCollectors
+        - maxDelayBetweenCollect
+        - plan
     User:
       type: object
       properties:
         id:
           type: string
+          description: Id of the user.
+          example: 6776b5258821de266afbc3f6
         customer_id:
           type: string
+          description: Id of the customer.
+          example: 6795130f170ba4496dc30642
         remote_id:
-          type: string
-        name:
-          type: string
-        cid:
-          type: string
+          $ref: "#/components/schemas/remote_id"
         locale:
-          type: string
-        createdAt:
-          type: integer
-        customer:
-          type: object
-          properties:
-            name:
-              type: string
-            cid:
-              type: string
-        stats:
-          $ref: "#/components/schemas/UserStats"
+          $ref: "#/components/schemas/Locale"
+      required:
+        - id
+        - customer_id
+        - remote_id
+        - locale
     UserWithToken:
-      type: object
-      properties:
-        id:
-          type: string
-        customer_id:
-          type: string
-        remote_id:
-          type: string
-        name:
-          type: string
-        cid:
-          type: string
-        locale:
-          type: string
-        createdAt:
-          type: integer
-        token:
-          type: string
-        stats:
-          $ref: "#/components/schemas/UserStats"
+      allOf:
+        - $ref: "#/components/schemas/User"
+        - type: object
+          properties:
+            token:
+              type: string
+              description: Token to be used by the client.
+              example: 69b67c9f...be77ffeb
+      required:
+        - token
     UserListItem:
-      type: object
-      properties:
-        id:
-          type: string
-        customer_id:
-          type: string
-        remote_id:
-          type: string
-        name:
-          type: string
-        cid:
-          type: string
-        locale:
-          type: string
-        createdAt:
-          type: integer
-        stats:
-          $ref: "#/components/schemas/UserStats"
+      allOf:
+        - $ref: "#/components/schemas/User"
+        - type: object
+          properties:
+            stats:
+              $ref: "#/components/schemas/UserStats"
     Credential:
       type: object
       properties:
         id:
           type: string
+          description: Id of the credential.
+          example: 6776b5258821de266afbc3f6
         user_id:
           type: string
+          description: Id of the user.
+          example: 687108e5dce5050bc8ca53c1
         note:
           type: string
+          description: Custom note for this credential.
+          example: Regular account
         create_timestamp:
-          type: integer
+          type: number
+          description: Creation timestamp.
+          example: 1745229262287
         download_from_timestamp:
-          type: integer
+          type: number
+          description: Download from timestamp.
+          example: 1745229203582
         last_collect_timestamp:
-          type: integer
+          type: number
+          description: Last collect timestamp.
+          example: 1745229265118
         next_collect_timestamp:
-          type: integer
+          type: number
+          description: Next collect timestamp.
+          example: 1746000402000
         invoices:
           type: array
+          description: List of invoices collected by this credential.
           items:
             type: object
+            properties:
+              id:
+                type: string
+                description: Id of the invoice.
+                example: 45FDD1544
+              timestamp:
+                type: integer
+                description: Timestamp when the invoice was created in ms.
+                example: 17316031963975
+              collected_timestamp:
+                type: integer
+                description: Timestamp when the invoice was collected in ms. null if the invoice
+                  was not collected.
+                example: 17316032013467
+            required:
+              - id
+              - timestamp
+              - collected_timestamp
         state:
           $ref: "#/components/schemas/State"
         collector:
           $ref: "#/components/schemas/CollectorConfig"
         wsPath:
+          $ref: "#/components/schemas/wsPath"
+      required:
+        - id
+        - user_id
+        - note
+        - create_timestamp
+        - last_collect_timestamp
+        - next_collect_timestamp
+        - state
+        - invoices
+        - collector
+        - wsPath
+    Invoice:
+      type: object
+      properties:
+        id:
           type: string
-          nullable: true
+          description: Id of the invoice.
+          example: 45FDD1544
+        timestamp:
+          type: integer
+          description: Timestamp when the invoice was created in ms.
+          example: 17316031963975
+        collected_timestamp:
+          type: integer
+          description: Timestamp when the invoice was collected in ms.
+          example: 17316032013467
+        amount:
+          type: string
+          description: Amount of the invoice.
+          example: 45.78€
+        link:
+          type: string
+          description: Link from which the invoice was downloaded.
+          example: https://mycollector/direct/link/to/my/invoice
+        data:
+          type: string
+          description: Base64 encoded invoice.
+          example: iVBORw0KGgoAAAAN...RU5ErkJggg==
+        mimetype:
+          type: string
+          description: MIME type of the invoice.
+          example: application/pdf
+      required:
+        - id
+        - type
+        - mimetype
+        - timestamp
+        - collected_timestamp
+        - link
+        - data
 tags:
   - name: General
     description: General endpoints (UI, callbacks, feedback)
@@ -227,7 +545,9 @@ tags:
     description: Customer management
   - name: User
     description: User management
-  - name: Credential
+  - name: Credential (Bearer)
+    description: Credential and collection management
+  - name: Credential (Token)
     description: Credential and collection management
   - name: Collector
     description: Collector listing
@@ -238,13 +558,8 @@ paths:
         - General
       summary: Get UI page
       description: Returns the rendered UI page for the user. Token authentication.
-      parameters:
-        - name: token
-          in: query
-          required: true
-          schema:
-            type: string
-          description: UI token
+      security:
+        - TokenAuth: []
       responses:
         "200":
           description: Rendered HTML page
@@ -254,6 +569,12 @@ paths:
                 type: string
         "401":
           description: Invalid or expired token
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "500":
+          description: Internal server error
           content:
             application/json:
               schema:
@@ -291,6 +612,82 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Error"
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+      callbacks:
+        onInvoiceCollected:
+          Invoice:
+            post:
+              requestBody:
+                required: true
+                content:
+                  application/json:
+                    schema:
+                      type: object
+                      properties:
+                        type:
+                          type: string
+                          description: Type of the payload.
+                          enum:
+                            - invoice
+                          example: invoice
+                        remote_id:
+                          type: string
+                          description: Remote id of the user.
+                          example: R121439
+                        invoice:
+                          $ref: "#/components/schemas/Invoice"
+                        collector:
+                          $ref: "#/components/schemas/CollectorConfig"
+                      required:
+                        - type
+                        - remote_id
+                        - invoice
+                        - collector
+              responses:
+                "200":
+                  description: Success
+                "400":
+                  description: Error
+        onCollectorDisconnected:
+          Notification Disconnected:
+            post:
+              requestBody:
+                required: true
+                content:
+                  application/json:
+                    schema:
+                      type: object
+                      properties:
+                        type:
+                          type: string
+                          description: Type of the payload.
+                          example: notification_disconnected
+                        credential_id:
+                          $ref: "#/components/schemas/credential_id"
+                        user_id:
+                          $ref: "#/components/schemas/user_id"
+                        remote_id:
+                          type: string
+                          description: Remote id of the user.
+                          example: R121439
+                        collector:
+                          $ref: "#/components/schemas/CollectorConfig"
+                      required:
+                        - type
+                        - credential_id
+                        - user_id
+                        - remote_id
+                        - collector
+              responses:
+                "200":
+                  description: Success
+                "400":
+                  description: Error
   /feedback:
     post:
       tags:
@@ -326,6 +723,12 @@ paths:
                 $ref: "#/components/schemas/Error"
         "401":
           description: Authentication error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "500":
+          description: Internal server error
           content:
             application/json:
               schema:
@@ -379,6 +782,12 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Error"
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
   /signup:
     post:
       tags:
@@ -425,6 +834,12 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Error"
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
   /forgot:
     post:
       tags:
@@ -455,6 +870,12 @@ paths:
                     type: string
         "400":
           description: Account not found or missing field
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "500":
+          description: Internal server error
           content:
             application/json:
               schema:
@@ -498,6 +919,12 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Error"
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
   /customer:
     get:
       tags:
@@ -515,6 +942,12 @@ paths:
                 $ref: "#/components/schemas/Customer"
         "401":
           description: Authentication error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "500":
+          description: Internal server error
           content:
             application/json:
               schema:
@@ -566,6 +999,12 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Error"
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
   /customer/bearer:
     post:
       tags:
@@ -580,12 +1019,15 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  bearer:
-                    type: string
+                $ref: "#/components/schemas/BearerResponse"
         "401":
           description: Authentication error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "500":
+          description: Internal server error
           content:
             application/json:
               schema:
@@ -611,6 +1053,12 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Error"
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
   /users:
     get:
       tags:
@@ -631,6 +1079,12 @@ paths:
                   $ref: "#/components/schemas/UserListItem"
         "401":
           description: Authentication error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "500":
+          description: Internal server error
           content:
             application/json:
               schema:
@@ -687,6 +1141,12 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Error"
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
     get:
       tags:
         - User
@@ -708,6 +1168,12 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Error"
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
   /user/{user_id}:
     get:
       tags:
@@ -721,7 +1187,7 @@ paths:
           in: path
           required: true
           schema:
-            type: string
+            $ref: "#/components/schemas/user_id"
       responses:
         "200":
           description: User details
@@ -741,6 +1207,12 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Error"
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
     delete:
       tags:
         - User
@@ -753,7 +1225,7 @@ paths:
           in: path
           required: true
           schema:
-            type: string
+            $ref: "#/components/schemas/user_id"
       responses:
         "200":
           description: User deleted successfully
@@ -765,6 +1237,12 @@ paths:
                 $ref: "#/components/schemas/Error"
         "401":
           description: Authentication error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "500":
+          description: Internal server error
           content:
             application/json:
               schema:
@@ -818,21 +1296,26 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Error"
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
   /user/{user_id}/credentials:
     get:
       tags:
-        - Credential
+        - Credential (Bearer)
       summary: List credentials (Bearer)
       description: Returns all credentials for a user. Bearer authentication.
       security:
         - CustomerBearerAuth: []
-        - UserBearerAuth: []
       parameters:
         - name: user_id
           in: path
           required: true
           schema:
-            type: string
+            $ref: "#/components/schemas/user_id"
       responses:
         "200":
           description: List of credentials
@@ -844,6 +1327,12 @@ paths:
                   $ref: "#/components/schemas/Credential"
         "401":
           description: Authentication error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "500":
+          description: Internal server error
           content:
             application/json:
               schema:
@@ -851,11 +1340,11 @@ paths:
   /credentials:
     get:
       tags:
-        - Credential
+        - Credential (Token)
       summary: List credentials (Token)
       description: Returns all credentials for the authenticated user. Token authentication.
       security:
-        - CustomerBearerAuth: []
+        - UserBearerAuth: []
         - TokenAuth: []
       parameters:
         - name: token
@@ -878,21 +1367,26 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Error"
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
   /user/{user_id}/credential:
     post:
       tags:
-        - Credential
+        - Credential (Bearer)
       summary: Create credential (Bearer)
       description: Creates a new credential and starts collection. Bearer authentication.
       security:
         - CustomerBearerAuth: []
-        - UserBearerAuth: []
       parameters:
         - name: user_id
           in: path
           required: true
           schema:
-            type: string
+            $ref: "#/components/schemas/user_id"
       requestBody:
         required: true
         content:
@@ -933,6 +1427,12 @@ paths:
                 $ref: "#/components/schemas/Error"
         "403":
           description: Credential limit reached or collector not subscribed
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "500":
+          description: Internal server error
           content:
             application/json:
               schema:
@@ -940,10 +1440,11 @@ paths:
   /credential:
     post:
       tags:
-        - Credential
+        - Credential (Token)
       summary: Create credential (Token)
       description: Creates a new credential and starts collection. Token authentication.
       security:
+        - UserBearerAuth: []
         - TokenAuth: []
       parameters:
         - name: token
@@ -995,21 +1496,26 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Error"
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
   /user/{user_id}/credential/{credential_id}:
     get:
       tags:
-        - Credential
+        - Credential (Bearer)
       summary: Get credential (Bearer)
       description: Returns a specific credential by ID. Bearer authentication.
       security:
         - CustomerBearerAuth: []
-        - UserBearerAuth: []
       parameters:
         - name: user_id
           in: path
           required: true
           schema:
-            type: string
+            $ref: "#/components/schemas/user_id"
         - name: credential_id
           in: path
           required: true
@@ -1040,20 +1546,25 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Error"
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
     delete:
       tags:
-        - Credential
+        - Credential (Bearer)
       summary: Delete credential (Bearer)
       description: Deletes a credential. Bearer authentication.
       security:
         - CustomerBearerAuth: []
-        - UserBearerAuth: []
       parameters:
         - name: user_id
           in: path
           required: true
           schema:
-            type: string
+            $ref: "#/components/schemas/user_id"
         - name: credential_id
           in: path
           required: true
@@ -1076,6 +1587,12 @@ paths:
                 $ref: "#/components/schemas/Error"
         "403":
           description: Credential does not belong to user
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "500":
+          description: Internal server error
           content:
             application/json:
               schema:
@@ -1083,10 +1600,11 @@ paths:
   /credential/{credential_id}:
     get:
       tags:
-        - Credential
+        - Credential (Token)
       summary: Get credential (Token)
       description: Returns a specific credential by ID. Token authentication.
       security:
+        - UserBearerAuth: []
         - TokenAuth: []
       parameters:
         - name: credential_id
@@ -1124,12 +1642,19 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Error"
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
     delete:
       tags:
-        - Credential
+        - Credential (Token)
       summary: Delete credential (Token)
       description: Deletes a credential. Token authentication.
       security:
+        - UserBearerAuth: []
         - TokenAuth: []
       parameters:
         - name: credential_id
@@ -1163,23 +1688,28 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Error"
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
   /user/{user_id}/credential/{credential_id}/2fa:
     post:
       tags:
-        - Credential
+        - Credential (Bearer)
       summary: Submit 2FA code (Bearer)
       description: Submits a 2FA code for an ongoing collection. Deprecated - use
         websockets instead. Bearer authentication.
       deprecated: true
       security:
         - CustomerBearerAuth: []
-        - UserBearerAuth: []
       parameters:
         - name: user_id
           in: path
           required: true
           schema:
-            type: string
+            $ref: "#/components/schemas/user_id"
         - name: credential_id
           in: path
           required: true
@@ -1213,6 +1743,12 @@ paths:
                 $ref: "#/components/schemas/Error"
         "403":
           description: Credential does not belong to user
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "500":
+          description: Internal server error
           content:
             application/json:
               schema:
@@ -1220,12 +1756,13 @@ paths:
   /credential/{credential_id}/2fa:
     post:
       tags:
-        - Credential
+        - Credential (Token)
       summary: Submit 2FA code (Token)
       description: Submits a 2FA code for an ongoing collection. Deprecated - use
         websockets instead. Token authentication.
       deprecated: true
       security:
+        - UserBearerAuth: []
         - TokenAuth: []
       parameters:
         - name: credential_id
@@ -1270,22 +1807,27 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Error"
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
   /user/{user_id}/credential/{credential_id}/collect:
     post:
       tags:
-        - Credential
+        - Credential (Bearer)
       summary: Trigger collection (Bearer)
       description: Triggers a new collection for a credential or returns the existing
         one. Bearer authentication.
       security:
         - CustomerBearerAuth: []
-        - UserBearerAuth: []
       parameters:
         - name: user_id
           in: path
           required: true
           schema:
-            type: string
+            $ref: "#/components/schemas/user_id"
         - name: credential_id
           in: path
           required: true
@@ -1321,14 +1863,21 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Error"
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
   /credential/{credential_id}/collect:
     post:
       tags:
-        - Credential
+        - Credential (Token)
       summary: Trigger collection (Token)
       description: Triggers a new collection for a credential or returns the existing
         one. Token authentication.
       security:
+        - UserBearerAuth: []
         - TokenAuth: []
       parameters:
         - name: credential_id
@@ -1367,6 +1916,12 @@ paths:
                 $ref: "#/components/schemas/Error"
         "403":
           description: Credential does not belong to user
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "500":
+          description: Internal server error
           content:
             application/json:
               schema:
@@ -1405,6 +1960,12 @@ paths:
                 $ref: "#/components/schemas/Error"
         "401":
           description: Authentication error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "500":
+          description: Internal server error
           content:
             application/json:
               schema:

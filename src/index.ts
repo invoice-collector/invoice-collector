@@ -53,13 +53,8 @@ function handle_error(e, req, res){
  *     tags: [General]
  *     summary: Get UI page
  *     description: Returns the rendered UI page for the user. Token authentication.
- *     parameters:
- *       - name: token
- *         in: query
- *         required: true
- *         schema:
- *           type: string
- *         description: UI token
+ *     security:
+ *      - TokenAuth: []
  *     responses:
  *       200:
  *         description: Rendered HTML page
@@ -69,6 +64,12 @@ function handle_error(e, req, res){
  *               type: string
  *       401:
  *         description: Invalid or expired token
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Error'
+ *       500:
+ *         description: Internal server error
  *         content:
  *           application/json:
  *             schema:
@@ -121,6 +122,82 @@ app.get('/api/v1/ui', async (req, res) => {
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/Error'
+ *       500:
+ *         description: Internal server error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Error'
+ *     callbacks:
+ *       onInvoiceCollected:
+ *         Invoice:
+ *           post:
+ *             requestBody:
+ *               required: true
+ *               content:
+ *                 application/json:
+ *                   schema:
+ *                     type: object
+ *                     properties:
+ *                       type:
+ *                         type: string
+ *                         description: Type of the payload.
+ *                         enum:
+ *                           - invoice
+ *                         example: invoice
+ *                       remote_id:
+ *                         type: string
+ *                         description: Remote id of the user.
+ *                         example: R121439
+ *                       invoice:
+ *                         $ref: "#/components/schemas/Invoice"
+ *                       collector:
+ *                         $ref: "#/components/schemas/CollectorConfig"
+ *                     required:
+ *                       - type
+ *                       - remote_id
+ *                       - invoice
+ *                       - collector
+ *             responses:
+ *               '200':
+ *                 description: Success
+ *               '400':
+ *                 description: Error
+ *       onCollectorDisconnected:
+ *         Notification Disconnected:
+ *           post:
+ *             requestBody:
+ *               required: true
+ *               content:
+ *                 application/json:
+ *                   schema:
+ *                     type: object
+ *                     properties:
+ *                       type:
+ *                         type: string
+ *                         description: Type of the payload.
+ *                         example: notification_disconnected
+ *                       credential_id:
+ *                        $ref: '#/components/schemas/credential_id'
+ *                       user_id:
+ *                        $ref: '#/components/schemas/user_id'
+ *                       remote_id:
+ *                         type: string
+ *                         description: Remote id of the user.
+ *                         example: R121439
+ *                       collector:
+ *                         $ref: "#/components/schemas/CollectorConfig"
+ *                     required:
+ *                       - type
+ *                       - credential_id
+ *                       - user_id
+ *                       - remote_id
+ *                       - collector
+ *             responses:
+ *               '200':
+ *                 description: Success
+ *               '400':
+ *                 description: Error
  */
 // BEARER AUTHENTICATION
 app.get('/api/v1/test/callback/:type', async (req, res) => {
@@ -170,6 +247,12 @@ app.get('/api/v1/test/callback/:type', async (req, res) => {
  *               $ref: '#/components/schemas/Error'
  *       401:
  *         description: Authentication error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Error'
+ *       500:
+ *         description: Internal server error
  *         content:
  *           application/json:
  *             schema:
@@ -236,6 +319,12 @@ app.post('/api/v1/feedback', async (req, res) => {
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/Error'
+ *       500:
+ *         description: Internal server error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Error'
  */
 // NO AUTHENTICATION
 app.post('/api/v1/login', async (req, res) => {
@@ -291,6 +380,12 @@ app.post('/api/v1/login', async (req, res) => {
  *                   type: string
  *       400:
  *         description: Validation error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Error'
+ *       500:
+ *         description: Internal server error
  *         content:
  *           application/json:
  *             schema:
@@ -351,6 +446,12 @@ app.post('/api/v1/signup', async (req, res) => {
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/Error'
+ *       500:
+ *         description: Internal server error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Error'
  */
 // NO AUTHENTICATION
 app.post('/api/v1/forgot', async (req, res) => {
@@ -406,6 +507,12 @@ app.post('/api/v1/forgot', async (req, res) => {
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/Error'
+ *       500:
+ *         description: Internal server error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Error'
  */
 // NO AUTHENTICATION
 app.post('/api/v1/reset', async (req, res) => {
@@ -441,6 +548,12 @@ app.post('/api/v1/reset', async (req, res) => {
  *               $ref: '#/components/schemas/Customer'
  *       401:
  *         description: Authentication error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Error'
+ *       500:
+ *         description: Internal server error
  *         content:
  *           application/json:
  *             schema:
@@ -510,6 +623,12 @@ app.get('/api/v1/customer', async (req, res) => {
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/Error'
+ *       500:
+ *         description: Internal server error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Error'
  */
 // BEARER AUTHENTICATION
 app.put('/api/v1/customer', async (req, res) => {
@@ -552,12 +671,15 @@ app.put('/api/v1/customer', async (req, res) => {
  *         content:
  *           application/json:
  *             schema:
- *               type: object
- *               properties:
- *                 bearer:
- *                   type: string
+ *              $ref: '#/components/schemas/BearerResponse'
  *       401:
  *         description: Authentication error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Error'
+ *       500:
+ *         description: Internal server error
  *         content:
  *           application/json:
  *             schema:
@@ -601,6 +723,12 @@ app.post('/api/v1/customer/bearer', async (req, res) => {
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/Error'
+ *       500:
+ *         description: Internal server error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Error'
  */
 // BEARER AUTHENTICATION
 app.get('/api/v1/customer/stats', async (req, res) => {
@@ -639,6 +767,12 @@ app.get('/api/v1/customer/stats', async (req, res) => {
  *                 $ref: '#/components/schemas/UserListItem'
  *       401:
  *         description: Authentication error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Error'
+ *       500:
+ *         description: Internal server error
  *         content:
  *           application/json:
  *             schema:
@@ -709,6 +843,12 @@ app.get('/api/v1/users', async (req, res) => {
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/Error'
+ *       500:
+ *         description: Internal server error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Error'
  */
 // BEARER AUTHENTICATION
 app.post('/api/v1/user', async (req, res) => {
@@ -744,7 +884,7 @@ app.post('/api/v1/user', async (req, res) => {
  *         in: path
  *         required: true
  *         schema:
- *           type: string
+ *           $ref: "#/components/schemas/user_id"
  *     responses:
  *       200:
  *         description: User details
@@ -760,6 +900,12 @@ app.post('/api/v1/user', async (req, res) => {
  *               $ref: '#/components/schemas/Error'
  *       401:
  *         description: Authentication error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Error'
+ *       500:
+ *         description: Internal server error
  *         content:
  *           application/json:
  *             schema:
@@ -798,6 +944,12 @@ app.get('/api/v1/user/:user_id', async (req, res) => {
  *               $ref: '#/components/schemas/User'
  *       401:
  *         description: Authentication error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Error'
+ *       500:
+ *         description: Internal server error
  *         content:
  *           application/json:
  *             schema:
@@ -868,6 +1020,12 @@ app.get('/api/v1/user', async (req, res) => {
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/Error'
+ *       500:
+ *         description: Internal server error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Error'
  */
 // BEARER AUTHENTICATION
 app.put('/api/v1/user/:userId', async (req, res) => {
@@ -905,7 +1063,7 @@ app.put('/api/v1/user/:userId', async (req, res) => {
  *         in: path
  *         required: true
  *         schema:
- *           type: string
+ *           $ref: "#/components/schemas/user_id"
  *     responses:
  *       200:
  *         description: User deleted successfully
@@ -917,6 +1075,12 @@ app.put('/api/v1/user/:userId', async (req, res) => {
  *               $ref: '#/components/schemas/Error'
  *       401:
  *         description: Authentication error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Error'
+ *       500:
+ *         description: Internal server error
  *         content:
  *           application/json:
  *             schema:
@@ -942,18 +1106,17 @@ app.delete('/api/v1/user/:user_id', async (req, res) => {
  * @openapi
  * /user/{user_id}/credentials:
  *   get:
- *     tags: [Credential]
+ *     tags: [Credential (Bearer)]
  *     summary: List credentials (Bearer)
  *     description: Returns all credentials for a user. Bearer authentication.
  *     security:
  *       - CustomerBearerAuth: []
- *       - UserBearerAuth: []
  *     parameters:
  *       - name: user_id
  *         in: path
  *         required: true
  *         schema:
- *           type: string
+ *           $ref: "#/components/schemas/user_id"
  *     responses:
  *       200:
  *         description: List of credentials
@@ -965,6 +1128,12 @@ app.delete('/api/v1/user/:user_id', async (req, res) => {
  *                 $ref: '#/components/schemas/Credential'
  *       401:
  *         description: Authentication error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Error'
+ *       500:
+ *         description: Internal server error
  *         content:
  *           application/json:
  *             schema:
@@ -989,11 +1158,11 @@ app.get('/api/v1/user/:user_id/credentials', async (req, res) => {
  * @openapi
  * /credentials:
  *   get:
- *     tags: [Credential]
+ *     tags: [Credential (Token)]
  *     summary: List credentials (Token)
  *     description: Returns all credentials for the authenticated user. Token authentication.
  *     security:
- *       - CustomerBearerAuth: []
+ *       - UserBearerAuth: []
  *       - TokenAuth: []
  *     parameters:
  *       - name: token
@@ -1012,6 +1181,12 @@ app.get('/api/v1/user/:user_id/credentials', async (req, res) => {
  *                 $ref: '#/components/schemas/Credential'
  *       401:
  *         description: Authentication error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Error'
+ *       500:
+ *         description: Internal server error
  *         content:
  *           application/json:
  *             schema:
@@ -1036,18 +1211,17 @@ app.get('/api/v1/credentials', async (req, res) => {
  * @openapi
  * /user/{user_id}/credential:
  *   post:
- *     tags: [Credential]
+ *     tags: [Credential (Bearer)]
  *     summary: Create credential (Bearer)
  *     description: Creates a new credential and starts collection. Bearer authentication.
  *     security:
  *       - CustomerBearerAuth: []
- *       - UserBearerAuth: []
  *     parameters:
  *       - name: user_id
  *         in: path
  *         required: true
  *         schema:
- *           type: string
+ *           $ref: "#/components/schemas/user_id"
  *     requestBody:
  *       required: true
  *       content:
@@ -1086,6 +1260,12 @@ app.get('/api/v1/credentials', async (req, res) => {
  *               $ref: '#/components/schemas/Error'
  *       403:
  *         description: Credential limit reached or collector not subscribed
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Error'
+ *       500:
+ *         description: Internal server error
  *         content:
  *           application/json:
  *             schema:
@@ -1117,10 +1297,11 @@ app.post('/api/v1/user/:user_id/credential', async (req, res) => {
  * @openapi
  * /credential:
  *   post:
- *     tags: [Credential]
+ *     tags: [Credential (Token)]
  *     summary: Create credential (Token)
  *     description: Creates a new credential and starts collection. Token authentication.
  *     security:
+ *       - UserBearerAuth: []
  *       - TokenAuth: []
  *     parameters:
  *       - name: token
@@ -1170,6 +1351,12 @@ app.post('/api/v1/user/:user_id/credential', async (req, res) => {
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/Error'
+ *       500:
+ *         description: Internal server error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Error'
  */
 // TOKEN AUTHENTICATION
 app.post('/api/v1/credential', async (req, res) => {
@@ -1197,18 +1384,17 @@ app.post('/api/v1/credential', async (req, res) => {
  * @openapi
  * /user/{user_id}/credential/{credential_id}:
  *   get:
- *     tags: [Credential]
+ *     tags: [Credential (Bearer)]
  *     summary: Get credential (Bearer)
  *     description: Returns a specific credential by ID. Bearer authentication.
  *     security:
  *       - CustomerBearerAuth: []
- *       - UserBearerAuth: []
  *     parameters:
  *       - name: user_id
  *         in: path
  *         required: true
  *         schema:
- *           type: string
+ *           $ref: "#/components/schemas/user_id"
  *       - name: credential_id
  *         in: path
  *         required: true
@@ -1235,6 +1421,12 @@ app.post('/api/v1/credential', async (req, res) => {
  *               $ref: '#/components/schemas/Error'
  *       403:
  *         description: Credential does not belong to user
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Error'
+ *       500:
+ *         description: Internal server error
  *         content:
  *           application/json:
  *             schema:
@@ -1258,10 +1450,11 @@ app.get('/api/v1/user/:user_id/credential/:credential_id', async (req, res) => {
  * @openapi
  * /credential/{credential_id}:
  *   get:
- *     tags: [Credential]
+ *     tags: [Credential (Token)]
  *     summary: Get credential (Token)
  *     description: Returns a specific credential by ID. Token authentication.
  *     security:
+ *       - UserBearerAuth: []
  *       - TokenAuth: []
  *     parameters:
  *       - name: credential_id
@@ -1299,6 +1492,12 @@ app.get('/api/v1/user/:user_id/credential/:credential_id', async (req, res) => {
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/Error'
+ *       500:
+ *         description: Internal server error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Error'
  */
 // TOKEN AUTHENTICATION
 app.get('/api/v1/credential/:credential_id', async (req, res) => {
@@ -1318,18 +1517,17 @@ app.get('/api/v1/credential/:credential_id', async (req, res) => {
  * @openapi
  * /user/{user_id}/credential/{credential_id}:
  *   delete:
- *     tags: [Credential]
+ *     tags: [Credential (Bearer)]
  *     summary: Delete credential (Bearer)
  *     description: Deletes a credential. Bearer authentication.
  *     security:
  *       - CustomerBearerAuth: []
- *       - UserBearerAuth: []
  *     parameters:
  *       - name: user_id
  *         in: path
  *         required: true
  *         schema:
- *           type: string
+ *           $ref: "#/components/schemas/user_id"
  *       - name: credential_id
  *         in: path
  *         required: true
@@ -1352,6 +1550,12 @@ app.get('/api/v1/credential/:credential_id', async (req, res) => {
  *               $ref: '#/components/schemas/Error'
  *       403:
  *         description: Credential does not belong to user
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Error'
+ *       500:
+ *         description: Internal server error
  *         content:
  *           application/json:
  *             schema:
@@ -1375,10 +1579,11 @@ app.delete('/api/v1/user/:user_id/credential/:credential_id', async (req, res) =
  * @openapi
  * /credential/{credential_id}:
  *   delete:
- *     tags: [Credential]
+ *     tags: [Credential (Token)]
  *     summary: Delete credential (Token)
  *     description: Deletes a credential. Token authentication.
  *     security:
+ *       - UserBearerAuth: []
  *       - TokenAuth: []
  *     parameters:
  *       - name: credential_id
@@ -1412,6 +1617,12 @@ app.delete('/api/v1/user/:user_id/credential/:credential_id', async (req, res) =
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/Error'
+ *       500:
+ *         description: Internal server error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Error'
  */
 // TOKEN AUTHENTICATION
 app.delete('/api/v1/credential/:credential_id', async (req, res) => {
@@ -1431,19 +1642,18 @@ app.delete('/api/v1/credential/:credential_id', async (req, res) => {
  * @openapi
  * /user/{user_id}/credential/{credential_id}/2fa:
  *   post:
- *     tags: [Credential]
+ *     tags: [Credential (Bearer)]
  *     summary: Submit 2FA code (Bearer)
  *     description: Submits a 2FA code for an ongoing collection. Deprecated - use websockets instead. Bearer authentication.
  *     deprecated: true
  *     security:
  *       - CustomerBearerAuth: []
- *       - UserBearerAuth: []
  *     parameters:
  *       - name: user_id
  *         in: path
  *         required: true
  *         schema:
- *           type: string
+ *           $ref: "#/components/schemas/user_id"
  *       - name: credential_id
  *         in: path
  *         required: true
@@ -1480,6 +1690,12 @@ app.delete('/api/v1/credential/:credential_id', async (req, res) => {
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/Error'
+ *       500:
+ *         description: Internal server error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Error'
  */
 // BEARER AUTHENTICATION
 app.post('/api/v1/user/:user_id/credential/:credential_id/2fa', async (req, res) => {
@@ -1499,11 +1715,12 @@ app.post('/api/v1/user/:user_id/credential/:credential_id/2fa', async (req, res)
  * @openapi
  * /credential/{credential_id}/2fa:
  *   post:
- *     tags: [Credential]
+ *     tags: [Credential (Token)]
  *     summary: Submit 2FA code (Token)
  *     description: Submits a 2FA code for an ongoing collection. Deprecated - use websockets instead. Token authentication.
  *     deprecated: true
  *     security:
+ *       - UserBearerAuth: []
  *       - TokenAuth: []
  *     parameters:
  *       - name: credential_id
@@ -1547,6 +1764,12 @@ app.post('/api/v1/user/:user_id/credential/:credential_id/2fa', async (req, res)
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/Error'
+ *       500:
+ *         description: Internal server error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Error'
  */
 // TOKEN AUTHENTICATION
 app.post('/api/v1/credential/:credential_id/2fa', async (req, res) => {
@@ -1566,18 +1789,17 @@ app.post('/api/v1/credential/:credential_id/2fa', async (req, res) => {
  * @openapi
  * /user/{user_id}/credential/{credential_id}/collect:
  *   post:
- *     tags: [Credential]
+ *     tags: [Credential (Bearer)]
  *     summary: Trigger collection (Bearer)
  *     description: Triggers a new collection for a credential or returns the existing one. Bearer authentication.
  *     security:
  *       - CustomerBearerAuth: []
- *       - UserBearerAuth: []
  *     parameters:
  *       - name: user_id
  *         in: path
  *         required: true
  *         schema:
- *           type: string
+ *           $ref: "#/components/schemas/user_id"
  *       - name: credential_id
  *         in: path
  *         required: true
@@ -1609,6 +1831,12 @@ app.post('/api/v1/credential/:credential_id/2fa', async (req, res) => {
  *               $ref: '#/components/schemas/Error'
  *       403:
  *         description: Credential does not belong to user
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Error'
+ *       500:
+ *         description: Internal server error
  *         content:
  *           application/json:
  *             schema:
@@ -1633,10 +1861,11 @@ app.post('/api/v1/user/:user_id/credential/:credential_id/collect', async (req, 
  * @openapi
  * /credential/{credential_id}/collect:
  *   post:
- *     tags: [Credential]
+ *     tags: [Credential (Token)]
  *     summary: Trigger collection (Token)
  *     description: Triggers a new collection for a credential or returns the existing one. Token authentication.
  *     security:
+ *       - UserBearerAuth: []
  *       - TokenAuth: []
  *     parameters:
  *       - name: credential_id
@@ -1675,6 +1904,12 @@ app.post('/api/v1/user/:user_id/credential/:credential_id/collect', async (req, 
  *               $ref: '#/components/schemas/Error'
  *       403:
  *         description: Credential does not belong to user
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Error'
+ *       500:
+ *         description: Internal server error
  *         content:
  *           application/json:
  *             schema:
@@ -1732,6 +1967,12 @@ app.post('/api/v1/credential/:credential_id/collect', async (req, res) => {
  *               $ref: '#/components/schemas/Error'
  *       401:
  *         description: Authentication error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Error'
+ *       500:
+ *         description: Internal server error
  *         content:
  *           application/json:
  *             schema:
