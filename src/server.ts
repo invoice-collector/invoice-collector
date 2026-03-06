@@ -668,6 +668,12 @@ export class Server {
             throw new StatusError(`Locale "${locale}" not supported. Available locales are: ${I18n.LOCALES.join(", ")}.`, 400);
         }
 
+        // Check if customer with this remote_id/email already exists
+        const existingCustomer = await Customer.fromEmail(remote_id);
+        if (existingCustomer) {
+            throw new StatusError(`A customer with this email already exists.`, 400);
+        }
+
         // Get user from remote_id
         let user = await customer.getUserFromRemoteId(remote_id);
 
@@ -813,6 +819,11 @@ export class Server {
             // Check if remote_id contains space
             if(remote_id.includes(" ")) {
                 throw new StatusError(`Remote ID "${remote_id}" cannot contain spaces.`, 400);
+            }
+            // Check if a customer with this remote_id/email already exists
+            const existingCustomer = await Customer.fromEmail(remote_id);
+            if (existingCustomer) {
+                throw new StatusError(`A customer with this email already exists.`, 400);
             }
             // Check if remote_id is already used by another user of the same customer
             const userFromRemoteId = await customer.getUserFromRemoteId(remote_id);
