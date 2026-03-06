@@ -746,7 +746,7 @@ export class Server {
     }
 
     // BEARER AUTHENTICATION
-    public async get_user(bearer: string | undefined, user_id: string | undefined): Promise<{
+    public async get_user(bearer: string | undefined, user_id: string): Promise<{
         id: string,
         customer_id: string,
         remote_id: string,
@@ -789,7 +789,7 @@ export class Server {
     // BEARER AUTHENTICATION
     public async put_user(
         bearer: string | undefined,
-        user_id: string | undefined,
+        user_id: string,
         remote_id: string | undefined,
         name: string | undefined,
         cid: string | undefined,
@@ -910,7 +910,7 @@ export class Server {
     // TOKEN AUTHENTICATION
     public async get_credentials(
         bearer: string | undefined,
-        user_id: string | undefined,
+        user_id: string,
         token: any
     ): Promise<{
         id: string,
@@ -977,7 +977,7 @@ export class Server {
     // TOKEN AUTHENTICATION
     public async post_credential(
         bearer: string | undefined,
-        user_id: string | undefined,
+        user_id: string,
         token: any,
         collector_id: string | undefined,
         params: any | undefined,
@@ -1128,7 +1128,7 @@ export class Server {
     // TOKEN AUTHENTICATION
     public async get_credential(
         bearer: string | undefined,
-        user_id: string | undefined,
+        user_id: string,
         token: any,
         id: string
     ): Promise<{
@@ -1204,7 +1204,7 @@ export class Server {
     // TOKEN AUTHENTICATION
     public async delete_credential(
         bearer: string | undefined,
-        user_id: string | undefined,
+        user_id: string,
         token: any,
         id: string
     ): Promise<void> {
@@ -1231,7 +1231,7 @@ export class Server {
     // TOKEN AUTHENTICATION
     public async post_credential_2fa(
         bearer: string | undefined,
-        user_id: string | undefined,
+        user_id: string,
         token: any,
         credential_id: string,
         code: string | undefined
@@ -1275,7 +1275,7 @@ export class Server {
     // BEARER AUTHENTICATION
     public async post_credential_collect(
         bearer: string | undefined,
-        user_id: string | undefined,
+        user_id: string,
         token: any,
         credential_id: string
     ): Promise<{
@@ -1440,11 +1440,16 @@ export class Server {
         }
     }
 
-    private async getUserFromBearerOrToken(bearer: string | undefined, user_id: string | undefined, token: any): Promise<User> {
+    private async getUserFromBearerOrToken(bearer: string | undefined, user_id: string, token: any): Promise<User> {
         // If token provided, get user from token
         if (token) {
             // Get user from token
             return this.getUserFromUiToken(token);
+        }
+        // If only bearer provided, get user from bearer
+        else if (bearer && user_id == "me") {
+            // Get user from bearer
+            return await this.getUserFromBearer(bearer);
         }
         // If bearer and user_id provided, get user from customer bearer
         else if (bearer && user_id) {
@@ -1463,11 +1468,6 @@ export class Server {
             }
 
             return user;
-        }
-        // If only bearer provided, get user from bearer
-        else if (bearer && !user_id) {
-            // Get user from bearer
-            return await this.getUserFromBearer(bearer);
         }
         else {
             throw new StatusError(`Provide a Bearer token or a "token" field in the query.`, 400);

@@ -61,13 +61,24 @@ async function post_send_feedback(body) {
     });
 }
 
-async function deleteCredential(id) {
-    await fetch(`credential/${id}?token=${token}`, {
-        method: 'DELETE'
+async function post_credential(body) {
+    return await fetch(`user/me/credential?token=${token}`, {
+        method: 'POST',
+        body: JSON.stringify(body),
+        headers: {
+            'Content-Type': 'application/json'
+        }
     });
-    showCredentials();
 }
 
+async function post_credential_collect(credential_id) {
+    return await fetch(`user/me/credential/${credential_id}/collect?token=${token}`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    });
+}
 
 /* ===================================
    NAVIGATION FUNCTIONS
@@ -368,17 +379,12 @@ async function addCredential(event) {
     submitButton.disabled = true;
     
     try {
-        const response = await fetch(`credential?token=${token}`, {
-            method: 'POST',
-            body: JSON.stringify({
+        const response = await post_credential({
                 collector: form.dataset.collector,
                 download_from_timestamp,
                 params
-            }),
-            headers: {
-                'Content-Type': 'application/json'
             }
-        });
+        );
         
         const content = await response.json();
         form.reset();
@@ -404,12 +410,7 @@ async function collectCredential(id) {
     window.parent.postMessage(NAVIGATION_EVENT_SHOW_PROGRESS, '*');
 
     try {
-        const response = await fetch(`credential/${id}/collect?token=${token}`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        });
+        const response = await post_credential_collect(id);
         
         const content = await response.json();
         
