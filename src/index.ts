@@ -930,6 +930,24 @@ app.get('/api/v1/user/:user_id', async (req, res) => {
     }
 });
 
+// BEARER AUTHENTICATION
+app.get('/api/v1/user', async (req, res) => {
+    try {
+        // Get user
+        console.warn('GET user (DEPRECATED, use GET /user/{userId} with userId "me" instead)');
+        const response = await server.get_user(
+            req.headers.authorization,
+            "me"
+        );
+
+        // Build response
+        res.setHeader('Content-Type', 'application/json');
+        res.end(JSON.stringify(response));
+    } catch (e) {
+        handle_error(e, req, res);
+    }
+});
+
 /**
  * @openapi
  * /user/{userId}:
@@ -1123,6 +1141,25 @@ app.get('/api/v1/user/:user_id/credentials', async (req, res) => {
     }
 });
 
+// TOKEN AUTHENTICATION
+app.get('/api/v1/credentials', async (req, res) => {
+    try {
+        // Get credentials
+        console.warn(`GET credentials (DEPRECATED, use GET /user/{userId}/credentials with userId "me" instead)`);
+        const credentials = await server.get_credentials(
+            req.headers.authorization,
+            "me",
+            req.query.token
+        );
+
+        // Build response
+        res.setHeader('Content-Type', 'application/json');
+        res.end(JSON.stringify(credentials));
+    } catch (e) {
+        handle_error(e, req, res);
+    }
+});
+
 /**
  * @openapi
  * /user/{userId}/credential:
@@ -1210,6 +1247,28 @@ app.post('/api/v1/user/:user_id/credential', async (req, res) => {
     }
 });
 
+// TOKEN AUTHENTICATION
+app.post('/api/v1/credential', async (req, res) => {
+    try {
+        // Save credential
+        console.warn(`POST credential (DEPRECATED, use POST /user/{userId}/credential with userId "me" instead)`);
+        const response = await server.post_credential(
+            req.headers.authorization,
+            "me",
+            req.query.token,
+            req.body.collector,
+            req.body.params,
+            req.body.download_from_timestamp
+        );
+
+        // Build response
+        res.setHeader('Content-Type', 'application/json');
+        res.end(JSON.stringify(response));
+    } catch (e) {
+        handle_error(e, req, res);
+    }
+});
+
 /**
  * @openapi
  * /user/{userId}/credential/{credentialId}:
@@ -1271,6 +1330,26 @@ app.get('/api/v1/user/:user_id/credential/:credential_id', async (req, res) => {
         const response = await server.get_credential(
             req.headers.authorization,
             req.params.user_id,
+            req.query.token,
+            req.params.credential_id
+        );
+
+        // Build response
+        res.setHeader('Content-Type', 'application/json');
+        res.end(JSON.stringify(response));
+    } catch (e) {
+        handle_error(e, req, res);
+    }
+});
+
+// TOKEN AUTHENTICATION
+app.get('/api/v1/credential/:credential_id', async (req, res) => {
+    try {
+        console.warn(`GET credential (DEPRECATED, use GET /user/{userId}/credential/{credentialId} with userId "me" instead)`);
+        // Get credential status
+        const response = await server.get_credential(
+            req.headers.authorization,
+            "me",
             req.query.token,
             req.params.credential_id
         );
@@ -1352,6 +1431,25 @@ app.delete('/api/v1/user/:user_id/credential/:credential_id', async (req, res) =
     }
 });
 
+// TOKEN AUTHENTICATION
+app.delete('/api/v1/credential/:credential_id', async (req, res) => {
+    try {
+        // Delete credential
+        console.warn(`DELETE credential ${req.params.credential_id} (DEPRECATED, use DELETE /user/{userId}/credential/{credentialId} with userId "me" instead)`);
+        await server.delete_credential(
+            req.headers.authorization,
+            "me",
+            req.query.token,
+            req.params.credential_id
+        );
+
+        // Build response
+        res.end()
+    } catch (e) {
+        handle_error(e, req, res);
+    }
+});
+
 /**
  * @openapi
  * /user/{userId}/credential/{credentialId}/2fa:
@@ -1417,10 +1515,30 @@ app.delete('/api/v1/user/:user_id/credential/:credential_id', async (req, res) =
 app.post('/api/v1/user/:user_id/credential/:credential_id/2fa', async (req, res) => {
     try {
         // Post 2fa
-        console.log(`POST 2fa ${req.params.credential_id} (DEPRECATED, use websockets instead)`);
+        console.warn(`POST 2fa ${req.params.credential_id} (DEPRECATED, use websockets instead)`);
         await server.post_credential_2fa(
             req.headers.authorization,
             req.params.user_id,
+            req.query.token,
+            req.params.credential_id,
+            req.body.code
+        );
+
+        // Build response
+        res.end()
+    } catch (e) {
+        handle_error(e, req, res);
+    }
+});
+
+// TOKEN AUTHENTICATION
+app.post('/api/v1/credential/:credential_id/2fa', async (req, res) => {
+    try {
+        // Post 2fa
+        console.warn(`POST 2fa ${req.params.credential_id} (DEPRECATED, use websockets instead)`);
+        await server.post_credential_2fa(
+            req.headers.authorization,
+            "me",
             req.query.token,
             req.params.credential_id,
             req.body.code
@@ -1498,6 +1616,26 @@ app.post('/api/v1/user/:user_id/credential/:credential_id/collect', async (req, 
         const response = await server.post_credential_collect(
             req.headers.authorization,
             req.params.user_id,
+            req.query.token,
+            req.params.credential_id
+        );
+
+        // Build response
+        res.setHeader('Content-Type', 'application/json');
+        res.end(JSON.stringify(response));
+    } catch (e) {
+        handle_error(e, req, res);
+    }
+});
+
+// TOKEN AUTHENTICATION
+app.post('/api/v1/credential/:credential_id/collect', async (req, res) => {
+    try {
+        // Post collect
+        console.warn(`POST collect ${req.params.credential_id} (DEPRECATED, use websockets instead)`);
+        const response = await server.post_credential_collect(
+            req.headers.authorization,
+            "me",
             req.query.token,
             req.params.credential_id
         );
