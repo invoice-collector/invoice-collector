@@ -104,7 +104,7 @@ app.get('/api/v1/ui', async (req, res) => {
  *   get:
  *     tags: [General]
  *     summary: Test callback
- *     description: Sends a test callback of the specified type. Bearer authentication.
+ *     description: Sends a test callback of the specified type.
  *     security:
  *       - CustomerBearerAuth: []
  *     parameters:
@@ -278,7 +278,7 @@ app.post('/api/v1/feedback', async (req, res) => {
  *   post:
  *     tags: [Authentication]
  *     summary: Login
- *     description: Authenticates a customer or user and returns a bearer token. No authentication required.
+ *     description: Authenticates a customer or user and returns a bearer token.
  *     requestBody:
  *       required: true
  *       content:
@@ -341,7 +341,7 @@ app.post('/api/v1/login', async (req, res) => {
  *   post:
  *     tags: [Authentication]
  *     summary: Sign up
- *     description: Creates a new customer or user account. No authentication required.
+ *     description: Creates a new customer or user account.
  *     requestBody:
  *       required: true
  *       content:
@@ -411,7 +411,7 @@ app.post('/api/v1/signup', async (req, res) => {
  *   post:
  *     tags: [Authentication]
  *     summary: Forgot password
- *     description: Sends a password reset email. No authentication required.
+ *     description: Sends a password reset email.
  *     requestBody:
  *       required: true
  *       content:
@@ -534,7 +534,7 @@ app.post('/api/v1/reset', async (req, res) => {
  *   get:
  *     tags: [Customer]
  *     summary: Get customer
- *     description: Returns the authenticated customer's details. Bearer authentication.
+ *     description: Returns the authenticated customer's details.
  *     security:
  *       - CustomerBearerAuth: []
  *     responses:
@@ -580,7 +580,7 @@ app.get('/api/v1/customer', async (req, res) => {
  *   put:
  *     tags: [Customer]
  *     summary: Update customer
- *     description: Updates the authenticated customer's details. Bearer authentication.
+ *     description: Updates the authenticated customer's details.
  *     security:
  *       - CustomerBearerAuth: []
  *     requestBody:
@@ -660,7 +660,7 @@ app.put('/api/v1/customer', async (req, res) => {
  *   post:
  *     tags: [Customer]
  *     summary: Generate new API bearer
- *     description: Generates a new API bearer token for the customer. Bearer authentication.
+ *     description: Generates a new API bearer token for the customer.
  *     security:
  *       - CustomerBearerAuth: []
  *     responses:
@@ -707,7 +707,7 @@ app.post('/api/v1/customer/bearer', async (req, res) => {
  *   get:
  *     tags: [Customer]
  *     summary: Get customer stats
- *     description: Returns statistics for the authenticated customer. Bearer authentication.
+ *     description: Returns statistics for the authenticated customer.
  *     security:
  *       - CustomerBearerAuth: []
  *     responses:
@@ -755,7 +755,7 @@ app.get('/api/v1/customer/stats', async (req, res) => {
  *   get:
  *     tags: [User]
  *     summary: List users
- *     description: Returns all users belonging to the authenticated customer. Bearer authentication.
+ *     description: Returns all users belonging to the authenticated customer.
  *     security:
  *       - CustomerBearerAuth: []
  *     responses:
@@ -801,7 +801,7 @@ app.get('/api/v1/users', async (req, res) => {
  *   post:
  *     tags: [User]
  *     summary: Create or get user
- *     description: Creates a new user or returns an existing one by remote_id. Returns a UI token. Bearer authentication.
+ *     description: Creates a new user or returns an existing one by remote_id. Returns a UI token.
  *     security:
  *       - CustomerBearerAuth: []
  *     requestBody:
@@ -875,10 +875,11 @@ app.post('/api/v1/user', async (req, res) => {
  * /user/{userId}:
  *   get:
  *     tags: [User]
- *     summary: Get user by ID
- *     description: Returns a specific user by ID. Bearer authentication.
+ *     summary: Get user
+ *     description: Returns a specific user by ID.
  *     security:
  *       - CustomerBearerAuth: []
+ *       - UserBearerAuth: []
  *     parameters:
  *       - name: userId
  *         in: path
@@ -929,43 +930,14 @@ app.get('/api/v1/user/:user_id', async (req, res) => {
     }
 });
 
-/**
- * @openapi
- * /user:
- *   get:
- *     tags: [User]
- *     summary: Get current user
- *     description: Returns the user associated with the bearer token. Bearer authentication (user session).
- *     security:
- *       - UserBearerAuth: []
- *     responses:
- *       200:
- *         description: Success
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/user'
- *       401:
- *         description: Authentication error
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/error'
- *       500:
- *         description: Internal server error
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/error'
- */
 // BEARER AUTHENTICATION
 app.get('/api/v1/user', async (req, res) => {
     try {
         // Get user
-        console.log('GET user');
+        console.warn('GET user (DEPRECATED, use GET /user/{userId} with userId "me" instead)');
         const response = await server.get_user(
             req.headers.authorization,
-            undefined
+            "me"
         );
 
         // Build response
@@ -982,7 +954,7 @@ app.get('/api/v1/user', async (req, res) => {
  *   put:
  *     tags: [User]
  *     summary: Update user
- *     description: Updates a user's details. Bearer authentication.
+ *     description: Updates a user's details.
  *     security:
  *       - CustomerBearerAuth: []
  *       - UserBearerAuth: []
@@ -1061,7 +1033,7 @@ app.put('/api/v1/user/:userId', async (req, res) => {
  *   delete:
  *     tags: [User]
  *     summary: Delete user
- *     description: Deletes a user and all associated credentials. Bearer authentication.
+ *     description: Deletes a user and all associated credentials.
  *     security:
  *       - CustomerBearerAuth: []
  *     parameters:
@@ -1115,11 +1087,13 @@ app.delete('/api/v1/user/:user_id', async (req, res) => {
  * @openapi
  * /user/{userId}/credentials:
  *   get:
- *     tags: [Credential (Bearer)]
+ *     tags: [Credential]
  *     summary: List credentials (Bearer)
- *     description: Returns all credentials for a user. Bearer authentication.
+ *     description: Returns all credentials for a user.
  *     security:
  *       - CustomerBearerAuth: []
+ *       - UserBearerAuth: []
+ *       - TokenAuth: []
  *     parameters:
  *       - name: userId
  *         in: path
@@ -1156,7 +1130,7 @@ app.get('/api/v1/user/:user_id/credentials', async (req, res) => {
         const credentials = await server.get_credentials(
             req.headers.authorization,
             req.params.user_id,
-            undefined
+            req.query.token
         );
 
         // Build response
@@ -1167,46 +1141,14 @@ app.get('/api/v1/user/:user_id/credentials', async (req, res) => {
     }
 });
 
-/**
- * @openapi
- * /credentials:
- *   get:
- *     tags: [Credential (Token)]
- *     summary: List credentials (Token)
- *     description: Returns all credentials for the authenticated user. Token authentication.
- *     security:
- *       - UserBearerAuth: []
- *       - TokenAuth: []
- *     responses:
- *       200:
- *         description: Success
- *         content:
- *           application/json:
- *             schema:
- *               type: array
- *               items:
- *                 $ref: '#/components/schemas/credential'
- *       401:
- *         description: Authentication error
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/error'
- *       500:
- *         description: Internal server error
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/error'
- */
 // TOKEN AUTHENTICATION
 app.get('/api/v1/credentials', async (req, res) => {
     try {
         // Get credentials
-        console.log(`GET credentials`);
+        console.warn(`GET credentials (DEPRECATED, use GET /user/{userId}/credentials with userId "me" instead)`);
         const credentials = await server.get_credentials(
             req.headers.authorization,
-            undefined,
+            "me",
             req.query.token
         );
 
@@ -1222,11 +1164,13 @@ app.get('/api/v1/credentials', async (req, res) => {
  * @openapi
  * /user/{userId}/credential:
  *   post:
- *     tags: [Credential (Bearer)]
+ *     tags: [Credential]
  *     summary: Create credential (Bearer)
- *     description: Creates a new credential and starts collection. Bearer authentication.
+ *     description: Creates a new credential and starts collection.
  *     security:
  *       - CustomerBearerAuth: []
+ *       - UserBearerAuth: []
+ *       - TokenAuth: []
  *     parameters:
  *       - name: userId
  *         in: path
@@ -1289,7 +1233,7 @@ app.post('/api/v1/user/:user_id/credential', async (req, res) => {
         const response = await server.post_credential(
             req.headers.authorization,
             req.params.user_id,
-            undefined,
+            req.query.token,
             req.body.collector,
             req.body.params,
             req.body.download_from_timestamp
@@ -1303,72 +1247,14 @@ app.post('/api/v1/user/:user_id/credential', async (req, res) => {
     }
 });
 
-/**
- * @openapi
- * /credential:
- *   post:
- *     tags: [Credential (Token)]
- *     summary: Create credential (Token)
- *     description: Creates a new credential and starts collection. Token authentication.
- *     security:
- *       - UserBearerAuth: []
- *       - TokenAuth: []
- *     requestBody:
- *       required: true
- *       content:
- *         application/json:
- *           schema:
- *             type: object
- *             required: [collector, params]
- *             properties:
- *               collector:
- *                 $ref: "#/components/schemas/collectorId"
- *               params:
- *                 $ref: "#/components/schemas/credentialParams"
- *               download_from_timestamp:
- *                 allOf:
- *                   - $ref: "#/components/schemas/downloadFromTimestamp"
- *                 description: 'Timestamp to start downloading invoices from in ms. _If empty, invoices will be downloaded starting from today._'
- *     responses:
- *       200:
- *         description: Success
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/credential'
- *       400:
- *         description: Bad request
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/error'
- *       401:
- *         description: Authentication error
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/error'
- *       403:
- *         description: Credential limit reached or collector not subscribed
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/error'
- *       500:
- *         description: Internal server error
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/error'
- */
 // TOKEN AUTHENTICATION
 app.post('/api/v1/credential', async (req, res) => {
     try {
         // Save credential
-        console.log(`POST credential`);
+        console.warn(`POST credential (DEPRECATED, use POST /user/{userId}/credential with userId "me" instead)`);
         const response = await server.post_credential(
             req.headers.authorization,
-            undefined,
+            "me",
             req.query.token,
             req.body.collector,
             req.body.params,
@@ -1387,18 +1273,20 @@ app.post('/api/v1/credential', async (req, res) => {
  * @openapi
  * /user/{userId}/credential/{credentialId}:
  *   get:
- *     tags: [Credential (Bearer)]
+ *     tags: [Credential]
  *     summary: Get credential (Bearer)
- *     description: Returns a specific credential by ID. Bearer authentication.
+ *     description: Returns a specific credential by ID.
  *     security:
  *       - CustomerBearerAuth: []
+ *       - UserBearerAuth: []
+ *       - TokenAuth: []
  *     parameters:
  *       - name: userId
  *         in: path
  *         required: true
  *         schema:
  *           $ref: "#/components/schemas/userId"
- *       - name: credential_id
+ *       - name: credentialId
  *         in: path
  *         required: true
  *         schema:
@@ -1442,7 +1330,7 @@ app.get('/api/v1/user/:user_id/credential/:credential_id', async (req, res) => {
         const response = await server.get_credential(
             req.headers.authorization,
             req.params.user_id,
-            undefined,
+            req.query.token,
             req.params.credential_id
         );
 
@@ -1454,61 +1342,14 @@ app.get('/api/v1/user/:user_id/credential/:credential_id', async (req, res) => {
     }
 });
 
-/**
- * @openapi
- * /credential/{credentialId}:
- *   get:
- *     tags: [Credential (Token)]
- *     summary: Get credential (Token)
- *     description: Returns a specific credential by ID. Token authentication.
- *     security:
- *       - UserBearerAuth: []
- *       - TokenAuth: []
- *     parameters:
- *       - name: credential_id
- *         in: path
- *         required: true
- *         schema:
- *           $ref: "#/components/schemas/credentialId"
- *     responses:
- *       200:
- *         description: Success
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/credential'
- *       400:
- *         description: Bad request
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/error'
- *       401:
- *         description: Authentication error
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/error'
- *       403:
- *         description: Credential does not belong to user
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/error'
- *       500:
- *         description: Internal server error
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/error'
- */
 // TOKEN AUTHENTICATION
 app.get('/api/v1/credential/:credential_id', async (req, res) => {
     try {
+        console.warn(`GET credential (DEPRECATED, use GET /user/{userId}/credential/{credentialId} with userId "me" instead)`);
         // Get credential status
         const response = await server.get_credential(
             req.headers.authorization,
-            undefined,
+            "me",
             req.query.token,
             req.params.credential_id
         );
@@ -1525,18 +1366,20 @@ app.get('/api/v1/credential/:credential_id', async (req, res) => {
  * @openapi
  * /user/{userId}/credential/{credentialId}:
  *   delete:
- *     tags: [Credential (Bearer)]
+ *     tags: [Credential]
  *     summary: Delete credential (Bearer)
- *     description: Deletes a credential. Bearer authentication.
+ *     description: Deletes a credential.
  *     security:
  *       - CustomerBearerAuth: []
+ *       - UserBearerAuth: []
+ *       - TokenAuth: []
  *     parameters:
  *       - name: userId
  *         in: path
  *         required: true
  *         schema:
  *           $ref: "#/components/schemas/userId"
- *       - name: credential_id
+ *       - name: credentialId
  *         in: path
  *         required: true
  *         schema:
@@ -1577,7 +1420,7 @@ app.delete('/api/v1/user/:user_id/credential/:credential_id', async (req, res) =
         await server.delete_credential(
             req.headers.authorization,
             req.params.user_id,
-            undefined,
+            req.query.token,
             req.params.credential_id
         );
 
@@ -1588,58 +1431,14 @@ app.delete('/api/v1/user/:user_id/credential/:credential_id', async (req, res) =
     }
 });
 
-/**
- * @openapi
- * /credential/{credentialId}:
- *   delete:
- *     tags: [Credential (Token)]
- *     summary: Delete credential (Token)
- *     description: Deletes a credential. Token authentication.
- *     security:
- *       - UserBearerAuth: []
- *       - TokenAuth: []
- *     parameters:
- *       - name: credential_id
- *         in: path
- *         required: true
- *         schema:
- *           $ref: "#/components/schemas/credentialId"
- *     responses:
- *       200:
- *         description: Success
- *       400:
- *         description: Bad request
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/error'
- *       401:
- *         description: Authentication error
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/error'
- *       403:
- *         description: Credential does not belong to user
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/error'
- *       500:
- *         description: Internal server error
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/error'
- */
 // TOKEN AUTHENTICATION
 app.delete('/api/v1/credential/:credential_id', async (req, res) => {
     try {
         // Delete credential
-        console.log(`DELETE credential ${req.params.credential_id}`);
+        console.warn(`DELETE credential ${req.params.credential_id} (DEPRECATED, use DELETE /user/{userId}/credential/{credentialId} with userId "me" instead)`);
         await server.delete_credential(
             req.headers.authorization,
-            undefined,
+            "me",
             req.query.token,
             req.params.credential_id
         );
@@ -1655,19 +1454,21 @@ app.delete('/api/v1/credential/:credential_id', async (req, res) => {
  * @openapi
  * /user/{userId}/credential/{credentialId}/2fa:
  *   post:
- *     tags: [Credential (Bearer)]
+ *     tags: [Credential]
  *     summary: Submit 2FA code (Bearer)
- *     description: Submits a 2FA code for an ongoing collection. Deprecated - use websockets instead. Bearer authentication.
+ *     description: Submits a 2FA code for an ongoing collection. Deprecated - use websockets instead.
  *     deprecated: true
  *     security:
  *       - CustomerBearerAuth: []
+ *       - UserBearerAuth: []
+ *       - TokenAuth: []
  *     parameters:
  *       - name: userId
  *         in: path
  *         required: true
  *         schema:
  *           $ref: "#/components/schemas/userId"
- *       - name: credential_id
+ *       - name: credentialId
  *         in: path
  *         required: true
  *         schema:
@@ -1714,11 +1515,11 @@ app.delete('/api/v1/credential/:credential_id', async (req, res) => {
 app.post('/api/v1/user/:user_id/credential/:credential_id/2fa', async (req, res) => {
     try {
         // Post 2fa
-        console.log(`POST 2fa ${req.params.credential_id} (DEPRECATED, use websockets instead)`);
+        console.warn(`POST 2fa ${req.params.credential_id} (DEPRECATED, use websockets instead)`);
         await server.post_credential_2fa(
             req.headers.authorization,
             req.params.user_id,
-            undefined,
+            req.query.token,
             req.params.credential_id,
             req.body.code
         );
@@ -1730,69 +1531,14 @@ app.post('/api/v1/user/:user_id/credential/:credential_id/2fa', async (req, res)
     }
 });
 
-/**
- * @openapi
- * /credential/{credentialId}/2fa:
- *   post:
- *     tags: [Credential (Token)]
- *     summary: Submit 2FA code (Token)
- *     description: Submits a 2FA code for an ongoing collection. Deprecated - use websockets instead. Token authentication.
- *     deprecated: true
- *     security:
- *       - UserBearerAuth: []
- *       - TokenAuth: []
- *     parameters:
- *       - name: credential_id
- *         in: path
- *         required: true
- *         schema:
- *           $ref: "#/components/schemas/credentialId"
- *     requestBody:
- *       required: true
- *       content:
- *         application/json:
- *           schema:
- *             type: object
- *             required: [code]
- *             properties:
- *               code:
- *                 $ref: '#/components/schemas/twofaCode'
- *     responses:
- *       200:
- *         description: Success
- *       400:
- *         description: Bad request
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/error'
- *       401:
- *         description: Authentication error
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/error'
- *       403:
- *         description: Credential does not belong to user
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/error'
- *       500:
- *         description: Internal server error
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/error'
- */
 // TOKEN AUTHENTICATION
 app.post('/api/v1/credential/:credential_id/2fa', async (req, res) => {
     try {
         // Post 2fa
-        console.log(`POST 2fa ${req.params.credential_id} (DEPRECATED, use websockets instead)`);
+        console.warn(`POST 2fa ${req.params.credential_id} (DEPRECATED, use websockets instead)`);
         await server.post_credential_2fa(
             req.headers.authorization,
-            undefined,
+            "me",
             req.query.token,
             req.params.credential_id,
             req.body.code
@@ -1809,18 +1555,20 @@ app.post('/api/v1/credential/:credential_id/2fa', async (req, res) => {
  * @openapi
  * /user/{userId}/credential/{credentialId}/collect:
  *   post:
- *     tags: [Credential (Bearer)]
+ *     tags: [Credential]
  *     summary: Trigger collection (Bearer)
- *     description: Triggers a new collection for a credential or returns the existing one. Bearer authentication.
+ *     description: Triggers a new collection for a credential or returns the existing one.
  *     security:
  *       - CustomerBearerAuth: []
+ *       - UserBearerAuth: []
+ *       - TokenAuth: []
  *     parameters:
  *       - name: userId
  *         in: path
  *         required: true
  *         schema:
  *           $ref: "#/components/schemas/userId"
- *       - name: credential_id
+ *       - name: credentialId
  *         in: path
  *         required: true
  *         schema:
@@ -1868,7 +1616,7 @@ app.post('/api/v1/user/:user_id/credential/:credential_id/collect', async (req, 
         const response = await server.post_credential_collect(
             req.headers.authorization,
             req.params.user_id,
-            undefined,
+            req.query.token,
             req.params.credential_id
         );
 
@@ -1880,65 +1628,14 @@ app.post('/api/v1/user/:user_id/credential/:credential_id/collect', async (req, 
     }
 });
 
-/**
- * @openapi
- * /credential/{credentialId}/collect:
- *   post:
- *     tags: [Credential (Token)]
- *     summary: Trigger collection (Token)
- *     description: Triggers a new collection for a credential or returns the existing one. Token authentication.
- *     security:
- *       - UserBearerAuth: []
- *       - TokenAuth: []
- *     parameters:
- *       - name: credentialId
- *         in: path
- *         required: true
- *         schema:
- *           $ref: "#/components/schemas/credentialId"
- *     responses:
- *       200:
- *         description: Success
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 wsPath:
- *                   $ref: '#/components/schemas/wsPath'
- *       400:
- *         description: Bad request
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/error'
- *       401:
- *         description: Authentication error
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/error'
- *       403:
- *         description: Credential does not belong to user
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/error'
- *       500:
- *         description: Internal server error
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/error'
- */
 // TOKEN AUTHENTICATION
 app.post('/api/v1/credential/:credential_id/collect', async (req, res) => {
     try {
         // Post collect
-        console.log(`POST collect ${req.params.credential_id}`);
+        console.warn(`POST collect ${req.params.credential_id} (DEPRECATED, use websockets instead)`);
         const response = await server.post_credential_collect(
             req.headers.authorization,
-            undefined,
+            "me",
             req.query.token,
             req.params.credential_id
         );

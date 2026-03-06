@@ -422,8 +422,7 @@ const SWAGGER_DEFINITION = {
             { name: 'Authentication', description: 'Login, signup, password reset' },
             { name: 'Customer', description: 'Customer management' },
             { name: 'User', description: 'User management' },
-            { name: 'Credential (Bearer)', description: 'Credential and collection management' },
-            { name: 'Credential (Token)', description: 'Credential and collection management' },
+            { name: 'Credential', description: 'Credential management' },
         ],
     }
 };
