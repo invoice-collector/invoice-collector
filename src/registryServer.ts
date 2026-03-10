@@ -138,7 +138,7 @@ You are still able to use the product but some features may not work as expected
 
     public async sendResetPasswordEmail(email: string, resetToken: string): Promise<string> {
         // Build reset password link
-        const resetLink = `${RegistryServer.FRONTEND}/reset-password?token=${resetToken}`;
+        const resetLink = `${RegistryServer.FRONTEND}/reset-password/${resetToken}`;
         // Send email
         console.log("Sending reset password email to", email);
         await this.sendEmail(
