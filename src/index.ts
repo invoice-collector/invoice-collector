@@ -892,7 +892,7 @@ app.post('/api/v1/user', async (req, res) => {
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/user'
+ *               $ref: '#/components/schemas/userWithToken'
  *       400:
  *         description: Bad request
  *         content:

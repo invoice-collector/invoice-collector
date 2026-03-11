@@ -97,6 +97,16 @@ export class AuthenticationError extends CollectorError {
         this.name = this.constructor.name;
     }
 }
+export class RemoveError extends CollectorError {
+    constructor(collector: AbstractCollector<Config>, opts = {}) {
+        super(
+            "i18n.collectors.all.login.cancel",
+            collector,
+            opts
+        );
+        this.name = this.constructor.name;
+    }
+}
 
 export class DisconnectedError extends CollectorError {
     constructor(collector: AbstractCollector<Config>, opts = {}) {

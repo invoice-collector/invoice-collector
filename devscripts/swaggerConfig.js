@@ -58,6 +58,11 @@ const SWAGGER_DEFINITION = {
                     description: 'Company Identification Number.',
                     example: 'C123456',
                 },
+                createAt: {
+                    type: 'number',
+                    description: 'Creation timestamp in ms.',
+                    example: 1745229203582,
+                },
                 locale: {
                     type: 'string',
                     description: 'Language of the user.',
@@ -306,12 +311,20 @@ const SWAGGER_DEFINITION = {
                     },
                     required: ['id', 'name', 'description', 'version', 'type', 'website', 'logo', 'params', 'captcha', 'enableInteractiveLogin', 'state'],
                 },
+                minimalistCustomer: {
+                    type: 'object',
+                    properties: {
+                        name: { $ref: '#/components/schemas/name' },
+                        cid: { $ref: '#/components/schemas/cid' },
+                    },
+                    required: ['name', 'cid'],
+                },
                 customer: {
                     type: 'object',
                     properties: {
                         id: { type: 'string', description: 'Id of the customer.', example: '6795130f170ba4496dc30642' },
                         email: { $ref: '#/components/schemas/email' },
-                        name: { type: 'string', description: 'Name of the customer.', example: 'Awesome Company Name' },
+                        name: { $ref: '#/components/schemas/name' },
                         callback: { $ref: '#/components/schemas/callback' },
                         remoteId: { type: 'string', description: 'Remote id of your company in your system.', example: 'R121439' },
                         theme: { $ref: '#/components/schemas/theme' },
@@ -330,10 +343,14 @@ const SWAGGER_DEFINITION = {
                         id: { type: 'string', description: 'Id of the user.', example: '6776b5258821de266afbc3f6' },
                         customer_id: { type: 'string', description: 'Id of the customer.', example: '6795130f170ba4496dc30642' },
                         remote_id: { $ref: '#/components/schemas/remoteId' },
+                        name: { $ref: '#/components/schemas/name' },
+                        cid: { $ref: '#/components/schemas/cid' },
                         locale: { $ref: '#/components/schemas/locale' },
+                        createdAt: { $ref: '#/components/schemas/createdAt' },
+                        customer: { $ref: '#/components/schemas/minimalistCustomer' },
                         stats: { $ref: '#/components/schemas/userStats' },
                     },
-                    required: ['id', 'customer_id', 'remote_id', 'locale'],
+                    required: ['id', 'customer_id', 'remote_id', 'name', 'cid', 'locale', 'createdAt'],
                 },
                 userWithToken: {
                     allOf: [

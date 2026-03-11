@@ -569,10 +569,17 @@ async function showProgress(credential_id, wsPath) {
         cancelled = true;
         containerCanvas.hidden = true;
         if (ws.readyState === WebSocket.OPEN) {
-            ws.send(JSON.stringify({ type: 'interactive', reason: 'cancel' }));
+            ws.send(JSON.stringify({ type: 'interactive', reason: !collect_credential_id ? 'remove' : 'cancel' }));
             ws.close();
         }
-        showCompanies();
+
+        if(!collect_credential_id) {
+            showCompanies();
+        }
+        else{
+            window.parent.postMessage(NAVIGATION_EVENT_CLOSE, '*');
+            hiddeAllPanels();
+        }
     }
     
     ws.onopen = () => {

@@ -601,6 +601,10 @@ export class Server {
         cid: string,
         locale: string,
         createdAt: number,
+        customer: {
+            name: string,
+            cid: string
+        },
         stats: UserStats
     }[]> {
         // Get customer from bearer
@@ -623,6 +627,10 @@ export class Server {
                 cid: user.cid,
                 locale: user.locale,
                 createdAt: user.createdAt,
+                customer: {
+                    name: customer.name,
+                    cid: customer.cid
+                },
                 stats: stats
             };
         }));
@@ -643,6 +651,10 @@ export class Server {
         locale: string,
         createdAt: number,
         token: string,
+        customer: {
+            name: string,
+            cid: string
+        },
         stats: UserStats
     }> {
         // Get customer from bearer
@@ -718,16 +730,8 @@ export class Server {
         // Commit changes in database
         await user.commit();
 
-        // Generate oauth token
-        const uiToken = utils.generate_token();
-
-        // Map token with user
-        this.userUiTokens[uiToken] = user;
-
-        // Schedule token delete after validity duration
-        setTimeout(() => {
-            delete this.userUiTokens[uiToken];
-        }, Server.OAUTH_TOKEN_VALIDITY_DURATION_MS);
+        // Generate UI token
+        const uiToken = this.generateUiToken(user);
 
         // Get user stats
         const stats = await user.getStats();
@@ -741,6 +745,10 @@ export class Server {
             locale: user.locale,
             createdAt: user.createdAt,
             token: uiToken,
+            customer: {
+                name: customer.name,
+                cid: customer.cid
+            },
             stats: stats
         }
     }
@@ -754,6 +762,7 @@ export class Server {
         cid: string,
         locale: string,
         createdAt: number,
+        token: string,
         customer: {
             name: string,
             cid: string
@@ -765,6 +774,9 @@ export class Server {
 
         // Get customer from user
         const customer = await user.getCustomer();
+
+        // Generate UI token
+        const uiToken = this.generateUiToken(user);
 
         // Get user stats
         const stats = await user.getStats();
@@ -778,6 +790,7 @@ export class Server {
             cid: user.cid,
             locale: user.locale,
             createdAt: user.createdAt,
+            token: uiToken,
             customer: {
                 name: customer.name,
                 cid: customer.cid
@@ -1406,6 +1419,22 @@ export class Server {
     }
 
     // ---------- PRIVATE METHODS ----------
+
+    private generateUiToken(user: User): string {
+        // Generate oauth token
+        const uiToken = utils.generate_token();
+
+        // Map token with user
+        this.userUiTokens[uiToken] = user;
+
+        // Schedule token delete after validity duration
+        setTimeout(() => {
+            delete this.userUiTokens[uiToken];
+        }, Server.OAUTH_TOKEN_VALIDITY_DURATION_MS);
+
+        // Return token
+        return uiToken;
+    }
 
     private getUserFromUiToken(uiToken: any): User {
         // Check if token is missing or incorrect

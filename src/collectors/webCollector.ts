@@ -1,6 +1,6 @@
 import { Invoice, CompleteInvoice, CollectorType, CollectorCaptcha, CollectorState, Config } from "./abstractCollector";
 import { Driver, Element } from '../driver/driver';
-import { AuthenticationError, CollectorError, DisconnectedError, LoggableError, NoInvoiceFoundError } from '../error';
+import { AuthenticationError, RemoveError, CollectorError, DisconnectedError, LoggableError, NoInvoiceFoundError } from '../error';
 import { ProxyFactory } from '../proxy/proxyFactory';
 import { Location } from "../proxy/abstractProxy";
 import { Secret } from "../model/secret";
@@ -408,7 +408,10 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
                         resolve();
                         break;
                     case 'cancel':
-                        reject(new AuthenticationError("i18n.collectors.all.login.cancel", this));
+                        reject(new DisconnectedError(this));
+                        break;
+                    case 'remove':
+                        reject(new RemoveError(this));
                         break;
                     case 'report':
                         reject(new LoggableError("A user reported an issue on this collector", this));
