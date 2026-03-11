@@ -1,7 +1,7 @@
 import { CallbackHandler } from "../callback/callback";
 import { AbstractCollector, Config } from "../collectors/abstractCollector";
 import { CollectorLoader } from "../collectors/collectorLoader";
-import { AuthenticationError, DisconnectedError, LoggableError, MaintenanceError, NoInvoiceFoundError } from "../error";
+import { AuthenticationError, RemoveError, DisconnectedError, LoggableError, MaintenanceError, NoInvoiceFoundError } from "../error";
 import { IcCredential } from "../model/credential";
 import { State } from "../model/state";
 import { Customer } from "../model/customer";
@@ -215,6 +215,17 @@ export class Collect {
                     // Reset cookies and localStorage
                     await secret?.setCookies(null);
                     await secret?.setLocalStorage(null);
+                }
+            }
+            else if (err instanceof RemoveError) {
+                console.warn(`Invoice collection for credential ${this.credential_id} has been cancelled by the user. Removing credential.`);
+                // If credential exists
+                if (credential) {
+                    // Delete credential
+                    await credential.delete();
+                    // Set credential and secret to null to avoid committing deleted credential and secret in finally block
+                    credential = null;
+                    secret = null;
                 }
             }
             else if (err instanceof MaintenanceError) {
