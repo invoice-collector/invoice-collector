@@ -5780,6 +5780,7 @@
   "i18n.collectors.oracle_cloud.description": "Une plateforme cloud complète proposant des services de calcul, de stockage et de base de données pour les entreprises.",
   "i18n.collectors.orange.description": "Orange est un opérateur de télécommunications français.",
   "i18n.collectors.orange.instructions": "L'authentification multi-facteurs (MFA) est requise pour accéder à vos factures Orange. Veuillez activer la MFA dans les paramètres de votre compte Orange avant d'ajouter ce collecteur.",
+  "i18n.collectors.orange.no_pro_contract": "Vous ne possédez pas de contrat pro Orange.",
   "i18n.collectors.orange_connex.description": "Une plateforme numérique de gestion des commandes pour les services de connectivité et IoT d'Orange.",
   "i18n.collectors.orbitkit.description": "Une plateforme pour gérer et développer des communautés de développeurs avec des outils d'analyse et d'engagement.",
   "i18n.collectors.orbnet.description": "Une plateforme en ligne allemande offrant des services informatiques et de télécommunication pour les entreprises et les particuliers.",

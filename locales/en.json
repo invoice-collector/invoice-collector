@@ -5780,6 +5780,7 @@
   "i18n.collectors.oracle_cloud.description": "A comprehensive cloud platform offering computing, storage, and database services for enterprises.",
   "i18n.collectors.orange.description": "Orange is a French telecommunications company.",
   "i18n.collectors.orange.instructions": "Multi-factor authentication (MFA) is required to access your Orange invoices. Please enable MFA in your Orange account settings before adding this collector.",
+  "i18n.collectors.orange.no_pro_contract": "You do not have any Orange Pro contract.",
   "i18n.collectors.orange_connex.description": "A digital fulfillment platform for Orange's connectivity and IoT services.",
   "i18n.collectors.orbitkit.description": "A platform for managing and growing developer communities with analytics and engagement tools.",
   "i18n.collectors.orbnet.description": "A German online platform providing IT and telecommunication services for businesses and individuals.",
