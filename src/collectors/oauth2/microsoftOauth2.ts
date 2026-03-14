@@ -39,7 +39,7 @@ export class MicrosoftOauth2 {
     static async login(driver: Driver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
         if(driver.url().includes("login.live.com/oauth2")) {
             // Select password authentication method if displayed
-            const passwordAuthMethod = await driver.getElement(MicrosoftOauth2Selectors.BUTTON_PASSWORD_AUTHENTICATION_METHOD, { timeout: 0, raiseException: false });
+            const passwordAuthMethod = await driver.getElement(MicrosoftOauth2Selectors.BUTTON_PASSWORD_AUTHENTICATION_METHOD, { timeout: 1000, raiseException: false });
             if(passwordAuthMethod) {
                 await driver.leftClick(MicrosoftOauth2Selectors.BUTTON_PASSWORD_AUTHENTICATION_METHOD, {navigation: false});
                 await driver.inputText(MicrosoftOauth2Selectors.INPUT_PASSWORD, params.password);

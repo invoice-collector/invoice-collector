@@ -604,11 +604,13 @@ export class Driver {
         if (this.page === null) {
             throw new Error('Page is not initialized.');
         }
-        await this.waitFor(async (driver) => {
-            const token = await driver.page.$eval("input[name='cf-turnstile-response']", (element, attr) => element[attr], "value");
-            return token && token.length > 20 ? token : null;
-        },
-        "Cloudflare turnstile captcha did not succeed");
+        // Wait for Cloudflare turnstile value to be present
+        await this.getElement({
+            selector: "input[name='cf-turnstile-response'][value]",
+            info: "Cloudflare turnstile response input with value"
+        }, {
+            raiseException: false
+        });
     }
 
     async waitForDatadomeCaptcha(): Promise<void> {
