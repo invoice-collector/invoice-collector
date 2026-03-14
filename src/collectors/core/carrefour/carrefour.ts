@@ -11,7 +11,7 @@ export class CarrefourCollector extends WebCollector {
         id: "carrefour",
         name: "Carrefour",
         description: "i18n.collectors.carrefour.description",
-        version: "15",
+        version: "16",
         website: "https://www.carrefour.fr",
         logo: "https://upload.wikimedia.org/wikipedia/fr/3/3b/Logo_Carrefour.svg",
         type: CollectorType.WEB,
@@ -29,14 +29,20 @@ export class CarrefourCollector extends WebCollector {
                 mandatory: true,
             }
         },
-        loginUrl: "https://moncompte.carrefour.fr/iam/XUI/#login/",
+        loginUrl: "https://www.carrefour.fr/mon-compte/mes-achats/en-ligne",
         entryUrl: "https://www.carrefour.fr/mon-compte/mes-achats/en-ligne",
-        captcha: CollectorCaptcha.NONE,
+        captcha: CollectorCaptcha.CLOUDFLARE,
         enableInteractiveLogin: true
     }
 
     constructor() {
         super(CarrefourCollector.CONFIG);
+    }
+
+    async needLogin(driver: Driver): Promise<boolean> {
+        // Wait for captcha to be successful
+        await driver.waitForCloudflareTurnstile()
+        return await super.needLogin(driver);
     }
 
     async login(driver: Driver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
@@ -59,7 +65,7 @@ export class CarrefourCollector extends WebCollector {
 
     async needTwofa(driver: Driver): Promise<string | void> {
         // Check if 2FA is required
-        const two_factor_auth = await driver.getElement(CarrefourSelectors.CONTAINER_2FA_INSTRUCTIONS, { raiseException: false, timeout: 0 });
+        const two_factor_auth = await driver.getElement(CarrefourSelectors.CONTAINER_2FA_INSTRUCTIONS, { raiseException: false, timeout: 2000 });
         if (two_factor_auth) {
             return await two_factor_auth.textContent("i18n.collectors.all.2fa.instruction");
         }
@@ -67,7 +73,7 @@ export class CarrefourCollector extends WebCollector {
 
     async twofa(driver: Driver, params: any, twofa_promise: TwofaPromise, webSocketServer: WebSocketServer): Promise<string | void> {
         // Check if too much attempts
-        const twofa_too_much = await driver.getElement(CarrefourSelectors.CONTAINER_2FA_ALERT, { raiseException: false, timeout: 0 });
+        const twofa_too_much = await driver.getElement(CarrefourSelectors.CONTAINER_2FA_ALERT, { raiseException: false, timeout: 1000 });
         if (twofa_too_much) {
             return await twofa_too_much.textContent("i18n.collectors.all.2fa.error");
         }
@@ -100,7 +106,7 @@ export class CarrefourCollector extends WebCollector {
         await driver.leftClick(CarrefourSelectors.BUTTON_REFUSE_COOKIES, { raiseException: false, timeout: 10000});
     }
 
-    async forEachPage(driver: Driver, next: () => Promise<void>): Promise<void> {
+    async forEachPage(driver: Driver, next: () => void): Promise<void> {
         // Get years elements
         const numberOfYears = (await driver.getElements(CarrefourSelectors.OPTION_YEARS)).length;
         // For each year
