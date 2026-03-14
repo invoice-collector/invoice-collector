@@ -12,7 +12,7 @@ export class SoshCollector extends WebCollector {
         id: "sosh",
         name: "Sosh",
         description: "i18n.collectors.sosh.description",
-        version: "10",
+        version: "9",
         website: "https://www.sosh.fr/",
         logo: "https://upload.wikimedia.org/wikipedia/fr/7/7d/Sosh_%28logo_bleu%29.svg",
         type: CollectorType.WEB,
