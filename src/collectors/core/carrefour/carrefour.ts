@@ -100,7 +100,7 @@ export class CarrefourCollector extends WebCollector {
         await driver.leftClick(CarrefourSelectors.BUTTON_REFUSE_COOKIES, { raiseException: false, timeout: 10000});
     }
 
-    async forEachPage(driver: Driver, next: () => void): Promise<void> {
+    async forEachPage(driver: Driver, next: () => Promise<void>): Promise<void> {
         // Get years elements
         const numberOfYears = (await driver.getElements(CarrefourSelectors.OPTION_YEARS)).length;
         // For each year

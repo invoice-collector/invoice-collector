@@ -64,7 +64,7 @@ export class SoshCollector extends WebCollector {
         await driver.leftClick(SoshSelectors.BUTTON_REFUSE_COOKIES, { raiseException: false, timeout: 2000});
     }
 
-    async forEachPage(driver: Driver, next: () => void): Promise<void> {
+    async forEachPage(driver: Driver, next: () => Promise<void>): Promise<void> {
         return await OrangeHelper.forEachPage(driver, next);
     }
     

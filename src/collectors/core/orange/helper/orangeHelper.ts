@@ -71,7 +71,7 @@ export class OrangeHelper {
         const code = await Promise.race([twofa_promise.code(), webSocketServer.getTwofa()]);
     }
 
-    static async forEachPage(driver: Driver, next: () => void): Promise<void> {
+    static async forEachPage(driver: Driver, next: () => Promise<void>): Promise<void> {
         // If need to select offer
         const needOfferSelection = driver.url().includes("selectionner-un-contrat");
         if (needOfferSelection) {

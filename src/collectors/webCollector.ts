@@ -489,7 +489,7 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
         return false;
     }
 
-    async forEachPage(driver: Driver, next: () => void): Promise<void> {
+    async forEachPage(driver: Driver, next: () => Promise<void>): Promise<void> {
         // Assume the collector does not have pagination
         await next();
     }
