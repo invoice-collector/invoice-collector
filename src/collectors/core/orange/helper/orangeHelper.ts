@@ -128,13 +128,16 @@ export class OrangeHelper {
 
     static async download(driver: Driver, invoice: Invoice, collector: WebCollector): Promise<string[]> {
         // Click on element
-        await invoice.downloadButton.leftClick({ navigation: false });
+        await invoice.downloadButton.middleClick({ useFallbackMethod: true });
 
         // Raise error if VPN issue displayed
         const vpnError = await driver.getElement(OrangeHelperSelectors.CONTAINER_VPN_ERROR, { raiseException: false, timeout: 2000 });
         if (vpnError) {
             throw new AuthenticationError("i18n.collectors.all.2fa.not_enabled", collector);
         }
+
+        // Click on download button if displayed
+        await driver.leftClick(OrangeHelperSelectors.BUTTON_DOWNLOAD_INVOICE, { raiseException: false, timeout: 100 });
 
         // Return invoice
         return [ await driver.waitForFileToDownload() ];

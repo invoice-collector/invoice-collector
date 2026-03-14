@@ -96,5 +96,9 @@ export const OrangeHelperSelectors = {
     CONTAINER_VPN_ERROR: {
         selector: "ecm-layout-container .feedback .feedback-text:nth-of-type(1)",
         info: "VPN error container"
+    },
+    BUTTON_DOWNLOAD_INVOICE: {
+        selector: "button[data-e2e='download-link']",
+        info: "download invoice button"
     }
 }

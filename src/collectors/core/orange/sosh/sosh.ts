@@ -12,7 +12,7 @@ export class SoshCollector extends WebCollector {
         id: "sosh",
         name: "Sosh",
         description: "i18n.collectors.sosh.description",
-        version: "7",
+        version: "8",
         website: "https://www.sosh.fr/",
         logo: "https://upload.wikimedia.org/wikipedia/fr/7/7d/Sosh_%28logo_bleu%29.svg",
         type: CollectorType.WEB,
@@ -31,9 +31,10 @@ export class SoshCollector extends WebCollector {
                 mandatory: true
             }
         },
-        loginUrl: "https://login.orange.fr/?service=sosh&return_url=https%3A%2F%2Fespace-client.orange.fr%2Ffacture-paiement%2Fhistorique-des-factures",
-        entryUrl: "https://espace-client.orange.fr/facture-paiement/historique-des-factures",
+        loginUrl: "https://login.orange.fr/?service=sosh&return_url=https%3A%2F%2Fespace-client.orange.fr%2Fselectionner-un-contrat%3FreturnUrl%3D%252Ffacture-paiement%252F%257B%257Bcid%257D%257D%252Fhistorique-des-factures%253Fsosh%253D%26verticale%3Dtelco%26marketType%3DRES%26sosh%3D",
+        entryUrl: "https://espace-client.orange.fr/selectionner-un-contrat?verticale=telco&marketType=RES&sosh=&returnUrl=%2Ffacture-paiement%2F%257B%257Bcid%257D%257D%2Fhistorique-des-factures%3Fsosh%3D",
         captcha: CollectorCaptcha.NONE,
+        useProxy: true,
         enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }

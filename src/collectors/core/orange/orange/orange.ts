@@ -13,7 +13,7 @@ export class OrangeCollector extends WebCollector {
         id: "orange",
         name: "Orange (.fr)",
         description: "i18n.collectors.orange.description",
-        version: "29",
+        version: "30",
         website: "https://www.orange.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/c/c8/Orange_logo.svg",
         type: CollectorType.WEB,
@@ -32,11 +32,10 @@ export class OrangeCollector extends WebCollector {
                 mandatory: true,
             }
         },
-        loginUrl: "https://login.orange.fr/?service=nextecare&return_url=https%3A%2F%2Fespace-client.orange.fr%2Ffacture-paiement%2Fhistorique-des-factures",
-        entryUrl: "https://espace-client.orange.fr/facture-paiement/historique-des-factures",
+        loginUrl: "https://login.orange.fr/?return_url=https%3A%2F%2Fespace-client.orange.fr%2Fselectionner-un-contrat%3FreturnUrl%3D%252Ffacture-paiement%252F%257B%257Bcid%257D%257D%252Fhistorique-des-factures%253Fsosh%253D%26verticale%3Dtelco%26marketType%3DRES",
+        entryUrl: "https://espace-client.orange.fr/selectionner-un-contrat?returnUrl=%2Ffacture-paiement%2F%257B%257Bcid%257D%257D%2Fhistorique-des-factures&verticale=telco&marketType=RES",
         captcha: CollectorCaptcha.NONE,
-        useProxy: false, // TODO: Proxy is not compatible with Orange
-        loadImages: true,
+        useProxy: true,
         enableInteractiveLogin: true
     }
 
