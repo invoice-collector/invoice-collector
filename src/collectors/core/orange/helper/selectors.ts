@@ -68,6 +68,13 @@ export const OrangeHelperSelectors = {
         info: "container offers link"
     },
 
+    // IS EMPTY
+
+    CONTAINER_NO_INVOICE: {
+        selector: "ecm-mat-feedback > div > div > div > div span.alert-icon.alert-icon",
+        info: "no invoice container"
+    },
+
     // GET INVOICES
 
     CONTAINER_INVOICE: {

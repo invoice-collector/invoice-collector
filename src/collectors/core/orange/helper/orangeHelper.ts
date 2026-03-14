@@ -98,6 +98,10 @@ export class OrangeHelper {
             await next();
         }
     }
+
+    static async isEmpty(driver: Driver): Promise<boolean> {
+        return await driver.getElement(OrangeHelperSelectors.CONTAINER_NO_INVOICE, { raiseException: false, timeout: 2000 }) != null;
+    }
                  
     static async getInvoices(driver: Driver): Promise<Element[]> {
         return await driver.getElements(OrangeHelperSelectors.CONTAINER_INVOICE);

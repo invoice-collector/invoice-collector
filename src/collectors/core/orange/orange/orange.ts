@@ -13,7 +13,7 @@ export class OrangeCollector extends WebCollector {
         id: "orange",
         name: "Orange (.fr)",
         description: "i18n.collectors.orange.description",
-        version: "30",
+        version: "31",
         website: "https://www.orange.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/c/c8/Orange_logo.svg",
         type: CollectorType.WEB,
@@ -77,6 +77,10 @@ export class OrangeCollector extends WebCollector {
 
     async forEachPage(driver: Driver, next: () => Promise<void>): Promise<void> {
         return await OrangeHelper.forEachPage(driver, next);
+    }
+
+    async isEmpty(driver: Driver): Promise<boolean> {
+        return await OrangeHelper.isEmpty(driver);
     }
 
     async getInvoices(driver: Driver): Promise<Element[]> {
