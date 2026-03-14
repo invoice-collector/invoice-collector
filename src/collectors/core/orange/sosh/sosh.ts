@@ -12,7 +12,7 @@ export class SoshCollector extends WebCollector {
         id: "sosh",
         name: "Sosh",
         description: "i18n.collectors.sosh.description",
-        version: "8",
+        version: "9",
         website: "https://www.sosh.fr/",
         logo: "https://upload.wikimedia.org/wikipedia/fr/7/7d/Sosh_%28logo_bleu%29.svg",
         type: CollectorType.WEB,
@@ -35,8 +35,7 @@ export class SoshCollector extends WebCollector {
         entryUrl: "https://espace-client.orange.fr/selectionner-un-contrat?verticale=telco&marketType=RES&sosh=&returnUrl=%2Ffacture-paiement%2F%257B%257Bcid%257D%257D%2Fhistorique-des-factures%3Fsosh%3D",
         captcha: CollectorCaptcha.NONE,
         useProxy: true,
-        enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        enableInteractiveLogin: true
     }
 
     constructor() {
@@ -64,8 +63,12 @@ export class SoshCollector extends WebCollector {
         await driver.leftClick(SoshSelectors.BUTTON_REFUSE_COOKIES, { raiseException: false, timeout: 2000});
     }
 
-    async forEachPage(driver: Driver, next: () => void): Promise<void> {
+    async forEachPage(driver: Driver, next: () => Promise<void>): Promise<void> {
         return await OrangeHelper.forEachPage(driver, next);
+    }
+
+    async isEmpty(driver: Driver): Promise<boolean> {
+        return await OrangeHelper.isEmpty(driver);
     }
     
     async getInvoices(driver: Driver): Promise<Element[]> {

@@ -153,7 +153,7 @@ export class AmazonCollector extends WebCollector {
         this.language = await driver.getAttribute(AmazonSelectors.CONTAINER_LANGUAGE, "textContent");
     }
 
-    async forEachPage(driver: Driver, next: () => void): Promise<void> {
+    async forEachPage(driver: Driver, next: () => Promise<void>): Promise<void> {
         const currentYear = new Date().getFullYear();
 
         for (let year = currentYear; year >= currentYear - 1; year--) {

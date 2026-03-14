@@ -71,7 +71,7 @@ export class OrangeHelper {
         const code = await Promise.race([twofa_promise.code(), webSocketServer.getTwofa()]);
     }
 
-    static async forEachPage(driver: Driver, next: () => void): Promise<void> {
+    static async forEachPage(driver: Driver, next: () => Promise<void>): Promise<void> {
         // If need to select offer
         const needOfferSelection = driver.url().includes("selectionner-un-contrat");
         if (needOfferSelection) {
@@ -97,6 +97,10 @@ export class OrangeHelper {
             // If no offer selection, just perform collect
             await next();
         }
+    }
+
+    static async isEmpty(driver: Driver): Promise<boolean> {
+        return await driver.getElement(OrangeHelperSelectors.CONTAINER_NO_INVOICE, { raiseException: false, timeout: 2000 }) != null;
     }
                  
     static async getInvoices(driver: Driver): Promise<Element[]> {
