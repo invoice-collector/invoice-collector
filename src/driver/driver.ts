@@ -746,19 +746,22 @@ export class Element {
         }
     }
 
-    async middleClick(): Promise<void> {
-        // Get number of opened pages before middle click
-        const numberOfPagesBefore = (await this.driver.pages()).length;
-        // Perform middle click
-        await this.element.click({ button: 'middle' });
-        // Wait for the new tab to open
-        await utils.delay(5000);
-        // Get number of opened pages after middle click
-        const pages = await this.driver.pages();
-        // Get number of opened pages after middle click
-        const numberOfPagesAfter = pages.length;
-        // If no new page opened
-        if (numberOfPagesAfter == numberOfPagesBefore) {
+    async middleClick(newPage: boolean = false): Promise<void> {
+        // If does not open in a new page by default
+        if(!newPage) {
+            // Get number of opened pages before middle click
+            const numberOfPagesBefore = (await this.driver.pages()).length;
+            // Perform middle click
+            await this.element.click({ button: 'middle' });
+            // Wait for the new tab to open
+            await utils.delay(5000);
+            // Get number of opened pages after middle click
+            const pages = await this.driver.pages();
+            // If no new page opened, set newPage to true
+            newPage = pages.length == numberOfPagesBefore;
+        }
+        // If need to open in a new page
+        if (newPage) {
             // Get current url
             const currentUrl = this.driver.url();
             // Open new page
