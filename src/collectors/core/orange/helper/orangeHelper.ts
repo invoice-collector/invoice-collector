@@ -128,7 +128,7 @@ export class OrangeHelper {
 
     static async download(driver: Driver, invoice: Invoice, collector: WebCollector): Promise<string[]> {
         // Click on element
-        await invoice.downloadButton.middleClick(true);
+        await invoice.downloadButton.middleClick({ useFallbackMethod: true });
 
         // Raise error if VPN issue displayed
         const vpnError = await driver.getElement(OrangeHelperSelectors.CONTAINER_VPN_ERROR, { raiseException: false, timeout: 2000 });

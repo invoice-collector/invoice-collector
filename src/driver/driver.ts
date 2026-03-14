@@ -746,9 +746,11 @@ export class Element {
         }
     }
 
-    async middleClick(newPage: boolean = false): Promise<void> {
+    async middleClick({
+        useFallbackMethod = false
+    } = {}): Promise<void> {
         // If does not open in a new page by default
-        if(!newPage) {
+        if(!useFallbackMethod) {
             // Get number of opened pages before middle click
             const numberOfPagesBefore = (await this.driver.pages()).length;
             // Perform middle click
@@ -757,11 +759,11 @@ export class Element {
             await utils.delay(5000);
             // Get number of opened pages after middle click
             const pages = await this.driver.pages();
-            // If no new page opened, set newPage to true
-            newPage = pages.length == numberOfPagesBefore;
+            // If no new page opened, set useFallbackMethod to true
+            useFallbackMethod = pages.length == numberOfPagesBefore;
         }
         // If need to open in a new page
-        if (newPage) {
+        if (useFallbackMethod) {
             // Get current url
             const currentUrl = this.driver.url();
             // Open new page
