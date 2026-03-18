@@ -28,10 +28,10 @@ export class HttpRegistry extends AbstractRegistry {
     ping(): void {
         this.client.get("/ping")
         .then(response => {
-            console.log("Pong! Invoice-Collector server successfully reached");
+            console.log("Pong! Registry server successfully reached");
         })
         .catch(error => {
-            console.error(`Could not reach Invoice-Collector server at ${error.request.res?.responseUrl || error.request._currentUrl}. Status code: ${error.response?.status || error.code}
+            console.error(`Could not reach registry server at ${error.request.res?.responseUrl || error.request._currentUrl}. Status code: ${error.response?.status || error.code}
 You are still able to use the product but some features may not work as expected.`);
         });
     }
@@ -42,10 +42,10 @@ You are still able to use the product but some features may not work as expected
             version: collector.config.version,
         })
         .then(response => {
-            console.log("Invoice-Collector server successfully reached");
+            console.log("Registry server successfully reached");
         })
         .catch(error => {
-            console.error(`Could not reach Invoice-Collector server at ${error.request.res?.responseUrl || error.request._currentUrl}. Status code: ${error.response?.status || error.code}`);
+            console.error(`Could not reach registry server at ${error.request.res?.responseUrl || error.request._currentUrl}. Status code: ${error.response?.status || error.code}`);
         });
     }
 
@@ -63,10 +63,10 @@ You are still able to use the product but some features may not work as expected
             screenshot: err.screenshot
         })
         .then(response => {
-            console.log("Invoice-Collector server successfully reached");
+            console.log("Registry server successfully reached");
         })
         .catch(error => {
-            console.error(`Could not reach Invoice-Collector server at ${error.request.res?.responseUrl || error.request._currentUrl}. Status code: ${error.response?.status || error.code}`);
+            console.error(`Could not reach registry server at ${error.request.res?.responseUrl || error.request._currentUrl}. Status code: ${error.response?.status || error.code}`);
         });
     }
 
@@ -81,7 +81,7 @@ You are still able to use the product but some features may not work as expected
 
         // Check response status
         if (response.status !== 200) {
-            throw new Error(`Could not reach Invoice-Collector server at ${response.request.res?.responseUrl || response.request._currentUrl}. Status code: ${response.request?.status || response.status}`);
+            throw new Error(`Could not reach registry server at ${response.request.res?.responseUrl || response.request._currentUrl}. Status code: ${response.request?.status || response.status}`);
         };
     }
 
