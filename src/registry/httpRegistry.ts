@@ -1,29 +1,20 @@
+
 import axios, { AxiosInstance } from 'axios';
-import { fullStackTrace, LoggableError } from './error'
-import * as utils from './utils'
-import { OTP } from './model/otp';
-import { Server } from './server';
-import { AbstractCollector, Config } from './collectors/abstractCollector';
+import { fullStackTrace, LoggableError } from '../error';
+import * as utils from '../utils';
+import { OTP } from '../model/otp';
+import { Server } from '../server';
+import { AbstractCollector, Config } from '../collectors/abstractCollector';
+import { AbstractRegistry } from './abstractRegistry';
 
-export class RegistryServer {
-
-    static instance: RegistryServer;
-    static VERSION = "v1"
-    static FRONTEND = utils.getEnvVar("FRONTEND");
-
-    static getInstance(): RegistryServer {
-        if (!RegistryServer.instance) {
-            RegistryServer.instance = new RegistryServer();
-        }
-        return RegistryServer.instance;
-    }
+export class HttpRegistry extends AbstractRegistry {
 
     private client: AxiosInstance;
 
-    private constructor() {
-        const REGISTRY_SERVER_ENDPOINT = utils.getEnvVar("REGISTRY_SERVER_ENDPOINT");
+    public constructor(registryServerEndpoint: string) {
+        super();
         this.client = axios.create({
-            baseURL: `${REGISTRY_SERVER_ENDPOINT}/${RegistryServer.VERSION}`
+            baseURL: `${registryServerEndpoint}/${AbstractRegistry.VERSION}`
         });
 
         const headers = JSON.parse(utils.getEnvVar("REGISTRY_SERVER_HEADERS", "{}"));
@@ -34,7 +25,7 @@ export class RegistryServer {
         }
     }
 
-    ping() {
+    ping(): void {
         this.client.get("/ping")
         .then(response => {
             console.log("Pong! Invoice-Collector server successfully reached");
@@ -45,7 +36,7 @@ You are still able to use the product but some features may not work as expected
         });
     }
 
-    logSuccess(collector: AbstractCollector<Config>) {
+    logSuccess(collector: AbstractCollector<Config>): void {
         this.client.post("/log/success", {
             collector: collector.config.id,
             version: collector.config.version,
@@ -58,7 +49,7 @@ You are still able to use the product but some features may not work as expected
         });
     }
 
-    logError(email: string, remoteId: string, err: LoggableError) {
+    logError(email: string, remoteId: string, err: LoggableError): void {
         this.client.post("/log/error", {
             email,
             collector: err.collector_id,
@@ -79,7 +70,7 @@ You are still able to use the product but some features may not work as expected
         });
     }
 
-    async feedback(type: string, message: string, email: string, user_id: string) {
+    async feedback(type: string, message: string, email: string, user_id: string): Promise<void> {
         const response = await this.client.post("/feedback", {
             from: "app",
             type,
@@ -138,7 +129,7 @@ You are still able to use the product but some features may not work as expected
 
     public async sendResetPasswordEmail(email: string, resetToken: string): Promise<string> {
         // Build reset password link
-        const resetLink = `${RegistryServer.FRONTEND}/reset-password/${resetToken}`;
+        const resetLink = `${AbstractRegistry.FRONTEND}/reset-password/${resetToken}`;
         // Send email
         console.log("Sending reset password email to", email);
         await this.sendEmail(

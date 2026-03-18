@@ -9,7 +9,7 @@ import { IcCredential } from './model/credential';
 import { CollectTask } from './collect/collectTask';
 import { ProxyFactory } from './proxy/proxyFactory';
 import { AbstractCollector, CollectorType, Config } from './collectors/abstractCollector';
-import { RegistryServer } from './registryServer';
+import { RegistryFactory } from './registry/registryFactory';
 import * as utils from './utils';
 import { CallbackHandler } from './callback/callback';
 import { CollectPool } from './collect/collectPool';
@@ -56,7 +56,7 @@ export class Server {
         await SecretManagerFactory.getSecretManager().connect();
 
         // Check if registery server is reachable
-        RegistryServer.getInstance().ping();
+        RegistryFactory.getInstance().ping();
 
         // Start cron job for invoice collection
         this.collect_task.start();
@@ -129,7 +129,7 @@ export class Server {
         const customer = await this.getCustomerFromBearerOrToken(bearer, token);
 
         // Send feedback to registry server
-        await RegistryServer.getInstance().feedback(
+        await RegistryFactory.getInstance().feedback(
             type,
             message,
             customer.email,
@@ -285,7 +285,7 @@ export class Server {
             await user.commit();
 
             // Send welcome email
-            await RegistryServer.getInstance().sendWelcomeEmail(email, user.locale);
+            await RegistryFactory.getInstance().sendWelcomeEmail(email, user.locale);
 
             // Handle password reset for user
             const resetToken = await this.handleUserResetPassword(user);
@@ -311,7 +311,7 @@ export class Server {
             await customer.commit();
 
             // Send welcome email
-            await RegistryServer.getInstance().sendWelcomeEmail(email, locale || I18n.DEFAULT_LOCALE);
+            await RegistryFactory.getInstance().sendWelcomeEmail(email, locale || I18n.DEFAULT_LOCALE);
 
             // Handle password reset for customer
             const resetToken = await this.handleCustomerResetPassword(customer);
@@ -1057,7 +1057,7 @@ export class Server {
 
         // Check if collector is sketch
         if(collector.config.type == CollectorType.SKETCH) {
-            await RegistryServer.getInstance().feedback(
+            await RegistryFactory.getInstance().feedback(
                 "sketch",
                 `User ${user.id} from customer ${customer.id} (${customer.name}) needs collector ${collector.config.id} to be implemented.`,
                 customer.email,
@@ -1575,7 +1575,7 @@ export class Server {
         }, Server.RESET_PASSWORD_TOKEN_VALIDITY_DURATION_MS);
 
         // Send reset password email
-        await RegistryServer.getInstance().sendResetPasswordEmail(user.remote_id, resetToken);
+        await RegistryFactory.getInstance().sendResetPasswordEmail(user.remote_id, resetToken);
 
         // Return token
         return resetToken;
@@ -1594,7 +1594,7 @@ export class Server {
         }, Server.RESET_PASSWORD_TOKEN_VALIDITY_DURATION_MS);
 
         // Send reset password email
-        await RegistryServer.getInstance().sendResetPasswordEmail(customer.email, resetToken);
+        await RegistryFactory.getInstance().sendResetPasswordEmail(customer.email, resetToken);
 
         // Return token
         return resetToken;
