@@ -6,7 +6,7 @@ import { IcCredential } from "../model/credential";
 import { State } from "../model/state";
 import { Customer } from "../model/customer";
 import { User } from "../model/user";
-import { RegistryServer } from "../registryServer";
+import { RegistryFactory } from "../registry/registryFactory";
 import { TwofaPromise } from "./twofaPromise";
 import { WebSocketServer } from '../websocket/webSocketServer';
 import * as utils from "../utils";
@@ -128,7 +128,7 @@ export class Collect {
                 this.webSocketServer?.sendState(State._7_DONE);
 
                 // Log success
-                RegistryServer.getInstance().logSuccess(collector);
+                RegistryFactory.getInstance().logSuccess(collector);
             }
             else {
                 console.warn(`Customer ${customer.id} has no valid callback, skipping collect for credential ${this.credential_id} and planning next collect`);
@@ -144,7 +144,7 @@ export class Collect {
             // If error is NoInvoiceFoundError
             if (err instanceof NoInvoiceFoundError) {
                 console.warn(`Invoice collection for credential ${this.credential_id} succeed BUT no invoice found, collector may be broken`);
-                RegistryServer.getInstance().logError(customer?.email || "", user?.remote_id || "", err);
+                RegistryFactory.getInstance().logError(customer?.email || "", user?.remote_id || "", err);
 
                 // If credential exists
                 if (credential) {
@@ -163,7 +163,7 @@ export class Collect {
             else if(err instanceof LoggableError) {
                 console.error(`Invoice collection for credential ${this.credential_id} has failed: ${err.message}`);
                 console.error(err);
-                RegistryServer.getInstance().logError(customer?.email || "", user?.remote_id || "", err);
+                RegistryFactory.getInstance().logError(customer?.email || "", user?.remote_id || "", err);
 
                 // If credential exists
                 if (credential) {
