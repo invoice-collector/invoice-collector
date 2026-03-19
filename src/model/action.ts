@@ -129,6 +129,8 @@ export class LeftClickAction extends Action<LeftClickContext, void> {
         if(context.element) {
             // Perform left click on provided element
             await context.element.leftClick(this.args);
+            // Set element to undefined to avoid reuse for next actions
+            context.element = undefined;
         }
         else {
             // Perform left click using driver and cssSelector
