@@ -11,7 +11,7 @@ export class BureauValleeCollector extends WebCollector {
         id: "bureau_vallee",
         name: "Bureau Vallée",
         description: "i18n.collectors.bureau_vallee.description",
-        version: "13",
+        version: "14",
         website: "https://www.bureau-vallee.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Logo-bureau-vallee-2021.png/320px-Logo-bureau-vallee-2021.png",
         type: CollectorType.WEB,
