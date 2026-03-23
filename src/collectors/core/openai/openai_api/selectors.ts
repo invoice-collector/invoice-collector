@@ -2,9 +2,9 @@ export const OpenaiSelectors = {
 
     // HOME PAGE
 
-    BUTTON_SETTINGS: {
-        selector: "a[href='/settings']",
-        info: "settings button"
+    BUTTON_PROFILE: {
+        selector: "button[id*='radix'][data-state='closed'] > span:not(:has(*))",
+        info: "profile button"
     },
 
     // CONTAINER INVOICE

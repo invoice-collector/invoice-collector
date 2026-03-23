@@ -2,11 +2,11 @@ export const BureauValleeSelectors = {
     // COOKIES
 
     BUTTON_REFUSE_COOKIES: {
-        selector: ".modal-inner-wrap button.-decline",
+        selector: ".c-modal__content button.c-button",
         info: "refuse cookies button"
     },
     BUTTON_ACCEPT_COOKIES: {
-        selector: ".modal-inner-wrap button.-allow",
+        selector: ".c-modal__footer button.c-button--primary",
         info: "accept cookies button"
     },
 
