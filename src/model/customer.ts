@@ -5,6 +5,7 @@ import { User } from "./user";
 import { CollectorLoader } from "../collectors/collectorLoader";
 import { Server } from "../server";
 import { Plan } from "./plan";
+import { Integration } from "./integration";
 
 export enum Theme {
     DEFAULT = 'default',
@@ -35,6 +36,7 @@ export class Customer {
     static DEFAULT_CALLBACK = "";
     static DEFAULT_REMOTE_ID = "";
     static DEFAULT_BEARER = "";
+    static DEFAULT_INTEGRATIONS: Integration[] = [];
     static DEFAULT_SUBSCRIBED_COLLECTORS: string[] = [];
     static DEFAULT_IS_SUBSCRIBED_TO_ALL = true;
     static DEFAULT_ENABLE_INTERACTIVE_LOGIN = true;
@@ -103,6 +105,7 @@ export class Customer {
     bearer: string;
     inviteId: string;
     createdAt: number;
+    integrations: Integration[];
     theme: Theme;
     subscribedCollectors: string[];
     isSubscribedToAll: boolean;
@@ -121,6 +124,7 @@ export class Customer {
         bearer: string,
         inviteId: string,
         createdAt: number,
+        integrations: Integration[] = Customer.DEFAULT_INTEGRATIONS,
         theme: Theme = Theme.DEFAULT,
         subscribedCollectors: string[] = Customer.DEFAULT_SUBSCRIBED_COLLECTORS,
         isSubscribedToAll: boolean = Customer.DEFAULT_IS_SUBSCRIBED_TO_ALL,
@@ -139,6 +143,7 @@ export class Customer {
         this.bearer = bearer;
         this.inviteId = inviteId;
         this.createdAt = createdAt;
+        this.integrations = integrations;
         this.theme = theme;
         this.subscribedCollectors = subscribedCollectors;
         this.isSubscribedToAll = isSubscribedToAll;
