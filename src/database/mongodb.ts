@@ -49,7 +49,6 @@ export class MongoDB extends AbstractDatabase {
                 const bearer = (await Customer.createDefault()).bearer;
                 console.log(`Default customer created. Bearer is "${bearer}". Keep it safe, it will not be displayed again.`);
             }
-
         } catch (err) {
             console.error("Connection to MongoDB failed", err);
         }
@@ -61,6 +60,18 @@ export class MongoDB extends AbstractDatabase {
             console.log("Disconnected successfully from MongoDB");
         } catch (err) {
             console.error("Disconnection from MongoDB failed", err);
+        }
+    }
+
+    async ping(): Promise<boolean> {
+        if (!this.db) {
+            return false;
+        }
+        try {
+            await this.db.admin().ping();
+            return true;
+        } catch (err) {
+            return false;
         }
     }
 
