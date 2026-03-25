@@ -1,7 +1,12 @@
 import { AbstractCollector, Config } from "../collectors/abstractCollector";
 import { LoggableError } from "../error";
-import { OTP } from "../model/otp";
 import * as utils from '../utils';
+
+export type OTP = {
+    code: string,
+    sentAt: number,
+    validatedAt?: number;
+}
 
 export abstract class AbstractRegistry {
 

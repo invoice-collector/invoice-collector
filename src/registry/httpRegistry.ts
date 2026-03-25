@@ -2,10 +2,9 @@
 import axios, { AxiosInstance } from 'axios';
 import { fullStackTrace, LoggableError } from '../error';
 import * as utils from '../utils';
-import { OTP } from '../model/otp';
 import { Server } from '../server';
 import { AbstractCollector, Config } from '../collectors/abstractCollector';
-import { AbstractRegistry } from './abstractRegistry';
+import { AbstractRegistry, OTP } from './abstractRegistry';
 
 export class HttpRegistry extends AbstractRegistry {
 
