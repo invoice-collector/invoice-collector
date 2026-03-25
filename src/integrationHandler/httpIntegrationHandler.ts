@@ -2,10 +2,17 @@ import axios from 'axios';
 import { CompleteInvoice, Config } from '../collectors/abstractCollector';
 import * as utils from '../utils';
 import { AbstractIntegrationHandler } from './abstractIntegrationHandler';
+import { Secret } from '../model/secret';
 
 export class HttpIntegrationHandler extends AbstractIntegrationHandler {
+
+    static MANDATORY_PARAMS: string[] = ["url"];
     static DEFAULT_RETRIES: number = 3;
     static DEFAULT_DELAY_BETWEEN_RETRIES: number = 10000; // 10 seconds
+    
+    constructor(secret: Secret) {
+        super(HttpIntegrationHandler.MANDATORY_PARAMS, secret);
+    }
 
     private async sendRequest(
         url: string,
@@ -47,9 +54,7 @@ export class HttpIntegrationHandler extends AbstractIntegrationHandler {
         const secretParams = await this.secret.getParams();
 
         // Check if url is defined in secret params
-        if (!secretParams.url) {
-            throw new Error("Callback URL not defined in integration secret parameters");
-        }
+        await this.checkMandatoryParams(secretParams);
 
         await this.sendRequest(
             secretParams.url,
@@ -77,9 +82,7 @@ export class HttpIntegrationHandler extends AbstractIntegrationHandler {
         const secretParams = await this.secret.getParams();
 
         // Check if url is defined in secret params
-        if (!secretParams.url) {
-            throw new Error("Callback URL not defined in integration secret parameters");
-        }
+        await this.checkMandatoryParams(secretParams);
 
         console.log(`Sending disconnected notification to callback ${secretParams.url} for credential ${credential_id}`);
         await this.sendRequest(

@@ -35,11 +35,11 @@ export class Integration {
         return IntegrationHandlerFactory.getIntegration(this.id, this.getSecret());
     }
 
-    sendInvoice(collector: Config, remote_id: string, invoice: CompleteInvoice): Promise<void> {
+    async sendInvoice(collector: Config, remote_id: string, invoice: CompleteInvoice): Promise<void> {
         return this.getIntegrationHandler().sendInvoice(collector, remote_id, invoice);
     }
 
-    sendNotificationDisconnected(collector: Config, credential_id: string,  user_id: string, remote_id: string): Promise<void> {
+    async sendNotificationDisconnected(collector: Config, credential_id: string,  user_id: string, remote_id: string): Promise<void> {
         return this.getIntegrationHandler().sendNotificationDisconnected(collector, credential_id, user_id, remote_id);
     }
 }
