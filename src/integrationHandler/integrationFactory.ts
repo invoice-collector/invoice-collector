@@ -3,12 +3,12 @@ import { AbstractIntegrationHandler } from "./abstractIntegrationHandler";
 import { HttpIntegrationHandler } from "./httpIntegrationHandler";
 
 class IntegrationHandlerFactory {
-    static getIntegration(name: string, secret: Secret): AbstractIntegrationHandler {
-        switch (name) {
+    static getIntegration(id: string, secret: Secret): AbstractIntegrationHandler {
+        switch (id) {
             case "http":
                 return new HttpIntegrationHandler(secret);
             default:
-                throw new Error(`Integration ${name} not found`);
+                throw new Error(`Integration ${id} not found`);
         }
     }
 }
