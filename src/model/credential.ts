@@ -78,7 +78,7 @@ export class IcCredential {
     }
 
     getSecret(): Secret {
-        let secret = new Secret(`${this.user_id}_${this.collector_id}`);
+        let secret = new Secret(`${this.id}_${this.user_id}_${this.collector_id}`);
         secret.id = this.secret_id;
         return secret;
     }

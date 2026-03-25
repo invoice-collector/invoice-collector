@@ -4,6 +4,7 @@ import { Location } from "../proxy/abstractProxy";
 import { SecretManagerFactory } from "../secret_manager/secretManagerFactory";
 import { IcCredential } from "./credential";
 import { Customer } from "./customer";
+import { Integration } from "./integration";
 
 export enum UserStatus {
     ACTIVE = "active",
@@ -85,6 +86,10 @@ export class User {
 
     async getCredentials() {
         return await DatabaseFactory.getDatabase().getCredentials(this.id);
+    }
+    
+    async getIntegrations(): Promise<Integration[]> {
+        return DatabaseFactory.getDatabase().getIntegrations(this.id);
     }
 
     async commit() {

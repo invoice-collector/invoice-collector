@@ -8,6 +8,7 @@ import { buildCustomerStatsPipeline } from "./mongodbConstants";
 import { State } from "../model/state";
 import { CollectorMemory } from "../model/collectorMemory";
 import { Actions } from "../model/actions";
+import { Integration } from "../model/integration";
 
 export class MongoDB extends AbstractDatabase {
 
@@ -15,6 +16,7 @@ export class MongoDB extends AbstractDatabase {
     static USER_COLLECTION = 'users';
     static CREDENTIAL_COLLECTION = 'credentials';
     static COLLECTOR_MEMORY_COLLECTION = 'collector_memories';
+    static INTEGRATION_COLLECTION = 'integrations';
 
     client: MongoClient;
     db_name: string;
@@ -38,6 +40,7 @@ export class MongoDB extends AbstractDatabase {
             await this.db.createCollection(MongoDB.USER_COLLECTION);
             await this.db.createCollection(MongoDB.CREDENTIAL_COLLECTION);
             await this.db.createCollection(MongoDB.COLLECTOR_MEMORY_COLLECTION);
+            await this.db.createCollection(MongoDB.INTEGRATION_COLLECTION);
 
             // Create default customer if no customer found
             const nbCustomers = await this.countCustomers();
@@ -84,7 +87,6 @@ export class MongoDB extends AbstractDatabase {
             bearer: customer.bearer,
             inviteId: customer.inviteId,
             createdAt: customer.createdAt,
-            integrations: customer.integrations,
             theme: customer.theme,
             subscribedCollectors: customer.subscribedCollectors,
             isSubscribedToAll: customer.isSubscribedToAll,
@@ -115,7 +117,6 @@ export class MongoDB extends AbstractDatabase {
             document.bearer,
             document.inviteId,
             document.createdAt,
-            document.integrations,
             document.theme,
             document.subscribedCollectors,
             document.isSubscribedToAll,
@@ -162,7 +163,6 @@ export class MongoDB extends AbstractDatabase {
                 callback: customer.callback,
                 remoteId: customer.remoteId,
                 bearer: customer.bearer,
-                integrations: customer.integrations,
                 theme: customer.theme,
                 subscribedCollectors: customer.subscribedCollectors,
                 isSubscribedToAll: customer.isSubscribedToAll,
@@ -551,5 +551,75 @@ export class MongoDB extends AbstractDatabase {
                 entryUrl: collectorMemory.entryUrl
             }}
         );
+    }
+
+    // INTEGRATION
+
+    async getIntegrations(customer_user_id: string): Promise<Integration[]> {
+        if (!this.db) {
+            throw new Error("Database is not connected");
+        }
+        const documents = await this.db.collection(MongoDB.INTEGRATION_COLLECTION).find({
+            customer_user_id: new ObjectId(customer_user_id)
+        }).toArray();
+        return documents.map(document => {
+            const integration = new Integration(
+                document.customer_user_id,
+                document.name,
+                document.secret_id,
+                document.createdAt,
+                document.lastUsed,
+                document.automaticExport
+            );
+            integration.id = document._id.toString();
+            return integration;
+        });
+    }
+
+    async getIntegration(integration_id: string): Promise<Integration | null> {
+        if (!this.db) {
+            throw new Error("Database is not connected");
+        }
+        const document = await this.db.collection(MongoDB.INTEGRATION_COLLECTION).findOne({
+            _id: new ObjectId(integration_id)
+        });
+        if (!document) {
+            return null;
+        }
+        const integration = new Integration(
+            document.customer_user_id,
+            document.name,
+            document.secret_id,
+            document.createdAt,
+            document.lastUsed,
+            document.automaticExport
+        );
+        integration.id = document._id.toString();
+        return integration;
+    }
+
+    async createIntegration(integration: Integration): Promise<Integration> {
+        if (!this.db) {
+            throw new Error("Database is not connected");
+        }
+        const document = await this.db.collection(MongoDB.INTEGRATION_COLLECTION).insertOne({
+            customer_user_id: integration.customer_user_id,
+            name: integration.name,
+            secret_id: integration.secret_id,
+            createdAt: integration.createdAt,
+            lastUsed: integration.lastUsed,
+            automaticExport: integration.automaticExport
+        });
+        integration.id = document.insertedId.toString();
+        return integration;
+    }
+
+    async deleteIntegration(integration_id: string): Promise<void> {
+        if (!this.db) {
+            throw new Error("Database is not connected");
+        }
+        await this.db.collection(MongoDB.INTEGRATION_COLLECTION).deleteOne({
+            _id: new ObjectId(integration_id)
+        });
     }
 }

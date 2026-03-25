@@ -2,6 +2,7 @@ import { Customer, CustomerStats } from "../model/customer";
 import { User } from "../model/user";
 import { IcCredential } from "../model/credential";
 import { CollectorMemory } from "../model/collectorMemory";
+import { Integration } from "../model/integration";
 
 export abstract class AbstractDatabase {
     constructor() {
@@ -77,4 +78,14 @@ export abstract class AbstractDatabase {
     abstract createCollectorMemory(collectorMemory: CollectorMemory): Promise<CollectorMemory>;
 
     abstract updateCollectorMemory(collectorMemory: CollectorMemory): Promise<void>;
+    
+    // INTEGRATION
+
+    abstract getIntegrations(customer_user_id: string): Promise<Integration[]>;
+
+    abstract getIntegration(integration_id: string): Promise<Integration | null>;
+
+    abstract createIntegration(integration: Integration): Promise<Integration>;
+
+    abstract deleteIntegration(integration_id: string): Promise<void>;
 }

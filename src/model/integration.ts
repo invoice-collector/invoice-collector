@@ -6,19 +6,24 @@ import { Secret } from "../model/secret";
 export class Integration {
 
     id: string;
+    customer_user_id: string;
+    name: string;
     secret_id: string;
     createdAt: number;
     lastUsed: number;
     automaticExport: boolean;
 
     constructor(
-        id: string,
+        customer_user_id: string,
+        name: string,
         secret_id: string,
         createdAt: number,
         lastUsed: number,
         automaticExport: boolean
     ) {
-        this.id = id;
+        this.id = "";
+        this.customer_user_id = customer_user_id;
+        this.name = name;
         this.secret_id = secret_id;
         this.createdAt = createdAt;
         this.lastUsed = lastUsed;
@@ -26,13 +31,13 @@ export class Integration {
     }
 
     private getSecret(): Secret {
-        let secret = new Secret(this.id);
+        let secret = new Secret(`${this.id}_${this.customer_user_id}_${this.name}`);
         secret.id = this.secret_id;
         return secret;
     }
 
     private getIntegrationHandler(): AbstractIntegrationHandler {
-        return IntegrationHandlerFactory.getIntegration(this.id, this.getSecret());
+        return IntegrationHandlerFactory.getIntegration(this.name, this.getSecret());
     }
 
     async sendInvoice(collector: Config, remote_id: string, invoice: CompleteInvoice): Promise<void> {
