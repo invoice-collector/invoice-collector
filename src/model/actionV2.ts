@@ -53,7 +53,7 @@ export abstract class ActionV2<Context, Result> {
     pageUrlRegex: string;
     cssSelector: string | null;
     description: string;
-    objective: string | null;
+    objectiveId: string | null;
     args: any;
     destinationIds: string[];
 
@@ -62,7 +62,7 @@ export abstract class ActionV2<Context, Result> {
         description: string,
         pageUrlRegex: string,
         cssSelector: string | null,
-        objective: string | null,
+        objectiveId: string | null,
         args: any,
         destinationIds: string[] = []
     ) {
@@ -71,7 +71,7 @@ export abstract class ActionV2<Context, Result> {
         this.pageUrlRegex = pageUrlRegex;
         this.cssSelector = cssSelector;
         this.description = description;
-        this.objective = objective;
+        this.objectiveId = objectiveId;
         this.args = args;
         this.destinationIds = destinationIds;
     }
