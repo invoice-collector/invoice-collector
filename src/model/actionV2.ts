@@ -29,14 +29,24 @@ export abstract class ActionV2<Context, Result> {
     }
 
     static fromObject(obj: any): ActionV2<any, any> {
-        switch (obj.action) {
-            case ActionEnum.LEFT_CLICK:
-                return new LeftClickAction(obj.description, obj.pageUrlRegex, obj.cssSelector, obj.objective, obj.args, obj.destinationIds);
-            case ActionEnum.INPUT_TEXT:
-                return new InputTextAction(obj.description, obj.pageUrlRegex, obj.cssSelector, obj.objective, obj.args, obj.destinationIds);
-            default:
-                throw new Error(`Action ${obj.action} not implemented`);
+        // Check if obj.action exists
+        if (!obj.hasOwnProperty('action')) {
+            throw new Error(`Action object is missing 'action' field: ${JSON.stringify(obj)}`);
         }
+
+        if (!ClassActionMap.hasOwnProperty(obj.action)) {
+            throw new Error(`Action ${obj.action} not implemented`);
+        }
+
+        return ClassActionMap[obj.action](
+            obj.description,
+            obj.pageUrlRegex,
+            obj.cssSelector,
+            obj.objective,
+            obj.lastUsed,
+            obj.args,
+            obj.destinationIds
+        );
     }
 
     static async performActions(actions: ActionV2<any, any>[], context: any): Promise<any> {
@@ -55,6 +65,7 @@ export abstract class ActionV2<Context, Result> {
     cssSelector: string | null;
     description: string;
     objectiveId: string | null;
+    lastUsed: string | null;
     args: any;
     destinationIds: string[];
 
@@ -64,6 +75,7 @@ export abstract class ActionV2<Context, Result> {
         pageUrlRegex: string,
         cssSelector: string | null,
         objectiveId: string | null,
+        lastUsed: string | null,
         args: any,
         destinationIds: string[] = []
     ) {
@@ -73,6 +85,7 @@ export abstract class ActionV2<Context, Result> {
         this.cssSelector = cssSelector;
         this.description = description;
         this.objectiveId = objectiveId;
+        this.lastUsed = lastUsed;
         this.args = args;
         this.destinationIds = destinationIds;
     }
@@ -101,6 +114,7 @@ export abstract class ActionV2<Context, Result> {
 
     async perform(context: Context): Promise<Result> {
         try {
+            this.lastUsed = new Date().toISOString();
             return await this._perform(context);
         }
         catch (e) {
@@ -129,6 +143,7 @@ export class LeftClickAction extends ActionV2<LeftClickContext, void> {
         pageUrlRegex: string,
         cssSelector: string | null,
         objective: string | null,
+        lastUsed: string | null,
         args: any,
         destinationIds: string[] = []
     ) {
@@ -137,7 +152,16 @@ export class LeftClickAction extends ActionV2<LeftClickContext, void> {
             throw new Error('LeftClickAction requires args to have a "navigation" field');
         }
 
-        super(ActionEnum.LEFT_CLICK, description, pageUrlRegex, cssSelector, objective, args, destinationIds);
+        super(
+            ActionEnum.LEFT_CLICK,
+            description,
+            pageUrlRegex,
+            cssSelector,
+            objective,
+            lastUsed,
+            args,
+            destinationIds
+        );
     }
 
     async _perform(context: LeftClickContext): Promise<void> {
@@ -172,6 +196,7 @@ export class InputTextAction extends ActionV2<InputTextContext, void> {
         pageUrlRegex: string,
         cssSelector: string | null,
         objective: string | null,
+        lastUsed: string | null,
         args: any,
         destinationIds: string[] = []
     ) {
@@ -184,7 +209,16 @@ export class InputTextAction extends ActionV2<InputTextContext, void> {
             throw new Error('InputTextAction requires a cssSelector to locate the element');
         }
 
-        super(ActionEnum.INPUT_TEXT, description, pageUrlRegex, cssSelector, objective, args, destinationIds);
+        super(
+            ActionEnum.INPUT_TEXT,
+            description,
+            pageUrlRegex,
+            cssSelector,
+            objective,
+            lastUsed,
+            args,
+            destinationIds
+        );
     }
 
     async _perform(context: InputTextContext): Promise<void> {
@@ -205,4 +239,9 @@ export class InputTextAction extends ActionV2<InputTextContext, void> {
     toString(): string {
         return `Input ${this.args.text} into field ${this.description}`;
     }
+}
+
+export const ClassActionMap = {
+    [ActionEnum.LEFT_CLICK]: LeftClickAction,
+    [ActionEnum.INPUT_TEXT]: InputTextAction,
 }
