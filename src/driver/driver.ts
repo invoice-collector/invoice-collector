@@ -7,7 +7,6 @@ import { Proxy } from '../proxy/abstractProxy';
 import * as utils from '../utils';
 import { Options } from './puppeteer/browser';
 import { CollectorCaptcha } from '../collectors/abstractCollector';
-import { WebCollector as OldWebCollector} from '../collectors/webCollector';
 import { WebCollector } from '../collectors/webCollector';
 
 export class Driver {
@@ -59,13 +58,13 @@ export class Driver {
         }
     };
 
-    collector: OldWebCollector | WebCollector;
+    collector: WebCollector;
     browser: Browser | null;
     page: Page | null;
     downloadPath: string;
     puppeteerConfig: Options;
 
-    constructor(collector: OldWebCollector | WebCollector) {
+    constructor(collector: WebCollector) {
         this.collector = collector;
         this.browser = null;
         this.page = null;
