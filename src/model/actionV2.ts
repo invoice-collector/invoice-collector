@@ -1,6 +1,7 @@
 import { Driver, Element } from "../driver/driver";
 import { AuthenticationError, DisconnectedError } from "../error";
 import * as utils from "../utils";
+import { Secret } from "./secret";
 
 export enum ActionEnum  {
     LEFT_CLICK = 'leftClick',
@@ -162,7 +163,7 @@ export class LeftClickAction extends ActionV2<LeftClickContext, void> {
 
 export type InputTextContext = {
     driver: Driver;
-    params: any;
+    secret: Secret;
 }
 
 export class InputTextAction extends ActionV2<InputTextContext, void> {
@@ -187,15 +188,18 @@ export class InputTextAction extends ActionV2<InputTextContext, void> {
     }
 
     async _perform(context: InputTextContext): Promise<void> {
+        // Get params from secret
+        const params = await context.secret.getParams();
+
         // If parameter exists
-        if(!context.params.hasOwnProperty(this.args.text)) {
+        if(!params.hasOwnProperty(this.args.text)) {
             throw new Error(`Parameter ${this.args.text} not found in params`);
         }
 
         await context.driver.inputText({
                 selector: this.cssSelector,
                 info: this.description
-            }, context.params[this.args.text], this.args);
+            }, params[this.args.text], this.args);
     }
 
     toString(): string {
