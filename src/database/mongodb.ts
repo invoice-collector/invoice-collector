@@ -8,6 +8,7 @@ import { buildCustomerStatsPipeline } from "./mongodbConstants";
 import { State } from "../model/state";
 import { CollectorMemory } from "../model/collectorMemory";
 import { Actions } from "../model/actions";
+import { ActionV2 } from "../model/actionV2";
 
 export class MongoDB extends AbstractDatabase {
 
@@ -514,6 +515,7 @@ export class MongoDB extends AbstractDatabase {
         const collectorMemory = new CollectorMemory(
             document.collector_id,
             Actions.fromObject(document.actions),
+            ActionV2.fromObjectList(document.actionsV2),
             document.customerAreaUrl,
             document.entryUrl
         );
@@ -528,6 +530,7 @@ export class MongoDB extends AbstractDatabase {
         const document = await this.db.collection(MongoDB.COLLECTOR_MEMORY_COLLECTION).insertOne({
             collector_id: collectorMemory.collector_id,
             actions: collectorMemory.actions,
+            actionsV2: collectorMemory.actionsV2,
             customerAreaUrl: collectorMemory.customerAreaUrl,
             entryUrl: collectorMemory.entryUrl
         });
@@ -544,6 +547,7 @@ export class MongoDB extends AbstractDatabase {
             { $set: {
                 collector_id: collectorMemory.collector_id,
                 actions: collectorMemory.actions,
+                actionsV2: collectorMemory.actionsV2,
                 customerAreaUrl: collectorMemory.customerAreaUrl,
                 entryUrl: collectorMemory.entryUrl
             }}
