@@ -1,11 +1,11 @@
-import { WebCollector } from '../../webCollector';
+import { LinearWebCollector } from '../../linearWebCollector';
 import { BureauValleeSelectors } from './selectors';
 import { Driver, Element } from '../../../driver/driver';
 import { CollectorCaptcha, CollectorType, Invoice } from '../../abstractCollector';
 import { WebSocketServer } from '../../../websocket/webSocketServer';
 import * as utils from '../../../utils';
 
-export class BureauValleeCollector extends WebCollector {
+export class BureauValleeCollector extends LinearWebCollector {
 
     static CONFIG = {
         id: "bureau_vallee",

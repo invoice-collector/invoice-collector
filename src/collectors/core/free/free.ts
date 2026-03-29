@@ -1,10 +1,10 @@
-import { WebCollector } from '../../webCollector';
+import { LinearWebCollector } from '../../linearWebCollector';
 import { FreeSelectors } from './selectors';
 import { Driver, Element } from '../../../driver/driver';
 import { CollectorCaptcha, CollectorType, Invoice } from '../../abstractCollector';
 import { WebSocketServer } from '../../../websocket/webSocketServer';
 
-export class FreeCollector extends WebCollector {
+export class FreeCollector extends LinearWebCollector {
 
     static CONFIG = {
         id: "free",

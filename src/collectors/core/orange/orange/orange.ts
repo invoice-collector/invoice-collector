@@ -5,9 +5,9 @@ import { AuthenticationError } from '../../../../error';
 import { OrangeHelper } from '../helper/orangeHelper';
 import { WebSocketServer } from '../../../../websocket/webSocketServer';
 import { TwofaPromise } from '../../../../collect/twofaPromise';
-import { WebCollector } from '../../../webCollector';
+import { LinearWebCollector } from '../../../linearWebCollector';
 
-export class OrangeCollector extends WebCollector {
+export class OrangeCollector extends LinearWebCollector {
 
     static CONFIG = {
         id: "orange",

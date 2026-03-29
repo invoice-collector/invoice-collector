@@ -1,11 +1,11 @@
 import { OpenaiSelectors } from './selectors';
-import { Driver, Element } from '../../../../driver/driver';
+import { Driver } from '../../../../driver/driver';
 import { TwofaPromise } from '../../../../collect/twofaPromise';
 import { WebSocketServer } from '../../../../websocket/webSocketServer';
-import { WebCollector } from '../../../webCollector';
+import { LinearWebCollector } from '../../../linearWebCollector';
 import { Invoice } from '../../../abstractCollector';
 
-export abstract class OpenaiCommonCollector extends WebCollector {
+export abstract class OpenaiCommonCollector extends LinearWebCollector {
 
     async needLogin(driver: Driver): Promise<boolean> {
         return await driver.getElement(OpenaiSelectors.BUTTON_LOGIN_OR_OUPS, { raiseException: false, timeout: 5000 }) != null ||

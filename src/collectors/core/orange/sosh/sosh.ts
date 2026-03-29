@@ -1,12 +1,12 @@
 import { TwofaPromise } from '../../../../collect/twofaPromise';
-import { CollectorCaptcha, CollectorState, CollectorType, Invoice } from '../../../abstractCollector';
+import { CollectorCaptcha, CollectorType, Invoice } from '../../../abstractCollector';
 import { OrangeHelper } from '../helper/orangeHelper';
-import { WebCollector } from '../../../webCollector';
+import { LinearWebCollector } from '../../../linearWebCollector';
 import { Driver, Element } from '../../../../driver/driver';
 import { WebSocketServer } from '../../../../websocket/webSocketServer';
 import { SoshSelectors } from './selectors';
 
-export class SoshCollector extends WebCollector {
+export class SoshCollector extends LinearWebCollector {
 
     static CONFIG = {
         id: "sosh",

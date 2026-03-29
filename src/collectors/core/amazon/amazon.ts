@@ -1,12 +1,12 @@
 import { Driver, Element } from '../../../driver/driver';
 import { CollectorCaptcha, CollectorType, Invoice } from '../../../collectors/abstractCollector';
-import { WebCollector } from '../../../collectors/webCollector';
+import { LinearWebCollector } from '../../../collectors/linearWebCollector';
 import { AmazonSelectors } from './selectors';
 import { timestampFromString } from '../../../utils';
 import { TwofaPromise } from '../../../collect/twofaPromise';
 import { WebSocketServer } from '../../../websocket/webSocketServer';
 
-export class AmazonCollector extends WebCollector {
+export class AmazonCollector extends LinearWebCollector {
 
     private language: string;
 
