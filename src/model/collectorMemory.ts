@@ -36,10 +36,6 @@ export class CollectorMemory {
         return this.actions.hasOwnProperty(key) ? this.actions[key] as Action<unknown, unknown>[] : null;
     }
 
-    getActionsV2(): ActionV2<any, any>[] {
-        return this.actionsV2;
-    }
-
     async commit() {
         if (this.id) {
             // Update existing collector memory
