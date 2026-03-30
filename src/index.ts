@@ -1844,7 +1844,8 @@ app.get('/api/v1/integrations', async (req, res) => {
         const response = await server.get_integrations(
             req.query.locale
         );
-        // Build response        res.setHeader('Content-Type', 'application/json');
+        // Build response
+        res.setHeader('Content-Type', 'application/json');
         res.end(JSON.stringify(response));
     } catch (e) {
         handle_error(e, req, res);
