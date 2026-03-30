@@ -61,7 +61,7 @@ export class Callback {
     async commit() {
         if (this.id) {
             // Update existing callback
-            throw new Error("Updating callback is not possible yet.");
+            await DatabaseFactory.getDatabase().updateCallback(this);
         }
         else {
             // Create callback

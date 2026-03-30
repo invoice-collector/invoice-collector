@@ -9,6 +9,7 @@ import { State } from "../model/state";
 import { CollectorMemory } from "../model/collectorMemory";
 import { Actions } from "../model/actions";
 import { Callback } from "../model/callback";
+import { last } from "pdf-lib";
 
 export class MongoDB extends AbstractDatabase {
 
@@ -624,6 +625,20 @@ export class MongoDB extends AbstractDatabase {
         callback.id = document.insertedId.toString();
         return callback;
     }
+
+    async updateCallback(callback: Callback): Promise<void> {
+        if (!this.db) {
+            throw new Error("Database is not connected");
+        }
+        await this.db.collection(MongoDB.CALLBACK_COLLECTION).updateOne(
+            { _id: new ObjectId(callback.id) },
+            { $set: {
+                lastUsed: callback.lastUsed,
+                automaticExport: callback.automaticExport
+            }}
+        );
+    }
+
 
     async deleteCallback(callback_id: string): Promise<void> {
         if (!this.db) {

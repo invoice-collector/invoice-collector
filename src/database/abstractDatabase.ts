@@ -87,5 +87,7 @@ export abstract class AbstractDatabase {
 
     abstract createCallback(callback: Callback): Promise<Callback>;
 
+    abstract updateCallback(callback: Callback): Promise<void>;
+
     abstract deleteCallback(callback_id: string): Promise<void>;
 }
