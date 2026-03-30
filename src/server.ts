@@ -18,6 +18,9 @@ import { I18n } from './i18n';
 import { Plan } from './model/plan';
 import { State } from './model/state';
 import { WebSocketServer } from './websocket/webSocketServer';
+import { IntegrationLoader } from './integration/integrationLoader';
+import { Callback } from './model/callback';
+import { IntegrationConfig } from './integration/abstractIntegration';
 
 export class Server {
 
@@ -1356,6 +1359,140 @@ export class Server {
         };
     }
 
+    // ---------- CALLBACKS ENDPOINTS ----------
+
+    // BEARER AUTHENTICATION
+    public async get_callbacks(
+        bearer: string | undefined
+    ): Promise<{
+        id: string,
+        customer_user_id: string,
+        integration: IntegrationConfig,
+        createdAt: number,
+        lastUsed: number | null,
+        automaticExport: boolean
+    }[]> {
+        // Get customer from bearer
+        const customer = await this.getCustomerFromBearer(bearer);
+
+        // Get callbacks from customer
+        const callbacks = await customer.getCallbacks();
+
+        // Return callbacks
+        return callbacks.map(callback => {
+            // Get integration from id
+            const integration = IntegrationLoader.get(callback.integration_id);
+
+            return {
+                id: callback.id,
+                customer_user_id: callback.customer_user_id,
+                integration: this.translateIntegration(integration, 'en'), //TODO: add customer locale
+                createdAt: callback.createdAt,
+                lastUsed: callback.lastUsed,
+                automaticExport: callback.automaticExport
+            }
+        });
+    }
+
+    // BEARER AUTHENTICATION
+    public async post_callback(
+        bearer: string | undefined,
+        id: string | undefined,
+        params: any | undefined
+    ): Promise<void> {
+        // Get customer from bearer
+        const customer = await this.getCustomerFromBearer(bearer);
+ 
+        // Check if id field is missing
+        if(!id) {
+            throw new MissingField("id");
+        }
+ 
+        // Check if params field is missing
+        if(!params) {
+            throw new MissingField("params");
+        }
+
+        // Get integration configs
+        const integrationConfigs = IntegrationLoader.getAll();
+
+         // Check if integration exists
+        const integrationConfig = integrationConfigs.find(config => config.id === id);
+        if (!integrationConfig) {
+            throw new StatusError(`Integration with id "${id}" not found.`, 400);
+        }
+
+        // Check if all mandatory params are present
+        const missing_params = Object.keys(integrationConfig.params).filter((param) => integrationConfig.params[param].mandatory && !params.hasOwnProperty(param));
+        if(missing_params.length > 0) {
+            throw new MissingParams(missing_params);
+        }
+
+        // Create secret
+        const secret = new Secret(`${customer.id}_${id}`, {
+            params,
+            cookies: null,
+            localStorage: null
+        });
+
+        // Create secret in Secure Storage
+        await secret.commit();
+
+        // Create new callback
+        const callback = new Callback(
+            customer.id,
+            id,
+            secret.id,
+            Date.now(),
+            null,
+            params.automaticExport
+        );
+
+        // Commit integration to database
+        await callback.commit();
+    }
+
+    // BEARER AUTHENTICATION
+    public async delete_callback(
+        bearer: string | undefined,
+        callback_id: string
+    ): Promise<void> {
+        // Get customer from bearer
+        const customer = await this.getCustomerFromBearer(bearer);
+
+        // Get callbacks from customer
+        const callbacks = await customer.getCallbacks();
+
+        // Check if callback exists
+        const callbackToDelete = callbacks.find(callback => callback.id === callback_id);
+        if (!callbackToDelete) {
+            throw new StatusError(`Callback with id "${callback_id}" not found.`, 400);
+        }
+
+        // Delete callback
+        await callbackToDelete.delete();
+    }
+
+    // ---------- INTEGRATIONS ENDPOINTS ----------
+
+    // NO AUTHENTICATION
+    public async get_integrations(locale: any): Promise<IntegrationConfig[]> {
+        // Check if locale field is missing
+        if(!locale || typeof locale !== 'string') {
+            // Set default locale
+            locale = I18n.DEFAULT_LOCALE;
+        }
+
+        // Check if locale is supported
+        if(locale && !I18n.LOCALES.includes(locale)) {
+            throw new StatusError(`Locale "${locale}" not supported. Available locales are: ${I18n.LOCALES.join(", ")}.`, 400);
+        }
+
+        // Get integration configs
+        return IntegrationLoader.getAll()
+            .map((config) => this.translateIntegration(config, locale));
+    }
+
     // ---------- COLLECTOR ENDPOINTS ----------
 
     // BEARER AUTHENTICATION
@@ -1598,5 +1735,24 @@ export class Server {
 
         // Return token
         return resetToken;
+    }
+
+    private translateIntegration(integration: IntegrationConfig, locale: string): IntegrationConfig {
+        const name: string = I18n.get(integration.name, locale);
+        const description: string = I18n.get(integration.description, locale);
+        const params = Object.keys(integration.params).reduce((acc, key) => {
+            acc[key] = {
+                ...integration.params[key],
+                name: I18n.get(integration.params[key].name, locale),
+                placeholder: I18n.get(integration.params[key].placeholder, locale)
+            };
+            return acc;
+        }, {});
+        return {
+            ...integration,
+            name,
+            description,
+            params
+        };
     }
 }

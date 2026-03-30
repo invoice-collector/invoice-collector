@@ -1648,6 +1648,195 @@ app.post('/api/v1/credential/:credential_id/collect', async (req, res) => {
     }
 });
 
+// ---------- CALLBACKS ENDPOINTS ----------
+
+/**
+ * @openapi
+ * /callbacks:
+ *   get:
+ *     tags: [Callback]
+ *     summary: List callbacks
+ *     description: Returns all callbacks the customer is subscribed to.
+ *     security:
+ *      - CustomerBearerAuth: []
+ *     responses:
+ *       200:
+ *         description: Success
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: '#/components/schemas/callback'
+ *       400:
+ *         description: Bad request
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       401:
+ *         description: Authentication error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       500:
+ *         description: Internal server error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ */
+//BEARER AUTHENTICATION
+app.get('/api/v1/callbacks', async (req, res) => {
+    try {
+        // List callbacks
+        console.log(`GET callbacks`);
+        const response = await server.get_callbacks(
+            req.headers.authorization
+        );
+
+        // Build response
+        res.setHeader('Content-Type', 'application/json');
+        res.end(JSON.stringify(response));
+    } catch (e) {
+        handle_error(e, req, res);
+    }
+});
+
+/**
+ * @openapi
+ * /callbacks:
+ *   post:
+ *     tags: [Callback]
+ *     summary: Create a new callback
+ *     description: Creates a new callback for the customer account.
+ *     security:
+ *      - CustomerBearerAuth: []
+ *    requestBody:
+ *      required: true
+ *      content:
+ *       application/json:
+ *         schema:
+ *           type: object
+ *           properties:
+ *             name:
+ *               type: string
+ *             params:
+ *               type: object
+ *     responses:
+ *       200:
+ *         description: Success
+ *       400:
+ *         description: Bad request
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       401:
+ *         description: Authentication error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       500:
+ *         description: Internal server error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ */
+//BEARER AUTHENTICATION
+app.post('/api/v1/callback', async (req, res) => {
+    try {
+        // Create callback
+        console.log(`POST callback`);
+        await server.post_callback(
+            req.headers.authorization,
+            req.body.name,
+            req.body.params
+        );
+
+        // Build response
+        res.end();
+    } catch (e) {
+        handle_error(e, req, res);
+    }
+});
+
+/**
+ * @openapi
+ * /callback/{callbackId}:
+ *   delete:
+ *     tags: [Callback]
+ *     summary: Delete a callback
+ *     description: Deletes a callback from the customer account.
+ *     security:
+ *       - CustomerBearerAuth: []
+ *     parameters:
+ *       - name: callbackId
+ *         in: path
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: ID of the callback to delete
+ *     responses:
+ *       200:
+ *         description: Callback deleted successfully
+ *       400:
+ *         description: Bad request
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       401:
+ *         description: Authentication error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       500:
+ *         description: Internal server error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+
+ */
+//BEARER AUTHENTICATION
+app.delete('/api/v1/callback/:callback_id', async (req, res) => {
+    try {
+        // Delete callback
+        console.log(`DELETE callback ${req.params.callback_id}`);
+        await server.delete_callback(
+            req.headers.authorization,
+            req.params.callback_id
+        );
+
+        // Build response
+        res.end()
+    } catch (e) {
+        handle_error(e, req, res);
+    }
+});
+
+
+// ---------- INTEGRATIONS ENDPOINTS ----------
+
+//NO AUTHENTICATION
+app.get('/api/v1/integrations', async (req, res) => {
+    try {
+        // List available integrations
+        console.log(`GET available integrations`);
+        const response = await server.get_integrations(
+            req.query.locale
+        );
+        // Build response        res.setHeader('Content-Type', 'application/json');
+        res.end(JSON.stringify(response));
+    } catch (e) {
+        handle_error(e, req, res);
+    }
+});
 // ---------- COLLECTOR ENDPOINTS ----------
 
 /**

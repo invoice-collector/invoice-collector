@@ -1,5 +1,3 @@
-const { name } = require( 'ejs' );
-const { type } = require( 'os' );
 const path = require('path');
 
 const SWAGGER_DEFINITION = {
@@ -411,6 +409,41 @@ const SWAGGER_DEFINITION = {
                     },
                     required: ['id', 'user_id', 'note', 'create_timestamp', 'last_collect_timestamp', 'next_collect_timestamp', 'state', 'invoices', 'collector', 'wsPath'],
                 },
+                integration: {
+                    type: 'object',
+                    properties: {
+                        id: { type: 'string', description: 'Id of the integration.', example: 'http' },
+                        name: { type: 'string', description: 'Name of the integration.', example: 'HTTP Integration' },
+                        description: { type: 'string', description: 'Description of the integration.', example: 'Integration to send invoices to a custom HTTP endpoint.' },
+                        params: {
+                            type: 'object',
+                            description: 'List of parameters that the integration requires.',
+                            additionalProperties: {
+                                type: 'object',
+                                properties: {
+                                    type: { type: 'string', description: 'Type of the parameter.', example: 'string' },
+                                    description: { type: 'string', description: 'Description of the parameter.', example: 'This is a parameter.' },
+                                    mandatory: { type: 'boolean', description: 'Indicates if the parameter is mandatory.', example: true }
+                                }
+                            }
+                        }
+                    },
+                    required: ['id', 'name', 'description', 'params'],
+
+                },
+                callback: {
+                    type: 'object',
+                    properties: {
+                        id: { type: 'string', description: 'Id of the callback.', example: '6776b5258821de266afbc3f6' },
+                        customer_user_id: { type: 'string', description: 'Id of the customer or the user this callback belongs to.', example: '687108e5dce5050bc8ca53c1' },
+                        integration: { $ref: '#/components/schemas/integration' },
+                        createdAt: { type: 'number', description: 'Creation timestamp in ms.', example: 1745229262287 },
+                        lastUsed: { type: 'number', description: 'Last used timestamp in ms.', example: 1745229262287, nullable: true },
+                        automaticExport: { type: 'boolean', description: 'Indicates if automatic export is enabled.', example: true }
+                    },
+                    required: ['id', 'customer_user_id', 'name', 'createdAt', 'lastUsed', 'automaticExport'],
+                },
+
                 invoice: {
                     type: 'object',
                     properties: {

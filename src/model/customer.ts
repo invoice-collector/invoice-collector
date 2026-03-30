@@ -5,7 +5,7 @@ import { User } from "./user";
 import { CollectorLoader } from "../collectors/collectorLoader";
 import { Server } from "../server";
 import { Plan } from "./plan";
-import { Integration } from "./integration";
+import { Callback } from "./callback";
 
 export enum Theme {
     DEFAULT = 'default',
@@ -161,8 +161,8 @@ export class Customer {
         return await DatabaseFactory.getDatabase().getUserBellongingToCustomer(user_id, this.id);
     }
 
-    async getIntegrations(): Promise<Integration[]> {
-        return DatabaseFactory.getDatabase().getIntegrations(this.id);
+    async getCallbacks(): Promise<Callback[]> {
+        return DatabaseFactory.getDatabase().getCallbacks(this.id);
     }
 
     async getStats(): Promise<CustomerStats> {

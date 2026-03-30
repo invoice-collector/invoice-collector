@@ -1,19 +1,33 @@
 import { CompleteInvoice, Config } from "../collectors/abstractCollector";
 import { Secret } from "../model/secret";
 
-export abstract class AbstractIntegrationHandler {
+export type IntegrationConfig = {
+    id: string,
+    name: string,
+    description: string,
+    params: {
+        [key: string]: {
+            type: string,
+            name: string,
+            placeholder: string,
+            mandatory: boolean
+        }
+    }
+}
 
-    mandatoryParams: string[];
+export abstract class AbstractIntegration {
+
+    config: IntegrationConfig;
     secret: Secret;
 
-    constructor(mandatoryParams: string[], secret: Secret) {
-        this.mandatoryParams = mandatoryParams;
+    constructor(config: IntegrationConfig, secret: Secret) {
+        this.config = config;
         this.secret = secret;
     }
 
     async checkMandatoryParams(params: Record<string, any>): Promise<void> {
-        for (const param of this.mandatoryParams) {
-            if (!params[param]) {
+        for (const [param, paramConfig] of Object.entries(this.config.params)) {
+            if (paramConfig.mandatory && !params[param]) {
                 throw new Error(`Mandatory parameter ${param} not defined in integration secret parameters`);
             }
         }

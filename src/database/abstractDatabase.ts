@@ -2,7 +2,7 @@ import { Customer, CustomerStats } from "../model/customer";
 import { User } from "../model/user";
 import { IcCredential } from "../model/credential";
 import { CollectorMemory } from "../model/collectorMemory";
-import { Integration } from "../model/integration";
+import { Callback } from "../model/callback";
 
 export abstract class AbstractDatabase {
     constructor() {
@@ -79,13 +79,13 @@ export abstract class AbstractDatabase {
 
     abstract updateCollectorMemory(collectorMemory: CollectorMemory): Promise<void>;
     
-    // INTEGRATION
+    // CALLBACK
 
-    abstract getIntegrations(customer_user_id: string): Promise<Integration[]>;
+    abstract getCallbacks(customer_user_id: string): Promise<Callback[]>;
 
-    abstract getIntegration(integration_id: string): Promise<Integration | null>;
+    abstract getCallback(callback_id: string): Promise<Callback | null>;
 
-    abstract createIntegration(integration: Integration): Promise<Integration>;
+    abstract createCallback(callback: Callback): Promise<Callback>;
 
-    abstract deleteIntegration(integration_id: string): Promise<void>;
+    abstract deleteCallback(callback_id: string): Promise<void>;
 }

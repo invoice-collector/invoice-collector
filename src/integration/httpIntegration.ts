@@ -1,23 +1,36 @@
 import axios from 'axios';
 import { CompleteInvoice, Config } from '../collectors/abstractCollector';
 import * as utils from '../utils';
-import { AbstractIntegrationHandler } from './abstractIntegrationHandler';
+import { AbstractIntegration, IntegrationConfig } from './abstractIntegration';
 import { Secret } from '../model/secret';
 
-export class HttpIntegrationHandler extends AbstractIntegrationHandler {
+export class HttpIntegration extends AbstractIntegration { 
 
+    static CONFIG: IntegrationConfig = {
+        id: "http",
+        name: "Webhook / API",
+        description: "Send invoice data to a custom API or webhook. The system will send a POST request to the specified URL.",
+        params: {
+            url: {
+                type: "string",
+                name: "URL",
+                placeholder: "The URL to send the invoice data.",
+                mandatory: true
+            }
+        }
+    };
     static MANDATORY_PARAMS: string[] = ["url"];
     static DEFAULT_RETRIES: number = 3;
     static DEFAULT_DELAY_BETWEEN_RETRIES: number = 10000; // 10 seconds
     
     constructor(secret: Secret) {
-        super(HttpIntegrationHandler.MANDATORY_PARAMS, secret);
+        super(HttpIntegration.CONFIG, secret);
     }
 
     private async sendRequest(
         url: string,
         data: object,
-        maxRetries: number = HttpIntegrationHandler.DEFAULT_RETRIES
+        maxRetries: number = HttpIntegration.DEFAULT_RETRIES
     ): Promise<void> {
         let lastError: Error | null = null;
         
@@ -39,8 +52,8 @@ export class HttpIntegrationHandler extends AbstractIntegrationHandler {
                 
                 console.warn(`Callback request attempt ${attempt}/${maxRetries} failed.`);
                 if (attempt < maxRetries) {
-                    console.warn(`Retrying in ${HttpIntegrationHandler.DEFAULT_DELAY_BETWEEN_RETRIES / 1000} s...`);
-                    await utils.delay(HttpIntegrationHandler.DEFAULT_DELAY_BETWEEN_RETRIES);
+                    console.warn(`Retrying in ${HttpIntegration.DEFAULT_DELAY_BETWEEN_RETRIES / 1000} s...`);
+                    await utils.delay(HttpIntegration.DEFAULT_DELAY_BETWEEN_RETRIES);
                 }
             }
         }
