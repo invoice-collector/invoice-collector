@@ -438,10 +438,9 @@ const SWAGGER_DEFINITION = {
                         customer_user_id: { type: 'string', description: 'Id of the customer or the user this callback belongs to.', example: '687108e5dce5050bc8ca53c1' },
                         integration: { $ref: '#/components/schemas/integration' },
                         createdAt: { type: 'number', description: 'Creation timestamp in ms.', example: 1745229262287 },
-                        lastUsed: { type: 'number', description: 'Last used timestamp in ms.', example: 1745229262287, nullable: true },
                         automaticExport: { type: 'boolean', description: 'Indicates if automatic export is enabled.', example: true }
                     },
-                    required: ['id', 'customer_user_id', 'name', 'createdAt', 'lastUsed', 'automaticExport'],
+                    required: ['id', 'customer_user_id', 'name', 'createdAt', 'automaticExport'],
                 },
 
                 invoice: {

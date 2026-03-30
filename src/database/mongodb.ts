@@ -580,7 +580,6 @@ export class MongoDB extends AbstractDatabase {
                 document.integration_id,
                 document.secret_id,
                 document.createdAt,
-                document.lastUsed,
                 document.automaticExport
             );
             callback.id = document._id.toString();
@@ -603,7 +602,6 @@ export class MongoDB extends AbstractDatabase {
             document.integration_id,
             document.secret_id,
             document.createdAt,
-            document.lastUsed,
             document.automaticExport
         );
         callback.id = document._id.toString();
@@ -619,7 +617,6 @@ export class MongoDB extends AbstractDatabase {
             integration_id: callback.integration_id,
             secret_id: callback.secret_id,
             createdAt: callback.createdAt,
-            lastUsed: callback.lastUsed,
             automaticExport: callback.automaticExport
         });
         callback.id = document.insertedId.toString();
@@ -633,7 +630,6 @@ export class MongoDB extends AbstractDatabase {
         await this.db.collection(MongoDB.CALLBACK_COLLECTION).updateOne(
             { _id: new ObjectId(callback.id) },
             { $set: {
-                lastUsed: callback.lastUsed,
                 automaticExport: callback.automaticExport
             }}
         );

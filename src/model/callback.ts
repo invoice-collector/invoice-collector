@@ -12,7 +12,6 @@ export class Callback {
     integration_id: string;
     secret_id: string;
     createdAt: number;
-    lastUsed: number | null;
     automaticExport: boolean;
 
     constructor(
@@ -20,7 +19,6 @@ export class Callback {
         integration_id: string,
         secret_id: string,
         createdAt: number,
-        lastUsed: number | null,
         automaticExport: boolean
     ) {
         this.id = "";
@@ -28,7 +26,6 @@ export class Callback {
         this.integration_id = integration_id;
         this.secret_id = secret_id;
         this.createdAt = createdAt;
-        this.lastUsed = lastUsed;
         this.automaticExport = automaticExport;
     }
 
