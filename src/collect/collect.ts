@@ -51,88 +51,94 @@ export class Collect {
             // Get customer from user
             customer = await user.getCustomer();
 
-            // If customer has a valid callback url
-            if (customer.callback) {
-            
-                // Set progress step to preparing
-                credential.state.update(State._1_PREPARING);
-                this.webSocketServer?.sendState(State._1_PREPARING);
+            // Get customer callbacks
+            const callbacks = await customer.getCallbacks();
+        
+            // Set progress step to preparing
+            credential.state.update(State._1_PREPARING);
+            this.webSocketServer?.sendState(State._1_PREPARING);
 
-                // Get secret from secret_manager_id
-                secret = credential.getSecret();
+            // Get secret from secret_manager_id
+            secret = credential.getSecret();
 
-                // Get collector from collector_id
-                collector = await CollectorLoader.get(credential.collector_id);
+            // Get collector from collector_id
+            collector = await CollectorLoader.get(credential.collector_id);
 
-                // Check if collector not found
-                if(collector == null) {
-                    throw new Error(`No collector with id "${credential.collector_id}" found.`);
-                }
-                console.log(`Using collector ${collector.config.id} version ${collector.config.version}`);
+            // Check if collector not found
+            if(collector == null) {
+                throw new Error(`No collector with id "${credential.collector_id}" found.`);
+            }
+            console.log(`Using collector ${collector.config.id} version ${collector.config.version}`);
 
-                // Set collector for twofa promise
-                this.twofa_promise.collector = collector;
+            // Set collector for twofa promise
+            this.twofa_promise.collector = collector;
 
-                // Collect invoices
-                const newInvoices = await collector.collect_new_invoices(
-                    this.state,
-                    this.twofa_promise,
-                    this.webSocketServer,
-                    secret,
-                    credential.download_from_timestamp,
-                    credential.invoices,
-                    user.location,
-                    customer.enableInteractiveLogin
-                );
-                console.log(`Found ${credential.invoices.length + newInvoices.length} invoices during collect and ${newInvoices.length} new`);
-                console.log(`Invoice collection for credential ${this.credential_id} succeed`);
+            // Collect invoices
+            const newInvoices = await collector.collect_new_invoices(
+                this.state,
+                this.twofa_promise,
+                this.webSocketServer,
+                secret,
+                credential.download_from_timestamp,
+                credential.invoices,
+                user.location,
+                customer.enableInteractiveLogin
+            );
+            console.log(`Found ${credential.invoices.length + newInvoices.length} invoices during collect and ${newInvoices.length} new`);
+            console.log(`Invoice collection for credential ${this.credential_id} succeed`);
 
-                // If at least one new invoice has been downloaded
-                if(newInvoices.length > 0) {
-                    // Get previous invoices hash
-                    const previousInvoicesHash = credential.invoices.map(inv => inv.hash);
+            // If at least one new invoice has been downloaded
+            if(newInvoices.length > 0) {
+                // Get previous invoices hash
+                const previousInvoicesHash = credential.invoices.map(inv => inv.hash);
 
-                    // Loop through invoices
-                    for (const [index, invoice] of newInvoices.entries()) {
-                        // If data downloaded and invoice is more recent than the download_from_timestamp
-                        if (invoice.data && credential.download_from_timestamp <= invoice.timestamp && !previousInvoicesHash.includes(invoice.hash)) {
-                            console.log(`Sending invoice ${index + 1}/${newInvoices.length} (${invoice.id}) to callback`);
+                // Loop through invoices
+                for (const [index, invoice] of newInvoices.entries()) {
+                    // If data downloaded and invoice is more recent than the download_from_timestamp
+                    if (invoice.data && credential.download_from_timestamp <= invoice.timestamp && !previousInvoicesHash.includes(invoice.hash)) {
+                        console.log(`Sending invoice ${index + 1}/${newInvoices.length} (${invoice.id}) to callback`);
 
-                            try {
-                                // Send invoice to callback
-                                const callback = new CallbackHandler(customer);
-                                await callback.sendInvoice(collector.config, user.remote_id, invoice);
+                        try {
+                            // Send invoice to callback
+                            const callback = new CallbackHandler(customer);
+                            await callback.sendInvoice(collector.config, user.remote_id, invoice);
 
-                                // Add invoice to credential only if callback successfully reached
-                                credential.addInvoice(invoice);
-
-                                // Wait 1 second between each callback to avoid overwhelming the callback server
-                                await utils.delay(1000);
-                            } catch (error) {
-                                console.error(error);
+                            // Send invoice for each callback with automaticExport set to true
+                            for (const callback of callbacks.filter(cb => cb.automaticExport)) {
+                                try {
+                                    await callback.sendInvoice(collector.config, user.remote_id, invoice);
+                                }
+                                catch (error) {
+                                    console.error(error);
+                                }
                             }
-                        }
-                        else {
-                            console.log(`Adding invoice ${index + 1}/${newInvoices.length} (${invoice.id}) to credential without sending to callback`);
-                            // Add invoice to credential
+
+                            // Add invoice to credential only if callback successfully reached
                             credential.addInvoice(invoice);
+
+                            // Wait 1 second between each callback to avoid overwhelming the callback server
+                            await utils.delay(1000);
+                        } catch (error) {
+                            console.error(error);
                         }
                     }
-
-                    // Sort invoices
-                    credential.sortInvoices();
+                    else {
+                        console.log(`Adding invoice ${index + 1}/${newInvoices.length} (${invoice.id}) to credential without sending to callback`);
+                        // Add invoice to credential
+                        credential.addInvoice(invoice);
+                    }
                 }
 
-                // Set progress step to done
-                credential.state.update(State._7_DONE);
-                this.webSocketServer?.sendState(State._7_DONE);
+                // Sort invoices
+                credential.sortInvoices();
+            }
 
-                // Log success
-                RegistryFactory.getInstance().logSuccess(collector);
-            }
-            else {
-                console.warn(`Customer ${customer.id} has no valid callback, skipping collect for credential ${this.credential_id} and planning next collect`);
-            }
+            // Set progress step to done
+            credential.state.update(State._7_DONE);
+            this.webSocketServer?.sendState(State._7_DONE);
+
+            // Log success
+            RegistryFactory.getInstance().logSuccess(collector);
 
             // Update last collect
             credential.last_collect_timestamp = Date.now();
@@ -191,6 +197,17 @@ export class Collect {
                             .catch((error) => {
                                 console.error(error);
                             });
+                        
+                        // Get customer callbacks
+                        const callbacks = await customer.getCallbacks();
+                        // Send notification for each callback with automaticExport set to true
+                        for (const callback of callbacks.filter(cb => cb.automaticExport)) {
+                            try {
+                                await callback.sendNotificationDisconnected(collector.config, credential.id, user.id, user.remote_id);
+                            } catch (error) {
+                                console.error(error);
+                            }
+                        }
                     }
 
                     // If authentication error
