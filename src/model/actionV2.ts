@@ -5,7 +5,8 @@ import { Secret } from "./secret";
 
 export enum ActionEnum  {
     LEFT_CLICK = 'leftClick',
-    INPUT_TEXT = 'inputText'
+    INPUT_TEXT = 'inputText',
+    RAISE_ERROR_IF_DISPLAYED = 'raiseErrorIfDisplayed',
 }
 
 export abstract class ActionV2<Context, Result> {
@@ -255,4 +256,63 @@ export class InputTextAction extends ActionV2<InputTextContext, void> {
 export const ClassActionMap = {
     [ActionEnum.LEFT_CLICK]: LeftClickAction,
     [ActionEnum.INPUT_TEXT]: InputTextAction,
+}
+
+
+export type RaiseErrorContext = {
+    driver: Driver;
+}
+
+export class RaiseErrorIfDisplayed extends ActionV2<RaiseErrorContext, void> {
+    constructor(
+        description: string,
+        pageUrlRegex: string,
+        cssSelector: string | null,
+        objectiveId: string | null,
+        lastUsed: string | null,
+        args: any,
+        destinationIds: string[] = []
+    ) {
+        // args should have 'default' field
+        if(!args.hasOwnProperty('default')) {
+            throw new Error('RaiseErrorIfDisplayed requires args to have a "default" field');
+        }
+        // Check if cssSelector is provided
+        if (!cssSelector) {
+            throw new Error('RaiseErrorIfDisplayed requires a cssSelector to locate the element');
+        }
+        super(ActionEnum.RAISE_ERROR_IF_DISPLAYED,
+            description,
+            pageUrlRegex,
+            cssSelector,
+            objectiveId,
+            lastUsed,
+            args,
+            destinationIds
+        );
+    }
+
+    async _perform(context: RaiseErrorContext): Promise<void> {
+        // Get element from cssSelector
+        const element = await context.driver.getElement({
+            selector: this.cssSelector,
+            info: this.description
+        }, {
+            raiseException: false,
+            ...this.args
+        })
+        // If element found, raise error
+        if (element) {
+            throw new AuthenticationError(await element.textContent(this.args.default), context.driver.collector);
+        }
+    }
+
+    async canPerform(context: RaiseErrorContext): Promise<boolean> {
+        const el = await context.driver.getElement({ selector: this.cssSelector }, { raiseException: false, timeout: 1000 });
+        return el !== null;
+    }
+
+    toString(): string {
+        return `Extract invoice data`;
+    }
 }
