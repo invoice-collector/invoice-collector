@@ -100,120 +100,6 @@ app.get('/api/v1/ui', async (req, res) => {
 
 /**
  * @openapi
- * /test/callback/{type}:
- *   get:
- *     tags: [General]
- *     summary: Test callback
- *     description: Sends a test callback of the specified type.
- *     security:
- *       - CustomerBearerAuth: []
- *     parameters:
- *       - name: type
- *         in: path
- *         required: true
- *         schema:
- *           $ref: '#/components/schemas/callbackType'
- *     responses:
- *       200:
- *         description: Success
- *       400:
- *         description: Bad request
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/error'
- *       401:
- *         description: Authentication error
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/error'
- *       500:
- *         description: Internal server error
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/error'
- *     callbacks:
- *       onInvoiceCollected:
- *         Invoice:
- *           post:
- *             requestBody:
- *               required: true
- *               content:
- *                 application/json:
- *                   schema:
- *                     type: object
- *                     properties:
- *                       type:
- *                         $ref: '#/components/schemas/callbackType'
- *                       remote_id:
- *                         $ref: '#/components/schemas/remoteId'
- *                       invoice:
- *                         $ref: "#/components/schemas/invoice"
- *                       collector:
- *                         $ref: "#/components/schemas/collectorConfig"
- *                     required:
- *                       - type
- *                       - remote_id
- *                       - invoice
- *                       - collector
- *             responses:
- *               '200':
- *                 description: Success
- *               '400':
- *                 description: Error
- *       onCollectorDisconnected:
- *         Notification Disconnected:
- *           post:
- *             requestBody:
- *               required: true
- *               content:
- *                 application/json:
- *                   schema:
- *                     type: object
- *                     properties:
- *                       type:
- *                         $ref: '#/components/schemas/callbackType'
- *                       credential_id:
- *                        $ref: '#/components/schemas/credentialId'
- *                       user_id:
- *                        $ref: '#/components/schemas/userId'
- *                       remote_id:
- *                         $ref: '#/components/schemas/remoteId'
- *                       collector:
- *                         $ref: "#/components/schemas/collectorConfig"
- *                     required:
- *                       - type
- *                       - credential_id
- *                       - user_id
- *                       - remote_id
- *                       - collector
- *             responses:
- *               '200':
- *                 description: Success
- *               '400':
- *                 description: Error
- */
-// BEARER AUTHENTICATION
-app.get('/api/v1/test/callback/:type', async (req, res) => {
-    try {
-        // Test callback
-        console.log('GET test_callback');
-        await server.get_test_callback(
-            req.headers.authorization,
-            req.params.type
-        );
-
-        // Build response
-        res.end()
-    } catch (e) {
-        handle_error(e, req, res);
-    }
-});
-
-/**
- * @openapi
  * /feedback:
  *   post:
  *     tags: [General]
@@ -1826,6 +1712,126 @@ app.delete('/api/v1/callback/:callbackId', async (req, res) => {
     }
 });
 
+/**
+ * @openapi
+ * /callback/{callbackId}/test/{type}:
+ *   get:
+ *     tags: [Callback]
+ *     summary: Test a callback
+ *     description: Sends a test request of the specified type to a given callback.
+ *     security:
+ *       - CustomerBearerAuth: []
+ *     parameters:
+ *       - name: callbackId
+ *         in: path
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: ID of the callback to test
+ *       - name: type
+ *         in: path
+ *         required: true
+ *         schema:
+ *           $ref: '#/components/schemas/callbackType'
+ *     responses:
+ *       200:
+ *         description: Success
+ *       400:
+ *         description: Bad request
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       401:
+ *         description: Authentication error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       500:
+ *         description: Internal server error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *     callbacks:
+ *       onInvoiceCollected:
+ *         Invoice:
+ *           post:
+ *             requestBody:
+ *               required: true
+ *               content:
+ *                 application/json:
+ *                   schema:
+ *                     type: object
+ *                     properties:
+ *                       type:
+ *                         $ref: '#/components/schemas/callbackType'
+ *                       remote_id:
+ *                         $ref: '#/components/schemas/remoteId'
+ *                       invoice:
+ *                         $ref: "#/components/schemas/invoice"
+ *                       collector:
+ *                         $ref: "#/components/schemas/collectorConfig"
+ *                     required:
+ *                       - type
+ *                       - remote_id
+ *                       - invoice
+ *                       - collector
+ *             responses:
+ *               '200':
+ *                 description: Success
+ *               '400':
+ *                 description: Error
+ *       onCollectorDisconnected:
+ *         Notification Disconnected:
+ *           post:
+ *             requestBody:
+ *               required: true
+ *               content:
+ *                 application/json:
+ *                   schema:
+ *                     type: object
+ *                     properties:
+ *                       type:
+ *                         $ref: '#/components/schemas/callbackType'
+ *                       credential_id:
+ *                        $ref: '#/components/schemas/credentialId'
+ *                       user_id:
+ *                        $ref: '#/components/schemas/userId'
+ *                       remote_id:
+ *                         $ref: '#/components/schemas/remoteId'
+ *                       collector:
+ *                         $ref: "#/components/schemas/collectorConfig"
+ *                     required:
+ *                       - type
+ *                       - credential_id
+ *                       - user_id
+ *                       - remote_id
+ *                       - collector
+ *             responses:
+ *               '200':
+ *                 description: Success
+ *               '400':
+ *                 description: Error
+ */
+// BEARER AUTHENTICATION
+app.get('/api/v1/callback/:callbackId/test/:type', async (req, res) => {
+    try {
+        // Test callback
+        console.log(`GET /api/v1/callback/${req.params.callbackId}/test/${req.params.type}`);
+        await server.get_callback_test(
+            req.headers.authorization,
+            req.params.callbackId,
+            req.params.type
+        );
+
+        // Build response
+        res.end()
+    } catch (e) {
+        handle_error(e, req, res);
+    }
+});
 
 // ---------- INTEGRATIONS ENDPOINTS ----------
 

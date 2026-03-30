@@ -79,38 +79,6 @@ export class Server {
         return { locale: user.locale, theme: customer.theme };
     }
 
-    // BEARER AUTHENTICATION
-    public async get_test_callback(bearer: string | undefined, type: string): Promise<void> {
-        // Get customer from bearer
-        const customer = await this.getCustomerFromBearer(bearer);
-
-        // Check if type field is missing
-        if(!type) {
-            throw new MissingField("type");
-        }
-
-        // Create callback handler
-        const callback = new CallbackHandler(customer);
-
-        // If type is "invoice", send a fake invoice
-        if(type === "invoice") {
-            // Get fake invoice datas
-            let {collector, remote_id, invoice} = utils.createFakeInvoice();
-
-            // Send fake invoice to callback
-            await callback.sendInvoice(collector, remote_id, invoice);
-        }
-        else if(type === "notification_disconnected") {
-            // Get fake notification disconnected
-            let {collector, credential_id, user_id, remote_id } = utils.createFakeNotificationDisconnected();
-            // Send notification disconnected
-            await callback.sendNotificationDisconnected(collector, credential_id, user_id, remote_id);
-        }
-        else {
-            throw new StatusError(`Type "${type}" not supported.`, 400);
-        }
-    }
-
     // TOKEN AUTHENTICATION
     public async post_feedback(
         bearer: string | undefined,
@@ -1504,6 +1472,50 @@ export class Server {
 
         // Delete callback
         await callbackToDelete.delete();
+    }
+
+    // BEARER AUTHENTICATION
+    public async get_callback_test(
+        bearer: string | undefined,
+        callbackId: string,
+        type: string
+    ): Promise<void> {
+        // Get customer from bearer
+        const customer = await this.getCustomerFromBearer(bearer);
+
+        // Check if type field is missing
+        if(!type) {
+            throw new MissingField("type");
+        }
+
+        // Get customer callbacks
+        const callbacks = await customer.getCallbacks();
+
+        // Find callback with id
+        const callback = callbacks.find(cb => cb.id === callbackId);
+
+        // If no callback found, throw error
+        if (!callback) {
+            throw new StatusError(`Callback with id "${callbackId}" not found.`, 404);
+        }
+
+        // If type is "invoice", send a fake invoice
+        if(type === "invoice") {
+            // Get fake invoice datas
+            let {collector, remote_id, invoice} = utils.createFakeInvoice();
+
+            // Send fake invoice to callback
+            await callback.sendInvoice(collector, remote_id, invoice);
+        }
+        else if(type === "notification_disconnected") {
+            // Get fake notification disconnected
+            let {collector, credential_id, user_id, remote_id } = utils.createFakeNotificationDisconnected();
+            // Send notification disconnected
+            await callback.sendNotificationDisconnected(collector, credential_id, user_id, remote_id);
+        }
+        else {
+            throw new StatusError(`Type "${type}" not supported.`, 400);
+        }
     }
 
     // ---------- INTEGRATIONS ENDPOINTS ----------
