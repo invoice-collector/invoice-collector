@@ -614,7 +614,7 @@ export class MongoDB extends AbstractDatabase {
             throw new Error("Database is not connected");
         }
         const document = await this.db.collection(MongoDB.CALLBACK_COLLECTION).insertOne({
-            customer_user_id: callback.customer_user_id,
+            customer_user_id: new ObjectId(callback.customer_user_id),
             integration_id: callback.integration_id,
             secret_id: callback.secret_id,
             createdAt: callback.createdAt,

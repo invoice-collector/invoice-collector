@@ -1706,7 +1706,7 @@ app.get('/api/v1/callbacks', async (req, res) => {
 
 /**
  * @openapi
- * /callbacks:
+ * /callback:
  *   post:
  *     tags: [Callback]
  *     summary: Create a new callback
@@ -1720,13 +1720,17 @@ app.get('/api/v1/callbacks', async (req, res) => {
  *         schema:
  *           type: object
  *           properties:
- *             name:
+ *             integration_id:
  *               type: string
  *             params:
  *               type: object
  *     responses:
  *       200:
  *         description: Success
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/callback'
  *       400:
  *         description: Bad request
  *         content:
@@ -1751,14 +1755,16 @@ app.post('/api/v1/callback', async (req, res) => {
     try {
         // Create callback
         console.log(`POST callback`);
-        await server.post_callback(
+        const response = await server.post_callback(
             req.headers.authorization,
-            req.body.name,
-            req.body.params
+            req.body.integration_id,
+            req.body.params,
+            req.body.automaticExport
         );
 
         // Build response
-        res.end();
+        res.setHeader('Content-Type', 'application/json');
+        res.end(JSON.stringify(response));
     } catch (e) {
         handle_error(e, req, res);
     }
@@ -1804,13 +1810,13 @@ app.post('/api/v1/callback', async (req, res) => {
 
  */
 //BEARER AUTHENTICATION
-app.delete('/api/v1/callback/:callback_id', async (req, res) => {
+app.delete('/api/v1/callback/:callbackId', async (req, res) => {
     try {
         // Delete callback
-        console.log(`DELETE callback ${req.params.callback_id}`);
+        console.log(`DELETE callback ${req.params.callbackId}`);
         await server.delete_callback(
             req.headers.authorization,
-            req.params.callback_id
+            req.params.callbackId
         );
 
         // Build response

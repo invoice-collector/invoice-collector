@@ -1386,7 +1386,7 @@ export class Server {
             return {
                 id: callback.id,
                 customer_user_id: callback.customer_user_id,
-                integration: this.translateIntegration(integration, 'en'), //TODO: add customer locale
+                integration: this.translateIntegration(integration, 'en'),  // TODO: use customer.locale
                 createdAt: callback.createdAt,
                 lastUsed: callback.lastUsed,
                 automaticExport: callback.automaticExport
@@ -1397,29 +1397,42 @@ export class Server {
     // BEARER AUTHENTICATION
     public async post_callback(
         bearer: string | undefined,
-        id: string | undefined,
-        params: any | undefined
-    ): Promise<void> {
+        integration_id: string | undefined,
+        params: any | undefined,
+        automaticExport: boolean | undefined
+    ): Promise<{
+        id: string,
+        customer_user_id: string,
+        integration: IntegrationConfig,
+        createdAt: number,
+        lastUsed: number | null,
+        automaticExport: boolean | undefined
+    }> {
         // Get customer from bearer
         const customer = await this.getCustomerFromBearer(bearer);
  
-        // Check if id field is missing
-        if(!id) {
-            throw new MissingField("id");
+        // Check if integration_id field is missing
+        if(!integration_id) {
+            throw new MissingField("integration_id");
         }
  
         // Check if params field is missing
         if(!params) {
             throw new MissingField("params");
         }
+ 
+        // Check if automaticExport field is missing
+        if(automaticExport === undefined) {
+            throw new MissingField("automaticExport");
+        }
 
         // Get integration configs
         const integrationConfigs = IntegrationLoader.getAll();
 
          // Check if integration exists
-        const integrationConfig = integrationConfigs.find(config => config.id === id);
+        const integrationConfig = integrationConfigs.find(config => config.id === integration_id);
         if (!integrationConfig) {
-            throw new StatusError(`Integration with id "${id}" not found.`, 400);
+            throw new StatusError(`Integration with id "${integration_id}" not found.`, 400);
         }
 
         // Check if all mandatory params are present
@@ -1429,7 +1442,7 @@ export class Server {
         }
 
         // Create secret
-        const secret = new Secret(`${customer.id}_${id}`, {
+        const secret = new Secret(`${customer.id}_${integration_id}`, {
             params,
             cookies: null,
             localStorage: null
@@ -1441,15 +1454,24 @@ export class Server {
         // Create new callback
         const callback = new Callback(
             customer.id,
-            id,
+            integration_id,
             secret.id,
             Date.now(),
             null,
-            params.automaticExport
+            automaticExport
         );
 
         // Commit integration to database
         await callback.commit();
+
+        return {
+            id: callback.id,
+            customer_user_id: callback.customer_user_id,
+            integration: this.translateIntegration(integrationConfig, 'en'), // TODO: use customer.locale
+            createdAt: callback.createdAt,
+            lastUsed: callback.lastUsed,
+            automaticExport: callback.automaticExport
+        };
     }
 
     // BEARER AUTHENTICATION
