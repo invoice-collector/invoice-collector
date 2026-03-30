@@ -13,6 +13,7 @@ export class CollectorLoader {
         await this.loadFolders("community", "community", filter)
         await this.loadFolders("core", "core", filter)
         await this.loadFolders("premium", "../premium/collectors/premium", filter)
+        await this.loadFolders("graph", "../premium/collectors/graph", filter)
 
         //Order collectors by id
         CollectorLoader.collectors = new Map([...CollectorLoader.collectors.entries()]
