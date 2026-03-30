@@ -19,7 +19,6 @@ export class HttpIntegration extends AbstractIntegration {
             }
         }
     };
-    static MANDATORY_PARAMS: string[] = ["url"];
     static DEFAULT_RETRIES: number = 3;
     static DEFAULT_DELAY_BETWEEN_RETRIES: number = 10000; // 10 seconds
     
