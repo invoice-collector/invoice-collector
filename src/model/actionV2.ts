@@ -38,11 +38,11 @@ export abstract class ActionV2<Context, Result> {
             throw new Error(`Action ${obj.action} not implemented`);
         }
 
-        return ClassActionMap[obj.action](
+        return new ClassActionMap[obj.action](
             obj.description,
             obj.pageUrlRegex,
             obj.cssSelector,
-            obj.objective,
+            obj.objectiveId,
             obj.lastUsed,
             obj.args,
             obj.destinationIds
@@ -128,6 +128,7 @@ export abstract class ActionV2<Context, Result> {
     }
 
     abstract _perform(context: Context): Promise<Result>;
+    abstract canPerform(context: Context): Promise<boolean>;
     abstract toString(): string;
 }
 
@@ -142,7 +143,7 @@ export class LeftClickAction extends ActionV2<LeftClickContext, void> {
         description: string,
         pageUrlRegex: string,
         cssSelector: string | null,
-        objective: string | null,
+        objectiveId: string | null,
         lastUsed: string | null,
         args: any,
         destinationIds: string[] = []
@@ -157,7 +158,7 @@ export class LeftClickAction extends ActionV2<LeftClickContext, void> {
             description,
             pageUrlRegex,
             cssSelector,
-            objective,
+            objectiveId,
             lastUsed,
             args,
             destinationIds
@@ -180,6 +181,11 @@ export class LeftClickAction extends ActionV2<LeftClickContext, void> {
         }
     }
 
+    async canPerform(context: LeftClickContext): Promise<boolean> {
+        const el = await context.driver.getElement({ selector: this.cssSelector }, { raiseException: false, timeout: 1000 });
+        return el !== null;
+    }
+
     toString(): string {
         return `Left click on ${this.description}`;
     }
@@ -195,7 +201,7 @@ export class InputTextAction extends ActionV2<InputTextContext, void> {
         description: string,
         pageUrlRegex: string,
         cssSelector: string | null,
-        objective: string | null,
+        objectiveId: string | null,
         lastUsed: string | null,
         args: any,
         destinationIds: string[] = []
@@ -214,7 +220,7 @@ export class InputTextAction extends ActionV2<InputTextContext, void> {
             description,
             pageUrlRegex,
             cssSelector,
-            objective,
+            objectiveId,
             lastUsed,
             args,
             destinationIds
@@ -238,6 +244,11 @@ export class InputTextAction extends ActionV2<InputTextContext, void> {
 
     toString(): string {
         return `Input ${this.args.text} into field ${this.description}`;
+    }
+
+    async canPerform(context: InputTextContext): Promise<boolean> {
+        const el = await context.driver.getElement({ selector: this.cssSelector }, { raiseException: false, timeout: 1000 });
+        return el !== null;
     }
 }
 
