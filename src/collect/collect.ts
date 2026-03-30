@@ -1,4 +1,3 @@
-import { CallbackHandler } from "../callback/callback";
 import { AbstractCollector, Config } from "../collectors/abstractCollector";
 import { CollectorLoader } from "../collectors/collectorLoader";
 import { AuthenticationError, RemoveError, DisconnectedError, LoggableError, MaintenanceError, NoInvoiceFoundError } from "../error";
@@ -99,10 +98,6 @@ export class Collect {
                         console.log(`Sending invoice ${index + 1}/${newInvoices.length} (${invoice.id}) to callback`);
 
                         try {
-                            // Send invoice to callback
-                            const callback = new CallbackHandler(customer);
-                            await callback.sendInvoice(collector.config, user.remote_id, invoice);
-
                             // Send invoice for each callback with automaticExport set to true
                             for (const callback of callbacks.filter(cb => cb.automaticExport)) {
                                 try {
@@ -189,15 +184,7 @@ export class Collect {
                 // If credential exists
                 if (credential && user && customer && collector) {
                     // If error occurs and previous collect was successful, send notification
-                    if (credential.state.index >= credential.state.max) {
-                        // Send disconnected notification to callback without waiting
-                        // If it fails, it will be logged
-                        const callback = new CallbackHandler(customer);
-                        callback.sendNotificationDisconnected(collector.config, credential.id, user.id, user.remote_id)
-                            .catch((error) => {
-                                console.error(error);
-                            });
-                        
+                    if (credential.state.index >= credential.state.max) {                        
                         // Get customer callbacks
                         const callbacks = await customer.getCallbacks();
                         // Send notification for each callback with automaticExport set to true

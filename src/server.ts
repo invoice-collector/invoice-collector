@@ -11,7 +11,6 @@ import { ProxyFactory } from './proxy/proxyFactory';
 import { AbstractCollector, CollectorType, Config } from './collectors/abstractCollector';
 import { RegistryFactory } from './registry/registryFactory';
 import * as utils from './utils';
-import { CallbackHandler } from './callback/callback';
 import { CollectPool } from './collect/collectPool';
 import { Collect } from './collect/collect';
 import { I18n } from './i18n';
