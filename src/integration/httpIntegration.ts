@@ -9,7 +9,7 @@ export class HttpIntegration extends AbstractIntegration {
     static CONFIG: IntegrationConfig = {
         id: "http",
         name: "Webhook / API",
-        description: "Send invoice data to a custom API or webhook. The system will send a POST request to the specified URL.",
+        description: "i18n.integrations.http.description",
         params: {
             url: {
                 type: "url",
