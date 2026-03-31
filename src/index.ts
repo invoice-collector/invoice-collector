@@ -1535,6 +1535,73 @@ app.post('/api/v1/credential/:credential_id/collect', async (req, res) => {
     }
 });
 
+// ---------- COLLECTOR ENDPOINTS ----------
+
+/**
+ * @openapi
+ * /collectors:
+ *   get:
+ *     tags: [General]
+ *     summary: List collectors
+ *     description: Returns all available collectors. _You can authenticate using token or bearer. If an authentication is provided, only the collectors the customer is subscribed to will be returned._
+ *     security:
+ *       - CustomerBearerAuth: []
+ *       - UserBearerAuth: []
+ *       - TokenAuth: []
+ *     parameters:
+ *       - name: locale
+ *         in: query
+ *         required: false
+ *         schema:
+ *           $ref: "#/components/schemas/locale"
+ *         description: Locale for translated collector names and descriptions
+ *     responses:
+ *       200:
+ *         description: Success
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: '#/components/schemas/collectorConfig'
+ *       400:
+ *         description: Bad request
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       401:
+ *         description: Authentication error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       500:
+ *         description: Internal server error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ */
+// BEARER OR TOKEN AUTHENTICATION
+app.get('/api/v1/collectors', async (req, res) => {
+    try {
+        // List all collectors
+        console.log(`GET /collectors`);
+        const response = await server.get_collectors(
+            req.headers.authorization,
+            req.query.token,
+            req.query.locale
+        );
+
+        // Build response
+        res.setHeader('Content-Type', 'application/json');
+        res.end(JSON.stringify(response));
+    } catch (e) {
+        handle_error(e, req, res);
+    }
+});
+
 // ---------- CALLBACKS ENDPOINTS ----------
 
 /**
@@ -1844,72 +1911,6 @@ app.get('/api/v1/integrations', async (req, res) => {
         const response = await server.get_integrations(
             req.query.locale
         );
-        // Build response
-        res.setHeader('Content-Type', 'application/json');
-        res.end(JSON.stringify(response));
-    } catch (e) {
-        handle_error(e, req, res);
-    }
-});
-// ---------- COLLECTOR ENDPOINTS ----------
-
-/**
- * @openapi
- * /collectors:
- *   get:
- *     tags: [General]
- *     summary: List collectors
- *     description: Returns all available collectors. _You can authenticate using token or bearer. If an authentication is provided, only the collectors the customer is subscribed to will be returned._
- *     security:
- *       - CustomerBearerAuth: []
- *       - UserBearerAuth: []
- *       - TokenAuth: []
- *     parameters:
- *       - name: locale
- *         in: query
- *         required: false
- *         schema:
- *           $ref: "#/components/schemas/locale"
- *         description: Locale for translated collector names and descriptions
- *     responses:
- *       200:
- *         description: Success
- *         content:
- *           application/json:
- *             schema:
- *               type: array
- *               items:
- *                 $ref: '#/components/schemas/collectorConfig'
- *       400:
- *         description: Bad request
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/error'
- *       401:
- *         description: Authentication error
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/error'
- *       500:
- *         description: Internal server error
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/error'
- */
-// BEARER OR TOKEN AUTHENTICATION
-app.get('/api/v1/collectors', async (req, res) => {
-    try {
-        // List all collectors
-        console.log(`GET /collectors`);
-        const response = await server.get_collectors(
-            req.headers.authorization,
-            req.query.token,
-            req.query.locale
-        );
-
         // Build response
         res.setHeader('Content-Type', 'application/json');
         res.end(JSON.stringify(response));

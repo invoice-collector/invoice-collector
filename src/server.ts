@@ -1326,6 +1326,68 @@ export class Server {
         };
     }
 
+    // ---------- COLLECTOR ENDPOINTS ----------
+
+    // BEARER AUTHENTICATION
+    public async get_collectors(
+        bearer: string | undefined,
+        token: any,
+        locale: any
+    ): Promise<Config[]> {
+        // Check if token is missing or incorrect
+        let subscribedCollectors: string[] = Customer.DEFAULT_SUBSCRIBED_COLLECTORS;
+        let isSubscribedToAll: boolean = Customer.DEFAULT_IS_SUBSCRIBED_TO_ALL;
+        let enableInteractiveLogin: boolean = false;
+        let displaySketchCollectors: boolean = Customer.DEFAULT_DISPLAY_SKETCH_COLLECTORS;
+        if(token || bearer) {
+            // Get customer from bearer or token
+            const customer = await this.getCustomerFromBearerOrToken(bearer, token);
+            subscribedCollectors = customer.subscribedCollectors;
+            isSubscribedToAll = customer.isSubscribedToAll;
+            enableInteractiveLogin = customer.enableInteractiveLogin;
+            displaySketchCollectors = customer.displaySketchCollectors;
+        }
+
+        // Check if locale field is missing
+        if(!locale || typeof locale !== 'string') {
+            // Set default locale
+            locale = I18n.DEFAULT_LOCALE;
+        }
+
+        // Check if locale is supported
+        if(locale && !I18n.LOCALES.includes(locale)) {
+            throw new StatusError(`Locale "${locale}" not supported. Available locales are: ${I18n.LOCALES.join(", ")}.`, 400);
+        }
+
+        return (await CollectorLoader.getAll())
+            .map((config: Config): Config => ({ ...config }))
+            .filter((config: Config) => isSubscribedToAll || subscribedCollectors.includes(config.id))
+            .filter((config: Config) => config.type !== CollectorType.SKETCH || displaySketchCollectors)
+            .map((config: Config): Config => {
+                // Update collector params based on customer settings
+                AbstractCollector.updateCollectorParams(enableInteractiveLogin, config);
+
+                const name: string = I18n.get(config.name, locale);
+                const description: string = I18n.get(config.description, locale);
+                const instructions: string = I18n.get(config.instructions, locale);
+                const params = Object.keys(config.params).reduce((acc, key) => {
+                    acc[key] = {
+                        ...config.params[key],
+                        name: I18n.get(config.params[key].name, locale),
+                        placeholder: I18n.get(config.params[key].placeholder, locale)
+                    };
+                    return acc;
+                }, {});
+                return {
+                    ...config,
+                    name,
+                    description,
+                    instructions,
+                    params
+                };
+            });
+    }
+
     // ---------- CALLBACKS ENDPOINTS ----------
 
     // BEARER AUTHENTICATION
@@ -1535,68 +1597,6 @@ export class Server {
         // Get integration configs
         return IntegrationLoader.getAll()
             .map((config) => this.translateIntegration(config, locale));
-    }
-
-    // ---------- COLLECTOR ENDPOINTS ----------
-
-    // BEARER AUTHENTICATION
-    public async get_collectors(
-        bearer: string | undefined,
-        token: any,
-        locale: any
-    ): Promise<Config[]> {
-        // Check if token is missing or incorrect
-        let subscribedCollectors: string[] = Customer.DEFAULT_SUBSCRIBED_COLLECTORS;
-        let isSubscribedToAll: boolean = Customer.DEFAULT_IS_SUBSCRIBED_TO_ALL;
-        let enableInteractiveLogin: boolean = false;
-        let displaySketchCollectors: boolean = Customer.DEFAULT_DISPLAY_SKETCH_COLLECTORS;
-        if(token || bearer) {
-            // Get customer from bearer or token
-            const customer = await this.getCustomerFromBearerOrToken(bearer, token);
-            subscribedCollectors = customer.subscribedCollectors;
-            isSubscribedToAll = customer.isSubscribedToAll;
-            enableInteractiveLogin = customer.enableInteractiveLogin;
-            displaySketchCollectors = customer.displaySketchCollectors;
-        }
-
-        // Check if locale field is missing
-        if(!locale || typeof locale !== 'string') {
-            // Set default locale
-            locale = I18n.DEFAULT_LOCALE;
-        }
-
-        // Check if locale is supported
-        if(locale && !I18n.LOCALES.includes(locale)) {
-            throw new StatusError(`Locale "${locale}" not supported. Available locales are: ${I18n.LOCALES.join(", ")}.`, 400);
-        }
-
-        return (await CollectorLoader.getAll())
-            .map((config: Config): Config => ({ ...config }))
-            .filter((config: Config) => isSubscribedToAll || subscribedCollectors.includes(config.id))
-            .filter((config: Config) => config.type !== CollectorType.SKETCH || displaySketchCollectors)
-            .map((config: Config): Config => {
-                // Update collector params based on customer settings
-                AbstractCollector.updateCollectorParams(enableInteractiveLogin, config);
-
-                const name: string = I18n.get(config.name, locale);
-                const description: string = I18n.get(config.description, locale);
-                const instructions: string = I18n.get(config.instructions, locale);
-                const params = Object.keys(config.params).reduce((acc, key) => {
-                    acc[key] = {
-                        ...config.params[key],
-                        name: I18n.get(config.params[key].name, locale),
-                        placeholder: I18n.get(config.params[key].placeholder, locale)
-                    };
-                    return acc;
-                }, {});
-                return {
-                    ...config,
-                    name,
-                    description,
-                    instructions,
-                    params
-                };
-            });
     }
 
     // ---------- PRIVATE METHODS ----------
