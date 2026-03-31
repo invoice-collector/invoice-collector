@@ -8,6 +8,7 @@ export class PennylaneIntegration extends AbstractIntegration {
         id: "pennylane",
         name: "Pennylane",
         description: "i18n.integrations.pennylane.description",
+        state: 'planned',
         params: {
             //TODO: add specific params here
         }

@@ -8,6 +8,7 @@ export class InqomIntegration extends AbstractIntegration {
         id: "inqom",
         name: "Inqom",
         description: "i18n.integrations.inqom.description",
+        state: 'planned',
         params: {
             //TODO: add specific params here
         }

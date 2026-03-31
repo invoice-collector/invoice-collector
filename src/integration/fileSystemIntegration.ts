@@ -8,6 +8,7 @@ export class FileSystemIntegration extends AbstractIntegration {
         id: "fileSystem",
         name: "File System",
         description: "i18n.integrations.fileSystem.description",
+        state: 'planned',
         params: {
             //TODO: add specific params here
         }

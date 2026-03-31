@@ -409,20 +409,21 @@ const SWAGGER_DEFINITION = {
                         id: { type: 'string', description: 'Id of the integration.', example: 'http' },
                         name: { type: 'string', description: 'Name of the integration.', example: 'HTTP Integration' },
                         description: { type: 'string', description: 'Description of the integration.', example: 'Integration to send invoices to a custom HTTP endpoint.' },
+                        state: { type: 'string', description: 'State of the integration.', enum: ['planned', 'active'], example: 'active' },
                         params: {
                             type: 'object',
                             description: 'List of parameters that the integration requires.',
                             additionalProperties: {
                                 type: 'object',
                                 properties: {
-                                    type: { type: 'string', description: 'Type of the parameter.', example: 'string' },
+                                    type: { type: 'string', description: 'Type of the parameter.', enum: ['text', 'password', 'url'], example: 'text' },
                                     description: { type: 'string', description: 'Description of the parameter.', example: 'This is a parameter.' },
                                     mandatory: { type: 'boolean', description: 'Indicates if the parameter is mandatory.', example: true }
                                 }
                             }
                         }
                     },
-                    required: ['id', 'name', 'description', 'params'],
+                    required: ['id', 'name', 'description', 'state', 'params'],
 
                 },
                 callback: {

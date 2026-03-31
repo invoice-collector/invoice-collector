@@ -8,6 +8,7 @@ export class ChaintrustIntegration extends AbstractIntegration {
         id: "chaintrust",
         name: "Chaintrust",
         description: "i18n.integrations.chaintrust.description",
+        state: 'planned',
         params: {
             //TODO: add specific params here
         }

@@ -5,6 +5,7 @@ export type IntegrationConfig = {
     id: string,
     name: string,
     description: string,
+    state: 'active' | 'planned',
     params: {
         [key: string]: {
             type: 'text' | 'password' | 'url',

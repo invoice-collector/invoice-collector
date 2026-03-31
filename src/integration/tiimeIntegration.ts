@@ -8,6 +8,7 @@ export class TiimeIntegration extends AbstractIntegration {
         id: "tiime",
         name: "Tiime",
         description: "i18n.integrations.tiime.description",
+        state: 'planned',
         params: {
             //TODO: add specific params here
         }

@@ -10,6 +10,7 @@ export class HttpIntegration extends AbstractIntegration {
         id: "http",
         name: "Webhook / API",
         description: "i18n.integrations.http.description",
+        state: 'active',
         params: {
             url: {
                 type: "url",

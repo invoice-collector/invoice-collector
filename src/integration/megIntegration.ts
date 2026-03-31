@@ -8,6 +8,7 @@ export class MegIntegration extends AbstractIntegration {
         id: "meg",
         name: "MEG",
         description: "i18n.integrations.meg.description",
+        state: 'planned',
         params: {
             //TODO: add specific params here
         }

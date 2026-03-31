@@ -8,6 +8,7 @@ export class AxonautIntegration extends AbstractIntegration {
         id: "axonaut",
         name: "Axonaut",
         description: "i18n.integrations.axonaut.description",
+        state: 'planned',
         params: {
             //TODO: add specific params here
         }

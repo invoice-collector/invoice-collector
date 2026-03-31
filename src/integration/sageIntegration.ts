@@ -8,6 +8,7 @@ export class SageIntegration extends AbstractIntegration {
         id: "sage",
         name: "Sage",
         description: "i18n.integrations.sage.description",
+        state: 'planned',
         params: {
             //TODO: add specific params here
         }
