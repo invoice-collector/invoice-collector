@@ -102,13 +102,8 @@ export class Collect {
                             if (callbacksToSend.length > 0) {
                                 // Send invoice for each callback with automaticExport set to true
                                 for (const callback of callbacksToSend) {
-                                    try {
-                                        console.log(`Sending invoice ${index + 1}/${newInvoices.length} (${invoice.id}) to callback ${callback.getIntegration().config.name}`);
-                                        await callback.sendInvoice(collector.config, user.remote_id, invoice);
-                                    }
-                                    catch (error) {
-                                        console.error(error);
-                                    }
+                                    console.log(`Sending invoice ${index + 1}/${newInvoices.length} (${invoice.id}) to callback ${callback.getIntegration().config.name}`);
+                                    await callback.sendInvoice(collector.config, user.remote_id, invoice);
                                 }
                             }
                             else {
