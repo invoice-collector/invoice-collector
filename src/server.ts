@@ -1425,8 +1425,7 @@ export class Server {
     public async post_callback(
         bearer: string | undefined,
         integration_id: string | undefined,
-        params: any | undefined,
-        automaticExport: boolean | undefined
+        params: any | undefined
     ): Promise<{
         id: string,
         customer_user_id: string,
@@ -1446,11 +1445,6 @@ export class Server {
         if(!params) {
             throw new MissingField("params");
         }
- 
-        // Check if automaticExport field is missing
-        if(automaticExport === undefined) {
-            throw new MissingField("automaticExport");
-        }
 
         // Get integration configs
         const integrationConfigs = IntegrationLoader.getAll();
@@ -1466,9 +1460,6 @@ export class Server {
         if(missing_params.length > 0) {
             throw new MissingParams(missing_params);
         }
-
-        // Get other callbacks from customer
-        const callbacks = await customer.getCallbacks();
 
         // Create secret
         const secret = new Secret(`${customer.id}_${integration_id}`, {
@@ -1486,15 +1477,58 @@ export class Server {
             integration_id,
             secret.id,
             Date.now(),
-            automaticExport
+            false
         );
 
         // Commit integration to database
         await callback.commit();
 
+        return {
+            id: callback.id,
+            customer_user_id: callback.customer_user_id,
+            integration: this.translateIntegration(integrationConfig, 'en'), // TODO: use customer.locale
+            createdAt: callback.createdAt,
+            automaticExport: callback.automaticExport
+        };
+    }
+
+    // BEARER AUTHENTICATION
+    public async put_callback(
+        bearer: string | undefined,
+        callback_id: string,
+        automaticExport: boolean | undefined
+    ): Promise<{
+        id: string,
+        customer_user_id: string,
+        integration: IntegrationConfig,
+        createdAt: number,
+        automaticExport: boolean | undefined
+    }> {
+        // Get customer from bearer
+        const customer = await this.getCustomerFromBearer(bearer);
+
+        // Get callbacks from customer
+        const callbacks = await customer.getCallbacks();
+
+        // Check if callback exists
+        const callbackToUpdate = callbacks.find(callback => callback.id === callback_id);
+        if (!callbackToUpdate) {
+            throw new StatusError(`Callback with id "${callback_id}" not found.`, 400);
+        }
+
+        // Update automaticExport if provided
+        if (automaticExport !== undefined) {
+            callbackToUpdate.automaticExport = automaticExport;
+        }
+
+        // Commit changes in database
+        await callbackToUpdate.commit();
+
         // Remove automaticExport for other callbacks if automaticExport is true for the new callback
-        if (automaticExport) {
-            for (const otherCallback of callbacks) {
+        if (automaticExport == true) {
+            // Get other callbacks with automaticExport true
+            const otherCallbacks = callbacks.filter(callback => callback.id !== callbackToUpdate.id && callback.automaticExport);
+            for (const otherCallback of otherCallbacks) {
                 if (otherCallback.automaticExport) {
                     // Disable automatic export for other callback
                     otherCallback.automaticExport = false;
@@ -1504,13 +1538,15 @@ export class Server {
             }
         }
 
+        // Get integration from id
+        const integration = IntegrationLoader.get(callbackToUpdate.integration_id);
 
         return {
-            id: callback.id,
-            customer_user_id: callback.customer_user_id,
-            integration: this.translateIntegration(integrationConfig, 'en'), // TODO: use customer.locale
-            createdAt: callback.createdAt,
-            automaticExport: callback.automaticExport
+            id: callbackToUpdate.id,
+            customer_user_id: callbackToUpdate.customer_user_id,
+            integration: this.translateIntegration(integration, 'en'), // TODO: use customer.locale
+            createdAt: callbackToUpdate.createdAt,
+            automaticExport: callbackToUpdate.automaticExport
         };
     }
 

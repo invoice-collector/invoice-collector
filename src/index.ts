@@ -1712,7 +1712,82 @@ app.post('/api/v1/callback', async (req, res) => {
         const response = await server.post_callback(
             req.headers.authorization,
             req.body.integration_id,
-            req.body.params,
+            req.body.params
+        );
+
+        // Build response
+        res.setHeader('Content-Type', 'application/json');
+        res.end(JSON.stringify(response));
+    } catch (e) {
+        handle_error(e, req, res);
+    }
+});
+
+/**
+ * @openapi
+ * /api/v1/callback/{callbackId}:
+ *   put:
+ *     tags: [Callback]
+ *     summary: Update a callback
+ *     description: Updates the specified callback with new parameters.
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: callbackId
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: The ID of the callback to update
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               automaticExport:
+ *                 type: boolean
+ *                 description: Whether to enable automatic export
+ *     responses:
+ *       200:
+ *         description: Callback updated successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Callback'
+ *       400:
+ *         description: Bad request
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       401:
+ *         description: Unauthorized
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       404:
+ *         description: Callback not found
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       500:
+ *         description: Internal server error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ */
+app.put('/api/v1/callback/:callbackId', async (req, res) => {
+    try {
+        // Update callback
+        console.log(`PUT /callback/${req.params.callbackId}`);
+        const response = await server.put_callback(
+            req.headers.authorization,
+            req.params.callbackId,
             req.body.automaticExport
         );
 

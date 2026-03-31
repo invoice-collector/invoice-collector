@@ -35,7 +35,7 @@ export class Callback {
         return secret;
     }
 
-    private getIntegration(): AbstractIntegration {
+    public getIntegration(): AbstractIntegration {
         return IntegrationFactory.getIntegration(this.integration_id, this.getSecret());
     }
 
