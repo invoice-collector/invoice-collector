@@ -95,17 +95,24 @@ export class Collect {
                 for (const [index, invoice] of newInvoices.entries()) {
                     // If data downloaded and invoice is more recent than the download_from_timestamp
                     if (invoice.data && credential.download_from_timestamp <= invoice.timestamp && !previousInvoicesHash.includes(invoice.hash)) {
-                        console.log(`Sending invoice ${index + 1}/${newInvoices.length} (${invoice.id}) to callback`);
 
                         try {
-                            // Send invoice for each callback with automaticExport set to true
-                            for (const callback of callbacks.filter(cb => cb.automaticExport)) {
-                                try {
-                                    await callback.sendInvoice(collector.config, user.remote_id, invoice);
+                            // Get callbacks to send invoice to
+                            const callbacksToSend = callbacks.filter(cb => cb.automaticExport);
+                            if (callbacksToSend.length > 0) {
+                                // Send invoice for each callback with automaticExport set to true
+                                for (const callback of callbacksToSend) {
+                                    try {
+                                        console.log(`Sending invoice ${index + 1}/${newInvoices.length} (${invoice.id}) to callback ${callback.getIntegration().config.name}`);
+                                        await callback.sendInvoice(collector.config, user.remote_id, invoice);
+                                    }
+                                    catch (error) {
+                                        console.error(error);
+                                    }
                                 }
-                                catch (error) {
-                                    console.error(error);
-                                }
+                            }
+                            else {
+                                console.log(`No callback with automaticExport set to true for credential ${this.credential_id}, skipping sending invoice ${index + 1}/${newInvoices.length} (${invoice.id}) to callback`);
                             }
 
                             // Add invoice to credential only if callback successfully reached
