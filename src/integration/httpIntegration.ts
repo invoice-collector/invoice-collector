@@ -12,7 +12,7 @@ export class HttpIntegration extends AbstractIntegration {
         description: "Send invoice data to a custom API or webhook. The system will send a POST request to the specified URL.",
         params: {
             url: {
-                type: "string",
+                type: "url",
                 name: "URL",
                 placeholder: "The URL to send the invoice data.",
                 mandatory: true

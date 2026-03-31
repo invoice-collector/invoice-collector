@@ -7,7 +7,7 @@ export type IntegrationConfig = {
     description: string,
     params: {
         [key: string]: {
-            type: string,
+            type: 'text' | 'password' | 'url',
             name: string,
             placeholder: string,
             mandatory: boolean
