@@ -54,13 +54,13 @@ function handle_error(e, req, res){
  *     summary: Get UI page
  *     description: Returns a UI page for the user to add credentials.
  *     security:
- *      - TokenAuth: []
+ *       - TokenAuth: []
  *     parameters:
- *      - name: credential_id
- *        in: query
- *        schema:
- *          $ref: '#/components/schemas/credentialId'
- *        description: Id of the credential. If provided, a collect will be started for this credential. If a collect is already in progress for this credential, the current progress will be shown.
+ *       - name: credential_id
+ *         in: query
+ *         schema:
+ *           $ref: '#/components/schemas/credentialId'
+ *         description: Id of the credential. If provided, a collect will be started for this credential. If a collect is already in progress for this credential, the current progress will be shown.
  *     responses:
  *       200:
  *         description: Success
@@ -1609,7 +1609,7 @@ app.get('/api/v1/collectors', async (req, res) => {
  *     summary: List callbacks
  *     description: Returns all callbacks the customer is subscribed to.
  *     security:
- *      - CustomerBearerAuth: []
+ *       - CustomerBearerAuth: []
  *     responses:
  *       200:
  *         description: Success
@@ -1663,18 +1663,18 @@ app.get('/api/v1/callbacks', async (req, res) => {
  *     summary: Create a new callback
  *     description: Creates a new callback for the customer account.
  *     security:
- *      - CustomerBearerAuth: []
- *    requestBody:
- *      required: true
- *      content:
- *       application/json:
- *         schema:
- *           type: object
- *           properties:
- *             integration_id:
- *               type: string
- *             params:
- *               type: object
+ *       - CustomerBearerAuth: []
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               integration_id:
+ *                 type: string
+ *               params:
+ *                 type: object
  *     responses:
  *       200:
  *         description: Success
