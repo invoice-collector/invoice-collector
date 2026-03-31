@@ -33,7 +33,6 @@ export class Customer {
     static DEFAULT_PASSWORD = "";
     static DEFAULT_NAME = "default";
     static DEFAULT_CID = "";
-    static DEFAULT_CALLBACK = "";
     static DEFAULT_REMOTE_ID = "";
     static DEFAULT_BEARER = "";
     static DEFAULT_SUBSCRIBED_COLLECTORS: string[] = [];
@@ -82,7 +81,6 @@ export class Customer {
             Customer.DEFAULT_PASSWORD,
             Customer.DEFAULT_NAME,
             Customer.DEFAULT_CID,
-            Customer.DEFAULT_CALLBACK,
             Customer.DEFAULT_REMOTE_ID,
             utils.hash_string(bearer),
             utils.convertNameToInviteId(Customer.DEFAULT_NAME),
@@ -99,7 +97,6 @@ export class Customer {
     password: string;
     name: string;
     cid: string;
-    callback: string;
     remoteId: string;
     bearer: string;
     inviteId: string;
@@ -117,7 +114,6 @@ export class Customer {
         password: string,
         name: string,
         cid: string,
-        callback: string,
         remoteId: string,
         bearer: string,
         inviteId: string,
@@ -134,7 +130,6 @@ export class Customer {
         this.email = email;
         this.password = password;
         this.name = name;
-        this.callback = callback;
         this.remoteId = remoteId;
         this.cid = cid;
         this.bearer = bearer;

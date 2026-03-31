@@ -478,8 +478,6 @@ app.get('/api/v1/customer', async (req, res) => {
  *             properties:
  *               name:
  *                 $ref: '#/components/schemas/name'
- *               callback:
- *                 $ref: '#/components/schemas/callback'
  *               remoteId:
  *                 $ref: '#/components/schemas/customerRemoteId'
  *               cid:
@@ -522,7 +520,6 @@ app.put('/api/v1/customer', async (req, res) => {
         const response = await server.put_customer(
             req.headers.authorization,
             req.body.name,
-            req.body.callback,
             req.body.remoteId,
             req.body.cid,
             req.body.theme,

@@ -148,11 +148,6 @@ const SWAGGER_DEFINITION = {
                     description: 'Type of event to send to the callback.',
                     example: 'invoice',
                 },
-                callback: {
-                    type: 'string',
-                    description: 'Callback url at which the new invoices are sent.',
-                    example: 'https://your.infrastructure.com/path/to/callback'
-                },
                 theme: {
                     type: 'string',
                     description: 'Theme of the customer.',
@@ -323,7 +318,6 @@ const SWAGGER_DEFINITION = {
                         id: { type: 'string', description: 'Id of the customer.', example: '6795130f170ba4496dc30642' },
                         email: { $ref: '#/components/schemas/email' },
                         name: { $ref: '#/components/schemas/name' },
-                        callback: { $ref: '#/components/schemas/callback' },
                         remoteId: { type: 'string', description: 'Remote id of your company in your system.', example: 'R121439' },
                         theme: { $ref: '#/components/schemas/theme' },
                         subscribedCollectors: { $ref: '#/components/schemas/subscribedCollectors' },

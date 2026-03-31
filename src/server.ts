@@ -270,7 +270,6 @@ export class Server {
                 Customer.DEFAULT_PASSWORD,
                 name,
                 cid,
-                Customer.DEFAULT_CALLBACK,
                 Customer.DEFAULT_REMOTE_ID,
                 Customer.DEFAULT_BEARER,
                 utils.convertNameToInviteId(name),
@@ -396,7 +395,6 @@ export class Server {
         id: string,
         email: string,
         name: string,
-        callback: string,
         remoteId: string,
         cid: string,
         inviteId: string,
@@ -417,7 +415,6 @@ export class Server {
             id: customer.id,
             email: customer.email,
             name: customer.name,
-            callback: customer.callback,
             remoteId: customer.remoteId,
             cid: customer.cid,
             inviteId: customer.inviteId,
@@ -436,7 +433,6 @@ export class Server {
     public async put_customer(
         bearer: string | undefined,
         name: string | undefined,
-        callback: string | undefined,
         remoteId: string | undefined,
         cid: string | undefined,
         theme: string | undefined,
@@ -448,7 +444,6 @@ export class Server {
         id: string,
         email: string,
         name: string,
-        callback: string,
         remoteId: string,
         cid: string,
         inviteId: string,
@@ -467,11 +462,6 @@ export class Server {
         // Check if name field is present
         if(name) {
             customer.name = name;
-        }
-
-        // Check if callback field is present
-        if(callback) {
-            customer.callback = callback;
         }
 
         // Check if remoteId field is present
@@ -513,7 +503,6 @@ export class Server {
             id: customer.id,
             email: customer.email,
             name: customer.name,
-            callback: customer.callback,
             remoteId: customer.remoteId,
             cid: customer.cid,
             inviteId: customer.inviteId,
@@ -1005,9 +994,12 @@ export class Server {
         // Update collector params based on customer settings
         AbstractCollector.updateCollectorParams(customer.enableInteractiveLogin, collector.config);
 
-        // Check if customer has define a callback URL
-        if(!customer.callback) {
-            throw new StatusError(`No callback url defined for the customer. Please define a callback URL first.`, 400);
+        // Get customer callbacks
+        const callbacks = await customer.getCallbacks();
+
+        // Check if customer has define a callback
+        if(callbacks.length === 0) {
+            throw new StatusError(`No integration for the customer. Please define add an integration first.`, 400);
         }
 
         // Check if customer has subscribed to the collector
