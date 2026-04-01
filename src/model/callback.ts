@@ -7,6 +7,8 @@ import { SecretManagerFactory } from "../secret_manager/secretManagerFactory";
 
 export class Callback {
 
+    static DEFAULT_AUTOMATIC_EXPORT: boolean = true;
+
     id: string;
     customer_user_id: string;
     integration_id: string;

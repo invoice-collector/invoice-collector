@@ -1453,6 +1453,9 @@ export class Server {
             throw new MissingParams(missing_params);
         }
 
+        // Get callbacks from customer
+        const callbacksWithAutomaticExport = (await customer.getCallbacks()).filter(callback => callback.automaticExport);
+
         // Create secret
         const secret = new Secret(`${customer.id}_${integration_id}`, {
             params,
@@ -1469,11 +1472,19 @@ export class Server {
             integration_id,
             secret.id,
             Date.now(),
-            false
+            Callback.DEFAULT_AUTOMATIC_EXPORT
         );
 
         // Commit integration to database
         await callback.commit();
+
+        // Get other callbacks with automaticExport true
+        for (const callbackWithAutomaticExport of callbacksWithAutomaticExport) {
+            // Disable automatic export for other callback
+            callbackWithAutomaticExport.automaticExport = false;
+            // Commit changes in database
+            await callbackWithAutomaticExport.commit();
+        }
 
         return {
             id: callback.id,
