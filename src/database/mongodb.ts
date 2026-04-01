@@ -9,7 +9,6 @@ import { State } from "../model/state";
 import { CollectorMemory } from "../model/collectorMemory";
 import { Actions } from "../model/actions";
 import { Callback } from "../model/callback";
-import { last } from "pdf-lib";
 
 export class MongoDB extends AbstractDatabase {
 
