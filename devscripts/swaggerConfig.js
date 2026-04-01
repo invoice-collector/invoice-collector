@@ -56,7 +56,7 @@ const SWAGGER_DEFINITION = {
                     description: 'Company Identification Number.',
                     example: 'C123456',
                 },
-                createAt: {
+                createdAt: {
                     type: 'number',
                     description: 'Creation timestamp in ms.',
                     example: 1745229203582,

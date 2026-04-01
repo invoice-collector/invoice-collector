@@ -1752,7 +1752,7 @@ app.post('/api/v1/callback', async (req, res) => {
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/Callback'
+ *               $ref: '#/components/schemas/callback'
  *       400:
  *         description: Bad request
  *         content:
