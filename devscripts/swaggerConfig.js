@@ -1,5 +1,3 @@
-const { name } = require( 'ejs' );
-const { type } = require( 'os' );
 const path = require('path');
 
 const SWAGGER_DEFINITION = {
@@ -149,11 +147,6 @@ const SWAGGER_DEFINITION = {
                     enum: ['invoice', 'notification_disconnected'],
                     description: 'Type of event to send to the callback.',
                     example: 'invoice',
-                },
-                callback: {
-                    type: 'string',
-                    description: 'Callback url at which the new invoices are sent.',
-                    example: 'https://your.infrastructure.com/path/to/callback'
                 },
                 theme: {
                     type: 'string',
@@ -325,7 +318,6 @@ const SWAGGER_DEFINITION = {
                         id: { type: 'string', description: 'Id of the customer.', example: '6795130f170ba4496dc30642' },
                         email: { $ref: '#/components/schemas/email' },
                         name: { $ref: '#/components/schemas/name' },
-                        callback: { $ref: '#/components/schemas/callback' },
                         remoteId: { type: 'string', description: 'Remote id of your company in your system.', example: 'R121439' },
                         theme: { $ref: '#/components/schemas/theme' },
                         subscribedCollectors: { $ref: '#/components/schemas/subscribedCollectors' },
@@ -411,6 +403,41 @@ const SWAGGER_DEFINITION = {
                     },
                     required: ['id', 'user_id', 'note', 'create_timestamp', 'last_collect_timestamp', 'next_collect_timestamp', 'state', 'invoices', 'collector', 'wsPath'],
                 },
+                integration: {
+                    type: 'object',
+                    properties: {
+                        id: { type: 'string', description: 'Id of the integration.', example: 'http' },
+                        name: { type: 'string', description: 'Name of the integration.', example: 'HTTP Integration' },
+                        description: { type: 'string', description: 'Description of the integration.', example: 'Integration to send invoices to a custom HTTP endpoint.' },
+                        state: { type: 'string', description: 'State of the integration.', enum: ['planned', 'active'], example: 'active' },
+                        params: {
+                            type: 'object',
+                            description: 'List of parameters that the integration requires.',
+                            additionalProperties: {
+                                type: 'object',
+                                properties: {
+                                    type: { type: 'string', description: 'Type of the parameter.', enum: ['text', 'password', 'url'], example: 'text' },
+                                    description: { type: 'string', description: 'Description of the parameter.', example: 'This is a parameter.' },
+                                    mandatory: { type: 'boolean', description: 'Indicates if the parameter is mandatory.', example: true }
+                                }
+                            }
+                        }
+                    },
+                    required: ['id', 'name', 'description', 'state', 'params'],
+
+                },
+                callback: {
+                    type: 'object',
+                    properties: {
+                        id: { type: 'string', description: 'Id of the callback.', example: '6776b5258821de266afbc3f6' },
+                        customer_user_id: { type: 'string', description: 'Id of the customer or the user this callback belongs to.', example: '687108e5dce5050bc8ca53c1' },
+                        integration: { $ref: '#/components/schemas/integration' },
+                        createdAt: { type: 'number', description: 'Creation timestamp in ms.', example: 1745229262287 },
+                        automaticExport: { type: 'boolean', description: 'Indicates if automatic export is enabled.', example: true }
+                    },
+                    required: ['id', 'customer_user_id', 'name', 'createdAt', 'automaticExport'],
+                },
+
                 invoice: {
                     type: 'object',
                     properties: {

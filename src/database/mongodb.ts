@@ -8,6 +8,7 @@ import { buildCustomerStatsPipeline } from "./mongodbConstants";
 import { State } from "../model/state";
 import { CollectorMemory } from "../model/collectorMemory";
 import { Actions } from "../model/actions";
+import { Callback } from "../model/callback";
 
 export class MongoDB extends AbstractDatabase {
 
@@ -15,6 +16,7 @@ export class MongoDB extends AbstractDatabase {
     static USER_COLLECTION = 'users';
     static CREDENTIAL_COLLECTION = 'credentials';
     static COLLECTOR_MEMORY_COLLECTION = 'collector_memories';
+    static CALLBACK_COLLECTION = 'callbacks';
 
     client: MongoClient;
     db_name: string;
@@ -38,6 +40,7 @@ export class MongoDB extends AbstractDatabase {
             await this.db.createCollection(MongoDB.USER_COLLECTION);
             await this.db.createCollection(MongoDB.CREDENTIAL_COLLECTION);
             await this.db.createCollection(MongoDB.COLLECTOR_MEMORY_COLLECTION);
+            await this.db.createCollection(MongoDB.CALLBACK_COLLECTION);
 
             // Create default customer if no customer found
             const nbCustomers = await this.countCustomers();
@@ -46,7 +49,6 @@ export class MongoDB extends AbstractDatabase {
                 const bearer = (await Customer.createDefault()).bearer;
                 console.log(`Default customer created. Bearer is "${bearer}". Keep it safe, it will not be displayed again.`);
             }
-
         } catch (err) {
             console.error("Connection to MongoDB failed", err);
         }
@@ -58,6 +60,18 @@ export class MongoDB extends AbstractDatabase {
             console.log("Disconnected successfully from MongoDB");
         } catch (err) {
             console.error("Disconnection from MongoDB failed", err);
+        }
+    }
+
+    async ping(): Promise<boolean> {
+        if (!this.db) {
+            return false;
+        }
+        try {
+            await this.db.admin().ping();
+            return true;
+        } catch (err) {
+            return false;
         }
     }
 
@@ -79,7 +93,6 @@ export class MongoDB extends AbstractDatabase {
             password: customer.password,
             name: customer.name,
             cid: customer.cid,
-            callback: customer.callback,
             remoteId: customer.remoteId,
             bearer: customer.bearer,
             inviteId: customer.inviteId,
@@ -109,7 +122,6 @@ export class MongoDB extends AbstractDatabase {
             document.password,
             document.name,
             document.cid,
-            document.callback,
             document.remoteId,
             document.bearer,
             document.inviteId,
@@ -157,7 +169,6 @@ export class MongoDB extends AbstractDatabase {
                 password: customer.password,
                 name: customer.name,
                 cid: customer.cid,
-                callback: customer.callback,
                 remoteId: customer.remoteId,
                 bearer: customer.bearer,
                 theme: customer.theme,
@@ -548,5 +559,85 @@ export class MongoDB extends AbstractDatabase {
                 entryUrl: collectorMemory.entryUrl
             }}
         );
+    }
+
+    // CALLBACK
+
+    async getCallbacks(customer_user_id: string): Promise<Callback[]> {
+        if (!this.db) {
+            throw new Error("Database is not connected");
+        }
+        const documents = await this.db.collection(MongoDB.CALLBACK_COLLECTION).find({
+            customer_user_id: new ObjectId(customer_user_id)
+        }).toArray();
+        return documents.map(document => {
+            const callback = new Callback(
+                document.customer_user_id,
+                document.integration_id,
+                document.secret_id,
+                document.createdAt,
+                document.automaticExport
+            );
+            callback.id = document._id.toString();
+            return callback;
+        });
+    }
+
+    async getCallback(callback_id: string): Promise<Callback | null> {
+        if (!this.db) {
+            throw new Error("Database is not connected");
+        }
+        const document = await this.db.collection(MongoDB.CALLBACK_COLLECTION).findOne({
+            _id: new ObjectId(callback_id)
+        });
+        if (!document) {
+            return null;
+        }
+        const callback = new Callback(
+            document.customer_user_id,
+            document.integration_id,
+            document.secret_id,
+            document.createdAt,
+            document.automaticExport
+        );
+        callback.id = document._id.toString();
+        return callback;
+    }
+
+    async createCallback(callback: Callback): Promise<Callback> {
+        if (!this.db) {
+            throw new Error("Database is not connected");
+        }
+        const document = await this.db.collection(MongoDB.CALLBACK_COLLECTION).insertOne({
+            customer_user_id: new ObjectId(callback.customer_user_id),
+            integration_id: callback.integration_id,
+            secret_id: callback.secret_id,
+            createdAt: callback.createdAt,
+            automaticExport: callback.automaticExport
+        });
+        callback.id = document.insertedId.toString();
+        return callback;
+    }
+
+    async updateCallback(callback: Callback): Promise<void> {
+        if (!this.db) {
+            throw new Error("Database is not connected");
+        }
+        await this.db.collection(MongoDB.CALLBACK_COLLECTION).updateOne(
+            { _id: new ObjectId(callback.id) },
+            { $set: {
+                automaticExport: callback.automaticExport
+            }}
+        );
+    }
+
+
+    async deleteCallback(callback_id: string): Promise<void> {
+        if (!this.db) {
+            throw new Error("Database is not connected");
+        }
+        await this.db.collection(MongoDB.CALLBACK_COLLECTION).deleteOne({
+            _id: new ObjectId(callback_id)
+        });
     }
 }

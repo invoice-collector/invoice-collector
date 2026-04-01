@@ -1,5 +1,4 @@
-import { OTP } from '../model/otp';
-import { AbstractRegistry } from './abstractRegistry';
+import { AbstractRegistry, OTP } from './abstractRegistry';
 import * as utils from '../utils';
 import { AbstractCollector, Config } from '../collectors/abstractCollector';
 import { LoggableError } from '../error';

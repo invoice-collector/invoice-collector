@@ -11,13 +11,15 @@ import { ProxyFactory } from './proxy/proxyFactory';
 import { AbstractCollector, CollectorType, Config } from './collectors/abstractCollector';
 import { RegistryFactory } from './registry/registryFactory';
 import * as utils from './utils';
-import { CallbackHandler } from './callback/callback';
 import { CollectPool } from './collect/collectPool';
 import { Collect } from './collect/collect';
 import { I18n } from './i18n';
 import { Plan } from './model/plan';
 import { State } from './model/state';
 import { WebSocketServer } from './websocket/webSocketServer';
+import { IntegrationLoader } from './integration/integrationLoader';
+import { Callback } from './model/callback';
+import { IntegrationConfig } from './integration/abstractIntegration';
 
 export class Server {
 
@@ -74,38 +76,6 @@ export class Server {
 
         // Return locale and theme for UI rendering
         return { locale: user.locale, theme: customer.theme };
-    }
-
-    // BEARER AUTHENTICATION
-    public async get_test_callback(bearer: string | undefined, type: string): Promise<void> {
-        // Get customer from bearer
-        const customer = await this.getCustomerFromBearer(bearer);
-
-        // Check if type field is missing
-        if(!type) {
-            throw new MissingField("type");
-        }
-
-        // Create callback handler
-        const callback = new CallbackHandler(customer);
-
-        // If type is "invoice", send a fake invoice
-        if(type === "invoice") {
-            // Get fake invoice datas
-            let {collector, remote_id, invoice} = utils.createFakeInvoice();
-
-            // Send fake invoice to callback
-            await callback.sendInvoice(collector, remote_id, invoice);
-        }
-        else if(type === "notification_disconnected") {
-            // Get fake notification disconnected
-            let {collector, credential_id, user_id, remote_id } = utils.createFakeNotificationDisconnected();
-            // Send notification disconnected
-            await callback.sendNotificationDisconnected(collector, credential_id, user_id, remote_id);
-        }
-        else {
-            throw new StatusError(`Type "${type}" not supported.`, 400);
-        }
     }
 
     // TOKEN AUTHENTICATION
@@ -300,7 +270,6 @@ export class Server {
                 Customer.DEFAULT_PASSWORD,
                 name,
                 cid,
-                Customer.DEFAULT_CALLBACK,
                 Customer.DEFAULT_REMOTE_ID,
                 Customer.DEFAULT_BEARER,
                 utils.convertNameToInviteId(name),
@@ -426,7 +395,6 @@ export class Server {
         id: string,
         email: string,
         name: string,
-        callback: string,
         remoteId: string,
         cid: string,
         inviteId: string,
@@ -447,7 +415,6 @@ export class Server {
             id: customer.id,
             email: customer.email,
             name: customer.name,
-            callback: customer.callback,
             remoteId: customer.remoteId,
             cid: customer.cid,
             inviteId: customer.inviteId,
@@ -466,7 +433,6 @@ export class Server {
     public async put_customer(
         bearer: string | undefined,
         name: string | undefined,
-        callback: string | undefined,
         remoteId: string | undefined,
         cid: string | undefined,
         theme: string | undefined,
@@ -478,7 +444,6 @@ export class Server {
         id: string,
         email: string,
         name: string,
-        callback: string,
         remoteId: string,
         cid: string,
         inviteId: string,
@@ -497,11 +462,6 @@ export class Server {
         // Check if name field is present
         if(name) {
             customer.name = name;
-        }
-
-        // Check if callback field is present
-        if(callback) {
-            customer.callback = callback;
         }
 
         // Check if remoteId field is present
@@ -543,7 +503,6 @@ export class Server {
             id: customer.id,
             email: customer.email,
             name: customer.name,
-            callback: customer.callback,
             remoteId: customer.remoteId,
             cid: customer.cid,
             inviteId: customer.inviteId,
@@ -1035,11 +994,6 @@ export class Server {
         // Update collector params based on customer settings
         AbstractCollector.updateCollectorParams(customer.enableInteractiveLogin, collector.config);
 
-        // Check if customer has define a callback URL
-        if(!customer.callback) {
-            throw new StatusError(`No callback url defined for the customer. Please define a callback URL first.`, 400);
-        }
-
         // Check if customer has subscribed to the collector
         if (!customer.isSubscribedToAll && !customer.subscribedCollectors.includes(collector.config.id)) {
             throw new StatusError(`Customer has not subscribed to collector "${collector.config.id}". Available collectors are: ${customer.subscribedCollectors.join(", ")}.`, 400);
@@ -1418,6 +1372,264 @@ export class Server {
             });
     }
 
+    // ---------- CALLBACKS ENDPOINTS ----------
+
+    // BEARER AUTHENTICATION
+    public async get_callbacks(
+        bearer: string | undefined
+    ): Promise<{
+        id: string,
+        customer_user_id: string,
+        integration: IntegrationConfig,
+        createdAt: number,
+        automaticExport: boolean
+    }[]> {
+        // Get customer from bearer
+        const customer = await this.getCustomerFromBearer(bearer);
+
+        // Get callbacks from customer
+        const callbacks = await customer.getCallbacks();
+
+        // Return callbacks
+        return callbacks.map(callback => {
+            // Get integration from id
+            const integration = IntegrationLoader.get(callback.integration_id);
+
+            return {
+                id: callback.id,
+                customer_user_id: callback.customer_user_id,
+                integration: this.translateIntegration(integration, 'en'),  // TODO: use customer.locale
+                createdAt: callback.createdAt,
+                automaticExport: callback.automaticExport
+            }
+        });
+    }
+
+    // BEARER AUTHENTICATION
+    public async post_callback(
+        bearer: string | undefined,
+        integration_id: string | undefined,
+        params: any | undefined
+    ): Promise<{
+        id: string,
+        customer_user_id: string,
+        integration: IntegrationConfig,
+        createdAt: number,
+        automaticExport: boolean | undefined
+    }> {
+        // Get customer from bearer
+        const customer = await this.getCustomerFromBearer(bearer);
+ 
+        // Check if integration_id field is missing
+        if(!integration_id) {
+            throw new MissingField("integration_id");
+        }
+ 
+        // Check if params field is missing
+        if(!params) {
+            throw new MissingField("params");
+        }
+
+        // Get integration configs
+        const integrationConfigs = IntegrationLoader.getAll();
+
+         // Check if integration exists
+        const integrationConfig = integrationConfigs.find(config => config.id === integration_id);
+        if (!integrationConfig) {
+            throw new StatusError(`Integration with id "${integration_id}" not found.`, 400);
+        }
+
+        // Check if all mandatory params are present
+        const missing_params = Object.keys(integrationConfig.params).filter((param) => integrationConfig.params[param].mandatory && !params.hasOwnProperty(param));
+        if(missing_params.length > 0) {
+            throw new MissingParams(missing_params);
+        }
+
+        // Get callbacks from customer
+        const callbacksWithAutomaticExport = (await customer.getCallbacks()).filter(callback => callback.automaticExport);
+
+        // Create secret
+        const secret = new Secret(`${customer.id}_${integration_id}`, {
+            params,
+            cookies: null,
+            localStorage: null
+        });
+
+        // Create secret in Secure Storage
+        await secret.commit();
+
+        // Create new callback
+        const callback = new Callback(
+            customer.id,
+            integration_id,
+            secret.id,
+            Date.now(),
+            Callback.DEFAULT_AUTOMATIC_EXPORT
+        );
+
+        // Commit integration to database
+        await callback.commit();
+
+        // Get other callbacks with automaticExport true
+        for (const callbackWithAutomaticExport of callbacksWithAutomaticExport) {
+            // Disable automatic export for other callback
+            callbackWithAutomaticExport.automaticExport = false;
+            // Commit changes in database
+            await callbackWithAutomaticExport.commit();
+        }
+
+        return {
+            id: callback.id,
+            customer_user_id: callback.customer_user_id,
+            integration: this.translateIntegration(integrationConfig, 'en'), // TODO: use customer.locale
+            createdAt: callback.createdAt,
+            automaticExport: callback.automaticExport
+        };
+    }
+
+    // BEARER AUTHENTICATION
+    public async put_callback(
+        bearer: string | undefined,
+        callback_id: string,
+        automaticExport: boolean | undefined
+    ): Promise<{
+        id: string,
+        customer_user_id: string,
+        integration: IntegrationConfig,
+        createdAt: number,
+        automaticExport: boolean | undefined
+    }> {
+        // Get customer from bearer
+        const customer = await this.getCustomerFromBearer(bearer);
+
+        // Get callbacks from customer
+        const callbacks = await customer.getCallbacks();
+
+        // Check if callback exists
+        const callbackToUpdate = callbacks.find(callback => callback.id === callback_id);
+        if (!callbackToUpdate) {
+            throw new StatusError(`Callback with id "${callback_id}" not found.`, 400);
+        }
+
+        // Update automaticExport if provided
+        if (automaticExport !== undefined) {
+            callbackToUpdate.automaticExport = automaticExport;
+        }
+
+        // Commit changes in database
+        await callbackToUpdate.commit();
+
+        // Remove automaticExport for other callbacks if automaticExport is true for the new callback
+        if (automaticExport == true) {
+            // Get other callbacks with automaticExport true
+            const otherCallbacks = callbacks.filter(callback => callback.id !== callbackToUpdate.id && callback.automaticExport);
+            for (const otherCallback of otherCallbacks) {
+                if (otherCallback.automaticExport) {
+                    // Disable automatic export for other callback
+                    otherCallback.automaticExport = false;
+                    // Commit changes in database
+                    await otherCallback.commit();
+                }          
+            }
+        }
+
+        // Get integration from id
+        const integration = IntegrationLoader.get(callbackToUpdate.integration_id);
+
+        return {
+            id: callbackToUpdate.id,
+            customer_user_id: callbackToUpdate.customer_user_id,
+            integration: this.translateIntegration(integration, 'en'), // TODO: use customer.locale
+            createdAt: callbackToUpdate.createdAt,
+            automaticExport: callbackToUpdate.automaticExport
+        };
+    }
+
+    // BEARER AUTHENTICATION
+    public async delete_callback(
+        bearer: string | undefined,
+        callback_id: string
+    ): Promise<void> {
+        // Get customer from bearer
+        const customer = await this.getCustomerFromBearer(bearer);
+
+        // Get callbacks from customer
+        const callbacks = await customer.getCallbacks();
+
+        // Check if callback exists
+        const callbackToDelete = callbacks.find(callback => callback.id === callback_id);
+        if (!callbackToDelete) {
+            throw new StatusError(`Callback with id "${callback_id}" not found.`, 400);
+        }
+
+        // Delete callback
+        await callbackToDelete.delete();
+    }
+
+    // BEARER AUTHENTICATION
+    public async get_callback_test(
+        bearer: string | undefined,
+        callbackId: string,
+        type: string
+    ): Promise<void> {
+        // Get customer from bearer
+        const customer = await this.getCustomerFromBearer(bearer);
+
+        // Check if type field is missing
+        if(!type) {
+            throw new MissingField("type");
+        }
+
+        // Get customer callbacks
+        const callbacks = await customer.getCallbacks();
+
+        // Find callback with id
+        const callback = callbacks.find(cb => cb.id === callbackId);
+
+        // If no callback found, throw error
+        if (!callback) {
+            throw new StatusError(`Callback with id "${callbackId}" not found.`, 404);
+        }
+
+        // If type is "invoice", send a fake invoice
+        if(type === "invoice") {
+            // Get fake invoice datas
+            let {collector, remote_id, invoice} = utils.createFakeInvoice();
+
+            // Send fake invoice to callback
+            await callback.sendInvoice(collector, remote_id, invoice);
+        }
+        else if(type === "notification_disconnected") {
+            // Get fake notification disconnected
+            let {collector, credential_id, user_id, remote_id } = utils.createFakeNotificationDisconnected();
+            // Send notification disconnected
+            await callback.sendNotificationDisconnected(collector, credential_id, user_id, remote_id);
+        }
+        else {
+            throw new StatusError(`Type "${type}" not supported.`, 400);
+        }
+    }
+
+    // ---------- INTEGRATIONS ENDPOINTS ----------
+
+    // NO AUTHENTICATION
+    public async get_integrations(locale: any): Promise<IntegrationConfig[]> {
+        // Check if locale field is missing
+        if(!locale || typeof locale !== 'string') {
+            // Set default locale
+            locale = I18n.DEFAULT_LOCALE;
+        }
+
+        // Check if locale is supported
+        if(locale && !I18n.LOCALES.includes(locale)) {
+            throw new StatusError(`Locale "${locale}" not supported. Available locales are: ${I18n.LOCALES.join(", ")}.`, 400);
+        }
+
+        // Get integration configs
+        return IntegrationLoader.getAll()
+            .map((config) => this.translateIntegration(config, locale));
+    }
+
     // ---------- PRIVATE METHODS ----------
 
     private generateUiToken(user: User): string {
@@ -1598,5 +1810,24 @@ export class Server {
 
         // Return token
         return resetToken;
+    }
+
+    private translateIntegration(integration: IntegrationConfig, locale: string): IntegrationConfig {
+        const name: string = I18n.get(integration.name, locale);
+        const description: string = I18n.get(integration.description, locale);
+        const params = Object.keys(integration.params).reduce((acc, key) => {
+            acc[key] = {
+                ...integration.params[key],
+                name: I18n.get(integration.params[key].name, locale),
+                placeholder: I18n.get(integration.params[key].placeholder, locale)
+            };
+            return acc;
+        }, {});
+        return {
+            ...integration,
+            name,
+            description,
+            params
+        };
     }
 }

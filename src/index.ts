@@ -54,13 +54,13 @@ function handle_error(e, req, res){
  *     summary: Get UI page
  *     description: Returns a UI page for the user to add credentials.
  *     security:
- *      - TokenAuth: []
+ *       - TokenAuth: []
  *     parameters:
- *      - name: credential_id
- *        in: query
- *        schema:
- *          $ref: '#/components/schemas/credentialId'
- *        description: Id of the credential. If provided, a collect will be started for this credential. If a collect is already in progress for this credential, the current progress will be shown.
+ *       - name: credential_id
+ *         in: query
+ *         schema:
+ *           $ref: '#/components/schemas/credentialId'
+ *         description: Id of the credential. If provided, a collect will be started for this credential. If a collect is already in progress for this credential, the current progress will be shown.
  *     responses:
  *       200:
  *         description: Success
@@ -85,7 +85,7 @@ function handle_error(e, req, res){
 app.get('/api/v1/ui', async (req, res) => {
     try {
         // Get UI context
-        console.log(`GET ui`);
+        console.log(`GET /ui`);
         const context = await server.get_ui(
             req.query.token
         );
@@ -93,120 +93,6 @@ app.get('/api/v1/ui', async (req, res) => {
         // Render ui.ejs
         req.setLocale(context.locale);
         res.render('ui/ui', context);
-    } catch (e) {
-        handle_error(e, req, res);
-    }
-});
-
-/**
- * @openapi
- * /test/callback/{type}:
- *   get:
- *     tags: [General]
- *     summary: Test callback
- *     description: Sends a test callback of the specified type.
- *     security:
- *       - CustomerBearerAuth: []
- *     parameters:
- *       - name: type
- *         in: path
- *         required: true
- *         schema:
- *           $ref: '#/components/schemas/callbackType'
- *     responses:
- *       200:
- *         description: Success
- *       400:
- *         description: Bad request
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/error'
- *       401:
- *         description: Authentication error
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/error'
- *       500:
- *         description: Internal server error
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/error'
- *     callbacks:
- *       onInvoiceCollected:
- *         Invoice:
- *           post:
- *             requestBody:
- *               required: true
- *               content:
- *                 application/json:
- *                   schema:
- *                     type: object
- *                     properties:
- *                       type:
- *                         $ref: '#/components/schemas/callbackType'
- *                       remote_id:
- *                         $ref: '#/components/schemas/remoteId'
- *                       invoice:
- *                         $ref: "#/components/schemas/invoice"
- *                       collector:
- *                         $ref: "#/components/schemas/collectorConfig"
- *                     required:
- *                       - type
- *                       - remote_id
- *                       - invoice
- *                       - collector
- *             responses:
- *               '200':
- *                 description: Success
- *               '400':
- *                 description: Error
- *       onCollectorDisconnected:
- *         Notification Disconnected:
- *           post:
- *             requestBody:
- *               required: true
- *               content:
- *                 application/json:
- *                   schema:
- *                     type: object
- *                     properties:
- *                       type:
- *                         $ref: '#/components/schemas/callbackType'
- *                       credential_id:
- *                        $ref: '#/components/schemas/credentialId'
- *                       user_id:
- *                        $ref: '#/components/schemas/userId'
- *                       remote_id:
- *                         $ref: '#/components/schemas/remoteId'
- *                       collector:
- *                         $ref: "#/components/schemas/collectorConfig"
- *                     required:
- *                       - type
- *                       - credential_id
- *                       - user_id
- *                       - remote_id
- *                       - collector
- *             responses:
- *               '200':
- *                 description: Success
- *               '400':
- *                 description: Error
- */
-// BEARER AUTHENTICATION
-app.get('/api/v1/test/callback/:type', async (req, res) => {
-    try {
-        // Test callback
-        console.log('GET test_callback');
-        await server.get_test_callback(
-            req.headers.authorization,
-            req.params.type
-        );
-
-        // Build response
-        res.end()
     } catch (e) {
         handle_error(e, req, res);
     }
@@ -255,7 +141,7 @@ app.get('/api/v1/test/callback/:type', async (req, res) => {
 app.post('/api/v1/feedback', async (req, res) => {
     try {
         // Send feedback
-        console.log('POST feedback');
+        console.log('POST /feedback');
         await server.post_feedback(
             req.headers.authorization,
             req.query.token,
@@ -321,7 +207,7 @@ app.post('/api/v1/feedback', async (req, res) => {
 app.post('/api/v1/login', async (req, res) => {
     try {
         // Perform login
-        console.log('POST login');
+        console.log('POST /login');
         const response = await server.post_login(
             req.body.email,
             req.body.password
@@ -388,7 +274,7 @@ app.post('/api/v1/login', async (req, res) => {
 app.post('/api/v1/signup', async (req, res) => {
     try {
         // Perform signup
-        console.log('POST signup');
+        console.log('POST /signup');
         const response = await server.post_signup(
             req.body.email,
             req.body.name,
@@ -450,7 +336,7 @@ app.post('/api/v1/signup', async (req, res) => {
 app.post('/api/v1/forgot', async (req, res) => {
     try {
         // Perform forgot password
-        console.log('POST forgot');
+        console.log('POST /forgot');
         const response = await server.post_forgot(
             req.body.email
         );
@@ -513,7 +399,7 @@ app.post('/api/v1/forgot', async (req, res) => {
 app.post('/api/v1/reset', async (req, res) => {
     try {
         // Perform reset password
-        console.log('POST reset');
+        console.log('POST /reset');
         await server.post_reset(
             req.query.token,
             req.body.password
@@ -561,7 +447,7 @@ app.post('/api/v1/reset', async (req, res) => {
 app.get('/api/v1/customer', async (req, res) => {
     try {
         // Get customer
-        console.log(`GET customer`);
+        console.log(`GET /customer`);
         const response = await server.get_customer(
             req.headers.authorization
         );
@@ -592,8 +478,6 @@ app.get('/api/v1/customer', async (req, res) => {
  *             properties:
  *               name:
  *                 $ref: '#/components/schemas/name'
- *               callback:
- *                 $ref: '#/components/schemas/callback'
  *               remoteId:
  *                 $ref: '#/components/schemas/customerRemoteId'
  *               cid:
@@ -632,11 +516,10 @@ app.get('/api/v1/customer', async (req, res) => {
 app.put('/api/v1/customer', async (req, res) => {
     try {
         // Save customer
-        console.log(`PUT customer`);
+        console.log(`PUT /customer`);
         const response = await server.put_customer(
             req.headers.authorization,
             req.body.name,
-            req.body.callback,
             req.body.remoteId,
             req.body.cid,
             req.body.theme,
@@ -687,7 +570,7 @@ app.put('/api/v1/customer', async (req, res) => {
 app.post('/api/v1/customer/bearer', async (req, res) => {
     try {
         // Generate a new bearer for customer
-        console.log(`POST customer bearer`);
+        console.log(`POST /customer/bearer`);
         const response = await server.post_customer_bearer(
             req.headers.authorization
         );
@@ -734,7 +617,7 @@ app.post('/api/v1/customer/bearer', async (req, res) => {
 app.get('/api/v1/customer/stats', async (req, res) => {
     try {
         // Get customer stats
-        console.log(`GET customer stats`);
+        console.log(`GET /customer/stats`);
         const response = await server.getCustomerStats(
             req.headers.authorization
         );
@@ -782,7 +665,7 @@ app.get('/api/v1/customer/stats', async (req, res) => {
 app.get('/api/v1/users', async (req, res) => {
     try {
         // List users
-        console.log(`GET users`);
+        console.log(`GET /users`);
         const response = await server.get_users(
             req.headers.authorization
         );
@@ -854,7 +737,7 @@ app.get('/api/v1/users', async (req, res) => {
 app.post('/api/v1/user', async (req, res) => {
     try {
         // Perform authorization
-        console.log('POST user');
+        console.log('POST /user');
         const response = await server.post_user(
             req.headers.authorization,
             req.body.remoteId || req.body.remote_id,
@@ -916,7 +799,7 @@ app.post('/api/v1/user', async (req, res) => {
 app.get('/api/v1/user/:user_id', async (req, res) => {
     try {
         // Get user
-        console.log('GET user');
+        console.log(`GET /user/${req.params.user_id}`);
         const response = await server.get_user(
             req.headers.authorization,
             req.params.user_id
@@ -934,7 +817,7 @@ app.get('/api/v1/user/:user_id', async (req, res) => {
 app.get('/api/v1/user', async (req, res) => {
     try {
         // Get user
-        console.warn('GET user (DEPRECATED, use GET /user/{userId} with userId "me" instead)');
+        console.warn('GET /user (DEPRECATED, use GET /user/{userId} with userId "me" instead)');
         const response = await server.get_user(
             req.headers.authorization,
             "me"
@@ -1009,7 +892,7 @@ app.get('/api/v1/user', async (req, res) => {
 app.put('/api/v1/user/:userId', async (req, res) => {
     try {
         // Update user
-        console.log('PUT user');
+        console.log(`PUT /user/${req.params.userId}`);
         const response = await server.put_user(
             req.headers.authorization,
             req.params.userId,
@@ -1068,7 +951,7 @@ app.put('/api/v1/user/:userId', async (req, res) => {
 app.delete('/api/v1/user/:user_id', async (req, res) => {
     try {
         // Delete user
-        console.log('DELETE user');
+        console.log(`DELETE /user/${req.params.user_id}`);
         await server.delete_user(
             req.headers.authorization,
             req.params.user_id
@@ -1126,7 +1009,7 @@ app.delete('/api/v1/user/:user_id', async (req, res) => {
 app.get('/api/v1/user/:user_id/credentials', async (req, res) => {
     try {
         // Get credentials
-        console.log(`GET credentials`);
+        console.log(`GET /user/${req.params.user_id}/credentials`);
         const credentials = await server.get_credentials(
             req.headers.authorization,
             req.params.user_id,
@@ -1145,7 +1028,7 @@ app.get('/api/v1/user/:user_id/credentials', async (req, res) => {
 app.get('/api/v1/credentials', async (req, res) => {
     try {
         // Get credentials
-        console.warn(`GET credentials (DEPRECATED, use GET /user/{userId}/credentials with userId "me" instead)`);
+        console.warn(`GET /credentials (DEPRECATED, use GET /user/{userId}/credentials with userId "me" instead)`);
         const credentials = await server.get_credentials(
             req.headers.authorization,
             "me",
@@ -1229,7 +1112,7 @@ app.get('/api/v1/credentials', async (req, res) => {
 app.post('/api/v1/user/:user_id/credential', async (req, res) => {
     try {
         // Save credential
-        console.log(`POST credential`);
+        console.log(`POST /user/${req.params.user_id}/credential`);
         const response = await server.post_credential(
             req.headers.authorization,
             req.params.user_id,
@@ -1251,7 +1134,7 @@ app.post('/api/v1/user/:user_id/credential', async (req, res) => {
 app.post('/api/v1/credential', async (req, res) => {
     try {
         // Save credential
-        console.warn(`POST credential (DEPRECATED, use POST /user/{userId}/credential with userId "me" instead)`);
+        console.warn(`POST /credential (DEPRECATED, use POST /user/{userId}/credential with userId "me" instead)`);
         const response = await server.post_credential(
             req.headers.authorization,
             "me",
@@ -1327,6 +1210,7 @@ app.post('/api/v1/credential', async (req, res) => {
 app.get('/api/v1/user/:user_id/credential/:credential_id', async (req, res) => {
     try {
         // Get credential status
+        console.log(`GET /user/${req.params.user_id}/credential/${req.params.credential_id}`);
         const response = await server.get_credential(
             req.headers.authorization,
             req.params.user_id,
@@ -1416,7 +1300,7 @@ app.get('/api/v1/credential/:credential_id', async (req, res) => {
 app.delete('/api/v1/user/:user_id/credential/:credential_id', async (req, res) => {
     try {
         // Delete credential
-        console.log(`DELETE credential ${req.params.credential_id}`);
+        console.log(`DELETE /user/${req.params.user_id}/credential/${req.params.credential_id}`);
         await server.delete_credential(
             req.headers.authorization,
             req.params.user_id,
@@ -1435,7 +1319,7 @@ app.delete('/api/v1/user/:user_id/credential/:credential_id', async (req, res) =
 app.delete('/api/v1/credential/:credential_id', async (req, res) => {
     try {
         // Delete credential
-        console.warn(`DELETE credential ${req.params.credential_id} (DEPRECATED, use DELETE /user/{userId}/credential/{credentialId} with userId "me" instead)`);
+        console.warn(`DELETE /credential/${req.params.credential_id} (DEPRECATED, use DELETE /user/{userId}/credential/{credentialId} with userId "me" instead)`);
         await server.delete_credential(
             req.headers.authorization,
             "me",
@@ -1515,7 +1399,7 @@ app.delete('/api/v1/credential/:credential_id', async (req, res) => {
 app.post('/api/v1/user/:user_id/credential/:credential_id/2fa', async (req, res) => {
     try {
         // Post 2fa
-        console.warn(`POST 2fa ${req.params.credential_id} (DEPRECATED, use websockets instead)`);
+        console.warn(`POST /user/${req.params.user_id}/credential/${req.params.credential_id}/2fa (DEPRECATED, use websockets instead)`);
         await server.post_credential_2fa(
             req.headers.authorization,
             req.params.user_id,
@@ -1535,7 +1419,7 @@ app.post('/api/v1/user/:user_id/credential/:credential_id/2fa', async (req, res)
 app.post('/api/v1/credential/:credential_id/2fa', async (req, res) => {
     try {
         // Post 2fa
-        console.warn(`POST 2fa ${req.params.credential_id} (DEPRECATED, use websockets instead)`);
+        console.warn(`POST /credential/${req.params.credential_id}/2fa (DEPRECATED, use websockets instead)`);
         await server.post_credential_2fa(
             req.headers.authorization,
             "me",
@@ -1612,7 +1496,7 @@ app.post('/api/v1/credential/:credential_id/2fa', async (req, res) => {
 app.post('/api/v1/user/:user_id/credential/:credential_id/collect', async (req, res) => {
     try {
         // Post collect
-        console.log(`POST collect ${req.params.credential_id}`);
+        console.log(`POST /user/${req.params.user_id}/credential/${req.params.credential_id}/collect`);
         const response = await server.post_credential_collect(
             req.headers.authorization,
             req.params.user_id,
@@ -1632,7 +1516,7 @@ app.post('/api/v1/user/:user_id/credential/:credential_id/collect', async (req, 
 app.post('/api/v1/credential/:credential_id/collect', async (req, res) => {
     try {
         // Post collect
-        console.warn(`POST collect ${req.params.credential_id} (DEPRECATED, use websockets instead)`);
+        console.warn(`POST /credential/${req.params.credential_id}/collect (DEPRECATED, use websockets instead)`);
         const response = await server.post_credential_collect(
             req.headers.authorization,
             "me",
@@ -1700,13 +1584,405 @@ app.post('/api/v1/credential/:credential_id/collect', async (req, res) => {
 app.get('/api/v1/collectors', async (req, res) => {
     try {
         // List all collectors
-        console.log(`GET collectors`);
+        console.log(`GET /collectors`);
         const response = await server.get_collectors(
             req.headers.authorization,
             req.query.token,
             req.query.locale
         );
 
+        // Build response
+        res.setHeader('Content-Type', 'application/json');
+        res.end(JSON.stringify(response));
+    } catch (e) {
+        handle_error(e, req, res);
+    }
+});
+
+// ---------- CALLBACKS ENDPOINTS ----------
+
+/**
+ * @openapi
+ * /callbacks:
+ *   get:
+ *     tags: [Callback]
+ *     summary: List callbacks
+ *     description: Returns all callbacks the customer is subscribed to.
+ *     security:
+ *       - CustomerBearerAuth: []
+ *     responses:
+ *       200:
+ *         description: Success
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: '#/components/schemas/callback'
+ *       400:
+ *         description: Bad request
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       401:
+ *         description: Authentication error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       500:
+ *         description: Internal server error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ */
+//BEARER AUTHENTICATION
+app.get('/api/v1/callbacks', async (req, res) => {
+    try {
+        // List callbacks
+        console.log(`GET /callbacks`);
+        const response = await server.get_callbacks(
+            req.headers.authorization
+        );
+
+        // Build response
+        res.setHeader('Content-Type', 'application/json');
+        res.end(JSON.stringify(response));
+    } catch (e) {
+        handle_error(e, req, res);
+    }
+});
+
+/**
+ * @openapi
+ * /callback:
+ *   post:
+ *     tags: [Callback]
+ *     summary: Create a new callback
+ *     description: Creates a new callback for the customer account.
+ *     security:
+ *       - CustomerBearerAuth: []
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               integration_id:
+ *                 type: string
+ *               params:
+ *                 type: object
+ *     responses:
+ *       200:
+ *         description: Success
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/callback'
+ *       400:
+ *         description: Bad request
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       401:
+ *         description: Authentication error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       500:
+ *         description: Internal server error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ */
+//BEARER AUTHENTICATION
+app.post('/api/v1/callback', async (req, res) => {
+    try {
+        // Create callback
+        console.log(`POST /callback`);
+        const response = await server.post_callback(
+            req.headers.authorization,
+            req.body.integration_id,
+            req.body.params
+        );
+
+        // Build response
+        res.setHeader('Content-Type', 'application/json');
+        res.end(JSON.stringify(response));
+    } catch (e) {
+        handle_error(e, req, res);
+    }
+});
+
+/**
+ * @openapi
+ * /api/v1/callback/{callbackId}:
+ *   put:
+ *     tags: [Callback]
+ *     summary: Update a callback
+ *     description: Updates the specified callback with new parameters.
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: callbackId
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: The ID of the callback to update
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               automaticExport:
+ *                 type: boolean
+ *                 description: Whether to enable automatic export
+ *     responses:
+ *       200:
+ *         description: Callback updated successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Callback'
+ *       400:
+ *         description: Bad request
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       401:
+ *         description: Unauthorized
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       404:
+ *         description: Callback not found
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       500:
+ *         description: Internal server error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ */
+app.put('/api/v1/callback/:callbackId', async (req, res) => {
+    try {
+        // Update callback
+        console.log(`PUT /callback/${req.params.callbackId}`);
+        const response = await server.put_callback(
+            req.headers.authorization,
+            req.params.callbackId,
+            req.body.automaticExport
+        );
+
+        // Build response
+        res.setHeader('Content-Type', 'application/json');
+        res.end(JSON.stringify(response));
+    } catch (e) {
+        handle_error(e, req, res);
+    }
+});
+
+/**
+ * @openapi
+ * /callback/{callbackId}:
+ *   delete:
+ *     tags: [Callback]
+ *     summary: Delete a callback
+ *     description: Deletes a callback from the customer account.
+ *     security:
+ *       - CustomerBearerAuth: []
+ *     parameters:
+ *       - name: callbackId
+ *         in: path
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: ID of the callback to delete
+ *     responses:
+ *       200:
+ *         description: Callback deleted successfully
+ *       400:
+ *         description: Bad request
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       401:
+ *         description: Authentication error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       500:
+ *         description: Internal server error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+
+ */
+//BEARER AUTHENTICATION
+app.delete('/api/v1/callback/:callbackId', async (req, res) => {
+    try {
+        // Delete callback
+        console.log(`DELETE /callback/${req.params.callbackId}`);
+        await server.delete_callback(
+            req.headers.authorization,
+            req.params.callbackId
+        );
+
+        // Build response
+        res.end()
+    } catch (e) {
+        handle_error(e, req, res);
+    }
+});
+
+/**
+ * @openapi
+ * /callback/{callbackId}/test/{type}:
+ *   get:
+ *     tags: [Callback]
+ *     summary: Test a callback
+ *     description: Sends a test request of the specified type to a given callback.
+ *     security:
+ *       - CustomerBearerAuth: []
+ *     parameters:
+ *       - name: callbackId
+ *         in: path
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: ID of the callback to test
+ *       - name: type
+ *         in: path
+ *         required: true
+ *         schema:
+ *           $ref: '#/components/schemas/callbackType'
+ *     responses:
+ *       200:
+ *         description: Success
+ *       400:
+ *         description: Bad request
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       401:
+ *         description: Authentication error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       500:
+ *         description: Internal server error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *     callbacks:
+ *       onInvoiceCollected:
+ *         Invoice:
+ *           post:
+ *             requestBody:
+ *               required: true
+ *               content:
+ *                 application/json:
+ *                   schema:
+ *                     type: object
+ *                     properties:
+ *                       type:
+ *                         $ref: '#/components/schemas/callbackType'
+ *                       remote_id:
+ *                         $ref: '#/components/schemas/remoteId'
+ *                       invoice:
+ *                         $ref: "#/components/schemas/invoice"
+ *                       collector:
+ *                         $ref: "#/components/schemas/collectorConfig"
+ *                     required:
+ *                       - type
+ *                       - remote_id
+ *                       - invoice
+ *                       - collector
+ *             responses:
+ *               '200':
+ *                 description: Success
+ *               '400':
+ *                 description: Error
+ *       onCollectorDisconnected:
+ *         Notification Disconnected:
+ *           post:
+ *             requestBody:
+ *               required: true
+ *               content:
+ *                 application/json:
+ *                   schema:
+ *                     type: object
+ *                     properties:
+ *                       type:
+ *                         $ref: '#/components/schemas/callbackType'
+ *                       credential_id:
+ *                        $ref: '#/components/schemas/credentialId'
+ *                       user_id:
+ *                        $ref: '#/components/schemas/userId'
+ *                       remote_id:
+ *                         $ref: '#/components/schemas/remoteId'
+ *                       collector:
+ *                         $ref: "#/components/schemas/collectorConfig"
+ *                     required:
+ *                       - type
+ *                       - credential_id
+ *                       - user_id
+ *                       - remote_id
+ *                       - collector
+ *             responses:
+ *               '200':
+ *                 description: Success
+ *               '400':
+ *                 description: Error
+ */
+// BEARER AUTHENTICATION
+app.get('/api/v1/callback/:callbackId/test/:type', async (req, res) => {
+    try {
+        // Test callback
+        console.log(`GET /callback/${req.params.callbackId}/test/${req.params.type}`);
+        await server.get_callback_test(
+            req.headers.authorization,
+            req.params.callbackId,
+            req.params.type
+        );
+
+        // Build response
+        res.end()
+    } catch (e) {
+        handle_error(e, req, res);
+    }
+});
+
+// ---------- INTEGRATIONS ENDPOINTS ----------
+
+//NO AUTHENTICATION
+app.get('/api/v1/integrations', async (req, res) => {
+    try {
+        // List available integrations
+        console.log(`GET /integrations`);
+        const response = await server.get_integrations(
+            req.query.locale
+        );
         // Build response
         res.setHeader('Content-Type', 'application/json');
         res.end(JSON.stringify(response));

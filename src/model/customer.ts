@@ -5,6 +5,7 @@ import { User } from "./user";
 import { CollectorLoader } from "../collectors/collectorLoader";
 import { Server } from "../server";
 import { Plan } from "./plan";
+import { Callback } from "./callback";
 
 export enum Theme {
     DEFAULT = 'default',
@@ -32,7 +33,6 @@ export class Customer {
     static DEFAULT_PASSWORD = "";
     static DEFAULT_NAME = "default";
     static DEFAULT_CID = "";
-    static DEFAULT_CALLBACK = "";
     static DEFAULT_REMOTE_ID = "";
     static DEFAULT_BEARER = "";
     static DEFAULT_SUBSCRIBED_COLLECTORS: string[] = [];
@@ -81,7 +81,6 @@ export class Customer {
             Customer.DEFAULT_PASSWORD,
             Customer.DEFAULT_NAME,
             Customer.DEFAULT_CID,
-            Customer.DEFAULT_CALLBACK,
             Customer.DEFAULT_REMOTE_ID,
             utils.hash_string(bearer),
             utils.convertNameToInviteId(Customer.DEFAULT_NAME),
@@ -98,7 +97,6 @@ export class Customer {
     password: string;
     name: string;
     cid: string;
-    callback: string;
     remoteId: string;
     bearer: string;
     inviteId: string;
@@ -116,7 +114,6 @@ export class Customer {
         password: string,
         name: string,
         cid: string,
-        callback: string,
         remoteId: string,
         bearer: string,
         inviteId: string,
@@ -133,7 +130,6 @@ export class Customer {
         this.email = email;
         this.password = password;
         this.name = name;
-        this.callback = callback;
         this.remoteId = remoteId;
         this.cid = cid;
         this.bearer = bearer;
@@ -148,7 +144,7 @@ export class Customer {
         this.plan = plan;
     }
 
-    async getUserFromRemoteId(remote_id: string) {
+    async getUserFromRemoteId(remote_id: string): Promise<User|null> {
         return await DatabaseFactory.getDatabase().getUserFromCustomerIdAndRemoteId(this.id, remote_id);
     }
 
@@ -156,8 +152,12 @@ export class Customer {
         return await DatabaseFactory.getDatabase().getUsers(this.id);
     }
 
-    async getUser(user_id: string) {
+    async getUser(user_id: string): Promise<User|null> {
         return await DatabaseFactory.getDatabase().getUserBellongingToCustomer(user_id, this.id);
+    }
+
+    async getCallbacks(): Promise<Callback[]> {
+        return DatabaseFactory.getDatabase().getCallbacks(this.id);
     }
 
     async getStats(): Promise<CustomerStats> {
@@ -171,7 +171,7 @@ export class Customer {
         return stats;
     }
 
-    setTheme(theme: string) {
+    setTheme(theme: string): void {
         //Check if theme is supported
         if(!Object.values(Theme).includes(theme as Theme)) {
             throw new StatusError(`Theme "${theme}" not supported. Available themes are: ${Object.values(Theme).join(", ")}.`, 400);
@@ -180,7 +180,7 @@ export class Customer {
         this.theme = theme as Theme;
     }
 
-    async setSubscribedCollectors(collectors: string[]) {
+    async setSubscribedCollectors(collectors: string[]): Promise<void> {
         // Order collectors alphabetically
         collectors.sort();
 
@@ -203,7 +203,7 @@ export class Customer {
         this.subscribedCollectors = collectors;
     }
 
-    async commit() {
+    async commit(): Promise<void> {
         if (this.id) {
             // Update existing customer
             await DatabaseFactory.getDatabase().updateCustomer(this);
