@@ -2,7 +2,11 @@ import { CompleteInvoice, Config } from '../collectors/abstractCollector';
 import { AbstractIntegration, IntegrationConfig } from './abstractIntegration';
 import { Secret } from '../model/secret';
 
-export class PennylaneIntegration extends AbstractIntegration { 
+/**
+ * Pennylane integration class to upload supplier invoices to Pennylane.
+ * @see https://pennylane.readme.io/docs/supplier-invoicing for more information about Pennylane
+ */
+export class PennylaneIntegration extends AbstractIntegration {
 
     static CONFIG: IntegrationConfig = {
         id: "pennylane",

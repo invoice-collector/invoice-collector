@@ -2,6 +2,10 @@ import { CompleteInvoice, Config } from '../collectors/abstractCollector';
 import { AbstractIntegration, IntegrationConfig } from './abstractIntegration';
 import { Secret } from '../model/secret';
 
+/**
+ * Axonaut integration class to upload supplier invoices to Axonaut.
+ * @see https://axonaut.com/api/v2/doc for more information about Axonaut
+ */
 export class AxonautIntegration extends AbstractIntegration { 
 
     static CONFIG: IntegrationConfig = {
