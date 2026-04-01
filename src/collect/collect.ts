@@ -51,91 +51,91 @@ export class Collect {
             customer = await user.getCustomer();
 
             // Get customer callbacks
-            const callbacks = await customer.getCallbacks();
+            const callbacksWithAutomaticExport = (await customer.getCallbacks()).filter(cb => cb.automaticExport);
         
-            // Set progress step to preparing
-            credential.state.update(State._1_PREPARING);
-            this.webSocketServer?.sendState(State._1_PREPARING);
+            // If customer has at least one callback with automatic export enabled
+            if (callbacksWithAutomaticExport.length > 0) {
 
-            // Get secret from secret_manager_id
-            secret = credential.getSecret();
+                // Set progress step to preparing
+                credential.state.update(State._1_PREPARING);
+                this.webSocketServer?.sendState(State._1_PREPARING);
 
-            // Get collector from collector_id
-            collector = await CollectorLoader.get(credential.collector_id);
+                // Get secret from secret_manager_id
+                secret = credential.getSecret();
 
-            // Check if collector not found
-            if(collector == null) {
-                throw new Error(`No collector with id "${credential.collector_id}" found.`);
-            }
-            console.log(`Using collector ${collector.config.id} version ${collector.config.version}`);
+                // Get collector from collector_id
+                collector = await CollectorLoader.get(credential.collector_id);
 
-            // Set collector for twofa promise
-            this.twofa_promise.collector = collector;
+                // Check if collector not found
+                if(collector == null) {
+                    throw new Error(`No collector with id "${credential.collector_id}" found.`);
+                }
+                console.log(`Using collector ${collector.config.id} version ${collector.config.version}`);
 
-            // Collect invoices
-            const newInvoices = await collector.collect_new_invoices(
-                this.state,
-                this.twofa_promise,
-                this.webSocketServer,
-                secret,
-                credential.download_from_timestamp,
-                credential.invoices,
-                user.location,
-                customer.enableInteractiveLogin
-            );
-            console.log(`Found ${credential.invoices.length + newInvoices.length} invoices during collect and ${newInvoices.length} new`);
-            console.log(`Invoice collection for credential ${this.credential_id} succeed`);
+                // Set collector for twofa promise
+                this.twofa_promise.collector = collector;
 
-            // If at least one new invoice has been downloaded
-            if(newInvoices.length > 0) {
-                // Get previous invoices hash
-                const previousInvoicesHash = credential.invoices.map(inv => inv.hash);
+                // Collect invoices
+                const newInvoices = await collector.collect_new_invoices(
+                    this.state,
+                    this.twofa_promise,
+                    this.webSocketServer,
+                    secret,
+                    credential.download_from_timestamp,
+                    credential.invoices,
+                    user.location,
+                    customer.enableInteractiveLogin
+                );
+                console.log(`Found ${credential.invoices.length + newInvoices.length} invoices during collect and ${newInvoices.length} new`);
+                console.log(`Invoice collection for credential ${this.credential_id} succeed`);
 
-                // Loop through invoices
-                for (const [index, invoice] of newInvoices.entries()) {
-                    // If data downloaded and invoice is more recent than the download_from_timestamp
-                    if (invoice.data && credential.download_from_timestamp <= invoice.timestamp && !previousInvoicesHash.includes(invoice.hash)) {
+                // If at least one new invoice has been downloaded
+                if(newInvoices.length > 0) {
+                    // Get previous invoices hash
+                    const previousInvoicesHash = credential.invoices.map(inv => inv.hash);
 
-                        try {
-                            // Get callbacks to send invoice to
-                            const callbacksToSend = callbacks.filter(cb => cb.automaticExport);
-                            if (callbacksToSend.length > 0) {
+                    // Loop through invoices
+                    for (const [index, invoice] of newInvoices.entries()) {
+                        // If data downloaded and invoice is more recent than the download_from_timestamp
+                        if (invoice.data && credential.download_from_timestamp <= invoice.timestamp && !previousInvoicesHash.includes(invoice.hash)) {
+
+                            try {
                                 // Send invoice for each callback with automaticExport set to true
-                                for (const callback of callbacksToSend) {
+                                for (const callback of callbacksWithAutomaticExport) {
                                     console.log(`Sending invoice ${index + 1}/${newInvoices.length} (${invoice.id}) to callback ${callback.getIntegration().config.name}`);
                                     await callback.sendInvoice(collector.config, user.remote_id, invoice);
                                 }
-                            }
-                            else {
-                                console.log(`No callback with automaticExport set to true for credential ${this.credential_id}, skipping sending invoice ${index + 1}/${newInvoices.length} (${invoice.id}) to callback`);
-                            }
 
-                            // Add invoice to credential only if callback successfully reached
+                                // Add invoice to credential only if callback successfully reached
+                                credential.addInvoice(invoice);
+
+                                // Wait 1 second between each callback to avoid overwhelming the callback server
+                                await utils.delay(1000);
+                            } catch (error) {
+                                console.error(error);
+                            }
+                        }
+                        else {
+                            console.log(`Adding invoice ${index + 1}/${newInvoices.length} (${invoice.id}) to credential without sending to callback`);
+                            // Add invoice to credential
                             credential.addInvoice(invoice);
-
-                            // Wait 1 second between each callback to avoid overwhelming the callback server
-                            await utils.delay(1000);
-                        } catch (error) {
-                            console.error(error);
                         }
                     }
-                    else {
-                        console.log(`Adding invoice ${index + 1}/${newInvoices.length} (${invoice.id}) to credential without sending to callback`);
-                        // Add invoice to credential
-                        credential.addInvoice(invoice);
-                    }
+
+                    // Sort invoices
+                    credential.sortInvoices();
                 }
 
-                // Sort invoices
-                credential.sortInvoices();
+                // Set progress step to done
+                credential.state.update(State._7_DONE);
+                this.webSocketServer?.sendState(State._7_DONE);
+
+                // Log success
+                RegistryFactory.getInstance().logSuccess(collector);
             }
-
-            // Set progress step to done
-            credential.state.update(State._7_DONE);
-            this.webSocketServer?.sendState(State._7_DONE);
-
-            // Log success
-            RegistryFactory.getInstance().logSuccess(collector);
+            else {
+                console.warn(`Customer ${customer.id} has no callback with automatic export enabled, skipping collect for credential ${this.credential_id} and planning next collect`);
+            }
 
             // Update last collect
             credential.last_collect_timestamp = Date.now();
