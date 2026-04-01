@@ -994,14 +994,6 @@ export class Server {
         // Update collector params based on customer settings
         AbstractCollector.updateCollectorParams(customer.enableInteractiveLogin, collector.config);
 
-        // Get customer callbacks
-        const callbacks = await customer.getCallbacks();
-
-        // Check if customer has define a callback
-        if(callbacks.length === 0) {
-            throw new StatusError(`No integration for the customer. Please define add an integration first.`, 400);
-        }
-
         // Check if customer has subscribed to the collector
         if (!customer.isSubscribedToAll && !customer.subscribedCollectors.includes(collector.config.id)) {
             throw new StatusError(`Customer has not subscribed to collector "${collector.config.id}". Available collectors are: ${customer.subscribedCollectors.join(", ")}.`, 400);
