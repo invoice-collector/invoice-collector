@@ -186,11 +186,11 @@ export class Collect {
                 // If credential exists
                 if (credential && user && customer && collector) {
                     // If error occurs and previous collect was successful, send notification
-                    if (credential.state.index >= credential.state.max) {                        
+                    if (credential.state.index >= credential.state.max) {
                         // Get customer callbacks
-                        const callbacks = await customer.getCallbacks();
+                        const callbacksWithAutomaticExport = (await customer.getCallbacks()).filter(cb => cb.automaticExport);
                         // Send notification for each callback with automaticExport set to true
-                        for (const callback of callbacks.filter(cb => cb.automaticExport)) {
+                        for (const callback of callbacksWithAutomaticExport) {
                             try {
                                 await callback.sendNotificationDisconnected(collector.config, credential.id, user.id, user.remote_id);
                             } catch (error) {
