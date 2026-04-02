@@ -10,8 +10,6 @@ on:
 jobs:
   test-npm-audit:
     runs-on: ubuntu-latest
-    permissions:
-      pull-requests: write
     steps:
       - name: Checkout repository
         uses: actions/checkout@v6
@@ -25,3 +23,4 @@ jobs:
           audit_level: low
           github_token: ${{ secrets.GITHUB_TOKEN }}
           create_issues: false
+          create_pr_comments: false
