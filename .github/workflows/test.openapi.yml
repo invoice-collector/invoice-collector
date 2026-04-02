@@ -27,36 +27,12 @@ jobs:
         run: npm run test.cicd.openapi
 
 
-  check-openapi-changes:
+
+  build-openapi:
     runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '18'
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Check for uncommited changes in OpenAPI
-        id: check_changes
-        run: |
-          before=$(sha256sum views/openapi/openapi.yml | awk '{ print $1 }')
-          node devscripts/build_openapi.js
-          after=$(sha256sum views/openapi/openapi.yml | awk '{ print $1 }')
-          if [ "$before" != "$after" ]; then
-            echo "openapi.yml has changed after build. Please commit the updated file:"
-            echo "npm run build.openapi"
-            echo "git add views/openapi/openapi.yml"
-            echo "git commit -m 'Update openapi.yml'"
-            exit 1
-          fi
-
-  validate-openapi:
-    runs-on: ubuntu-latest
+    outputs:
+      before: ${{ steps.build_openapi.outputs.before }}
+      after: ${{ steps.build_openapi.outputs.after }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -71,8 +47,42 @@ jobs:
           npm ci
           npm install -g swagger-cli
 
+      - name: Build OpenAPI spec
+        id: build_openapi
+        run: |
+          before=$(sha256sum views/openapi/openapi.yml | awk '{ print $1 }')
+          node devscripts/build_openapi.js
+          after=$(sha256sum views/openapi/openapi.yml | awk '{ print $1 }')
+          echo "before=$before" >> $GITHUB_OUTPUT
+          echo "after=$after" >> $GITHUB_OUTPUT
+
+  check-openapi-changes:
+    runs-on: ubuntu-latest
+    needs: build-openapi
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Check for uncommited changes in OpenAPI
+        run: |
+          before="${{ needs.build-openapi.outputs.before }}"
+          after="${{ needs.build-openapi.outputs.after }}"
+          if [ "$before" != "$after" ]; then
+            echo "openapi.yml has changed after build. Please commit the updated file:"
+            echo "npm run build.openapi"
+            echo "git add views/openapi/openapi.yml"
+            echo "git commit -m 'Update openapi.yml'"
+            exit 1
+          fi
+
+  validate-openapi:
+    runs-on: ubuntu-latest
+    needs: build-openapi
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
       - name: Validate OpenAPI file with swagger-cli
-        id: check_format
         run: swagger-cli validate views/openapi/openapi.yml
     
 
