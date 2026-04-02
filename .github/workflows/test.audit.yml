@@ -22,6 +22,6 @@ jobs:
       - name: Run npm audit
         uses: oke-py/npm-audit-action@v4
         with:
-          audit_level: moderate
+          audit_level: low
           github_token: ${{ secrets.GITHUB_TOKEN }}
           create_issues: false
