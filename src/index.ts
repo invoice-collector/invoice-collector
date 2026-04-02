@@ -56,6 +56,11 @@ function handle_error(e, req, res){
  *     security:
  *       - TokenAuth: []
  *     parameters:
+ *       - name: token
+ *         in: query
+ *         required: true
+ *         schema:
+ *           $ref: '#/components/schemas/token'
  *       - name: credential_id
  *         in: query
  *         schema:
@@ -989,9 +994,7 @@ app.delete('/api/v1/user/:user_id', async (req, res) => {
  *         content:
  *           application/json:
  *             schema:
- *               type: array
- *               items:
- *                 $ref: '#/components/schemas/credential'
+ *               $ref: '#/components/schemas/credentials'
  *       401:
  *         description: Authentication error
  *         content:
@@ -1728,7 +1731,7 @@ app.post('/api/v1/callback', async (req, res) => {
  *     summary: Update a callback
  *     description: Updates the specified callback with new parameters.
  *     security:
- *       - bearerAuth: []
+ *       - CustomerBearerAuth: []
  *     parameters:
  *       - in: path
  *         name: callbackId
