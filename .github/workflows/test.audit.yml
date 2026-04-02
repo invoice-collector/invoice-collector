@@ -1,0 +1,26 @@
+name: Check npm audit
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'package.json'
+
+jobs:
+  test-npm-audit:
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run npm audit
+        uses: oke-py/npm-audit-action@v4
+        with:
+          audit_level: moderate
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          create_issues: false
