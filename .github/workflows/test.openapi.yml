@@ -41,6 +41,7 @@ jobs:
         run: npm ci
 
       - name: Check for uncommited changes in OpenAPI
+        id: check_changes
         run: |
           # Get current file hash before build
           before=$(sha256sum views/openapi/openapi.yml | awk '{ print $1 }')
@@ -56,10 +57,17 @@ jobs:
             echo "git commit -m 'Update openapi.yml'"
             exit 1
           fi
-  
+        continue-on-error: true
+
       - name: Check OpenAPI format
+        id: check_format
         uses: swaggerexpert/swagger-editor-validate@v1
         with:
           definition-file: views/openapi/openapi.yaml
+        continue-on-error: true
+
+      - name: Fail if any previous step failed
+        if: steps.check_changes.outcome == 'failure' || steps.check_format.outcome == 'failure'
+        run: exit 1
     
 
