@@ -43,7 +43,7 @@ components:
       type: string
       description: Company Identification Number.
       example: C123456
-    createAt:
+    createdAt:
       type: number
       description: Creation timestamp in ms.
       example: 1745229203582
@@ -1840,7 +1840,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Callback"
+                $ref: "#/components/schemas/callback"
         "400":
           description: Bad request
           content:
