@@ -1,7 +1,7 @@
 {
   "name": "invoice_collector",
   "version": "0.2",
-  "description": "",
+  "description": "TBD",
   "main": "src/index.js",
   "scripts": {
     "start": "ts-node --transpile-only src/index.ts",
