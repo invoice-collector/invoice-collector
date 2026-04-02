@@ -47,7 +47,7 @@ const SWAGGER_DEFINITION = {
                     format: 'password',
                     example: 'securepassword123!',
                 },
-                name: {
+                name__: {
                     type: 'string',
                     description: 'Company name or user name.',
                     example: 'Awesome Company Name',
