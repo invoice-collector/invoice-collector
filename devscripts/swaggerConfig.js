@@ -2,6 +2,7 @@ const path = require('path');
 
 const SWAGGER_DEFINITION = {
     apis: [path.join(__dirname, '..', 'src', 'index.ts'), path.join(__dirname, '..', 'src', 'index.js')],
+    failOnErrors: true,
     definition: {
         openapi: '3.0.3',
         info: {
