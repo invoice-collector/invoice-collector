@@ -47,6 +47,7 @@
     "node-fetch": "^2.7.0",
     "nodemon": "^3.1.7",
     "prompt-sync": "^4.2.0",
+    "swagger-cli": "^4.0.4",
     "swagger-jsdoc": "^6.2.8",
     "ts-jest": "^29.2.6",
     "ts-node-dev": "^2.0.0",
