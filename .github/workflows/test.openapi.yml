@@ -26,7 +26,36 @@ jobs:
       - name: Run openapi spec tests
         run: npm run test.cicd.openapi
 
-  test-openapi-spec2:
+
+  check-openapi-changes:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Check for uncommited changes in OpenAPI
+        id: check_changes
+        run: |
+          before=$(sha256sum views/openapi/openapi.yml | awk '{ print $1 }')
+          node devscripts/build_openapi.js
+          after=$(sha256sum views/openapi/openapi.yml | awk '{ print $1 }')
+          if [ "$before" != "$after" ]; then
+            echo "openapi.yml has changed after build. Please commit the updated file:"
+            echo "npm run build.openapi"
+            echo "git add views/openapi/openapi.yml"
+            echo "git commit -m 'Update openapi.yml'"
+            exit 1
+          fi
+
+  validate-openapi:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -42,32 +71,8 @@ jobs:
           npm ci
           npm install -g swagger-cli
 
-      - name: Check for uncommited changes in OpenAPI
-        id: check_changes
-        run: |
-          # Get current file hash before build
-          before=$(sha256sum views/openapi/openapi.yml | awk '{ print $1 }')
-          # Run build script to update openapi.yml
-          node devscripts/build_openapi.js
-          # Get file hash after build
-          after=$(sha256sum views/openapi/openapi.yml | awk '{ print $1 }')
-          # Check if the file has changed
-          if [ "$before" != "$after" ]; then
-            echo "openapi.yml has changed after build. Please commit the updated file:"
-            echo "npm run build.openapi"
-            echo "git add views/openapi/openapi.yml"
-            echo "git commit -m 'Update openapi.yml'"
-            exit 1
-          fi
-        continue-on-error: true
-
       - name: Validate OpenAPI file with swagger-cli
         id: check_format
         run: swagger-cli validate views/openapi/openapi.yml
-        continue-on-error: true
-
-      - name: Fail if any previous step failed
-        if: steps.check_changes.outcome == 'failure' || steps.check_format.outcome == 'failure'
-        run: exit 1
     
 
