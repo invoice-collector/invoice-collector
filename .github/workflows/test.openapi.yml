@@ -43,9 +43,7 @@ jobs:
           node-version: '18'
 
       - name: Install dependencies
-        run: |
-          npm ci
-          npm install -g swagger-cli
+        run: npm ci
 
       - name: Build OpenAPI spec
         id: build_openapi
@@ -81,6 +79,9 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: npm install -g swagger-cli
 
       - name: Validate OpenAPI file with swagger-cli
         run: swagger-cli validate views/openapi/openapi.yml
