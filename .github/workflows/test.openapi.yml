@@ -63,7 +63,7 @@ jobs:
         id: check_format
         uses: swaggerexpert/swagger-editor-validate@v1
         with:
-          definition-file: views/openapi/openapi.yaml
+          definition-file: views/openapi/openapi.yml
         continue-on-error: true
 
       - name: Fail if any previous step failed
