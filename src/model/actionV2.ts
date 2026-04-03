@@ -12,6 +12,8 @@ export enum ActionEnum  {
 
 export abstract class ActionV2<Context, Result> {
 
+    static MAX_USAGE_COUNT = 2;
+
     static fromObjectList(objs: any): ActionV2<any, any>[] {
         // If objs is null or undefined or not an array, return empty array
         if (objs == null || objs == undefined || !Array.isArray(objs)) {
@@ -70,6 +72,7 @@ export abstract class ActionV2<Context, Result> {
     lastUsed: string | null;
     args: any;
     destinationIds: string[];
+    usageCount: number;
 
     constructor(
         action: ActionEnum,
@@ -90,6 +93,7 @@ export abstract class ActionV2<Context, Result> {
         this.lastUsed = lastUsed;
         this.args = args;
         this.destinationIds = destinationIds;
+        this.usageCount = 0;
     }
 
     protected async getElement(driver: Driver): Promise<Element> {
@@ -116,6 +120,11 @@ export abstract class ActionV2<Context, Result> {
 
     async perform(context: Context): Promise<Result> {
         try {
+            // Prevent performing the same action more than MAX_USAGE_COUNT times
+            if (this.usageCount >= ActionV2.MAX_USAGE_COUNT) {
+                throw new Error(`Action "${this.description}" (${this.id}) has already been performed ${this.usageCount} times. Are you stuck in a loop?`);
+            }
+            this.usageCount++;
             this.lastUsed = new Date().toISOString();
             return await this._perform(context);
         }
