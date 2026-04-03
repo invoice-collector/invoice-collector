@@ -4,6 +4,7 @@ import * as utils from "../utils";
 import { Secret } from "./secret";
 
 export enum ActionEnum  {
+    NOOP = 'noop',
     LEFT_CLICK = 'leftClick',
     INPUT_TEXT = 'inputText',
     RAISE_ERROR_IF_DISPLAYED = 'raiseErrorIfDisplayed',
@@ -133,6 +134,46 @@ export abstract class ActionV2<Context, Result> {
     abstract toString(): string;
 }
 
+export type NoopContext = {
+    driver: Driver;
+}
+
+export class NoopAction extends ActionV2<NoopContext, void> {
+
+    constructor(
+        description: string,
+        pageUrlRegex: string,
+        cssSelector: string | null,
+        objectiveId: string | null,
+        lastUsed: string | null,
+        args: any,
+        destinationIds: string[] = []
+    ) {
+        super(
+            ActionEnum.NOOP,
+            description,
+            pageUrlRegex,
+            cssSelector,
+            objectiveId,
+            lastUsed,
+            args,
+            destinationIds
+        );
+    }
+
+    async _perform(context: NoopContext): Promise<void> {
+        // Noop action does nothing
+    }
+
+    async canPerform(context: NoopContext): Promise<boolean> {
+        return !new RegExp(this.pageUrlRegex).test(context.driver.url());
+    }
+
+    toString(): string {
+        return `Noop action: ${this.description}`;
+    }
+}
+
 export type LeftClickContext = {
     driver: Driver;
     element?: Element;
@@ -183,7 +224,10 @@ export class LeftClickAction extends ActionV2<LeftClickContext, void> {
     }
 
     async canPerform(context: LeftClickContext): Promise<boolean> {
-        const el = await context.driver.getElement({ selector: this.cssSelector }, { raiseException: false, timeout: 1000 });
+        if (!new RegExp(this.pageUrlRegex).test(context.driver.url())) {
+            return false;
+        }
+        const el = await context.driver.getElement({ selector: this.cssSelector }, { raiseException: false, timeout: 100 });
         return el !== null;
     }
 
@@ -248,7 +292,10 @@ export class InputTextAction extends ActionV2<InputTextContext, void> {
     }
 
     async canPerform(context: InputTextContext): Promise<boolean> {
-        const el = await context.driver.getElement({ selector: this.cssSelector }, { raiseException: false, timeout: 1000 });
+        if (!new RegExp(this.pageUrlRegex).test(context.driver.url())) {
+            return false;
+        }
+        const el = await context.driver.getElement({ selector: this.cssSelector }, { raiseException: false, timeout: 100 });
         return el !== null;
     }
 }
@@ -308,7 +355,10 @@ export class RaiseErrorIfDisplayed extends ActionV2<RaiseErrorContext, void> {
     }
 
     async canPerform(context: RaiseErrorContext): Promise<boolean> {
-        const el = await context.driver.getElement({ selector: this.cssSelector }, { raiseException: false, timeout: 1000 });
+        if (!new RegExp(this.pageUrlRegex).test(context.driver.url())) {
+            return false;
+        }
+        const el = await context.driver.getElement({ selector: this.cssSelector }, { raiseException: false, timeout: 100 });
         return el !== null;
     }
 
