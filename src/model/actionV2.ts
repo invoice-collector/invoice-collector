@@ -166,7 +166,7 @@ export class NoopAction extends ActionV2<NoopContext, void> {
     }
 
     async canPerform(context: NoopContext): Promise<boolean> {
-        return !new RegExp(this.pageUrlRegex).test(context.driver.url());
+        return new RegExp(this.pageUrlRegex).test(context.driver.url());
     }
 
     toString(): string {
@@ -300,12 +300,6 @@ export class InputTextAction extends ActionV2<InputTextContext, void> {
     }
 }
 
-export const ClassActionMap = {
-    [ActionEnum.LEFT_CLICK]: LeftClickAction,
-    [ActionEnum.INPUT_TEXT]: InputTextAction,
-}
-
-
 export type RaiseErrorContext = {
     driver: Driver;
 }
@@ -365,4 +359,11 @@ export class RaiseErrorIfDisplayed extends ActionV2<RaiseErrorContext, void> {
     toString(): string {
         return `Extract invoice data`;
     }
+}
+
+export const ClassActionMap = {
+    [ActionEnum.NOOP]: NoopAction,
+    [ActionEnum.LEFT_CLICK]: LeftClickAction,
+    [ActionEnum.INPUT_TEXT]: InputTextAction,
+    [ActionEnum.RAISE_ERROR_IF_DISPLAYED]: RaiseErrorIfDisplayed,
 }
