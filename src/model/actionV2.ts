@@ -140,7 +140,10 @@ export abstract class ActionV2<Context, Result> {
 
     abstract _perform(context: Context): Promise<Result>;
     abstract canPerform(context: Context): Promise<boolean>;
-    abstract toString(): string;
+
+    toString(): string {
+        return this.description;
+    }
 }
 
 export type NoopContext = {
@@ -176,10 +179,6 @@ export class NoopAction extends ActionV2<NoopContext, void> {
 
     async canPerform(context: NoopContext): Promise<boolean> {
         return new RegExp(this.pageUrlRegex).test(context.driver.url());
-    }
-
-    toString(): string {
-        return `Noop action: ${this.description}`;
     }
 }
 
@@ -239,10 +238,6 @@ export class LeftClickAction extends ActionV2<LeftClickContext, void> {
         const el = await context.driver.getElement({ selector: this.cssSelector }, { raiseException: false, timeout: 100 });
         return el !== null;
     }
-
-    toString(): string {
-        return `Left click on ${this.description}`;
-    }
 }
 
 export type InputTextContext = {
@@ -294,10 +289,6 @@ export class InputTextAction extends ActionV2<InputTextContext, void> {
                 selector: this.cssSelector,
                 info: this.description
             }, params[this.args.text], this.args);
-    }
-
-    toString(): string {
-        return `Input ${this.args.text} into field ${this.description}`;
     }
 
     async canPerform(context: InputTextContext): Promise<boolean> {
@@ -363,10 +354,6 @@ export class RaiseErrorIfDisplayed extends ActionV2<RaiseErrorContext, void> {
         }
         const el = await context.driver.getElement({ selector: this.cssSelector }, { raiseException: false, timeout: 100 });
         return el !== null;
-    }
-
-    toString(): string {
-        return `Extract invoice data`;
     }
 }
 
