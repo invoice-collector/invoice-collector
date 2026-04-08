@@ -43,6 +43,7 @@ export abstract class ActionV2<Context, Result> {
         }
 
         return new ClassActionMap[obj.action](
+            obj.id,
             obj.description,
             obj.pageUrlRegex,
             obj.cssSelector,
@@ -75,6 +76,7 @@ export abstract class ActionV2<Context, Result> {
     usageCount: number;
 
     constructor(
+        id: string | null,
         action: ActionEnum,
         description: string,
         pageUrlRegex: string,
@@ -84,7 +86,7 @@ export abstract class ActionV2<Context, Result> {
         args: any,
         destinationIds: string[] = []
     ) {
-        this.id = utils.hash_string(`${action}|${cssSelector}|${description}`, 'md5');
+        this.id = id || utils.hash_string(`${action}|${cssSelector}`, 'md5');
         this.action = action;
         this.pageUrlRegex = pageUrlRegex;
         this.cssSelector = cssSelector;
@@ -153,6 +155,7 @@ export type NoopContext = {
 export class NoopAction extends ActionV2<NoopContext, void> {
 
     constructor(
+        id: string | null,
         description: string,
         pageUrlRegex: string,
         cssSelector: string | null,
@@ -162,6 +165,7 @@ export class NoopAction extends ActionV2<NoopContext, void> {
         destinationIds: string[] = []
     ) {
         super(
+            id,
             ActionEnum.NOOP,
             description,
             pageUrlRegex,
@@ -190,6 +194,7 @@ export type LeftClickContext = {
 export class LeftClickAction extends ActionV2<LeftClickContext, void> {
 
     constructor(
+        id: string | null,
         description: string,
         pageUrlRegex: string,
         cssSelector: string | null,
@@ -204,6 +209,7 @@ export class LeftClickAction extends ActionV2<LeftClickContext, void> {
         }
 
         super(
+            id,
             ActionEnum.LEFT_CLICK,
             description,
             pageUrlRegex,
@@ -247,6 +253,7 @@ export type InputTextContext = {
 
 export class InputTextAction extends ActionV2<InputTextContext, void> {
     constructor(
+        id: string | null,
         description: string,
         pageUrlRegex: string,
         cssSelector: string | null,
@@ -265,6 +272,7 @@ export class InputTextAction extends ActionV2<InputTextContext, void> {
         }
 
         super(
+            id,
             ActionEnum.INPUT_TEXT,
             description,
             pageUrlRegex,
@@ -306,6 +314,7 @@ export type RaiseErrorContext = {
 
 export class RaiseErrorIfDisplayed extends ActionV2<RaiseErrorContext, void> {
     constructor(
+        id: string | null,
         description: string,
         pageUrlRegex: string,
         cssSelector: string | null,
@@ -322,7 +331,9 @@ export class RaiseErrorIfDisplayed extends ActionV2<RaiseErrorContext, void> {
         if (!cssSelector) {
             throw new Error('RaiseErrorIfDisplayed requires a cssSelector to locate the element');
         }
-        super(ActionEnum.RAISE_ERROR_IF_DISPLAYED,
+        super(
+            id,
+            ActionEnum.RAISE_ERROR_IF_DISPLAYED,
             description,
             pageUrlRegex,
             cssSelector,
