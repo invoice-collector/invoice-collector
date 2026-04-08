@@ -9,7 +9,7 @@ export enum ActionEnum  {
     LEFT_CLICK = 'leftClick',
     INPUT_TEXT = 'inputText',
     INPUT_2FA_CODE = 'input2FACode',
-    RAISE_ERROR_IF_DISPLAYED = 'raiseErrorIfDisplayed',
+    ERROR_DISPLAYED = 'errorDisplayed',
 }
 
 export abstract class ActionV2<Context, Args, Result> {
@@ -313,7 +313,7 @@ export type RaiseErrorArgs = {
     default: string;
 }
 
-export class RaiseErrorIfDisplayed extends ActionV2<RaiseErrorContext, RaiseErrorArgs, void> {
+export class ErrorDisplayedAction extends ActionV2<RaiseErrorContext, RaiseErrorArgs, void> {
     constructor(
         id: string | null,
         description: string,
@@ -325,15 +325,15 @@ export class RaiseErrorIfDisplayed extends ActionV2<RaiseErrorContext, RaiseErro
     ) {
         // Check if cssSelector is provided
         if (!args.cssSelector) {
-            throw new Error('RaiseErrorIfDisplayed requires a cssSelector to locate the element');
+            throw new Error('ErrorDisplayed requires a cssSelector to locate the element');
         }
         // args should have 'default' field
         if(!args.default) {
-            throw new Error('RaiseErrorIfDisplayed requires args to have a "default" field');
+            throw new Error('ErrorDisplayed requires args to have a "default" field');
         }
         super(
             id,
-            ActionEnum.RAISE_ERROR_IF_DISPLAYED,
+            ActionEnum.ERROR_DISPLAYED,
             description,
             pageUrlRegex,
             objectiveId,
@@ -445,5 +445,5 @@ export const ClassActionMap = {
     [ActionEnum.LEFT_CLICK]: LeftClickAction,
     [ActionEnum.INPUT_TEXT]: InputTextAction,
     [ActionEnum.INPUT_2FA_CODE]: InputTwofaAction,
-    [ActionEnum.RAISE_ERROR_IF_DISPLAYED]: RaiseErrorIfDisplayed,
+    [ActionEnum.ERROR_DISPLAYED]: ErrorDisplayedAction,
 }
