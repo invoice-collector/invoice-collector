@@ -354,7 +354,10 @@ export class ErrorDisplayedAction extends ActionV2<RaiseErrorContext, RaiseError
         })
         // If element found, raise error
         if (element) {
-            throw new AuthenticationError(await element.textContent(this.args.default), context.driver.collector);
+            // Get text content of element
+            const errorMessage = await element.textContent(this.args.default);
+            // Raise error with text content
+            throw new AuthenticationError(errorMessage, context.driver.collector);
         }
     }
 
