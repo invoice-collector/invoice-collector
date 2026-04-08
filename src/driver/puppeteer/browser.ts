@@ -7,8 +7,9 @@ import { Proxy } from "../../proxy/abstractProxy";
 let Xvfb;
 try {
   Xvfb = require("xvfb");
-} catch {
-  // ignore
+} catch (err) {
+  console.error("xvfb is not installed. If you are running on a Linux platform, please install it with the following command `sudo apt-get install xvfb`");
+  console.error(err);
 }
 
 type ConnectResult = {
@@ -52,10 +53,10 @@ export async function connect({
       });
       xvfbsession.startSync();
     } catch (err) {
-      console.warn(
-        "You are running on a Linux platform but do not have xvfb installed. The browser can be captured. Please install it with the following command `sudo apt-get install xvfb`" +
-          err
-      );
+      console.error("You are running on a Linux platform but xvfb cannot start. Please install it with the following command `sudo apt-get install xvfb`");
+      console.error(err);
+      console.error("Fallback to headless mode. The browser can be captured, but it can still be used for automation tasks.");
+      headless = true; // Fallback to headless mode if xvfb is not available
     }
   }
 
