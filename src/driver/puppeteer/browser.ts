@@ -7,8 +7,9 @@ import { Proxy } from "../../proxy/abstractProxy";
 let Xvfb;
 try {
   Xvfb = require("xvfb");
-} catch {
-  console.log("xvfb is not installed. If you are running on a Linux platform, please install it with the following command `sudo apt-get install xvfb`");
+} catch (err) {
+  console.error("xvfb is not installed. If you are running on a Linux platform, please install it with the following command `sudo apt-get install xvfb`");
+  console.error(err);
 }
 
 type ConnectResult = {
