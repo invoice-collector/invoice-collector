@@ -369,7 +369,7 @@ export class RaiseErrorIfDisplayed extends ActionV2<RaiseErrorContext, RaiseErro
 
 export type InputTwofaContext = {
     driver: Driver;
-    webSocketServer: WebSocketServer;
+    webSocketServer: WebSocketServer | undefined;
 }
 
 export type InputTwofaArgs = {
@@ -406,6 +406,10 @@ export class InputTwofaAction extends ActionV2<InputTwofaContext, InputTwofaArgs
     }
 
     async _perform(context: InputTwofaContext): Promise<void> {
+        // If the webSocketServer is undefined, it means that the session has expired
+        if (!context.webSocketServer) {
+            throw new DisconnectedError(context.driver.collector);
+        }
         // Get instructions element
         const instructionsElement = await context.driver.getElement({
             selector: this.args.instructionsCssSelector,
