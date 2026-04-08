@@ -336,6 +336,8 @@
   "i18n.collectors.all.2fa.timeout": "Aucun code 2FA fourni dans le temps imparti. Veuillez réessayer.",
   "i18n.collectors.all.captcha": "Impossible de continuer car un captcha a été détecté. Merci de reconnecter le compte.",
   "i18n.collectors.all.contract_access.error": "Impossible d'accéder au contrat",
+  "i18n.collectors.all.credentials": "Identifiants de connexion",
+  "i18n.collectors.all.credentials.error": "Identifiants de connexion incorrects",
   "i18n.collectors.all.email": "Email",
   "i18n.collectors.all.email.error": "Email incorrect",
   "i18n.collectors.all.email.placeholder": "Email du compte",
