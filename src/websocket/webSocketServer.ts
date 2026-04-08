@@ -209,7 +209,12 @@ export class WebSocketServer {
         this.sendMessage(message);
     }
 
-    public getTwofa(): Promise<string> {
+    public getTwofa(instructions?: string): Promise<string> {
+        // If instructions are provided, send new state with instructions to user
+        if (instructions) {
+            this.sendState(State._3_2FA_WAITING, instructions);
+        }
+        // Return a promise that resolves when 2FA code is received or rejects on timeout
         return new Promise((resolve, reject) => {
             setTimeout(() => reject(new AuthenticationError('i18n.collectors.all.2fa.timeout', this.collector)), WebSocketServer.TWOFA_TIMEOUT_MS)
             this.onTwofa = (event: MessageTwofa) => {

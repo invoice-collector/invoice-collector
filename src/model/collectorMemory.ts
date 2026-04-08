@@ -13,14 +13,14 @@ export class CollectorMemory {
     id: string;
     collector_id: string;
     actions: Actions;
-    actionsV2: ActionV2<any, any>[];
+    actionsV2: ActionV2<any, any, any>[];
     customerAreaUrl?: string;
     entryUrl?: string;
 
     constructor(
         collector_id: string,
         actions: Actions,
-        actionsV2: ActionV2<any, any>[],
+        actionsV2: ActionV2<any, any, any>[],
         customerAreaUrl?: string,
         entryUrl?: string
     ) {

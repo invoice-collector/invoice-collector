@@ -2,25 +2,27 @@ import { Driver, Element } from "../driver/driver";
 import { AuthenticationError, DisconnectedError } from "../error";
 import * as utils from "../utils";
 import { Secret } from "./secret";
+import { WebSocketServer } from "../websocket/webSocketServer";
 
 export enum ActionEnum  {
     NOOP = 'noop',
     LEFT_CLICK = 'leftClick',
     INPUT_TEXT = 'inputText',
+    INPUT_2FA_CODE = 'input2FACode',
     RAISE_ERROR_IF_DISPLAYED = 'raiseErrorIfDisplayed',
 }
 
-export abstract class ActionV2<Context, Result> {
+export abstract class ActionV2<Context, Args, Result> {
 
     static MAX_USAGE_COUNT = 2;
 
-    static fromObjectList(objs: any): ActionV2<any, any>[] {
+    static fromObjectList(objs: any): ActionV2<any, any, any>[] {
         // If objs is null or undefined or not an array, return empty array
         if (objs == null || objs == undefined || !Array.isArray(objs)) {
             return [];
         }
 
-        const actions: ActionV2<any, any>[] = [];
+        const actions: ActionV2<any, any, any>[] = [];
         for (const obj of objs) {
             try {
                 actions.push(ActionV2.fromObject(obj));
@@ -32,7 +34,7 @@ export abstract class ActionV2<Context, Result> {
         return actions;
     }
 
-    static fromObject(obj: any): ActionV2<any, any> {
+    static fromObject(obj: any): ActionV2<any, any, any> {
         // Check if obj.action exists
         if (!obj.hasOwnProperty('action')) {
             throw new Error(`Action object is missing 'action' field: ${JSON.stringify(obj)}`);
@@ -46,7 +48,6 @@ export abstract class ActionV2<Context, Result> {
             obj.id,
             obj.description,
             obj.pageUrlRegex,
-            obj.cssSelector,
             obj.objectiveId,
             obj.lastUsed,
             obj.args,
@@ -54,7 +55,7 @@ export abstract class ActionV2<Context, Result> {
         );
     }
 
-    static async performActions(actions: ActionV2<any, any>[], context: any): Promise<any> {
+    static async performActions(actions: ActionV2<any, any, any>[], context: any): Promise<any> {
         for(const action of actions) {
             const result = await action.perform(context);
             if (result) {
@@ -67,7 +68,6 @@ export abstract class ActionV2<Context, Result> {
     id: string;
     action: ActionEnum;
     pageUrlRegex: string;
-    cssSelector: string | null;
     description: string;
     objectiveId: string | null;
     lastUsed: string | null;
@@ -80,44 +80,20 @@ export abstract class ActionV2<Context, Result> {
         action: ActionEnum,
         description: string,
         pageUrlRegex: string,
-        cssSelector: string | null,
         objectiveId: string | null,
         lastUsed: string | null,
         args: any,
         destinationIds: string[] = []
     ) {
-        this.id = id || utils.hash_string(`${action}|${cssSelector}`, 'md5');
+        this.id = id || utils.hash_string(`${action}|${args}`, 'md5');
         this.action = action;
         this.pageUrlRegex = pageUrlRegex;
-        this.cssSelector = cssSelector;
         this.description = description;
         this.objectiveId = objectiveId;
         this.lastUsed = lastUsed;
         this.args = args;
         this.destinationIds = destinationIds;
         this.usageCount = 0;
-    }
-
-    protected async getElement(driver: Driver): Promise<Element> {
-        let element: Element | null;
-        // If we have cssSelector, use it
-        if (this.cssSelector) {
-            // Get element from cssSelector
-            element = await driver.getElement({
-                selector: this.cssSelector,
-                info: this.description
-            })
-        }
-        else {
-            throw new Error('No way to locate element, no cssSelector provided');
-        }
-
-        // If no element found, throw error
-        if (!element) {
-            throw new Error(`Element not found for action ${this.action}`);
-        }
-
-        return element;
     }
 
     async perform(context: Context): Promise<Result> {
@@ -152,16 +128,18 @@ export type NoopContext = {
     driver: Driver;
 }
 
-export class NoopAction extends ActionV2<NoopContext, void> {
+export type NoopArgs = {
+}
+
+export class NoopAction extends ActionV2<NoopContext, NoopArgs, void> {
 
     constructor(
         id: string | null,
         description: string,
         pageUrlRegex: string,
-        cssSelector: string | null,
         objectiveId: string | null,
         lastUsed: string | null,
-        args: any,
+        args: NoopArgs,
         destinationIds: string[] = []
     ) {
         super(
@@ -169,7 +147,6 @@ export class NoopAction extends ActionV2<NoopContext, void> {
             ActionEnum.NOOP,
             description,
             pageUrlRegex,
-            cssSelector,
             objectiveId,
             lastUsed,
             args,
@@ -191,20 +168,32 @@ export type LeftClickContext = {
     element?: Element;
 }
 
-export class LeftClickAction extends ActionV2<LeftClickContext, void> {
+export type LeftClickArgs = {
+    cssSelector: string;
+    raiseException?: boolean;
+    timeout?: number;
+    delay?: number;
+    navigation?: boolean;
+    mouseHover?: boolean;
+}
+
+export class LeftClickAction extends ActionV2<LeftClickContext, LeftClickArgs, void> {
 
     constructor(
         id: string | null,
         description: string,
         pageUrlRegex: string,
-        cssSelector: string | null,
         objectiveId: string | null,
         lastUsed: string | null,
-        args: any,
+        args: LeftClickArgs,
         destinationIds: string[] = []
     ) {
+        // args should have 'cssSelector' field
+        if(!args.cssSelector) {
+            throw new Error('LeftClickAction requires args to have a "cssSelector" field');
+        }
         // args should have 'navigation' field
-        if(!args.hasOwnProperty('navigation')) {
+        if(args.navigation === undefined) {
             throw new Error('LeftClickAction requires args to have a "navigation" field');
         }
 
@@ -213,7 +202,6 @@ export class LeftClickAction extends ActionV2<LeftClickContext, void> {
             ActionEnum.LEFT_CLICK,
             description,
             pageUrlRegex,
-            cssSelector,
             objectiveId,
             lastUsed,
             args,
@@ -231,7 +219,7 @@ export class LeftClickAction extends ActionV2<LeftClickContext, void> {
         else {
             // Perform left click using driver and cssSelector
             await context.driver.leftClick({
-                selector: this.cssSelector,
+                selector: this.args.cssSelector,
                 info: this.description
             }, this.args);
         }
@@ -241,7 +229,7 @@ export class LeftClickAction extends ActionV2<LeftClickContext, void> {
         if (!new RegExp(this.pageUrlRegex).test(context.driver.url())) {
             return false;
         }
-        const el = await context.driver.getElement({ selector: this.cssSelector }, { raiseException: false, timeout: 100 });
+        const el = await context.driver.getElement({ selector: this.args.cssSelector }, { raiseException: false, timeout: 100 });
         return el !== null;
     }
 }
@@ -251,24 +239,33 @@ export type InputTextContext = {
     secret: Secret;
 }
 
-export class InputTextAction extends ActionV2<InputTextContext, void> {
+export type InputTextArgs = {
+    cssSelector: string;
+    text: string;
+    raiseException?: boolean;
+    timeout?: number;
+    delay?: number;
+    tries?: number;
+    mouseHover?: boolean;
+}
+
+export class InputTextAction extends ActionV2<InputTextContext, InputTextArgs, void> {
     constructor(
         id: string | null,
         description: string,
         pageUrlRegex: string,
-        cssSelector: string | null,
         objectiveId: string | null,
         lastUsed: string | null,
-        args: any,
+        args: InputTextArgs,
         destinationIds: string[] = []
     ) {
-        // args should have 'text' field
-        if(!args.hasOwnProperty('text')) {
-            throw new Error('InputTextAction requires args to have a "text" field');
-        }
         // Check if cssSelector is provided
-        if (!cssSelector) {
+        if (!args.cssSelector) {
             throw new Error('InputTextAction requires a cssSelector to locate the element');
+        }
+        // args should have 'text' field
+        if(!args.text) {
+            throw new Error('InputTextAction requires args to have a "text" field');
         }
 
         super(
@@ -276,7 +273,6 @@ export class InputTextAction extends ActionV2<InputTextContext, void> {
             ActionEnum.INPUT_TEXT,
             description,
             pageUrlRegex,
-            cssSelector,
             objectiveId,
             lastUsed,
             args,
@@ -294,7 +290,7 @@ export class InputTextAction extends ActionV2<InputTextContext, void> {
         }
 
         await context.driver.inputText({
-                selector: this.cssSelector,
+                selector: this.args.cssSelector,
                 info: this.description
             }, params[this.args.text], this.args);
     }
@@ -303,7 +299,7 @@ export class InputTextAction extends ActionV2<InputTextContext, void> {
         if (!new RegExp(this.pageUrlRegex).test(context.driver.url())) {
             return false;
         }
-        const el = await context.driver.getElement({ selector: this.cssSelector }, { raiseException: false, timeout: 100 });
+        const el = await context.driver.getElement({ selector: this.args.cssSelector }, { raiseException: false, timeout: 100 });
         return el !== null;
     }
 }
@@ -312,31 +308,34 @@ export type RaiseErrorContext = {
     driver: Driver;
 }
 
-export class RaiseErrorIfDisplayed extends ActionV2<RaiseErrorContext, void> {
+export type RaiseErrorArgs = {
+    cssSelector: string;
+    default: string;
+}
+
+export class RaiseErrorIfDisplayed extends ActionV2<RaiseErrorContext, RaiseErrorArgs, void> {
     constructor(
         id: string | null,
         description: string,
         pageUrlRegex: string,
-        cssSelector: string | null,
         objectiveId: string | null,
         lastUsed: string | null,
-        args: any,
+        args: RaiseErrorArgs,
         destinationIds: string[] = []
     ) {
-        // args should have 'default' field
-        if(!args.hasOwnProperty('default')) {
-            throw new Error('RaiseErrorIfDisplayed requires args to have a "default" field');
-        }
         // Check if cssSelector is provided
-        if (!cssSelector) {
+        if (!args.cssSelector) {
             throw new Error('RaiseErrorIfDisplayed requires a cssSelector to locate the element');
+        }
+        // args should have 'default' field
+        if(!args.default) {
+            throw new Error('RaiseErrorIfDisplayed requires args to have a "default" field');
         }
         super(
             id,
             ActionEnum.RAISE_ERROR_IF_DISPLAYED,
             description,
             pageUrlRegex,
-            cssSelector,
             objectiveId,
             lastUsed,
             args,
@@ -347,7 +346,7 @@ export class RaiseErrorIfDisplayed extends ActionV2<RaiseErrorContext, void> {
     async _perform(context: RaiseErrorContext): Promise<void> {
         // Get element from cssSelector
         const element = await context.driver.getElement({
-            selector: this.cssSelector,
+            selector: this.args.cssSelector,
             info: this.description
         }, {
             raiseException: false,
@@ -363,8 +362,77 @@ export class RaiseErrorIfDisplayed extends ActionV2<RaiseErrorContext, void> {
         if (!new RegExp(this.pageUrlRegex).test(context.driver.url())) {
             return false;
         }
-        const el = await context.driver.getElement({ selector: this.cssSelector }, { raiseException: false, timeout: 100 });
+        const el = await context.driver.getElement({ selector: this.args.cssSelector }, { raiseException: false, timeout: 100 });
         return el !== null;
+    }
+}
+
+export type InputTwofaContext = {
+    driver: Driver;
+    webSocketServer: WebSocketServer;
+}
+
+export type InputTwofaArgs = {
+    instructionsCssSelector: string;
+    inputCssSelector: string;
+}
+
+export class InputTwofaAction extends ActionV2<InputTwofaContext, InputTwofaArgs, void> {
+    constructor(
+        id: string | null,
+        description: string,
+        pageUrlRegex: string,
+        objectiveId: string | null,
+        lastUsed: string | null,
+        args: InputTwofaArgs,
+        destinationIds: string[] = []
+    ) {
+        if (!args.instructionsCssSelector) {
+            throw new Error('InputTwofaAction requires args to have an "instructionsCssSelector" field');
+        }
+        if (!args.inputCssSelector) {
+            throw new Error('InputTwofaAction requires args to have an "inputCssSelector" field');
+        }
+        super(
+            id,
+            ActionEnum.INPUT_2FA_CODE,
+            description,
+            pageUrlRegex,
+            objectiveId,
+            lastUsed,
+            args,
+            destinationIds
+        );
+    }
+
+    async _perform(context: InputTwofaContext): Promise<void> {
+        // Get instructions element
+        const instructionsElement = await context.driver.getElement({
+            selector: this.args.instructionsCssSelector,
+            info: this.description
+        });
+        // If no instructions element found, throw error
+        if (!instructionsElement) {
+            throw new Error(`Instructions element not found for selector ${this.args.instructionsCssSelector}`);
+        }
+        // Get instructions text
+        const instructionsText = await instructionsElement.textContent("i18n.collectors.all.2fa.instruction");
+        // Get 2fa code from user
+        const code = await context.webSocketServer.getTwofa(instructionsText);
+        // Input code into the field
+        await context.driver.inputText({
+            selector: this.args.inputCssSelector,
+            info: this.description
+        }, code, this.args);
+    }
+
+    async canPerform(context: InputTwofaContext): Promise<boolean> {
+        if (!new RegExp(this.pageUrlRegex).test(context.driver.url())) {
+            return false;
+        }
+        const el1 = await context.driver.getElement({ selector: this.args.inputCssSelector }, { raiseException: false, timeout: 100 });
+        const el2 = await context.driver.getElement({ selector: this.args.instructionsCssSelector }, { raiseException: false, timeout: 100 });
+        return el1 !== null && el2 !== null;
     }
 }
 
@@ -372,5 +440,6 @@ export const ClassActionMap = {
     [ActionEnum.NOOP]: NoopAction,
     [ActionEnum.LEFT_CLICK]: LeftClickAction,
     [ActionEnum.INPUT_TEXT]: InputTextAction,
+    [ActionEnum.INPUT_2FA_CODE]: InputTwofaAction,
     [ActionEnum.RAISE_ERROR_IF_DISPLAYED]: RaiseErrorIfDisplayed,
 }
