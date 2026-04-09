@@ -85,7 +85,7 @@ export abstract class ActionV2<Context, Args, Result> {
         args: any,
         destinationIds: string[] = []
     ) {
-        this.id = id || utils.hash_string(`${action}|${args}`, 'md5');
+        this.id = id || utils.hash_string(`${action}|${JSON.stringify(args)}`, 'md5');
         this.action = action;
         this.pageUrlRegex = pageUrlRegex;
         this.description = description;
