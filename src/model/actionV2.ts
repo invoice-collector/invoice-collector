@@ -99,7 +99,7 @@ export abstract class ActionV2<InputContext, Args, OutputContext> {
         this.usageCount = 0;
     }
 
-    async perform(context: InputContext): Promise<OutputContext> {
+    async perform(context: InputContext): Promise<OutputContext | OutputContext[]> {
         try {
             // Prevent performing the same action more than MAX_USAGE_COUNT times
             if (this.usageCount >= ActionV2.MAX_USAGE_COUNT) {
@@ -119,7 +119,7 @@ export abstract class ActionV2<InputContext, Args, OutputContext> {
         }
     }
 
-    abstract _perform(context: InputContext): Promise<OutputContext>;
+    abstract _perform(context: InputContext): Promise<OutputContext | OutputContext[]>;
     abstract canPerform(context: InputContext): Promise<boolean>;
 
     toString(): string {
@@ -472,7 +472,7 @@ export type GetInvoicesInputContext = {
 
 export type GetInvoicesOutputContext = {
     driver: Driver;
-    elements: Element[];
+    element: Element;
 }
 
 export type GetInvoicesArgs = {
@@ -504,16 +504,16 @@ export class GetInvoicesAction extends ActionV2<GetInvoicesInputContext, GetInvo
         );
     }
 
-    async _perform(context: GetInvoicesInputContext): Promise<GetInvoicesOutputContext> {
+    async _perform(context: GetInvoicesInputContext): Promise<GetInvoicesOutputContext[]> {
         const elements = await context.driver.getElements({
             selector: this.args.cssSelector,
             info: this.description
         });
         // Return new context with elements
-        return {
+        return elements.map(element => ({
             driver: context.driver,
-            elements: elements
-        };
+            element: element
+        }));
     }
 
     async canPerform(context: GetInvoicesInputContext): Promise<boolean> {
