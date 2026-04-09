@@ -230,7 +230,7 @@ export class LeftClickAction extends ActionV2<LeftClickContext, LeftClickArgs, v
             return false;
         }
         const el = await context.driver.getElement({ selector: this.args.cssSelector }, { raiseException: false, timeout: 100 });
-        return el !== null;
+        return el?.isClickable() || false;
     }
 }
 
@@ -300,7 +300,7 @@ export class InputTextAction extends ActionV2<InputTextContext, InputTextArgs, v
             return false;
         }
         const el = await context.driver.getElement({ selector: this.args.cssSelector }, { raiseException: false, timeout: 100 });
-        return el !== null;
+        return el?.isClickable() || false;
     }
 }
 
@@ -366,7 +366,7 @@ export class ErrorDisplayedAction extends ActionV2<RaiseErrorContext, RaiseError
             return false;
         }
         const el = await context.driver.getElement({ selector: this.args.cssSelector }, { raiseException: false, timeout: 100 });
-        return el !== null;
+        return el?.isClickable() || false;
     }
 }
 
@@ -437,9 +437,15 @@ export class InputTwofaAction extends ActionV2<InputTwofaContext, InputTwofaArgs
         if (!new RegExp(this.pageUrlRegex).test(context.driver.url())) {
             return false;
         }
-        const el1 = await context.driver.getElement({ selector: this.args.inputCssSelector }, { raiseException: false, timeout: 100 });
-        const el2 = await context.driver.getElement({ selector: this.args.instructionsCssSelector }, { raiseException: false, timeout: 100 });
-        return el1 !== null && el2 !== null;
+        const [el1, el2] = await Promise.all([
+            context.driver.getElement({ selector: this.args.inputCssSelector }, { raiseException: false, timeout: 100 }),
+            context.driver.getElement({ selector: this.args.instructionsCssSelector }, { raiseException: false, timeout: 100 }),
+        ]);
+        const [el1Clickable, el2Clickable] = await Promise.all([
+            el1 ? el1.isClickable() : false,
+            el2 ? el2.isClickable() : false,
+        ]);
+        return el1Clickable && el2Clickable;
     }
 }
 

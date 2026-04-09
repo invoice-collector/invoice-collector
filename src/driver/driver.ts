@@ -860,4 +860,12 @@ export class Element {
             return getCssSelector(element);
         });
     }
+
+    async isClickable(): Promise<boolean> {
+        const [isVisible, isDisabled] = await Promise.all([
+            this.element.isVisible(),
+            this.element.evaluate((element) => element.getAttribute('disabled') !== null),
+        ]);
+        return isVisible && !isDisabled;
+    }
 }
