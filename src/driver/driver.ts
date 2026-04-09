@@ -837,6 +837,12 @@ export class Element {
                     return 'body';
                 }
                 let selector = element.tagName.toLowerCase();
+                if (element.getAttribute('name')) {
+                    selector += `[name="${element.getAttribute('name')}"]`;
+                }
+                if (element.getAttribute('type')) {
+                    selector += `[type="${element.getAttribute('type')}"]`;
+                }
                 let sibling = element;
                 let nth = 1;
                 while ((sibling = sibling.previousElementSibling)) {
