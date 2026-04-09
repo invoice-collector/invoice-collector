@@ -58,6 +58,29 @@ export class Driver {
         }
     };
 
+    public static getCommonCssSelector(selector1: string, selector2: string): string {
+        // Extract the common parent element from the two css selectors
+        const parts1 = selector1.split(" > ");
+        const parts2 = selector2.split(" > ");
+        const minLength = Math.min(parts1.length, parts2.length);
+        let commonParts: string[] = [];
+        let i: number;
+        let lastPart = "*";
+        for (i = 0; i < minLength; i++) {
+            if (parts1[i] === parts2[i]) {
+                commonParts.push(parts1[i]);
+            } else {
+                const tag1 = parts1[i].split(":")[0];
+                const tag2 = parts2[i].split(":")[0];
+                if (tag1 === tag2) {
+                    lastPart = tag1;
+                }
+                break;
+            }
+        }
+        return `${commonParts.join(" > ")} > ${lastPart}`;
+    }
+
     collector: WebCollector;
     browser: Browser | null;
     page: Page | null;
@@ -432,11 +455,12 @@ export class Driver {
         timeout = Driver.DEFAULT_TIMEOUT,
         delay = Driver.DEFAULT_DELAY,
         tries = 5,
+        navigation = false,
         mouseHover = false
     } = {}): Promise<Element | null> {
         let element = await this.getElement(selector, { raiseException, timeout });
         if(element != null) {
-            await element.inputText(text, { tries, timeout, delay, mouseHover });
+            await element.inputText(text, { tries, timeout, delay, navigation, mouseHover });
             return element;
         }
         return null;

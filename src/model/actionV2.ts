@@ -1,6 +1,7 @@
 import { Driver, Element } from "../driver/driver";
 import { AuthenticationError, DisconnectedError } from "../error";
 import * as utils from "../utils";
+import { Invoice } from "../collectors/abstractCollector";
 import { Secret } from "./secret";
 import { WebSocketServer } from "../websocket/webSocketServer";
 
@@ -10,6 +11,8 @@ export enum ActionEnum  {
     INPUT_TEXT = 'inputText',
     INPUT_2FA_CODE = 'input2FACode',
     ERROR_DISPLAYED = 'errorDisplayed',
+    GET_INVOICES = 'getInvoices',
+    EXTRACT_INVOICE_DATA = 'extractInvoiceData',
 }
 
 export abstract class ActionV2<Context, Args, Result> {
@@ -71,7 +74,7 @@ export abstract class ActionV2<Context, Args, Result> {
     description: string;
     objectiveId: string | null;
     lastUsed: string | null;
-    args: any;
+    args: Args;
     destinationIds: string[];
     usageCount: number;
 
@@ -82,7 +85,7 @@ export abstract class ActionV2<Context, Args, Result> {
         pageUrlRegex: string,
         objectiveId: string | null,
         lastUsed: string | null,
-        args: any,
+        args: Args,
         destinationIds: string[] = []
     ) {
         this.id = id || utils.hash_string(`${action}|${JSON.stringify(args)}`, 'md5');
@@ -349,8 +352,7 @@ export class ErrorDisplayedAction extends ActionV2<RaiseErrorContext, RaiseError
             selector: this.args.cssSelector,
             info: this.description
         }, {
-            raiseException: false,
-            ...this.args
+            raiseException: false
         })
         // If element found, raise error
         if (element) {
@@ -378,6 +380,12 @@ export type InputTwofaContext = {
 export type InputTwofaArgs = {
     instructionsCssSelector: string;
     inputCssSelector: string;
+    raiseException?: boolean;
+    timeout?: number;
+    delay?: number;
+    tries?: number;
+    navigation?: boolean;
+    mouseHover?: boolean;
 }
 
 export class InputTwofaAction extends ActionV2<InputTwofaContext, InputTwofaArgs, void> {
@@ -449,10 +457,158 @@ export class InputTwofaAction extends ActionV2<InputTwofaContext, InputTwofaArgs
     }
 }
 
+export type GetInvoicesContext = {
+    driver: Driver;
+}
+
+export type GetInvoicesArgs = {
+    cssSelector: string;
+}
+
+export class GetInvoicesAction extends ActionV2<GetInvoicesContext, GetInvoicesArgs, Element[]> {
+    constructor(
+        id: string | null,
+        description: string,
+        pageUrlRegex: string,
+        objectiveId: string | null,
+        lastUsed: string | null,
+        args: GetInvoicesArgs,
+        destinationIds: string[] = []
+    ) {
+        if (!args.cssSelector) {
+            throw new Error('GetInvoicesAction requires args to have a "cssSelector" field');
+        }
+        super(
+            id,
+            ActionEnum.GET_INVOICES,
+            description,
+            pageUrlRegex,
+            objectiveId,
+            lastUsed,
+            args,
+            destinationIds
+        );
+    }
+
+    async _perform(context: GetInvoicesContext): Promise<Element[]> {
+        return await context.driver.getElements({
+            selector: this.args.cssSelector,
+            info: this.description
+        });
+    }
+
+    async canPerform(context: GetInvoicesContext): Promise<boolean> {
+        if (!new RegExp(this.pageUrlRegex).test(context.driver.url())) {
+            return false;
+        }
+        const el = await context.driver.getElement({ selector: this.args.cssSelector }, { raiseException: false, timeout: 100 });
+        return el?.isClickable() || false;
+    }
+}
+
+export type ExtractInvoiceDataContext = {
+    driver: Driver;
+    element: Element;
+}
+
+export type ExtractInvoiceDataArgs = {
+    id?: { cssSelector: string; attribute?: string };
+    amount?: { cssSelector: string; attribute?: string };
+    date: { cssSelector: string; attribute?: string; format: string; locale?: string };
+    download: { cssSelector: string };
+}
+
+export class ExtractInvoiceDataAction extends ActionV2<ExtractInvoiceDataContext, ExtractInvoiceDataArgs, Invoice> {
+    constructor(
+        id: string | null,
+        description: string,
+        pageUrlRegex: string,
+        objectiveId: string | null,
+        lastUsed: string | null,
+        args: ExtractInvoiceDataArgs,
+        destinationIds: string[] = []
+    ) {
+        if (!args.id && !args.amount) {
+            throw new Error('ExtractInvoiceDataAction requires args to have at least a "id" or "amount" field');
+        }
+        if (!args.date) {
+            throw new Error('ExtractInvoiceDataAction requires args to have a "date" field');
+        }
+        if (!args.download) {
+            throw new Error('ExtractInvoiceDataAction requires args to have a "download" field');
+        }
+        super(
+            id,
+            ActionEnum.EXTRACT_INVOICE_DATA,
+            description,
+            pageUrlRegex,
+            objectiveId,
+            lastUsed,
+            args,
+            destinationIds
+        );
+    }
+
+    async _perform(context: ExtractInvoiceDataContext): Promise<Invoice> {
+        const link = context.driver.url();
+        const date = await context.element.getAttribute({selector: this.args.date.cssSelector, info: "date"}, this.args.date.attribute || "textContent");
+        const timestamp = utils.timestampFromString(date, this.args.date.format, this.args.date.locale || 'en');
+        const downloadElement = await context.element.getElement({selector: this.args.download.cssSelector, info: "download button"});
+
+        // Get amount if selector provided
+        let amount: string | undefined;
+        if(this.args.amount) {
+            amount = await context.element.getAttribute({selector: this.args.amount.cssSelector, info: "amount"}, this.args.amount.attribute || "textContent");
+            utils.checkAmountContainsCurrencySymbol(amount);
+        }
+
+        // Get id if selector provided
+        let id: string;
+        if(this.args.id) {
+            id = await context.element.getAttribute({selector: this.args.id.cssSelector, info: "id"}, this.args.id.attribute || "textContent");
+        }
+        else if (amount) {
+            id = utils.hash_string(`${date}${amount}`);
+        }
+        else {
+            throw new Error('Cannot compute invoice id, no id nor amount provided');
+        }
+
+        return {
+            id: id,
+            link: link,
+            timestamp: timestamp,
+            amount: amount,
+            downloadButton: downloadElement
+        }
+    }
+
+    async canPerform(context: ExtractInvoiceDataContext): Promise<boolean> {
+        if (!new RegExp(this.pageUrlRegex).test(context.driver.url())) {
+            return false;
+        }
+        const [idElement, amountElement, dateElement, downloadElement] = await Promise.all([
+            this.args.id ? context.element.getElement({ selector: this.args.id.cssSelector }, { raiseException: false}) : null,
+            this.args.amount ? context.element.getElement({ selector: this.args.amount.cssSelector }, { raiseException: false }) : null,
+            context.element.getElement({ selector: this.args.date.cssSelector }, { raiseException: false }),
+            context.element.getElement({ selector: this.args.download.cssSelector }, { raiseException: false }),
+        ]);
+        const [idElementClickable, amountElementClickable, dateElementClickable, downloadElementClickable] = await Promise.all([
+            idElement?.isClickable() || true,
+            amountElement?.isClickable() || true,
+            dateElement?.isClickable() || false,
+            downloadElement?.isClickable() || false,
+        ]);
+        return idElementClickable && amountElementClickable && dateElementClickable && downloadElementClickable;
+    }
+}
+
 export const ClassActionMap = {
     [ActionEnum.NOOP]: NoopAction,
     [ActionEnum.LEFT_CLICK]: LeftClickAction,
     [ActionEnum.INPUT_TEXT]: InputTextAction,
     [ActionEnum.INPUT_2FA_CODE]: InputTwofaAction,
     [ActionEnum.ERROR_DISPLAYED]: ErrorDisplayedAction,
+    [ActionEnum.GET_INVOICES]: GetInvoicesAction,
+    [ActionEnum.EXTRACT_INVOICE_DATA]: ExtractInvoiceDataAction,
 }
