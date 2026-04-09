@@ -15,7 +15,7 @@ export enum ActionEnum  {
     EXTRACT_INVOICE_DATA = 'extractInvoiceData',
 }
 
-export abstract class ActionV2<Context, Args, Result> {
+export abstract class ActionV2<InputContext, Args, OutputContext> {
 
     static MAX_USAGE_COUNT = 2;
 
@@ -99,7 +99,7 @@ export abstract class ActionV2<Context, Args, Result> {
         this.usageCount = 0;
     }
 
-    async perform(context: Context): Promise<Result> {
+    async perform(context: InputContext): Promise<OutputContext> {
         try {
             // Prevent performing the same action more than MAX_USAGE_COUNT times
             if (this.usageCount >= ActionV2.MAX_USAGE_COUNT) {
@@ -119,8 +119,8 @@ export abstract class ActionV2<Context, Args, Result> {
         }
     }
 
-    abstract _perform(context: Context): Promise<Result>;
-    abstract canPerform(context: Context): Promise<boolean>;
+    abstract _perform(context: InputContext): Promise<OutputContext>;
+    abstract canPerform(context: InputContext): Promise<boolean>;
 
     toString(): string {
         return this.description;
@@ -134,7 +134,7 @@ export type NoopContext = {
 export type NoopArgs = {
 }
 
-export class NoopAction extends ActionV2<NoopContext, NoopArgs, void> {
+export class NoopAction extends ActionV2<NoopContext, NoopArgs, NoopContext> {
 
     constructor(
         id: string | null,
@@ -157,8 +157,9 @@ export class NoopAction extends ActionV2<NoopContext, NoopArgs, void> {
         );
     }
 
-    async _perform(context: NoopContext): Promise<void> {
+    async _perform(context: NoopContext): Promise<NoopContext> {
         // Noop action does nothing
+        return context;
     }
 
     async canPerform(context: NoopContext): Promise<boolean> {
@@ -180,7 +181,7 @@ export type LeftClickArgs = {
     mouseHover?: boolean;
 }
 
-export class LeftClickAction extends ActionV2<LeftClickContext, LeftClickArgs, void> {
+export class LeftClickAction extends ActionV2<LeftClickContext, LeftClickArgs, LeftClickContext> {
 
     constructor(
         id: string | null,
@@ -212,7 +213,7 @@ export class LeftClickAction extends ActionV2<LeftClickContext, LeftClickArgs, v
         );
     }
 
-    async _perform(context: LeftClickContext): Promise<void> {
+    async _perform(context: LeftClickContext): Promise<LeftClickContext> {
         if(context.element) {
             // Perform left click on provided element
             await context.element.leftClick(this.args);
@@ -226,6 +227,8 @@ export class LeftClickAction extends ActionV2<LeftClickContext, LeftClickArgs, v
                 info: this.description
             }, this.args);
         }
+        // Return context
+        return context;
     }
 
     async canPerform(context: LeftClickContext): Promise<boolean> {
@@ -252,7 +255,7 @@ export type InputTextArgs = {
     mouseHover?: boolean;
 }
 
-export class InputTextAction extends ActionV2<InputTextContext, InputTextArgs, void> {
+export class InputTextAction extends ActionV2<InputTextContext, InputTextArgs, InputTextContext> {
     constructor(
         id: string | null,
         description: string,
@@ -283,7 +286,7 @@ export class InputTextAction extends ActionV2<InputTextContext, InputTextArgs, v
         );
     }
 
-    async _perform(context: InputTextContext): Promise<void> {
+    async _perform(context: InputTextContext): Promise<InputTextContext> {
         // Get params from secret
         const params = await context.secret.getParams();
 
@@ -291,11 +294,13 @@ export class InputTextAction extends ActionV2<InputTextContext, InputTextArgs, v
         if(!params.hasOwnProperty(this.args.text)) {
             throw new Error(`Parameter ${this.args.text} not found in params`);
         }
-
+        // Input text into the field
         await context.driver.inputText({
                 selector: this.args.cssSelector,
                 info: this.description
             }, params[this.args.text], this.args);
+        // Return same context
+        return context;
     }
 
     async canPerform(context: InputTextContext): Promise<boolean> {
@@ -316,7 +321,7 @@ export type RaiseErrorArgs = {
     default: string;
 }
 
-export class ErrorDisplayedAction extends ActionV2<RaiseErrorContext, RaiseErrorArgs, void> {
+export class ErrorDisplayedAction extends ActionV2<RaiseErrorContext, RaiseErrorArgs, RaiseErrorContext> {
     constructor(
         id: string | null,
         description: string,
@@ -346,7 +351,7 @@ export class ErrorDisplayedAction extends ActionV2<RaiseErrorContext, RaiseError
         );
     }
 
-    async _perform(context: RaiseErrorContext): Promise<void> {
+    async _perform(context: RaiseErrorContext): Promise<RaiseErrorContext> {
         // Get element from cssSelector
         const element = await context.driver.getElement({
             selector: this.args.cssSelector,
@@ -361,6 +366,8 @@ export class ErrorDisplayedAction extends ActionV2<RaiseErrorContext, RaiseError
             // Raise error with text content
             throw new AuthenticationError(errorMessage, context.driver.collector);
         }
+        // Return same context
+        return context;
     }
 
     async canPerform(context: RaiseErrorContext): Promise<boolean> {
@@ -388,7 +395,7 @@ export type InputTwofaArgs = {
     mouseHover?: boolean;
 }
 
-export class InputTwofaAction extends ActionV2<InputTwofaContext, InputTwofaArgs, void> {
+export class InputTwofaAction extends ActionV2<InputTwofaContext, InputTwofaArgs, InputTwofaContext> {
     constructor(
         id: string | null,
         description: string,
@@ -416,7 +423,7 @@ export class InputTwofaAction extends ActionV2<InputTwofaContext, InputTwofaArgs
         );
     }
 
-    async _perform(context: InputTwofaContext): Promise<void> {
+    async _perform(context: InputTwofaContext): Promise<InputTwofaContext> {
         // If the webSocketServer is undefined, it means that the session has expired
         if (!context.webSocketServer) {
             throw new DisconnectedError(context.driver.collector);
@@ -439,6 +446,8 @@ export class InputTwofaAction extends ActionV2<InputTwofaContext, InputTwofaArgs
             selector: this.args.inputCssSelector,
             info: this.description
         }, code, this.args);
+        // Return same context
+        return context;
     }
 
     async canPerform(context: InputTwofaContext): Promise<boolean> {
@@ -457,15 +466,20 @@ export class InputTwofaAction extends ActionV2<InputTwofaContext, InputTwofaArgs
     }
 }
 
-export type GetInvoicesContext = {
+export type GetInvoicesInputContext = {
     driver: Driver;
+}
+
+export type GetInvoicesOutputContext = {
+    driver: Driver;
+    elements: Element[];
 }
 
 export type GetInvoicesArgs = {
     cssSelector: string;
 }
 
-export class GetInvoicesAction extends ActionV2<GetInvoicesContext, GetInvoicesArgs, Element[]> {
+export class GetInvoicesAction extends ActionV2<GetInvoicesInputContext, GetInvoicesArgs, GetInvoicesOutputContext> {
     constructor(
         id: string | null,
         description: string,
@@ -490,14 +504,19 @@ export class GetInvoicesAction extends ActionV2<GetInvoicesContext, GetInvoicesA
         );
     }
 
-    async _perform(context: GetInvoicesContext): Promise<Element[]> {
-        return await context.driver.getElements({
+    async _perform(context: GetInvoicesInputContext): Promise<GetInvoicesOutputContext> {
+        const elements = await context.driver.getElements({
             selector: this.args.cssSelector,
             info: this.description
         });
+        // Return new context with elements
+        return {
+            driver: context.driver,
+            elements: elements
+        };
     }
 
-    async canPerform(context: GetInvoicesContext): Promise<boolean> {
+    async canPerform(context: GetInvoicesInputContext): Promise<boolean> {
         if (!new RegExp(this.pageUrlRegex).test(context.driver.url())) {
             return false;
         }
@@ -506,9 +525,14 @@ export class GetInvoicesAction extends ActionV2<GetInvoicesContext, GetInvoicesA
     }
 }
 
-export type ExtractInvoiceDataContext = {
+export type ExtractInvoiceDataInputContext = {
     driver: Driver;
     element: Element;
+}
+
+export type ExtractInvoiceDataOutputContext = {
+    driver: Driver;
+    invoice: Invoice;
 }
 
 export type ExtractInvoiceDataArgs = {
@@ -518,7 +542,7 @@ export type ExtractInvoiceDataArgs = {
     download: { cssSelector: string };
 }
 
-export class ExtractInvoiceDataAction extends ActionV2<ExtractInvoiceDataContext, ExtractInvoiceDataArgs, Invoice> {
+export class ExtractInvoiceDataAction extends ActionV2<ExtractInvoiceDataInputContext, ExtractInvoiceDataArgs, ExtractInvoiceDataOutputContext> {
     constructor(
         id: string | null,
         description: string,
@@ -549,7 +573,7 @@ export class ExtractInvoiceDataAction extends ActionV2<ExtractInvoiceDataContext
         );
     }
 
-    async _perform(context: ExtractInvoiceDataContext): Promise<Invoice> {
+    async _perform(context: ExtractInvoiceDataInputContext): Promise<ExtractInvoiceDataOutputContext> {
         const link = context.driver.url();
         const date = await context.element.getAttribute({selector: this.args.date.cssSelector, info: "date"}, this.args.date.attribute || "textContent");
         const timestamp = utils.timestampFromString(date, this.args.date.format, this.args.date.locale || 'en');
@@ -575,15 +599,18 @@ export class ExtractInvoiceDataAction extends ActionV2<ExtractInvoiceDataContext
         }
 
         return {
-            id: id,
-            link: link,
-            timestamp: timestamp,
-            amount: amount,
-            downloadButton: downloadElement
+            driver: context.driver,
+            invoice: {
+                id: id,
+                link: link,
+                timestamp: timestamp,
+                amount: amount,
+                downloadButton: downloadElement
+            }
         }
     }
 
-    async canPerform(context: ExtractInvoiceDataContext): Promise<boolean> {
+    async canPerform(context: ExtractInvoiceDataInputContext): Promise<boolean> {
         if (!new RegExp(this.pageUrlRegex).test(context.driver.url())) {
             return false;
         }
