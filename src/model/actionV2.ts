@@ -534,6 +534,7 @@ export type ExtractInvoiceDataInputContext = {
 export type ExtractInvoiceDataOutputContext = {
     driver: Driver;
     invoice: Invoice;
+    element: Element;
 }
 
 export type ExtractInvoiceDataArgs = {
@@ -607,11 +608,15 @@ export class ExtractInvoiceDataAction extends ActionV2<ExtractInvoiceDataInputCo
                 timestamp: timestamp,
                 amount: amount,
                 downloadButton: downloadElement
-            }
+            },
+            element: downloadElement
         }
     }
 
     async canPerform(context: ExtractInvoiceDataInputContext): Promise<boolean> {
+        if(!context.element) {
+            return false;
+        }
         if (!new RegExp(this.pageUrlRegex).test(context.driver.url())) {
             return false;
         }
@@ -631,13 +636,9 @@ export class ExtractInvoiceDataAction extends ActionV2<ExtractInvoiceDataInputCo
     }
 }
 
-export type MiddleClickInputContext = {
+export type MiddleClickContext = {
     driver: Driver;
     element?: Element;
-}
-
-export type MiddleClickOutputContext = {
-    driver: Driver;
 }
 
 export type MiddleClickArgs = {
@@ -645,7 +646,7 @@ export type MiddleClickArgs = {
     raiseException?: boolean;
 }
 
-export class MiddleClickAction extends ActionV2<MiddleClickInputContext, MiddleClickArgs, MiddleClickOutputContext> {
+export class MiddleClickAction extends ActionV2<MiddleClickContext, MiddleClickArgs, MiddleClickContext> {
     constructor(
         id: string | null,
         description: string,
@@ -670,7 +671,7 @@ export class MiddleClickAction extends ActionV2<MiddleClickInputContext, MiddleC
         );
     }
 
-    async _perform(context: MiddleClickInputContext): Promise<MiddleClickOutputContext> {
+    async _perform(context: MiddleClickContext): Promise<MiddleClickContext> {
         let element: Element | null = context.element || null
     
         if (!element) {
@@ -697,7 +698,7 @@ export class MiddleClickAction extends ActionV2<MiddleClickInputContext, MiddleC
         return context;
     }
 
-    async canPerform(context: MiddleClickInputContext): Promise<boolean> {
+    async canPerform(context: MiddleClickContext): Promise<boolean> {
         if (!new RegExp(this.pageUrlRegex).test(context.driver.url())) {
             return false;
         }
@@ -721,4 +722,5 @@ export const ClassActionMap = {
     [ActionEnum.ERROR_DISPLAYED]: ErrorDisplayedAction,
     [ActionEnum.GET_INVOICES]: GetInvoicesAction,
     [ActionEnum.EXTRACT_INVOICE_DATA]: ExtractInvoiceDataAction,
+    [ActionEnum.MIDDLE_CLICK]: MiddleClickAction,
 }
