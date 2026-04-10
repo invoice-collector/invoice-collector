@@ -77,7 +77,6 @@ export abstract class ActionV2<InputContext, Args, OutputContext> {
     lastUsed: string | null;
     args: Args;
     destinationIds: string[];
-    usageCount: number;
 
     constructor(
         id: string | null,
@@ -97,16 +96,10 @@ export abstract class ActionV2<InputContext, Args, OutputContext> {
         this.lastUsed = lastUsed;
         this.args = args;
         this.destinationIds = destinationIds;
-        this.usageCount = 0;
     }
 
     async perform(context: InputContext): Promise<OutputContext | OutputContext[]> {
         try {
-            // Prevent performing the same action more than MAX_USAGE_COUNT times
-            if (this.usageCount >= ActionV2.MAX_USAGE_COUNT) {
-                throw new Error(`Action "${this.description}" (${this.id}) has already been performed ${this.usageCount} times. Are you stuck in a loop?`);
-            }
-            this.usageCount++;
             this.lastUsed = new Date().toISOString();
             return await this._perform(context);
         }
