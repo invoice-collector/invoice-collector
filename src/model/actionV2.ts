@@ -13,6 +13,7 @@ export enum ActionEnum  {
     ERROR_DISPLAYED = 'errorDisplayed',
     GET_INVOICES = 'getInvoices',
     EXTRACT_INVOICE_DATA = 'extractInvoiceData',
+    MIDDLE_CLICK = 'middleClick',
 }
 
 export abstract class ActionV2<InputContext, Args, OutputContext> {
@@ -146,7 +147,7 @@ export class NoopAction extends ActionV2<NoopContext, NoopArgs, NoopContext> {
         destinationIds: string[] = []
     ) {
         super(
-            id,
+            id || utils.generate_token(16),
             ActionEnum.NOOP,
             description,
             pageUrlRegex,
@@ -627,6 +628,88 @@ export class ExtractInvoiceDataAction extends ActionV2<ExtractInvoiceDataInputCo
             downloadElement?.isClickable() || false,
         ]);
         return idElementClickable && amountElementClickable && dateElementClickable && downloadElementClickable;
+    }
+}
+
+export type MiddleClickInputContext = {
+    driver: Driver;
+    element?: Element;
+}
+
+export type MiddleClickOutputContext = {
+    driver: Driver;
+}
+
+export type MiddleClickArgs = {
+    cssSelector: string;
+    raiseException?: boolean;
+}
+
+export class MiddleClickAction extends ActionV2<MiddleClickInputContext, MiddleClickArgs, MiddleClickOutputContext> {
+    constructor(
+        id: string | null,
+        description: string,
+        pageUrlRegex: string,
+        objectiveId: string | null,
+        lastUsed: string | null,
+        args: MiddleClickArgs,
+        destinationIds: string[] = []
+    ) {
+        if (!args.cssSelector) {
+            throw new Error('MiddleClickAction requires args to have a "cssSelector" field');
+        }
+        super(
+            id,
+            ActionEnum.MIDDLE_CLICK,
+            description,
+            pageUrlRegex,
+            objectiveId,
+            lastUsed,
+            args,
+            destinationIds
+        );
+    }
+
+    async _perform(context: MiddleClickInputContext): Promise<MiddleClickOutputContext> {
+        let element: Element | null = context.element || null
+    
+        if (!element) {
+            element = await context.driver.getElement({
+                selector: this.args.cssSelector,
+                info: this.description
+            });
+        }
+
+        // If no element found, throw error
+        if (!element) {
+            throw new Error(`Element not found for action ${this.action}`);
+        }
+        
+        try {
+            // Perform middle click
+            await element.middleClick();
+        } catch (error) {
+            // If error occurs, it may be because middle click is not supported and a simple click was already performed
+        }
+
+        // Set element to undefined to avoid reuse for next actions
+        context.element = undefined;
+        return context;
+    }
+
+    async canPerform(context: MiddleClickInputContext): Promise<boolean> {
+        if (!new RegExp(this.pageUrlRegex).test(context.driver.url())) {
+            return false;
+        }
+        if (context.element) {
+            return await context.element.isClickable();
+        }
+        const el = await context.driver.getElement({ selector: this.args.cssSelector }, { raiseException: false, timeout: 100 });
+        return el?.isClickable() || false;
+    }
+
+    toString(): string {
+        return `Middle click on ${this.description}`;
     }
 }
 
