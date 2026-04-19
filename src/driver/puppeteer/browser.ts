@@ -7,9 +7,12 @@ import { Proxy } from "../../proxy/abstractProxy";
 let Xvfb;
 try {
   Xvfb = require("xvfb");
-} catch {
-  // ignore
+} catch (err) {
+  console.error("xvfb is not installed. If you are running on a Linux platform, please install it with the following command `sudo apt-get install xvfb`");
+  console.error(err);
 }
+
+let xvfbsession: any = null;
 
 type ConnectResult = {
   browser: Browser;
@@ -42,9 +45,7 @@ export async function connect({
   const dynamicImport = new Function('specifier', 'return import(specifier)');
   const { Launcher } = await dynamicImport('chrome-launcher');
 
-  let xvfbsession;
-
-  if (process.platform === "linux" && disableXvfb === false) {
+  if (process.platform === "linux" && disableXvfb === false && !xvfbsession) {
     try {
       xvfbsession = new Xvfb({
         silent: true,
@@ -52,10 +53,10 @@ export async function connect({
       });
       xvfbsession.startSync();
     } catch (err) {
-      console.warn(
-        "You are running on a Linux platform but do not have xvfb installed. The browser can be captured. Please install it with the following command `sudo apt-get install xvfb`" +
-          err
-      );
+      console.error("You are running on a Linux platform but xvfb cannot start. Please install it with the following command `sudo apt-get install xvfb`");
+      console.error(err);
+      console.error("Fallback to headless mode. The browser can be captured, but it can still be used for automation tasks.");
+      headless = true; // Fallback to headless mode if xvfb is not available
     }
   }
 
@@ -107,8 +108,7 @@ export async function connect({
     browser,
     page,
     proxy,
-    turnstile,
-    xvfbsession
+    turnstile
   };
 
   let pageWithCursor = await pageController({
