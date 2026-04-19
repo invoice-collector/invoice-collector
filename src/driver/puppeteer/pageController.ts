@@ -14,7 +14,6 @@ export interface PageControllerOptions {
     page: Page,
     proxy?: Proxy,
     turnstile: boolean,
-    xvfbsession: any,
     killProcess: boolean,
     chrome?: AbstractChrome
 };
@@ -24,7 +23,6 @@ export async function pageController({
     page,
     proxy,
     turnstile,
-    xvfbsession,
     killProcess = false,
     chrome
 }: PageControllerOptions): Promise<PageWithCursor> {
@@ -39,7 +37,6 @@ export async function pageController({
     browser.on('disconnected', async () => {
         solveStatus = false
         if (killProcess === true) {
-            if (xvfbsession) try { xvfbsession.stopSync() } catch (err) { }
             if (chrome) try { chrome.close() } catch (err) { console.log(err); }
         }
     });

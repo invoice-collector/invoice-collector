@@ -108,8 +108,7 @@ export async function connect({
     browser,
     page,
     proxy,
-    turnstile,
-    xvfbsession
+    turnstile
   };
 
   let pageWithCursor = await pageController({
