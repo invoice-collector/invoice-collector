@@ -12,6 +12,8 @@ try {
   console.error(err);
 }
 
+let xvfbsession: any = null;
+
 type ConnectResult = {
   browser: Browser;
   page: PageWithCursor;
@@ -43,9 +45,7 @@ export async function connect({
   const dynamicImport = new Function('specifier', 'return import(specifier)');
   const { Launcher } = await dynamicImport('chrome-launcher');
 
-  let xvfbsession;
-
-  if (process.platform === "linux" && disableXvfb === false) {
+  if (process.platform === "linux" && disableXvfb === false && !xvfbsession) {
     try {
       xvfbsession = new Xvfb({
         silent: true,
@@ -108,8 +108,7 @@ export async function connect({
     browser,
     page,
     proxy,
-    turnstile,
-    xvfbsession
+    turnstile
   };
 
   let pageWithCursor = await pageController({
