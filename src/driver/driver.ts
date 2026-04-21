@@ -491,7 +491,12 @@ export class Driver {
         if (this.page === null) {
             throw new Error('Page is not initialized.');
         }
-    
+
+        // If current url is about:blank, return empty string
+        if (this.url() === 'about:blank') {
+            return '';
+        }
+
         let frames;
         // If not including iframes
         if (!includeIframes) {
