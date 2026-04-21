@@ -2,7 +2,7 @@ import { MongoClient, Db, ObjectId } from "mongodb";
 import { AbstractDatabase } from "./abstractDatabase";
 import { Customer, CustomerStats } from "../model/customer";
 import { User } from "../model/user";
-import { IcCredential } from "../model/credential";
+import { Credential } from "../model/credential";
 import * as utils from "../utils";
 import { buildCustomerStatsPipeline } from "./mongodbConstants";
 import { State } from "../model/state";
@@ -404,7 +404,7 @@ export class MongoDB extends AbstractDatabase {
         return documents.map(document => document._id.toString());
     }
 
-    async getCredentials(user_id: string): Promise<IcCredential[]> {
+    async getCredentials(user_id: string): Promise<Credential[]> {
         if (!this.db) {
             throw new Error("Database is not connected");
         }
@@ -412,7 +412,7 @@ export class MongoDB extends AbstractDatabase {
             user_id: new ObjectId(user_id)
         }).toArray();
         return documents.map(document => {
-            let credential = new IcCredential(
+            let credential = new Credential(
                 document.user_id.toString(),
                 document.collector_id,
                 document.note,
@@ -429,7 +429,7 @@ export class MongoDB extends AbstractDatabase {
         });
     }
 
-    async getCredential(credential_id: string): Promise<IcCredential|null> {
+    async getCredential(credential_id: string): Promise<Credential|null> {
         if (!this.db) {
             throw new Error("Database is not connected");
         }
@@ -439,7 +439,7 @@ export class MongoDB extends AbstractDatabase {
         if (!document) {
             return null;
         }
-        let credential = new IcCredential(
+        let credential = new Credential(
             document.user_id.toString(),
             document.collector_id,
             document.note,
@@ -455,7 +455,7 @@ export class MongoDB extends AbstractDatabase {
         return credential;
     }
 
-    async createCredential(credential: IcCredential): Promise<IcCredential> {
+    async createCredential(credential: Credential): Promise<Credential> {
         if (!this.db) {
             throw new Error("Database is not connected");
         }
@@ -475,7 +475,7 @@ export class MongoDB extends AbstractDatabase {
         return credential;
     }
 
-    async updateCredential(credential: IcCredential): Promise<void> {
+    async updateCredential(credential: Credential): Promise<void> {
         if (!this.db) {
             throw new Error("Database is not connected");
         }

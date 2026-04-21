@@ -1,6 +1,6 @@
 import { Customer, CustomerStats } from "../model/customer";
 import { User } from "../model/user";
-import { IcCredential } from "../model/credential";
+import { Credential } from "../model/credential";
 import { CollectorMemory } from "../model/collectorMemory";
 import { Callback } from "../model/callback";
 
@@ -59,13 +59,13 @@ export abstract class AbstractDatabase {
 
     abstract getCredentialsIdToCollect(): Promise<string[]>;
 
-    abstract getCredentials(user_id: string|null): Promise<IcCredential[]>;
+    abstract getCredentials(user_id: string|null): Promise<Credential[]>;
 
-    abstract getCredential(credential_id: string): Promise<IcCredential|null>;
+    abstract getCredential(credential_id: string): Promise<Credential|null>;
 
-    abstract createCredential(credential: IcCredential): Promise<IcCredential>;
+    abstract createCredential(credential: Credential): Promise<Credential>;
 
-    abstract updateCredential(credential: IcCredential): Promise<void>;
+    abstract updateCredential(credential: Credential): Promise<void>;
 
     abstract deleteCredential(user_id: string, credential_id: string): Promise<void>;
 

@@ -1,5 +1,5 @@
 import { CronJob } from 'cron';
-import { IcCredential } from '../model/credential';
+import { Credential } from '../model/credential';
 import { Collect } from './collect';
 import { CollectPool } from './collectPool';
 
@@ -12,7 +12,7 @@ export class CollectTask {
     constructor() {
         const onTick = async () => {
             // Get all credentials on which we need to collect invoices
-            let credential_ids = await IcCredential.getCredentialsIdToCollect()
+            let credential_ids = await Credential.getCredentialsIdToCollect()
 
             if (credential_ids.length > 0) {
                 console.log(`Found ${credential_ids.length} credentials to collect`);
