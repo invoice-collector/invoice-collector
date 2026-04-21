@@ -15,7 +15,7 @@ export const GoogleOauth2Selectors = {
         type: "Button next"
     },
     CONTAINER_EMAIL_ERROR: {
-        selector: "html > body > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > c-wiz > main > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > form > span > section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1)",
+        selector: "div:has(> div > div >div > div > input[type='email']) > div[aria-live='polite'] > div:has(> span)",
         type: "Button next"
     },
     INPUT_PASSWORD: {
@@ -27,7 +27,7 @@ export const GoogleOauth2Selectors = {
         type: "Button next"
     },
     CONTAINER_PASSWORD_ERROR: {
-        selector: "html > body > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > c-wiz > main > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > form > span > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > span",
+        selector: "div:has(> div > div >div > div > div > div > div > div > input[type='password']) > div[aria-live='polite'] > div:has(> span)",
         type: "Button next"
     },
 
@@ -46,7 +46,7 @@ export const GoogleOauth2Selectors = {
 export class GoogleOauth2 {
 
     static check(driver: Driver): boolean {
-        return driver.url().includes("accounts.google.com");
+        return driver.url().includes("accounts.google.com") && driver.url().includes("/signin/");
     }
 
     static async login(driver: Driver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
