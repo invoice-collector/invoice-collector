@@ -259,7 +259,7 @@ function getHashFromSecret(secret: Secret): string {
         }
 
         // ---------- PART 5 : CHECK INVOICES ----------
-        console.log(`===== PART5: Checking invoices =====`);
+        console.log(`===== PART5: Checking ${newInvoicesPart3.length} invoices =====`);
 
         for (const invoice of newInvoicesPart3) {
             assert(invoice.id, `Invoice id is not defined`);
@@ -292,8 +292,9 @@ function getHashFromSecret(secret: Secret): string {
         );
 
         // ---------- PART 7 : CHECK INVOICES ----------
-        console.log(`===== PART7: Checking invoices =====`);
+        console.log(`===== PART7: Checking ${newInvoicesPart6.length} invoices =====`);
 
+        assert(newInvoicesPart6.length == newInvoicesPart3.length, `Number of invoices should be the same as previous collect, but got ${newInvoicesPart6.length} instead of ${newInvoicesPart3.length}`);
         for (const invoice of newInvoicesPart6) {
             assert(invoice.id, `Invoice id is not defined`);
             assert(invoice.link, `Invoice link is not defined`);
@@ -308,7 +309,7 @@ function getHashFromSecret(secret: Secret): string {
         // ---------- PART 8 : PERFORM NEW COLLECT WITH COOCKIES AND LOCAL STORAGE ----------
         console.log(`===== PART8: Performing new collect with cookies local storage, and previous invoices =====`);
 
-        const modelInvoices: ModelInvoice[] = newInvoicesPart6.map(invoice => ({
+        const modelInvoices: ModelInvoice[] = newInvoicesPart3.map(invoice => ({
             id: invoice.id,
             timestamp: invoice.timestamp,
             collected_timestamp: Date.now(),
@@ -327,9 +328,10 @@ function getHashFromSecret(secret: Secret): string {
         );
 
         // ---------- PART 9 : CHECK INVOICES ----------
-        console.log(`===== PART9: Checking invoices =====`);
+        console.log(`===== PART9: Checking ${newInvoicesPart8.length} invoices =====`);
         assert(newInvoicesPart8.length == 0, `No new invoice should have been collected`);
         console.log(`All invoices are valid! No new invoice collected as expected!`);
+        console.log(`===== DONE =====`);
     } catch (error) {
         if (error instanceof Error) {
             error.message = I18n.get(error.message, I18n.DEFAULT_LOCALE);
