@@ -11,14 +11,13 @@ import readline from 'readline';
 
 import { CollectorLoader } from '../src/collectors/collectorLoader';
 import { LoggableError } from '../src/error';
-import { IcCredential } from '../src/model/credential';
+import { IcCredential, ModelInvoice } from '../src/model/credential';
 import { State } from '../src/model/state';
 import { I18n } from '../src/i18n';
 import { DatabaseFactory } from '../src/database/databaseFactory';
 import { SecretManagerFactory } from '../src/secret_manager/secretManagerFactory';
 import { WebSocketServer } from '../src/websocket/webSocketServer';
 import * as utils from '../src/utils';
-import { WebCollector } from '../src/collectors/webCollector';
 import { AbstractCollector, Config } from '../src/collectors/abstractCollector';
 import { TwofaPromise } from '../src/collect/twofaPromise';
 import { Secret } from '../src/model/secret';
@@ -96,6 +95,7 @@ function getHashFromSecret(secret: Secret): string {
         await DatabaseFactory.getDatabase().connect();
 
         // ---------- PART 1 : ASK COLLECTOR ID OR CREDENTIAL ID ----------
+        console.log(`===== PART1: Ask collector id or credential id =====`);
 
         // Get collector
         if(process.argv[2]) {
@@ -107,6 +107,7 @@ function getHashFromSecret(secret: Secret): string {
         }
 
         // ---------- PART 2 : GET COLLECTOR AND SECRET ----------
+        console.log(`===== PART2: Getting collector and secret =====`);
 
         // Load collectors
         const loadedCollectors = await CollectorLoader.load(id);
@@ -180,6 +181,7 @@ function getHashFromSecret(secret: Secret): string {
         secretHash = await getHashFromSecret(secret);
 
         // ---------- PART 3 : PERFORM COLLECT ----------
+        console.log(`===== PART3: Performing collect =====`);
 
         // Create an http server to handle web socket connections
         const httpServer = http.createServer();
@@ -221,7 +223,7 @@ function getHashFromSecret(secret: Secret): string {
         });
 
         // Collect new invoices
-        const newInvoices = await collector.collect_new_invoices(
+        const newInvoicesPart3 = await collector.collect_new_invoices(
             State.DEFAULT_STATE,
             new TwofaPromise(),
             webSocketServer,
@@ -231,11 +233,12 @@ function getHashFromSecret(secret: Secret): string {
             null,
             useInteractiveLogin
         );
-        console.log(`${newInvoices.length} invoices downloaded`);
+        console.log(`${newInvoicesPart3.length} invoices downloaded`);
 
         // ---------- PART 4 : SAVE INVOICES ----------
+        console.log(`===== PART4: Saving invoices =====`);
 
-        for (const invoice of newInvoices) {
+        for (const invoice of newInvoicesPart3) {
             // If data is not null
             if (invoice.data) {
                 // Save data to file
@@ -256,8 +259,9 @@ function getHashFromSecret(secret: Secret): string {
         }
 
         // ---------- PART 5 : CHECK INVOICES ----------
+        console.log(`===== PART5: Checking invoices =====`);
 
-        for (const invoice of newInvoices) {
+        for (const invoice of newInvoicesPart3) {
             assert(invoice.id, `Invoice id is not defined`);
             assert(invoice.link, `Invoice link is not defined`);
             assert(!isNaN(invoice.timestamp), `Timestamp ${invoice.timestamp} is NaN`);
@@ -266,17 +270,17 @@ function getHashFromSecret(secret: Secret): string {
             assert(invoice.data, `Invoice data is not defined`);
             assert(invoice.mimetype, `Invoice mimetype is not defined`);
         }
+        console.log(`All invoices are valid!`);
 
         // ---------- PART 6 : PERFORM NEW COLLECT WITH COOCKIES AND LOCAL STORAGE ----------
-        console.log(`Performing new collect with cookies and local storage...`);
+        console.log(`===== PART6: Performing new collect with cookies local storage and download since timestamp =====`);
 
         // Override login method
         (collector as any).login = async (driver: any, params: any, webSocketServer: WebSocketServer | undefined) => {
             throw new Error("Login was triggered, but it should not. Cookies and local storage should be used to login, if needed.");
         };
-        
-        // Collect new invoices
-        await collector.collect_new_invoices(
+
+        const newInvoicesPart6 = await collector.collect_new_invoices(
             State.DEFAULT_STATE,
             new TwofaPromise(),
             undefined,
@@ -286,6 +290,46 @@ function getHashFromSecret(secret: Secret): string {
             null,
             useInteractiveLogin
         );
+
+        // ---------- PART 7 : CHECK INVOICES ----------
+        console.log(`===== PART7: Checking invoices =====`);
+
+        for (const invoice of newInvoicesPart6) {
+            assert(invoice.id, `Invoice id is not defined`);
+            assert(invoice.link, `Invoice link is not defined`);
+            assert(!isNaN(invoice.timestamp), `Timestamp ${invoice.timestamp} is NaN`);
+            assert(invoice.timestamp >= Date.UTC(2000, 0, 1), `Invoice timestamp ${invoice.timestamp} is before year 2000. Did you forget to set the year in the date format?`);
+            assert(invoice.amount, `Invoice amount is not defined`);
+            assert(invoice.data === null, `Invoice data must be null`);
+            assert(invoice.mimetype === null, `Invoice mimetype must be null`);
+        }
+        console.log(`All invoices are valid!`);
+
+        // ---------- PART 8 : PERFORM NEW COLLECT WITH COOCKIES AND LOCAL STORAGE ----------
+        console.log(`===== PART8: Performing new collect with cookies local storage, and previous invoices =====`);
+
+        const modelInvoices: ModelInvoice[] = newInvoicesPart6.map(invoice => ({
+            id: invoice.id,
+            timestamp: invoice.timestamp,
+            collected_timestamp: Date.now(),
+            hash: invoice.hash
+        }));
+
+        const newInvoicesPart8 = await collector.collect_new_invoices(
+            State.DEFAULT_STATE,
+            new TwofaPromise(),
+            undefined,
+            secret,
+            Date.UTC(2000, 0, 1),
+            modelInvoices,
+            null,
+            useInteractiveLogin
+        );
+
+        // ---------- PART 9 : CHECK INVOICES ----------
+        console.log(`===== PART9: Checking invoices =====`);
+        assert(newInvoicesPart8.length == 0, `No new invoice should have been collected`);
+        console.log(`All invoices are valid! No new invoice collected as expected!`);
     } catch (error) {
         if (error instanceof Error) {
             error.message = I18n.get(error.message, I18n.DEFAULT_LOCALE);
