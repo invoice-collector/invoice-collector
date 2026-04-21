@@ -596,11 +596,12 @@ export class ExtractInvoiceDataAction extends ActionV2<ExtractInvoiceDataInputCo
         return {
             driver: context.driver,
             invoice: {
-                id: id,
-                link: link,
+                id: id.trim().replace(/[/\\?%*:|"<>]/g, '-'),
+                link: link.trim(),
                 timestamp: timestamp,
-                amount: amount,
-                downloadButton: downloadElement
+                amount: amount?.trim(),
+                downloadButton: downloadElement,
+                metadata: {}
             },
             element: downloadElement
         }
