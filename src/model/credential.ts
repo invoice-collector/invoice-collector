@@ -6,6 +6,13 @@ import { Secret } from "./secret";
 import { State } from "./state";
 import { User } from "./user";
 
+export type ModelInvoice = {
+    id: string,
+    timestamp: number,
+    collected_timestamp: number | null,
+    hash: string | null
+}
+
 export class IcCredential {
 
     static ONE_DAY_MS: number = 86400000;
@@ -29,12 +36,7 @@ export class IcCredential {
     download_from_timestamp: number;
     last_collect_timestamp: number;
     next_collect_timestamp: number;
-    invoices: {
-        id: string,
-        timestamp: number,
-        collected_timestamp: number | null,
-        hash: string | null
-    }[];
+    invoices: ModelInvoice[];
     state: State;
 
     constructor(
@@ -46,12 +48,7 @@ export class IcCredential {
         download_from_timestamp: number,
         last_collect_timestamp: number = Number.NaN,
         next_collect_timestamp: number = Number.NaN,
-        invoices: {
-            id: string,
-            timestamp: number,
-            collected_timestamp: number | null,
-            hash: string | null
-        }[] = [],
+        invoices: ModelInvoice[] = [],
         state: State = State.DEFAULT_STATE
     ) {
         this.id = "";

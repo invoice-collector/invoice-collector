@@ -8,12 +8,11 @@ import { TwofaPromise } from "../collect/twofaPromise";
 import { State } from "../model/state";
 import * as utils from '../utils';
 import { WebSocketServer } from "../websocket/webSocketServer";
-import { MessageClick, MessageKeydown, MessageText } from "../websocket/message";
-import { KeyInput } from "rebrowser-puppeteer-core";
 import { GoogleOauth2 } from "./oauth2/googleOauth2";
 import { MicrosoftOauth2 } from "./oauth2/microsoftOauth2";
 import { CollectorMemory } from "../model/collectorMemory";
 import { WebCollector } from "./webCollector";
+import { ModelInvoice } from "../model/credential";
 
 export enum DocumentStrategy {
     SPLIT = "split",
@@ -30,7 +29,7 @@ export abstract class LinearWebCollector extends WebCollector {
         webSocketServer: WebSocketServer | undefined,
         secret: Secret,
         download_from_timestamp: number,
-        previousInvoices: any[],
+        previousInvoices: ModelInvoice[],
         location: Location | null,
         useInteractiveLogin: boolean
     ): Promise<CompleteInvoice[]> {
