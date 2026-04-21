@@ -11,8 +11,6 @@ import { V2Collector } from "./v2Collector";
 import { WebSocketServer } from "../websocket/webSocketServer";
 import { MessageClick, MessageKeydown, MessageText } from "../websocket/message";
 import { KeyInput } from "rebrowser-puppeteer-core";
-import { GoogleOauth2 } from "./oauth2/googleOauth2";
-import { MicrosoftOauth2 } from "./oauth2/microsoftOauth2";
 import { CollectorMemory } from "../model/collectorMemory";
 
 export type WebConfig = Config & {
@@ -106,9 +104,7 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
                     console.log("User is not logged in, logging in...");
 
                     // Login with stored credentials
-                    const login_error = await this.login(driver, await secret.getParams(), webSocketServer) || 
-                        await GoogleOauth2.login(driver, await secret.getParams(), webSocketServer) || 
-                        await MicrosoftOauth2.login(driver, await secret.getParams(), webSocketServer);
+                    const login_error = await this.login(driver, await secret.getParams(), webSocketServer);
 
                     // Check if not authenticated
                     if (login_error) {
@@ -120,9 +116,7 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
                 }
 
                 // Check if 2fa is required
-                const needTwofa = await this.needTwofa(driver) ||
-                    await GoogleOauth2.needTwofa(driver) ||
-                    await MicrosoftOauth2.needTwofa(driver);
+                const needTwofa = await this.needTwofa(driver);
 
                 // If 2fa is required
                 if (needTwofa) {
@@ -140,9 +134,7 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
                     // Set instructions for UI
                     await twofa_promise.setInstructions(needTwofa);
 
-                    const twofa_error = await this.twofa(driver, await secret.getParams(), twofa_promise, webSocketServer) ||
-                        await GoogleOauth2.twofa(driver, await secret.getParams(), twofa_promise, webSocketServer) || 
-                        await MicrosoftOauth2.twofa(driver, await secret.getParams(), twofa_promise, webSocketServer);
+                    const twofa_error = await this.twofa(driver, await secret.getParams(), twofa_promise, webSocketServer);
 
                     // Check if 2fa error
                     if (twofa_error) {

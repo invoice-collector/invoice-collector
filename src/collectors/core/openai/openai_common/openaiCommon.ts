@@ -1,9 +1,11 @@
 import { OpenaiSelectors } from './selectors';
-import { Driver, Element } from '../../../../driver/driver';
+import { Driver } from '../../../../driver/driver';
 import { TwofaPromise } from '../../../../collect/twofaPromise';
 import { WebSocketServer } from '../../../../websocket/webSocketServer';
 import { WebCollector } from '../../../webCollector';
 import { Invoice } from '../../../abstractCollector';
+import { GoogleOauth2 } from '../../../oauth2/googleOauth2';
+import { MicrosoftOauth2 } from '../../../oauth2/microsoftOauth2';
 
 export abstract class OpenaiCommonCollector extends WebCollector {
 
@@ -26,6 +28,15 @@ export abstract class OpenaiCommonCollector extends WebCollector {
             return await emailError.textContent("i18n.collectors.all.email.error");
         }
 
+        // Perform google oauth2 if needed
+        if(GoogleOauth2.check(driver)) {
+            return await GoogleOauth2.login(driver, params, webSocketServer);
+        }
+        // Perform microsoft oauth2 if needed
+        if(MicrosoftOauth2.check(driver)) {
+            return await MicrosoftOauth2.login(driver, params, webSocketServer);
+        }
+
         // Wait for password field
         const passwordField = await driver.getElement(OpenaiSelectors.FIELD_PASSWORD, { raiseException: false, timeout: 100 });
         if (passwordField) {
@@ -42,6 +53,15 @@ export abstract class OpenaiCommonCollector extends WebCollector {
     }
 
     async needTwofa(driver: Driver): Promise<string | void> {
+        // Perform google oauth2 if needed
+        if(GoogleOauth2.check(driver)) {
+            return await GoogleOauth2.needTwofa(driver);
+        }
+        // Perform microsoft oauth2 if needed
+        if(MicrosoftOauth2.check(driver)) {
+            return await MicrosoftOauth2.needTwofa(driver);
+        }
+
         // If URL contains 2FA verification
         if(driver.url().includes("email-verification") ||
             driver.url().includes("mfa-challenge") ||
@@ -55,6 +75,15 @@ export abstract class OpenaiCommonCollector extends WebCollector {
     }
 
     async twofa(driver: Driver, params: any, twofa_promise: TwofaPromise, webSocketServer: WebSocketServer): Promise<string | void> {
+        // Perform google oauth2 if needed
+        if(GoogleOauth2.check(driver)) {
+            return await GoogleOauth2.twofa(driver, params, twofa_promise, webSocketServer);
+        }
+        // Perform microsoft oauth2 if needed
+        if(MicrosoftOauth2.check(driver)) {
+            return await MicrosoftOauth2.twofa(driver, params, twofa_promise, webSocketServer);
+        }
+
         // Check if is email verification
         const isEmailVerification = driver.url().includes("auth.openai.com/email-verification");
 

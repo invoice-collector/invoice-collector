@@ -45,8 +45,12 @@ export const GoogleOauth2Selectors = {
 
 export class GoogleOauth2 {
 
+    static check(driver: Driver): boolean {
+        return driver.url().includes("accounts.google.com");
+    }
+
     static async login(driver: Driver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
-        if(driver.url().includes("accounts.google.com") && driver.url().includes("signin/identifier")) {
+        if(GoogleOauth2.check(driver) && driver.url().includes("signin/identifier")) {
             // If input email is displayed
             const inputEmail = await driver.getElement(GoogleOauth2Selectors.INPUT_EMAIL, { raiseException: false });
             if(inputEmail) {
@@ -75,7 +79,7 @@ export class GoogleOauth2 {
     }
 
     static async needTwofa(driver: Driver): Promise<string | void> {
-        if(driver.url().includes("accounts.google.com") && driver.url().includes("signin/challenge")) {
+        if(GoogleOauth2.check(driver) && driver.url().includes("signin/challenge")) {
             // Select 2FA method if selection page is displayed
             if(driver.url().includes("signin/challenge/selection")) {
                 await driver.leftClick(GoogleOauth2Selectors.BUTTON_2FA_METHOD, { navigation: false });
@@ -87,7 +91,7 @@ export class GoogleOauth2 {
     }
 
     static async twofa(driver: Driver, params: any, twofa_promise: TwofaPromise, webSocketServer: WebSocketServer): Promise<string | void> {
-        if(driver.url().includes("accounts.google.com") && driver.url().includes("signin/challenge")) {
+        if(GoogleOauth2.check(driver) && driver.url().includes("signin/challenge")) {
             // Get code from UI
             const code = await Promise.race([twofa_promise.code(), webSocketServer.getTwofa()]);
         }

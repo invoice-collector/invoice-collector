@@ -10,7 +10,7 @@ export class OpenaiChatgptCollector extends OpenaiCommonCollector {
         id: "openai_chatgpt",
         name: "OpenAI (ChatGPT Plus)",
         description: "i18n.collectors.openai_chatgpt.description",
-        version: "9",
+        version: "10",
         website: "https://chatgpt.com",
         logo: "https://upload.wikimedia.org/wikipedia/commons/4/4d/OpenAI_Logo.svg",
         type: CollectorType.WEB,
