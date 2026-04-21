@@ -5,6 +5,7 @@ import { WebSocketServer } from "../../../websocket/webSocketServer";
 import { GoogleWorkspaceSelectors } from "./selectors";
 import { GoogleOauth2 } from "../../oauth2/googleOauth2";
 import { WebCollector } from "../../webCollector";
+import { AuthenticationError, UnfinishedCollectorError } from "../../../error";
 
 export class GoogleWorkspaceCollector extends WebCollector {
 
@@ -31,7 +32,7 @@ export class GoogleWorkspaceCollector extends WebCollector {
             }
         },
         loginUrl: "https://accounts.google.com/",
-        entryUrl: "https://admin.google.com/ac/billing/subscriptions",
+        entryUrl: "https://accounts.google.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
@@ -39,6 +40,10 @@ export class GoogleWorkspaceCollector extends WebCollector {
 
     constructor() {
         super(GoogleWorkspaceCollector.CONFIG);
+    }
+
+    async needLogin(driver: Driver): Promise<boolean>{
+        return GoogleOauth2.check(driver);
     }
 
     async login(driver: Driver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
@@ -57,6 +62,11 @@ export class GoogleWorkspaceCollector extends WebCollector {
         if (twofaError) {
             return twofaError;
         }
+    }
+
+    async navigate(driver: Driver): Promise<void> {
+        // Go to subscriptions page on admin console
+        await driver.goto("https://admin.google.com/ac/billing/subscriptions");
 
         // Select first account in the list
         //await driver.leftClick(GoogleWorkspaceSelectors.SELECT_ACCOUNT_LIST);
@@ -64,23 +74,22 @@ export class GoogleWorkspaceCollector extends WebCollector {
         // Check if account has google workspace enabled
         const noWorkspaceError = await driver.getElement(GoogleWorkspaceSelectors.CONTAINER_NO_WORKSPACE, { raiseException: false, timeout: 10000 });
         if (noWorkspaceError) {
-            return await noWorkspaceError.textContent("i18n.collectors.all.signup.error");
+            const noWorkspaceErrorMessage = await noWorkspaceError.textContent("i18n.collectors.all.signup.error")
+            throw new AuthenticationError(noWorkspaceErrorMessage, this);
         }
-    }
 
-    async navigate(driver: Driver): Promise<void> {
-       throw new Error("Method not implemented."); 
+        throw new UnfinishedCollectorError(this);
     }
 
     async getInvoices(driver: Driver): Promise<Element[]> {
-        throw new Error("Method not implemented.");
+        throw new UnfinishedCollectorError(this);
     }
 
     async data(driver: Driver, element: Element): Promise<Invoice | null> {
-        throw new Error("Method not implemented.");
+        throw new UnfinishedCollectorError(this);
     }
 
     async download(driver: Driver, invoice: Invoice): Promise<string[]> {
-        throw new Error("Method not implemented.");
+        throw new UnfinishedCollectorError(this);
     }
 }
