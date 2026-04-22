@@ -1,10 +1,5 @@
 export const OpenaiSelectors = {
     //LOGIN PAGE
-
-    BUTTON_LOGIN_OR_OUPS: {
-        selector: "button[data-color='primary'][data-variant='soft'], .onb-homepage-link",
-        info: "login button"
-    },
     FIELD_EMAIL: {
         selector: "input[autocomplete='email']",
         info: "login input field"
