@@ -28,7 +28,7 @@ export class OpenaiChatgptCollector extends OpenaiCommonCollector {
                 mandatory: true
             }
         },
-        loginUrl: "https://auth.openai.com/log-in",
+        loginUrl: "https://chatgpt.com/#settings/Account",
         entryUrl: "https://chatgpt.com/#settings/Account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true
@@ -36,6 +36,10 @@ export class OpenaiChatgptCollector extends OpenaiCommonCollector {
 
     constructor() {
         super(OpenaiChatgptCollector.CONFIG);
+    }
+
+    async needLogin(driver: Driver ): Promise<boolean> {
+        return driver.url().includes("auth.openai.com");
     }
     
     async navigate(driver: Driver): Promise<void> {

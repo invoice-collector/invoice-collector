@@ -9,11 +9,6 @@ import { MicrosoftOauth2 } from '../../../oauth2/microsoftOauth2';
 
 export abstract class OpenaiCommonCollector extends WebCollector {
 
-    async needLogin(driver: Driver): Promise<boolean> {
-        return await driver.getElement(OpenaiSelectors.BUTTON_LOGIN_OR_OUPS, { raiseException: false, timeout: 5000 }) != null ||
-            driver.url().includes(this.config.loginUrl);
-    }
-
     async login(driver: Driver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
         // Go to login page
         await driver.goto(this.config.loginUrl);
