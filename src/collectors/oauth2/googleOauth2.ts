@@ -7,7 +7,7 @@ export const GoogleOauth2Selectors = {
     // LOGIN
 
     INPUT_EMAIL: {
-        selector: "input[type='email']",
+        selector: "input[type='email'][aria-disabled='false']",
         type: "Input email"
     },
     BUTTON_LOGIN_NEXT: {
@@ -31,7 +31,7 @@ export const GoogleOauth2Selectors = {
         type: "Button password method"
     },
     INPUT_PASSWORD: {
-        selector: "input[type='password']",
+        selector: "input[type='password'][aria-disabled='false']",
         type: "Input password"
     },
     BUTTON_PASSWORD_NEXT: {
@@ -120,6 +120,8 @@ export class GoogleOauth2 {
         if(GoogleOauth2.check(driver) && driver.url().includes("signin/challenge")) {
             // Get code from UI
             const code = await Promise.race([twofa_promise.code(), webSocketServer.getTwofa()]);
+            // Wait for next page to load
+            await driver.waitForNavigation({timeout: 10000});
         }
     }
 }
