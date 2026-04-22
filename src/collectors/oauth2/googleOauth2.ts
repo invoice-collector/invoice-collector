@@ -19,11 +19,11 @@ export const GoogleOauth2Selectors = {
         type: "Button next"
     },
     BUTTON_TRY_ANOTHER_WAY: {
-        selector: "main > div[data-secondary-action-label]:not(:has([data-primary-action-label])) button",
+        selector: "main > div[data-secondary-action-label]:not([data-primary-action-label]) > div > div > div > div > button",
         type: "Button try another way"
     },
     BUTTON_TRY_ANOTHER_METHOD: {
-        selector: "main > div[data-secondary-action-label] > div > div:nth-of-type(2) > div > div > button",
+        selector: "main > div[data-secondary-action-label][data-primary-action-label] > div > div:nth-of-type(2) > div > div > button",
         type: "Button try another method"
     },
     BUTTON_PASSWORD_METHOD: {
@@ -83,9 +83,9 @@ export class GoogleOauth2 {
             // If not password displayed
             if(!inputPassword) {
                 // Click try another way if displayed
-                const tryAnotherWayElement = await driver.leftClick(GoogleOauth2Selectors.BUTTON_TRY_ANOTHER_WAY, { raiseException: false, timeout: 100 });
+                const tryAnotherWayElement = await driver.leftClick(GoogleOauth2Selectors.BUTTON_TRY_ANOTHER_WAY, { raiseException: false, timeout: 2000 });
                 // Click try another method if displayed
-                const tryAnotherMethodElement = await driver.leftClick(GoogleOauth2Selectors.BUTTON_TRY_ANOTHER_METHOD, { raiseException: false, timeout: 100 });
+                const tryAnotherMethodElement = await driver.leftClick(GoogleOauth2Selectors.BUTTON_TRY_ANOTHER_METHOD, { raiseException: false, timeout: 2000 });
                 if(tryAnotherWayElement || tryAnotherMethodElement) {
                     // Select password method
                     await driver.leftClick(GoogleOauth2Selectors.BUTTON_PASSWORD_METHOD);
