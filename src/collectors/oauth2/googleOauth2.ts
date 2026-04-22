@@ -19,7 +19,7 @@ export const GoogleOauth2Selectors = {
         type: "Button next"
     },
     BUTTON_TRY_ANOTHER_WAY: {
-        selector: "main > div[data-secondary-action-label]:not(:has([data-primary-action-label])) button",
+        selector: "main > div[data-secondary-action-label]:not([data-primary-action-label]) > div > div > div > div > button",
         type: "Button try another way"
     },
     BUTTON_TRY_ANOTHER_METHOD: {
