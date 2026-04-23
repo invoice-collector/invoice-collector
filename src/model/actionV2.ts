@@ -152,7 +152,8 @@ export class NoopAction extends ActionV2<NoopContext, NoopArgs, NoopContext> {
     }
 
     async _perform(context: NoopContext): Promise<NoopContext> {
-        // Noop action does nothing
+        // Wait for page to load
+        await context.driver.waitForNavigation();
         return context;
     }
 
