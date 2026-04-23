@@ -69,6 +69,10 @@ function getHashFromSecret(secret: Secret): string {
     let secretHash: string | null = null;
     let useInteractiveLogin: boolean;
 
+    let httpServer: http.Server | null = null;
+    let webSocketClient: WebSocket | null = null;
+    let webSocketServer: WebSocketServer | null = null;
+
     let exited = false;
     process.on('SIGINT', async function() {
         console.log("Caught interrupt signal");
@@ -184,21 +188,21 @@ function getHashFromSecret(secret: Secret): string {
         console.log(`===== PART3: Performing collect =====`);
 
         // Create an http server to handle web socket connections
-        const httpServer = http.createServer();
+        httpServer = http.createServer();
         httpServer.listen(PORT, () => {
             console.log(`HTTP server listening on port ${PORT}`);
         });
 
         // Instanciate web socket server
-        const webSocketServer = new WebSocketServer(httpServer, I18n.DEFAULT_LOCALE, collector);
+        webSocketServer = new WebSocketServer(httpServer, I18n.DEFAULT_LOCALE, collector);
         const webSocketPath = webSocketServer.start();
 
         // Connect to web socket server
-        const webSocketClient = new WebSocket(`ws://localhost:${PORT}${webSocketPath}`);
+        webSocketClient = new WebSocket(`ws://localhost:${PORT}${webSocketPath}`);
         // On connection open
         webSocketClient.addEventListener('open', () => {
             // On message received
-            webSocketClient.addEventListener('message', async (message) => {
+            webSocketClient!.addEventListener('message', async (message) => {
                 // Parse message data
                 const parsedData = JSON.parse(message.data.toString());
                 // If interactive open message
@@ -208,16 +212,16 @@ function getHashFromSecret(secret: Secret): string {
                     // Listen for user input asynchronously
                     rl.on('line', (input) => {
                         // Send close message to server
-                        webSocketClient.send(JSON.stringify({ type: 'interactive', reason: 'close' }));
+                        webSocketClient!.send(JSON.stringify({ type: 'interactive', reason: 'close' }));
                     });
                 }
                 else if(parsedData.type == "state" && parsedData.state.index == 3) {
                     // Wait until main thread is waiting for twofa code
-                    while (webSocketServer.onTwofa == undefined) {
+                    while (webSocketServer!.onTwofa == undefined) {
                         await utils.delay(1000);
                     }
                     const twofa_code = prompt(`${parsedData.state.message}: `).trim();
-                    webSocketClient.send(JSON.stringify({ type: 'twofa', twofa: twofa_code }));
+                    webSocketClient!.send(JSON.stringify({ type: 'twofa', twofa: twofa_code }));
                 }
             });
         });
@@ -352,6 +356,16 @@ function getHashFromSecret(secret: Secret): string {
     finally {
         // Close readline interface
         rl.close();
+
+        // Close WebSocket client
+        webSocketClient?.close();
+
+        // Close WebSocket server
+        webSocketServer?.close();
+
+        // Close HTTP server
+        httpServer?.close();
+
         // Update secret if needed
         await updateSecret(credential, secret, secretHash);
 

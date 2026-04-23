@@ -53,6 +53,14 @@ class WebSocketServerManager {
     public unregisterHandler(path: string) {
         this.handlers.delete(path);
     }
+
+    public close() {
+        // Clear all handlers
+        this.handlers.clear();
+        this.wss?.close();
+        this.wss = null;
+        WebSocketServerManager.instance = null;
+    }
 }
 
 export class WebSocketServer {
@@ -161,10 +169,11 @@ export class WebSocketServer {
     }
 
     public close() {
-        // Unregister this handler from the manager
-        WebSocketServerManager.getInstance().unregisterHandler(this.path);
+        // Close the WebSocket connection if open
         this.ws?.close();
         this.ws = null;
+        // Close the manager
+        WebSocketServerManager.getInstance().close();
     }
 
     private sendMessage(message: object) {
