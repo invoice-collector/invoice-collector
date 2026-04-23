@@ -11,7 +11,7 @@ import readline from 'readline';
 
 import { CollectorLoader } from '../src/collectors/collectorLoader';
 import { LoggableError } from '../src/error';
-import { IcCredential, ModelInvoice } from '../src/model/credential';
+import { Credential, ModelInvoice } from '../src/model/credential';
 import { State } from '../src/model/state';
 import { I18n } from '../src/i18n';
 import { DatabaseFactory } from '../src/database/databaseFactory';
@@ -24,7 +24,7 @@ import { Secret } from '../src/model/secret';
 
 const PORT = parseInt(utils.getEnvVar('PORT')) + 1;
 
-async function getCredentialFromId(credential_id: string): Promise<IcCredential> {
+async function getCredentialFromId(credential_id: string): Promise<Credential> {
     const credential = await DatabaseFactory.getDatabase().getCredential(credential_id);
     if(credential == null) {
         throw new Error(`No credential with id "${credential_id}" found.`);
@@ -32,7 +32,7 @@ async function getCredentialFromId(credential_id: string): Promise<IcCredential>
     return credential;
 }
 
-async function getSecretFromCredential(credential: IcCredential): Promise<Secret> {
+async function getSecretFromCredential(credential: Credential): Promise<Secret> {
     let secret = credential.getSecret();
     await SecretManagerFactory.load();
     await SecretManagerFactory.getSecretManager().connect();
@@ -43,7 +43,7 @@ async function getSecretFromCredential(credential: IcCredential): Promise<Secret
     return secret;
 }
 
-async function updateSecret(credential: IcCredential | null, secret: Secret | null, secretHash: string | null): Promise<void> {
+async function updateSecret(credential: Credential | null, secret: Secret | null, secretHash: string | null): Promise<void> {
     // If credential and secret and secretHash exists
     if (credential && secret && secretHash) {
         // Get new secret hash
@@ -64,7 +64,7 @@ function getHashFromSecret(secret: Secret): string {
 
 (async () => {
     let id;
-    let credential: IcCredential | null = null;
+    let credential: Credential | null = null;
     let secret: Secret | null = null;
     let secretHash: string | null = null;
     let useInteractiveLogin: boolean;
