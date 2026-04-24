@@ -72,6 +72,8 @@ export abstract class AbstractDatabase {
     abstract deleteCredentials(user_id: string): Promise<void>;
     
     // COLLECTOR MEMORY
+
+    abstract getCollectorMemories(): Promise<CollectorMemory[]>;
     
     abstract getCollectorMemory(name: string): Promise<CollectorMemory | null>;
 

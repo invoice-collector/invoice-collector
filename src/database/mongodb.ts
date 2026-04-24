@@ -515,6 +515,24 @@ export class MongoDB extends AbstractDatabase {
 
     // COLLECTOR MEMORY
 
+    async getCollectorMemories(): Promise<CollectorMemory[]> {
+        if (!this.db) {
+            throw new Error("Database is not connected");
+        }
+        const documents = await this.db.collection(MongoDB.COLLECTOR_MEMORY_COLLECTION).find({}).toArray();
+        return documents.map(document => {
+            const collectorMemory = new CollectorMemory(
+                document.collector_id,
+                Actions.fromObject(document.actions),
+                ActionV2.fromObjectList(document.actionsV2),
+                document.customerAreaUrl,
+                document.entryUrl
+            );
+            collectorMemory.id = document._id.toString();
+            return collectorMemory;
+        });
+    }
+
     async getCollectorMemory(collector_id: string): Promise<CollectorMemory | null> {
         if (!this.db) {
             throw new Error("Database is not connected");
