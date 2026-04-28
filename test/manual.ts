@@ -303,7 +303,6 @@ function getHashFromSecret(secret: Secret): string {
             assert(invoice.link, `Invoice link is not defined`);
             assert(!isNaN(invoice.timestamp), `Timestamp ${invoice.timestamp} is NaN`);
             assert(invoice.timestamp >= Date.UTC(2000, 0, 1), `Invoice timestamp ${invoice.timestamp} is before year 2000. Did you forget to set the year in the date format?`);
-            assert(invoice.amount, `Invoice amount is not defined`);
             assert(invoice.data === null, `Invoice data must be null`);
             assert(invoice.mimetype === null, `Invoice mimetype must be null`);
         }
