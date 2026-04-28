@@ -109,7 +109,7 @@ export abstract class ActionV2<InputContext, Args, OutputContext> {
                 throw e;
             }
             // Wrap other errors
-            throw new Error(`Error performing action ${this.toString()}`, { cause: e });
+            throw new Error(`Error performing action ${JSON.stringify(this)}`, { cause: e });
         }
     }
 
@@ -505,10 +505,16 @@ export class GetInvoicesAction extends ActionV2<GetInvoicesInputContext, GetInvo
             info: this.description
         });
         // Return new context with elements
-        return elements.map(element => ({
-            driver: context.driver,
-            element: element
-        }));
+        let outputContexts: GetInvoicesOutputContext[] = [];
+        for (const element of elements) {
+            if (await element.isClickable()) {
+                outputContexts.push({
+                    driver: context.driver,
+                    element: element
+                });
+            }
+        }
+        return outputContexts;
     }
 
     async canPerform(context: GetInvoicesInputContext): Promise<boolean> {
