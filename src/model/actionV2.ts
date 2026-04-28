@@ -554,9 +554,6 @@ export class ExtractInvoiceDataAction extends ActionV2<ExtractInvoiceDataInputCo
         args: ExtractInvoiceDataArgs,
         destinationIds: string[] = []
     ) {
-        if (!args.id && !args.amount) {
-            throw new Error('ExtractInvoiceDataAction requires args to have at least a "id" or "amount" field');
-        }
         if (!args.date) {
             throw new Error('ExtractInvoiceDataAction requires args to have a "date" field');
         }
@@ -597,7 +594,7 @@ export class ExtractInvoiceDataAction extends ActionV2<ExtractInvoiceDataInputCo
             id = utils.hash_string(`${date}${amount}`);
         }
         else {
-            throw new Error('Cannot compute invoice id, no id nor amount provided');
+            id = utils.hash_string(`${date}`);
         }
 
         return {
