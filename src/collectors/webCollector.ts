@@ -84,7 +84,6 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
         const interactiveEndPromise = new Promise<void>((resolve, reject) => {
             // Define timeout
             setTimeout(() => {
-                //webSocketServer.close();
                 reject(new AuthenticationError('i18n.collectors.all.login.timeout', this))
             }, WebCollector.LOGIN_TIMEOUT_MS)
 
