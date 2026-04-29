@@ -1,7 +1,10 @@
-import puppeteer, { Browser, ConnectOptions } from "rebrowser-puppeteer-core";
+import fs from 'fs';
+import path from 'path';
+import puppeteer, { Browser, ConnectOptions, DownloadPolicy } from "rebrowser-puppeteer-core";
 import * as ChromeLauncher from 'chrome-launcher';
 import { pageController, PageWithCursor } from "./pageController";
 import { Proxy } from "../../proxy/abstractProxy";
+import { Driver } from '../driver';
 
 let Xvfb;
 try {
@@ -14,27 +17,66 @@ try {
 let xvfbsession: any = null;
 
 export interface Options {
-  args?: string[];
-  headless?: boolean;
+  args: string[];
+  headless: boolean;
   customConfig?: ChromeLauncher.Options;
-  proxy?: Proxy;
-  turnstile?: boolean;
-  connectOption?: ConnectOptions;
-  disableXvfb?: boolean;
-  ignoreAllFlags?: boolean;
-  remoteChrome?: boolean;
+  turnstile: boolean;
+  connectOption: ConnectOptions;
+  disableXvfb: boolean;
+  ignoreAllFlags: boolean;
 }
 
 
 export abstract class AbstractBrowser {
 
+  private static instanceCounter = 0;
+  
+  private static getDownloadPath(): string {
+      AbstractBrowser.instanceCounter += 1;
+      return path.resolve(__dirname, Driver.PARENT_DOWNLOAD_PATH, String(AbstractBrowser.instanceCounter));
+  }
+
+  private static getPuppeteerConfig(downloadPath: string): Options {
+      return {
+          args: ["--start-maximized"],
+          turnstile: true,
+          headless: false,
+          customConfig: {
+              prefs: {
+                  download: {
+                      open_pdf_in_system_reader: false,
+                      prompt_for_download: false
+                  },
+                  plugins: {
+                      always_open_pdf_externally: true
+                  }
+              }
+          },
+          connectOption: {
+              downloadBehavior: {
+                  policy: 'allow' as DownloadPolicy,
+                  downloadPath,
+              },
+              defaultViewport: {
+                  width: Driver.VIEWPORT_WIDTH,
+                  height: Driver.VIEWPORT_HEIGHT,
+              }
+          },
+          disableXvfb: false,
+          ignoreAllFlags: false
+      }
+  };
+
   protected ip: string;
+  protected downloadPath: string;
+
   protected port: number|undefined;
   protected wsid: string|undefined;
   protected _puppeteerBrowser: Browser|undefined;
 
   constructor(ip: string) {
     this.ip = ip;
+    this.downloadPath = AbstractBrowser.getDownloadPath();
   }
 
   get url(): string|undefined {
@@ -52,20 +94,15 @@ export abstract class AbstractBrowser {
     return this._puppeteerBrowser;
   }
 
-  async connect({
-    args = [],
-    headless = false,
-    customConfig = {},
-    proxy = undefined,
-    turnstile = false,
-    connectOption = {},
-    disableXvfb = false,
-    ignoreAllFlags = false
-  }: Options = {}): Promise<PageWithCursor> {
+  async connect(
+    proxy: Proxy | null
+  ): Promise<PageWithCursor> {
     const dynamicImport = new Function('specifier', 'return import(specifier)');
     const { Launcher } = await dynamicImport('chrome-launcher');
 
-    if (process.platform === "linux" && disableXvfb === false && !xvfbsession) {
+    let puppeteerConfig = AbstractBrowser.getPuppeteerConfig(this.downloadPath);
+
+    if (process.platform === "linux" && puppeteerConfig.disableXvfb === false && !xvfbsession) {
       try {
         xvfbsession = new Xvfb({
           silent: true,
@@ -76,15 +113,15 @@ export abstract class AbstractBrowser {
         console.error("You are running on a Linux platform but xvfb cannot start. Please install it with the following command `sudo apt-get install xvfb`");
         console.error(err);
         console.error("Fallback to headless mode. The browser can be captured, but it can still be used for automation tasks.");
-        headless = true; // Fallback to headless mode if xvfb is not available
+        puppeteerConfig.headless = true; // Fallback to headless mode if xvfb is not available
       }
     }
 
     let chromeFlags;
-    if (ignoreAllFlags === true) {
+    if (puppeteerConfig.ignoreAllFlags === true) {
       chromeFlags = [
-        ...args,
-        ...(headless !== false ? [`--headless=${headless}`] : []),
+        ...puppeteerConfig.args,
+        ...(puppeteerConfig.headless !== false ? [`--headless=${puppeteerConfig.headless}`] : []),
         ...(proxy && proxy.host && proxy.port
           ? [`--proxy-server=${proxy.host}:${proxy.port}`]
           : []),
@@ -100,8 +137,8 @@ export abstract class AbstractBrowser {
       flags.splice(indexComponentUpdateFlag, 1);
       chromeFlags = [
         ...flags,
-        ...args,
-        ...(headless !== false ? [`--headless=${headless}`] : []),
+        ...puppeteerConfig.args,
+        ...(puppeteerConfig.headless !== false ? [`--headless=${puppeteerConfig.headless}`] : []),
         ...(proxy && proxy.host && proxy.port
           ? [`--proxy-server=${proxy.host}:${proxy.port}`]
           : []),
@@ -110,16 +147,21 @@ export abstract class AbstractBrowser {
       ];
     }
 
+    // Create download folder if not exists
+    if (!fs.existsSync(this.downloadPath)) {
+        fs.mkdirSync(this.downloadPath, { recursive: true });
+    }
+
     await this.launch({
       ignoreDefaultFlags: true,
       chromeFlags,
-      ...customConfig,
+      ...puppeteerConfig.customConfig,
     });
 
     this._puppeteerBrowser = await puppeteer.connect({
       browserURL: this.wsUrl ? undefined : this.url,            // Use browserURL if wsUrl is not available, for local Chrome
       browserWSEndpoint: this.wsUrl ? this.wsUrl : undefined,   // Use browserWSEndpoint if wsUrl is available, for remote Chrome
-      ...connectOption,
+      ...puppeteerConfig.connectOption,
     });
 
     let [page] = await this._puppeteerBrowser.pages();
@@ -128,7 +170,7 @@ export abstract class AbstractBrowser {
       browser: this._puppeteerBrowser,
       page,
       proxy,
-      turnstile
+      turnstile: puppeteerConfig.turnstile,
     };
 
     let pageWithCursor = await pageController({
@@ -155,4 +197,10 @@ export abstract class AbstractBrowser {
 
   abstract launch(options: any): Promise<void>;
   abstract close(): Promise<void>;
+
+  /**
+   * Get all the downloaded files in the download folder as base64 and remove them.
+   * @returns An array of base64 strings representing the downloaded files.
+   */
+  abstract getDownloadedFiles(): Promise<string[]>;
 }

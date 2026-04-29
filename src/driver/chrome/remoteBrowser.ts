@@ -41,4 +41,9 @@ export class RemoteBrowser extends AbstractBrowser {
         this.port = undefined;
         console.log("Remote Chrome closed");
     }
+    
+    async getDownloadedFiles(): Promise<string[]> {
+        //TODO
+        return [];
+    }
 }

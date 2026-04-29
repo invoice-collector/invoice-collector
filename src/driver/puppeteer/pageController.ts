@@ -12,7 +12,7 @@ export interface PageWithCursor extends Page {
 export interface PageControllerOptions {
     browser: Browser,
     page: Page,
-    proxy?: Proxy,
+    proxy: Proxy | null,
     turnstile: boolean,
     killProcess: boolean,
     abstractBrowser?: AbstractBrowser

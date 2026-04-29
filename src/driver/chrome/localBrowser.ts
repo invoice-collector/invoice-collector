@@ -1,3 +1,5 @@
+import path from 'path';
+import fs from 'fs';
 import { LaunchedChrome } from "chrome-launcher";
 import { AbstractBrowser } from "../puppeteer/abstractBrowser";
 
@@ -29,5 +31,25 @@ export class LocalBrowser extends AbstractBrowser {
         else {
             console.log("Local Chrome is not running");
         }
+    }
+
+    async getDownloadedFiles(): Promise<string[]> {
+        // Get the files in the download folder
+        const files = fs.readdirSync(this.downloadPath)
+            .filter(file => !file.endsWith('.crdownload'))
+            .map(file => {
+                return {
+                    name: file,
+                    base64: fs.readFileSync(path.join(this.downloadPath, file), {encoding: 'base64'})
+                };
+            });
+
+        // Clean the files from the download folder
+        for (const file of files) {
+            fs.unlinkSync(path.join(this.downloadPath, file.name));
+        }
+
+        // Return the files as base64
+        return files.map(file => file.base64);
     }
 }
