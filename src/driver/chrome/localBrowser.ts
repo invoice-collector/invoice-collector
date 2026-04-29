@@ -52,7 +52,8 @@ export class LocalBrowser extends AbstractBrowser {
                     name: file,
                     base64: fs.readFileSync(path.join(this.downloadPath, file), {encoding: 'base64'})
                 };
-            });
+            })
+            .filter(file => file.base64.length > 0);
 
         // Clean the files from the download folder
         for (const file of files) {
