@@ -95,7 +95,7 @@ export class Driver {
             await this.page.setRequestInterception(true);
             this.page.on("request", (request) => {
                 if (!request.isInterceptResolutionHandled()) {
-                    if (request.resourceType() === "image" && this.collector.config.loadImages === false) {
+                    if (request.resourceType() === "image" && this.collector.config.loadImages === false && !request.url().includes("cloudflare.com")) {
                         request.abort('aborted', 0);
                     } else {
                         request.continue(request.continueRequestOverrides(), 0);

@@ -44,7 +44,7 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
             type: config.type || CollectorType.WEB,
             useProxy: config.useProxy === undefined ? config.captcha !== CollectorCaptcha.NONE : config.useProxy,
             state: config.state || CollectorState.ACTIVE,
-            loadImages: config.loadImages === undefined ? config.captcha == CollectorCaptcha.CLOUDFLARE : config.loadImages,
+            loadImages: config.loadImages === undefined ? false : config.loadImages,
             autoLogin: config.autoLogin || {
                 cookieNames: [],                // Take all cookies by default
                 localStorageKeys: undefined     // Take no localStorage by default
@@ -80,12 +80,6 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
         try {
             // Pre actions
             await this.pre(driver);
-
-            // If web socket server exists, enable images
-            let loadImagesPreviousValue = this.config.loadImages;
-            if(webSocketServer) {
-                this.config.loadImages = true;
-            }
 
             // If no interactive login
             if(!useInteractiveLogin) {
@@ -152,6 +146,12 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
 
                 // If first collect
                 if(webSocketServer) {
+                    // If web socket server exists, enable images
+                    let loadImagesPreviousValue = this.config.loadImages;
+                    if(webSocketServer) {
+                        this.config.loadImages = true;
+                    }
+
                     // Go to login url
                     await driver.goto(this.config.loginUrl, { navigation: false });
                     // Perform interactive login
@@ -176,6 +176,11 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
                     }
                     else if (!this.config.entryUrl && collectorMemory.entryUrl) {
                         console.warn(`Collector ${this.config.id} has no entryUrl defined in config, but has one saved in memory. Consider defining it in the config.`);
+                    }
+
+                    // Restore previous load images value
+                    if(webSocketServer) {
+                        this.config.loadImages = loadImagesPreviousValue;
                     }
                 }
 
@@ -214,11 +219,6 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
             await secret.setCookies(await driver.getCookies(this.config.autoLogin?.cookieNames));
             // Update secret.localStorage
             await secret.setLocalStorage(await driver.getLocalStorage(this.config.autoLogin?.localStorageKeys));
-
-            // Restore previous load images value
-            if(webSocketServer) {
-                this.config.loadImages = loadImagesPreviousValue;
-            }
 
             // Navigate to invoices
             await this.navigate(driver);
