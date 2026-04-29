@@ -1,7 +1,7 @@
-import { AbstractChrome } from "./abstractChrome";
 import * as utils from "../../utils";
+import { AbstractBrowser } from "../puppeteer/abstractBrowser";
 
-export class RemoteChrome extends AbstractChrome {
+export class RemoteBrowser extends AbstractBrowser {
 
     server_port: number;
 

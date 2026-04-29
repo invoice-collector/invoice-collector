@@ -1,14 +1,14 @@
 import path from 'path';
 import fs from 'fs';
-import { connect } from './puppeteer/browser';
 import { Browser, DownloadPolicy, ElementHandle, Frame, KeyInput, Page } from "rebrowser-puppeteer-core";
 import { ElementNotFoundError, LoggableError } from '../error';
 import { Proxy } from '../proxy/abstractProxy';
 import * as utils from '../utils';
-import { Options } from './puppeteer/browser';
 import { CollectorCaptcha } from '../collectors/abstractCollector';
 import { WebCollector as OldWebCollector} from '../collectors/webCollector';
 import { WebCollector } from '../collectors/webCollector';
+import { BrowserFactory } from './chrome/browserFactory';
+import { AbstractBrowser, Options } from './puppeteer/abstractBrowser';
 
 export class Driver {
 
@@ -60,11 +60,10 @@ export class Driver {
     };
 
     collector: OldWebCollector | WebCollector;
-    browser: Browser | null;
+    browser: AbstractBrowser | null;
     page: Page | null;
     downloadPath: string;
     puppeteerConfig: Options;
-    downloadedFile: string | null = null;
 
     constructor(collector: OldWebCollector | WebCollector) {
         this.collector = collector;
@@ -87,9 +86,8 @@ export class Driver {
         this.puppeteerConfig.remoteChrome = this.collector.config.captcha == CollectorCaptcha.DATADOME;
 
         // Open browser and page
-        const connectResult = await connect(this.puppeteerConfig);
-        this.browser = connectResult.browser;
-        this.page = connectResult.page;
+        this.browser = await BrowserFactory.getBrowser(this.collector.config.captcha == CollectorCaptcha.DATADOME)
+        this.page = await this.browser.connect(this.puppeteerConfig);
 
         // If must block images
         if (this.collector.config.loadImages === false) {
@@ -114,7 +112,7 @@ export class Driver {
         await this.clearDownloadFolder();
 
         // Listen for new page and update page
-        this.browser.on('targetcreated', async (target) => {
+        this.browser.puppeteerBrowser.on('targetcreated', async (target) => {
             const newPage = await target.page();
             if (newPage && this.page !== newPage) {
                 this.page = newPage;
@@ -123,29 +121,13 @@ export class Driver {
         });
 
         // Listen for closed page and update page
-        this.browser.on('targetdestroyed', async (target) => {
+        this.browser.puppeteerBrowser.on('targetdestroyed', async (target) => {
             const closedPage = await target.page();
             if (closedPage && this.page === closedPage) {
                 const pages = await this.pages();
                 if(pages.length > 0) {
                     this.page = pages[pages.length - 1];
                 }
-            }
-        });
-
-        let inProgressFile: string;
-        const client = await this.page.createCDPSession();
-        await client.send('Browser.setDownloadBehavior', {
-            behavior: 'allow',
-            eventsEnabled: true,
-            downloadPath: this.downloadPath,
-        });
-        client.on('Browser.downloadWillBegin', async (e1) => {
-            inProgressFile = path.join(this.downloadPath, e1.suggestedFilename);
-        });
-        client.on('Browser.downloadProgress', async (e2) => {
-            if (e2.state === 'completed') {
-                this.downloadedFile = inProgressFile;
             }
         });
     }
@@ -174,7 +156,7 @@ export class Driver {
         if (this.browser === null) {
             throw new Error('Browser is not initialized.');
         }
-        return this.browser.pages();
+        return this.browser.puppeteerBrowser.pages();
     }
 
     async closePage(): Promise<void> {
@@ -573,9 +555,10 @@ export class Driver {
     }
 
     async waitForFileToDownload(raiseException: boolean = true): Promise<string> {
-        // Wait for file to be downloaded
+        // Wait for file to download
         const file = await this.waitFor(async (driver) => {
-            return this.downloadedFile != null ? this.downloadedFile : null;
+            const files = fs.readdirSync(this.downloadPath).filter(file => !file.endsWith('.crdownload'));
+            return files.length > 0 ? files[0] : null;
         }, `No file downloaded after ${Driver.DEFAULT_TIMEOUT}ms`,
         raiseException,
         Driver.DEFAULT_DOWNLOAD_TIMEOUT);
@@ -599,9 +582,7 @@ export class Driver {
     }
 
     async clearDownloadFolder(): Promise<void> {
-        // Remove download file
-        this.downloadedFile = null;
-        // Remove all files in the download folder
+        // If download path exists
         if (fs.existsSync(this.downloadPath)) {
             // Get all files in the download folder
             const files = fs.readdirSync(this.downloadPath)
@@ -660,13 +641,13 @@ export class Driver {
             return [];
         }
 
-        return (await this.browser?.cookies())
+        return (await this.browser?.puppeteerBrowser.cookies())
             .filter(cookie => namesToGet.length === 0 || namesToGet.some(name => cookie.name.includes(name)));
     }
 
     async setCookies(cookies: any): Promise<void> {
         if (cookies) {
-            await this.browser?.setCookie(...cookies);
+            await this.browser?.puppeteerBrowser.setCookie(...cookies);
         }
     }
 
@@ -792,7 +773,7 @@ export class Element {
             // Get current url
             const currentUrl = this.driver.url();
             // Open new page
-            await this.driver.browser?.newPage();
+            await this.driver.browser?.puppeteerBrowser.newPage();
             // Navigate to current url
             await this.driver.goto(currentUrl);
             // Click on the element again

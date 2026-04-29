@@ -1,14 +1,14 @@
 import { LaunchedChrome } from "chrome-launcher";
-import { AbstractChrome } from "./abstractChrome";
+import { AbstractBrowser } from "../puppeteer/abstractBrowser";
 
-export class LocalChrome extends AbstractChrome {
+export class LocalBrowser extends AbstractBrowser {
 
     static LOCAL_IP: string = "127.0.0.1";
 
     chrome: LaunchedChrome|undefined;
 
     constructor() {
-        super(LocalChrome.LOCAL_IP);
+        super(LocalBrowser.LOCAL_IP);
     }
 
     async launch(options: any) {
