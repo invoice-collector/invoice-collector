@@ -7,21 +7,31 @@ export class LocalBrowser extends AbstractBrowser {
 
     static LOCAL_IP: string = "127.0.0.1";
 
+    private static getDownloadPath(): string {
+        AbstractBrowser.instanceCounter += 1;
+        return path.resolve(__dirname, '../../media/download/local', String(AbstractBrowser.instanceCounter));
+    }
+
     chrome: LaunchedChrome|undefined;
 
     constructor() {
-        super(LocalBrowser.LOCAL_IP);
+        super(LocalBrowser.LOCAL_IP, LocalBrowser.getDownloadPath());
     }
 
-    async launch(options: any) {
+    async launch(options: any): Promise<string> {
+        // Create download folder if not exists
+        fs.mkdirSync(this.downloadPath, { recursive: true });
+
         const dynamicImport = new Function('specifier', 'return import(specifier)');
         const { launch } = await dynamicImport('chrome-launcher');
         this.chrome = await launch(options) as LaunchedChrome;
         this.port = this.chrome.port;
         console.log(`Local Chrome available at ${this.url}`);
+        return this.downloadPath;
     }
 
     async close() {
+        this.puppeteerBrowser.close();
         if (this.chrome) {
             await this.chrome.kill();
             this.chrome = undefined;

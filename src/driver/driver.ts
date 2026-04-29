@@ -52,7 +52,7 @@ export class Driver {
         }
 
         // Clear download folder
-        await this.browser.getDownloadedFiles();
+        await this.browser?.getDownloadedFiles();
 
         // Listen for new page and update page
         this.browser.puppeteerBrowser.on('targetcreated', async (target) => {

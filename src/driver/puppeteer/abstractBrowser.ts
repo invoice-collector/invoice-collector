@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import puppeteer, { Browser, ConnectOptions, DownloadPolicy } from "rebrowser-puppeteer-core";
+import puppeteer, { Browser, ConnectOptions, DownloadPolicy, Page } from "rebrowser-puppeteer-core";
 import * as ChromeLauncher from 'chrome-launcher';
 import { pageController, PageWithCursor } from "./pageController";
 import { Proxy } from "../../proxy/abstractProxy";
@@ -30,14 +30,9 @@ export interface Options {
 export abstract class AbstractBrowser {
 
   static PARENT_DOWNLOAD_PATH = path.resolve(__dirname, '../../media/download');
-  private static instanceCounter = 0;
-  
-  private static getDownloadPath(): string {
-      AbstractBrowser.instanceCounter += 1;
-      return path.resolve(__dirname, AbstractBrowser.PARENT_DOWNLOAD_PATH, String(AbstractBrowser.instanceCounter));
-  }
+  protected static instanceCounter = 0;
 
-  private static getPuppeteerConfig(downloadPath: string): Options {
+  private getPuppeteerConfig(downloadPath: string): Options {
       return {
           args: ["--start-maximized"],
           turnstile: true,
@@ -54,10 +49,6 @@ export abstract class AbstractBrowser {
               }
           },
           connectOption: {
-              downloadBehavior: {
-                  policy: 'allow' as DownloadPolicy,
-                  downloadPath,
-              },
               defaultViewport: {
                   width: Driver.VIEWPORT_WIDTH,
                   height: Driver.VIEWPORT_HEIGHT,
@@ -75,9 +66,9 @@ export abstract class AbstractBrowser {
   protected wsid: string|undefined;
   protected _puppeteerBrowser: Browser|undefined;
 
-  constructor(ip: string) {
+  constructor(ip: string, downloadPath: string) {
     this.ip = ip;
-    this.downloadPath = AbstractBrowser.getDownloadPath();
+    this.downloadPath = downloadPath;
   }
 
   get url(): string|undefined {
@@ -101,7 +92,7 @@ export abstract class AbstractBrowser {
     const dynamicImport = new Function('specifier', 'return import(specifier)');
     const { Launcher } = await dynamicImport('chrome-launcher');
 
-    let puppeteerConfig = AbstractBrowser.getPuppeteerConfig(this.downloadPath);
+    let puppeteerConfig = this.getPuppeteerConfig(this.downloadPath);
 
     if (process.platform === "linux" && puppeteerConfig.disableXvfb === false && !xvfbsession) {
       try {
@@ -148,16 +139,17 @@ export abstract class AbstractBrowser {
       ];
     }
 
-    // Create download folder if not exists
-    if (!fs.existsSync(this.downloadPath)) {
-        fs.mkdirSync(this.downloadPath, { recursive: true });
-    }
-
-    await this.launch({
+    const downloadPath = await this.launch({
       ignoreDefaultFlags: true,
       chromeFlags,
       ...puppeteerConfig.customConfig,
     });
+
+    
+   puppeteerConfig.connectOption['downloadBehavior'] = {
+          policy: 'allow' as DownloadPolicy,
+          downloadPath,
+      },
 
     this._puppeteerBrowser = await puppeteer.connect({
       browserURL: this.wsUrl ? undefined : this.url,            // Use browserURL if wsUrl is not available, for local Chrome
@@ -196,7 +188,7 @@ export abstract class AbstractBrowser {
     return pageWithCursor;
   }
 
-  abstract launch(options: any): Promise<void>;
+  abstract launch(options: any): Promise<string>;
   abstract close(): Promise<void>;
 
   /**
