@@ -1,8 +1,8 @@
 import { createCursor, GhostCursor } from 'ghost-cursor';
 import { Browser, Page } from "rebrowser-puppeteer-core";
-import { AbstractChrome } from "../chrome/abstractChrome";
 import { solveCaptchas } from './captchas';
 import { Proxy } from '../../proxy/abstractProxy';
+import { AbstractBrowser } from '../browser/abstractBrowser';
 
 export interface PageWithCursor extends Page {
   realClick: GhostCursor["click"];
@@ -12,10 +12,10 @@ export interface PageWithCursor extends Page {
 export interface PageControllerOptions {
     browser: Browser,
     page: Page,
-    proxy?: Proxy,
+    proxy: Proxy | null,
     turnstile: boolean,
     killProcess: boolean,
-    chrome?: AbstractChrome
+    abstractBrowser?: AbstractBrowser
 };
 
 export async function pageController({
@@ -24,7 +24,7 @@ export async function pageController({
     proxy,
     turnstile,
     killProcess = false,
-    chrome
+    abstractBrowser
 }: PageControllerOptions): Promise<PageWithCursor> {
 
     let solveStatus = turnstile
@@ -37,7 +37,7 @@ export async function pageController({
     browser.on('disconnected', async () => {
         solveStatus = false
         if (killProcess === true) {
-            if (chrome) try { chrome.close() } catch (err) { console.log(err); }
+            if (abstractBrowser) try { abstractBrowser.close() } catch (err) { console.log(err); }
         }
     });
 

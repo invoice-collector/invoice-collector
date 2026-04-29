@@ -1,14 +1,11 @@
-import path from 'path';
-import fs from 'fs';
-import { connect } from './puppeteer/browser';
-import { Browser, DownloadPolicy, ElementHandle, Frame, KeyInput, Page } from "rebrowser-puppeteer-core";
+import { ElementHandle, Frame, KeyInput, Page } from "rebrowser-puppeteer-core";
 import { ElementNotFoundError, LoggableError } from '../error';
 import { Proxy } from '../proxy/abstractProxy';
 import * as utils from '../utils';
-import { Options } from './puppeteer/browser';
-import { CollectorCaptcha } from '../collectors/abstractCollector';
 import { WebCollector as OldWebCollector} from '../collectors/webCollector';
 import { WebCollector } from '../collectors/webCollector';
+import { BrowserFactory } from './browser/browserFactory';
+import { AbstractBrowser } from './browser/abstractBrowser';
 
 export class Driver {
 
@@ -18,77 +15,25 @@ export class Driver {
     static DEFAULT_POLLING = 1000;              // 1 second
     static DEFAULT_DELAY = 1000;                // 1 second
     static DEFAULT_DELAY_BETWEEN_RETRIES = 100; // 100 milliseconds
-    static PARENT_DOWNLOAD_PATH = path.resolve(__dirname, '../../media/download');
 
     static VIEWPORT_WIDTH: number = 1920;
     static VIEWPORT_HEIGHT: number = 1080;
 
-    private static instanceCounter = 0;
-
-    private static getDownloadPath(): string {
-        Driver.instanceCounter += 1;
-        return path.resolve(__dirname, Driver.PARENT_DOWNLOAD_PATH, String(Driver.instanceCounter));
-    }
-
-    private static getPuppeteerConfig(downloadPath: string): Options {
-        return {
-            args: ["--start-maximized"],
-            turnstile: true,
-            headless: false,
-            customConfig: {
-                prefs: {
-                    download: {
-                        open_pdf_in_system_reader: false,
-                        prompt_for_download: false
-                    },
-                    plugins: {
-                        always_open_pdf_externally: true
-                    }
-                }
-            },
-            connectOption: {
-                downloadBehavior: {
-                    policy: 'allow' as DownloadPolicy,
-                    downloadPath,
-                },
-                defaultViewport: {
-                    width: Driver.VIEWPORT_WIDTH,
-                    height: Driver.VIEWPORT_HEIGHT,
-                }
-            }
-        }
-    };
-
     collector: OldWebCollector | WebCollector;
-    browser: Browser | null;
+    browser: AbstractBrowser | null;
     page: Page | null;
-    downloadPath: string;
-    puppeteerConfig: Options;
 
     constructor(collector: OldWebCollector | WebCollector) {
         this.collector = collector;
         this.browser = null;
         this.page = null;
-        this.downloadPath = Driver.getDownloadPath();
-        this.puppeteerConfig = Driver.getPuppeteerConfig(this.downloadPath);
     }
 
     async open(proxy: Proxy | null = null) {
-        // If proxy is provided
-        if (proxy != null) {
-            // Set proxy
-            this.puppeteerConfig["proxy"] = proxy;
-            console.log(`Using proxy: ${proxy.host}`);
-        } else {
-            console.log(`Do not use proxy`);
-        }
-
-        this.puppeteerConfig.remoteChrome = this.collector.config.captcha == CollectorCaptcha.DATADOME;
-
         // Open browser and page
-        const connectResult = await connect(this.puppeteerConfig);
-        this.browser = connectResult.browser;
-        this.page = connectResult.page;
+        const { browser, page } = await BrowserFactory.connect(this.collector.config.remoteBrowser || false, proxy);
+        this.browser = browser;
+        this.page = page;
 
         // If must block images
         if (this.collector.config.loadImages === false) {
@@ -104,16 +49,11 @@ export class Driver {
             });
         }
 
-        // Create download folder if not exists
-        if (!fs.existsSync(this.downloadPath)) {
-            fs.mkdirSync(this.downloadPath, { recursive: true });
-        }
-
         // Clear download folder
-        await this.clearDownloadFolder();
+        await this.browser?.getDownloadedFiles();
 
         // Listen for new page and update page
-        this.browser.on('targetcreated', async (target) => {
+        this.browser.puppeteerBrowser.on('targetcreated', async (target) => {
             const newPage = await target.page();
             if (newPage && this.page !== newPage) {
                 this.page = newPage;
@@ -122,7 +62,7 @@ export class Driver {
         });
 
         // Listen for closed page and update page
-        this.browser.on('targetdestroyed', async (target) => {
+        this.browser.puppeteerBrowser.on('targetdestroyed', async (target) => {
             const closedPage = await target.page();
             if (closedPage && this.page === closedPage) {
                 const pages = await this.pages();
@@ -157,7 +97,7 @@ export class Driver {
         if (this.browser === null) {
             throw new Error('Browser is not initialized.');
         }
-        return this.browser.pages();
+        return this.browser.puppeteerBrowser.pages();
     }
 
     async closePage(): Promise<void> {
@@ -543,8 +483,8 @@ export class Driver {
             throw new Error('Page is not initialized.');
         }
 
-        // Remove all files in the download folder
-        await this.clearDownloadFolder();
+        // Get downloaded files and remove all files in the download folder
+        await this.browser?.getDownloadedFiles();
 
         // Navigate to the page
         await this.page.evaluate((url) => {
@@ -558,8 +498,8 @@ export class Driver {
     async waitForFileToDownload(raiseException: boolean = true): Promise<string> {
         // Wait for file to download
         const file = await this.waitFor(async (driver) => {
-            const files = fs.readdirSync(this.downloadPath).filter(file => !file.endsWith('.crdownload'));
-            return files.length > 0 ? files[0] : null;
+            const files = await this.browser?.getDownloadedFiles();
+            return files && files.length > 0 ? files[0] : null;
         }, `No file downloaded after ${Driver.DEFAULT_TIMEOUT}ms`,
         raiseException,
         Driver.DEFAULT_DOWNLOAD_TIMEOUT);
@@ -573,34 +513,7 @@ export class Driver {
             throw error;
         }
 
-        // Read the file
-        const data = fs.readFileSync(path.join(this.downloadPath, file), {encoding: 'base64'});
-
-        // Clear download folder
-        await this.clearDownloadFolder();
-
-        return data;
-    }
-
-    async clearDownloadFolder(): Promise<void> {
-        // If download path exists
-        if (fs.existsSync(this.downloadPath)) {
-            // Get all files in the download folder
-            const files = fs.readdirSync(this.downloadPath)
-            // For each file
-            for (const file of files) {
-                // Get full path
-                const filePath = path.join(this.downloadPath, file);
-                // Try to delete the file
-                try {
-                    fs.unlinkSync(filePath);
-                } catch (error) {
-                    // If file is still locked by the OS, wait and try one last time
-                    await utils.delay(100);
-                    fs.unlinkSync(filePath);
-                }
-            }
-        }
+        return file;
     }
 
     // CAPTCHAS
@@ -642,13 +555,13 @@ export class Driver {
             return [];
         }
 
-        return (await this.browser?.cookies())
+        return (await this.browser.puppeteerBrowser.cookies())
             .filter(cookie => namesToGet.length === 0 || namesToGet.some(name => cookie.name.includes(name)));
     }
 
     async setCookies(cookies: any): Promise<void> {
         if (cookies) {
-            await this.browser?.setCookie(...cookies);
+            await this.browser?.puppeteerBrowser.setCookie(...cookies);
         }
     }
 
@@ -774,7 +687,7 @@ export class Element {
             // Get current url
             const currentUrl = this.driver.url();
             // Open new page
-            await this.driver.browser?.newPage();
+            await this.driver.browser?.puppeteerBrowser.newPage();
             // Navigate to current url
             await this.driver.goto(currentUrl);
             // Click on the element again
