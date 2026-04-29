@@ -17,7 +17,6 @@ export class Driver {
     static DEFAULT_POLLING = 1000;              // 1 second
     static DEFAULT_DELAY = 1000;                // 1 second
     static DEFAULT_DELAY_BETWEEN_RETRIES = 100; // 100 milliseconds
-    static PARENT_DOWNLOAD_PATH = path.resolve(__dirname, '../../media/download');
 
     static VIEWPORT_WIDTH: number = 1920;
     static VIEWPORT_HEIGHT: number = 1080;

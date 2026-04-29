@@ -29,11 +29,12 @@ export interface Options {
 
 export abstract class AbstractBrowser {
 
+  static PARENT_DOWNLOAD_PATH = path.resolve(__dirname, '../../media/download');
   private static instanceCounter = 0;
   
   private static getDownloadPath(): string {
       AbstractBrowser.instanceCounter += 1;
-      return path.resolve(__dirname, Driver.PARENT_DOWNLOAD_PATH, String(AbstractBrowser.instanceCounter));
+      return path.resolve(__dirname, AbstractBrowser.PARENT_DOWNLOAD_PATH, String(AbstractBrowser.instanceCounter));
   }
 
   private static getPuppeteerConfig(downloadPath: string): Options {
