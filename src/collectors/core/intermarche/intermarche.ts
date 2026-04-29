@@ -11,7 +11,7 @@ export class IntermarcheCollector extends WebCollector {
         id: "intermarche",
         name: "Intermarché",
         description: "i18n.collectors.intermarche.description",
-        version: "8",
+        version: "9",
         website: "https://www.intermarche.com",
         logo: "https://upload.wikimedia.org/wikipedia/commons/9/96/Intermarch%C3%A9_logo_2009_classic.svg",
         type: CollectorType.WEB,
@@ -84,7 +84,15 @@ export class IntermarcheCollector extends WebCollector {
     }
 
     async navigate(driver: Driver): Promise<void> {
+        // Close cookies banner if exists
         await driver.leftClick(IntermarcheSelectors.BUTTON_REFUSE_COOKIES, { raiseException: false, timeout: 5000});
+    }
+
+    async isEmpty(driver: Driver): Promise<boolean> {
+        // Wait for panel commandes to be loaded
+        await driver.getElement(IntermarcheSelectors.CONTAINER_PANEL_COMMANDES);
+        // Check if empty basket container exists
+        return await driver.getElement(IntermarcheSelectors.CONTAINER_EMPTY_BASKET, { raiseException: false, timeout: 100 }) != null;
     }
      
     async getInvoices(driver: Driver): Promise<Element[]> {
