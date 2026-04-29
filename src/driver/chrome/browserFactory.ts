@@ -1,20 +1,28 @@
 import { AbstractBrowser } from "../puppeteer/abstractBrowser";
+import { PageWithCursor } from "../puppeteer/pageController";
 import { LocalBrowser } from "./localBrowser";
 import { RemoteBrowser } from "./remoteBrowser";
 
 export class BrowserFactory {
-    static getBrowser(remoteChrome: boolean): AbstractBrowser {
-        if (remoteChrome) {
+    static async connect(remoteBrowser: boolean, options: any): Promise<{
+        browser: AbstractBrowser,
+        page: PageWithCursor
+    }> {
+        if (remoteBrowser) {
             try {
-                return new RemoteBrowser();
+                const browser = new RemoteBrowser();
+                const page = await browser.connect(options);
+                return {
+                    browser,
+                    page
+                };
             }
             catch (e) {
                 console.info(`Falling back to local Chrome: ${e}`);
-                return new LocalBrowser();
             }
         }
-        else {
-            return new LocalBrowser();
-        }
+        const browser = new LocalBrowser();
+        const page = await browser.connect(options);
+        return { browser, page };
     }
 }

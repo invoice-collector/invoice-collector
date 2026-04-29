@@ -23,19 +23,20 @@ export class Driver {
     static VIEWPORT_HEIGHT: number = 1080;
 
     collector: OldWebCollector | WebCollector;
-    browser: AbstractBrowser;
+    browser: AbstractBrowser | null;
     page: Page | null;
 
     constructor(collector: OldWebCollector | WebCollector) {
         this.collector = collector;
-        this.browser = BrowserFactory.getBrowser(this.collector.config.captcha == CollectorCaptcha.DATADOME)
+        this.browser = null;
         this.page = null;
     }
 
     async open(proxy: Proxy | null = null) {
-
         // Open browser and page
-        this.page = await this.browser.connect(proxy);
+        const { browser, page } = await BrowserFactory.connect(this.collector.config.remoteBrowser || false, proxy);
+        this.browser = browser;
+        this.page = page;
 
         // If must block images
         if (this.collector.config.loadImages === false) {
@@ -76,7 +77,7 @@ export class Driver {
     }
 
     async close() {
-        await this.browser.close();
+        await this.browser?.close();
     }
 
     // URL
@@ -486,7 +487,7 @@ export class Driver {
         }
 
         // Get downloaded files and remove all files in the download folder
-        await this.browser.getDownloadedFiles();
+        await this.browser?.getDownloadedFiles();
 
         // Navigate to the page
         await this.page.evaluate((url) => {
@@ -500,7 +501,7 @@ export class Driver {
     async waitForFileToDownload(raiseException: boolean = true): Promise<string> {
         // Wait for file to download
         const file = await this.waitFor(async (driver) => {
-            const files = await this.browser.getDownloadedFiles();
+            const files = await this.browser?.getDownloadedFiles();
             return files && files.length > 0 ? files[0] : null;
         }, `No file downloaded after ${Driver.DEFAULT_TIMEOUT}ms`,
         raiseException,
@@ -563,7 +564,7 @@ export class Driver {
 
     async setCookies(cookies: any): Promise<void> {
         if (cookies) {
-            await this.browser.puppeteerBrowser.setCookie(...cookies);
+            await this.browser?.puppeteerBrowser.setCookie(...cookies);
         }
     }
 
@@ -689,7 +690,7 @@ export class Element {
             // Get current url
             const currentUrl = this.driver.url();
             // Open new page
-            await this.driver.browser.puppeteerBrowser.newPage();
+            await this.driver.browser?.puppeteerBrowser.newPage();
             // Navigate to current url
             await this.driver.goto(currentUrl);
             // Click on the element again
