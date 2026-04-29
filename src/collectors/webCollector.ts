@@ -12,10 +12,12 @@ import { WebSocketServer } from "../websocket/webSocketServer";
 import { MessageClick, MessageKeydown, MessageText } from "../websocket/message";
 import { KeyInput } from "rebrowser-puppeteer-core";
 import { CollectorMemory } from "../model/collectorMemory";
+import { Proxy } from '../proxy/abstractProxy';
 
 export type WebConfig = Config & {
     loginUrl: string,
     entryUrl?: string,
+    useProxyForLogin?: boolean,
     useProxy?: boolean,
     captcha: CollectorCaptcha,
     loadImages?: boolean,
@@ -42,9 +44,10 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
         super({
             ...config,
             type: config.type || CollectorType.WEB,
-            useProxy: config.useProxy === undefined ? config.captcha !== CollectorCaptcha.NONE : config.useProxy,
+            useProxyForLogin: config.useProxy === undefined ? config.captcha !== CollectorCaptcha.NONE : config.useProxy,
+            useProxy: config.useProxy === undefined ? config.captcha == CollectorCaptcha.DATADOME : config.useProxy,
             state: config.state || CollectorState.ACTIVE,
-            loadImages: config.loadImages === undefined ? config.captcha == CollectorCaptcha.CLOUDFLARE : config.loadImages,
+            loadImages: config.loadImages === undefined ? false : config.loadImages,
             autoLogin: config.autoLogin || {
                 cookieNames: [],                // Take all cookies by default
                 localStorageKeys: undefined     // Take no localStorage by default
@@ -64,10 +67,13 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
         useInteractiveLogin: boolean
     ): Promise<CompleteInvoice[]> {
         // Get proxy
-        const proxy = this.config.useProxy ? await ProxyFactory.getProxy().get(location) : null;
+        let proxy: Proxy | null = null;
+        if(this.config.useProxy) {
+            proxy = await ProxyFactory.getProxy().get(location);
+        }
 
         // Start browser and page
-        const driver = new Driver(this);
+        let driver = new Driver(this);
         this.driver = driver;
         await driver.open(proxy);
 
@@ -80,12 +86,6 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
         try {
             // Pre actions
             await this.pre(driver);
-
-            // If web socket server exists, enable images
-            let loadImagesPreviousValue = this.config.loadImages;
-            if(webSocketServer) {
-                this.config.loadImages = true;
-            }
 
             // If no interactive login
             if(!useInteractiveLogin) {
@@ -100,6 +100,24 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
                     // Set progress step to logging in
                     state.update(State._2_LOGGING_IN);
                     webSocketServer?.sendState(State._2_LOGGING_IN);
+
+                    // If needs proxy for login
+                    if(this.config.useProxyForLogin && !proxy) {
+                        console.log('Open a new driver with proxy for login...');
+                        // Get proxy
+                        const proxy = await ProxyFactory.getProxy().get(location);
+                        // Open new driver with proxy
+                        driver = new Driver(this);
+                        await driver.open(proxy);
+                        // Transfer cookies, localStorage and url to new driver
+                        await driver.setCookies(await this.driver.getCookies([]));
+                        await driver.setLocalStorage(await this.driver.getLocalStorage([]));
+                        await driver.goto(this.driver.url());
+                        // Close old driver
+                        await this.driver.close();
+                        // Replace driver instance variable with new driver
+                        this.driver = driver;
+                    }
 
                     console.log("User is not logged in, logging in...");
 
@@ -152,6 +170,26 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
 
                 // If first collect
                 if(webSocketServer) {
+                    // If web socket server exists, enable images
+                    let loadImagesPreviousValue = this.config.loadImages;
+                    if(webSocketServer) {
+                        this.config.loadImages = true;
+                    }
+
+                    // If needs proxy for login
+                    if(this.config.useProxyForLogin && !proxy) {
+                        console.log('Open a new driver with proxy for login...');
+                        // Get proxy
+                        const proxy = await ProxyFactory.getProxy().get(location);
+                        // Open new driver with proxy
+                        driver = new Driver(this);
+                        await driver.open(proxy);
+                        // Close old driver
+                        await this.driver.close();
+                        // Replace driver instance variable with new driver
+                        this.driver = driver;
+                    }
+
                     // Go to login url
                     await driver.goto(this.config.loginUrl, { navigation: false });
                     // Perform interactive login
@@ -176,6 +214,11 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
                     }
                     else if (!this.config.entryUrl && collectorMemory.entryUrl) {
                         console.warn(`Collector ${this.config.id} has no entryUrl defined in config, but has one saved in memory. Consider defining it in the config.`);
+                    }
+
+                    // Restore previous load images value
+                    if(webSocketServer) {
+                        this.config.loadImages = loadImagesPreviousValue;
                     }
                 }
 
@@ -214,11 +257,6 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
             await secret.setCookies(await driver.getCookies(this.config.autoLogin?.cookieNames));
             // Update secret.localStorage
             await secret.setLocalStorage(await driver.getLocalStorage(this.config.autoLogin?.localStorageKeys));
-
-            // Restore previous load images value
-            if(webSocketServer) {
-                this.config.loadImages = loadImagesPreviousValue;
-            }
 
             // Navigate to invoices
             await this.navigate(driver);
