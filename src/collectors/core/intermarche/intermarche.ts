@@ -11,7 +11,7 @@ export class IntermarcheCollector extends WebCollector {
         id: "intermarche",
         name: "Intermarché",
         description: "i18n.collectors.intermarche.description",
-        version: "9",
+        version: "10",
         website: "https://www.intermarche.com",
         logo: "https://upload.wikimedia.org/wikipedia/commons/9/96/Intermarch%C3%A9_logo_2009_classic.svg",
         type: CollectorType.WEB,
@@ -29,7 +29,7 @@ export class IntermarcheCollector extends WebCollector {
                 mandatory: true,
             }
         },
-        loginUrl: "https://www.intermarche.com/",
+        loginUrl: "https://www.intermarche.com/connexion/itm",
         entryUrl: "https://www.intermarche.com/gestion-de-compte/mes-courses",
         captcha: CollectorCaptcha.DATADOME,
         enableInteractiveLogin: true,
