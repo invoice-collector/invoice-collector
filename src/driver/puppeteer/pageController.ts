@@ -1,7 +1,7 @@
 import { createCursor, GhostCursor } from 'ghost-cursor';
 import { Browser, Page } from "rebrowser-puppeteer-core";
 import { AbstractChrome } from "../chrome/abstractChrome";
-import { checkTurnstile } from './turnstile';
+import { solveCaptchas } from './captchas';
 import { Proxy } from '../../proxy/abstractProxy';
 
 export interface PageWithCursor extends Page {
@@ -14,7 +14,6 @@ export interface PageControllerOptions {
     page: Page,
     proxy?: Proxy,
     turnstile: boolean,
-    xvfbsession: any,
     killProcess: boolean,
     chrome?: AbstractChrome
 };
@@ -24,7 +23,6 @@ export async function pageController({
     page,
     proxy,
     turnstile,
-    xvfbsession,
     killProcess = false,
     chrome
 }: PageControllerOptions): Promise<PageWithCursor> {
@@ -39,20 +37,19 @@ export async function pageController({
     browser.on('disconnected', async () => {
         solveStatus = false
         if (killProcess === true) {
-            if (xvfbsession) try { xvfbsession.stopSync() } catch (err) { }
             if (chrome) try { chrome.close() } catch (err) { console.log(err); }
         }
     });
 
-    async function turnstileSolver() {
+    async function captchaSolver() {
         while (solveStatus) {
-            await checkTurnstile({ page }).catch(() => { });
-            await new Promise(r => setTimeout(r, 1000));
+            await solveCaptchas({ page }).catch(() => { });
+            await new Promise(r => setTimeout(r, 5000));
         }
         return
     }
 
-    turnstileSolver()
+    captchaSolver()
 
     if (proxy && proxy.username && proxy.password) await page.authenticate({ username: proxy.username, password: proxy.password });
 

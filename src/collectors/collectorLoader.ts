@@ -1,5 +1,5 @@
 import path from 'path';
-import glob from 'glob';
+import { glob } from 'glob';
 import fs from 'fs';
 import { AbstractCollector, CollectorCaptcha, CollectorType, Config } from './abstractCollector';
 import { StatusError } from '../error';
@@ -12,7 +12,7 @@ export class CollectorLoader {
         await this.loadFolders("sketch", "sketch", filter)
         await this.loadFolders("community", "community", filter)
         await this.loadFolders("core", "core", filter)
-        await this.loadFolders("premium", "../premium/collectors", filter)
+        await this.loadFolders("premium", "../premium/collectors/premium", filter)
 
         //Order collectors by id
         CollectorLoader.collectors = new Map([...CollectorLoader.collectors.entries()]
@@ -24,18 +24,20 @@ export class CollectorLoader {
 
     private static async loadFolders(name: string, folder: string, filter: string | null) {
         const strPattern = filter ? `./${folder}/**/${filter}.ts` : `./${folder}/**/*.ts`;
-        const pattern = path.join(__dirname, strPattern);
+        const pattern = path.join(__dirname, strPattern)
+            .replaceAll('\\', '/'); // Ensure pattern uses forward slashes for glob
 
         await new Promise<void>((resolve, reject) => {
-            glob(pattern, (err, files) => {
+            glob(pattern).then((files) => {
                 console.log(`Loading ${name} collectors...`);
-                if (err) {
-                    console.error('Error finding files:', err);
-                    reject(err);
-                }
                 let nbFFilesLoaded = 0;
                 for (const file of files) {
-                    if(file.endsWith('selectors.ts') || file.endsWith('customAgentCollector.ts') || file.endsWith('common.ts') || file.endsWith('Common.ts')) {
+                    if(file.endsWith('selectors.ts') ||
+                        file.endsWith('Selectors.ts') ||
+                        file.endsWith('common.ts') ||
+                        file.endsWith('Common.ts') ||
+                        file.endsWith('helper.ts') ||
+                        file.endsWith('Helper.ts'))  {
                         continue; // Skip file
                     }
 
@@ -45,21 +47,22 @@ export class CollectorLoader {
                     const configMatch = content.match(/CONFIG\s*=\s*({[\s\S]*?})\s*constructor/);
                     if (configMatch) {
                         try {
-                            // Replace enum references with their values before eval
                             let configStr = configMatch[1]
-                            .replace("CollectorState.PLANNED", `"${CollectorState.PLANNED.toString()}"`)
-                            .replace("CollectorState.DEVELOPMENT", `"${CollectorState.DEVELOPMENT.toString()}"`)
-                            .replace("CollectorState.ACTIVE", `"${CollectorState.ACTIVE.toString()}"`)
-                            .replace("CollectorCaptcha.NONE", `"${CollectorCaptcha.NONE.toString()}"`)
-                            .replace("CollectorCaptcha.CLOUDFLARE", `"${CollectorCaptcha.CLOUDFLARE.toString()}"`)
-                            .replace("CollectorCaptcha.DATADOME", `"${CollectorCaptcha.DATADOME.toString()}"`)
-                            .replace("CollectorCaptcha.RECAPTCHA", `"${CollectorCaptcha.RECAPTCHA.toString()}"`)
-                            .replace("CollectorCaptcha.OTHER", `"${CollectorCaptcha.OTHER.toString()}"`)
-                            .replace("CollectorType.WEB", `"${CollectorType.WEB.toString()}"`)
-                            .replace("CollectorType.AGENT", `"${CollectorType.AGENT.toString()}"`)
-                            .replace("CollectorType.API", `"${CollectorType.API.toString()}"`)
-                            .replace("CollectorType.EMAIL", `"${CollectorType.EMAIL.toString()}"`)
-                            .replace("CollectorType.SKETCH", `"${CollectorType.SKETCH.toString()}"`)
+
+                            // Replace all occurrences of CollectorState enum values
+                            for (const [key, value] of Object.entries(CollectorState)) {
+                                configStr = configStr.replaceAll(`CollectorState.${key}`, `"${value}"`);
+                            }
+                            
+                            // Replace all occurrences of CollectorCaptcha enum values
+                            for (const [key, value] of Object.entries(CollectorCaptcha)) {
+                                configStr = configStr.replaceAll(`CollectorCaptcha.${key}`, `"${value}"`);
+                            }
+
+                            // Replace all occurrences of CollectorType enum values
+                            for (const [key, value] of Object.entries(CollectorType)) {
+                                configStr = configStr.replaceAll(`CollectorType.${key}`, `"${value}"`);
+                            }
 
                             // Evaluate the config object
                             const config = eval('(' + configStr + ')');
@@ -83,6 +86,10 @@ export class CollectorLoader {
                 }
                 console.log(`${nbFFilesLoaded} ${name} collectors loaded`);
                 resolve();
+            })
+            .catch((err) => {
+                console.error(`Error loading ${name} collectors:`, err);
+                reject(err);
             });
         });
     }

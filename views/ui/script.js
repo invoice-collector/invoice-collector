@@ -61,13 +61,24 @@ async function post_send_feedback(body) {
     });
 }
 
-async function deleteCredential(id) {
-    await fetch(`credential/${id}?token=${token}`, {
-        method: 'DELETE'
+async function post_credential(body) {
+    return await fetch(`user/me/credential?token=${token}`, {
+        method: 'POST',
+        body: JSON.stringify(body),
+        headers: {
+            'Content-Type': 'application/json'
+        }
     });
-    showCredentials();
 }
 
+async function post_credential_collect(credential_id) {
+    return await fetch(`user/me/credential/${credential_id}/collect?token=${token}`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    });
+}
 
 /* ===================================
    NAVIGATION FUNCTIONS
@@ -277,8 +288,6 @@ function showForm(company) {
     
     const formParams = document.getElementById('add-credential-form-params');
     const form = document.getElementById('add-credential-form');
-    const hitSketch = document.getElementById('hit-sketch');
-    const hitSketchButton = document.getElementById('hit-sketch-button');
     
     formParams.innerHTML = '';
     form.dataset.collector = company.id;
@@ -295,7 +304,6 @@ function showForm(company) {
     }
 
     form.style.display = 'block';
-    hitSketch.classList.add('ic-hidden');
     
     Object.keys(company.params).forEach(key => {
         const param = company.params[key];
@@ -371,17 +379,12 @@ async function addCredential(event) {
     submitButton.disabled = true;
     
     try {
-        const response = await fetch(`credential?token=${token}`, {
-            method: 'POST',
-            body: JSON.stringify({
+        const response = await post_credential({
                 collector: form.dataset.collector,
                 download_from_timestamp,
                 params
-            }),
-            headers: {
-                'Content-Type': 'application/json'
             }
-        });
+        );
         
         const content = await response.json();
         form.reset();
@@ -407,12 +410,7 @@ async function collectCredential(id) {
     window.parent.postMessage(NAVIGATION_EVENT_SHOW_PROGRESS, '*');
 
     try {
-        const response = await fetch(`credential/${id}/collect?token=${token}`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        });
+        const response = await post_credential_collect(id);
         
         const content = await response.json();
         
@@ -571,10 +569,17 @@ async function showProgress(credential_id, wsPath) {
         cancelled = true;
         containerCanvas.hidden = true;
         if (ws.readyState === WebSocket.OPEN) {
-            ws.send(JSON.stringify({ type: 'interactive', reason: 'cancel' }));
+            ws.send(JSON.stringify({ type: 'interactive', reason: !collect_credential_id ? 'remove' : 'cancel' }));
             ws.close();
         }
-        showCompanies();
+
+        if(!collect_credential_id) {
+            showCompanies();
+        }
+        else{
+            window.parent.postMessage(NAVIGATION_EVENT_CLOSE, '*');
+            hiddeAllPanels();
+        }
     }
     
     ws.onopen = () => {

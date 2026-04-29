@@ -1,11 +1,14 @@
 import { SecretManagerFactory } from "../secret_manager/secretManagerFactory";
 
 export class Secret {
+    
+    static DEFAULT_VALUE: {} = {};
+
     id: string;
     key: string;
     value: any;
 
-    constructor(key: string, value: any = {}) {
+    constructor(key: string, value: any = Secret.DEFAULT_VALUE) {
         this.id = "";
         this.key = key;
         this.value = value;
@@ -43,13 +46,16 @@ export class Secret {
     }
 
     async commit(): Promise<void> {
-        if (this.id) {
-            // Update existing secret
-            await SecretManagerFactory.getSecretManager().updateSecret(this);
-        }
-        else {
-            // Create secret
-            await SecretManagerFactory.getSecretManager().createSecret(this);
+        // If the secret is not empty
+        if(Object.keys(this.value).length > 0) {
+            if (this.id) {
+                // Update existing secret
+                await SecretManagerFactory.getSecretManager().updateSecret(this);
+            }
+            else {
+                // Create secret
+                await SecretManagerFactory.getSecretManager().createSecret(this);
+            }
         }
     }
 

@@ -10,7 +10,7 @@ export class OpenaiChatgptCollector extends OpenaiCommonCollector {
         id: "openai_chatgpt",
         name: "OpenAI (ChatGPT Plus)",
         description: "i18n.collectors.openai_chatgpt.description",
-        version: "7",
+        version: "10",
         website: "https://chatgpt.com",
         logo: "https://upload.wikimedia.org/wikipedia/commons/4/4d/OpenAI_Logo.svg",
         type: CollectorType.WEB,
@@ -28,7 +28,7 @@ export class OpenaiChatgptCollector extends OpenaiCommonCollector {
                 mandatory: true
             }
         },
-        loginUrl: "https://auth.openai.com/log-in",
+        loginUrl: "https://chatgpt.com/#settings/Account",
         entryUrl: "https://chatgpt.com/#settings/Account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true
@@ -36,6 +36,10 @@ export class OpenaiChatgptCollector extends OpenaiCommonCollector {
 
     constructor() {
         super(OpenaiChatgptCollector.CONFIG);
+    }
+
+    async needLogin(driver: Driver ): Promise<boolean> {
+        return driver.url().includes("auth.openai.com");
     }
     
     async navigate(driver: Driver): Promise<void> {
@@ -47,9 +51,11 @@ export class OpenaiChatgptCollector extends OpenaiCommonCollector {
         await driver.getElement(OpenaiSelectors.BUTTON_SEARCH_INVOICES);
     }
     
-    async forEachPage(driver: Driver, next: () => void): Promise<void> {
+    async forEachPage(driver: Driver, next: () => Promise<void>): Promise<void> {
         // Show more invoices while possible
-        while((await driver.leftClick(OpenaiSelectors.BUTTON_MORE_INVOICES, { raiseException: false, timeout: 1000, navigation: false, delay: 1000 })) != null) {}
+        await driver.leftClick(OpenaiSelectors.BUTTON_MORE_INVOICES, { raiseException: false, timeout: 1000, navigation: false });
+        await driver.leftClick(OpenaiSelectors.BUTTON_MORE_INVOICES, { raiseException: false, timeout: 1000, navigation: false });
+        await driver.leftClick(OpenaiSelectors.BUTTON_MORE_INVOICES, { raiseException: false, timeout: 1000, navigation: false });
         // Collect invoices
         await next();
     }

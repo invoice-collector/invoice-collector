@@ -5,24 +5,36 @@ import { User } from "./user";
 import { CollectorLoader } from "../collectors/collectorLoader";
 import { Server } from "../server";
 import { Plan } from "./plan";
+import { Callback } from "./callback";
 
 export enum Theme {
     DEFAULT = 'default',
     OCEAN = 'ocean'
 }
 
-export interface Stats {
+export interface CustomerStats {
     users: number;
     credentials: number;
-    invoicesThisMonth: number;
+    invoices: number;
+    byMonth: {
+        [key: string]: {
+            users: number;
+            credentials: number;
+            invoices: number;
+        }
+    };
+    collectors: {
+        [key: string]: number;
+    };
 }
 export class Customer {
 
     static DEFAULT_EMAIL = "";
     static DEFAULT_PASSWORD = "";
     static DEFAULT_NAME = "default";
-    static DEFAULT_CALLBACK = "";
+    static DEFAULT_CID = "";
     static DEFAULT_REMOTE_ID = "";
+    static DEFAULT_BEARER = "";
     static DEFAULT_SUBSCRIBED_COLLECTORS: string[] = [];
     static DEFAULT_IS_SUBSCRIBED_TO_ALL = true;
     static DEFAULT_ENABLE_INTERACTIVE_LOGIN = true;
@@ -41,6 +53,11 @@ export class Customer {
         return customer;
     }
 
+    static async fromId(id: string): Promise<Customer|null> {
+        // Get customer from id
+        return await DatabaseFactory.getDatabase().getCustomer(id);
+    }
+
     static async fromEmail(email: string): Promise<Customer|null> {
         // Get customer from email
         return await DatabaseFactory.getDatabase().getCustomerFromEmail(email);
@@ -51,6 +68,11 @@ export class Customer {
         return await DatabaseFactory.getDatabase().getCustomerFromEmailAndPassword(email, password);
     }
 
+    static async fromInviteId(inviteId: string): Promise<Customer|null> {
+        // Get customer from invite id
+        return await DatabaseFactory.getDatabase().getCustomerFromInviteId(inviteId);
+    }
+
     static async createDefault(): Promise<{bearer: string, customer: Customer}> {
         // Generate default api bearer
         const bearer = utils.generate_bearer(utils.BearerType.API);
@@ -58,9 +80,11 @@ export class Customer {
             Customer.DEFAULT_EMAIL,
             Customer.DEFAULT_PASSWORD,
             Customer.DEFAULT_NAME,
-            Customer.DEFAULT_CALLBACK,
+            Customer.DEFAULT_CID,
             Customer.DEFAULT_REMOTE_ID,
-            utils.hash_string(bearer)
+            utils.hash_string(bearer),
+            utils.convertNameToInviteId(Customer.DEFAULT_NAME),
+            Date.now()
         );
         return {
             bearer,
@@ -72,9 +96,10 @@ export class Customer {
     email: string;
     password: string;
     name: string;
-    callback: string;
+    cid: string;
     remoteId: string;
     bearer: string;
+    inviteId: string;
     createdAt: number;
     theme: Theme;
     subscribedCollectors: string[];
@@ -88,25 +113,27 @@ export class Customer {
         email: string,
         password: string,
         name: string,
-        callback: string,
+        cid: string,
         remoteId: string,
         bearer: string,
-        createdAt: number = Date.now(),
+        inviteId: string,
+        createdAt: number,
         theme: Theme = Theme.DEFAULT,
         subscribedCollectors: string[] = Customer.DEFAULT_SUBSCRIBED_COLLECTORS,
         isSubscribedToAll: boolean = Customer.DEFAULT_IS_SUBSCRIBED_TO_ALL,
         enableInteractiveLogin: boolean = Customer.DEFAULT_ENABLE_INTERACTIVE_LOGIN,
         displaySketchCollectors: boolean = Customer.DEFAULT_DISPLAY_SKETCH_COLLECTORS,
         maxDelayBetweenCollect: number = Customer.DEFAULT_MAX_DELAY_BETWEEN_COLLECT,
-        plan: Plan = Server.IS_SELF_HOSTED ? Plan.FREE : Plan.TRIAL
+        plan: Plan = Server.IS_SELF_HOSTED ? Plan.FREE : Plan.TRIAL,
     ) {
         this.id = "";
         this.email = email;
         this.password = password;
         this.name = name;
-        this.callback = callback;
         this.remoteId = remoteId;
+        this.cid = cid;
         this.bearer = bearer;
+        this.inviteId = inviteId;
         this.createdAt = createdAt;
         this.theme = theme;
         this.subscribedCollectors = subscribedCollectors;
@@ -117,7 +144,7 @@ export class Customer {
         this.plan = plan;
     }
 
-    async getUserFromRemoteId(remote_id: string) {
+    async getUserFromRemoteId(remote_id: string): Promise<User|null> {
         return await DatabaseFactory.getDatabase().getUserFromCustomerIdAndRemoteId(this.id, remote_id);
     }
 
@@ -125,11 +152,15 @@ export class Customer {
         return await DatabaseFactory.getDatabase().getUsers(this.id);
     }
 
-    async getUser(user_id: string) {
+    async getUser(user_id: string): Promise<User|null> {
         return await DatabaseFactory.getDatabase().getUserBellongingToCustomer(user_id, this.id);
     }
 
-    async getStats(): Promise<Stats> {
+    async getCallbacks(): Promise<Callback[]> {
+        return DatabaseFactory.getDatabase().getCallbacks(this.id);
+    }
+
+    async getStats(): Promise<CustomerStats> {
         const stats = await DatabaseFactory.getDatabase().getCustomerStats(this.id);
 
         // Check if stats are null
@@ -140,7 +171,7 @@ export class Customer {
         return stats;
     }
 
-    setTheme(theme: string) {
+    setTheme(theme: string): void {
         //Check if theme is supported
         if(!Object.values(Theme).includes(theme as Theme)) {
             throw new StatusError(`Theme "${theme}" not supported. Available themes are: ${Object.values(Theme).join(", ")}.`, 400);
@@ -149,7 +180,7 @@ export class Customer {
         this.theme = theme as Theme;
     }
 
-    async setSubscribedCollectors(collectors: string[]) {
+    async setSubscribedCollectors(collectors: string[]): Promise<void> {
         // Order collectors alphabetically
         collectors.sort();
 
@@ -172,7 +203,7 @@ export class Customer {
         this.subscribedCollectors = collectors;
     }
 
-    async commit() {
+    async commit(): Promise<void> {
         if (this.id) {
             // Update existing customer
             await DatabaseFactory.getDatabase().updateCustomer(this);

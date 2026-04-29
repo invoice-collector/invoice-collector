@@ -1,6 +1,6 @@
 import { Invoice, CompleteInvoice, CollectorType, CollectorCaptcha, CollectorState, Config } from "./abstractCollector";
 import { Driver, Element } from '../driver/driver';
-import { AuthenticationError, CollectorError, DisconnectedError, LoggableError, NoInvoiceFoundError } from '../error';
+import { AuthenticationError, RemoveError, CollectorError, DisconnectedError, LoggableError, NoInvoiceFoundError } from '../error';
 import { ProxyFactory } from '../proxy/proxyFactory';
 import { Location } from "../proxy/abstractProxy";
 import { Secret } from "../model/secret";
@@ -11,13 +11,13 @@ import { V2Collector } from "./v2Collector";
 import { WebSocketServer } from "../websocket/webSocketServer";
 import { MessageClick, MessageKeydown, MessageText } from "../websocket/message";
 import { KeyInput } from "rebrowser-puppeteer-core";
-import { GoogleOauth2 } from "./oauth2/googleOauth2";
-import { MicrosoftOauth2 } from "./oauth2/microsoftOauth2";
 import { CollectorMemory } from "../model/collectorMemory";
+import { Proxy } from '../proxy/abstractProxy';
 
 export type WebConfig = Config & {
     loginUrl: string,
     entryUrl?: string,
+    useProxyForLogin?: boolean,
     useProxy?: boolean,
     captcha: CollectorCaptcha,
     loadImages?: boolean,
@@ -44,9 +44,10 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
         super({
             ...config,
             type: config.type || CollectorType.WEB,
-            useProxy: config.useProxy === undefined ? config.captcha !== CollectorCaptcha.NONE : config.useProxy,
+            useProxyForLogin: config.useProxy === undefined ? config.captcha !== CollectorCaptcha.NONE : config.useProxy,
+            useProxy: config.useProxy === undefined ? config.captcha == CollectorCaptcha.DATADOME : config.useProxy,
             state: config.state || CollectorState.ACTIVE,
-            loadImages: config.loadImages === undefined ? config.captcha == CollectorCaptcha.CLOUDFLARE : config.loadImages,
+            loadImages: config.loadImages === undefined ? false : config.loadImages,
             autoLogin: config.autoLogin || {
                 cookieNames: [],                // Take all cookies by default
                 localStorageKeys: undefined     // Take no localStorage by default
@@ -66,10 +67,13 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
         useInteractiveLogin: boolean
     ): Promise<CompleteInvoice[]> {
         // Get proxy
-        const proxy = this.config.useProxy ? await ProxyFactory.getProxy().get(location) : null;
+        let proxy: Proxy | null = null;
+        if(this.config.useProxy) {
+            proxy = await ProxyFactory.getProxy().get(location);
+        }
 
         // Start browser and page
-        const driver = new Driver(this);
+        let driver = new Driver(this);
         this.driver = driver;
         await driver.open(proxy);
 
@@ -82,12 +86,6 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
         try {
             // Pre actions
             await this.pre(driver);
-
-            // If web socket server exists, enable images
-            let loadImagesPreviousValue = this.config.loadImages;
-            if(webSocketServer) {
-                this.config.loadImages = true;
-            }
 
             // If no interactive login
             if(!useInteractiveLogin) {
@@ -103,12 +101,28 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
                     state.update(State._2_LOGGING_IN);
                     webSocketServer?.sendState(State._2_LOGGING_IN);
 
-                    console.log("User is not logged in, logging in...")
+                    // If needs proxy for login
+                    if(this.config.useProxyForLogin && !proxy) {
+                        console.log('Open a new driver with proxy for login...');
+                        // Get proxy
+                        const proxy = await ProxyFactory.getProxy().get(location);
+                        // Open new driver with proxy
+                        driver = new Driver(this);
+                        await driver.open(proxy);
+                        // Transfer cookies, localStorage and url to new driver
+                        await driver.setCookies(await this.driver.getCookies([]));
+                        await driver.setLocalStorage(await this.driver.getLocalStorage([]));
+                        await driver.goto(this.driver.url());
+                        // Close old driver
+                        await this.driver.close();
+                        // Replace driver instance variable with new driver
+                        this.driver = driver;
+                    }
+
+                    console.log("User is not logged in, logging in...");
 
                     // Login with stored credentials
-                    const login_error = await this.login(driver, await secret.getParams(), webSocketServer) || 
-                        await GoogleOauth2.login(driver, await secret.getParams(), webSocketServer) || 
-                        await MicrosoftOauth2.login(driver, await secret.getParams(), webSocketServer);
+                    const login_error = await this.login(driver, await secret.getParams(), webSocketServer);
 
                     // Check if not authenticated
                     if (login_error) {
@@ -116,17 +130,15 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
                     }
                 }
                 else {
-                    console.log("Successfully used cookies and local storage")
+                    console.log("Successfully used cookies and local storage");
                 }
 
                 // Check if 2fa is required
-                const needTwofa = await this.needTwofa(driver) ||
-                    await GoogleOauth2.needTwofa(driver) ||
-                    await MicrosoftOauth2.needTwofa(driver);
+                const needTwofa = await this.needTwofa(driver);
 
                 // If 2fa is required
                 if (needTwofa) {
-                    console.log(`2FA is required, performing 2FA... (${utils.trim(needTwofa)})`)
+                    console.log(`2FA is required, performing 2FA... (${utils.trim(needTwofa)})`);
 
                     // If the webSocketServer is undefined, it means that the session has expired
                     if (!webSocketServer) {
@@ -140,17 +152,13 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
                     // Set instructions for UI
                     await twofa_promise.setInstructions(needTwofa);
 
-                    const twofa_error = await this.twofa(driver, await secret.getParams(), twofa_promise, webSocketServer) ||
-                        await GoogleOauth2.twofa(driver, await secret.getParams(), twofa_promise, webSocketServer) || 
-                        await MicrosoftOauth2.twofa(driver, await secret.getParams(), twofa_promise, webSocketServer);
+                    const twofa_error = await this.twofa(driver, await secret.getParams(), twofa_promise, webSocketServer);
 
                     // Check if 2fa error
                     if (twofa_error) {
                         throw new AuthenticationError(twofa_error, this);
                     }
                 }
-
-                console.log("User is successfully logged in")
 
                 // Set progress step to collecting
                 state.update(State._5_COLLECTING);
@@ -162,6 +170,26 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
 
                 // If first collect
                 if(webSocketServer) {
+                    // If web socket server exists, enable images
+                    let loadImagesPreviousValue = this.config.loadImages;
+                    if(webSocketServer) {
+                        this.config.loadImages = true;
+                    }
+
+                    // If needs proxy for login
+                    if(this.config.useProxyForLogin && !proxy) {
+                        console.log('Open a new driver with proxy for login...');
+                        // Get proxy
+                        const proxy = await ProxyFactory.getProxy().get(location);
+                        // Open new driver with proxy
+                        driver = new Driver(this);
+                        await driver.open(proxy);
+                        // Close old driver
+                        await this.driver.close();
+                        // Replace driver instance variable with new driver
+                        this.driver = driver;
+                    }
+
                     // Go to login url
                     await driver.goto(this.config.loginUrl, { navigation: false });
                     // Perform interactive login
@@ -187,13 +215,18 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
                     else if (!this.config.entryUrl && collectorMemory.entryUrl) {
                         console.warn(`Collector ${this.config.id} has no entryUrl defined in config, but has one saved in memory. Consider defining it in the config.`);
                     }
+
+                    // Restore previous load images value
+                    if(webSocketServer) {
+                        this.config.loadImages = loadImagesPreviousValue;
+                    }
                 }
 
-                // Compute new url
-                const url = this.config.entryUrl || collectorMemory.entryUrl || collectorMemory.customerAreaUrl;
+                // Compute new entry url
+                this.config.entryUrl = this.config.entryUrl || collectorMemory.entryUrl || collectorMemory.customerAreaUrl;
 
-                // If url is undefined, something whent wrong
-                if(!url) {
+                // If entry url is undefined, something whent wrong
+                if(!this.config.entryUrl) {
                     throw new Error(`Collector ${this.config.id} does not have any of entryUrl, nor customerAreaUrl defined`);
                 }
 
@@ -202,7 +235,7 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
                 webSocketServer?.sendState(State._5_COLLECTING);
 
                 // Go to entry url
-                await driver.goto(url);
+                await driver.goto(this.config.entryUrl);
 
                 // Check if user needs to login
                 const needLogin = await this.needLogin(driver);
@@ -211,17 +244,19 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
                 if(needLogin) {
                     throw new DisconnectedError(this);
                 }
+
+                // If no webSocketServer, it means that we are in auto login mode
+                if(!webSocketServer) {
+                    console.log("Successfully used cookies and local storage");
+                }
             }
+
+            console.log("User is successfully logged in");
 
             // Update secret.cookies
             await secret.setCookies(await driver.getCookies(this.config.autoLogin?.cookieNames));
             // Update secret.localStorage
             await secret.setLocalStorage(await driver.getLocalStorage(this.config.autoLogin?.localStorageKeys));
-
-            // Restore previous load images value
-            if(webSocketServer) {
-                this.config.loadImages = loadImagesPreviousValue;
-            }
 
             // Navigate to invoices
             await this.navigate(driver);
@@ -278,11 +313,19 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
                                     firstDownload = false;
                                 }
 
+                                // Get number of pages before download
+                                const pagesBefore = (await driver.pages()).length;
+
                                 // Download invoice
                                 let documents = await this.download(driver, invoice);
 
-                                // Close extra pages opened during download
-                                await driver.closeExtraPages();
+                                // Get number of pages after download
+                                const pagesAfter = (await driver.pages()).length;
+
+                                // Close current page if download opened a new one
+                                if (pagesAfter > pagesBefore) {
+                                    await driver.closePage();
+                                }
 
                                 // If one document downloaded
                                 if (WebCollector.DEFAULT_DOCUMENT_STRATEGY == DocumentStrategy.MERGE && documents.length > 1) {
@@ -395,7 +438,10 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
                         resolve();
                         break;
                     case 'cancel':
-                        reject(new AuthenticationError("i18n.collectors.all.login.cancel", this));
+                        reject(new DisconnectedError(this));
+                        break;
+                    case 'remove':
+                        reject(new RemoveError(this));
                         break;
                     case 'report':
                         reject(new LoggableError("A user reported an issue on this collector", this));
@@ -473,7 +519,7 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
         return false;
     }
 
-    async forEachPage(driver: Driver, next: () => void): Promise<void> {
+    async forEachPage(driver: Driver, next: () => Promise<void>): Promise<void> {
         // Assume the collector does not have pagination
         await next();
     }

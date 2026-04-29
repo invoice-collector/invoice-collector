@@ -11,7 +11,9 @@
     "test.antibot": "node --experimental-vm-modules node_modules/jest/bin/jest.js --forceExit test/antibots.spec.ts",
     "test.cicd.locales": "node --experimental-vm-modules node_modules/jest/bin/jest.js --forceExit test/cicd/locales.spec.ts",
     "test.cicd.collectors": "node --experimental-vm-modules node_modules/jest/bin/jest.js --forceExit test/cicd/collectors.spec.ts",
+    "test.cicd.openapi": "node devscripts/build_openapi.js && swagger-cli validate views/openapi/openapi.yml",
     "test.cicd.compilation": "tsc --noEmit",
+    "build.openapi": "node devscripts/build_openapi.js",
     "debug": "nodemon --inspect=0.0.0.0:9229 --signal SIGINT --nolazy -L src/index.ts"
   },
   "dependencies": {
@@ -24,11 +26,13 @@
     "ejs": "^3.1.10",
     "express": "^4.21.2",
     "ghost-cursor": "^1.3.0",
+    "glob": "^13.0.1",
     "i18n": "^0.15.1",
     "image-size": "^2.0.2",
     "mongodb": "^6.12.0",
     "pdf-lib": "^1.17.1",
     "rebrowser-puppeteer-core": "^23.10.3",
+    "ts-node": "^10.9.2",
     "typescript": "^5.7.3",
     "xvfb": "^0.4.0"
   },
@@ -43,9 +47,11 @@
     "node-fetch": "^2.7.0",
     "nodemon": "^3.1.7",
     "prompt-sync": "^4.2.0",
+    "swagger-cli": "^4.0.4",
+    "swagger-jsdoc": "^6.2.8",
     "ts-jest": "^29.2.6",
-    "ts-node": "^10.9.2",
-    "ts-node-dev": "^2.0.0"
+    "ts-node-dev": "^2.0.0",
+    "yaml": "^2.8.2"
   },
   "nodemonConfig": {
     "watch": [

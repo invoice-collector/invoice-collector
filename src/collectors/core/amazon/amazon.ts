@@ -16,7 +16,7 @@ export class AmazonCollector extends WebCollector {
         id: "amazon",
         name: "Amazon (.fr)",
         description: "i18n.collectors.amazon.description",
-        version: "32",
+        version: "37",
         website: "https://www.amazon.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/4/4a/Amazon_icon.svg",
         type: CollectorType.WEB,
@@ -146,6 +146,9 @@ export class AmazonCollector extends WebCollector {
         if (twofa_alert) {
             return await twofa_alert.textContent("i18n.collectors.all.2fa.error");
         }
+
+        // Select personnal account if displayed
+        await driver.leftClick(AmazonSelectors.CONTAINER_PERSONAL_ACCOUNT, { raiseException: false, timeout: 100 });
     }
 
     async navigate(driver: Driver): Promise<void>{
@@ -153,7 +156,7 @@ export class AmazonCollector extends WebCollector {
         this.language = await driver.getAttribute(AmazonSelectors.CONTAINER_LANGUAGE, "textContent");
     }
 
-    async forEachPage(driver: Driver, next: () => void): Promise<void> {
+    async forEachPage(driver: Driver, next: () => Promise<void>): Promise<void> {
         const currentYear = new Date().getFullYear();
 
         for (let year = currentYear; year >= currentYear - 1; year--) {
@@ -184,21 +187,41 @@ export class AmazonCollector extends WebCollector {
         return await driver.getElements(AmazonSelectors.CONTAINER_ORDER);
     }
 
-    async data(driver: Driver, element: Element): Promise<Invoice | null>{
+    async data(driver: Driver, element: Element): Promise<Invoice | null> {
         // Get timestamp
         const date = await element.getAttribute(AmazonSelectors.CONTAINER_ORDER_DATE, "textContent");
         const timestamp = timestampFromString(date, 'd MMMM yyyy', this.language);
 
-        // Cancel invoice if more recent than 2 days
+        // Cancel invoice if more recent than 2 days (invoice not yet available)
         if (timestamp > Date.now() - AmazonCollector.TWO_DAYS_IN_MS){
+            console.warn(`Invoice skipped because order is too recent (date: ${date})`);
             return null;
         }
 
-        // Get data
+        // Cancel invoice if amount is not displayed (order canceled)
+        const amountElement = await element.getElement(AmazonSelectors.CONTAINER_ORDER_AMOUNT, { raiseException: false });
+        if (!amountElement) {
+            console.warn(`Invoice skipped because order amount is not displayed`);
+            return null;
+        }
+
+        // Get id
         const id = await element.getAttribute(AmazonSelectors.CONTAINER_ORDER_ID, "textContent");
+
+        // Get amount
         const amount = await element.getAttribute(AmazonSelectors.CONTAINER_ORDER_AMOUNT, "textContent");
+
+        // Get downloadButton
+        const downloadElement = await element.getElement(AmazonSelectors.CONTAINER_DOCUMENTS_LINK, { raiseException: false });
+        
+        // Cancel invoice if documents link is not displayed (invoice not available)
+        if (!downloadElement) {
+            console.warn(`Invoice skipped because no invoice link available`);
+            return null;
+        }
+
+        // Get link
         const link = driver.origin() + await element.getAttribute(AmazonSelectors.CONTAINER_DOCUMENTS_LINK, "href");
-        const downloadElement = await element.getElement(AmazonSelectors.CONTAINER_DOCUMENTS_LINK);
 
         return {
             id,

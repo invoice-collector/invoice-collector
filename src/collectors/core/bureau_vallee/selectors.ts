@@ -2,72 +2,72 @@ export const BureauValleeSelectors = {
     // COOKIES
 
     BUTTON_REFUSE_COOKIES: {
-        selector: ".modal-inner-wrap button.-decline",
+        selector: ".c-modal__content button.c-button",
         info: "refuse cookies button"
     },
     BUTTON_ACCEPT_COOKIES: {
-        selector: ".modal-inner-wrap button.-allow",
+        selector: ".c-modal__footer button.c-button--primary",
         info: "accept cookies button"
     },
 
     // LOGIN PAGE
 
     FIELD_EMAIL: {
-        selector: "#login\\[email\\]",
+        selector: "#inputText-id-email",
         info: "email input"
     },
     BUTTON_CONTINUE: {
-        selector: "#continue-login",
+        selector: "button[type='submit']",
         info: "continue login button"
     },
     CONTAINER_LOGIN_ALERT: {
-        selector: "#login\\[email\\]-error",
+        selector: "#inputText-id-email-error",
         info: "login alert container"
     },
-    CONTAINER_SIGNUP_FORM: {
-        selector: "#password-step",
-        info: "signup form container"
+    CONTAINER_PASSWORD_STRENGTH: {
+        selector: "div.c-passwordStrength",
+        info: "password strength container"
     },
     FIELD_PASSWORD: {
-        selector: "#login\\[password\\]",
+        selector: "#inputText-id-password",
         info: "password input"
     },
     BUTTON_SUBMIT: {
-        selector: "#send2",
+        selector: "button[type='submit']",
         info: "submit button"
     },
     CONTAINER_PASSWORD_ALERT: {
-        selector: "#passwordMessageError",
+        selector: "#inputText-id-password-error",
         info: "password alert container"
     },
 
     // HOME PAGE
 
     CONTAINER_PROFIL: {
-        selector: "#js-welcome__item[href]",
+        selector: "a.c-icon-compte-client",
         info: "profile container"
     },
 
     // INVOICES PAGE
 
     CONTAINER_NO_INVOICE: {
-        selector: ".c-accountPage div.c-box > div.c-box__content > div.u-text-center > p",
+        selector: "div.c-accountCard__content img[src*='aucune-facture']",
         info: "no invoice container"
     },
     CONTAINER_INVOICE: {
-        selector: ".c-orderInvoice__table tbody tr",
+        selector: "table.c-table--invoiceList tbody tr",
         info: "invoice container"
     },
     CONTAINER_INVOICE_DATE: {
-        selector: "td:nth-of-type(1) strong",
+        selector: "th:nth-of-type(1)",
         info: "invoice date container"
     },
     CONTAINER_INVOICE_AMOUNT: {
-        selector: "td:nth-of-type(3) .price",
+        selector: "td:nth-of-type(2) span.c-price",
         info: "invoice amount container"
     },
     BUTTON_INVOICE_DOWNLOAD: {
-        selector: "td:nth-of-type(4) a",
+        selector: "td:nth-of-type(3) a",
         info: "invoice download button"
     }
 }

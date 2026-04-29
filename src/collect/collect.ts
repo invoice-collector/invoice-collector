@@ -1,12 +1,11 @@
-import { CallbackHandler } from "../callback/callback";
 import { AbstractCollector, Config } from "../collectors/abstractCollector";
 import { CollectorLoader } from "../collectors/collectorLoader";
-import { AuthenticationError, DisconnectedError, LoggableError, MaintenanceError, NoInvoiceFoundError } from "../error";
+import { AuthenticationError, RemoveError, DisconnectedError, LoggableError, MaintenanceError, NoInvoiceFoundError } from "../error";
 import { IcCredential } from "../model/credential";
 import { State } from "../model/state";
 import { Customer } from "../model/customer";
 import { User } from "../model/user";
-import { RegistryServer } from "../registryServer";
+import { RegistryFactory } from "../registry/registryFactory";
 import { TwofaPromise } from "./twofaPromise";
 import { WebSocketServer } from '../websocket/webSocketServer';
 import * as utils from "../utils";
@@ -51,9 +50,12 @@ export class Collect {
             // Get customer from user
             customer = await user.getCustomer();
 
-            // If customer has a valid callback url
-            if (customer.callback) {
-            
+            // Get customer callbacks
+            const callbacksWithAutomaticExport = (await customer.getCallbacks()).filter(cb => cb.automaticExport);
+        
+            // If customer has at least one callback with automatic export enabled
+            if (callbacksWithAutomaticExport.length > 0) {
+
                 // Set progress step to preparing
                 credential.state.update(State._1_PREPARING);
                 this.webSocketServer?.sendState(State._1_PREPARING);
@@ -96,12 +98,13 @@ export class Collect {
                     for (const [index, invoice] of newInvoices.entries()) {
                         // If data downloaded and invoice is more recent than the download_from_timestamp
                         if (invoice.data && credential.download_from_timestamp <= invoice.timestamp && !previousInvoicesHash.includes(invoice.hash)) {
-                            console.log(`Sending invoice ${index + 1}/${newInvoices.length} (${invoice.id}) to callback`);
 
                             try {
-                                // Send invoice to callback
-                                const callback = new CallbackHandler(customer);
-                                await callback.sendInvoice(credential.collector_id, user.remote_id, invoice);
+                                // Send invoice for each callback with automaticExport set to true
+                                for (const callback of callbacksWithAutomaticExport) {
+                                    console.log(`Sending invoice ${index + 1}/${newInvoices.length} (${invoice.id}) to callback ${callback.getIntegration().config.name}`);
+                                    await callback.sendInvoice(collector.config, user.remote_id, invoice);
+                                }
 
                                 // Add invoice to credential only if callback successfully reached
                                 credential.addInvoice(invoice);
@@ -128,10 +131,10 @@ export class Collect {
                 this.webSocketServer?.sendState(State._7_DONE);
 
                 // Log success
-                RegistryServer.getInstance().logSuccess(collector);
+                RegistryFactory.getInstance().logSuccess(collector);
             }
             else {
-                console.warn(`Customer ${customer.id} has no valid callback, skipping collect for credential ${this.credential_id} and planning next collect`);
+                console.warn(`Customer ${customer.id} has no callback with automatic export enabled, skipping collect for credential ${this.credential_id} and planning next collect`);
             }
 
             // Update last collect
@@ -144,7 +147,7 @@ export class Collect {
             // If error is NoInvoiceFoundError
             if (err instanceof NoInvoiceFoundError) {
                 console.warn(`Invoice collection for credential ${this.credential_id} succeed BUT no invoice found, collector may be broken`);
-                RegistryServer.getInstance().logError(customer?.email || "", user?.remote_id || "", err);
+                RegistryFactory.getInstance().logError(customer?.email || "", user?.remote_id || "", err);
 
                 // If credential exists
                 if (credential) {
@@ -163,7 +166,7 @@ export class Collect {
             else if(err instanceof LoggableError) {
                 console.error(`Invoice collection for credential ${this.credential_id} has failed: ${err.message}`);
                 console.error(err);
-                RegistryServer.getInstance().logError(customer?.email || "", user?.remote_id || "", err);
+                RegistryFactory.getInstance().logError(customer?.email || "", user?.remote_id || "", err);
 
                 // If credential exists
                 if (credential) {
@@ -181,12 +184,19 @@ export class Collect {
             else if (err instanceof AuthenticationError || err instanceof DisconnectedError) {
                 console.warn(`Invoice collection for credential ${this.credential_id} has failed: ${err.message}`);
                 // If credential exists
-                if (credential && user && customer) {
+                if (credential && user && customer && collector) {
                     // If error occurs and previous collect was successful, send notification
                     if (credential.state.index >= credential.state.max) {
-                        // Send disconnected notification to callback
-                        const callback = new CallbackHandler(customer);
-                        await callback.sendNotificationDisconnected(credential.collector_id, credential.id, user.id, user.remote_id);
+                        // Get customer callbacks
+                        const callbacksWithAutomaticExport = (await customer.getCallbacks()).filter(cb => cb.automaticExport);
+                        // Send notification for each callback with automaticExport set to true
+                        for (const callback of callbacksWithAutomaticExport) {
+                            try {
+                                await callback.sendNotificationDisconnected(collector.config, credential.id, user.id, user.remote_id);
+                            } catch (error) {
+                                console.error(error);
+                            }
+                        }
                     }
 
                     // If authentication error
@@ -211,6 +221,17 @@ export class Collect {
                     // Reset cookies and localStorage
                     await secret?.setCookies(null);
                     await secret?.setLocalStorage(null);
+                }
+            }
+            else if (err instanceof RemoveError) {
+                console.warn(`Invoice collection for credential ${this.credential_id} has been cancelled by the user. Removing credential.`);
+                // If credential exists
+                if (credential) {
+                    // Delete credential
+                    await credential.delete();
+                    // Set credential and secret to null to avoid committing deleted credential and secret in finally block
+                    credential = null;
+                    secret = null;
                 }
             }
             else if (err instanceof MaintenanceError) {

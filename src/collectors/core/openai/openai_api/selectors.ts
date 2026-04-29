@@ -1,10 +1,17 @@
 export const OpenaiSelectors = {
 
+    // NEED LOGIN
+
+    BUTTON_LOGIN_OR_OUPS: {
+        selector: "button[data-color='primary'][data-variant='soft'], .onb-homepage-link",
+        info: "login button"
+    },
+
     // HOME PAGE
 
-    BUTTON_SETTINGS: {
-        selector: "a[href='/settings']",
-        info: "settings button"
+    BUTTON_PROFILE: {
+        selector: "button[id*='radix'][data-state='closed'] > span:not(:has(*))",
+        info: "profile button"
     },
 
     // CONTAINER INVOICE

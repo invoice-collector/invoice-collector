@@ -7,7 +7,7 @@ export const GoogleOauth2Selectors = {
     // LOGIN
 
     INPUT_EMAIL: {
-        selector: "input[type='email']",
+        selector: "input[type='email'][aria-disabled='false']",
         type: "Input email"
     },
     BUTTON_LOGIN_NEXT: {
@@ -15,11 +15,23 @@ export const GoogleOauth2Selectors = {
         type: "Button next"
     },
     CONTAINER_EMAIL_ERROR: {
-        selector: "html > body > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > c-wiz > main > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > form > span > section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1)",
+        selector: "div:has(> div > div >div > div > input[type='email']) > div[aria-live='polite'] > div:has(> span)",
         type: "Button next"
     },
+    BUTTON_TRY_ANOTHER_WAY: {
+        selector: "main > div[data-secondary-action-label]:not([data-primary-action-label]) > div > div > div > div > button",
+        type: "Button try another way"
+    },
+    BUTTON_TRY_ANOTHER_METHOD: {
+        selector: "main > div[data-secondary-action-label][data-primary-action-label] > div > div:nth-of-type(2) > div > div > button",
+        type: "Button try another method"
+    },
+    BUTTON_PASSWORD_METHOD: {
+        selector: "section ul > li > div[data-challengetype='1']",
+        type: "Button password method"
+    },
     INPUT_PASSWORD: {
-        selector: "input[type='password']",
+        selector: "input[type='password'][aria-disabled='false']",
         type: "Input password"
     },
     BUTTON_PASSWORD_NEXT: {
@@ -27,7 +39,7 @@ export const GoogleOauth2Selectors = {
         type: "Button next"
     },
     CONTAINER_PASSWORD_ERROR: {
-        selector: "html > body > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > c-wiz > main > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > form > span > section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > span",
+        selector: "div:has(> div > div >div > div > div > div > div > div > input[type='password']) > div[aria-live='polite'] > div:has(> span)",
         type: "Button next"
     },
 
@@ -45,8 +57,12 @@ export const GoogleOauth2Selectors = {
 
 export class GoogleOauth2 {
 
+    static check(driver: Driver): boolean {
+        return driver.url().includes("accounts.google.com") && driver.url().includes("/signin/");
+    }
+
     static async login(driver: Driver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
-        if(driver.url().includes("accounts.google.com") && driver.url().includes("signin/identifier")) {
+        if(GoogleOauth2.check(driver) && driver.url().includes("signin/identifier")) {
             // If input email is displayed
             const inputEmail = await driver.getElement(GoogleOauth2Selectors.INPUT_EMAIL, { raiseException: false });
             if(inputEmail) {
@@ -62,6 +78,20 @@ export class GoogleOauth2 {
                 return await emailError.textContent("i18n.collectors.all.email.error");
             }
 
+            // Wait for password input
+            const inputPassword = await driver.getElement(GoogleOauth2Selectors.INPUT_PASSWORD, { raiseException: false, timeout: 5000 });
+            // If not password displayed
+            if(!inputPassword) {
+                // Click try another way if displayed
+                const tryAnotherWayElement = await driver.leftClick(GoogleOauth2Selectors.BUTTON_TRY_ANOTHER_WAY, { raiseException: false, timeout: 2000 });
+                // Click try another method if displayed
+                const tryAnotherMethodElement = await driver.leftClick(GoogleOauth2Selectors.BUTTON_TRY_ANOTHER_METHOD, { raiseException: false, timeout: 2000 });
+                if(tryAnotherWayElement || tryAnotherMethodElement) {
+                    // Select password method
+                    await driver.leftClick(GoogleOauth2Selectors.BUTTON_PASSWORD_METHOD);
+                }
+            }
+
             // Input password and click next
             await driver.inputText(GoogleOauth2Selectors.INPUT_PASSWORD, params.password);
             await driver.leftClick(GoogleOauth2Selectors.BUTTON_PASSWORD_NEXT);
@@ -75,7 +105,7 @@ export class GoogleOauth2 {
     }
 
     static async needTwofa(driver: Driver): Promise<string | void> {
-        if(driver.url().includes("accounts.google.com") && driver.url().includes("signin/challenge")) {
+        if(GoogleOauth2.check(driver) && driver.url().includes("signin/challenge")) {
             // Select 2FA method if selection page is displayed
             if(driver.url().includes("signin/challenge/selection")) {
                 await driver.leftClick(GoogleOauth2Selectors.BUTTON_2FA_METHOD, { navigation: false });
@@ -87,9 +117,11 @@ export class GoogleOauth2 {
     }
 
     static async twofa(driver: Driver, params: any, twofa_promise: TwofaPromise, webSocketServer: WebSocketServer): Promise<string | void> {
-        if(driver.url().includes("accounts.google.com") && driver.url().includes("signin/challenge")) {
+        if(GoogleOauth2.check(driver) && driver.url().includes("signin/challenge")) {
             // Get code from UI
             const code = await Promise.race([twofa_promise.code(), webSocketServer.getTwofa()]);
+            // Wait for next page to load
+            await driver.waitForNavigation({timeout: 10000});
         }
     }
 }

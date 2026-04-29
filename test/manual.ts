@@ -207,8 +207,6 @@ function getHashFromSecret(secret: Secret): string {
                     rl.on('line', (input) => {
                         // Send close message to server
                         webSocketClient.send(JSON.stringify({ type: 'interactive', reason: 'close' }));
-                        // Close readline interface
-                        rl.close();
                     });
                 }
                 else if(parsedData.type == "state" && parsedData.state.index == 3) {
@@ -270,6 +268,7 @@ function getHashFromSecret(secret: Secret): string {
         }
 
         // ---------- PART 6 : PERFORM NEW COLLECT WITH COOCKIES AND LOCAL STORAGE ----------
+        console.log(`Performing new collect with cookies and local storage...`);
 
         // Override login method
         (collector as any).login = async (driver: any, params: any, webSocketServer: WebSocketServer | undefined) => {

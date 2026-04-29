@@ -11,7 +11,7 @@ export class BureauValleeCollector extends WebCollector {
         id: "bureau_vallee",
         name: "Bureau Vallée",
         description: "i18n.collectors.bureau_vallee.description",
-        version: "11",
+        version: "14",
         website: "https://www.bureau-vallee.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Logo-bureau-vallee-2021.png/320px-Logo-bureau-vallee-2021.png",
         type: CollectorType.WEB,
@@ -29,8 +29,8 @@ export class BureauValleeCollector extends WebCollector {
                 mandatory: true,
             }
         },
-        loginUrl: "https://www.bureau-vallee.fr/customer/account/login/",
-        entryUrl: "https://www.bureau-vallee.fr/invoice/invoice/",
+        loginUrl: "https://www.bureau-vallee.fr/customer/account/login",
+        entryUrl: "https://www.bureau-vallee.fr/customer/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: false
     }
@@ -53,9 +53,9 @@ export class BureauValleeCollector extends WebCollector {
             return await email_alert.textContent("i18n.collectors.all.email_or_number.error");
         }
     
-        // Check if signup form is displayed
-        const signup_form = await driver.getElement(BureauValleeSelectors.CONTAINER_SIGNUP_FORM, { raiseException: false, timeout: 2000 });
-        if (signup_form) {
+        // Check if password strength container is displayed, if yes, it means that the account doesn't exist
+        const passwordStrength = await driver.getElement(BureauValleeSelectors.CONTAINER_PASSWORD_STRENGTH, { raiseException: false, timeout: 100 });
+        if (passwordStrength) {
             return "i18n.collectors.all.signup.error";
         }
     
@@ -88,7 +88,7 @@ export class BureauValleeCollector extends WebCollector {
     async data(driver: Driver, element: Element): Promise<Invoice | null> {
         // Get data
         const date = await element.getAttribute(BureauValleeSelectors.CONTAINER_INVOICE_DATE, "textContent");
-        const timestamp = utils.timestampFromString(date, "dd'/'MM'/'yyyy", 'fr');
+        const timestamp = utils.timestampFromString(date, "'Facture du 'dd MMMM yyyy", 'fr');
         const amount = await element.getAttribute(BureauValleeSelectors.CONTAINER_INVOICE_AMOUNT, "textContent");
         const downloadElement = await element.getElement(BureauValleeSelectors.BUTTON_INVOICE_DOWNLOAD);
         const link = await element.getAttribute(BureauValleeSelectors.BUTTON_INVOICE_DOWNLOAD, "href");

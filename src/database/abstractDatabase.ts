@@ -1,7 +1,8 @@
-import { Customer, Stats } from "../model/customer";
+import { Customer, CustomerStats } from "../model/customer";
 import { User } from "../model/user";
 import { IcCredential } from "../model/credential";
 import { CollectorMemory } from "../model/collectorMemory";
+import { Callback } from "../model/callback";
 
 export abstract class AbstractDatabase {
     constructor() {
@@ -10,7 +11,7 @@ export abstract class AbstractDatabase {
         }
     }
 
-    abstract connect(): Promise<void>;
+    abstract connect(throwOnError?: boolean): Promise<void>;
 
     abstract disconnect(): Promise<void>;
 
@@ -26,17 +27,23 @@ export abstract class AbstractDatabase {
 
     abstract getCustomerFromEmailAndPassword(email: string, password: string): Promise<Customer|null>;
 
+    abstract getCustomerFromInviteId(inviteId: string): Promise<Customer|null>;
+
     abstract getCustomer(customer_id: string): Promise<Customer|null>;
 
     abstract updateCustomer(customer: Customer): Promise<void>;
 
-    abstract getCustomerStats(customer_id: string): Promise<Stats|null>;
+    abstract getCustomerStats(customer_id: string): Promise<CustomerStats|null>;
 
     // USER
 
     abstract getUsers(customer_id: string): Promise<User[]>;
 
     abstract getUser(user_id: string): Promise<User|null>;
+    
+    abstract getUserFromRemoteId(remoteId: string): Promise<User|null>;
+    
+    abstract getUserFromRemoteIdAndPassword(remoteId: string, password: string): Promise<User|null>;
 
     abstract getUserFromCustomerIdAndRemoteId(customer_id: string, remote_id: string): Promise<User|null>;
 
@@ -71,4 +78,16 @@ export abstract class AbstractDatabase {
     abstract createCollectorMemory(collectorMemory: CollectorMemory): Promise<CollectorMemory>;
 
     abstract updateCollectorMemory(collectorMemory: CollectorMemory): Promise<void>;
+    
+    // CALLBACK
+
+    abstract getCallbacks(customer_user_id: string): Promise<Callback[]>;
+
+    abstract getCallback(callback_id: string): Promise<Callback | null>;
+
+    abstract createCallback(callback: Callback): Promise<Callback>;
+
+    abstract updateCallback(callback: Callback): Promise<void>;
+
+    abstract deleteCallback(callback_id: string): Promise<void>;
 }

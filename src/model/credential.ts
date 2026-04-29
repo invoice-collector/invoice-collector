@@ -78,7 +78,7 @@ export class IcCredential {
     }
 
     getSecret(): Secret {
-        let secret = new Secret(`${this.user_id}_${this.collector_id}`);
+        let secret = new Secret(`${this.id}_${this.user_id}_${this.collector_id}`);
         secret.id = this.secret_id;
         return secret;
     }
@@ -109,7 +109,8 @@ export class IcCredential {
                 // Plan the next collection now
                 this.next_collect_timestamp = this.create_timestamp;
             }
-            else if (this.next_collect_timestamp < this.last_collect_timestamp) { // If next_collect_timestamp is before last_collect_timestamp
+            // If the planned next collect is before the last collect or the next collect has never been planned
+            else if (this.next_collect_timestamp < this.last_collect_timestamp || isNaN(this.next_collect_timestamp)) {
                 let theoretical_next_collect_timestamp;
 
                 // Compute maximum next collect timestamp from now

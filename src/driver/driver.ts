@@ -96,7 +96,7 @@ export class Driver {
             await this.page.setRequestInterception(true);
             this.page.on("request", (request) => {
                 if (!request.isInterceptResolutionHandled()) {
-                    if (request.resourceType() === "image" && this.collector.config.loadImages === false) {
+                    if (request.resourceType() === "image" && this.collector.config.loadImages === false && !request.url().includes("cloudflare.com")) {
                         request.abort('aborted', 0);
                     } else {
                         request.continue(request.continueRequestOverrides(), 0);
@@ -175,6 +175,11 @@ export class Driver {
             throw new Error('Browser is not initialized.');
         }
         return this.browser.pages();
+    }
+
+    async closePage(): Promise<void> {
+        // Close curretn page
+        await this.page?.close();
     }
 
     async closeExtraPages(): Promise<void> {
@@ -334,7 +339,17 @@ export class Driver {
         }
 
         const elementHandle = await context.evaluateHandle((x, y) => {
-            return document.elementFromPoint(x, y);
+            function elementFromPointDeep(x: number, y: number, currentRoot: DocumentOrShadowRoot): globalThis.Element | null {
+                const el = currentRoot.elementFromPoint(x, y);
+                if (!el) {
+                    return null;
+                }
+                if (el.shadowRoot) {
+                    return elementFromPointDeep(x, y, el.shadowRoot);
+                }
+                return el;
+            }
+            return elementFromPointDeep(x, y, document);
         }, x, y);
 
         if (!elementHandle) {
@@ -416,14 +431,15 @@ export class Driver {
         raiseException = true,
         timeout = Driver.DEFAULT_TIMEOUT,
         delay = Driver.DEFAULT_DELAY,
-        navigation = true
+        navigation = true,
+        mouseHover = false
     } = {}): Promise<Element | null> {
         if (this.page === null) {
             throw new Error('Page is not initialized.');
         }
         let element = await this.getElement(selector, { raiseException, timeout });
         if(element != null) {
-            await element.leftClick({ timeout, delay, navigation });
+            await element.leftClick({ timeout, delay, navigation, mouseHover });
             return element;
         }
         return null;
@@ -433,11 +449,12 @@ export class Driver {
         raiseException = true,
         timeout = Driver.DEFAULT_TIMEOUT,
         delay = Driver.DEFAULT_DELAY,
-        tries = 5
+        tries = 5,
+        mouseHover = false
     } = {}): Promise<Element | null> {
         let element = await this.getElement(selector, { raiseException, timeout });
         if(element != null) {
-            await element.inputText(text, { tries, timeout, delay });
+            await element.inputText(text, { tries, timeout, delay, mouseHover });
             return element;
         }
         return null;
@@ -446,11 +463,12 @@ export class Driver {
     async dropdownSelect(selector, value: string, {
         raiseException = true,
         timeout = Driver.DEFAULT_TIMEOUT,
-        delay = Driver.DEFAULT_DELAY
+        delay = Driver.DEFAULT_DELAY,
+        mouseHover = false
     } = {}): Promise<Element | null> {
         const element = await this.getElement(selector, { raiseException, timeout });
         if (element) {
-            await element.dropdownSelect(value, { delay });
+            await element.dropdownSelect(value, { delay, mouseHover });
             return element;
         }
         return null;
@@ -490,7 +508,12 @@ export class Driver {
         if (this.page === null) {
             throw new Error('Page is not initialized.');
         }
-    
+
+        // If current url is about:blank, return empty string
+        if (this.url() === 'about:blank') {
+            return '';
+        }
+
         let frames;
         // If not including iframes
         if (!includeIframes) {
@@ -604,11 +627,13 @@ export class Driver {
         if (this.page === null) {
             throw new Error('Page is not initialized.');
         }
-        await this.waitFor(async (driver) => {
-            const token = await driver.page.$eval("input[name='cf-turnstile-response']", (element, attr) => element[attr], "value");
-            return token && token.length > 20 ? token : null;
-        },
-        "Cloudflare turnstile captcha did not succeed");
+        // Wait for Cloudflare turnstile value to be present
+        await this.getElement({
+            selector: "input[name='cf-turnstile-response'][value]",
+            info: "Cloudflare turnstile response input with value"
+        }, {
+            raiseException: false
+        });
     }
 
     async waitForDatadomeCaptcha(): Promise<void> {
@@ -732,8 +757,13 @@ export class Element {
     async leftClick({
         timeout = Driver.DEFAULT_TIMEOUT,
         delay = Driver.DEFAULT_DELAY,
-        navigation = true
+        navigation = true,
+        mouseHover = false
     } = {}): Promise<void> {
+        if (mouseHover) {
+            await this.element.hover();
+            await utils.delay(delay);
+        }
         await this.element.click();
         await utils.delay(delay);
         if(navigation === true) {
@@ -741,19 +771,24 @@ export class Element {
         }
     }
 
-    async middleClick(): Promise<void> {
-        // Get number of opened pages before middle click
-        const numberOfPagesBefore = (await this.driver.pages()).length;
-        // Perform middle click
-        await this.element.click({ button: 'middle' });
-        // Wait for the new tab to open
-        await utils.delay(5000);
-        // Get number of opened pages after middle click
-        const pages = await this.driver.pages();
-        // Get number of opened pages after middle click
-        const numberOfPagesAfter = pages.length;
-        // If no new page opened
-        if (numberOfPagesAfter == numberOfPagesBefore) {
+    async middleClick({
+        useFallbackMethod = false
+    } = {}): Promise<void> {
+        // If does not open in a new page by default
+        if(!useFallbackMethod) {
+            // Get number of opened pages before middle click
+            const numberOfPagesBefore = (await this.driver.pages()).length;
+            // Perform middle click
+            await this.element.click({ button: 'middle' });
+            // Wait for the new tab to open
+            await utils.delay(5000);
+            // Get number of opened pages after middle click
+            const pages = await this.driver.pages();
+            // If no new page opened, set useFallbackMethod to true
+            useFallbackMethod = pages.length == numberOfPagesBefore;
+        }
+        // If need to open in a new page
+        if (useFallbackMethod) {
             // Get current url
             const currentUrl = this.driver.url();
             // Open new page
@@ -763,7 +798,7 @@ export class Element {
             // Click on the element again
             await this.driver.leftClick({
                 selector: await this.cssSelector(),
-                info: ""
+                info: "middle click"
             });
         }
     }
@@ -772,8 +807,13 @@ export class Element {
         tries = 5,
         timeout = Driver.DEFAULT_TIMEOUT,
         delay = Driver.DEFAULT_DELAY,
-        navigation = false
+        navigation = false,
+        mouseHover = false
     } = {}): Promise<void> {
+        if (mouseHover) {
+            await this.element.hover();
+            await utils.delay(delay);
+        }
         if (tries > 0) {
             let currentValue = null;
             while (currentValue !== text && tries > 0) {
@@ -795,8 +835,13 @@ export class Element {
     }
 
     async dropdownSelect(value: string, {
-        delay = Driver.DEFAULT_DELAY
+        delay = Driver.DEFAULT_DELAY,
+        mouseHover = false
     } = {}): Promise<void> {
+        if (mouseHover) {
+            await this.element.hover();
+            await utils.delay(delay);
+        }
         await this.element.select(value);
         await utils.delay(delay);
     }
@@ -822,6 +867,12 @@ export class Element {
                     if (sibling.tagName === element.tagName) nth++;
                 }
                 selector += `:nth-of-type(${nth})`;
+
+                // If parent is null and root node is not document, it means we are in a shadow DOM and we need to get the selector of the parent element in the main DOM
+                if (element.parentElement! === null && element.getRootNode() !== document) {
+                    console.log("We are in a shadow DOM");
+                    return getCssSelector(element.getRootNode().host) + ' >>>> ' + selector;
+                }
                 return getCssSelector(element.parentElement!) + ' > ' + selector;
             }
             return getCssSelector(element);

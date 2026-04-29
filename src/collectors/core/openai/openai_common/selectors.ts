@@ -1,10 +1,5 @@
 export const OpenaiSelectors = {
     //LOGIN PAGE
-
-    BUTTON_LOGIN_OR_OUPS: {
-        selector: "button[data-color='primary'][data-variant='soft'], .onb-homepage-link",
-        info: "login button"
-    },
     FIELD_EMAIL: {
         selector: "input[autocomplete='email']",
         info: "login input field"
@@ -18,7 +13,7 @@ export const OpenaiSelectors = {
         info: "email error container"
     },
     FIELD_PASSWORD: {
-        selector: "input[autocomplete='current-password']",
+        selector: "input[name='current-password']",
         info: "password input field"
     },
     BUTTON_PASSWORD_CONTINUE: {

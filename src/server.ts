@@ -2,41 +2,47 @@ import { DatabaseFactory } from './database/databaseFactory';
 import { Secret } from './model/secret';
 import { SecretManagerFactory } from './secret_manager/secretManagerFactory';
 import { OauthError, MissingField, MissingParams, StatusError, AuthenticationBearerError } from './error';
-import { generate_token } from './utils';
 import { CollectorLoader } from './collectors/collectorLoader';
-import { User } from './model/user';
-import { Customer, Stats } from './model/customer';
+import { User, UserStats } from './model/user';
+import { Customer, CustomerStats } from './model/customer';
 import { IcCredential } from './model/credential';
 import { CollectTask } from './collect/collectTask';
 import { ProxyFactory } from './proxy/proxyFactory';
 import { AbstractCollector, CollectorType, Config } from './collectors/abstractCollector';
-import { RegistryServer } from './registryServer';
+import { RegistryFactory } from './registry/registryFactory';
 import * as utils from './utils';
-import { CallbackHandler } from './callback/callback';
 import { CollectPool } from './collect/collectPool';
 import { Collect } from './collect/collect';
 import { I18n } from './i18n';
 import { Plan } from './model/plan';
 import { State } from './model/state';
 import { WebSocketServer } from './websocket/webSocketServer';
+import { IntegrationLoader } from './integration/integrationLoader';
+import { Callback } from './model/callback';
+import { IntegrationConfig } from './integration/abstractIntegration';
 
 export class Server {
 
-    static OAUTH_TOKEN_VALIDITY_DURATION_MS = Number(utils.getEnvVar("OAUTH_TOKEN_VALIDITY_DURATION_MS", "1800000"));
-    static RESET_PASSWORD_TOKEN_VALIDITY_DURATION_MS = Number(utils.getEnvVar("RESET_PASSWORD_TOKEN_VALIDITY_DURATION_MS", "3600000"));
-    static UI_BEARER_VALIDITY_DURATION_MS = Number(utils.getEnvVar("UI_BEARER_VALIDITY_DURATION_MS", "3600000"));
+    static OAUTH_TOKEN_VALIDITY_DURATION_MS = Number(utils.getEnvVar("OAUTH_TOKEN_VALIDITY_DURATION_MS", "1800000"));                   // 30 minutes in milliseconds
+    static RESET_PASSWORD_TOKEN_VALIDITY_DURATION_MS = Number(utils.getEnvVar("RESET_PASSWORD_TOKEN_VALIDITY_DURATION_MS", "3600000")); // 1 hour in milliseconds
+    static UI_BEARER_VALIDITY_DURATION_MS = Number(utils.getEnvVar("UI_BEARER_VALIDITY_DURATION_MS", "3600000"));                       // 1 hour in milliseconds
     static IS_SELF_HOSTED: boolean = utils.getEnvVar("IS_SELF_HOSTED", "true").toLowerCase() === "true";
 
-    uiTokens: { [key: string]: User };
-    resetTokens: { [key: string]: string };
-    uiBearers: { [key: string]: string };
+    customerUiBearers: { [key: string]: string };
+    customerResetTokens: { [key: string]: string };
+    userUiBearers: { [key: string]: string };
+    userUiTokens: { [key: string]: User };
+    userResetTokens: { [key: string]: string };
+
     collect_task: CollectTask;
     httpServer: any;
 
     constructor() {
-        this.uiTokens = {};
-        this.resetTokens = {};
-        this.uiBearers = {};
+        this.customerUiBearers = {};
+        this.customerResetTokens = {};
+        this.userUiBearers = {};
+        this.userUiTokens = {};
+        this.userResetTokens = {};
         this.collect_task = new CollectTask();
 	}
 
@@ -52,7 +58,7 @@ export class Server {
         await SecretManagerFactory.getSecretManager().connect();
 
         // Check if registery server is reachable
-        RegistryServer.getInstance().ping();
+        RegistryFactory.getInstance().ping();
 
         // Start cron job for invoice collection
         this.collect_task.start();
@@ -70,38 +76,6 @@ export class Server {
 
         // Return locale and theme for UI rendering
         return { locale: user.locale, theme: customer.theme };
-    }
-
-    // BEARER AUTHENTICATION
-    public async get_test_callback(bearer: string | undefined, type: string): Promise<void> {
-        // Get customer from bearer
-        const customer = await this.getCustomerFromBearer(bearer);
-
-        // Check if type field is missing
-        if(!type) {
-            throw new MissingField("type");
-        }
-
-        // Create callback handler
-        const callback = new CallbackHandler(customer);
-
-        // If type is "invoice", send a fake invoice
-        if(type === "invoice") {
-            // Get fake invoice datas
-            let {collector_id, remote_id, invoice} = utils.createFakeInvoice();
-
-            // Send fake invoice to callback
-            await callback.sendInvoice(collector_id, remote_id, invoice);
-        }
-        else if(type === "notification_disconnected") {
-            // Get fake notification disconnected
-            let {collector_id, credential_id, user_id, remote_id } = utils.createFakeNotificationDisconnected();
-            // Send notification disconnected
-            await callback.sendNotificationDisconnected(collector_id, credential_id, user_id, remote_id);
-        }
-        else {
-            throw new StatusError(`Type "${type}" not supported.`, 400);
-        }
     }
 
     // TOKEN AUTHENTICATION
@@ -125,7 +99,7 @@ export class Server {
         const customer = await this.getCustomerFromBearerOrToken(bearer, token);
 
         // Send feedback to registry server
-        await RegistryServer.getInstance().feedback(
+        await RegistryFactory.getInstance().feedback(
             type,
             message,
             customer.email,
@@ -140,7 +114,8 @@ export class Server {
         email: string | undefined,
         password: string | undefined
     ): Promise<{
-        bearer: string
+        bearer: string,
+        type: string
     }> {
         // Check if email field is missing
         if(!email) {
@@ -155,99 +130,262 @@ export class Server {
         // Get customer from email
         const customer = await Customer.fromEmailAndPassword(email, utils.hash_string(password));
 
-        // Check if customer exists
-        if(!customer) {
-            throw new StatusError("Invalid credentials", 401);
+        // If customer exists
+        if(customer) {
+            // Generate session bearer token
+            const customerUiBearer = utils.generate_bearer(utils.BearerType.CUSTOMER_SESSION);
+
+            // Compute hashed bearer
+            const hashedCustomerUiBearer = utils.hash_string(customerUiBearer);
+
+            // Map bearer token with customer
+            this.customerUiBearers[hashedCustomerUiBearer] = customer.id;
+
+            // Schedule token delete after validity duration
+            setTimeout(() => {
+                delete this.customerUiBearers[hashedCustomerUiBearer];
+            }, Server.UI_BEARER_VALIDITY_DURATION_MS);
+
+            // Return bearer token
+            return {
+                bearer: customerUiBearer,
+                type: "customer"
+            };
         }
+        else {
+            // Get user from remote_id and password
+            const user = await User.fromRemoteIdAndPassword(email, utils.hash_string(password));
+            
+            // Check if user exists
+            if(!user) {
+                throw new StatusError("Invalid credentials", 401);
+            }
 
-        // Generate session bearer token
-        const uiBearer = utils.generate_bearer(utils.BearerType.SESSION);
+            // Generate session bearer token
+            const userUiBearer = utils.generate_bearer(utils.BearerType.USER_SESSION);
 
-        // Compute hashed bearer
-        const hashed_bearer = utils.hash_string(uiBearer);
+            // Compute hashed bearer
+            const hashedUserUiBearer = utils.hash_string(userUiBearer);
 
-        // Map bearer token with customer
-        this.uiBearers[hashed_bearer] = customer.id;
+            // Map bearer token with user
+            this.userUiBearers[hashedUserUiBearer] = user.id;
 
-        // Schedule token delete after validity duration
-        setTimeout(() => {
-            delete this.uiBearers[hashed_bearer];
-        }, Server.UI_BEARER_VALIDITY_DURATION_MS);
+            // Schedule token delete after validity duration
+            setTimeout(() => {
+                delete this.userUiBearers[hashedUserUiBearer];
+            }, Server.UI_BEARER_VALIDITY_DURATION_MS);
 
-        return { bearer: uiBearer };
+            // Return bearer token
+            return {
+                bearer: userUiBearer,
+                type: "user"
+            };
+        }
     }
 
     // NO AUTHENTICATION
     public async post_signup(
         email: string | undefined,
-        name: string | undefined
-    ): Promise<void> {
+        name: string | undefined,
+        cid: string | undefined,
+        locale: string | undefined,
+        inviteId: string | undefined
+    ): Promise<{
+        resetToken: string
+    }> {
         // Check if email field is missing
         if(!email) {
             throw new MissingField("email");
         }
 
+        // Check if name field is missing
+        if(!name) {
+            throw new MissingField("name");
+        }
+
+        // Check if cid field is missing
+        if(!cid) {
+            throw new MissingField("cid");
+        }
+
+        // Check if email is valid
+        if(!utils.checkEmailIsValid(email)) {
+            throw new StatusError(`Email "${email}" is not valid.`, 400);
+        }
+
+        // Check if email contains alias
+        if(email.includes("+")) {
+            throw new StatusError(`Email "${email}" is not valid. Aliases are not allowed.`, 400);
+        }
+
         // Check if customer already exists
         let customer = await Customer.fromEmail(email);
 
-        // If customer does not exist, create it
-        if(!customer) {
-            // Check if name field is missing
-            if(!name) {
-                throw new MissingField("name");
+        // Check if user already exists
+        let user = await User.fromRemoteId(email);
+
+        // If customer or user exists, raise error
+        if(customer || user) {
+            throw new StatusError(`An account with email "${email}" already exists. Please log in instead.`, 400);
+        }
+
+        // If inviteId is provided, it is a user signup
+        if (inviteId) {
+            // Get customer id from invite id
+            customer = await Customer.fromInviteId(inviteId);
+
+            // If no customer found for invite id, raise error
+            if (!customer) {
+                throw new StatusError(`No customer found for invite ID "${inviteId}".`, 400);
             }
 
+            // Create new user for existing customer
+            user = new User(
+                customer.id,
+                email,
+                User.DEFAULT_PASSWORD,
+                name,
+                cid,
+                null,
+                locale || I18n.DEFAULT_LOCALE,
+                Date.now()
+            );
+
+            // Commit changes in database
+            await user.commit();
+
+            // Send welcome email
+            await RegistryFactory.getInstance().sendWelcomeEmail(email, user.locale);
+
+            // Handle password reset for user
+            const resetToken = await this.handleUserResetPassword(user);
+
+            // Return reset token
+            return { resetToken: resetToken };
+        }
+        else {
             // Create new customer
-            customer = new Customer(email, "", name, "", "", "");
+            customer = new Customer(
+                email,
+                Customer.DEFAULT_PASSWORD,
+                name,
+                cid,
+                Customer.DEFAULT_REMOTE_ID,
+                Customer.DEFAULT_BEARER,
+                utils.convertNameToInviteId(name),
+                Date.now()
+            );
 
             // Commit changes in database
             await customer.commit();
 
             // Send welcome email
-            await RegistryServer.getInstance().sendWelcomeEmail(email, "en");
+            await RegistryFactory.getInstance().sendWelcomeEmail(email, locale || I18n.DEFAULT_LOCALE);
+
+            // Handle password reset for customer
+            const resetToken = await this.handleCustomerResetPassword(customer);
+
+            // Return reset token
+            return { resetToken: resetToken };
+        }
+    }
+
+    // NO AUTHENTICATION
+    public async post_forgot(
+        email: string | undefined
+    ): Promise<{
+        resetToken: string
+    }> {
+        // Check if email field is missing
+        if(!email) {
+            throw new MissingField("email");
         }
 
-        // Generate reset token
-        const resetToken = utils.generate_token();
+        // Get customer from email
+        let customer = await Customer.fromEmail(email);
 
-        // Map reset token with customer
-        this.resetTokens[resetToken] = customer.id;
+        // If customer exists
+        if(customer) {
+            // Generate reset token
+            const resetToken = await this.handleCustomerResetPassword(customer);
 
-        // Schedule token delete after validity duration
-        setTimeout(() => {
-            delete this.resetTokens[resetToken];
-        }, Server.RESET_PASSWORD_TOKEN_VALIDITY_DURATION_MS);
+            // Return reset token
+            return { resetToken: resetToken };
+        }
 
-        // Send reset password email
-        await RegistryServer.getInstance().sendResetPasswordEmail(email, resetToken);
+        // Check if customer already exists
+        let user = await User.fromRemoteId(email);
+
+        // If user exists
+        if(user) {
+            // Generate reset token and return it
+            const resetToken = await this.handleUserResetPassword(user);
+
+            // Return reset token
+            return { resetToken: resetToken };
+        }
+
+        // If not customer or user found, raise error
+        throw new StatusError(`No account found for email "${email}".`, 400);
     }
 
     // RESET TOKEN AUTHENTICATION
     public async post_reset(
-        token: any,
-        password: string | undefined
+        resetToken: any,
+        password: string
     ): Promise<void> {
-        // Check if token field is missing
-        if(!token) {
+
+        // Check if reset token exists and is a string
+        if (!resetToken ||typeof resetToken !== 'string') {
             throw new MissingField("token");
         }
 
-        // Check if password field is missing
-        if(!password) {
+        // Check if password exists and is a string
+        if (!password || typeof password !== 'string') {
             throw new MissingField("password");
         }
 
-        // Get customer from reset token
-        const customer = await this.getCustomerFromResetToken(token);
+        // If reset token belongs to a customer
+        if(this.customerResetTokens.hasOwnProperty(resetToken)) {
+            // Get customer from id
+            const customer = await Customer.fromId(this.customerResetTokens[resetToken]);
 
-        // Set new password
-        customer.password = utils.hash_string(password);
+            // Check if customer exists
+            if(!customer) {
+                throw new StatusError(`Customer with id "${this.customerResetTokens[resetToken]}" not found.`, 400);
+            }
 
-        // Commit changes in database
-        await customer.commit();
+            // Set new password
+            customer.password = utils.hash_string(password);
 
-        // Delete reset token
-        delete this.resetTokens[token];
+            // Commit changes in database
+            await customer.commit();
+
+            // Delete customer reset token
+            delete this.customerResetTokens[resetToken];
+        }
+        // If reset token belongs to a user
+        else if(this.userResetTokens.hasOwnProperty(resetToken)) {
+            // Get user from id
+            const user = await User.fromId(this.userResetTokens[resetToken]);
+
+            // Check if user exists
+            if(!user) {
+                throw new StatusError(`User with id "${this.userResetTokens[resetToken]}" not found.`, 400);
+            }
+
+            // Set new password
+            user.password = utils.hash_string(password);
+
+            // Commit changes in database
+            await user.commit();
+
+            // Delete user reset token
+            delete this.userResetTokens[resetToken];
+        }
+        else {
+            throw new StatusError("Invalid reset token. Your reset link probably expired.", 401);
+        }
     }
 
     // ---------- CUSTOMER ENDPOINTS ----------
@@ -257,8 +395,9 @@ export class Server {
         id: string,
         email: string,
         name: string,
-        callback: string,
         remoteId: string,
+        cid: string,
+        inviteId: string,
         createdAt: number,
         theme: string,
         subscribedCollectors: string[],
@@ -271,12 +410,14 @@ export class Server {
         // Get customer from bearer
         const customer = await this.getCustomerFromBearer(bearer);
 
+        // Return customer
         return {
             id: customer.id,
             email: customer.email,
             name: customer.name,
-            callback: customer.callback,
             remoteId: customer.remoteId,
+            cid: customer.cid,
+            inviteId: customer.inviteId,
             createdAt: customer.createdAt,
             theme: customer.theme,
             subscribedCollectors: customer.subscribedCollectors,
@@ -289,17 +430,32 @@ export class Server {
     }
 
     // BEARER AUTHENTICATION
-    public async post_customer(
+    public async put_customer(
         bearer: string | undefined,
         name: string | undefined,
-        callback: string | undefined,
         remoteId: string | undefined,
+        cid: string | undefined,
         theme: string | undefined,
         subscribedCollectors: string[] | undefined,
         isSubscribedToAll: boolean | undefined,
         enableInteractiveLogin: boolean | undefined,
         displaySketchCollectors: boolean | undefined
-    ): Promise<void> {
+    ): Promise<{
+        id: string,
+        email: string,
+        name: string,
+        remoteId: string,
+        cid: string,
+        inviteId: string,
+        createdAt: number,
+        theme: string,
+        subscribedCollectors: string[],
+        isSubscribedToAll: boolean,
+        enableInteractiveLogin: boolean,
+        displaySketchCollectors: boolean,
+        maxDelayBetweenCollect: number,
+        plan: Plan
+    }> {
         // Get customer from bearer
         const customer = await this.getCustomerFromBearer(bearer);
 
@@ -308,14 +464,14 @@ export class Server {
             customer.name = name;
         }
 
-        // Check if callback field is present
-        if(callback) {
-            customer.callback = callback;
-        }
-
         // Check if remoteId field is present
         if(remoteId) {
             customer.remoteId = remoteId;
+        }
+
+        // Check if cid field is present
+        if(cid) {
+            customer.cid = cid;
         }
 
         // Check if theme field is present
@@ -341,6 +497,24 @@ export class Server {
 
         // Commit changes in database
         await customer.commit();
+
+        // Return customer
+        return {
+            id: customer.id,
+            email: customer.email,
+            name: customer.name,
+            remoteId: customer.remoteId,
+            cid: customer.cid,
+            inviteId: customer.inviteId,
+            createdAt: customer.createdAt,
+            theme: customer.theme,
+            subscribedCollectors: customer.subscribedCollectors,
+            isSubscribedToAll: customer.isSubscribedToAll,
+            enableInteractiveLogin: customer.enableInteractiveLogin,
+            displaySketchCollectors: customer.displaySketchCollectors,
+            maxDelayBetweenCollect: customer.maxDelayBetweenCollect,
+            plan: customer.plan
+        };
     }
 
     // BEARER AUTHENTICATION
@@ -366,7 +540,7 @@ export class Server {
         return { bearer: newBearer };
     }
 
-    public async getCustomerStats(bearer: string | undefined): Promise<Stats>{
+    public async getCustomerStats(bearer: string | undefined): Promise<CustomerStats>{
         // Get customer from bearer
         const customer = await this.getCustomerFromBearer(bearer);
 
@@ -382,8 +556,15 @@ export class Server {
         id: string,
         customer_id: string,
         remote_id: string,
+        name: string,
+        cid: string,
         locale: string,
-        createdAt: number
+        createdAt: number,
+        customer: {
+            name: string,
+            cid: string
+        },
+        stats: UserStats
     }[]> {
         // Get customer from bearer
         const customer = await this.getCustomerFromBearer(bearer);
@@ -392,15 +573,26 @@ export class Server {
         const users = await customer.getUsers();
 
         // Return users
-        return users.map((user) => {
+        return await Promise.all(users.map(async (user) => {
+            // Get user stats
+            const stats = await user.getStats();
+
+            // Return user with credentials count
             return {
                 id: user.id,
                 customer_id: user.customer_id,
                 remote_id: user.remote_id,
+                name: user.name,
+                cid: user.cid,
                 locale: user.locale,
-                createdAt: user.createdAt
+                createdAt: user.createdAt,
+                customer: {
+                    name: customer.name,
+                    cid: customer.cid
+                },
+                stats: stats
             };
-        });
+        }));
     }
 
     // BEARER AUTHENTICATION
@@ -413,9 +605,16 @@ export class Server {
         id: string,
         customer_id: string,
         remote_id: string,
+        name: string,
+        cid: string,
         locale: string,
         createdAt: number,
-        token: string
+        token: string,
+        customer: {
+            name: string,
+            cid: string
+        },
+        stats: UserStats
     }> {
         // Get customer from bearer
         const customer = await this.getCustomerFromBearer(bearer);
@@ -440,6 +639,12 @@ export class Server {
             throw new StatusError(`Locale "${locale}" not supported. Available locales are: ${I18n.LOCALES.join(", ")}.`, 400);
         }
 
+        // Check if customer with this remote_id/email already exists
+        const existingCustomer = await Customer.fromEmail(remote_id);
+        if (existingCustomer) {
+            throw new StatusError(`A customer with this email already exists.`, 400);
+        }
+
         // Get user from remote_id
         let user = await customer.getUserFromRemoteId(remote_id);
 
@@ -456,7 +661,16 @@ export class Server {
             // Get user location
             const location = await ProxyFactory.getProxy().locate(ip);
             // Create user
-            user = new User(customer.id, remote_id, location, locale);
+            user = new User(
+                customer.id,
+                remote_id,
+                User.DEFAULT_PASSWORD,
+                User.DEFAULT_NAME,
+                User.DEFAULT_CID,
+                location,
+                locale,
+                Date.now()
+            );
         }
         else {
             // Update user locale
@@ -475,26 +689,164 @@ export class Server {
         // Commit changes in database
         await user.commit();
 
-        // Generate oauth token
-        const uiToken = generate_token();
+        // Generate UI token
+        const uiToken = this.generateUiToken(user);
 
-        // Map token with user
-        this.uiTokens[uiToken] = user;
-
-        // Schedule token delete after validity duration
-        setTimeout(() => {
-            delete this.uiTokens[uiToken];
-        }, Server.OAUTH_TOKEN_VALIDITY_DURATION_MS);
+        // Get user stats
+        const stats = await user.getStats();
 
         return {
             id: user.id,
             customer_id: user.customer_id,
             remote_id: user.remote_id,
+            name: user.name,
+            cid: user.cid,
             locale: user.locale,
             createdAt: user.createdAt,
             token: uiToken,
+            customer: {
+                name: customer.name,
+                cid: customer.cid
+            },
+            stats: stats
         }
     }
+
+    // BEARER AUTHENTICATION
+    public async get_user(bearer: string | undefined, user_id: string): Promise<{
+        id: string,
+        customer_id: string,
+        remote_id: string,
+        name: string,
+        cid: string,
+        locale: string,
+        createdAt: number,
+        token: string,
+        customer: {
+            name: string,
+            cid: string
+        },
+        stats: UserStats
+    }> {
+        // Get user from bearer
+        const user = await this.getUserFromBearerOrToken(bearer, user_id, null);
+
+        // Get customer from user
+        const customer = await user.getCustomer();
+
+        // Generate UI token
+        const uiToken = this.generateUiToken(user);
+
+        // Get user stats
+        const stats = await user.getStats();
+
+        // Return user
+        return {
+            id: user.id,
+            customer_id: user.customer_id,
+            remote_id: user.remote_id,
+            name: user.name,
+            cid: user.cid,
+            locale: user.locale,
+            createdAt: user.createdAt,
+            token: uiToken,
+            customer: {
+                name: customer.name,
+                cid: customer.cid
+            },
+            stats: stats
+        };
+    }
+
+    // BEARER AUTHENTICATION
+    public async put_user(
+        bearer: string | undefined,
+        user_id: string,
+        remote_id: string | undefined,
+        name: string | undefined,
+        cid: string | undefined,
+        locale: string | undefined
+    ): Promise<{
+        id: string,
+        customer_id: string,
+        remote_id: string,
+        name: string,
+        cid: string,
+        locale: string,
+        createdAt: number,
+        customer: {
+            name: string,
+            cid: string
+        },
+        stats: UserStats
+    }> {
+        // Get user from bearer
+        const user = await this.getUserFromBearerOrToken(bearer, user_id, null);
+
+        // Get customer from user
+        const customer = await user.getCustomer();
+
+        // Check if remote_id field is present
+        if(remote_id) {
+            // Check if remote_id contains space
+            if(remote_id.includes(" ")) {
+                throw new StatusError(`Remote ID "${remote_id}" cannot contain spaces.`, 400);
+            }
+            // Check if a customer with this remote_id/email already exists
+            const existingCustomer = await Customer.fromEmail(remote_id);
+            if (existingCustomer) {
+                throw new StatusError(`A customer with this email already exists.`, 400);
+            }
+            // Check if remote_id is already used by another user of the same customer
+            const userFromRemoteId = await customer.getUserFromRemoteId(remote_id);
+            if (userFromRemoteId && userFromRemoteId.id !== user.id) {
+                throw new StatusError(`Remote ID "${remote_id}" is already used by another user.`, 400);
+            }
+            user.remote_id = remote_id;
+        }
+
+        // Check if name field is present
+        if(name) {
+            user.name = name;
+        }
+
+        // Check if cid field is present
+        if(cid) {
+            user.cid = cid;
+        }
+
+        // Check if locale field is present
+        if(locale) {
+            // Check if locale is supported
+            if(locale && !I18n.LOCALES.includes(locale)) {
+                throw new StatusError(`Locale "${locale}" not supported. Available locales are: ${I18n.LOCALES.join(", ")}.`, 400);
+            }
+            user.locale = locale;
+        }
+
+        // Commit changes in database
+        await user.commit();
+
+        // Get user stats
+        const stats = await user.getStats();
+
+        // Return user
+        return {
+            id: user.id,
+            customer_id: user.customer_id,
+            remote_id: user.remote_id,
+            name: user.name,
+            cid: user.cid,
+            locale: user.locale,
+            createdAt: user.createdAt,
+            customer: {
+                name: customer.name,
+                cid: customer.cid
+            },
+            stats: stats
+        };
+    }
+
 
     // BEARER AUTHENTICATION
     public async delete_user(bearer: string | undefined, user_id: string) {
@@ -518,9 +870,9 @@ export class Server {
         await user.delete();
 
         // Delete user from ui token mapping
-        for (let uiToken in this.uiTokens) {
-            if (this.uiTokens[uiToken].id === user.id) {
-                delete this.uiTokens[uiToken];
+        for (let uiToken in this.userUiTokens) {
+            if (this.userUiTokens[uiToken].id === user.id) {
+                delete this.userUiTokens[uiToken];
             }
         }
     }
@@ -530,7 +882,7 @@ export class Server {
     // TOKEN AUTHENTICATION
     public async get_credentials(
         bearer: string | undefined,
-        user_id: string | undefined,
+        user_id: string,
         token: any
     ): Promise<{
         id: string,
@@ -597,7 +949,7 @@ export class Server {
     // TOKEN AUTHENTICATION
     public async post_credential(
         bearer: string | undefined,
-        user_id: string | undefined,
+        user_id: string,
         token: any,
         collector_id: string | undefined,
         params: any | undefined,
@@ -642,11 +994,6 @@ export class Server {
         // Update collector params based on customer settings
         AbstractCollector.updateCollectorParams(customer.enableInteractiveLogin, collector.config);
 
-        // Check if customer has define a callback URL
-        if(!customer.callback) {
-            throw new StatusError(`No callback url defined for the customer. Please define a callback URL first.`, 400);
-        }
-
         // Check if customer has subscribed to the collector
         if (!customer.isSubscribedToAll && !customer.subscribedCollectors.includes(collector.config.id)) {
             throw new StatusError(`Customer has not subscribed to collector "${collector.config.id}". Available collectors are: ${customer.subscribedCollectors.join(", ")}.`, 400);
@@ -664,7 +1011,7 @@ export class Server {
 
         // Check if collector is sketch
         if(collector.config.type == CollectorType.SKETCH) {
-            await RegistryServer.getInstance().feedback(
+            await RegistryFactory.getInstance().feedback(
                 "sketch",
                 `User ${user.id} from customer ${customer.id} (${customer.name}) needs collector ${collector.config.id} to be implemented.`,
                 customer.email,
@@ -748,7 +1095,7 @@ export class Server {
     // TOKEN AUTHENTICATION
     public async get_credential(
         bearer: string | undefined,
-        user_id: string | undefined,
+        user_id: string,
         token: any,
         id: string
     ): Promise<{
@@ -824,7 +1171,7 @@ export class Server {
     // TOKEN AUTHENTICATION
     public async delete_credential(
         bearer: string | undefined,
-        user_id: string | undefined,
+        user_id: string,
         token: any,
         id: string
     ): Promise<void> {
@@ -851,7 +1198,7 @@ export class Server {
     // TOKEN AUTHENTICATION
     public async post_credential_2fa(
         bearer: string | undefined,
-        user_id: string | undefined,
+        user_id: string,
         token: any,
         credential_id: string,
         code: string | undefined
@@ -895,7 +1242,7 @@ export class Server {
     // BEARER AUTHENTICATION
     public async post_credential_collect(
         bearer: string | undefined,
-        user_id: string | undefined,
+        user_id: string,
         token: any,
         credential_id: string
     ): Promise<{
@@ -1025,31 +1372,288 @@ export class Server {
             });
     }
 
+    // ---------- CALLBACKS ENDPOINTS ----------
+
+    // BEARER AUTHENTICATION
+    public async get_callbacks(
+        bearer: string | undefined
+    ): Promise<{
+        id: string,
+        customer_user_id: string,
+        integration: IntegrationConfig,
+        createdAt: number,
+        automaticExport: boolean
+    }[]> {
+        // Get customer from bearer
+        const customer = await this.getCustomerFromBearer(bearer);
+
+        // Get callbacks from customer
+        const callbacks = await customer.getCallbacks();
+
+        // Return callbacks
+        return callbacks.map(callback => {
+            // Get integration from id
+            const integration = IntegrationLoader.get(callback.integration_id);
+
+            return {
+                id: callback.id,
+                customer_user_id: callback.customer_user_id,
+                integration: this.translateIntegration(integration, 'en'),  // TODO: use customer.locale
+                createdAt: callback.createdAt,
+                automaticExport: callback.automaticExport
+            }
+        });
+    }
+
+    // BEARER AUTHENTICATION
+    public async post_callback(
+        bearer: string | undefined,
+        integration_id: string | undefined,
+        params: any | undefined
+    ): Promise<{
+        id: string,
+        customer_user_id: string,
+        integration: IntegrationConfig,
+        createdAt: number,
+        automaticExport: boolean | undefined
+    }> {
+        // Get customer from bearer
+        const customer = await this.getCustomerFromBearer(bearer);
+ 
+        // Check if integration_id field is missing
+        if(!integration_id) {
+            throw new MissingField("integration_id");
+        }
+ 
+        // Check if params field is missing
+        if(!params) {
+            throw new MissingField("params");
+        }
+
+        // Get integration configs
+        const integrationConfigs = IntegrationLoader.getAll();
+
+         // Check if integration exists
+        const integrationConfig = integrationConfigs.find(config => config.id === integration_id);
+        if (!integrationConfig) {
+            throw new StatusError(`Integration with id "${integration_id}" not found.`, 400);
+        }
+
+        // Check if all mandatory params are present
+        const missing_params = Object.keys(integrationConfig.params).filter((param) => integrationConfig.params[param].mandatory && !params.hasOwnProperty(param));
+        if(missing_params.length > 0) {
+            throw new MissingParams(missing_params);
+        }
+
+        // Get callbacks from customer
+        const callbacksWithAutomaticExport = (await customer.getCallbacks()).filter(callback => callback.automaticExport);
+
+        // Create secret
+        const secret = new Secret(`${customer.id}_${integration_id}`, {
+            params,
+            cookies: null,
+            localStorage: null
+        });
+
+        // Create secret in Secure Storage
+        await secret.commit();
+
+        // Create new callback
+        const callback = new Callback(
+            customer.id,
+            integration_id,
+            secret.id,
+            Date.now(),
+            Callback.DEFAULT_AUTOMATIC_EXPORT
+        );
+
+        // Commit integration to database
+        await callback.commit();
+
+        // Get other callbacks with automaticExport true
+        for (const callbackWithAutomaticExport of callbacksWithAutomaticExport) {
+            // Disable automatic export for other callback
+            callbackWithAutomaticExport.automaticExport = false;
+            // Commit changes in database
+            await callbackWithAutomaticExport.commit();
+        }
+
+        return {
+            id: callback.id,
+            customer_user_id: callback.customer_user_id,
+            integration: this.translateIntegration(integrationConfig, 'en'), // TODO: use customer.locale
+            createdAt: callback.createdAt,
+            automaticExport: callback.automaticExport
+        };
+    }
+
+    // BEARER AUTHENTICATION
+    public async put_callback(
+        bearer: string | undefined,
+        callback_id: string,
+        automaticExport: boolean | undefined
+    ): Promise<{
+        id: string,
+        customer_user_id: string,
+        integration: IntegrationConfig,
+        createdAt: number,
+        automaticExport: boolean | undefined
+    }> {
+        // Get customer from bearer
+        const customer = await this.getCustomerFromBearer(bearer);
+
+        // Get callbacks from customer
+        const callbacks = await customer.getCallbacks();
+
+        // Check if callback exists
+        const callbackToUpdate = callbacks.find(callback => callback.id === callback_id);
+        if (!callbackToUpdate) {
+            throw new StatusError(`Callback with id "${callback_id}" not found.`, 400);
+        }
+
+        // Update automaticExport if provided
+        if (automaticExport !== undefined) {
+            callbackToUpdate.automaticExport = automaticExport;
+        }
+
+        // Commit changes in database
+        await callbackToUpdate.commit();
+
+        // Remove automaticExport for other callbacks if automaticExport is true for the new callback
+        if (automaticExport == true) {
+            // Get other callbacks with automaticExport true
+            const otherCallbacks = callbacks.filter(callback => callback.id !== callbackToUpdate.id && callback.automaticExport);
+            for (const otherCallback of otherCallbacks) {
+                if (otherCallback.automaticExport) {
+                    // Disable automatic export for other callback
+                    otherCallback.automaticExport = false;
+                    // Commit changes in database
+                    await otherCallback.commit();
+                }          
+            }
+        }
+
+        // Get integration from id
+        const integration = IntegrationLoader.get(callbackToUpdate.integration_id);
+
+        return {
+            id: callbackToUpdate.id,
+            customer_user_id: callbackToUpdate.customer_user_id,
+            integration: this.translateIntegration(integration, 'en'), // TODO: use customer.locale
+            createdAt: callbackToUpdate.createdAt,
+            automaticExport: callbackToUpdate.automaticExport
+        };
+    }
+
+    // BEARER AUTHENTICATION
+    public async delete_callback(
+        bearer: string | undefined,
+        callback_id: string
+    ): Promise<void> {
+        // Get customer from bearer
+        const customer = await this.getCustomerFromBearer(bearer);
+
+        // Get callbacks from customer
+        const callbacks = await customer.getCallbacks();
+
+        // Check if callback exists
+        const callbackToDelete = callbacks.find(callback => callback.id === callback_id);
+        if (!callbackToDelete) {
+            throw new StatusError(`Callback with id "${callback_id}" not found.`, 400);
+        }
+
+        // Delete callback
+        await callbackToDelete.delete();
+    }
+
+    // BEARER AUTHENTICATION
+    public async get_callback_test(
+        bearer: string | undefined,
+        callbackId: string,
+        type: string
+    ): Promise<void> {
+        // Get customer from bearer
+        const customer = await this.getCustomerFromBearer(bearer);
+
+        // Check if type field is missing
+        if(!type) {
+            throw new MissingField("type");
+        }
+
+        // Get customer callbacks
+        const callbacks = await customer.getCallbacks();
+
+        // Find callback with id
+        const callback = callbacks.find(cb => cb.id === callbackId);
+
+        // If no callback found, throw error
+        if (!callback) {
+            throw new StatusError(`Callback with id "${callbackId}" not found.`, 404);
+        }
+
+        // If type is "invoice", send a fake invoice
+        if(type === "invoice") {
+            // Get fake invoice datas
+            let {collector, remote_id, invoice} = utils.createFakeInvoice();
+
+            // Send fake invoice to callback
+            await callback.sendInvoice(collector, remote_id, invoice);
+        }
+        else if(type === "notification_disconnected") {
+            // Get fake notification disconnected
+            let {collector, credential_id, user_id, remote_id } = utils.createFakeNotificationDisconnected();
+            // Send notification disconnected
+            await callback.sendNotificationDisconnected(collector, credential_id, user_id, remote_id);
+        }
+        else {
+            throw new StatusError(`Type "${type}" not supported.`, 400);
+        }
+    }
+
+    // ---------- INTEGRATIONS ENDPOINTS ----------
+
+    // NO AUTHENTICATION
+    public async get_integrations(locale: any): Promise<IntegrationConfig[]> {
+        // Check if locale field is missing
+        if(!locale || typeof locale !== 'string') {
+            // Set default locale
+            locale = I18n.DEFAULT_LOCALE;
+        }
+
+        // Check if locale is supported
+        if(locale && !I18n.LOCALES.includes(locale)) {
+            throw new StatusError(`Locale "${locale}" not supported. Available locales are: ${I18n.LOCALES.join(", ")}.`, 400);
+        }
+
+        // Get integration configs
+        return IntegrationLoader.getAll()
+            .map((config) => this.translateIntegration(config, locale));
+    }
+
     // ---------- PRIVATE METHODS ----------
+
+    private generateUiToken(user: User): string {
+        // Generate oauth token
+        const uiToken = utils.generate_token();
+
+        // Map token with user
+        this.userUiTokens[uiToken] = user;
+
+        // Schedule token delete after validity duration
+        setTimeout(() => {
+            delete this.userUiTokens[uiToken];
+        }, Server.OAUTH_TOKEN_VALIDITY_DURATION_MS);
+
+        // Return token
+        return uiToken;
+    }
 
     private getUserFromUiToken(uiToken: any): User {
         // Check if token is missing or incorrect
-        if(!uiToken || !this.uiTokens.hasOwnProperty(uiToken) || typeof uiToken !== 'string') {
+        if(!uiToken || !this.userUiTokens.hasOwnProperty(uiToken) || typeof uiToken !== 'string') {
             throw new OauthError();
         }
-        return this.uiTokens[uiToken];
-    }
-
-    private async getCustomerFromResetToken(resetToken: string): Promise<Customer> {
-        // Check if reset token is missing or incorrect
-        if(!resetToken || !this.resetTokens.hasOwnProperty(resetToken) || typeof resetToken !== 'string') {
-            throw new StatusError("Invalid reset token. Your reset link probably expired.", 401);
-        }
-
-        // Get customer from id
-        const customer = await DatabaseFactory.getDatabase().getCustomer(this.resetTokens[resetToken]);
-
-        // Check if customer exists
-        if(!customer) {
-            throw new StatusError(`Customer with id "${this.resetTokens[resetToken]}" not found.`, 400);
-        }
-
-        return customer;
+        return this.userUiTokens[uiToken];
     }
 
     private async getCustomerFromBearerOrToken(bearer: string | undefined, token: any): Promise<Customer> {
@@ -1060,20 +1664,36 @@ export class Server {
             return await user.getCustomer();
         }
         else if (bearer) {
-            // Get customer from bearer
-            return await this.getCustomerFromBearer(bearer);
+            // If is a user bearer, get user from bearer
+            if(bearer.startsWith(`Bearer ${utils.BearerType.USER_SESSION}`)) {
+                // Get user from bearer
+                const user = await this.getUserFromBearer(bearer);
+                // Get customer from user
+                return await user.getCustomer();
+            }
+            else {
+                // Get customer from bearer
+                return await this.getCustomerFromBearer(bearer);
+            }
         }
         else {
             throw new StatusError(`Provide a Bearer token or a "token" field in the query.`, 400);
         }
     }
 
-    private async getUserFromBearerOrToken(bearer: string | undefined, user_id: string | undefined, token: any): Promise<User> {
+    private async getUserFromBearerOrToken(bearer: string | undefined, user_id: string, token: any): Promise<User> {
+        // If token provided, get user from token
         if (token) {
             // Get user from token
             return this.getUserFromUiToken(token);
         }
-        else if (bearer) {
+        // If only bearer provided, get user from bearer
+        else if (bearer && user_id == "me") {
+            // Get user from bearer
+            return await this.getUserFromBearer(bearer);
+        }
+        // If bearer and user_id provided, get user from customer bearer
+        else if (bearer && user_id) {
             // Check if user_id is provided
             if (!user_id) {
                 throw new MissingField("user_id");
@@ -1105,13 +1725,13 @@ export class Server {
         const hashed_bearer = utils.hash_string(bearer.split(' ')[1]);
 
         let customer: Customer | null;
-        // Check if uiBearers contains the hashed bearer
-        if (this.uiBearers.hasOwnProperty(hashed_bearer)) {
+        // Check if customerUiBearers contains the hashed bearer
+        if (this.customerUiBearers.hasOwnProperty(hashed_bearer)) {
             // Get customer id from uiBearers
-            const customer_id = this.uiBearers[hashed_bearer];
+            const customer_id = this.customerUiBearers[hashed_bearer];
 
             // Get customer from id
-            customer = await DatabaseFactory.getDatabase().getCustomer(customer_id);
+            customer = await Customer.fromId(customer_id);
         }
         else {
             // Get customer from bearer
@@ -1124,5 +1744,90 @@ export class Server {
         }
 
         return customer;
+    }
+
+    private async getUserFromBearer(bearer: string | undefined): Promise<User> {
+        // Check if bearer is missing
+        if (!bearer || !bearer.startsWith("Bearer ")) {
+            throw new AuthenticationBearerError()
+        }
+
+        // Get hashed bearer
+        const hashed_bearer = utils.hash_string(bearer.split(' ')[1]);
+
+        // If the bearer is not in userUiBearers
+        if(!this.userUiBearers.hasOwnProperty(hashed_bearer)) {
+            throw new AuthenticationBearerError()
+        }
+
+        // Get user id from uiBearers
+        const user_id = this.userUiBearers[hashed_bearer];
+
+        // Get user from id
+        const user = await User.fromId(user_id);
+
+        // Check if user exists
+        if (!user) {
+            throw new AuthenticationBearerError();
+        }
+
+        return user;
+    }
+
+    private async handleUserResetPassword(user: User): Promise<string> {
+        // Generate reset token
+        const resetToken = utils.generate_token();
+
+        // Map reset token with user
+        this.userResetTokens[resetToken] = user.id;
+
+        // Schedule token delete after validity duration
+        setTimeout(() => {
+            delete this.userResetTokens[resetToken];
+        }, Server.RESET_PASSWORD_TOKEN_VALIDITY_DURATION_MS);
+
+        // Send reset password email
+        await RegistryFactory.getInstance().sendResetPasswordEmail(user.remote_id, resetToken);
+
+        // Return token
+        return resetToken;
+    }
+
+    private async handleCustomerResetPassword(customer: Customer): Promise<string> {
+        // Generate reset token
+        const resetToken = utils.generate_token();
+
+        // Map reset token with customer
+        this.customerResetTokens[resetToken] = customer.id;
+
+        // Schedule token delete after validity duration
+        setTimeout(() => {
+            delete this.customerResetTokens[resetToken];
+        }, Server.RESET_PASSWORD_TOKEN_VALIDITY_DURATION_MS);
+
+        // Send reset password email
+        await RegistryFactory.getInstance().sendResetPasswordEmail(customer.email, resetToken);
+
+        // Return token
+        return resetToken;
+    }
+
+    private translateIntegration(integration: IntegrationConfig, locale: string): IntegrationConfig {
+        const name: string = I18n.get(integration.name, locale);
+        const description: string = I18n.get(integration.description, locale);
+        const params = Object.keys(integration.params).reduce((acc, key) => {
+            acc[key] = {
+                ...integration.params[key],
+                name: I18n.get(integration.params[key].name, locale),
+                placeholder: I18n.get(integration.params[key].placeholder, locale)
+            };
+            return acc;
+        }, {});
+        return {
+            ...integration,
+            name,
+            description,
+            params
+        };
     }
 }

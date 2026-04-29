@@ -12,7 +12,7 @@ export class FreeMobileCollector extends WebCollector {
         id: "freemobile",
         name: "Free Mobile",
         description: "i18n.collectors.freemobile.description",
-        version: "12",
+        version: "13",
         website: "https://mobile.free.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/1/1d/Free_mobile_2011.svg",
         type: CollectorType.WEB,
@@ -33,7 +33,6 @@ export class FreeMobileCollector extends WebCollector {
         loginUrl: "https://mobile.free.fr/account/v2/login",
         entryUrl: "https://mobile.free.fr/account",
         captcha: CollectorCaptcha.NONE,
-        useProxy: false,
         enableInteractiveLogin: true
     }
 
@@ -104,9 +103,11 @@ export class FreeMobileCollector extends WebCollector {
         await driver.leftClick(FreeMobileSelectors.BUTTON_SHOW_INVOICES, { navigation: false });
     }
 
-    async forEachPage(driver: Driver, next: () => void): Promise<void> {
+    async forEachPage(driver: Driver, next: () => Promise<void>): Promise<void> {
         // Show more invoices while possible
-        while((await driver.leftClick(FreeMobileSelectors.BUTTON_MORE_INVOICES, { raiseException: false, timeout: 1000, navigation: false, delay: 1000 })) != null) {}
+        await driver.leftClick(FreeMobileSelectors.BUTTON_MORE_INVOICES, { raiseException: false, timeout: 1000, navigation: false });
+        await driver.leftClick(FreeMobileSelectors.BUTTON_MORE_INVOICES, { raiseException: false, timeout: 1000, navigation: false });
+        await driver.leftClick(FreeMobileSelectors.BUTTON_MORE_INVOICES, { raiseException: false, timeout: 1000, navigation: false });
         // Collect invoices
         await next();
     }
