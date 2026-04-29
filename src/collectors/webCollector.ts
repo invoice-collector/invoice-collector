@@ -19,6 +19,7 @@ export type WebConfig = Config & {
     entryUrl?: string,
     useProxyForLogin?: boolean,
     useProxy?: boolean,
+    remoteBrowser?: boolean,
     captcha: CollectorCaptcha,
     loadImages?: boolean,
     autoLogin?: {
@@ -46,6 +47,7 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
             type: config.type || CollectorType.WEB,
             useProxyForLogin: config.useProxy === undefined ? config.captcha !== CollectorCaptcha.NONE : config.useProxy,
             useProxy: config.useProxy === undefined ? config.captcha == CollectorCaptcha.DATADOME : config.useProxy,
+            remoteBrowser: config.remoteBrowser === undefined ? config.captcha == CollectorCaptcha.DATADOME : config.remoteBrowser,
             state: config.state || CollectorState.ACTIVE,
             loadImages: config.loadImages === undefined ? false : config.loadImages,
             autoLogin: config.autoLogin || {
