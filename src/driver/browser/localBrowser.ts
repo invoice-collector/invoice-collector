@@ -1,7 +1,7 @@
 import path from 'path';
 import fs from 'fs';
 import { LaunchedChrome } from "chrome-launcher";
-import { AbstractBrowser } from "../puppeteer/abstractBrowser";
+import { AbstractBrowser } from "./abstractBrowser";
 
 export class LocalBrowser extends AbstractBrowser {
 

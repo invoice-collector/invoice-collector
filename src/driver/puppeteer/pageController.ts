@@ -2,7 +2,7 @@ import { createCursor, GhostCursor } from 'ghost-cursor';
 import { Browser, Page } from "rebrowser-puppeteer-core";
 import { solveCaptchas } from './captchas';
 import { Proxy } from '../../proxy/abstractProxy';
-import { AbstractBrowser } from './abstractBrowser';
+import { AbstractBrowser } from '../browser/abstractBrowser';
 
 export interface PageWithCursor extends Page {
   realClick: GhostCursor["click"];

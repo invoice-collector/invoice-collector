@@ -1,6 +1,5 @@
-import { Page } from "rebrowser-puppeteer-core";
 import * as utils from "../../utils";
-import { AbstractBrowser } from "../puppeteer/abstractBrowser";
+import { AbstractBrowser } from "./abstractBrowser";
 import path from "path";
 
 export class RemoteBrowser extends AbstractBrowser {

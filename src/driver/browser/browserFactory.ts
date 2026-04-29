@@ -1,4 +1,4 @@
-import { AbstractBrowser } from "../puppeteer/abstractBrowser";
+import { AbstractBrowser } from "./abstractBrowser";
 import { PageWithCursor } from "../puppeteer/pageController";
 import { LocalBrowser } from "./localBrowser";
 import { RemoteBrowser } from "./remoteBrowser";

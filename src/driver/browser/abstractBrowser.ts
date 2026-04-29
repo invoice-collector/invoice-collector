@@ -1,8 +1,7 @@
-import fs from 'fs';
 import path from 'path';
-import puppeteer, { Browser, ConnectOptions, DownloadPolicy, Page } from "rebrowser-puppeteer-core";
+import puppeteer, { Browser, ConnectOptions, DownloadPolicy } from "rebrowser-puppeteer-core";
 import * as ChromeLauncher from 'chrome-launcher';
-import { pageController, PageWithCursor } from "./pageController";
+import { pageController, PageWithCursor } from "../puppeteer/pageController";
 import { Proxy } from "../../proxy/abstractProxy";
 import { Driver } from '../driver';
 

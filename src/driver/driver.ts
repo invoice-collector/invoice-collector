@@ -1,13 +1,11 @@
-import path from 'path';
 import { ElementHandle, Frame, KeyInput, Page } from "rebrowser-puppeteer-core";
 import { ElementNotFoundError, LoggableError } from '../error';
 import { Proxy } from '../proxy/abstractProxy';
 import * as utils from '../utils';
-import { CollectorCaptcha } from '../collectors/abstractCollector';
 import { WebCollector as OldWebCollector} from '../collectors/webCollector';
 import { WebCollector } from '../collectors/webCollector';
-import { BrowserFactory } from './chrome/browserFactory';
-import { AbstractBrowser } from './puppeteer/abstractBrowser';
+import { BrowserFactory } from './browser/browserFactory';
+import { AbstractBrowser } from './browser/abstractBrowser';
 
 export class Driver {
 
