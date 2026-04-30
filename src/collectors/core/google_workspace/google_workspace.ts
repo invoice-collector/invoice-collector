@@ -4,10 +4,10 @@ import { Driver, Element } from "../../../driver/driver";
 import { WebSocketServer } from "../../../websocket/webSocketServer";
 import { GoogleWorkspaceSelectors } from "./selectors";
 import { GoogleOauth2 } from "../../oauth2/googleOauth2";
-import { WebCollector } from "../../webCollector";
 import { AuthenticationError, UnfinishedCollectorError } from "../../../error";
+import { LinearWebCollector } from "../../linearWebCollector";
 
-export class GoogleWorkspaceCollector extends WebCollector {
+export class GoogleWorkspaceCollector extends LinearWebCollector {
 
     static CONFIG = {
         id: "google_workspace",
