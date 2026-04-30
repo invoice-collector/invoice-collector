@@ -1,5 +1,12 @@
 export const OpenaiSelectors = {
 
+    // NEED LOGIN
+
+    BUTTON_LOGIN_OR_OUPS: {
+        selector: "button[data-color='primary'][data-variant='soft'], .onb-homepage-link",
+        info: "login button"
+    },
+
     // HOME PAGE
 
     BUTTON_PROFILE: {

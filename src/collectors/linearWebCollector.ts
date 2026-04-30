@@ -1,6 +1,6 @@
 import { Invoice, CompleteInvoice } from "./abstractCollector";
 import { Driver, Element } from '../driver/driver';
-import { AuthenticationError, RemoveError, CollectorError, DisconnectedError, LoggableError, NoInvoiceFoundError } from '../error';
+import { AuthenticationError, CollectorError, DisconnectedError, LoggableError, NoInvoiceFoundError } from '../error';
 import { ProxyFactory } from '../proxy/proxyFactory';
 import { Location } from "../proxy/abstractProxy";
 import { Secret } from "../model/secret";
@@ -8,11 +8,9 @@ import { TwofaPromise } from "../collect/twofaPromise";
 import { State } from "../model/state";
 import * as utils from '../utils';
 import { WebSocketServer } from "../websocket/webSocketServer";
-import { GoogleOauth2 } from "./oauth2/googleOauth2";
-import { MicrosoftOauth2 } from "./oauth2/microsoftOauth2";
 import { CollectorMemory } from "../model/collectorMemory";
 import { WebCollector } from "./webCollector";
-import { ModelInvoice } from "../model/credential";
+import { Proxy } from '../proxy/abstractProxy';
 
 export enum DocumentStrategy {
     SPLIT = "split",
@@ -29,15 +27,18 @@ export abstract class LinearWebCollector extends WebCollector {
         webSocketServer: WebSocketServer | undefined,
         secret: Secret,
         download_from_timestamp: number,
-        previousInvoices: ModelInvoice[],
+        previousInvoices: any[],
         location: Location | null,
         useInteractiveLogin: boolean
     ): Promise<CompleteInvoice[]> {
         // Get proxy
-        const proxy = this.config.useProxy ? await ProxyFactory.getProxy().get(location) : null;
+        let proxy: Proxy | null = null;
+        if(this.config.useProxy) {
+            proxy = await ProxyFactory.getProxy().get(location);
+        }
 
         // Start browser and page
-        const driver = new Driver(this);
+        let driver = new Driver(this);
         this.driver = driver;
         await driver.open(proxy);
 
@@ -50,12 +51,6 @@ export abstract class LinearWebCollector extends WebCollector {
         try {
             // Pre actions
             await this.pre(driver);
-
-            // If web socket server exists, enable images
-            let loadImagesPreviousValue = this.config.loadImages;
-            if(webSocketServer) {
-                this.config.loadImages = true;
-            }
 
             // If no interactive login
             if(!useInteractiveLogin) {
@@ -71,12 +66,28 @@ export abstract class LinearWebCollector extends WebCollector {
                     state.update(State._2_LOGGING_IN);
                     webSocketServer?.sendState(State._2_LOGGING_IN);
 
+                    // If needs proxy for login
+                    if(this.config.useProxyForLogin && !proxy) {
+                        console.log('Open a new driver with proxy for login...');
+                        // Get proxy
+                        const proxy = await ProxyFactory.getProxy().get(location);
+                        // Open new driver with proxy
+                        driver = new Driver(this);
+                        await driver.open(proxy);
+                        // Transfer cookies, localStorage and url to new driver
+                        await driver.setCookies(await this.driver.getCookies([]));
+                        await driver.setLocalStorage(await this.driver.getLocalStorage([]));
+                        await driver.goto(this.driver.url());
+                        // Close old driver
+                        await this.driver.close();
+                        // Replace driver instance variable with new driver
+                        this.driver = driver;
+                    }
+
                     console.log("User is not logged in, logging in...");
 
                     // Login with stored credentials
-                    const login_error = await this.login(driver, await secret.getParams(), webSocketServer) || 
-                        await GoogleOauth2.login(driver, await secret.getParams(), webSocketServer) || 
-                        await MicrosoftOauth2.login(driver, await secret.getParams(), webSocketServer);
+                    const login_error = await this.login(driver, await secret.getParams(), webSocketServer);
 
                     // Check if not authenticated
                     if (login_error) {
@@ -88,9 +99,7 @@ export abstract class LinearWebCollector extends WebCollector {
                 }
 
                 // Check if 2fa is required
-                const needTwofa = await this.needTwofa(driver) ||
-                    await GoogleOauth2.needTwofa(driver) ||
-                    await MicrosoftOauth2.needTwofa(driver);
+                const needTwofa = await this.needTwofa(driver);
 
                 // If 2fa is required
                 if (needTwofa) {
@@ -108,9 +117,7 @@ export abstract class LinearWebCollector extends WebCollector {
                     // Set instructions for UI
                     await twofa_promise.setInstructions(needTwofa);
 
-                    const twofa_error = await this.twofa(driver, await secret.getParams(), twofa_promise, webSocketServer) ||
-                        await GoogleOauth2.twofa(driver, await secret.getParams(), twofa_promise, webSocketServer) || 
-                        await MicrosoftOauth2.twofa(driver, await secret.getParams(), twofa_promise, webSocketServer);
+                    const twofa_error = await this.twofa(driver, await secret.getParams(), twofa_promise, webSocketServer);
 
                     // Check if 2fa error
                     if (twofa_error) {
@@ -128,6 +135,26 @@ export abstract class LinearWebCollector extends WebCollector {
 
                 // If first collect
                 if(webSocketServer) {
+                    // If web socket server exists, enable images
+                    let loadImagesPreviousValue = this.config.loadImages;
+                    if(webSocketServer) {
+                        this.config.loadImages = true;
+                    }
+
+                    // If needs proxy for login
+                    if(this.config.useProxyForLogin && !proxy) {
+                        console.log('Open a new driver with proxy for login...');
+                        // Get proxy
+                        const proxy = await ProxyFactory.getProxy().get(location);
+                        // Open new driver with proxy
+                        driver = new Driver(this);
+                        await driver.open(proxy);
+                        // Close old driver
+                        await this.driver.close();
+                        // Replace driver instance variable with new driver
+                        this.driver = driver;
+                    }
+
                     // Go to login url
                     await driver.goto(this.config.loginUrl, { navigation: false });
                     // Perform interactive login
@@ -152,6 +179,11 @@ export abstract class LinearWebCollector extends WebCollector {
                     }
                     else if (!this.config.entryUrl && collectorMemory.entryUrl) {
                         console.warn(`Collector ${this.config.id} has no entryUrl defined in config, but has one saved in memory. Consider defining it in the config.`);
+                    }
+
+                    // Restore previous load images value
+                    if(webSocketServer) {
+                        this.config.loadImages = loadImagesPreviousValue;
                     }
                 }
 
@@ -190,11 +222,6 @@ export abstract class LinearWebCollector extends WebCollector {
             await secret.setCookies(await driver.getCookies(this.config.autoLogin?.cookieNames));
             // Update secret.localStorage
             await secret.setLocalStorage(await driver.getLocalStorage(this.config.autoLogin?.localStorageKeys));
-
-            // Restore previous load images value
-            if(webSocketServer) {
-                this.config.loadImages = loadImagesPreviousValue;
-            }
 
             // Navigate to invoices
             await this.navigate(driver);

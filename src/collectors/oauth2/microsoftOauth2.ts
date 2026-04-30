@@ -36,8 +36,12 @@ export const MicrosoftOauth2Selectors = {
 
 export class MicrosoftOauth2 {
 
+    static check(driver: Driver): boolean {
+        return driver.url().includes("login.live.com/oauth2");
+    }
+
     static async login(driver: Driver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
-        if(driver.url().includes("login.live.com/oauth2")) {
+        if(MicrosoftOauth2.check(driver)) {
             // Select password authentication method if displayed
             const passwordAuthMethod = await driver.getElement(MicrosoftOauth2Selectors.BUTTON_PASSWORD_AUTHENTICATION_METHOD, { timeout: 1000, raiseException: false });
             if(passwordAuthMethod) {
@@ -55,7 +59,7 @@ export class MicrosoftOauth2 {
     }
 
     static async needTwofa(driver: Driver): Promise<string | void> {
-        if(driver.url().includes("login.live.com/oauth2")) {
+        if(MicrosoftOauth2.check(driver)) {
             // Click send notification button
             await driver.leftClick(MicrosoftOauth2Selectors.BUTTON_SEND_NOTIFICATION, { navigation: false });
 
@@ -66,7 +70,7 @@ export class MicrosoftOauth2 {
     }
 
     static async twofa(driver: Driver, params: any, twofa_promise: TwofaPromise, webSocketServer: WebSocketServer): Promise<string | void> {
-        if(driver.url().includes("login.live.com/oauth2")) {
+        if(MicrosoftOauth2.check(driver)) {
             // Get code from UI
             const code = await Promise.race([twofa_promise.code(), webSocketServer.getTwofa()]);
         }

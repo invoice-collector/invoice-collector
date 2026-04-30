@@ -11,7 +11,7 @@ export abstract class AbstractDatabase {
         }
     }
 
-    abstract connect(): Promise<void>;
+    abstract connect(throwOnError?: boolean): Promise<void>;
 
     abstract disconnect(): Promise<void>;
 

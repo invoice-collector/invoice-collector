@@ -51,4 +51,18 @@ export const IntermarcheSelectors = {
         selector: "#kc-login",
         info: "submit button"
     },
+
+    // NAVIGATE
+
+    CONTAINER_PANEL_COMMANDES: {
+        selector: "#panel-commandes >div:not(.loadableContent)",
+        info: "panel commandes container"
+    },
+
+    // IS EMPTY
+
+    CONTAINER_EMPTY_BASKET: {
+        selector: "#panel-commandes > div > div[data-testid='illustration-shopping-basket']",
+        info: "empty basket container"
+    }
 }
