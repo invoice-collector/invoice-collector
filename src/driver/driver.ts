@@ -241,7 +241,7 @@ export class Driver {
             throw new Error('Page is not initialized.');
         }
         try {
-            await this.page.waitForNavigation({timeout});
+            await this.page.waitForNavigation({waitUntil: 'networkidle0', timeout});
         }
         catch {}
     }
