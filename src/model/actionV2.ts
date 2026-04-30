@@ -383,6 +383,7 @@ export type InputTwofaContext = {
 }
 
 export type InputTwofaArgs = {
+    push: boolean;
     instructionsCssSelector: string;
     inputCssSelector: string;
     raiseException?: boolean;
@@ -439,11 +440,19 @@ export class InputTwofaAction extends ActionV2<InputTwofaContext, InputTwofaArgs
         const instructionsText = await instructionsElement.textContent("i18n.collectors.all.2fa.instruction");
         // Get 2fa code from user
         const code = await context.webSocketServer.getTwofa(instructionsText);
-        // Input code into the field
-        await context.driver.inputText({
-            selector: this.args.inputCssSelector,
-            info: this.description
-        }, code, this.args);
+        // If it is not a push notification
+        if(!this.args.push) {
+            // Input code into the field
+            await context.driver.inputText({
+                selector: this.args.inputCssSelector,
+                info: this.description
+            }, code, this.args);
+        }
+        else {
+            await context.driver.waitForNavigation({
+                timeout: this.args.timeout
+            });
+        }
         // Return same context
         return context;
     }
