@@ -9,7 +9,7 @@ export class LocalBrowser extends AbstractBrowser {
 
     private static getDownloadPath(): string {
         AbstractBrowser.instanceCounter += 1;
-        return path.resolve(__dirname, '../../media/download/local', String(AbstractBrowser.instanceCounter));
+        return path.resolve(__dirname, '../../../media/download', String(AbstractBrowser.instanceCounter));
     }
 
     chrome: LaunchedChrome|undefined;

@@ -6,7 +6,7 @@ export class RemoteBrowser extends AbstractBrowser {
 
     private static getDownloadPath(): string {
         AbstractBrowser.instanceCounter += 1;
-        return path.join('download/remote', String(AbstractBrowser.instanceCounter));
+        return path.join('download', String(AbstractBrowser.instanceCounter));
     }
 
     server_port: number;
