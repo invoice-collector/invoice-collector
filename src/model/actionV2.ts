@@ -230,6 +230,9 @@ export class LeftClickAction extends ActionV2<LeftClickContext, LeftClickArgs, L
         if (!new RegExp(this.pageUrlRegex).test(context.driver.url())) {
             return false;
         }
+        if (context.element) {
+            return await context.element.isClickable();
+        }
         const el = await context.driver.getElement({ selector: this.args.cssSelector }, { raiseException: false, timeout: 100 });
         return el?.isClickable() || false;
     }
