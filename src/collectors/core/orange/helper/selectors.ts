@@ -56,6 +56,14 @@ export const OrangeHelperSelectors = {
         selector: ".text-start",
         info: "mobile connect instruction container"
     },
+    BUTTON_SEND_REQUEST_ON_MOBILE: {
+        selector: "#btnSubmit[data-testid='authent-om']",
+        info: "send request on mobile button"
+    },
+    BUTTON_REQUEST_ON_MOBILE_INSTRUCTION: {
+        selector: ".text-start__2",
+        info: "send request on mobile instruction container"
+    },
 
     // FOR EACH PAGE
 
