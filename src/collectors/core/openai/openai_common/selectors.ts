@@ -9,7 +9,7 @@ export const OpenaiSelectors = {
         info: "continue button"
     },
     CONTAINER_EMAIL_ERROR: {
-        selector: "form ul li",
+        selector: "form ul li, #login-email-error",
         info: "email error container"
     },
     FIELD_PASSWORD: {

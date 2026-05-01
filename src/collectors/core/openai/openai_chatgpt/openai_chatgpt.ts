@@ -10,7 +10,7 @@ export class OpenaiChatgptCollector extends OpenaiCommonCollector {
         id: "openai_chatgpt",
         name: "OpenAI (ChatGPT Plus)",
         description: "i18n.collectors.openai_chatgpt.description",
-        version: "10",
+        version: "11",
         website: "https://chatgpt.com",
         logo: "https://upload.wikimedia.org/wikipedia/commons/4/4d/OpenAI_Logo.svg",
         type: CollectorType.WEB,
@@ -39,6 +39,7 @@ export class OpenaiChatgptCollector extends OpenaiCommonCollector {
     }
 
     async needLogin(driver: Driver ): Promise<boolean> {
+        await utils.delay(2000);
         return driver.url().includes("auth.openai.com");
     }
     
