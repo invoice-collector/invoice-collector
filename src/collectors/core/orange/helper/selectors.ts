@@ -61,7 +61,7 @@ export const OrangeHelperSelectors = {
         info: "send request on mobile button"
     },
     BUTTON_REQUEST_ON_MOBILE_INSTRUCTION: {
-        selector: ".text-start__2",
+        selector: ".text-start",
         info: "send request on mobile instruction container"
     },
 
