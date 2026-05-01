@@ -15,7 +15,7 @@ export abstract class OpenaiCommonCollector extends WebCollector {
 
         // Input email
         await driver.inputText(OpenaiSelectors.FIELD_EMAIL, params.email);
-        await driver.leftClick(OpenaiSelectors.BUTTON_EMAIL_CONTINUE, { navigation: false });
+        await driver.leftClick(OpenaiSelectors.BUTTON_EMAIL_CONTINUE);
 
         // Check if email error is displayed
         const emailError = await driver.getElement(OpenaiSelectors.CONTAINER_EMAIL_ERROR, { raiseException: false, timeout: 2000 });

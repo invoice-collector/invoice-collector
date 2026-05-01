@@ -64,6 +64,12 @@ export class OrangeHelper {
             // Return instruction text
             return driver.getAttribute(OrangeHelperSelectors.CONTAINER_MOBILE_CONNECT_INSTRUCTION, "textContent");
         }
+        else if(driver.url().includes("orange-et-moi")) {
+            // Click on "Send the request" on mobile
+            await driver.leftClick(OrangeHelperSelectors.BUTTON_SEND_REQUEST_ON_MOBILE);
+            // Return instruction text
+            return driver.getAttribute(OrangeHelperSelectors.BUTTON_REQUEST_ON_MOBILE_INSTRUCTION, "textContent");
+        }
     }
 
     static async twofa(driver: Driver, params: any, twofa_promise: TwofaPromise, webSocketServer: WebSocketServer): Promise<string | void> {
