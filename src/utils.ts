@@ -65,7 +65,7 @@ export function timestampFromString(date: string, formats: string | string[], lo
         // For each format
         for (const format of formats) {
             // Try to parse date
-            let parsedDate = date_fns.parse(date.trim(), format, new Date(Date.UTC(1970, 0, 1)), { locale: dateFnsLocale });
+            let parsedDate = date_fns.parse(date.trim(), format, new Date(), { locale: dateFnsLocale });
 
             // Check if parsing succeeded
             if (!isNaN(parsedDate.getTime())) {
