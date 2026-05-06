@@ -37,6 +37,10 @@ export const MicrosoftOauth2Selectors = {
         selector: "#view > div > div > button[data-testid='primaryButton']",
         info: "Stay connected checkbox"
     },
+    BUTTON_LOOKS_GOOD: {
+        selector: "#iLooksGood",
+        info: "Looks good button"
+    },
 
     // TWOFA
 
@@ -82,6 +86,9 @@ export class MicrosoftOauth2 {
 
             // Stay connected if displayed
             await driver.leftClick(MicrosoftOauth2Selectors.BUTTON_STAY_CONNECTED, { timeout: 1000, raiseException: false });
+
+            // Infos looks good if displayed
+            await driver.leftClick(MicrosoftOauth2Selectors.BUTTON_LOOKS_GOOD, { timeout: 1000, raiseException: false });
         }
     }
 
