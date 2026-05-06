@@ -5,6 +5,10 @@ import { WebSocketServer } from "../../websocket/webSocketServer";
 export const MicrosoftOauth2Selectors = {
     // LOGIN
 
+    BUTTON_OTHER_AUTHENTICATION_METHODS: {
+        selector: "::-p-xpath(//div[@id='view']/div/span[@data-testid='viewFooter']/div/span[not(contains(text(), '?'))])",
+        info: "Display more authentication options button"
+    },
     BUTTON_DISPLAY_MORE_OPTIONS: {
         selector: "#view > div > div:not(:has(div[role='listitem'])) > button",
         info: "Display more authentication options button"
@@ -54,6 +58,9 @@ export class MicrosoftOauth2 {
 
     static async login(driver: Driver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
         if(MicrosoftOauth2.check(driver)) {
+            // Display other authentication methods if the button is displayed
+            await driver.leftClick(MicrosoftOauth2Selectors.BUTTON_OTHER_AUTHENTICATION_METHODS, { timeout: 1000, raiseException: false });
+
             // Display more options if button is displayed
             await driver.leftClick(MicrosoftOauth2Selectors.BUTTON_DISPLAY_MORE_OPTIONS, { timeout: 1000, raiseException: false });
 
