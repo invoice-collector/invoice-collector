@@ -45,7 +45,7 @@ export const MicrosoftOauth2Selectors = {
         info: "Button send notification"
     },
     CONTAINERS_2FA_INSTRUCTIONS: {
-        selector: "h1[data-testid='title'], div[data-testid='displaySign'], div[data-testid='description']",
+        selector: "h1[data-testid='title'], div[data-testid='displaySign'], div[data-testid='description'], #idDiv_SAOTCAS_Description, #idRichContext_DisplaySign",
         info: "2FA instructions container"
     }
 }
@@ -67,7 +67,7 @@ export class MicrosoftOauth2 {
             // Select password authentication method if displayed
             const passwordAuthMethod = await driver.getElement(MicrosoftOauth2Selectors.BUTTON_PASSWORD_AUTHENTICATION_METHOD, { timeout: 100, raiseException: false });
             if(passwordAuthMethod) {
-                await driver.leftClick(MicrosoftOauth2Selectors.BUTTON_PASSWORD_AUTHENTICATION_METHOD, {navigation: false});
+                await driver.leftClick(MicrosoftOauth2Selectors.BUTTON_PASSWORD_AUTHENTICATION_METHOD);
                 await driver.inputText(MicrosoftOauth2Selectors.INPUT_PASSWORD, params.password);
                 await driver.leftClick(MicrosoftOauth2Selectors.BUTTON_SUBMIT_PASSWORD);
 
@@ -83,7 +83,7 @@ export class MicrosoftOauth2 {
 
             /*const phoneOtpMethod = await driver.getElement(MicrosoftOauth2Selectors.BUTTON_PHONE_OTP_METHOD, { timeout: 100, raiseException: false });
             if(phoneOtpMethod) {
-                await driver.leftClick(MicrosoftOauth2Selectors.BUTTON_PHONE_OTP_METHOD, {navigation: false});
+                await driver.leftClick(MicrosoftOauth2Selectors.BUTTON_PHONE_OTP_METHOD);
             }*/
 
             throw new Error("Unknown authentication methods, unable to continue login process");
@@ -93,12 +93,11 @@ export class MicrosoftOauth2 {
     static async needTwofa(driver: Driver): Promise<string | void> {
         if(MicrosoftOauth2.check(driver)) {
             // Click send notification button
-            const sendNotification = await driver.leftClick(MicrosoftOauth2Selectors.BUTTON_SEND_NOTIFICATION, { raiseException: false, timeout: 5000, navigation: false });
-            if(sendNotification) {
-                // Get 2FA instructions
-                const texts = await driver.getAttributes(MicrosoftOauth2Selectors.CONTAINERS_2FA_INSTRUCTIONS, "textContent");
-                return texts.join(". ");
-            }
+            await driver.leftClick(MicrosoftOauth2Selectors.BUTTON_SEND_NOTIFICATION, { raiseException: false, timeout: 5000, navigation: false });
+
+            // Get 2FA instructions
+            const texts = await driver.getAttributes(MicrosoftOauth2Selectors.CONTAINERS_2FA_INSTRUCTIONS, "textContent");
+            return texts.join(". ");
         }
     }
 
