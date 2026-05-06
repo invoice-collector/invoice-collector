@@ -68,26 +68,20 @@ export class MicrosoftOauth2 {
             const passwordAuthMethod = await driver.getElement(MicrosoftOauth2Selectors.BUTTON_PASSWORD_AUTHENTICATION_METHOD, { timeout: 100, raiseException: false });
             if(passwordAuthMethod) {
                 await driver.leftClick(MicrosoftOauth2Selectors.BUTTON_PASSWORD_AUTHENTICATION_METHOD);
-                await driver.inputText(MicrosoftOauth2Selectors.INPUT_PASSWORD, params.password);
-                await driver.leftClick(MicrosoftOauth2Selectors.BUTTON_SUBMIT_PASSWORD);
-
-                // Check if password is incorrect
-                const twofa_alert = await driver.getElement(MicrosoftOauth2Selectors.CONTAINER_PASSWORD_ERROR, { raiseException: false, timeout: 2000 });
-                if (twofa_alert) {
-                    return await twofa_alert.textContent("i18n.collectors.all.password.error");
-                }
-
-                // Stay connected if displayed
-                await driver.leftClick(MicrosoftOauth2Selectors.BUTTON_STAY_CONNECTED, { timeout: 1000, raiseException: false });
-            }
-            else {
-                throw new Error("Unknown authentication methods, unable to continue login process");
             }
 
-            /*const phoneOtpMethod = await driver.getElement(MicrosoftOauth2Selectors.BUTTON_PHONE_OTP_METHOD, { timeout: 100, raiseException: false });
-            if(phoneOtpMethod) {
-                await driver.leftClick(MicrosoftOauth2Selectors.BUTTON_PHONE_OTP_METHOD);
-            }*/
+            // Input password
+            await driver.inputText(MicrosoftOauth2Selectors.INPUT_PASSWORD, params.password);
+            await driver.leftClick(MicrosoftOauth2Selectors.BUTTON_SUBMIT_PASSWORD);
+
+            // Check if password is incorrect
+            const twofa_alert = await driver.getElement(MicrosoftOauth2Selectors.CONTAINER_PASSWORD_ERROR, { raiseException: false, timeout: 2000 });
+            if (twofa_alert) {
+                return await twofa_alert.textContent("i18n.collectors.all.password.error");
+            }
+
+            // Stay connected if displayed
+            await driver.leftClick(MicrosoftOauth2Selectors.BUTTON_STAY_CONNECTED, { timeout: 1000, raiseException: false });
         }
     }
 
