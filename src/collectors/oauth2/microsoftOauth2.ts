@@ -45,7 +45,7 @@ export const MicrosoftOauth2Selectors = {
         info: "Button send notification"
     },
     CONTAINERS_2FA_INSTRUCTIONS: {
-        selector: "h1[data-testid='title'], div[data-testid='displaySign'], div[data-testid='description'], #idDiv_SAOTCAS_Description, #idRichContext_DisplaySign",
+        selector: "h1[data-testid='title'], div[data-testid='displaySign'], div[data-testid='description']",
         info: "2FA instructions container"
     }
 }
