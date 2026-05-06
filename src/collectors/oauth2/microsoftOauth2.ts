@@ -80,13 +80,14 @@ export class MicrosoftOauth2 {
                 // Stay connected if displayed
                 await driver.leftClick(MicrosoftOauth2Selectors.BUTTON_STAY_CONNECTED, { timeout: 1000, raiseException: false });
             }
+            else {
+                throw new Error("Unknown authentication methods, unable to continue login process");
+            }
 
             /*const phoneOtpMethod = await driver.getElement(MicrosoftOauth2Selectors.BUTTON_PHONE_OTP_METHOD, { timeout: 100, raiseException: false });
             if(phoneOtpMethod) {
                 await driver.leftClick(MicrosoftOauth2Selectors.BUTTON_PHONE_OTP_METHOD);
             }*/
-
-            throw new Error("Unknown authentication methods, unable to continue login process");
         }
     }
 
