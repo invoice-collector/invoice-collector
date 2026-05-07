@@ -16,7 +16,7 @@ export class AmazonCollector extends WebCollector {
         id: "amazon",
         name: "Amazon (.fr)",
         description: "i18n.collectors.amazon.description",
-        version: "39",
+        version: "40",
         website: "https://www.amazon.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/4/4a/Amazon_icon.svg",
         type: CollectorType.WEB,
@@ -74,7 +74,7 @@ export class AmazonCollector extends WebCollector {
         // Select loggedin account if displayed
         await driver.leftClick(AmazonSelectors.CONTAINER_LOGGEDIN_ACCOUNT, { raiseException: false, timeout: 1000 });
         // Select personnal account if displayed
-        await driver.leftClick(AmazonSelectors.CONTAINER_PERSONAL_ACCOUNT, { raiseException: false, timeout: 100, delay: 1000 });
+        await driver.leftClick(AmazonSelectors.CONTAINER_PERSONAL_ACCOUNT, { raiseException: false, timeout: 100 });
 
         // If user is logged in, the URL should be equal to the entry URL
         return driver.url() !== this.config.entryUrl;
@@ -83,6 +83,9 @@ export class AmazonCollector extends WebCollector {
     async login(driver: Driver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
         // Go to login page
         await driver.goto(this.config.loginUrl);
+
+        // Select personnal account if displayed
+        await driver.leftClick(AmazonSelectors.CONTAINER_PERSONAL_ACCOUNT, { raiseException: false, timeout: 2000 });
 
         // Wait for page to load
         const fieldPassword = await driver.getElement(AmazonSelectors.FIELD_PASSWORD, { raiseException: false, timeout: 2000 });
