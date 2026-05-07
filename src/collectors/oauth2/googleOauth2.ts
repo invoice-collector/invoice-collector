@@ -6,48 +6,52 @@ export const GoogleOauth2Selectors = {
 
     // LOGIN
 
+    BUTTON_USE_ANOTHER_ACCOUNT: {
+        selector: "c-wiz > main ul > li:not(:has([data-identifier*='@']))",
+        type: "Button use another account"
+    },
     INPUT_EMAIL: {
         selector: "input[type='email'][aria-disabled='false']",
-        type: "Input email"
+        info: "Input email"
     },
     BUTTON_LOGIN_NEXT: {
         selector: "#identifierNext",
-        type: "Button next"
+        info: "Button next"
     },
     CONTAINER_EMAIL_ERROR: {
         selector: "div:has(> div > div >div > div > input[type='email']) > div[aria-live='polite'] > div:has(> span)",
-        type: "Button next"
+        info: "Button next"
     },
     BUTTON_TRY_ANOTHER_WAY: {
         selector: "main > div[data-secondary-action-label]:not([data-primary-action-label]) > div > div > div > div > button",
-        type: "Button try another way"
+        info: "Button try another way"
     },
     BUTTON_TRY_ANOTHER_METHOD: {
         selector: "main > div[data-secondary-action-label][data-primary-action-label] > div > div:nth-of-type(2) > div > div > button",
-        type: "Button try another method"
+        info: "Button try another method"
     },
     BUTTON_PASSWORD_METHOD: {
         selector: "section ul > li > div[data-challengetype='1']",
-        type: "Button password method"
+        info: "Button password method"
     },
     INPUT_PASSWORD: {
         selector: "input[type='password'][aria-disabled='false']",
-        type: "Input password"
+        info: "Input password"
     },
     BUTTON_PASSWORD_NEXT: {
         selector: "#passwordNext",
-        type: "Button next"
+        info: "Button next"
     },
     CONTAINER_PASSWORD_ERROR: {
         selector: "div:has(> div > div >div > div > div > div > div > div > input[type='password']) > div[aria-live='polite'] > div:has(> span)",
-        type: "Button next"
+        info: "Button next"
     },
 
     // NEED 2FA
 
     BUTTON_2FA_METHOD: {
         selector: "div[data-action='selectchallenge']:not([aria-disabled='true'])",
-        type: "2FA method button"
+        info: "2FA method button"
     },
     CONTAINER_2FA_INSTRUCTIONS: {
         selector: "section:has(> header > div > h2) > div > div > div",
@@ -62,6 +66,11 @@ export class GoogleOauth2 {
     }
 
     static async login(driver: Driver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
+        if(GoogleOauth2.check(driver) && driver.url().includes("signin/accountchooser")) {
+            // If account chooser is displayed, click on use another account
+            await driver.leftClick(GoogleOauth2Selectors.BUTTON_USE_ANOTHER_ACCOUNT, { delay: 3000 });
+        }
+
         if(GoogleOauth2.check(driver) && driver.url().includes("signin/identifier")) {
             // If input email is displayed
             const inputEmail = await driver.getElement(GoogleOauth2Selectors.INPUT_EMAIL, { raiseException: false });

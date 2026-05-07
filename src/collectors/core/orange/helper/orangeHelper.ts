@@ -64,6 +64,12 @@ export class OrangeHelper {
             // Return instruction text
             return driver.getAttribute(OrangeHelperSelectors.CONTAINER_MOBILE_CONNECT_INSTRUCTION, "textContent");
         }
+        else if(driver.url().includes("orange-et-moi")) {
+            // Click on "Send the request" on mobile
+            await driver.leftClick(OrangeHelperSelectors.BUTTON_SEND_REQUEST_ON_MOBILE);
+            // Return instruction text
+            return driver.getAttribute(OrangeHelperSelectors.BUTTON_REQUEST_ON_MOBILE_INSTRUCTION, "textContent");
+        }
     }
 
     static async twofa(driver: Driver, params: any, twofa_promise: TwofaPromise, webSocketServer: WebSocketServer): Promise<string | void> {
@@ -111,7 +117,6 @@ export class OrangeHelper {
         // Get url before map
         const link = driver.url();
         const contractId = link.match(/\/facture-paiement\/(\d+)\//)?.[1];
-        console.log(`OrangeHelper: Extracted contract id ${contractId} from url`);
 
         // Return invoice
         const pdfElement = await element.getElement(OrangeHelperSelectors.BUTTON_PDF);
