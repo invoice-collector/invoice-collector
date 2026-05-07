@@ -6,7 +6,7 @@ export const AmazonSelectors = {
         info: "select loggedin account"
     },
     CONTAINER_PERSONAL_ACCOUNT: {
-        selector: "div[data-test-id='switchableAccounts'] > div > a:has(div.cvf-account-switcher-personal-account-icon)",
+        selector: "div[data-test-id='switchableAccounts'] > div > a:has(img.cvf-account-switcher-profile-image)",
         info: "select personal account"
     },
 
