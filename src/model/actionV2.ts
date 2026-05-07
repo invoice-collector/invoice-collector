@@ -88,7 +88,7 @@ export abstract class ActionV2<InputContext, Args, OutputContext> {
         args: Args,
         destinationIds: string[] = []
     ) {
-        this.id = id || utils.hash_string(`${action}|${JSON.stringify(args)}`, 'md5');
+        this.id = id || utils.hash_string(`${action}|${pageUrlRegex}|${objectiveId}|${JSON.stringify(args)}`, 'md5');
         this.action = action;
         this.pageUrlRegex = pageUrlRegex;
         this.description = description;
@@ -141,7 +141,7 @@ export class NoopAction extends ActionV2<NoopContext, NoopArgs, NoopContext> {
         destinationIds: string[] = []
     ) {
         super(
-            id || utils.generate_token(16),
+            id,
             ActionEnum.NOOP,
             description,
             pageUrlRegex,
