@@ -115,6 +115,7 @@ export abstract class ActionV2<InputContext, Args, OutputContext> {
 
     abstract _perform(context: InputContext): Promise<OutputContext | OutputContext[]>;
     abstract canPerform(context: InputContext): Promise<boolean>;
+    abstract canFollow(previousAction: ActionEnum | null, secondPreviousAction: ActionEnum | null): boolean;
 
     toString(): string {
         return this.description;
@@ -159,6 +160,10 @@ export class NoopAction extends ActionV2<NoopContext, NoopArgs, NoopContext> {
 
     async canPerform(context: NoopContext): Promise<boolean> {
         return new RegExp(this.pageUrlRegex).test(context.driver.url());
+    }
+
+    canFollow(previousAction: ActionEnum | null, secondPreviousAction: ActionEnum | null): boolean {
+        return previousAction !== ActionEnum.EXTRACT_INVOICE_DATA && previousAction !== ActionEnum.GET_INVOICES;
     }
 }
 
@@ -236,6 +241,10 @@ export class LeftClickAction extends ActionV2<LeftClickContext, LeftClickArgs, L
         const el = await context.driver.getElement({ selector: this.args.cssSelector }, { raiseException: false, timeout: 100 });
         return el?.isClickable() || false;
     }
+
+    canFollow(previousAction: ActionEnum | null, secondPreviousAction: ActionEnum | null): boolean {
+        return previousAction !== ActionEnum.GET_INVOICES;
+    }
 }
 
 export type InputTextContext = {
@@ -254,6 +263,7 @@ export type InputTextArgs = {
 }
 
 export class InputTextAction extends ActionV2<InputTextContext, InputTextArgs, InputTextContext> {
+
     constructor(
         id: string | null,
         description: string,
@@ -308,6 +318,10 @@ export class InputTextAction extends ActionV2<InputTextContext, InputTextArgs, I
         const el = await context.driver.getElement({ selector: this.args.cssSelector }, { raiseException: false, timeout: 100 });
         return el?.isClickable() || false;
     }
+
+    canFollow(previousAction: ActionEnum | null, secondPreviousAction: ActionEnum | null): boolean {
+        return previousAction !== ActionEnum.GET_INVOICES && previousAction !== ActionEnum.EXTRACT_INVOICE_DATA;
+    }
 }
 
 export type RaiseErrorContext = {
@@ -320,6 +334,7 @@ export type RaiseErrorArgs = {
 }
 
 export class ErrorDisplayedAction extends ActionV2<RaiseErrorContext, RaiseErrorArgs, RaiseErrorContext> {
+
     constructor(
         id: string | null,
         description: string,
@@ -375,6 +390,10 @@ export class ErrorDisplayedAction extends ActionV2<RaiseErrorContext, RaiseError
         const el = await context.driver.getElement({ selector: this.args.cssSelector }, { raiseException: false, timeout: 100 });
         return el?.isClickable() || false;
     }
+
+    canFollow(previousAction: ActionEnum | null, secondPreviousAction: ActionEnum | null): boolean {
+        return previousAction === ActionEnum.LEFT_CLICK && secondPreviousAction === ActionEnum.INPUT_TEXT;
+    }
 }
 
 export type InputTwofaContext = {
@@ -395,6 +414,7 @@ export type InputTwofaArgs = {
 }
 
 export class InputTwofaAction extends ActionV2<InputTwofaContext, InputTwofaArgs, InputTwofaContext> {
+
     constructor(
         id: string | null,
         description: string,
@@ -471,6 +491,10 @@ export class InputTwofaAction extends ActionV2<InputTwofaContext, InputTwofaArgs
         ]);
         return el1Clickable && el2Clickable;
     }
+    
+    canFollow(previousAction: ActionEnum | null, secondPreviousAction: ActionEnum | null): boolean {
+        return previousAction === ActionEnum.LEFT_CLICK;
+    }
 }
 
 export type GetInvoicesInputContext = {
@@ -487,6 +511,7 @@ export type GetInvoicesArgs = {
 }
 
 export class GetInvoicesAction extends ActionV2<GetInvoicesInputContext, GetInvoicesArgs, GetInvoicesOutputContext> {
+
     constructor(
         id: string | null,
         description: string,
@@ -536,6 +561,10 @@ export class GetInvoicesAction extends ActionV2<GetInvoicesInputContext, GetInvo
         const el = await context.driver.getElement({ selector: this.args.cssSelector }, { raiseException: false, timeout: 100 });
         return el?.isClickable() || false;
     }
+
+    canFollow(previousAction: ActionEnum | null, secondPreviousAction: ActionEnum | null): boolean {
+        return previousAction === null || previousAction === ActionEnum.LEFT_CLICK || previousAction === ActionEnum.NOOP;
+    }
 }
 
 export type ExtractInvoiceDataInputContext = {
@@ -557,6 +586,7 @@ export type ExtractInvoiceDataArgs = {
 }
 
 export class ExtractInvoiceDataAction extends ActionV2<ExtractInvoiceDataInputContext, ExtractInvoiceDataArgs, ExtractInvoiceDataOutputContext> {
+
     constructor(
         id: string | null,
         description: string,
@@ -644,6 +674,10 @@ export class ExtractInvoiceDataAction extends ActionV2<ExtractInvoiceDataInputCo
         ]);
         return idElementClickable && amountElementClickable && dateElementClickable && downloadElementClickable;
     }
+
+    canFollow(previousAction: ActionEnum | null, secondPreviousAction: ActionEnum | null): boolean {
+        return previousAction === ActionEnum.GET_INVOICES;
+    }
 }
 
 export type MiddleClickContext = {
@@ -657,6 +691,7 @@ export type MiddleClickArgs = {
 }
 
 export class MiddleClickAction extends ActionV2<MiddleClickContext, MiddleClickArgs, MiddleClickContext> {
+
     constructor(
         id: string | null,
         description: string,
@@ -717,6 +752,10 @@ export class MiddleClickAction extends ActionV2<MiddleClickContext, MiddleClickA
         }
         const el = await context.driver.getElement({ selector: this.args.cssSelector }, { raiseException: false, timeout: 100 });
         return el?.isClickable() || false;
+    }
+
+    canFollow(previousAction: ActionEnum | null, secondPreviousAction: ActionEnum | null): boolean {
+        return previousAction !== ActionEnum.GET_INVOICES;
     }
 
     toString(): string {
