@@ -258,7 +258,8 @@ function getHashFromSecret(secret: Secret): string {
                 amount: invoice.amount,
                 link: invoice.link,
                 timestamp: invoice.timestamp,
-                mimetype: invoice.mimetype
+                mimetype: invoice.mimetype,
+                data: invoice.data ? `<${invoice.data.length} bytes>` : null
             })
         }
 
