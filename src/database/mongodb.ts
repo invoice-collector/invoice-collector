@@ -502,7 +502,8 @@ export class MongoDB extends AbstractDatabase {
                 Actions.fromObject(document.actions),
                 ActionV2.fromObjectList(document.actionsV2),
                 document.customerAreaUrl,
-                document.entryUrl
+                document.entryUrl,
+                document.tips
             );
             collectorMemory.id = document._id.toString();
             return collectorMemory;
@@ -520,7 +521,8 @@ export class MongoDB extends AbstractDatabase {
             Actions.fromObject(document.actions),
             ActionV2.fromObjectList(document.actionsV2),
             document.customerAreaUrl,
-            document.entryUrl
+            document.entryUrl,
+            document.tips
         );
         collectorMemory.id = document._id.toString();
         return collectorMemory;
@@ -533,7 +535,8 @@ export class MongoDB extends AbstractDatabase {
             actions: collectorMemory.actions,
             actionsV2: collectorMemory.actionsV2,
             customerAreaUrl: collectorMemory.customerAreaUrl,
-            entryUrl: collectorMemory.entryUrl
+            entryUrl: collectorMemory.entryUrl,
+            tips: collectorMemory.tips
         });
         collectorMemory.id = document.insertedId.toString();
         return collectorMemory;
@@ -548,7 +551,8 @@ export class MongoDB extends AbstractDatabase {
                 actions: collectorMemory.actions,
                 actionsV2: collectorMemory.actionsV2,
                 customerAreaUrl: collectorMemory.customerAreaUrl,
-                entryUrl: collectorMemory.entryUrl
+                entryUrl: collectorMemory.entryUrl,
+                tips: collectorMemory.tips
             }}
         );
     }

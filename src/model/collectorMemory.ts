@@ -16,13 +16,15 @@ export class CollectorMemory {
     actionsV2: ActionV2<any, any, any>[];
     customerAreaUrl?: string;
     entryUrl?: string;
+    tips?: string;
 
     constructor(
         collector_id: string,
         actions: Actions,
         actionsV2: ActionV2<any, any, any>[],
         customerAreaUrl?: string,
-        entryUrl?: string
+        entryUrl?: string,
+        tips?: string
     ) {
         this.id = "";
         this.collector_id = collector_id;
@@ -30,6 +32,7 @@ export class CollectorMemory {
         this.actionsV2 = actionsV2;
         this.customerAreaUrl = customerAreaUrl
         this.entryUrl = entryUrl;
+        this.tips = tips;
     }
 
     getActionsFor(key: string): Action<unknown, unknown>[] | null {
