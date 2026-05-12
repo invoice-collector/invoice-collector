@@ -18,7 +18,6 @@
   },
   "dependencies": {
     "@bitwarden/sdk-napi": "^1.0.0",
-    "@mistralai/mistralai": "^1.10.0",
     "axios": "^1.7.9",
     "chrome-launcher": "^1.1.2",
     "cron": "^3.5.0",
