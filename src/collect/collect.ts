@@ -1,7 +1,7 @@
 import { AbstractCollector, Config } from "../collectors/abstractCollector";
 import { CollectorLoader } from "../collectors/collectorLoader";
 import { AuthenticationError, RemoveError, DisconnectedError, LoggableError, MaintenanceError, NoInvoiceFoundError } from "../error";
-import { IcCredential } from "../model/credential";
+import { Credential } from "../model/credential";
 import { State } from "../model/state";
 import { Customer } from "../model/customer";
 import { User } from "../model/user";
@@ -25,7 +25,7 @@ export class Collect {
     }
 
     async start(): Promise<void> {
-        let credential: IcCredential|null = null;
+        let credential: Credential|null = null;
         let user: User|null = null;
         let secret: Secret|null = null;
         let collector: AbstractCollector<Config>|null = null;
@@ -33,7 +33,7 @@ export class Collect {
 
         try {
             // Get credential from credential_id
-            credential = await IcCredential.fromId(this.credential_id);
+            credential = await Credential.fromId(this.credential_id);
             console.log(`Collecting invoices for ${this.credential_id}`);
 
             // Check if credential exists
@@ -159,7 +159,7 @@ export class Collect {
                     credential.last_collect_timestamp = Date.now();
 
                     // Schedule next collect in 1 day
-                    credential.next_collect_timestamp = credential.last_collect_timestamp + IcCredential.ONE_DAY_MS;
+                    credential.next_collect_timestamp = credential.last_collect_timestamp + Credential.ONE_DAY_MS;
                 }
             }
             // If error is LoggableError
@@ -178,7 +178,7 @@ export class Collect {
                     credential.last_collect_timestamp = Date.now();
 
                     // Schedule next collect in 1 day
-                    credential.next_collect_timestamp = credential.last_collect_timestamp + IcCredential.ONE_DAY_MS;
+                    credential.next_collect_timestamp = credential.last_collect_timestamp + Credential.ONE_DAY_MS;
                 }
             }
             else if (err instanceof AuthenticationError || err instanceof DisconnectedError) {
@@ -246,7 +246,7 @@ export class Collect {
                     credential.last_collect_timestamp = Date.now();
 
                     // Schedule next collect in 1 day
-                    credential.next_collect_timestamp = credential.last_collect_timestamp + IcCredential.ONE_DAY_MS;
+                    credential.next_collect_timestamp = credential.last_collect_timestamp + Credential.ONE_DAY_MS;
                 }
             }
             else {

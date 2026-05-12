@@ -1,4 +1,4 @@
-import { WebCollector } from '../../webCollector';
+import { LinearWebCollector } from '../../linearWebCollector';
 import { LeroyMerlinSelectors } from './selectors';
 import { Driver, Element } from '../../../driver/driver';
 import { Invoice, CollectorCaptcha, CollectorType } from '../../abstractCollector';
@@ -6,7 +6,7 @@ import * as utils from '../../../utils';
 import { TwofaPromise } from '../../../collect/twofaPromise';
 import { WebSocketServer } from '../../../websocket/webSocketServer';
 
-export class LeroyMerlinCollector extends WebCollector {
+export class LeroyMerlinCollector extends LinearWebCollector {
 
     static CONFIG = {
         id: "leroy_merlin",

@@ -2,7 +2,7 @@ import { DatabaseFactory } from "../database/databaseFactory";
 import { StatusError } from "../error";
 import { Location } from "../proxy/abstractProxy";
 import { SecretManagerFactory } from "../secret_manager/secretManagerFactory";
-import { IcCredential } from "./credential";
+import { Credential } from "./credential";
 import { Customer } from "./customer";
 import { Callback } from "./callback";
 
@@ -105,7 +105,7 @@ export class User {
 
     async delete() {
         // Get all credentials ids
-        const credentials: IcCredential[] = await this.getCredentials();
+        const credentials: Credential[] = await this.getCredentials();
         const secret_ids: string[] = credentials.map(credential => credential.secret_id);
 
         // Delete all secrets in secret manager

@@ -1,18 +1,10 @@
-import { Invoice, CompleteInvoice, CollectorType, CollectorCaptcha, CollectorState, Config } from "./abstractCollector";
-import { Driver, Element } from '../driver/driver';
-import { AuthenticationError, RemoveError, CollectorError, DisconnectedError, LoggableError, NoInvoiceFoundError } from '../error';
-import { ProxyFactory } from '../proxy/proxyFactory';
-import { Location } from "../proxy/abstractProxy";
-import { Secret } from "../model/secret";
-import { TwofaPromise } from "../collect/twofaPromise";
-import { State } from "../model/state";
-import * as utils from '../utils';
+import { CollectorType, CollectorCaptcha, CollectorState, Config } from "./abstractCollector";
+import { Driver } from '../driver/driver';
 import { V2Collector } from "./v2Collector";
 import { WebSocketServer } from "../websocket/webSocketServer";
+import { AuthenticationError, DisconnectedError, LoggableError, RemoveError } from "../error";
 import { MessageClick, MessageKeydown, MessageText } from "../websocket/message";
 import { KeyInput } from "rebrowser-puppeteer-core";
-import { CollectorMemory } from "../model/collectorMemory";
-import { Proxy } from '../proxy/abstractProxy';
 
 export type WebConfig = Config & {
     loginUrl: string,
@@ -29,15 +21,9 @@ export type WebConfig = Config & {
     enableInteractiveLogin: boolean
 }
 
-export enum DocumentStrategy {
-    SPLIT = "split",
-    MERGE = "merge"
-}
-
 export abstract class WebCollector extends V2Collector<WebConfig> {
 
     static LOGIN_TIMEOUT_MS = 10 * 60 * 1000; // 10 minutes
-    static DEFAULT_DOCUMENT_STRATEGY = DocumentStrategy.SPLIT;
 
     driver: Driver | null;
 
@@ -58,335 +44,6 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
         this.driver = null;
     }
 
-    async _collect(
-        state: State,
-        twofa_promise: TwofaPromise,
-        webSocketServer: WebSocketServer | undefined,
-        secret: Secret,
-        download_from_timestamp: number,
-        previousInvoices: any[],
-        location: Location | null,
-        useInteractiveLogin: boolean
-    ): Promise<CompleteInvoice[]> {
-        // Get proxy
-        let proxy: Proxy | null = null;
-        if(this.config.useProxy) {
-            proxy = await ProxyFactory.getProxy().get(location);
-        }
-
-        // Start browser and page
-        let driver = new Driver(this);
-        this.driver = driver;
-        await driver.open(proxy);
-
-        // Set cookies
-        await driver.setCookies(await secret.getCookies());
-
-        // Set localStorage
-        await driver.setLocalStorage(await secret.getLocalStorage());
-
-        try {
-            // Pre actions
-            await this.pre(driver);
-
-            // If no interactive login
-            if(!useInteractiveLogin) {
-                // Open entry url
-                await driver.goto(this.config.entryUrl || this.config.loginUrl);
-
-                // Check if user needs to login
-                const needLogin = await this.needLogin(driver)
-
-                // If user need to login
-                if (needLogin) {
-                    // Set progress step to logging in
-                    state.update(State._2_LOGGING_IN);
-                    webSocketServer?.sendState(State._2_LOGGING_IN);
-
-                    // If needs proxy for login
-                    if(this.config.useProxyForLogin && !proxy) {
-                        console.log('Open a new driver with proxy for login...');
-                        // Get proxy
-                        const proxy = await ProxyFactory.getProxy().get(location);
-                        // Open new driver with proxy
-                        driver = new Driver(this);
-                        await driver.open(proxy);
-                        // Transfer cookies, localStorage and url to new driver
-                        await driver.setCookies(await this.driver.getCookies([]));
-                        await driver.setLocalStorage(await this.driver.getLocalStorage([]));
-                        await driver.goto(this.driver.url());
-                        // Close old driver
-                        await this.driver.close();
-                        // Replace driver instance variable with new driver
-                        this.driver = driver;
-                    }
-
-                    console.log("User is not logged in, logging in...");
-
-                    // Login with stored credentials
-                    const login_error = await this.login(driver, await secret.getParams(), webSocketServer);
-
-                    // Check if not authenticated
-                    if (login_error) {
-                        throw new AuthenticationError(login_error, this);
-                    }
-                }
-                else {
-                    console.log("Successfully used cookies and local storage");
-                }
-
-                // Check if 2fa is required
-                const needTwofa = await this.needTwofa(driver);
-
-                // If 2fa is required
-                if (needTwofa) {
-                    console.log(`2FA is required, performing 2FA... (${utils.trim(needTwofa)})`);
-
-                    // If the webSocketServer is undefined, it means that the session has expired
-                    if (!webSocketServer) {
-                        throw new DisconnectedError(this);
-                    }
-
-                    // Set progress step to 2fa waiting
-                    state.update(State._3_2FA_WAITING, needTwofa);
-                    webSocketServer.sendState(State._3_2FA_WAITING, needTwofa);
-
-                    // Set instructions for UI
-                    await twofa_promise.setInstructions(needTwofa);
-
-                    const twofa_error = await this.twofa(driver, await secret.getParams(), twofa_promise, webSocketServer);
-
-                    // Check if 2fa error
-                    if (twofa_error) {
-                        throw new AuthenticationError(twofa_error, this);
-                    }
-                }
-
-                // Set progress step to collecting
-                state.update(State._5_COLLECTING);
-                webSocketServer?.sendState(State._5_COLLECTING);
-            }
-            else {
-                // Get collector memory
-                const collectorMemory = await CollectorMemory.fromCollectorId(this.config.id);
-
-                // If first collect
-                if(webSocketServer) {
-                    // If web socket server exists, enable images
-                    let loadImagesPreviousValue = this.config.loadImages;
-                    if(webSocketServer) {
-                        this.config.loadImages = true;
-                    }
-
-                    // If needs proxy for login
-                    if(this.config.useProxyForLogin && !proxy) {
-                        console.log('Open a new driver with proxy for login...');
-                        // Get proxy
-                        const proxy = await ProxyFactory.getProxy().get(location);
-                        // Open new driver with proxy
-                        driver = new Driver(this);
-                        await driver.open(proxy);
-                        // Close old driver
-                        await this.driver.close();
-                        // Replace driver instance variable with new driver
-                        this.driver = driver;
-                    }
-
-                    // Go to login url
-                    await driver.goto(this.config.loginUrl, { navigation: false });
-                    // Perform interactive login
-                    await this.interactive(driver, webSocketServer, 'i18n.views.interactive.login.instructions');
-                    // Save customer area url if not defined
-                    if(!collectorMemory.customerAreaUrl) {
-                        collectorMemory.customerAreaUrl = driver.url();
-                        await collectorMemory.commit();
-                    }
-
-                    // If no entry url defined
-                    if(!this.config.entryUrl && !collectorMemory.entryUrl) {
-                        // Perform interactive navigate
-                        await this.interactive(driver, webSocketServer, 'i18n.views.interactive.navigate.instructions');
-                        // Save entry url
-                        collectorMemory.entryUrl = driver.url();
-                        await collectorMemory.commit();
-                    }
-                    else if (this.config.entryUrl && !collectorMemory.entryUrl) {
-                        collectorMemory.entryUrl = this.config.entryUrl;
-                        await collectorMemory.commit();
-                    }
-                    else if (!this.config.entryUrl && collectorMemory.entryUrl) {
-                        console.warn(`Collector ${this.config.id} has no entryUrl defined in config, but has one saved in memory. Consider defining it in the config.`);
-                    }
-
-                    // Restore previous load images value
-                    if(webSocketServer) {
-                        this.config.loadImages = loadImagesPreviousValue;
-                    }
-                }
-
-                // Compute new entry url
-                this.config.entryUrl = this.config.entryUrl || collectorMemory.entryUrl || collectorMemory.customerAreaUrl;
-
-                // If entry url is undefined, something whent wrong
-                if(!this.config.entryUrl) {
-                    throw new Error(`Collector ${this.config.id} does not have any of entryUrl, nor customerAreaUrl defined`);
-                }
-
-                // Set progress step to collecting
-                state.update(State._5_COLLECTING);
-                webSocketServer?.sendState(State._5_COLLECTING);
-
-                // Go to entry url
-                await driver.goto(this.config.entryUrl);
-
-                // Check if user needs to login
-                const needLogin = await this.needLogin(driver);
-
-                // If need login, raise error
-                if(needLogin) {
-                    throw new DisconnectedError(this);
-                }
-
-                // If no webSocketServer, it means that we are in auto login mode
-                if(!webSocketServer) {
-                    console.log("Successfully used cookies and local storage");
-                }
-            }
-
-            console.log("User is successfully logged in");
-
-            // Update secret.cookies
-            await secret.setCookies(await driver.getCookies(this.config.autoLogin?.cookieNames));
-            // Update secret.localStorage
-            await secret.setLocalStorage(await driver.getLocalStorage(this.config.autoLogin?.localStorageKeys));
-
-            // Navigate to invoices
-            await this.navigate(driver);
-
-            // Get previous invoice ids
-            const previousInvoiceIds = previousInvoices.map((inv) => inv.id);
-
-            // For each page
-            let invoices: CompleteInvoice[] = [];
-            let firstDownload = true;
-            await this.forEachPage(driver, async () => {
-                // Check if no invoices are present on the page
-                const isEmpty = await this.isEmpty(driver);
-
-                // Continue only if invoices are present
-                if (!isEmpty) {
-                    // For each invoice on the page
-                    const invoiceElements = await this.getInvoices(driver);
-                    
-                    // If invoice elements is empty, collector may be broken
-                    if (invoiceElements.length === 0) {
-                        throw new NoInvoiceFoundError(this);
-                    }
-
-                    // For each invoice element
-                    for (const element of invoiceElements) {
-                        // Get invoice data
-                        let invoice: Invoice | null = await this.data(driver, element);
-
-                        // Ignore if null
-                        if (invoice === null) {
-                            continue;
-                        }
-
-                        // Sanitize invoice
-                        invoice = {
-                            id: invoice.id.trim().replace(/[/\\?%*:|"<>]/g, '-'),
-                            timestamp: invoice.timestamp,
-                            amount: invoice.amount?.trim(),
-                            link: invoice.link?.trim(),
-                            metadata: invoice.metadata || {},
-                            downloadButton: invoice.downloadButton || {}
-                        }
-
-                        // If id is not in previous ids
-                        if (!previousInvoiceIds.includes(invoice.id)) {
-                            // If invoice is more recent than the download_from_timestamp
-                            if (download_from_timestamp <= invoice.timestamp) {
-                                // If this is the first invoice to download, set progress step to downloading
-                                if (firstDownload) {
-                                    // Set progress step to downloading
-                                    state.update(State._6_DOWNLOADING);
-                                    webSocketServer?.sendState(State._6_DOWNLOADING);
-                                    firstDownload = false;
-                                }
-
-                                // Get number of pages before download
-                                const pagesBefore = (await driver.pages()).length;
-
-                                // Download invoice
-                                let documents = await this.download(driver, invoice);
-
-                                // Get number of pages after download
-                                const pagesAfter = (await driver.pages()).length;
-
-                                // Close current page if download opened a new one
-                                if (pagesAfter > pagesBefore) {
-                                    await driver.closePage();
-                                }
-
-                                // If one document downloaded
-                                if (WebCollector.DEFAULT_DOCUMENT_STRATEGY == DocumentStrategy.MERGE && documents.length > 1) {
-                                    documents = [await utils.mergePdfDocuments(documents)];
-                                }
-                                console.log(`Invoice ${invoice.id} successfully downloaded, ${documents.length} document(s) found.`);
-                    
-                                for (const document of documents) {
-                                    invoices.push({
-                                        ...invoice,
-                                        data: document,
-                                        mimetype: utils.mimetypeFromBase64(document),
-                                        hash: utils.hash_string(document, "md5"),
-                                        collected_timestamp: Date.now(),
-                                        metadata: invoice.metadata || {}
-                                    });
-                                }
-                            }
-                            else {
-                                // Add invoice without downloading it
-                                invoices.push({
-                                    ...invoice,
-                                    data: null,
-                                    mimetype: null,
-                                    hash: null,
-                                    collected_timestamp: null,
-                                    downloadButton: null,
-                                    metadata: {},
-                                });
-                            }
-                        }
-                    }
-                }
-            });
-
-            return invoices;
-        } catch (error) {
-            if (error instanceof LoggableError) {
-                if (!error.url) error.url = driver.url();
-                if (!error.source_code) error.source_code = await driver.sourceCode(true, true);
-                if (!error.screenshot) error.screenshot = await driver.screenshot();
-            }
-            if (error instanceof CollectorError) {
-                throw error;
-            }
-
-            // For unexpected error happening during the collection, log the error
-            let loggableError = new LoggableError(
-                "An error occured while collecting invoice from web",
-                this,
-                { cause: error }
-            );
-            loggableError.url = driver.url();
-            loggableError.source_code = await driver.sourceCode(true, true);
-            loggableError.screenshot = await driver.screenshot();
-            throw loggableError;
-        }
-    }
-
     async _close(): Promise<void> {
         if (this.driver != null) {
             // Close the browser
@@ -394,7 +51,31 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
         }
     }
 
-    private async interactive(
+    // DOWNLOAD METHODS
+
+    async download_link(driver: Driver, link: string): Promise<string> {
+        return await driver.downloadFile(link);
+    }
+
+    async download_webpage(driver: Driver, link: string): Promise<string> {
+        // Get current value
+        const loadImagesPreviousValue = driver.collector.config.loadImages;
+        // Allow loading images so that the invoice is fully rendered
+        driver.collector.config.loadImages = true;
+        // Go to webpage
+        await driver.goto(link);
+        // Download as PDF
+        const data = await driver.pdf();
+        // Restore previous value
+        driver.collector.config.loadImages = loadImagesPreviousValue;
+        return data;
+    }
+
+    async download_from_file(driver: Driver): Promise<string> {
+        return await driver.waitForFileToDownload(false);
+    }
+
+    protected async interactive(
         driver: Driver,
         webSocketServer: WebSocketServer | undefined,
         instructions: string
@@ -407,7 +88,6 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
         const interactiveEndPromise = new Promise<void>((resolve, reject) => {
             // Define timeout
             setTimeout(() => {
-                //webSocketServer.close();
                 reject(new AuthenticationError('i18n.collectors.all.login.timeout', this))
             }, WebCollector.LOGIN_TIMEOUT_MS)
 
@@ -488,71 +168,5 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
         } finally {
             await cdp.send('Page.stopScreencast');
         }
-    }
-
-    //NOT IMPLEMENTED
-    async pre(driver: Driver): Promise<void> {
-        // Assume the collector does not need pre actions
-    }
-
-    async needLogin(driver: Driver): Promise<boolean>{
-        // User is not logged in if:
-        // - entryUrl is not defined = always need go through login process
-        // - current URL does not contain entryUrl
-        return this.config.entryUrl == undefined || !driver.url().includes(this.config.entryUrl);
-    }
-
-    abstract login(driver: Driver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string |void>;
-
-    async needTwofa(driver: Driver): Promise<string | void>{
-        // Assume the collector does not implement 2FA
-    }
-
-    async twofa(driver: Driver, params: any, twofa_promise: TwofaPromise, webSocketServer: WebSocketServer): Promise<string | void> {
-        // Assume the collector does not implement 2FA
-    }
-
-    async navigate(driver: Driver): Promise<void> {
-        // Assume the collector does not need navigation
-    }
-
-    async isEmpty(driver: Driver): Promise<boolean> {
-        // Assume invoices are present
-        return false;
-    }
-
-    async forEachPage(driver: Driver, next: () => Promise<void>): Promise<void> {
-        // Assume the collector does not have pagination
-        await next();
-    }
-
-    abstract getInvoices(driver: Driver): Promise<Element[]>;
-
-    abstract data(driver: Driver, element: Element): Promise<Invoice | null>;
-
-    abstract download(driver: Driver, invoice: Invoice): Promise<string[]>;
-
-    // DOWNLOAD METHODS
-
-    async download_link(driver: Driver, link: string): Promise<string> {
-        return await driver.downloadFile(link);
-    }
-
-    async download_webpage(driver: Driver, link: string): Promise<string> {
-        // Get current value
-        const loadImagesPreviousValue = driver.collector.config.loadImages;
-        // Allow loading images so that the invoice is fully rendered
-        driver.collector.config.loadImages = true;
-        // Go to webpage
-        await driver.goto(link);
-        // Download as PDF
-        const data = await driver.pdf();
-        // Restore previous value
-        driver.collector.config.loadImages = loadImagesPreviousValue;
-        return data;
-    }
-
-    async download_from_file(driver: Driver): Promise<string> {
-        return await driver.waitForFileToDownload(false);
     }
 }

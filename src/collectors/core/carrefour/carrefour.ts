@@ -1,11 +1,11 @@
-import { WebCollector } from '../../webCollector';
+import { LinearWebCollector } from '../../linearWebCollector';
 import { CarrefourSelectors } from './selectors';
 import { Driver, Element } from '../../../driver/driver';
 import { CollectorCaptcha, CollectorType, Invoice } from '../../abstractCollector';
 import { TwofaPromise } from '../../../collect/twofaPromise';
 import { WebSocketServer } from '../../../websocket/webSocketServer';
 
-export class CarrefourCollector extends WebCollector {
+export class CarrefourCollector extends LinearWebCollector {
 
     static CONFIG = {
         id: "carrefour",

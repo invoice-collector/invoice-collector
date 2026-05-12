@@ -2,12 +2,13 @@ import { MongoClient, Db, ObjectId } from "mongodb";
 import { AbstractDatabase } from "./abstractDatabase";
 import { Customer, CustomerStats } from "../model/customer";
 import { User } from "../model/user";
-import { IcCredential } from "../model/credential";
+import { Credential } from "../model/credential";
 import * as utils from "../utils";
 import { buildCustomerStatsPipeline } from "./mongodbConstants";
 import { State } from "../model/state";
 import { CollectorMemory } from "../model/collectorMemory";
 import { Actions } from "../model/actions";
+import { ActionV2 } from "../model/actionV2";
 import { Callback } from "../model/callback";
 
 export class MongoDB extends AbstractDatabase {
@@ -391,13 +392,13 @@ export class MongoDB extends AbstractDatabase {
         return documents.map(document => document._id.toString());
     }
 
-    async getCredentials(user_id: string): Promise<IcCredential[]> {
+    async getCredentials(user_id: string): Promise<Credential[]> {
         const db = await this.ensureConnected();
         const documents = await db.collection(MongoDB.CREDENTIAL_COLLECTION).find({
             user_id: new ObjectId(user_id)
         }).toArray();
         return documents.map(document => {
-            let credential = new IcCredential(
+            let credential = new Credential(
                 document.user_id.toString(),
                 document.collector_id,
                 document.note,
@@ -414,7 +415,7 @@ export class MongoDB extends AbstractDatabase {
         });
     }
 
-    async getCredential(credential_id: string): Promise<IcCredential|null> {
+    async getCredential(credential_id: string): Promise<Credential|null> {
         const db = await this.ensureConnected();
         const document = await db.collection(MongoDB.CREDENTIAL_COLLECTION).findOne({
             _id: new ObjectId(credential_id)
@@ -422,7 +423,7 @@ export class MongoDB extends AbstractDatabase {
         if (!document) {
             return null;
         }
-        let credential = new IcCredential(
+        let credential = new Credential(
             document.user_id.toString(),
             document.collector_id,
             document.note,
@@ -438,7 +439,7 @@ export class MongoDB extends AbstractDatabase {
         return credential;
     }
 
-    async createCredential(credential: IcCredential): Promise<IcCredential> {
+    async createCredential(credential: Credential): Promise<Credential> {
         const db = await this.ensureConnected();
         const document = await db.collection(MongoDB.CREDENTIAL_COLLECTION).insertOne({
             user_id: new ObjectId(credential.user_id),
@@ -456,7 +457,7 @@ export class MongoDB extends AbstractDatabase {
         return credential;
     }
 
-    async updateCredential(credential: IcCredential): Promise<void> {
+    async updateCredential(credential: Credential): Promise<void> {
         const db = await this.ensureConnected();
         await db.collection(MongoDB.CREDENTIAL_COLLECTION).updateOne(
             { _id: new ObjectId(credential.id) },
@@ -490,6 +491,25 @@ export class MongoDB extends AbstractDatabase {
 
     // COLLECTOR MEMORY
 
+    async getCollectorMemories(): Promise<CollectorMemory[]> {
+        if (!this.db) {
+            throw new Error("Database is not connected");
+        }
+        const documents = await this.db.collection(MongoDB.COLLECTOR_MEMORY_COLLECTION).find({}).toArray();
+        return documents.map(document => {
+            const collectorMemory = new CollectorMemory(
+                document.collector_id,
+                Actions.fromObject(document.actions),
+                ActionV2.fromObjectList(document.actionsV2),
+                document.customerAreaUrl,
+                document.entryUrl,
+                document.tips
+            );
+            collectorMemory.id = document._id.toString();
+            return collectorMemory;
+        });
+    }
+
     async getCollectorMemory(collector_id: string): Promise<CollectorMemory | null> {
         const db = await this.ensureConnected();
         const document = await db.collection(MongoDB.COLLECTOR_MEMORY_COLLECTION).findOne({ collector_id });
@@ -499,8 +519,10 @@ export class MongoDB extends AbstractDatabase {
         const collectorMemory = new CollectorMemory(
             document.collector_id,
             Actions.fromObject(document.actions),
+            ActionV2.fromObjectList(document.actionsV2),
             document.customerAreaUrl,
-            document.entryUrl
+            document.entryUrl,
+            document.tips
         );
         collectorMemory.id = document._id.toString();
         return collectorMemory;
@@ -511,8 +533,10 @@ export class MongoDB extends AbstractDatabase {
         const document = await db.collection(MongoDB.COLLECTOR_MEMORY_COLLECTION).insertOne({
             collector_id: collectorMemory.collector_id,
             actions: collectorMemory.actions,
+            actionsV2: collectorMemory.actionsV2,
             customerAreaUrl: collectorMemory.customerAreaUrl,
-            entryUrl: collectorMemory.entryUrl
+            entryUrl: collectorMemory.entryUrl,
+            tips: collectorMemory.tips
         });
         collectorMemory.id = document.insertedId.toString();
         return collectorMemory;
@@ -525,8 +549,10 @@ export class MongoDB extends AbstractDatabase {
             { $set: {
                 collector_id: collectorMemory.collector_id,
                 actions: collectorMemory.actions,
+                actionsV2: collectorMemory.actionsV2,
                 customerAreaUrl: collectorMemory.customerAreaUrl,
-                entryUrl: collectorMemory.entryUrl
+                entryUrl: collectorMemory.entryUrl,
+                tips: collectorMemory.tips
             }}
         );
     }

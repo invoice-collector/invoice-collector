@@ -1,12 +1,13 @@
 import { CollectorType, CollectorState, Invoice } from "./abstractCollector";
-import { WebCollector, WebConfig } from "./webCollector";
+import { WebConfig } from "./webCollector";
 import { Driver, Element } from "../driver/driver";
 import { WebSocketServer } from "../websocket/webSocketServer";
+import { LinearWebCollector } from "./linearWebCollector";
 
 export type SketchConfig = WebConfig & {
 }
 
-export abstract class SketchCollector extends WebCollector {
+export abstract class SketchCollector extends LinearWebCollector {
 
     constructor(config: SketchConfig) {
         super({

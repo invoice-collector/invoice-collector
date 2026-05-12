@@ -5,6 +5,7 @@ import { State } from '../model/state';
 import { AbstractCollector, CompleteInvoice, Config } from './abstractCollector';
 import { WebSocketServer } from '../websocket/webSocketServer';
 import { AuthenticationError } from '../error';
+import { ModelInvoice } from '../model/credential';
 
 export abstract class V2Collector<C extends Config> extends AbstractCollector<C> {
 
@@ -18,7 +19,7 @@ export abstract class V2Collector<C extends Config> extends AbstractCollector<C>
         webSocketServer: WebSocketServer | undefined,
         secret: Secret,
         download_from_timestamp: number,
-        previousInvoices: any[],
+        previousInvoices: ModelInvoice[],
         location: Location | null,
         customerEnableInteractiveLogin: boolean
     ): Promise<CompleteInvoice[]> {

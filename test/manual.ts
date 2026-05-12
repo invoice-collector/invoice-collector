@@ -11,21 +11,20 @@ import readline from 'readline';
 
 import { CollectorLoader } from '../src/collectors/collectorLoader';
 import { LoggableError } from '../src/error';
-import { IcCredential } from '../src/model/credential';
+import { Credential, ModelInvoice } from '../src/model/credential';
 import { State } from '../src/model/state';
 import { I18n } from '../src/i18n';
 import { DatabaseFactory } from '../src/database/databaseFactory';
 import { SecretManagerFactory } from '../src/secret_manager/secretManagerFactory';
 import { WebSocketServer } from '../src/websocket/webSocketServer';
 import * as utils from '../src/utils';
-import { WebCollector } from '../src/collectors/webCollector';
 import { AbstractCollector, Config } from '../src/collectors/abstractCollector';
 import { TwofaPromise } from '../src/collect/twofaPromise';
 import { Secret } from '../src/model/secret';
 
 const PORT = parseInt(utils.getEnvVar('PORT')) + 1;
 
-async function getCredentialFromId(credential_id: string): Promise<IcCredential> {
+async function getCredentialFromId(credential_id: string): Promise<Credential> {
     const credential = await DatabaseFactory.getDatabase().getCredential(credential_id);
     if(credential == null) {
         throw new Error(`No credential with id "${credential_id}" found.`);
@@ -33,7 +32,7 @@ async function getCredentialFromId(credential_id: string): Promise<IcCredential>
     return credential;
 }
 
-async function getSecretFromCredential(credential: IcCredential): Promise<Secret> {
+async function getSecretFromCredential(credential: Credential): Promise<Secret> {
     let secret = credential.getSecret();
     await SecretManagerFactory.load();
     await SecretManagerFactory.getSecretManager().connect();
@@ -44,7 +43,7 @@ async function getSecretFromCredential(credential: IcCredential): Promise<Secret
     return secret;
 }
 
-async function updateSecret(credential: IcCredential | null, secret: Secret | null, secretHash: string | null): Promise<void> {
+async function updateSecret(credential: Credential | null, secret: Secret | null, secretHash: string | null): Promise<void> {
     // If credential and secret and secretHash exists
     if (credential && secret && secretHash) {
         // Get new secret hash
@@ -65,10 +64,14 @@ function getHashFromSecret(secret: Secret): string {
 
 (async () => {
     let id;
-    let credential: IcCredential | null = null;
+    let credential: Credential | null = null;
     let secret: Secret | null = null;
     let secretHash: string | null = null;
     let useInteractiveLogin: boolean;
+
+    let httpServer: http.Server | null = null;
+    let webSocketClient: WebSocket | null = null;
+    let webSocketServer: WebSocketServer | null = null;
 
     let exited = false;
     process.on('SIGINT', async function() {
@@ -96,6 +99,7 @@ function getHashFromSecret(secret: Secret): string {
         await DatabaseFactory.getDatabase().connect();
 
         // ---------- PART 1 : ASK COLLECTOR ID OR CREDENTIAL ID ----------
+        console.log(`===== PART1: Ask collector id or credential id =====`);
 
         // Get collector
         if(process.argv[2]) {
@@ -107,6 +111,7 @@ function getHashFromSecret(secret: Secret): string {
         }
 
         // ---------- PART 2 : GET COLLECTOR AND SECRET ----------
+        console.log(`===== PART2: Getting collector and secret =====`);
 
         // Load collectors
         const loadedCollectors = await CollectorLoader.load(id);
@@ -180,23 +185,24 @@ function getHashFromSecret(secret: Secret): string {
         secretHash = await getHashFromSecret(secret);
 
         // ---------- PART 3 : PERFORM COLLECT ----------
+        console.log(`===== PART3: Performing collect =====`);
 
         // Create an http server to handle web socket connections
-        const httpServer = http.createServer();
+        httpServer = http.createServer();
         httpServer.listen(PORT, () => {
             console.log(`HTTP server listening on port ${PORT}`);
         });
 
         // Instanciate web socket server
-        const webSocketServer = new WebSocketServer(httpServer, I18n.DEFAULT_LOCALE, collector);
+        webSocketServer = new WebSocketServer(httpServer, I18n.DEFAULT_LOCALE, collector);
         const webSocketPath = webSocketServer.start();
 
         // Connect to web socket server
-        const webSocketClient = new WebSocket(`ws://localhost:${PORT}${webSocketPath}`);
+        webSocketClient = new WebSocket(`ws://localhost:${PORT}${webSocketPath}`);
         // On connection open
         webSocketClient.addEventListener('open', () => {
             // On message received
-            webSocketClient.addEventListener('message', async (message) => {
+            webSocketClient!.addEventListener('message', async (message) => {
                 // Parse message data
                 const parsedData = JSON.parse(message.data.toString());
                 // If interactive open message
@@ -206,22 +212,22 @@ function getHashFromSecret(secret: Secret): string {
                     // Listen for user input asynchronously
                     rl.on('line', (input) => {
                         // Send close message to server
-                        webSocketClient.send(JSON.stringify({ type: 'interactive', reason: 'close' }));
+                        webSocketClient!.send(JSON.stringify({ type: 'interactive', reason: 'close' }));
                     });
                 }
                 else if(parsedData.type == "state" && parsedData.state.index == 3) {
                     // Wait until main thread is waiting for twofa code
-                    while (webSocketServer.onTwofa == undefined) {
+                    while (webSocketServer!.onTwofa == undefined) {
                         await utils.delay(1000);
                     }
                     const twofa_code = prompt(`${parsedData.state.message}: `).trim();
-                    webSocketClient.send(JSON.stringify({ type: 'twofa', twofa: twofa_code }));
+                    webSocketClient!.send(JSON.stringify({ type: 'twofa', twofa: twofa_code }));
                 }
             });
         });
 
         // Collect new invoices
-        const newInvoices = await collector.collect_new_invoices(
+        const newInvoicesPart3 = await collector.collect_new_invoices(
             State.DEFAULT_STATE,
             new TwofaPromise(),
             webSocketServer,
@@ -231,11 +237,12 @@ function getHashFromSecret(secret: Secret): string {
             null,
             useInteractiveLogin
         );
-        console.log(`${newInvoices.length} invoices downloaded`);
+        console.log(`${newInvoicesPart3.length} invoices downloaded`);
 
         // ---------- PART 4 : SAVE INVOICES ----------
+        console.log(`===== PART4: Saving invoices =====`);
 
-        for (const invoice of newInvoices) {
+        for (const invoice of newInvoicesPart3) {
             // If data is not null
             if (invoice.data) {
                 // Save data to file
@@ -251,32 +258,33 @@ function getHashFromSecret(secret: Secret): string {
                 amount: invoice.amount,
                 link: invoice.link,
                 timestamp: invoice.timestamp,
-                mimetype: invoice.mimetype
+                mimetype: invoice.mimetype,
+                data: invoice.data ? `<${invoice.data.length} bytes>` : null
             })
         }
 
         // ---------- PART 5 : CHECK INVOICES ----------
+        console.log(`===== PART5: Checking ${newInvoicesPart3.length} invoices =====`);
 
-        for (const invoice of newInvoices) {
+        for (const invoice of newInvoicesPart3) {
             assert(invoice.id, `Invoice id is not defined`);
             assert(invoice.link, `Invoice link is not defined`);
             assert(!isNaN(invoice.timestamp), `Timestamp ${invoice.timestamp} is NaN`);
             assert(invoice.timestamp >= Date.UTC(2000, 0, 1), `Invoice timestamp ${invoice.timestamp} is before year 2000. Did you forget to set the year in the date format?`);
-            assert(invoice.amount, `Invoice amount is not defined`);
             assert(invoice.data, `Invoice data is not defined`);
             assert(invoice.mimetype, `Invoice mimetype is not defined`);
         }
+        console.log(`All invoices are valid!`);
 
         // ---------- PART 6 : PERFORM NEW COLLECT WITH COOCKIES AND LOCAL STORAGE ----------
-        console.log(`Performing new collect with cookies and local storage...`);
+        console.log(`===== PART6: Performing new collect with cookies local storage and download since timestamp =====`);
 
         // Override login method
         (collector as any).login = async (driver: any, params: any, webSocketServer: WebSocketServer | undefined) => {
             throw new Error("Login was triggered, but it should not. Cookies and local storage should be used to login, if needed.");
         };
-        
-        // Collect new invoices
-        await collector.collect_new_invoices(
+
+        const newInvoicesPart6 = await collector.collect_new_invoices(
             State.DEFAULT_STATE,
             new TwofaPromise(),
             undefined,
@@ -286,6 +294,47 @@ function getHashFromSecret(secret: Secret): string {
             null,
             useInteractiveLogin
         );
+
+        // ---------- PART 7 : CHECK INVOICES ----------
+        console.log(`===== PART7: Checking ${newInvoicesPart6.length} invoices =====`);
+
+        assert(newInvoicesPart6.length == newInvoicesPart3.length, `Number of invoices should be the same as previous collect, but got ${newInvoicesPart6.length} instead of ${newInvoicesPart3.length}`);
+        for (const invoice of newInvoicesPart6) {
+            assert(invoice.id, `Invoice id is not defined`);
+            assert(invoice.link, `Invoice link is not defined`);
+            assert(!isNaN(invoice.timestamp), `Timestamp ${invoice.timestamp} is NaN`);
+            assert(invoice.timestamp >= Date.UTC(2000, 0, 1), `Invoice timestamp ${invoice.timestamp} is before year 2000. Did you forget to set the year in the date format?`);
+            assert(invoice.data === null, `Invoice data must be null`);
+            assert(invoice.mimetype === null, `Invoice mimetype must be null`);
+        }
+        console.log(`All invoices are valid!`);
+
+        // ---------- PART 8 : PERFORM NEW COLLECT WITH COOCKIES AND LOCAL STORAGE ----------
+        console.log(`===== PART8: Performing new collect with cookies local storage, and previous invoices =====`);
+
+        const modelInvoices: ModelInvoice[] = newInvoicesPart3.map(invoice => ({
+            id: invoice.id,
+            timestamp: invoice.timestamp,
+            collected_timestamp: Date.now(),
+            hash: invoice.hash
+        }));
+
+        const newInvoicesPart8 = await collector.collect_new_invoices(
+            State.DEFAULT_STATE,
+            new TwofaPromise(),
+            undefined,
+            secret,
+            Date.UTC(2000, 0, 1),
+            modelInvoices,
+            null,
+            useInteractiveLogin
+        );
+
+        // ---------- PART 9 : CHECK INVOICES ----------
+        console.log(`===== PART9: Checking ${newInvoicesPart8.length} invoices =====`);
+        assert(newInvoicesPart8.length == 0, `No new invoice should have been collected`);
+        console.log(`All invoices are valid! No new invoice collected as expected!`);
+        console.log(`===== DONE =====`);
     } catch (error) {
         if (error instanceof Error) {
             error.message = I18n.get(error.message, I18n.DEFAULT_LOCALE);
@@ -306,6 +355,16 @@ function getHashFromSecret(secret: Secret): string {
     finally {
         // Close readline interface
         rl.close();
+
+        // Close WebSocket client
+        webSocketClient?.close();
+
+        // Close WebSocket server
+        webSocketServer?.close();
+
+        // Close HTTP server
+        httpServer?.close();
+
         // Update secret if needed
         await updateSecret(credential, secret, secretHash);
 

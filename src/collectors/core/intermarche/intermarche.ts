@@ -1,11 +1,11 @@
-import { WebCollector } from '../../webCollector';
+import { LinearWebCollector } from '../../linearWebCollector';
 import { IntermarcheSelectors } from './selectors';
 import { Driver, Element } from '../../../driver/driver';
 import { CollectorCaptcha, CollectorState, CollectorType, Invoice } from '../../abstractCollector';
 import { UnfinishedCollectorError } from '../../../error';
 import { WebSocketServer } from '../../../websocket/webSocketServer';
 
-export class IntermarcheCollector extends WebCollector {
+export class IntermarcheCollector extends LinearWebCollector {
 
     static CONFIG = {
         id: "intermarche",

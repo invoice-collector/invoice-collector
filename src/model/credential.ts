@@ -6,12 +6,19 @@ import { Secret } from "./secret";
 import { State } from "./state";
 import { User } from "./user";
 
-export class IcCredential {
+export type ModelInvoice = {
+    id: string,
+    timestamp: number,
+    collected_timestamp: number | null,
+    hash: string | null
+}
+
+export class Credential {
 
     static ONE_DAY_MS: number = 86400000;
     static ONE_WEEK_MS: number = 604800000;
 
-    static async fromId(id: string): Promise<IcCredential | null> {
+    static async fromId(id: string): Promise<Credential | null> {
         // Get customer from bearer
         return await DatabaseFactory.getDatabase().getCredential(id);
     }
@@ -29,12 +36,7 @@ export class IcCredential {
     download_from_timestamp: number;
     last_collect_timestamp: number;
     next_collect_timestamp: number;
-    invoices: {
-        id: string,
-        timestamp: number,
-        collected_timestamp: number | null,
-        hash: string | null
-    }[];
+    invoices: ModelInvoice[];
     state: State;
 
     constructor(
@@ -46,12 +48,7 @@ export class IcCredential {
         download_from_timestamp: number,
         last_collect_timestamp: number = Number.NaN,
         next_collect_timestamp: number = Number.NaN,
-        invoices: {
-            id: string,
-            timestamp: number,
-            collected_timestamp: number | null,
-            hash: string | null
-        }[] = [],
+        invoices: ModelInvoice[] = [],
         state: State = State.DEFAULT_STATE
     ) {
         this.id = "";
@@ -119,7 +116,7 @@ export class IcCredential {
                 // If has less than 2 invoices, average time between invoices cannot be computed
                 if (this.invoices.length < 2) {
                     // Plan the next collect in one week
-                    theoretical_next_collect_timestamp = this.last_collect_timestamp + IcCredential.ONE_WEEK_MS;
+                    theoretical_next_collect_timestamp = this.last_collect_timestamp + Credential.ONE_WEEK_MS;
                 }
                 else { // If has more than 2 invoices
                     // Take the last 10 invoices
@@ -137,7 +134,7 @@ export class IcCredential {
 
                     // If theoretical next collect timestamp is before last collect timestamp, plan the next collect in one week
                     if (theoretical_next_collect_timestamp < this.last_collect_timestamp) {
-                        theoretical_next_collect_timestamp = this.last_collect_timestamp + IcCredential.ONE_WEEK_MS;
+                        theoretical_next_collect_timestamp = this.last_collect_timestamp + Credential.ONE_WEEK_MS;
                     }
                 }
 

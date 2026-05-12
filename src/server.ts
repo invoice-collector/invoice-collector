@@ -5,7 +5,7 @@ import { OauthError, MissingField, MissingParams, StatusError, AuthenticationBea
 import { CollectorLoader } from './collectors/collectorLoader';
 import { User, UserStats } from './model/user';
 import { Customer, CustomerStats } from './model/customer';
-import { IcCredential } from './model/credential';
+import { Credential } from './model/credential';
 import { CollectTask } from './collect/collectTask';
 import { ProxyFactory } from './proxy/proxyFactory';
 import { AbstractCollector, CollectorType, Config } from './collectors/abstractCollector';
@@ -1039,7 +1039,7 @@ export class Server {
 
         // Create credential
         const now = Date.now();
-        let credential = new IcCredential(
+        let credential = new Credential(
             user.id,
             collector.config.id,
             note,

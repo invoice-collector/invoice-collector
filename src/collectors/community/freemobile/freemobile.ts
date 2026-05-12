@@ -1,4 +1,4 @@
-import { WebCollector } from '../../webCollector';
+import { LinearWebCollector } from '../../linearWebCollector';
 import { FreeMobileSelectors } from './selectors';
 import { Driver, Element } from '../../../driver/driver';
 import { CollectorCaptcha, CollectorType, Invoice } from '../../abstractCollector';
@@ -6,7 +6,7 @@ import { TwofaPromise } from '../../../collect/twofaPromise';
 import * as utils from '../../../utils';
 import { WebSocketServer } from '../../../websocket/webSocketServer';
 
-export class FreeMobileCollector extends WebCollector {
+export class FreeMobileCollector extends LinearWebCollector {
 
     static CONFIG = {
         id: "freemobile",

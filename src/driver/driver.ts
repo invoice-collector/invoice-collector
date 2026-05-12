@@ -2,7 +2,6 @@ import { ElementHandle, Frame, KeyInput, Page } from "rebrowser-puppeteer-core";
 import { ElementNotFoundError, LoggableError } from '../error';
 import { Proxy } from '../proxy/abstractProxy';
 import * as utils from '../utils';
-import { WebCollector as OldWebCollector} from '../collectors/webCollector';
 import { WebCollector } from '../collectors/webCollector';
 import { BrowserFactory } from './browser/browserFactory';
 import { AbstractBrowser } from './browser/abstractBrowser';
@@ -19,11 +18,34 @@ export class Driver {
     static VIEWPORT_WIDTH: number = 1920;
     static VIEWPORT_HEIGHT: number = 1080;
 
-    collector: OldWebCollector | WebCollector;
+    public static getCommonCssSelector(selector1: string, selector2: string): string {
+        // Extract the common parent element from the two css selectors
+        const parts1 = selector1.split(" > ");
+        const parts2 = selector2.split(" > ");
+        const minLength = Math.min(parts1.length, parts2.length);
+        let commonParts: string[] = [];
+        let i: number;
+        let lastPart = "*";
+        for (i = 0; i < minLength; i++) {
+            if (parts1[i] === parts2[i]) {
+                commonParts.push(parts1[i]);
+            } else {
+                const tag1 = parts1[i].split(":")[0];
+                const tag2 = parts2[i].split(":")[0];
+                if (tag1 === tag2) {
+                    lastPart = tag1;
+                }
+                break;
+            }
+        }
+        return `${commonParts.join(" > ")} > ${lastPart}`;
+    }
+
+    collector: WebCollector;
     browser: AbstractBrowser | null;
     page: Page | null;
 
-    constructor(collector: OldWebCollector | WebCollector) {
+    constructor(collector: WebCollector) {
         this.collector = collector;
         this.browser = null;
         this.page = null;
@@ -219,7 +241,7 @@ export class Driver {
             throw new Error('Page is not initialized.');
         }
         try {
-            await this.page.waitForNavigation({timeout});
+            await this.page.waitForNavigation({waitUntil: 'networkidle0', timeout});
         }
         catch {}
     }
@@ -373,11 +395,12 @@ export class Driver {
         timeout = Driver.DEFAULT_TIMEOUT,
         delay = Driver.DEFAULT_DELAY,
         tries = 5,
+        navigation = false,
         mouseHover = false
     } = {}): Promise<Element | null> {
         let element = await this.getElement(selector, { raiseException, timeout });
         if(element != null) {
-            await element.inputText(text, { tries, timeout, delay, mouseHover });
+            await element.inputText(text, { tries, timeout, delay, navigation, mouseHover });
             return element;
         }
         return null;
@@ -756,6 +779,12 @@ export class Element {
                     return 'body';
                 }
                 let selector = element.tagName.toLowerCase();
+                if (element.getAttribute('name')) {
+                    selector += `[name="${element.getAttribute('name')}"]`;
+                }
+                if (element.getAttribute('type')) {
+                    selector += `[type="${element.getAttribute('type')}"]`;
+                }
                 let sibling = element;
                 let nth = 1;
                 while ((sibling = sibling.previousElementSibling)) {
@@ -772,5 +801,13 @@ export class Element {
             }
             return getCssSelector(element);
         });
+    }
+
+    async isClickable(): Promise<boolean> {
+        const [isVisible, isDisabled] = await Promise.all([
+            this.element.isVisible(),
+            this.element.evaluate((element) => element.getAttribute('disabled') !== null),
+        ]);
+        return isVisible && !isDisabled;
     }
 }

@@ -4,6 +4,7 @@ import { TwofaPromise } from '../collect/twofaPromise';
 import { State } from '../model/state';
 import { AbstractCollector, CompleteInvoice, Config, Invoice } from './abstractCollector';
 import { WebSocketServer } from '../websocket/webSocketServer';
+import { ModelInvoice } from '../model/credential';
 
 export abstract class V1Collector<C extends Config> extends AbstractCollector<C> {
 
@@ -17,7 +18,7 @@ export abstract class V1Collector<C extends Config> extends AbstractCollector<C>
         webSocketServer: WebSocketServer | undefined,
         secret: Secret,
         download_from_timestamp: number,
-        previousInvoices: any[],
+        previousInvoices: ModelInvoice[],
         location: Location | null,
         customerEnableInteractiveLogin
     ): Promise<CompleteInvoice[]> {

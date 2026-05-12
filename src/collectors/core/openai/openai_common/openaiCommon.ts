@@ -2,12 +2,12 @@ import { OpenaiSelectors } from './selectors';
 import { Driver } from '../../../../driver/driver';
 import { TwofaPromise } from '../../../../collect/twofaPromise';
 import { WebSocketServer } from '../../../../websocket/webSocketServer';
-import { WebCollector } from '../../../webCollector';
+import { LinearWebCollector } from '../../../linearWebCollector';
 import { Invoice } from '../../../abstractCollector';
 import { GoogleOauth2 } from '../../../oauth2/googleOauth2';
 import { MicrosoftOauth2 } from '../../../oauth2/microsoftOauth2';
 
-export abstract class OpenaiCommonCollector extends WebCollector {
+export abstract class OpenaiCommonCollector extends LinearWebCollector {
 
     async login(driver: Driver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
         // Go to login page
