@@ -38,6 +38,6 @@ export class AirbnbCollector extends SketchCollector {
     }
 
     async needLogin(driver: Driver): Promise<boolean> {
-        return this.config.entryUrl == undefined || !driver.url().includes("/login");
+        return this.config.entryUrl == undefined || driver.url().includes("/login");
     }
 }
