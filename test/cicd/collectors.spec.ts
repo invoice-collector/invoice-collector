@@ -10,8 +10,9 @@ describe('Get collectors', () => {
             try {
                 await CollectorLoader.get(config.id);
             }
-            catch {
-                throw Error(`Unable to load collector "${config.id}"`)
+            catch (e) {
+                console.error(e);
+                throw Error(`Unable to load collector "${config.id}"`, { cause: e });
             }
         }
     });
