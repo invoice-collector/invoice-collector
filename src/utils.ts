@@ -3,7 +3,7 @@ import fs from 'fs';
 import path from 'path';
 import * as crypto from 'crypto';
 import date_fns from 'date-fns';
-import { PDFDocument } from 'pdf-lib';
+import { PDFDocument, PDFDict, asPDFName } from 'pdf-lib';
 import { fr, enGB, enUS } from 'date-fns/locale';
 import { CollectorState, CollectorType, CompleteInvoice, Config } from './collectors/abstractCollector';
 
@@ -283,4 +283,29 @@ export function convertNameToInviteId(name: string): string {
     name = name + '-' + crypto.randomBytes(3).toString('hex');
 
     return name;
+}
+
+export async function getLinksFromPdfDocument(data: string): Promise<string[]> {
+    let links: string[] = [];
+    const documentPdf = await PDFDocument.load(data);
+    const pages = documentPdf.getPages();
+    pages.forEach((p) => {
+        p.node
+        .Annots()
+        ?.asArray()
+        .forEach((a) => {
+            const dict = documentPdf.context.lookupMaybe(a, PDFDict);
+            if (!dict) return;
+            const aRecord = dict.get(asPDFName(`A`));
+            const link = documentPdf.context.lookupMaybe(aRecord, PDFDict);
+            if (!link) return;
+            const pdfObject = link.get(asPDFName("URI"));
+            if(!pdfObject) return;
+            const uri = pdfObject.toString().slice(1, -1); // get the original link, remove parenthesis
+            if (uri.startsWith("http")) {
+                links.push(uri);
+            }
+        });
+    });
+    return links;
 }
