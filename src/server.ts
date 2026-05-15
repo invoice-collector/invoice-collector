@@ -923,10 +923,6 @@ export class Server {
                 credential.state = collect.state;
             }
 
-            // Translate the state title and message
-            credential.state.title = I18n.get(credential.state.title, user.locale);
-            credential.state.message = I18n.get(credential.state.message, user.locale);
-
             // Get ws path
             const wsPath = collect?.webSocketServer?.path || null;
 
@@ -938,9 +934,9 @@ export class Server {
                 download_from_timestamp: credential.download_from_timestamp,
                 last_collect_timestamp: credential.last_collect_timestamp,
                 next_collect_timestamp: credential.next_collect_timestamp,
-                state: credential.state,
                 invoices: credential.invoices,
-                collector: collector.config,
+                state: I18n.translateState(credential.state, user.locale),
+                collector: I18n.translateCollector(collector.config, user.locale),
                 wsPath: wsPath
             }
         }));
@@ -1145,10 +1141,6 @@ export class Server {
             credential.state = collect.state;
         }
 
-        // Translate the state title and message
-        credential.state.title = I18n.get(credential.state.title, user.locale);
-        credential.state.message = I18n.get(credential.state.message, user.locale);
-
         // Get ws path
         const wsPath = collect?.webSocketServer?.path || null;
 
@@ -1162,8 +1154,8 @@ export class Server {
             last_collect_timestamp: credential.last_collect_timestamp,
             next_collect_timestamp: credential.next_collect_timestamp,
             invoices: credential.invoices,
-            state: credential.state,
-            collector: collector.config,
+            state: I18n.translateState(credential.state, user.locale),
+            collector: I18n.translateCollector(collector.config, user.locale),
             wsPath: wsPath
         };
     }
@@ -1350,25 +1342,8 @@ export class Server {
             .map((config: Config): Config => {
                 // Update collector params based on customer settings
                 AbstractCollector.updateCollectorParams(enableInteractiveLogin, config);
-
-                const name: string = I18n.get(config.name, locale);
-                const description: string = I18n.get(config.description, locale);
-                const instructions: string = I18n.get(config.instructions, locale);
-                const params = Object.keys(config.params).reduce((acc, key) => {
-                    acc[key] = {
-                        ...config.params[key],
-                        name: I18n.get(config.params[key].name, locale),
-                        placeholder: I18n.get(config.params[key].placeholder, locale)
-                    };
-                    return acc;
-                }, {});
-                return {
-                    ...config,
-                    name,
-                    description,
-                    instructions,
-                    params
-                };
+                // Translate collector name and description
+                return I18n.translateCollector(config, locale);
             });
     }
 
@@ -1398,7 +1373,7 @@ export class Server {
             return {
                 id: callback.id,
                 customer_user_id: callback.customer_user_id,
-                integration: this.translateIntegration(integration, 'en'),  // TODO: use customer.locale
+                integration: I18n.translateIntegration(integration, 'en'),  // TODO: use customer.locale
                 createdAt: callback.createdAt,
                 automaticExport: callback.automaticExport
             }
@@ -1481,7 +1456,7 @@ export class Server {
         return {
             id: callback.id,
             customer_user_id: callback.customer_user_id,
-            integration: this.translateIntegration(integrationConfig, 'en'), // TODO: use customer.locale
+            integration: I18n.translateIntegration(integrationConfig, 'en'), // TODO: use customer.locale
             createdAt: callback.createdAt,
             automaticExport: callback.automaticExport
         };
@@ -1539,7 +1514,7 @@ export class Server {
         return {
             id: callbackToUpdate.id,
             customer_user_id: callbackToUpdate.customer_user_id,
-            integration: this.translateIntegration(integration, 'en'), // TODO: use customer.locale
+            integration: I18n.translateIntegration(integration, 'en'), // TODO: use customer.locale
             createdAt: callbackToUpdate.createdAt,
             automaticExport: callbackToUpdate.automaticExport
         };
@@ -1627,7 +1602,7 @@ export class Server {
 
         // Get integration configs
         return IntegrationLoader.getAll()
-            .map((config) => this.translateIntegration(config, locale));
+            .map((config) => I18n.translateIntegration(config, locale));
     }
 
     // ---------- PRIVATE METHODS ----------
@@ -1810,24 +1785,5 @@ export class Server {
 
         // Return token
         return resetToken;
-    }
-
-    private translateIntegration(integration: IntegrationConfig, locale: string): IntegrationConfig {
-        const name: string = I18n.get(integration.name, locale);
-        const description: string = I18n.get(integration.description, locale);
-        const params = Object.keys(integration.params).reduce((acc, key) => {
-            acc[key] = {
-                ...integration.params[key],
-                name: I18n.get(integration.params[key].name, locale),
-                placeholder: I18n.get(integration.params[key].placeholder, locale)
-            };
-            return acc;
-        }, {});
-        return {
-            ...integration,
-            name,
-            description,
-            params
-        };
     }
 }
