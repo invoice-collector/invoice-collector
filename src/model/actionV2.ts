@@ -1,5 +1,5 @@
 import { Driver, Element } from "../driver/driver";
-import { AuthenticationError, DisconnectedError, NoInvoiceFoundError } from "../error";
+import { AuthenticationError, DisconnectedError } from "../error";
 import * as utils from "../utils";
 import { Invoice } from "../collectors/abstractCollector";
 import { Secret } from "./secret";
@@ -516,8 +516,7 @@ export type GetInvoicesOutputContext = {
 }
 
 export type GetInvoicesArgs = {
-    cssSelectorInvoices?: string;
-    cssSelectorIsEmpty?: string;
+    cssSelector: string;
 }
 
 export class GetInvoicesAction extends ActionV2<GetInvoicesInputContext, GetInvoicesArgs, GetInvoicesOutputContext> {
@@ -531,8 +530,8 @@ export class GetInvoicesAction extends ActionV2<GetInvoicesInputContext, GetInvo
         args: GetInvoicesArgs,
         destinationIds: string[] = []
     ) {
-        if (!args.cssSelectorInvoices && !args.cssSelectorIsEmpty) {
-            throw new Error('GetInvoicesAction requires args to have at least one of "cssSelectorInvoices" or "cssSelectorIsEmpty"');
+        if (!args.cssSelector) {
+            throw new Error('GetInvoicesAction requires args to have a "cssSelector" field');
         }
         super(
             id,
@@ -547,33 +546,10 @@ export class GetInvoicesAction extends ActionV2<GetInvoicesInputContext, GetInvo
     }
 
     async _perform(context: GetInvoicesInputContext): Promise<GetInvoicesOutputContext[]> {
-        let elements: Element[] = [];
-
-        if (this.args.cssSelectorInvoices) {
-            elements = await context.driver.getElements({
-                selector: this.args.cssSelectorInvoices,
-                info: this.description
-            }, {
-                raiseException: false,
-            });
-        }
-
-        // If no elements found, check if empty message selector provided and if it is visible
-        if (elements.length === 0) {
-            // Raise error if no cssSelectorIsEmpty provided
-            if (!this.args.cssSelectorIsEmpty) {
-                throw new Error(`No elements found for selector ${this.args.cssSelectorInvoices} and no cssSelectorIsEmpty provided. Please add cssSelectorIsEmpty.`);
-            }
-            // Get is empty element, raise error if not displayed
-            await context.driver.getElement({
-                selector: this.args.cssSelectorIsEmpty,
-                info: "empty message"
-            }, {
-                timeout: 100
-            });
-            throw new NoInvoiceFoundError(null);
-        }
-
+        const elements = await context.driver.getElements({
+            selector: this.args.cssSelector,
+            info: this.description
+        });
         // Return new context with elements
         let outputContexts: GetInvoicesOutputContext[] = [];
         for (const element of elements) {
@@ -591,15 +567,8 @@ export class GetInvoicesAction extends ActionV2<GetInvoicesInputContext, GetInvo
         if (!new RegExp(this.pageUrlRegex).test(context.driver.url())) {
             return false;
         }
-        const [invociesElement, isEmptyElement] = await Promise.all([
-            this.args.cssSelectorInvoices ? context.driver.getElement({ selector: this.args.cssSelectorInvoices }, { raiseException: false, timeout: 100 }) : null,
-            this.args.cssSelectorIsEmpty ? context.driver.getElement({ selector: this.args.cssSelectorIsEmpty }, { raiseException: false, timeout: 100 }) : null
-        ]);
-        const [elementInvoicesClickable, isEmptyElementVisible] = await Promise.all([
-            invociesElement ? invociesElement.isClickable() : false,
-            isEmptyElement ? isEmptyElement.isClickable() : false
-        ]);
-        return elementInvoicesClickable || isEmptyElementVisible;
+        const el = await context.driver.getElement({ selector: this.args.cssSelector }, { raiseException: false, timeout: 100 });
+        return el?.isClickable() || false;
     }
 
     canFollow(previousAction: ActionEnum | null, secondPreviousAction: ActionEnum | null): boolean {
