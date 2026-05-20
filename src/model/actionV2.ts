@@ -1,5 +1,5 @@
 import { Driver, Element } from "../driver/driver";
-import { AuthenticationError, DisconnectedError } from "../error";
+import { AuthenticationError, DisconnectedError, NoInvoiceFoundError } from "../error";
 import * as utils from "../utils";
 import { Invoice } from "../collectors/abstractCollector";
 import { Secret } from "./secret";
@@ -9,11 +9,13 @@ export enum ActionEnum  {
     NOOP = 'noop',
     LEFT_CLICK = 'leftClick',
     INPUT_TEXT = 'inputText',
-    INPUT_2FA_CODE = 'input2FACode',
     ERROR_DISPLAYED = 'errorDisplayed',
+    INPUT_2FA_CODE = 'input2FACode',
     GET_INVOICES = 'getInvoices',
+    ERROR_NO_INVOICES = 'errorNoInvoices',
     EXTRACT_INVOICE_DATA = 'extractInvoiceData',
     MIDDLE_CLICK = 'middleClick',
+    CUSTOM = 'custom',
 }
 
 export abstract class ActionV2<InputContext, Args, OutputContext> {
@@ -104,8 +106,8 @@ export abstract class ActionV2<InputContext, Args, OutputContext> {
             return await this._perform(context);
         }
         catch (e) {
-            // Rethrow AuthenticationError and DisconnectedError
-            if (e instanceof AuthenticationError || e instanceof DisconnectedError) {
+            // Rethrow AuthenticationError, DisconnectedError and NoInvoiceFoundError
+            if (e instanceof AuthenticationError || e instanceof DisconnectedError || e instanceof NoInvoiceFoundError) {
                 throw e;
             }
             // Wrap other errors
@@ -163,7 +165,7 @@ export class NoopAction extends ActionV2<NoopContext, NoopArgs, NoopContext> {
     }
 
     canFollow(previousAction: ActionEnum | null, secondPreviousAction: ActionEnum | null): boolean {
-        return previousAction !== ActionEnum.EXTRACT_INVOICE_DATA && previousAction !== ActionEnum.GET_INVOICES;
+        return previousAction !== ActionEnum.GET_INVOICES && previousAction !== ActionEnum.EXTRACT_INVOICE_DATA;
     }
 }
 
@@ -392,7 +394,15 @@ export class ErrorDisplayedAction extends ActionV2<RaiseErrorContext, RaiseError
     }
 
     canFollow(previousAction: ActionEnum | null, secondPreviousAction: ActionEnum | null): boolean {
-        return previousAction === ActionEnum.LEFT_CLICK && secondPreviousAction === ActionEnum.INPUT_TEXT;
+        return (
+            previousAction === ActionEnum.LEFT_CLICK &&
+            (
+                secondPreviousAction === ActionEnum.INPUT_TEXT ||
+                secondPreviousAction === ActionEnum.INPUT_2FA_CODE
+            )
+        ) ||
+        previousAction === ActionEnum.INPUT_2FA_CODE ||
+        previousAction === ActionEnum.CUSTOM;
     }
 }
 
@@ -493,7 +503,7 @@ export class InputTwofaAction extends ActionV2<InputTwofaContext, InputTwofaArgs
     }
     
     canFollow(previousAction: ActionEnum | null, secondPreviousAction: ActionEnum | null): boolean {
-        return previousAction === ActionEnum.LEFT_CLICK;
+        return previousAction === ActionEnum.LEFT_CLICK || previousAction === ActionEnum.CUSTOM;
     }
 }
 
@@ -563,7 +573,67 @@ export class GetInvoicesAction extends ActionV2<GetInvoicesInputContext, GetInvo
     }
 
     canFollow(previousAction: ActionEnum | null, secondPreviousAction: ActionEnum | null): boolean {
-        return previousAction === null || previousAction === ActionEnum.LEFT_CLICK || previousAction === ActionEnum.NOOP;
+        return previousAction === ActionEnum.LEFT_CLICK || previousAction === ActionEnum.NOOP || previousAction === ActionEnum.CUSTOM;
+    }
+}
+
+export type ErrorNoInvoicesContext = {
+    driver: Driver;
+}
+
+export type ErrorNoInvoicesArgs = {
+    cssSelector: string;
+}
+
+export class ErrorNoInvoicesAction extends ActionV2<ErrorNoInvoicesContext, ErrorNoInvoicesArgs, ErrorNoInvoicesContext> {
+
+    constructor(
+        id: string | null,
+        description: string,
+        pageUrlRegex: string,
+        objectiveId: string | null,
+        lastUsed: string | null,
+        args: ErrorNoInvoicesArgs,
+        destinationIds: string[] = []
+    ) {
+        // Check if cssSelector is provided
+        if (!args.cssSelector) {
+            throw new Error('ErrorNoInvoices requires a cssSelector to locate the element');
+        }
+        super(
+            id,
+            ActionEnum.ERROR_NO_INVOICES,
+            description,
+            pageUrlRegex,
+            objectiveId,
+            lastUsed,
+            args,
+            destinationIds
+        );
+    }
+
+    async _perform(context: ErrorNoInvoicesContext): Promise<ErrorNoInvoicesContext> {
+        // Get element from cssSelector
+        await context.driver.getElement({
+            selector: this.args.cssSelector,
+            info: this.description
+        })
+        // Throw specific error to signal no invoices found
+        throw new NoInvoiceFoundError(context.driver.collector);
+    }
+
+    async canPerform(context: ErrorNoInvoicesContext): Promise<boolean> {
+        if (!new RegExp(this.pageUrlRegex).test(context.driver.url())) {
+            return false;
+        }
+        const el = await context.driver.getElement({ selector: this.args.cssSelector }, { raiseException: false, timeout: 100 });
+        return el?.isClickable() || false;
+    }
+
+    canFollow(previousAction: ActionEnum | null, secondPreviousAction: ActionEnum | null): boolean {
+        return previousAction === ActionEnum.LEFT_CLICK ||
+            previousAction === ActionEnum.NOOP ||
+            previousAction === ActionEnum.CUSTOM;
     }
 }
 
@@ -676,7 +746,7 @@ export class ExtractInvoiceDataAction extends ActionV2<ExtractInvoiceDataInputCo
     }
 
     canFollow(previousAction: ActionEnum | null, secondPreviousAction: ActionEnum | null): boolean {
-        return previousAction === ActionEnum.GET_INVOICES;
+        return previousAction === ActionEnum.GET_INVOICES || previousAction === ActionEnum.CUSTOM;
     }
 }
 
@@ -763,6 +833,51 @@ export class MiddleClickAction extends ActionV2<MiddleClickContext, MiddleClickA
     }
 }
 
+export type CustomContext = {
+    driver: Driver;
+}
+
+export type CustomArgs = {
+    [key: string]: any;
+}
+
+export class CustomAction extends ActionV2<CustomContext, CustomArgs, CustomContext> {
+
+    constructor(
+        id: string | null,
+        description: string,
+        pageUrlRegex: string,
+        objectiveId: string | null,
+        lastUsed: string | null,
+        args: CustomArgs,
+        destinationIds: string[] = []
+    ) {
+        super(
+            id,
+            ActionEnum.CUSTOM,
+            description,
+            pageUrlRegex,
+            objectiveId,
+            lastUsed,
+            args,
+            destinationIds
+        );
+    }
+
+    async _perform(context: CustomContext): Promise<CustomContext> {
+        console.log("Performing custom action !!!!!");
+        return context;
+    }
+
+    async canPerform(context: CustomContext): Promise<boolean> {
+        return new RegExp(this.pageUrlRegex).test(context.driver.url());
+    }
+
+    canFollow(previousAction: ActionEnum | null, secondPreviousAction: ActionEnum | null): boolean {
+        return true;
+    }
+}
+
 export const ClassActionMap = {
     [ActionEnum.NOOP]: NoopAction,
     [ActionEnum.LEFT_CLICK]: LeftClickAction,
@@ -770,6 +885,8 @@ export const ClassActionMap = {
     [ActionEnum.INPUT_2FA_CODE]: InputTwofaAction,
     [ActionEnum.ERROR_DISPLAYED]: ErrorDisplayedAction,
     [ActionEnum.GET_INVOICES]: GetInvoicesAction,
+    [ActionEnum.ERROR_NO_INVOICES]: ErrorNoInvoicesAction,
     [ActionEnum.EXTRACT_INVOICE_DATA]: ExtractInvoiceDataAction,
     [ActionEnum.MIDDLE_CLICK]: MiddleClickAction,
+    [ActionEnum.CUSTOM]: CustomAction,
 }
