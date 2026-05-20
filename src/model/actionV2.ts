@@ -164,7 +164,7 @@ export class NoopAction extends ActionV2<NoopContext, NoopArgs, NoopContext> {
     }
 
     canFollow(previousAction: ActionEnum | null, secondPreviousAction: ActionEnum | null): boolean {
-        return previousAction !== ActionEnum.EXTRACT_INVOICE_DATA && previousAction !== ActionEnum.GET_INVOICES;
+        return previousAction !== ActionEnum.GET_INVOICES && previousAction !== ActionEnum.EXTRACT_INVOICE_DATA;
     }
 }
 
@@ -393,7 +393,15 @@ export class ErrorDisplayedAction extends ActionV2<RaiseErrorContext, RaiseError
     }
 
     canFollow(previousAction: ActionEnum | null, secondPreviousAction: ActionEnum | null): boolean {
-        return previousAction === ActionEnum.LEFT_CLICK && secondPreviousAction === ActionEnum.INPUT_TEXT;
+        return (
+            previousAction === ActionEnum.LEFT_CLICK &&
+            (
+                secondPreviousAction === ActionEnum.INPUT_TEXT ||
+                secondPreviousAction === ActionEnum.INPUT_2FA_CODE
+            )
+        ) ||
+        previousAction === ActionEnum.INPUT_2FA_CODE ||
+        previousAction === ActionEnum.CUSTOM;
     }
 }
 
