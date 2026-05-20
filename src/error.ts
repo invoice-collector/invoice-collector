@@ -67,12 +67,12 @@ export class CollectorError extends Error {
     collector_name: string;
     collector_version: string;
 
-    constructor(message: string, collector: AbstractCollector<Config> | null, opts = {}) {
+    constructor(message: string, collector: AbstractCollector<Config>, opts = {}) {
         super(message, opts);
         this.name = this.constructor.name;
-        this.collector_id = collector?.config.id || "";
-        this.collector_name = collector?.config.name || "";
-        this.collector_version = collector?.config.version || "";
+        this.collector_id = collector.config.id;
+        this.collector_name = collector.config.name;
+        this.collector_version = collector.config.version;
     }
 }
 
@@ -124,7 +124,7 @@ export class LoggableError extends CollectorError {
     source_code: string;
     screenshot: string;
 
-    constructor(message: string, collector: AbstractCollector<Config> | null, opts = {}) {
+    constructor(message: string, collector: AbstractCollector<Config>, opts = {}) {
         super(
             message,
             collector,
@@ -163,7 +163,7 @@ export class UnfinishedCollectorError extends LoggableError {
 }
 
 export class NoInvoiceFoundError extends LoggableError {
-    constructor(collector: AbstractCollector<Config> | null, opts = {}) {
+    constructor(collector: AbstractCollector<Config>, opts = {}) {
         super(
             `No invoice found, collector may be broken`,
             collector,
