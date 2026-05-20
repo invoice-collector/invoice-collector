@@ -614,18 +614,12 @@ export class ErrorNoInvoicesAction extends ActionV2<ErrorNoInvoicesContext, Erro
 
     async _perform(context: ErrorNoInvoicesContext): Promise<ErrorNoInvoicesContext> {
         // Get element from cssSelector
-        const element = await context.driver.getElement({
+        await context.driver.getElement({
             selector: this.args.cssSelector,
             info: this.description
-        }, {
-            raiseException: false
         })
-        // If element found, raise NoInvoiceFoundError
-        if (element) {
-            throw new NoInvoiceFoundError(context.driver.collector);
-        }
-        // Return same context
-        return context;
+        // Throw specific error to signal no invoices found
+        throw new NoInvoiceFoundError(context.driver.collector);
     }
 
     async canPerform(context: ErrorNoInvoicesContext): Promise<boolean> {
