@@ -6,7 +6,6 @@ import { State } from "../model/state";
 import { Customer } from "../model/customer";
 import { User } from "../model/user";
 import { RegistryFactory } from "../registry/registryFactory";
-import { TwofaPromise } from "./twofaPromise";
 import { WebSocketServer } from '../websocket/webSocketServer';
 import * as utils from "../utils";
 import { Secret } from "../model/secret";
@@ -15,12 +14,10 @@ export class Collect {
 
     credential_id: string;
     state: State|undefined;
-    twofa_promise: TwofaPromise;
     webSocketServer: WebSocketServer | undefined;
 
     constructor(credential_id: string, wss: WebSocketServer | undefined) {
         this.credential_id = credential_id;
-        this.twofa_promise = new TwofaPromise();
         this.webSocketServer = wss;
     }
 
@@ -72,13 +69,14 @@ export class Collect {
                 }
                 console.log(`Using collector ${collector.config.id} version ${collector.config.version}`);
 
-                // Set collector for twofa promise
-                this.twofa_promise.collector = collector;
+                // Set collector for twofa promise if webSocketServer exists
+                if (this.webSocketServer) {
+                    this.webSocketServer.twofa_promise.collector = collector;
+                }
 
                 // Collect invoices
                 const newInvoices = await collector.collect_new_invoices(
                     this.state,
-                    this.twofa_promise,
                     this.webSocketServer,
                     secret,
                     credential.download_from_timestamp,

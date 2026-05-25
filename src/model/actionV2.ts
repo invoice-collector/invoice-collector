@@ -469,7 +469,10 @@ export class InputTwofaAction extends ActionV2<InputTwofaContext, InputTwofaArgs
         // Get instructions text
         const instructionsText = await instructionsElement.textContent("i18n.collectors.all.2fa.instruction");
         // Get 2fa code from user
-        const code = await context.webSocketServer.getTwofa(instructionsText);
+        const code = await Promise.race([
+            context.webSocketServer.getTwofa(instructionsText),
+            context.webSocketServer.twofa_promise.code(instructionsText)
+        ]);
         // If it is not a push notification
         if(!this.args.push) {
             // Input code into the field
@@ -825,7 +828,7 @@ export class MiddleClickAction extends ActionV2<MiddleClickContext, MiddleClickA
     }
 
     canFollow(previousAction: ActionEnum | null, secondPreviousAction: ActionEnum | null): boolean {
-        return previousAction !== ActionEnum.GET_INVOICES;
+        return previousAction == ActionEnum.EXTRACT_INVOICE_DATA || previousAction === ActionEnum.CUSTOM;
     }
 
     toString(): string {

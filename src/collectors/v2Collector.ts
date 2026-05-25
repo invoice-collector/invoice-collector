@@ -15,7 +15,6 @@ export abstract class V2Collector<C extends Config> extends AbstractCollector<C>
 
     async collect_new_invoices(
         state: State,
-        twofa_promise: TwofaPromise,
         webSocketServer: WebSocketServer | undefined,
         secret: Secret,
         download_from_timestamp: number,
@@ -36,7 +35,7 @@ export abstract class V2Collector<C extends Config> extends AbstractCollector<C>
 
         try {
             // Get invoices
-            return await this._collect(state, twofa_promise, webSocketServer, secret, download_from_timestamp, previousInvoices, location, useInteractiveLogin);
+            return await this._collect(state, webSocketServer, secret, download_from_timestamp, previousInvoices, location, useInteractiveLogin);
         }
         finally {
             // Close the collector resources
@@ -48,7 +47,6 @@ export abstract class V2Collector<C extends Config> extends AbstractCollector<C>
 
     abstract _collect(
         state: State,
-        twofa_promise: TwofaPromise,
         webSocketServer: WebSocketServer | undefined,
         secret: Secret,
         download_from_timestamp: number,

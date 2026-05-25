@@ -1225,10 +1225,11 @@ export class Server {
         }
         
         // Resolve collect promise and pass the code to the collector
-        collect.twofa_promise.setCode(code);
+        collect.webSocketServer?.twofa_promise.setCode(code);
 
         // Set progress step to 2FA proceeding
         collect.state?.update(State._4_2FA_PROCEEDING);
+        collect.webSocketServer?.sendState(State._4_2FA_PROCEEDING);
     }
 
     // BEARER AUTHENTICATION

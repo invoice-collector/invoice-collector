@@ -16,10 +16,9 @@ import { State } from '../src/model/state';
 import { I18n } from '../src/i18n';
 import { DatabaseFactory } from '../src/database/databaseFactory';
 import { SecretManagerFactory } from '../src/secret_manager/secretManagerFactory';
-import { WebSocketServer } from '../src/websocket/webSocketServer';
+import { WebSocketServer, WebSocketServerManager } from '../src/websocket/webSocketServer';
 import * as utils from '../src/utils';
 import { AbstractCollector, Config } from '../src/collectors/abstractCollector';
-import { TwofaPromise } from '../src/collect/twofaPromise';
 import { Secret } from '../src/model/secret';
 
 const PORT = parseInt(utils.getEnvVar('PORT')) + 1;
@@ -229,7 +228,6 @@ function getHashFromSecret(secret: Secret): string {
         // Collect new invoices
         const newInvoicesPart3 = await collector.collect_new_invoices(
             State.DEFAULT_STATE,
-            new TwofaPromise(),
             webSocketServer,
             secret,
             Date.UTC(2000, 0, 1),
@@ -286,7 +284,6 @@ function getHashFromSecret(secret: Secret): string {
 
         const newInvoicesPart6 = await collector.collect_new_invoices(
             State.DEFAULT_STATE,
-            new TwofaPromise(),
             undefined,
             secret,
             Date.now(),
@@ -321,7 +318,6 @@ function getHashFromSecret(secret: Secret): string {
 
         const newInvoicesPart8 = await collector.collect_new_invoices(
             State.DEFAULT_STATE,
-            new TwofaPromise(),
             undefined,
             secret,
             Date.UTC(2000, 0, 1),
@@ -361,6 +357,9 @@ function getHashFromSecret(secret: Secret): string {
 
         // Close WebSocket server
         webSocketServer?.close();
+
+        // Close the manager
+        WebSocketServerManager.getInstance().close();
 
         // Close HTTP server
         httpServer?.close();

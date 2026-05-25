@@ -7,9 +7,10 @@ import { Driver } from '../driver/driver';
 import { I18n } from '../i18n';
 import { AuthenticationError } from '../error';
 import { AbstractCollector, Config } from '../collectors/abstractCollector';
+import { TwofaPromise } from '../collect/twofaPromise';
 
 // Singleton WebSocket server manager
-class WebSocketServerManager {
+export class WebSocketServerManager {
     private static instance: WebSocketServerManager | null = null;
     private wss: Server | null = null;
     private handlers: Map<string, WebSocketServer> = new Map();
@@ -74,6 +75,7 @@ export class WebSocketServer {
     private locale: string;
     private collector: AbstractCollector<Config>;
     private lastState : State | null = null;
+    twofa_promise: TwofaPromise;
 
     public onTwofa: ((event: MessageTwofa) => void) | undefined;
     public onClick: ((event: MessageClick) => void) | undefined;
@@ -88,6 +90,8 @@ export class WebSocketServer {
 
         // Initialize the singleton WebSocket server manager
         WebSocketServerManager.getInstance().initialize(httpServer);
+        // Set 2FA promise
+        this.twofa_promise = new TwofaPromise();
     }
 
     public start(): string {
@@ -172,8 +176,6 @@ export class WebSocketServer {
         // Close the WebSocket connection if open
         this.ws?.close();
         this.ws = null;
-        // Close the manager
-        WebSocketServerManager.getInstance().close();
     }
 
     private sendMessage(message: object) {
