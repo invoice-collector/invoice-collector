@@ -27,7 +27,7 @@ export abstract class ApiCollector extends V1Collector<ApiConfig> {
         this.instance = null;
     }
 
-    async _collect(state: State, secret: Secret, location: Location | null, twofa_promise: TwofaPromise): Promise<Invoice[]> {
+    async _collect(state: State, secret: Secret, location: Location | null): Promise<Invoice[]> {
         console.log(`API Collector, do not use proxy`);
 
         // Initialise axios instance
