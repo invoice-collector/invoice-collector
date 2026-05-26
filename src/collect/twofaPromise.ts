@@ -1,5 +1,6 @@
 import { AbstractCollector, Config } from "../collectors/abstractCollector";
 import { AuthenticationError } from "../error";
+import { State } from "../model/state";
 import * as utils from "../utils";
 
 export class TwofaPromise{
@@ -12,6 +13,7 @@ export class TwofaPromise{
     private codeResolve: (value: string) => void;
 
     collector: AbstractCollector<Config> | null = null;
+    state : State | null = null;
 
     constructor() {
         // Instructions promise
@@ -41,7 +43,11 @@ export class TwofaPromise{
         this.codeResolve(code);
     }
 
-    async code(): Promise<string> {
+    async code(instruction?: string): Promise<string> {
+        // Set state if instruction
+        if (instruction) {
+            this.state?.update(State._3_2FA_WAITING, instruction);
+        }
         let timeoutPromise;
         if(this.collector != null) {
             const collector = this.collector;

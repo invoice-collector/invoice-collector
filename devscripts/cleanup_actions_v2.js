@@ -9,7 +9,7 @@ async function removeOldActions(db) {
 
     // Get all collector memories
     const memories = await db.getCollectorMemories();
-    console.log(`Found ${memories.length} collector memories`);
+    console.log(`Removing old actions for ${memories.length} collectors...`);
 
     // For each memory
     for (const memory of memories) {
@@ -34,29 +34,31 @@ async function removeOldActions(db) {
     }
 }
 
-async function removeNonExisitngDestinationIds(db) {
+async function removeNonExistingDestinationIds(db) {
     // Get all collector memories
     const memories = await db.getCollectorMemories();
-    console.log(`Found ${memories.length} collector memories`);
-
-    // Get all the existing action ids
-    const existingActionIds = new Set();
-    for (const memory of memories) {
-        for (const actionV2 of memory.actionsV2) {
-            existingActionIds.add(actionV2.id);
-        }
-    }
+    console.log(`Removing non-existing destinationIds for ${memories.length} collectors...`);
 
     // For each memory
     for (const memory of memories) {
+        // Get all the existing action ids
+        const existingActionIds = new Set();
+        for (const actionV2 of memory.actionsV2) {
+            existingActionIds.add(actionV2.id);
+        }
+
         let hasBeenUpdated = false;
         // For each action in the memory
         for (const actionV2 of memory.actionsV2) {
-            // If the action has a destinationId that doesn't exist in the existing action ids, remove it
-            if (actionV2.destinationId && !existingActionIds.has(actionV2.destinationId)) {
-                console.log(`Removing destinationId ${actionV2.destinationId} from action ${actionV2.id} in collector ${memory.collector_id} (destination does not exist)`);
-                delete actionV2.destinationId;
-                hasBeenUpdated = true;
+            // If the action has destinationIds, remove any that don't exist in the existing action ids
+            if (actionV2.destinationIds && actionV2.destinationIds.length > 0) {
+                const validIds = actionV2.destinationIds.filter(id => existingActionIds.has(id));
+                const removedIds = actionV2.destinationIds.filter(id => !existingActionIds.has(id));
+                if (removedIds.length > 0) {
+                    console.log(`Removing destinationIds [${removedIds.join(', ')}] from action ${actionV2.id} in collector ${memory.collector_id} (destinations do not exist)`);
+                    actionV2.destinationIds = validIds;
+                    hasBeenUpdated = true;
+                }
             }
         }
         // If the memory was updated, save it back to the database
@@ -71,7 +73,7 @@ async function main() {
     try {
         await db.connect();
         await removeOldActions(db);
-        await removeNonExisitngDestinationIds(db);
+        await removeNonExistingDestinationIds(db);
     } finally {
         await db.disconnect();
     }

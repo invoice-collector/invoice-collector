@@ -14,7 +14,6 @@ export abstract class V1Collector<C extends Config> extends AbstractCollector<C>
 
     async collect_new_invoices(
         state: State,
-        twofa_promise: TwofaPromise,
         webSocketServer: WebSocketServer | undefined,
         secret: Secret,
         download_from_timestamp: number,
@@ -32,7 +31,7 @@ export abstract class V1Collector<C extends Config> extends AbstractCollector<C>
 
         try {
             // Get invoices
-            const invoices = (await this._collect(state, secret, location, twofa_promise))
+            const invoices = (await this._collect(state, secret, location))
 
             // Remove duplicates
             const uniqueInvoices = invoices.filter((inv, index, self) =>
@@ -97,7 +96,7 @@ export abstract class V1Collector<C extends Config> extends AbstractCollector<C>
 
     //NOT IMPLEMENTED
 
-    abstract _collect(state: State, secret: Secret, location: Location | null, twofa_promise: TwofaPromise): Promise<Invoice[]>;
+    abstract _collect(state: State, secret: Secret, location: Location | null): Promise<Invoice[]>;
 
     abstract _download(invoice: Invoice): Promise<CompleteInvoice>;
 

@@ -108,7 +108,6 @@ export abstract class AbstractCollector<C extends Config> {
 
     abstract collect_new_invoices(
         state: State,
-        twofa_promise: TwofaPromise,
         webSocketServer: WebSocketServer | undefined,
         secret: Secret,
         download_from_timestamp: number,

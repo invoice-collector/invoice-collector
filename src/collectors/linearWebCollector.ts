@@ -23,7 +23,6 @@ export abstract class LinearWebCollector extends WebCollector {
 
     async _collect(
         state: State,
-        twofa_promise: TwofaPromise,
         webSocketServer: WebSocketServer | undefined,
         secret: Secret,
         download_from_timestamp: number,
@@ -115,9 +114,9 @@ export abstract class LinearWebCollector extends WebCollector {
                     webSocketServer.sendState(State._3_2FA_WAITING, needTwofa);
 
                     // Set instructions for UI
-                    await twofa_promise.setInstructions(needTwofa);
+                    await webSocketServer.twofa_promise.setInstructions(needTwofa);
 
-                    const twofa_error = await this.twofa(driver, await secret.getParams(), twofa_promise, webSocketServer);
+                    const twofa_error = await this.twofa(driver, await secret.getParams(), webSocketServer.twofa_promise, webSocketServer);
 
                     // Check if 2fa error
                     if (twofa_error) {
