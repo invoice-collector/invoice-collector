@@ -39,7 +39,6 @@ export class CollectorLoader {
                         file.endsWith('Common.ts') ||
                         file.endsWith('helper.ts') ||
                         file.endsWith('Helper.ts') ||
-                        file.endsWith('action.ts') ||
                         file.endsWith('Action.ts'))  {
                         continue; // Skip file
                     }
