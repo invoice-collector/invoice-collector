@@ -34,12 +34,8 @@ export class CollectorLoader {
                 let nbFFilesLoaded = 0;
                 for (const file of files) {
                     if(file.endsWith('selectors.ts') ||
-                        file.endsWith('Selectors.ts') ||
-                        file.endsWith('common.ts') ||
                         file.endsWith('Common.ts') ||
-                        file.endsWith('helper.ts') ||
                         file.endsWith('Helper.ts') ||
-                        file.endsWith('action.ts') ||
                         file.endsWith('Action.ts'))  {
                         continue; // Skip file
                     }

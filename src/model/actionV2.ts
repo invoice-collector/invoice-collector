@@ -868,7 +868,6 @@ export class CustomAction extends ActionV2<CustomContext, CustomArgs, CustomCont
     }
 
     async _perform(context: CustomContext): Promise<CustomContext> {
-        console.log("Performing custom action !!!!!");
         return context;
     }
 

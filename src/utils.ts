@@ -4,6 +4,7 @@ import path from 'path';
 import * as crypto from 'crypto';
 import date_fns from 'date-fns';
 import { PDFDocument, PDFDict, asPDFName } from 'pdf-lib';
+import JSZip from 'jszip';
 import { fr, enGB, enUS } from 'date-fns/locale';
 import { CollectorState, CollectorType, CompleteInvoice, Config } from './collectors/abstractCollector';
 
@@ -85,7 +86,8 @@ export function mimetypeFromBase64(base64: string | null): string {
     var signatures = {
         JVBERi0: "application/pdf",
         iVBORw0KGgo: "image/png",
-        "/9j/": "image/jpg"
+        "/9j/": "image/jpg",
+        "UEsDB": "application/zip"
       };
 
       for (var s in signatures) {
@@ -144,6 +146,34 @@ export async function mergePdfDocuments(documents: string[]): Promise<string> {
     }
 
     return await pdfDoc.saveAsBase64();
+}
+
+export async function extractPdfFromZip(invoice: CompleteInvoice): Promise<CompleteInvoice[]> {
+    if (!invoice.data) {
+        throw new Error(`Cannot extract PDFs from zip for invoice ${invoice.id}: missing invoice data.`);
+    }
+
+    const zip = await JSZip.loadAsync(Buffer.from(invoice.data, 'base64'));
+    const zipEntries = Object.values(zip.files)
+        .filter(entry => !entry.dir && entry.name.toLowerCase().endsWith('.pdf'));
+
+    if (zipEntries.length === 0) {
+        throw new Error(`No PDF file found in zip for invoice ${invoice.id}.`);
+    }
+
+    const invoices: CompleteInvoice[] = [];
+    for (const entry of zipEntries) {
+        const data = await entry.async('base64');
+
+        invoices.push({
+            ...invoice,
+            data,
+            mimetype: mimetypeFromBase64(data),
+            hash: hash_string(data, 'md5'),
+        });
+    }
+
+    return invoices;
 }
 
 export function generateVerificationCode(): string {

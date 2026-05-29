@@ -8362,6 +8362,7 @@
   "i18n.collectors.uber.description": "Une plateforme de covoiturage reliant les passagers aux conducteurs pour un transport pratique et abordable.",
   "i18n.collectors.uber_box.description": "Plateforme de partage et de collaboration d'entreprise d'Uber hébergée sur Box.",
   "i18n.collectors.uber_direct.description": "Un service de livraison d'Uber qui permet aux entreprises d'envoyer des colis directement aux clients.",
+  "i18n.collectors.uber_eats.description": "Un service de livraison de repas reliant les utilisateurs aux restaurants locaux pour des repas rapides et pratiques.",
   "i18n.collectors.uber_eats_be.description": "Un service de livraison de repas qui met en relation les utilisateurs avec des restaurants locaux pour des commandes rapides et pratiques.",
   "i18n.collectors.uber_eats_de.description": "Un service de livraison de repas qui apporte des plats de restaurants locaux jusqu'à votre porte en Allemagne.",
   "i18n.collectors.uber_eats_fr.description": "Un service de livraison de repas reliant les utilisateurs aux restaurants locaux pour des repas rapides et pratiques.",

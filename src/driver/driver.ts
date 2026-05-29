@@ -803,6 +803,10 @@ export class Element {
         });
     }
 
+    async tagName(): Promise<string> {
+        return await this.element.evaluate(el => el.tagName.toLowerCase());
+    }
+
     async isClickable(): Promise<boolean> {
         const [isVisible, isDisabled] = await Promise.all([
             this.element.isVisible(),
