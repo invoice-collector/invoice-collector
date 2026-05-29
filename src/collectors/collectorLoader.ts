@@ -9,7 +9,7 @@ export class CollectorLoader {
     private static collectors: Map<string, {config: Config, file: string}> = new Map();
 
     static async load(filter: string | null = null): Promise<Map<string, {config: Config, file: string}>> {
-        //await this.loadFolders("sketch", "sketch", filter)
+        await this.loadFolders("sketch", "sketch", filter)
         await this.loadFolders("community", "community", filter)
         await this.loadFolders("core", "core", filter)
         await this.loadFolders("premium", "../premium/collectors/premium", filter)
@@ -34,10 +34,7 @@ export class CollectorLoader {
                 let nbFFilesLoaded = 0;
                 for (const file of files) {
                     if(file.endsWith('selectors.ts') ||
-                        file.endsWith('Selectors.ts') ||
-                        file.endsWith('common.ts') ||
                         file.endsWith('Common.ts') ||
-                        file.endsWith('helper.ts') ||
                         file.endsWith('Helper.ts') ||
                         file.endsWith('Action.ts'))  {
                         continue; // Skip file
