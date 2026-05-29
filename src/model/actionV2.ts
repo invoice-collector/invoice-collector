@@ -165,7 +165,9 @@ export class NoopAction extends ActionV2<NoopContext, NoopArgs, NoopContext> {
     }
 
     canFollow(previousAction: ActionEnum | null, secondPreviousAction: ActionEnum | null): boolean {
-        return previousAction !== ActionEnum.GET_INVOICES && previousAction !== ActionEnum.EXTRACT_INVOICE_DATA;
+        return previousAction !== ActionEnum.GET_INVOICES &&
+        previousAction !== ActionEnum.EXTRACT_INVOICE_DATA &&
+        previousAction !== ActionEnum.NOOP;
     }
 }
 
