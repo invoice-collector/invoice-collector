@@ -95,6 +95,21 @@ export class Driver {
         });
     }
 
+    async update(proxy: Proxy | null = null): Promise<void> {
+        const newDriver = new Driver(this.collector);
+        await newDriver.open(proxy);
+        await newDriver.setCookies(await this.getCookies([]));
+        await newDriver.setLocalStorage(await this.getLocalStorage([]));
+        const currentUrl = this.url();
+        if (currentUrl && currentUrl !== 'about:blank') {
+            await newDriver.goto(currentUrl);
+        }
+        // Close old driver
+        await this.close();
+        this.browser = newDriver.browser;
+        this.page = newDriver.page;
+    }
+
     async close() {
         await this.browser?.close();
     }
