@@ -376,15 +376,14 @@ export class ErrorDisplayedAction extends ActionV2<RaiseErrorContext, RaiseError
         }, {
             raiseException: false
         })
-        // If element found, raise error
-        if (element) {
-            // Get text content of element
-            const errorMessage = await element.textContent(this.args.default);
-            // Raise error with text content
-            throw new AuthenticationError(errorMessage, context.driver.collector);
+        // If element not found, raise error
+        if (!element) {
+            throw new Error(`Element not found for action ${this.action}, this action should only be performed if the element is present`);
         }
-        // Return same context
-        return context;
+        // Get text content of element
+        const errorMessage = await element.textContent(this.args.default);
+        // Raise error with text content
+        throw new AuthenticationError(errorMessage, context.driver.collector);
     }
 
     async canPerform(context: RaiseErrorContext): Promise<boolean> {
