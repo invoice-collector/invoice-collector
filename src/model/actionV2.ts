@@ -129,6 +129,7 @@ export type NoopContext = {
 }
 
 export type NoopArgs = {
+    contextContains?: string[];
 }
 
 export class NoopAction extends ActionV2<NoopContext, NoopArgs, NoopContext> {
@@ -161,7 +162,18 @@ export class NoopAction extends ActionV2<NoopContext, NoopArgs, NoopContext> {
     }
 
     async canPerform(context: NoopContext): Promise<boolean> {
-        return new RegExp(this.pageUrlRegex).test(context.driver.url());
+        if (!new RegExp(this.pageUrlRegex).test(context.driver.url())) {
+            return false;
+        }
+        // Check if context contains specified fields
+        if (this.args.contextContains) {
+            for (const field of this.args.contextContains) {
+                if (!(field in context)) {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 
     canFollow(previousAction: ActionEnum | null, secondPreviousAction: ActionEnum | null): boolean {
