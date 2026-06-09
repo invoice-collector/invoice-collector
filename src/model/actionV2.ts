@@ -102,6 +102,7 @@ export abstract class ActionV2<InputContext, Args, OutputContext> {
 
     async perform(context: InputContext): Promise<OutputContext | OutputContext[]> {
         try {
+            console.log(`Performing action ${this.id}: ${this.description}`);
             this.lastUsed = new Date().toISOString();
             return await this._perform(context);
         }
@@ -129,6 +130,7 @@ export type NoopContext = {
 }
 
 export type NoopArgs = {
+    contextContains?: string[];
 }
 
 export class NoopAction extends ActionV2<NoopContext, NoopArgs, NoopContext> {
@@ -161,7 +163,18 @@ export class NoopAction extends ActionV2<NoopContext, NoopArgs, NoopContext> {
     }
 
     async canPerform(context: NoopContext): Promise<boolean> {
-        return new RegExp(this.pageUrlRegex).test(context.driver.url());
+        if (!new RegExp(this.pageUrlRegex).test(context.driver.url())) {
+            return false;
+        }
+        // Check if context contains specified fields
+        if (this.args.contextContains) {
+            for (const field of this.args.contextContains) {
+                if (!(field in context)) {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 
     canFollow(previousAction: ActionEnum | null, secondPreviousAction: ActionEnum | null): boolean {
@@ -376,15 +389,14 @@ export class ErrorDisplayedAction extends ActionV2<RaiseErrorContext, RaiseError
         }, {
             raiseException: false
         })
-        // If element found, raise error
-        if (element) {
-            // Get text content of element
-            const errorMessage = await element.textContent(this.args.default);
-            // Raise error with text content
-            throw new AuthenticationError(errorMessage, context.driver.collector);
+        // If element not found, raise error
+        if (!element) {
+            throw new Error(`Element not found for action ${this.action}, this action should only be performed if the element is present`);
         }
-        // Return same context
-        return context;
+        // Get text content of element
+        const errorMessage = await element.textContent(this.args.default);
+        // Raise error with text content
+        throw new AuthenticationError(errorMessage, context.driver.collector);
     }
 
     async canPerform(context: RaiseErrorContext): Promise<boolean> {

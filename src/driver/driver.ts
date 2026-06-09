@@ -72,7 +72,7 @@ export class Driver {
         }
 
         // Clear download folder
-        await this.browser?.getDownloadedFiles();
+        await this.browser?.getDownloadedFiles(true);
 
         // Listen for new page and update page
         this.browser.puppeteerBrowser.on('targetcreated', async (target) => {
@@ -522,7 +522,7 @@ export class Driver {
         }
 
         // Get downloaded files and remove all files in the download folder
-        await this.browser?.getDownloadedFiles();
+        await this.browser?.getDownloadedFiles(true);
 
         // Navigate to the page
         await this.page.evaluate((url) => {
@@ -536,7 +536,7 @@ export class Driver {
     async waitForFileToDownload(raiseException: boolean = true): Promise<string> {
         // Wait for file to download
         const file = await this.waitFor(async (driver) => {
-            const files = await this.browser?.getDownloadedFiles();
+            const files = await this.browser?.getDownloadedFiles(true);
             return files && files.length > 0 ? files[0] : null;
         }, `No file downloaded after ${Driver.DEFAULT_TIMEOUT}ms`,
         raiseException,
@@ -705,20 +705,25 @@ export class Element {
     }
 
     async middleClick({
-        useFallbackMethod = false
+        useFallbackMethod = false,
+        timeout = Driver.DEFAULT_TIMEOUT
     } = {}): Promise<void> {
         // If does not open in a new page by default
         if(!useFallbackMethod) {
             // Get number of opened pages before middle click
             const numberOfPagesBefore = (await this.driver.pages()).length;
+            // Get number of downloaded files before middle click
+            const numberOfFilesBefore = (await this.driver.browser?.getDownloadedFiles(false))?.length || 0;
             // Perform middle click
             await this.element.click({ button: 'middle' });
-            // Wait for the new tab to open
-            await utils.delay(5000);
+            // Wait for the new tab to open or file to download
+            await utils.delay(timeout);
             // Get number of opened pages after middle click
-            const pages = await this.driver.pages();
-            // If no new page opened, set useFallbackMethod to true
-            useFallbackMethod = pages.length == numberOfPagesBefore;
+            const numberOfPagesAfter = await this.driver.pages();
+            // Get number of downloaded files after middle click
+            const numberOfFilesAfter = (await this.driver.browser?.getDownloadedFiles(false))?.length || 0;
+            // If no new page opened and no new file downloaded, set useFallbackMethod to true
+            useFallbackMethod = numberOfPagesAfter.length == numberOfPagesBefore && numberOfFilesAfter == numberOfFilesBefore;
         }
         // If need to open in a new page
         if (useFallbackMethod) {

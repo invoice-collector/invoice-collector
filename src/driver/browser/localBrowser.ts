@@ -43,7 +43,7 @@ export class LocalBrowser extends AbstractBrowser {
         }
     }
 
-    async getDownloadedFiles(): Promise<string[]> {
+    async getDownloadedFiles(clean: boolean): Promise<string[]> {
         // Get the files in the download folder
         const files = fs.readdirSync(this.downloadPath)
             .filter(file => !file.endsWith('.crdownload'))
@@ -56,8 +56,10 @@ export class LocalBrowser extends AbstractBrowser {
             .filter(file => file.base64.length > 0);
 
         // Clean the files from the download folder
-        for (const file of files) {
-            fs.unlinkSync(path.join(this.downloadPath, file.name));
+        if (clean) {
+            for (const file of files) {
+                fs.unlinkSync(path.join(this.downloadPath, file.name));
+            }
         }
 
         // Return the files as base64
