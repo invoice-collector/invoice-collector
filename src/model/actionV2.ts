@@ -102,6 +102,7 @@ export abstract class ActionV2<InputContext, Args, OutputContext> {
 
     async perform(context: InputContext): Promise<OutputContext | OutputContext[]> {
         try {
+            console.log(`Performing action ${this.id}: ${this.description}`);
             this.lastUsed = new Date().toISOString();
             return await this._perform(context);
         }
