@@ -98,10 +98,10 @@ export class Driver {
     async update(proxy: Proxy | null = null): Promise<void> {
         const newDriver = new Driver(this.collector);
         await newDriver.open(proxy);
-        await newDriver.setCookies(await this.getCookies([]));
-        await newDriver.setLocalStorage(await this.getLocalStorage([]));
         const currentUrl = this.url();
         if (currentUrl && currentUrl !== 'about:blank') {
+            await newDriver.setCookies(await this.getCookies([]));
+            await newDriver.setLocalStorage(await this.getLocalStorage([]));
             await newDriver.goto(currentUrl);
         }
         // Close old driver
