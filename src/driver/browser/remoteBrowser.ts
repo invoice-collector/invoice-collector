@@ -57,8 +57,8 @@ export class RemoteBrowser extends AbstractBrowser {
         console.log("Remote Chrome closed");
     }
     
-    async getDownloadedFiles(): Promise<string[]> {
-        const endpoint: string = `http://${this.ip}:${this.server_port}/files/${this.wsid}`;
+    async getDownloadedFiles(clean: boolean): Promise<string[]> {
+        const endpoint: string = `http://${this.ip}:${this.server_port}/files/${this.wsid}?clean=${clean}`;
         let response: Response;
         try {
             response = await fetch(endpoint, {

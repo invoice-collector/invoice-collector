@@ -72,7 +72,7 @@ export class Driver {
         }
 
         // Clear download folder
-        await this.browser?.getDownloadedFiles();
+        await this.browser?.getDownloadedFiles(true);
 
         // Listen for new page and update page
         this.browser.puppeteerBrowser.on('targetcreated', async (target) => {
@@ -522,7 +522,7 @@ export class Driver {
         }
 
         // Get downloaded files and remove all files in the download folder
-        await this.browser?.getDownloadedFiles();
+        await this.browser?.getDownloadedFiles(true);
 
         // Navigate to the page
         await this.page.evaluate((url) => {
@@ -536,7 +536,7 @@ export class Driver {
     async waitForFileToDownload(raiseException: boolean = true): Promise<string> {
         // Wait for file to download
         const file = await this.waitFor(async (driver) => {
-            const files = await this.browser?.getDownloadedFiles();
+            const files = await this.browser?.getDownloadedFiles(true);
             return files && files.length > 0 ? files[0] : null;
         }, `No file downloaded after ${Driver.DEFAULT_TIMEOUT}ms`,
         raiseException,

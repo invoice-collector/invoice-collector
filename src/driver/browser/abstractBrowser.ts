@@ -192,7 +192,8 @@ export abstract class AbstractBrowser {
 
   /**
    * Get all the downloaded files in the download folder as base64 and remove them.
+   * @param clean If true, the files will be removed from the download folder after being read. If false, the files will not be removed. Default is true.
    * @returns An array of base64 strings representing the downloaded files.
    */
-  abstract getDownloadedFiles(): Promise<string[]>;
+  abstract getDownloadedFiles(clean: boolean): Promise<string[]>;
 }
