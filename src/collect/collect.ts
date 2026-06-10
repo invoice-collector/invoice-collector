@@ -206,8 +206,8 @@ export class Collect {
                     // If disconnected error
                     else {
                         // Update credential to disconnected
-                        credential.state.update(State._2_DISCONNECTED);
-                        this.webSocketServer?.sendState(State._2_DISCONNECTED);
+                        credential.state.update(State._2_DISCONNECTED, err.message);
+                        this.webSocketServer?.sendState(State._2_DISCONNECTED, err.message);
                     }
 
                     // Update last collect

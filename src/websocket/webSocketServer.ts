@@ -5,7 +5,7 @@ import { MessageClick, MessageInteractive, MessageKeydown, MessageScreenshot, Me
 import { State } from '../model/state';
 import { Driver } from '../driver/driver';
 import { I18n } from '../i18n';
-import { AuthenticationError } from '../error';
+import { DisconnectedError } from '../error';
 import { AbstractCollector, Config } from '../collectors/abstractCollector';
 import { TwofaPromise } from '../collect/twofaPromise';
 
@@ -227,7 +227,7 @@ export class WebSocketServer {
         }
         // Return a promise that resolves when 2FA code is received or rejects on timeout
         return new Promise((resolve, reject) => {
-            setTimeout(() => reject(new AuthenticationError('i18n.collectors.all.2fa.timeout', this.collector)), WebSocketServer.TWOFA_TIMEOUT_MS)
+            setTimeout(() => reject(new DisconnectedError('i18n.collectors.all.2fa.timeout', this.collector)), WebSocketServer.TWOFA_TIMEOUT_MS)
             this.onTwofa = (event: MessageTwofa) => {
                 resolve(event.twofa);
             }

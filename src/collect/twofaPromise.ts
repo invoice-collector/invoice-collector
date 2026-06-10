@@ -1,5 +1,5 @@
 import { AbstractCollector, Config } from "../collectors/abstractCollector";
-import { AuthenticationError } from "../error";
+import { DisconnectedError } from "../error";
 import { State } from "../model/state";
 import * as utils from "../utils";
 
@@ -52,7 +52,7 @@ export class TwofaPromise{
         if(this.collector != null) {
             const collector = this.collector;
             timeoutPromise = new Promise<string>((_, reject) =>
-                setTimeout(() => reject(new AuthenticationError('i18n.collectors.all.2fa.timeout', collector)), TwofaPromise.TWOFA_TIMEOUT_MS)
+                setTimeout(() => reject(new DisconnectedError('i18n.collectors.all.2fa.timeout', collector)), TwofaPromise.TWOFA_TIMEOUT_MS)
             )
         }
         else {
