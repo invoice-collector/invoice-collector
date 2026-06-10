@@ -57,6 +57,9 @@ export class Driver {
         this.browser = browser;
         this.page = page;
 
+        // Disable cache to always get fresh DOM content
+        await page.setCacheEnabled(false);
+
         // If must block images
         if (this.collector.config.loadImages === false) {
             await this.page.setRequestInterception(true);
@@ -79,7 +82,9 @@ export class Driver {
             const newPage = await target.page();
             if (newPage && this.page !== newPage) {
                 this.page = newPage;
-                this.page.bringToFront();
+                await this.page.bringToFront();
+                // Disable cache on new page
+                await this.page.setCacheEnabled(false);
             }
         });
 
