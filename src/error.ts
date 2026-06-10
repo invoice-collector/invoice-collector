@@ -109,9 +109,9 @@ export class RemoveError extends CollectorError {
 }
 
 export class DisconnectedError extends CollectorError {
-    constructor(collector: AbstractCollector<Config>, opts = {}) {
+    constructor(message: string, collector: AbstractCollector<Config>, opts = {}) {
         super(
-            'i18n.collectors.all.login.expired',
+            message.trim(),
             collector,
             opts
         );

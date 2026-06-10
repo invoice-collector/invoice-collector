@@ -469,7 +469,7 @@ export class InputTwofaAction extends ActionV2<InputTwofaContext, InputTwofaArgs
     async _perform(context: InputTwofaContext): Promise<InputTwofaContext> {
         // If the webSocketServer is undefined, it means that the session has expired
         if (!context.webSocketServer) {
-            throw new DisconnectedError(context.driver.collector);
+            throw new DisconnectedError('i18n.collectors.all.login.expired', context.driver.collector);
         }
         // Get instructions element
         const instructionsElement = await context.driver.getElement({
