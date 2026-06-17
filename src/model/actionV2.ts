@@ -662,7 +662,7 @@ export type ExtractInvoiceDataInputContext = {
 export type ExtractInvoiceDataOutputContext = {
     driver: Driver;
     invoice: Invoice;
-    element: Element;
+    element?: Element;
 }
 
 export type ExtractInvoiceDataArgs = {
@@ -778,7 +778,7 @@ export type MiddleClickContext = {
 }
 
 export type MiddleClickArgs = {
-    cssSelector: string;
+    cssSelector?: string;
     raiseException?: boolean;
 }
 
@@ -793,9 +793,6 @@ export class MiddleClickAction extends ActionV2<MiddleClickContext, MiddleClickA
         args: MiddleClickArgs,
         destinationIds: string[] = []
     ) {
-        if (!args.cssSelector) {
-            throw new Error('MiddleClickAction requires args to have a "cssSelector" field');
-        }
         super(
             id,
             ActionEnum.MIDDLE_CLICK,
@@ -841,6 +838,9 @@ export class MiddleClickAction extends ActionV2<MiddleClickContext, MiddleClickA
         }
         if (context.element) {
             return await context.element.isClickable();
+        }
+        if(!this.args.cssSelector) {
+            return false;
         }
         const el = await context.driver.getElement({ selector: this.args.cssSelector }, { raiseException: false, timeout: 100 });
         return el?.isClickable() || false;
