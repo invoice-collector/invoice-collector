@@ -14,10 +14,20 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Run npm audit
+      - name: Run npm audit prod
         uses: oke-py/npm-audit-action@v4
         with:
           audit_level: low
           github_token: ${{ secrets.GITHUB_TOKEN }}
           create_issues: false
           create_pr_comments: false
+          production_flag: true
+
+      - name: Run npm audit dev
+        uses: oke-py/npm-audit-action@v4
+        with:
+          audit_level: low
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          create_issues: false
+          create_pr_comments: false
+          production_flag: false

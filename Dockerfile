@@ -35,14 +35,14 @@ ENV BUILD_ENV=$BUILD_ENV
 # Copy package.json and package-lock.json to the working directory
 COPY package*.json ./
 
+# Install dependencies and run audit based on the build environment
 RUN if [ "$BUILD_ENV" = "development" ]; then \
       npm ci ; \
+      npm audit --audit-level=low ; \
     else \
       npm ci --omit=dev ; \
+      npm audit --omit=dev --audit-level=low ; \
     fi
-
-# Raise error if vulnerabilities are found
-RUN npm audit --audit-level=low
 
 # ------------------------------
 # Development image
