@@ -666,10 +666,10 @@ export type ExtractInvoiceDataOutputContext = {
 }
 
 export type ExtractInvoiceDataArgs = {
-    id?: { cssSelector: string; attribute?: string };
-    amount?: { cssSelector: string; attribute?: string };
-    currency?: { cssSelector: string; attribute?: string };
-    date: { cssSelector: string; attribute?: string; format: string; locale?: string };
+    id?: { cssSelector: string; attribute?: string; excludes?: string[] };
+    amount?: { cssSelector: string; attribute?: string; excludes?: string[] };
+    currency?: { cssSelector: string; attribute?: string; excludes?: string[] };
+    date: { cssSelector: string; attribute?: string; format: string; locale?: string; excludes?: string[] };
     download: { cssSelector: string };
 }
 
@@ -708,12 +708,17 @@ export class ExtractInvoiceDataAction extends ActionV2<ExtractInvoiceDataInputCo
         const timestamp = utils.timestampFromString(date, this.args.date.format, this.args.date.locale || 'en');
         const downloadElement = await context.element.getElement({selector: this.args.download.cssSelector, info: "download button"});
 
+        // Check if date value should exclude download
+        let skipDownload = this.args.date.excludes?.includes(date) ?? false;
+
         // Get amount if selector provided
         let amount: string | undefined;
         if(this.args.amount) {
             amount = await context.element.getAttribute({selector: this.args.amount.cssSelector, info: "amount"}, this.args.amount.attribute || "textContent");
+            if (this.args.amount.excludes?.includes(amount)) skipDownload = true;
             if(this.args.currency) {
                 const currency = await context.element.getAttribute({selector: this.args.currency.cssSelector, info: "currency"}, this.args.currency.attribute || "textContent");
+                if (this.args.currency.excludes?.includes(currency)) skipDownload = true;
                 amount = `${amount} ${currency}`;
             }
             utils.checkAmountContainsCurrencySymbol(amount);
@@ -723,6 +728,7 @@ export class ExtractInvoiceDataAction extends ActionV2<ExtractInvoiceDataInputCo
         let id: string;
         if(this.args.id) {
             id = await context.element.getAttribute({selector: this.args.id.cssSelector, info: "id"}, this.args.id.attribute || "textContent");
+            if (this.args.id.excludes?.includes(id)) skipDownload = true;
         }
         else if (amount) {
             id = utils.hash_string(`${date}${amount}`);
@@ -741,7 +747,7 @@ export class ExtractInvoiceDataAction extends ActionV2<ExtractInvoiceDataInputCo
                 downloadButton: downloadElement,
                 metadata: {}
             },
-            element: downloadElement
+            element: skipDownload ? undefined : downloadElement
         }
     }
 
