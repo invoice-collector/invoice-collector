@@ -668,6 +668,7 @@ export type ExtractInvoiceDataOutputContext = {
 export type ExtractInvoiceDataArgs = {
     id?: { cssSelector: string; attribute?: string };
     amount?: { cssSelector: string; attribute?: string };
+    currency?: { cssSelector: string; attribute?: string };
     date: { cssSelector: string; attribute?: string; format: string; locale?: string };
     download: { cssSelector: string };
 }
@@ -711,6 +712,10 @@ export class ExtractInvoiceDataAction extends ActionV2<ExtractInvoiceDataInputCo
         let amount: string | undefined;
         if(this.args.amount) {
             amount = await context.element.getAttribute({selector: this.args.amount.cssSelector, info: "amount"}, this.args.amount.attribute || "textContent");
+            if(this.args.currency) {
+                const currency = await context.element.getAttribute({selector: this.args.currency.cssSelector, info: "currency"}, this.args.currency.attribute || "textContent");
+                amount = `${amount} ${currency}`;
+            }
             utils.checkAmountContainsCurrencySymbol(amount);
         }
 
