@@ -58,7 +58,6 @@ export type Invoice = {
     link: string,
     downloadButton: Element,
     metadata?: Record<string, any>
-
 }
 
 export type DownloadedInvoice = Invoice & {
