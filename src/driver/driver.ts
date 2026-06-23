@@ -194,6 +194,11 @@ export class Driver {
         } catch (error) {
             console.warn(`Failed to navigate to ${url}, navigation timeout`);
         }
+
+        // Raise error if URL does not start with http
+        if (!url.startsWith('http')) {
+            throw new Error(`Invalid URL: ${url}`);
+        }
     }
 
     /**
