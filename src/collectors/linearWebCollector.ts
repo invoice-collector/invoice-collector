@@ -286,8 +286,8 @@ export abstract class LinearWebCollector extends WebCollector {
                                 // Get number of pages after download
                                 const pagesAfter = (await driver.pages()).length;
 
-                                // Close current page if download opened a new one
-                                if (pagesAfter > pagesBefore) {
+                                // Close all new pages if download opened some
+                                for (let i = pagesAfter; i > pagesBefore; i--) {
                                     await driver.closePage();
                                 }
 
