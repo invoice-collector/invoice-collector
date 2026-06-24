@@ -745,6 +745,8 @@ export class Element {
             await this.driver.leftClick({
                 selector: await this.cssSelector(),
                 info: "middle click"
+            }, {
+                timeout: timeout,
             });
         }
     }
