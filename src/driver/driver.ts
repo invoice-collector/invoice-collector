@@ -740,9 +740,7 @@ export class Element {
             // Get current url
             const currentUrl = this.driver.url();
             // Open new page
-            await this.driver.browser?.puppeteerBrowser.newPage();
-            // Navigate to current url
-            await this.driver.goto(currentUrl);
+            await this.driver.newPage(currentUrl);
             // Click on the element again
             await this.driver.leftClick({
                 selector: await this.cssSelector(),
