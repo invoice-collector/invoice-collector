@@ -16,6 +16,8 @@ export enum ActionEnum  {
     EXTRACT_INVOICE_DATA = 'extractInvoiceData',
     MIDDLE_CLICK = 'middleClick',
     CUSTOM = 'custom',
+    ERROR_LOGIN_PAGE_DISPLAYED = 'errorLoginPageDisplayed',
+    WAIT = 'wait',
 }
 
 export abstract class ActionV2<InputContext, Args, OutputContext> {
@@ -906,6 +908,110 @@ export class CustomAction extends ActionV2<CustomContext, CustomArgs, CustomCont
     }
 }
 
+export type ErrorLoginPageDisplayedContext = {
+    driver: Driver;
+}
+
+export type ErrorLoginPageDisplayedArgs = {
+    cssSelector: string;
+}
+
+export class ErrorLoginPageDisplayedAction extends ActionV2<ErrorLoginPageDisplayedContext, ErrorLoginPageDisplayedArgs, ErrorLoginPageDisplayedContext> {
+
+    constructor(
+        id: string | null,
+        description: string,
+        pageUrlRegex: string,
+        objectiveId: string | null,
+        lastUsed: string | null,
+        args: ErrorLoginPageDisplayedArgs,
+        destinationIds: string[] = []
+    ) {
+        if (!args.cssSelector) {
+            throw new Error('ErrorLoginPageDisplayedAction requires a cssSelector to locate the input field');
+        }
+        super(
+            id,
+            ActionEnum.ERROR_LOGIN_PAGE_DISPLAYED,
+            description,
+            pageUrlRegex,
+            objectiveId,
+            lastUsed,
+            args,
+            destinationIds
+        );
+    }
+
+    async _perform(context: ErrorLoginPageDisplayedContext): Promise<ErrorLoginPageDisplayedContext> {
+        // Raise DisconnectedError to signal that the login page is displayed and the session has expired
+        throw new DisconnectedError('i18n.collectors.all.login.expired', context.driver.collector);
+    }
+
+    async canPerform(context: ErrorLoginPageDisplayedContext): Promise<boolean> {
+        if (!new RegExp(this.pageUrlRegex).test(context.driver.url())) {
+            return false;
+        }
+        const el = await context.driver.getElement({ selector: this.args.cssSelector }, { raiseException: false, timeout: 100 });
+        return el?.isClickable() || false;
+    }
+
+    canFollow(previousAction: ActionEnum | null, secondPreviousAction: ActionEnum | null): boolean {
+        return previousAction === ActionEnum.LEFT_CLICK || previousAction === null;
+    }
+}
+
+export type WaitContext = {
+    driver: Driver;
+}
+
+export type WaitArgs = {
+    delay: number;
+}
+
+export class WaitAction extends ActionV2<WaitContext, WaitArgs, WaitContext> {
+
+    constructor(
+        id: string | null,
+        description: string,
+        pageUrlRegex: string,
+        objectiveId: string | null,
+        lastUsed: string | null,
+        args: WaitArgs,
+        destinationIds: string[] = []
+    ) {
+        if (args.delay === undefined || args.delay < 0) {
+            throw new Error('WaitAction requires args to have a "delay" field with a non-negative value');
+        }
+        super(
+            id,
+            ActionEnum.WAIT,
+            description,
+            pageUrlRegex,
+            objectiveId,
+            lastUsed,
+            args,
+            destinationIds
+        );
+    }
+
+    async _perform(context: WaitContext): Promise<WaitContext> {
+        // Wait for the specified delay in milliseconds
+        await utils.delay(this.args.delay);
+        return context;
+    }
+
+    async canPerform(context: WaitContext): Promise<boolean> {
+        if (!new RegExp(this.pageUrlRegex).test(context.driver.url())) {
+            return false;
+        }
+        return true;
+    }
+
+    canFollow(previousAction: ActionEnum | null, secondPreviousAction: ActionEnum | null): boolean {
+        return previousAction === ActionEnum.MIDDLE_CLICK || previousAction === ActionEnum.LEFT_CLICK;
+    }
+}
+
 export const ClassActionMap = {
     [ActionEnum.NOOP]: NoopAction,
     [ActionEnum.LEFT_CLICK]: LeftClickAction,
@@ -917,4 +1023,6 @@ export const ClassActionMap = {
     [ActionEnum.EXTRACT_INVOICE_DATA]: ExtractInvoiceDataAction,
     [ActionEnum.MIDDLE_CLICK]: MiddleClickAction,
     [ActionEnum.CUSTOM]: CustomAction,
+    [ActionEnum.WAIT]: WaitAction,
+    [ActionEnum.ERROR_LOGIN_PAGE_DISPLAYED]: ErrorLoginPageDisplayedAction,
 }
