@@ -339,7 +339,8 @@ export class InputTextAction extends ActionV2<InputTextContext, InputTextArgs, I
     }
 
     canFollow(previousAction: ActionEnum | null, secondPreviousAction: ActionEnum | null): boolean {
-        return previousAction !== ActionEnum.GET_INVOICES && previousAction !== ActionEnum.EXTRACT_INVOICE_DATA;
+        return previousAction !== ActionEnum.GET_INVOICES &&
+        previousAction !== ActionEnum.EXTRACT_INVOICE_DATA;
     }
 }
 
@@ -522,7 +523,9 @@ export class InputTwofaAction extends ActionV2<InputTwofaContext, InputTwofaArgs
     }
     
     canFollow(previousAction: ActionEnum | null, secondPreviousAction: ActionEnum | null): boolean {
-        return previousAction === ActionEnum.LEFT_CLICK || previousAction === ActionEnum.CUSTOM;
+        return previousAction === ActionEnum.LEFT_CLICK ||
+        previousAction === ActionEnum.WAIT ||
+        previousAction === ActionEnum.CUSTOM;
     }
 }
 
@@ -592,7 +595,9 @@ export class GetInvoicesAction extends ActionV2<GetInvoicesInputContext, GetInvo
     }
 
     canFollow(previousAction: ActionEnum | null, secondPreviousAction: ActionEnum | null): boolean {
-        return previousAction === ActionEnum.LEFT_CLICK || previousAction === ActionEnum.NOOP || previousAction === ActionEnum.CUSTOM;
+        return previousAction === ActionEnum.LEFT_CLICK ||
+        previousAction === ActionEnum.NOOP ||
+        previousAction === ActionEnum.CUSTOM;
     }
 }
 
@@ -651,8 +656,8 @@ export class ErrorNoInvoicesAction extends ActionV2<ErrorNoInvoicesContext, Erro
 
     canFollow(previousAction: ActionEnum | null, secondPreviousAction: ActionEnum | null): boolean {
         return previousAction === ActionEnum.LEFT_CLICK ||
-            previousAction === ActionEnum.NOOP ||
-            previousAction === ActionEnum.CUSTOM;
+        previousAction === ActionEnum.NOOP ||
+        previousAction === ActionEnum.CUSTOM;
     }
 }
 
@@ -776,7 +781,8 @@ export class ExtractInvoiceDataAction extends ActionV2<ExtractInvoiceDataInputCo
     }
 
     canFollow(previousAction: ActionEnum | null, secondPreviousAction: ActionEnum | null): boolean {
-        return previousAction === ActionEnum.GET_INVOICES || previousAction === ActionEnum.CUSTOM;
+        return previousAction === ActionEnum.GET_INVOICES ||
+        previousAction === ActionEnum.CUSTOM;
     }
 }
 
@@ -856,7 +862,8 @@ export class MiddleClickAction extends ActionV2<MiddleClickContext, MiddleClickA
     }
 
     canFollow(previousAction: ActionEnum | null, secondPreviousAction: ActionEnum | null): boolean {
-        return previousAction == ActionEnum.EXTRACT_INVOICE_DATA || previousAction === ActionEnum.CUSTOM;
+        return previousAction == ActionEnum.EXTRACT_INVOICE_DATA ||
+        previousAction === ActionEnum.CUSTOM;
     }
 
     toString(): string {
@@ -956,7 +963,9 @@ export class ErrorLoginPageDisplayedAction extends ActionV2<ErrorLoginPageDispla
     }
 
     canFollow(previousAction: ActionEnum | null, secondPreviousAction: ActionEnum | null): boolean {
-        return previousAction === ActionEnum.LEFT_CLICK || previousAction === null;
+        return previousAction === ActionEnum.LEFT_CLICK ||
+        previousAction === ActionEnum.WAIT ||
+        previousAction === null;
     }
 }
 
@@ -1008,7 +1017,8 @@ export class WaitAction extends ActionV2<WaitContext, WaitArgs, WaitContext> {
     }
 
     canFollow(previousAction: ActionEnum | null, secondPreviousAction: ActionEnum | null): boolean {
-        return previousAction === ActionEnum.MIDDLE_CLICK || previousAction === ActionEnum.LEFT_CLICK;
+        return previousAction === ActionEnum.MIDDLE_CLICK ||
+        previousAction === ActionEnum.LEFT_CLICK;
     }
 }
 
