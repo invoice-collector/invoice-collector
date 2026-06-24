@@ -101,18 +101,18 @@ export class Driver {
     }
 
     async update(proxy: Proxy | null = null): Promise<void> {
-        const newDriver = new Driver(this.collector);
-        await newDriver.open(proxy);
         const currentUrl = this.url();
-        if (currentUrl && currentUrl !== 'about:blank') {
-            await newDriver.setCookies(await this.getCookies([]));
-            await newDriver.setLocalStorage(await this.getLocalStorage([]));
-            await newDriver.goto(currentUrl);
-        }
-        // Close old driver
+        const cookies = (currentUrl && currentUrl.startsWith('http')) ? await this.getCookies([]) : null;
+        const localStorage = (currentUrl && currentUrl.startsWith('http')) ? await this.getLocalStorage([]) : null;
+        // Close old browser
         await this.close();
-        this.browser = newDriver.browser;
-        this.page = newDriver.page;
+        // Open new browser
+        await this.open(proxy);
+        if (currentUrl && currentUrl.startsWith('http')) {
+            await this.setCookies(cookies);
+            await this.setLocalStorage(localStorage);
+            await this.goto(currentUrl);
+        }
     }
 
     async close() {
@@ -480,8 +480,8 @@ export class Driver {
             throw new Error('Page is not initialized.');
         }
 
-        // If current url is about:blank, return empty string
-        if (this.url() === 'about:blank') {
+        // If current url does not start with http, return empty string
+        if (!this.url().startsWith('http')) {
             return '';
         }
 
@@ -740,9 +740,7 @@ export class Element {
             // Get current url
             const currentUrl = this.driver.url();
             // Open new page
-            await this.driver.browser?.puppeteerBrowser.newPage();
-            // Navigate to current url
-            await this.driver.goto(currentUrl);
+            await this.driver.newPage(currentUrl);
             // Click on the element again
             await this.driver.leftClick({
                 selector: await this.cssSelector(),
