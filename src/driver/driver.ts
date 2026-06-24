@@ -101,18 +101,18 @@ export class Driver {
     }
 
     async update(proxy: Proxy | null = null): Promise<void> {
-        const newDriver = new Driver(this.collector);
-        await newDriver.open(proxy);
         const currentUrl = this.url();
-        if (currentUrl && currentUrl !== 'about:blank') {
-            await newDriver.setCookies(await this.getCookies([]));
-            await newDriver.setLocalStorage(await this.getLocalStorage([]));
-            await newDriver.goto(currentUrl);
-        }
-        // Close old driver
+        const cookies = (currentUrl && currentUrl.startsWith('http')) ? await this.getCookies([]) : null;
+        const localStorage = (currentUrl && currentUrl.startsWith('http')) ? await this.getLocalStorage([]) : null;
+        // Close old browser
         await this.close();
-        this.browser = newDriver.browser;
-        this.page = newDriver.page;
+        // Open new browser
+        await this.open(proxy);
+        if (currentUrl && currentUrl.startsWith('http')) {
+            await this.setCookies(cookies);
+            await this.setLocalStorage(localStorage);
+            await this.goto(currentUrl);
+        }
     }
 
     async close() {
