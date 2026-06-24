@@ -44,11 +44,13 @@ export class Driver {
     collector: WebCollector;
     browser: AbstractBrowser | null;
     page: Page | null;
+    proxy: Proxy | null;
 
     constructor(collector: WebCollector) {
         this.collector = collector;
         this.browser = null;
         this.page = null;
+        this.proxy = null;
     }
 
     async open(proxy: Proxy | null = null) {
@@ -56,6 +58,7 @@ export class Driver {
         const { browser, page } = await BrowserFactory.connect(this.collector.config.remoteBrowser || false, proxy);
         this.browser = browser;
         this.page = page;
+        this.proxy = proxy;
 
         // Disable cache to always get fresh DOM content
         await page.setCacheEnabled(false);
