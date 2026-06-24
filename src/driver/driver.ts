@@ -480,8 +480,8 @@ export class Driver {
             throw new Error('Page is not initialized.');
         }
 
-        // If current url is about:blank, return empty string
-        if (this.url() === 'about:blank') {
+        // If current url does not start with http, return empty string
+        if (!this.url().startsWith('http')) {
             return '';
         }
 
