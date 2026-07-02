@@ -7,6 +7,8 @@ on:
       - 'locales/**'
       - 'src/**'
       - 'views/**'
+      - 'package.json'
+      - 'package-lock.json'
 
 jobs:
   test-locales-i18n:
