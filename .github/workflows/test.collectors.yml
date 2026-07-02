@@ -5,6 +5,8 @@ on:
   pull_request:
     paths:
       - 'src/**'
+      - 'package.json'
+      - 'package-lock.json'
 
 jobs:
   test-collectors:
