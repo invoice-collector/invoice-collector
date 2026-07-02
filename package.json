@@ -52,11 +52,6 @@
     "ts-node-dev": "^2.0.0",
     "yaml": "^2.8.2"
   },
-  "overrides": {
-   "@istanbuljs/load-nyc-config": {
-     "js-yaml": "4.2.0"
-    }
-  },
   "nodemonConfig": {
     "watch": [
       "src/",
