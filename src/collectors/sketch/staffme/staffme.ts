@@ -8,9 +8,9 @@ export class StaffmeCollector extends SketchCollector {
         id: "staffme",
         name: "StaffMe",
         description: "i18n.collectors.staffme.description",
-        version: "0",
-        website: "https://account.staffme.fr/login",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/748594.jpg",
+        version: "1",
+        website: "https://staffme.fr",
+        logo: "https://www.staffme.fr/themes/custom/nowjobs/images/logos/staffme.png",
         type: CollectorType.SKETCH,
         params: {
             email: {
@@ -26,7 +26,7 @@ export class StaffmeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        loginUrl: "https://account.staffme.fr/login",
+        loginUrl: "https://app.staffme-interim.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
         state: CollectorState.PLANNED
