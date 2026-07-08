@@ -74,15 +74,12 @@ export class MongoDB extends AbstractDatabase {
         }
     }
 
-    async ping(): Promise<boolean> {
-        if (!this.db) {
-            return false;
-        }
+    async ping(): Promise<void> {
+        const db = await this.ensureConnected();
         try {
-            await this.db.admin().ping();
-            return true;
+            await db.admin().ping();
         } catch (err) {
-            return false;
+            throw new Error("Could not reach MongoDB server", { cause: err });
         }
     }
 

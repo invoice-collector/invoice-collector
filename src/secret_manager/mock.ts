@@ -7,6 +7,10 @@ export class Mock extends AbstractSecretManager {
 
     async disconnect(): Promise<void> {}
 
+    async ping(): Promise<void> {
+        console.warn("No secret manager configured. Cannot ping.");
+    }
+
     // SECRETS
 
     async getValue(id: string): Promise<any> {

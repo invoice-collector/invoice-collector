@@ -13,7 +13,7 @@ export abstract class AbstractRegistry {
     static VERSION = "v1"
     static FRONTEND = utils.getEnvVar("FRONTEND");
 
-    abstract ping(): void;
+    abstract ping(): Promise<void>;
     abstract logSuccess(collector: AbstractCollector<Config>): void;
     abstract logError(email: string, remoteId: string, err: LoggableError): void;
     abstract feedback(type: string, message: string, email: string, user_id: string): Promise<void>;

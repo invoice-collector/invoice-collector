@@ -58,13 +58,54 @@ export class Server {
         await SecretManagerFactory.getSecretManager().connect();
 
         // Check if registery server is reachable
-        RegistryFactory.getInstance().ping();
+        RegistryFactory.getInstance().ping()
+            .then(() => {
+                console.log("Pong! Registry server successfully reached");
+            })
+            .catch(() => {
+                console.error('Could not reach registry server. You are still able to use the product but some features may not work as expected.');
+            });
 
         // Start cron job for invoice collection
         this.collect_task.start();
     }
 
     // ---------- GENERAL ENDPOINTS ----------
+
+    // PING
+    public async get_ping(
+        bearer: string | undefined,
+    ): Promise<{
+        analytics: boolean,
+        database: boolean,
+        secretManager: boolean
+    }> {
+        // Get user from bearer or token
+        await this.getCustomerFromBearer(bearer);
+
+        // Ping analytics server, database and secret manager in parallel
+        const [analytics, database, secretManager] = await Promise.all([
+            RegistryFactory.getInstance().ping()
+                .then(() => true)
+                .catch((error) => {
+                    console.error(error);
+                    return false;
+                }),
+            DatabaseFactory.getDatabase().ping()
+                .then(() => true)
+                .catch((error) => {
+                    console.error(error);
+                    return false;
+                }),
+            SecretManagerFactory.getSecretManager().ping()
+                .then(() => true)
+                .catch((error) => {
+                    console.error(error);
+                    return false;
+                })
+        ]);
+        return { analytics, database, secretManager };
+    }
 
     // TOKEN AUTHENTICATION
     public async get_ui(token: any): Promise<{locale: string, theme: string}> {

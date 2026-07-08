@@ -1,4 +1,3 @@
-
 import axios, { AxiosInstance } from 'axios';
 import { fullStackTrace, LoggableError } from '../error';
 import * as utils from '../utils';
@@ -24,15 +23,12 @@ export class HttpRegistry extends AbstractRegistry {
         }
     }
 
-    ping(): void {
-        this.client.get("/ping")
-        .then(response => {
-            console.log("Pong! Registry server successfully reached");
-        })
-        .catch(error => {
-            console.error(`Could not reach registry server at ${error.request.res?.responseUrl || error.request._currentUrl}. Status code: ${error.response?.status || error.code}
-You are still able to use the product but some features may not work as expected.`);
-        });
+    async ping(): Promise<void> {
+        try {
+            await this.client.get("/ping");
+        } catch (error) {
+            throw new Error("Could not reach registry server", { cause: error });
+        }
     }
 
     logSuccess(collector: AbstractCollector<Config>): void {

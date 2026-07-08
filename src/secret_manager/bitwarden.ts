@@ -40,6 +40,14 @@ export class Bitwarden extends AbstractSecretManager {
         // No explicit disconnect method in Bitwarden SDK
     }
 
+    async ping(): Promise<void> {
+        try {
+            await this.client.projects().list(this.organizationId);
+        } catch (err) {
+            throw new Error("Could not reach Bitwarden server", { cause: err });
+        }
+    }
+
     // SECRETS
 
     async getValue(id: string): Promise<any> {

@@ -11,6 +11,8 @@ export abstract class AbstractSecretManager {
 
     abstract disconnect(): Promise<void>;
 
+    abstract ping(): Promise<void>;
+
     // SECRETS
 
     abstract getValue(id: string): Promise<any>;

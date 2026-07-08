@@ -15,6 +15,8 @@ export abstract class AbstractDatabase {
 
     abstract disconnect(): Promise<void>;
 
+    abstract ping(): Promise<void>;
+
     // CUSTOMER
 
     abstract countCustomers(): Promise<number>;

@@ -4,7 +4,7 @@ import { AbstractCollector, Config } from '../collectors/abstractCollector';
 import { LoggableError } from '../error';
 
 export class MockRegistry extends AbstractRegistry {
-    ping(): void {
+    async ping(): Promise<void> {
         console.warn("No registry server endpoint configured. Cannot ping.");
     }
 
