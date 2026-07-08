@@ -3,19 +3,19 @@ import { fullStackTrace, LoggableError } from '../error';
 import * as utils from '../utils';
 import { Server } from '../server';
 import { AbstractCollector, Config } from '../collectors/abstractCollector';
-import { AbstractRegistry, OTP } from './abstractRegistry';
+import { AbstractAnalytics, OTP } from './abstractAnalytics';
 
-export class HttpRegistry extends AbstractRegistry {
+export class HttpAnalytics extends AbstractAnalytics {
 
     private client: AxiosInstance;
 
-    public constructor(registryServerEndpoint: string) {
+    public constructor(analyticsServerEndpoint: string) {
         super();
         this.client = axios.create({
-            baseURL: `${registryServerEndpoint}/${AbstractRegistry.VERSION}`
+            baseURL: `${analyticsServerEndpoint}/${AbstractAnalytics.VERSION}`
         });
 
-        const headers = JSON.parse(utils.getEnvVar("REGISTRY_SERVER_HEADERS", "{}"));
+        const headers = JSON.parse(utils.getEnvVar("ANALYTICS_SERVER_HEADERS", "{}"));
         if (headers) {
             for (const [key, value] of Object.entries(headers)) {
                 this.client.defaults.headers.common[key] = String(value);
@@ -27,7 +27,7 @@ export class HttpRegistry extends AbstractRegistry {
         try {
             await this.client.get("/ping");
         } catch (error) {
-            throw new Error("Could not reach registry server", { cause: error });
+            throw new Error("Could not reach analytics server", { cause: error });
         }
     }
 
@@ -37,10 +37,10 @@ export class HttpRegistry extends AbstractRegistry {
             version: collector.config.version,
         })
         .then(response => {
-            console.log("Registry server successfully reached");
+            console.log("Analytics server successfully reached");
         })
         .catch(error => {
-            console.error(`Could not reach registry server at ${error.request.res?.responseUrl || error.request._currentUrl}. Status code: ${error.response?.status || error.code}`);
+            console.error(`Could not reach analytics server at ${error.request.res?.responseUrl || error.request._currentUrl}. Status code: ${error.response?.status || error.code}`);
         });
     }
 
@@ -58,10 +58,10 @@ export class HttpRegistry extends AbstractRegistry {
             screenshot: err.screenshot
         })
         .then(response => {
-            console.log("Registry server successfully reached");
+            console.log("Analytics server successfully reached");
         })
         .catch(error => {
-            console.error(`Could not reach registry server at ${error.request.res?.responseUrl || error.request._currentUrl}. Status code: ${error.response?.status || error.code}`);
+            console.error(`Could not reach analytics server at ${error.request.res?.responseUrl || error.request._currentUrl}. Status code: ${error.response?.status || error.code}`);
         });
     }
 
@@ -76,7 +76,7 @@ export class HttpRegistry extends AbstractRegistry {
 
         // Check response status
         if (response.status !== 200) {
-            throw new Error(`Could not reach registry server at ${response.request.res?.responseUrl || response.request._currentUrl}. Status code: ${response.request?.status || response.status}`);
+            throw new Error(`Could not reach analytics server at ${response.request.res?.responseUrl || response.request._currentUrl}. Status code: ${response.request?.status || response.status}`);
         };
     }
 
@@ -124,7 +124,7 @@ export class HttpRegistry extends AbstractRegistry {
 
     public async sendResetPasswordEmail(email: string, resetToken: string): Promise<string> {
         // Build reset password link
-        const resetLink = `${AbstractRegistry.FRONTEND}/reset-password/${resetToken}`;
+        const resetLink = `${AbstractAnalytics.FRONTEND}/reset-password/${resetToken}`;
         // Send email
         console.log("Sending reset password email to", email);
         await this.sendEmail(

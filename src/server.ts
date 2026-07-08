@@ -9,7 +9,7 @@ import { Credential } from './model/credential';
 import { CollectTask } from './collect/collectTask';
 import { ProxyFactory } from './proxy/proxyFactory';
 import { AbstractCollector, CollectorType, Config } from './collectors/abstractCollector';
-import { RegistryFactory } from './registry/registryFactory';
+import { AnalyticsFactory } from './analytics/analyticsFactory';
 import * as utils from './utils';
 import { CollectPool } from './collect/collectPool';
 import { Collect } from './collect/collect';
@@ -57,13 +57,13 @@ export class Server {
         await SecretManagerFactory.load();
         await SecretManagerFactory.getSecretManager().connect();
 
-        // Check if registery server is reachable
-        RegistryFactory.getInstance().ping()
+        // Check if analytics server is reachable
+        AnalyticsFactory.getInstance().ping()
             .then(() => {
-                console.log("Pong! Registry server successfully reached");
+                console.log("Pong! Analytics server successfully reached");
             })
             .catch(() => {
-                console.error('Could not reach registry server. You are still able to use the product but some features may not work as expected.');
+                console.error('Could not reach analytics server. You are still able to use the product but some features may not work as expected.');
             });
 
         // Start cron job for invoice collection
@@ -85,7 +85,7 @@ export class Server {
 
         // Ping analytics server, database and secret manager in parallel
         const [analytics, database, secretManager] = await Promise.all([
-            RegistryFactory.getInstance().ping()
+            AnalyticsFactory.getInstance().ping()
                 .then(() => true)
                 .catch((error) => {
                     console.error(error);
@@ -139,8 +139,8 @@ export class Server {
         // Get customer from bearer or token
         const customer = await this.getCustomerFromBearerOrToken(bearer, token);
 
-        // Send feedback to registry server
-        await RegistryFactory.getInstance().feedback(
+        // Send feedback to analytics server
+        await AnalyticsFactory.getInstance().feedback(
             type,
             message,
             customer.email,
@@ -296,7 +296,7 @@ export class Server {
             await user.commit();
 
             // Send welcome email
-            await RegistryFactory.getInstance().sendWelcomeEmail(email, user.locale);
+            await AnalyticsFactory.getInstance().sendWelcomeEmail(email, user.locale);
 
             // Handle password reset for user
             const resetToken = await this.handleUserResetPassword(user);
@@ -321,7 +321,7 @@ export class Server {
             await customer.commit();
 
             // Send welcome email
-            await RegistryFactory.getInstance().sendWelcomeEmail(email, locale || I18n.DEFAULT_LOCALE);
+            await AnalyticsFactory.getInstance().sendWelcomeEmail(email, locale || I18n.DEFAULT_LOCALE);
 
             // Handle password reset for customer
             const resetToken = await this.handleCustomerResetPassword(customer);
@@ -1048,7 +1048,7 @@ export class Server {
 
         // Check if collector is sketch
         if(collector.config.type == CollectorType.SKETCH) {
-            await RegistryFactory.getInstance().feedback(
+            await AnalyticsFactory.getInstance().feedback(
                 "sketch",
                 `User ${user.id} from customer ${customer.id} (${customer.name}) needs collector ${collector.config.id} to be implemented.`,
                 customer.email,
@@ -1804,7 +1804,7 @@ export class Server {
         }, Server.RESET_PASSWORD_TOKEN_VALIDITY_DURATION_MS);
 
         // Send reset password email
-        await RegistryFactory.getInstance().sendResetPasswordEmail(user.remote_id, resetToken);
+        await AnalyticsFactory.getInstance().sendResetPasswordEmail(user.remote_id, resetToken);
 
         // Return token
         return resetToken;
@@ -1823,7 +1823,7 @@ export class Server {
         }, Server.RESET_PASSWORD_TOKEN_VALIDITY_DURATION_MS);
 
         // Send reset password email
-        await RegistryFactory.getInstance().sendResetPasswordEmail(customer.email, resetToken);
+        await AnalyticsFactory.getInstance().sendResetPasswordEmail(customer.email, resetToken);
 
         // Return token
         return resetToken;

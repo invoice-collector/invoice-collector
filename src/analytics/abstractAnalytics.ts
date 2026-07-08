@@ -8,7 +8,7 @@ export type OTP = {
     validatedAt?: number;
 }
 
-export abstract class AbstractRegistry {
+export abstract class AbstractAnalytics {
 
     static VERSION = "v1"
     static FRONTEND = utils.getEnvVar("FRONTEND");
