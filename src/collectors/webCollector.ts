@@ -4,7 +4,7 @@ import { V2Collector } from "./v2Collector";
 import { WebSocketServer } from "../websocket/webSocketServer";
 import { AuthenticationError, DisconnectedError, LoggableError, RemoveError } from "../error";
 import { MessageClick, MessageKeydown, MessageText } from "../websocket/message";
-import { KeyInput } from "rebrowser-puppeteer-core";
+import { CDPSession, KeyInput, Page } from "rebrowser-puppeteer-core";
 
 export type WebConfig = Config & {
     loginUrl: string,
@@ -139,34 +139,90 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
 
         // ---------- Screencast ----------
 
-        // Create CDP session
-        const cdp = await driver.page?.createCDPSession();
-        if(!cdp) {
-            throw new Error("CDP session could not be created");
+        // Keep track of the CDP session and page currently used for the screencast
+        let currentCdp: CDPSession | null = null;
+        let currentScreencastPage: Page | null = null;
+
+        // Attach the screencast to the given page
+        const attachScreencast = async (page: Page): Promise<void> => {
+            // Create CDP session
+            const cdp = await page.createCDPSession();
+            await cdp.send('Page.enable');
+
+            // Listen for screencast frames
+            cdp.on('Page.screencastFrame', async ({ data, sessionId }) => {
+                // Send screenshot to client
+                webSocketServer?.sendScreenshot(data, Driver.VIEWPORT_WIDTH, Driver.VIEWPORT_HEIGHT);
+                // Acknowledge frame
+                await cdp.send('Page.screencastFrameAck', { sessionId }).catch(() => {});
+            });
+
+            // Start screencast
+            await cdp.send('Page.startScreencast', {
+                format: 'jpeg',         // jpeg = smaller than png
+                quality: 100,           // 0–100
+                maxWidth: Driver.VIEWPORT_WIDTH,
+                maxHeight: Driver.VIEWPORT_HEIGHT,
+                everyNthFrame: 1        // increase to reduce FPS
+            });
+
+            currentCdp = cdp;
+            currentScreencastPage = page;
+        };
+
+        // Detach the current screencast (if any)
+        const detachScreencast = async (): Promise<void> => {
+            if (currentCdp) {
+                await currentCdp.send('Page.stopScreencast').catch(() => {});
+                await currentCdp.detach().catch(() => {});
+                currentCdp = null;
+                currentScreencastPage = null;
+            }
+        };
+
+        // Switch the screencast to a new page
+        const switchScreencast = async (page: Page): Promise<void> => {
+            if (page === currentScreencastPage) {
+                return;
+            }
+            await detachScreencast();
+            await attachScreencast(page);
+        };
+
+        const browser = driver.browser?.puppeteerBrowser;
+
+        // When a new target (tab/page) is created, follow it with the screencast
+        const onTargetCreated = async (target: any) => {
+            const newPage = await target.page();
+            if (newPage) {
+                await switchScreencast(newPage);
+            }
+        };
+
+        // When a target is destroyed, fall back to the last remaining page
+        const onTargetDestroyed = async () => {
+            const pages = (await browser?.pages()) ?? [];
+            // If the page currently screencast has been closed, switch to the last available page
+            if (currentScreencastPage && !pages.includes(currentScreencastPage) && pages.length > 0) {
+                await switchScreencast(pages[pages.length - 1]);
+            }
+        };
+
+        // Initial attach to the current page
+        if (driver.page) {
+            await attachScreencast(driver.page);
         }
-        await cdp.send('Page.enable');
 
-        // Listen for screencast frames
-        cdp.on('Page.screencastFrame', async ({ data, sessionId }) => {
-            // Send screenshot to client
-            webSocketServer?.sendScreenshot(data, Driver.VIEWPORT_WIDTH, Driver.VIEWPORT_HEIGHT);
-            // Acknowledge frame
-            await cdp.send('Page.screencastFrameAck', { sessionId });
-        });
-
-        // Start screencast
-        await cdp.send('Page.startScreencast', {
-            format: 'jpeg',         // jpeg = smaller than png
-            quality: 100,           // 0–100
-            maxWidth: Driver.VIEWPORT_WIDTH,
-            maxHeight: Driver.VIEWPORT_HEIGHT,
-            everyNthFrame: 1        // increase to reduce FPS
-        });
+        // Register listeners so the screencast follows page changes
+        browser?.on('targetcreated', onTargetCreated);
+        browser?.on('targetdestroyed', onTargetDestroyed);
 
         try {
             await interactiveEndPromise;
         } finally {
-            await cdp.send('Page.stopScreencast');
+            browser?.off('targetcreated', onTargetCreated);
+            browser?.off('targetdestroyed', onTargetDestroyed);
+            await detachScreencast();
         }
     }
 }
