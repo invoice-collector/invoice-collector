@@ -1,4 +1,5 @@
-import { ElementHandle, Frame, KeyInput, Page } from "rebrowser-puppeteer-core";
+import { CDPSession, ElementHandle, Frame, KeyInput, Page } from "rebrowser-puppeteer-core";
+import { EventEmitter } from 'events';
 import { ElementNotFoundError, LoggableError } from '../error';
 import { Proxy } from '../proxy/abstractProxy';
 import * as utils from '../utils';
@@ -6,7 +7,7 @@ import { WebCollector } from '../collectors/webCollector';
 import { BrowserFactory } from './browser/browserFactory';
 import { AbstractBrowser } from './browser/abstractBrowser';
 
-export class Driver {
+export class Driver extends EventEmitter {
 
     static DEFAULT_NAVIGATION_TIMEOUT = 30000;  // 30 seconds
     static DEFAULT_DOWNLOAD_TIMEOUT = 20000;    // 20 seconds
@@ -45,12 +46,15 @@ export class Driver {
     browser: AbstractBrowser | null;
     page: Page | null;
     proxy: Proxy | null;
+    screencastCdp: CDPSession | null;
 
     constructor(collector: WebCollector) {
+        super();
         this.collector = collector;
         this.browser = null;
         this.page = null;
         this.proxy = null;
+        this.screencastCdp = null;
     }
 
     async open(proxy: Proxy | null = null) {
@@ -84,10 +88,19 @@ export class Driver {
         this.browser.puppeteerBrowser.on('targetcreated', async (target) => {
             const newPage = await target.page();
             if (newPage && this.page !== newPage) {
+                // If a screencast is running, stop it on the current page
+                const isScreencasting = this.screencastCdp !== null;
+                if (isScreencasting) {
+                    await this.stopScreenCast();
+                }
                 this.page = newPage;
                 await this.page.bringToFront();
                 // Disable cache on new page
                 await this.page.setCacheEnabled(false);
+                // Resume the screencast on the new page
+                if (isScreencasting) {
+                    await this.startScreenCast();
+                }
             }
         });
 
@@ -95,12 +108,61 @@ export class Driver {
         this.browser.puppeteerBrowser.on('targetdestroyed', async (target) => {
             const closedPage = await target.page();
             if (closedPage && this.page === closedPage) {
+                // If a screencast is running, stop it on the closed page
+                const isScreencasting = this.screencastCdp !== null;
+                if (isScreencasting) {
+                    await this.stopScreenCast();
+                }
                 const pages = await this.pages();
                 if(pages.length > 0) {
                     this.page = pages[pages.length - 1];
                 }
+                // Resume the screencast on the previous page
+                if (isScreencasting && this.page) {
+                    await this.startScreenCast();
+                }
             }
         });
+    }
+
+    // SCREENCAST
+
+    async startScreenCast(): Promise<void> {
+        if (this.page === null) {
+            throw new Error('Page is not initialized.');
+        }
+        // Stop any existing screencast before starting a new one
+        await this.stopScreenCast();
+
+        // Create CDP session on the current page
+        const cdp = await this.page.createCDPSession();
+        await cdp.send('Page.enable');
+
+        // Listen for screencast frames and emit them as 'screenshot' events
+        cdp.on('Page.screencastFrame', async ({ data, sessionId }) => {
+            this.emit('screenshot', data, Driver.VIEWPORT_WIDTH, Driver.VIEWPORT_HEIGHT);
+            // Acknowledge frame
+            await cdp.send('Page.screencastFrameAck', { sessionId }).catch(() => {});
+        });
+
+        // Start screencast
+        await cdp.send('Page.startScreencast', {
+            format: 'jpeg',         // jpeg = smaller than png
+            quality: 100,           // 0–100
+            maxWidth: Driver.VIEWPORT_WIDTH,
+            maxHeight: Driver.VIEWPORT_HEIGHT,
+            everyNthFrame: 1        // increase to reduce FPS
+        });
+
+        this.screencastCdp = cdp;
+    }
+
+    async stopScreenCast(): Promise<void> {
+        if (this.screencastCdp) {
+            await this.screencastCdp.send('Page.stopScreencast').catch(() => {});
+            await this.screencastCdp.detach().catch(() => {});
+            this.screencastCdp = null;
+        }
     }
 
     async update(proxy: Proxy | null = null): Promise<void> {

@@ -139,34 +139,20 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
 
         // ---------- Screencast ----------
 
-        // Create CDP session
-        const cdp = await driver.page?.createCDPSession();
-        if(!cdp) {
-            throw new Error("CDP session could not be created");
-        }
-        await cdp.send('Page.enable');
+        // Forward each screencast frame emitted by the driver to the client
+        const onScreenshot = (data: string, width: number, height: number) => {
+            webSocketServer.sendScreenshot(data, width, height);
+        };
+        driver.on('screenshot', onScreenshot);
 
-        // Listen for screencast frames
-        cdp.on('Page.screencastFrame', async ({ data, sessionId }) => {
-            // Send screenshot to client
-            webSocketServer?.sendScreenshot(data, Driver.VIEWPORT_WIDTH, Driver.VIEWPORT_HEIGHT);
-            // Acknowledge frame
-            await cdp.send('Page.screencastFrameAck', { sessionId });
-        });
-
-        // Start screencast
-        await cdp.send('Page.startScreencast', {
-            format: 'jpeg',         // jpeg = smaller than png
-            quality: 100,           // 0–100
-            maxWidth: Driver.VIEWPORT_WIDTH,
-            maxHeight: Driver.VIEWPORT_HEIGHT,
-            everyNthFrame: 1        // increase to reduce FPS
-        });
+        // Start the screencast (the driver keeps it attached to the active page)
+        await driver.startScreenCast();
 
         try {
             await interactiveEndPromise;
         } finally {
-            await cdp.send('Page.stopScreencast');
+            driver.off('screenshot', onScreenshot);
+            await driver.stopScreenCast();
         }
     }
 }
