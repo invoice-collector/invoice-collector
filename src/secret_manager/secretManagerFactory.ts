@@ -17,12 +17,12 @@ export class SecretManagerFactory {
             const type = utils.getEnvVar("SECRET_MANAGER_TYPE");
             switch(type) {
                 case 'bitwarden':
-                    const { Bitwarden } = await import('./bitwarden');
-                    SecretManagerFactory.instance = new Bitwarden();
+                    const { BitwardenSecretManager } = await import('./bitwardenSecretManager');
+                    SecretManagerFactory.instance = new BitwardenSecretManager();
                     break;
                 case 'mock':
-                    const { Mock } = await import('./mock');
-                    SecretManagerFactory.instance = new Mock();
+                    const { MockSecretManager } = await import('./mockSecretManager');
+                    SecretManagerFactory.instance = new MockSecretManager();
                     break;
                 default:
                     throw new Error(`Unknown secret manager type: ${type}`);

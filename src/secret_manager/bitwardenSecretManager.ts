@@ -3,7 +3,7 @@ import { AbstractSecretManager } from "./abstractSecretManager";
 import * as utils from "../utils";
 import { Secret } from "../model/secret";
 
-export class Bitwarden extends AbstractSecretManager {
+export class BitwardenSecretManager extends AbstractSecretManager {
 
     static stateFile: string = "./bitwarden/state";
 
@@ -28,7 +28,7 @@ export class Bitwarden extends AbstractSecretManager {
 
     async connect(): Promise<void> {
         try {
-            await this.client.auth().loginAccessToken(this.accessToken, Bitwarden.stateFile);
+            await this.client.auth().loginAccessToken(this.accessToken, BitwardenSecretManager.stateFile);
             console.log("Connected successfully to Bitwarden");
         }
         catch (err) {

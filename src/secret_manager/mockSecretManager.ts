@@ -1,7 +1,7 @@
 import { AbstractSecretManager } from "./abstractSecretManager";
 import { Secret } from "../model/secret";
 
-export class Mock extends AbstractSecretManager {
+export class MockSecretManager extends AbstractSecretManager {
 
     async connect(): Promise<void> {}
 
