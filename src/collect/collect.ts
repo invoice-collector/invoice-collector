@@ -15,10 +15,12 @@ export class Collect {
     credential_id: string;
     state: State|undefined;
     webSocketServer: WebSocketServer | undefined;
+    deleted: boolean;
 
     constructor(credential_id: string, wss: WebSocketServer | undefined) {
         this.credential_id = credential_id;
         this.webSocketServer = wss;
+        this.deleted = false;
     }
 
     async start(): Promise<void> {
@@ -259,10 +261,16 @@ export class Collect {
             }
         }
         finally {
-            // Commit credential
-            await credential?.commit();
-            // Commit secret
-            await secret?.commit();
+            // If the credential has been deleted while collecting, do not re-commit the deleted credential/secret
+            if (this.deleted) {
+                console.warn(`Credential ${this.credential_id} has been deleted during collect, skipping commit of credential and secret`);
+            }
+            else {
+                // Commit credential
+                await credential?.commit();
+                // Commit secret
+                await secret?.commit();
+            }
         }
     }
 }
