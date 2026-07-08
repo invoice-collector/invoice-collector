@@ -1041,7 +1041,8 @@ export class Server {
         delete params.note;
 
         // Check if all mandatory params are present
-        const missing_params = Object.keys(collector.config.params).filter((param) => collector.config.params[param].mandatory && !params.hasOwnProperty(param));
+        const missing_params = Object.keys(collector.config.params)
+            .filter((param) => collector.config.params[param].mandatory && (!params.hasOwnProperty(param) || !params[param]));
         if(missing_params.length > 0) {
             throw new MissingParams(missing_params);
         }
@@ -1457,7 +1458,8 @@ export class Server {
         }
 
         // Check if all mandatory params are present
-        const missing_params = Object.keys(integrationConfig.params).filter((param) => integrationConfig.params[param].mandatory && !params.hasOwnProperty(param));
+        const missing_params = Object.keys(integrationConfig.params)
+            .filter((param) => integrationConfig.params[param].mandatory && (!params.hasOwnProperty(param) || !params[param]));
         if(missing_params.length > 0) {
             throw new MissingParams(missing_params);
         }
