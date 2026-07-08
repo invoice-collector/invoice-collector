@@ -48,6 +48,62 @@ function handle_error(e, req, res){
 
 /**
  * @openapi
+ * /ping:
+ *   get:
+ *     tags: [General]
+ *     summary: Ping
+ *     description: Returns the health status of the service dependencies.
+ *     security:
+ *       - CustomerBearerAuth: []
+ *       - UserBearerAuth: []
+ *     responses:
+ *       200:
+ *         description: Success
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               required: [analytics, database, secretManager]
+ *               properties:
+ *                 analytics:
+ *                   type: boolean
+ *                   description: Whether the analytics server is reachable.
+ *                 database:
+ *                   type: boolean
+ *                   description: Whether the database is reachable.
+ *                 secretManager:
+ *                   type: boolean
+ *                   description: Whether the secret manager is reachable.
+ *       401:
+ *         description: Authentication error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       500:
+ *         description: Internal server error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ */
+// NO AUTHENTICATION
+app.get('/api/v1/ping', async (req, res) => {
+    try {
+        // Get ping status
+        console.log(`GET /ping`);
+        const response = await server.get_ping(
+            req.headers.authorization
+        );
+        res.setHeader('Content-Type', 'application/json');
+        res.status(200).end(JSON.stringify(response));
+    } catch (e) {
+        handle_error(e, req, res);
+    }
+});
+
+/**
+ * @openapi
  * /ui:
  *   get:
  *     tags: [General]

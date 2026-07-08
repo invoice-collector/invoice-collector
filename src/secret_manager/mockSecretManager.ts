@@ -1,11 +1,15 @@
 import { AbstractSecretManager } from "./abstractSecretManager";
 import { Secret } from "../model/secret";
 
-export class Mock extends AbstractSecretManager {
+export class MockSecretManager extends AbstractSecretManager {
 
     async connect(): Promise<void> {}
 
     async disconnect(): Promise<void> {}
+
+    async ping(): Promise<void> {
+        console.warn("No secret manager configured. Cannot ping.");
+    }
 
     // SECRETS
 

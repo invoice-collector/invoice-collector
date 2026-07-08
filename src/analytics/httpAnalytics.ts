@@ -1,22 +1,21 @@
-
 import axios, { AxiosInstance } from 'axios';
 import { fullStackTrace, LoggableError } from '../error';
 import * as utils from '../utils';
 import { Server } from '../server';
 import { AbstractCollector, Config } from '../collectors/abstractCollector';
-import { AbstractRegistry, OTP } from './abstractRegistry';
+import { AbstractAnalytics, OTP } from './abstractAnalytics';
 
-export class HttpRegistry extends AbstractRegistry {
+export class HttpAnalytics extends AbstractAnalytics {
 
     private client: AxiosInstance;
 
-    public constructor(registryServerEndpoint: string) {
+    public constructor(analyticsServerEndpoint: string) {
         super();
         this.client = axios.create({
-            baseURL: `${registryServerEndpoint}/${AbstractRegistry.VERSION}`
+            baseURL: `${analyticsServerEndpoint}/${AbstractAnalytics.VERSION}`
         });
 
-        const headers = JSON.parse(utils.getEnvVar("REGISTRY_SERVER_HEADERS", "{}"));
+        const headers = JSON.parse(utils.getEnvVar("ANALYTICS_SERVER_HEADERS", "{}"));
         if (headers) {
             for (const [key, value] of Object.entries(headers)) {
                 this.client.defaults.headers.common[key] = String(value);
@@ -24,15 +23,12 @@ export class HttpRegistry extends AbstractRegistry {
         }
     }
 
-    ping(): void {
-        this.client.get("/ping")
-        .then(response => {
-            console.log("Pong! Registry server successfully reached");
-        })
-        .catch(error => {
-            console.error(`Could not reach registry server at ${error.request.res?.responseUrl || error.request._currentUrl}. Status code: ${error.response?.status || error.code}
-You are still able to use the product but some features may not work as expected.`);
-        });
+    async ping(): Promise<void> {
+        try {
+            await this.client.get("/ping");
+        } catch (error) {
+            throw new Error("Could not reach analytics server", { cause: error });
+        }
     }
 
     logSuccess(collector: AbstractCollector<Config>): void {
@@ -41,10 +37,10 @@ You are still able to use the product but some features may not work as expected
             version: collector.config.version,
         })
         .then(response => {
-            console.log("Registry server successfully reached");
+            console.log("Analytics server successfully reached");
         })
         .catch(error => {
-            console.error(`Could not reach registry server at ${error.request.res?.responseUrl || error.request._currentUrl}. Status code: ${error.response?.status || error.code}`);
+            console.error(`Could not reach analytics server at ${error.request.res?.responseUrl || error.request._currentUrl}. Status code: ${error.response?.status || error.code}`);
         });
     }
 
@@ -62,10 +58,10 @@ You are still able to use the product but some features may not work as expected
             screenshot: err.screenshot
         })
         .then(response => {
-            console.log("Registry server successfully reached");
+            console.log("Analytics server successfully reached");
         })
         .catch(error => {
-            console.error(`Could not reach registry server at ${error.request.res?.responseUrl || error.request._currentUrl}. Status code: ${error.response?.status || error.code}`);
+            console.error(`Could not reach analytics server at ${error.request.res?.responseUrl || error.request._currentUrl}. Status code: ${error.response?.status || error.code}`);
         });
     }
 
@@ -80,7 +76,7 @@ You are still able to use the product but some features may not work as expected
 
         // Check response status
         if (response.status !== 200) {
-            throw new Error(`Could not reach registry server at ${response.request.res?.responseUrl || response.request._currentUrl}. Status code: ${response.request?.status || response.status}`);
+            throw new Error(`Could not reach analytics server at ${response.request.res?.responseUrl || response.request._currentUrl}. Status code: ${response.request?.status || response.status}`);
         };
     }
 
@@ -128,7 +124,7 @@ You are still able to use the product but some features may not work as expected
 
     public async sendResetPasswordEmail(email: string, resetToken: string): Promise<string> {
         // Build reset password link
-        const resetLink = `${AbstractRegistry.FRONTEND}/reset-password/${resetToken}`;
+        const resetLink = `${AbstractAnalytics.FRONTEND}/reset-password/${resetToken}`;
         // Send email
         console.log("Sending reset password email to", email);
         await this.sendEmail(

@@ -5,7 +5,7 @@ import { Credential } from "../model/credential";
 import { State } from "../model/state";
 import { Customer } from "../model/customer";
 import { User } from "../model/user";
-import { RegistryFactory } from "../registry/registryFactory";
+import { AnalyticsFactory } from "../analytics/analyticsFactory";
 import { WebSocketServer } from '../websocket/webSocketServer';
 import * as utils from "../utils";
 import { Secret } from "../model/secret";
@@ -129,7 +129,7 @@ export class Collect {
                 this.webSocketServer?.sendState(State._7_DONE);
 
                 // Log success
-                RegistryFactory.getInstance().logSuccess(collector);
+                AnalyticsFactory.getInstance().logSuccess(collector);
             }
             else {
                 console.warn(`Customer ${customer.id} has no callback with automatic export enabled, skipping collect for credential ${this.credential_id} and planning next collect`);
@@ -145,7 +145,7 @@ export class Collect {
             // If error is NoInvoiceFoundError
             if (err instanceof NoInvoiceFoundError) {
                 console.warn(`Invoice collection for credential ${this.credential_id} succeed BUT no invoice found, collector may be broken`);
-                RegistryFactory.getInstance().logError(customer?.email || "", user?.remote_id || "", err);
+                AnalyticsFactory.getInstance().logError(customer?.email || "", user?.remote_id || "", err);
 
                 // If credential exists
                 if (credential) {
@@ -164,7 +164,7 @@ export class Collect {
             else if(err instanceof LoggableError) {
                 console.error(`Invoice collection for credential ${this.credential_id} has failed: ${err.message}`);
                 console.error(err);
-                RegistryFactory.getInstance().logError(customer?.email || "", user?.remote_id || "", err);
+                AnalyticsFactory.getInstance().logError(customer?.email || "", user?.remote_id || "", err);
 
                 // If credential exists
                 if (credential) {
