@@ -1225,6 +1225,12 @@ export class Server {
             throw new StatusError(`Credential with id "${id}" does not belong to user.`, 403);
         }
 
+        // If a collect is in progress, mark it as deleted so it does not re-commit the deleted credential/secret
+        const collect = CollectPool.getInstance().get(credential.id);
+        if (collect) {
+            collect.deleted = true;
+        }
+
         // Delete credential
         await credential.delete();
     }
