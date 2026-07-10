@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class Druckdiscount24DeCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class Druckdiscount24DeCollector extends SketchCollector {
         },
         loginUrl: "https://www.druckdiscount24.de/de/ShoppingCart/ShowOrder/",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class EdfEntrepriseGuyaneCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class EdfEntrepriseGuyaneCollector extends SketchCollector {
         },
         loginUrl: "https://sei-ael-guyane.edf.com/aelEDF/jsp/arc/habilitation/acteur.ZoomerDossierClient.go",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class LoisirsEducationEtCitoyenneteGrandSudParticulierCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class LoisirsEducationEtCitoyenneteGrandSudParticulierCollector extends S
         },
         loginUrl: "https://www.lecgs.org/fr/page/je-suis/je-suis-un-particulier.php",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

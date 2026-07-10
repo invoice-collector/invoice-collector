@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class MutuelleGroupamaCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class MutuelleGroupamaCollector extends SketchCollector {
         },
         loginUrl: "https://authentification.groupama.fr/cas/login?service=https%3A%2F%2Fauthentification.groupama.fr%2Fcas%2Foauth2.0%2FcallbackAuthorize&client_id=ecli_groupama",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class TheThingsIndustriesCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class TheThingsIndustriesCollector extends SketchCollector {
         },
         loginUrl: "https://accounts.thethingsindustries.com/dashboard/subscriptions/sub_1ObdRdBfIIHupA2rb7uAawLm",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

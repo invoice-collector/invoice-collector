@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class Ahi33PulsepreventionCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class Ahi33PulsepreventionCollector extends SketchCollector {
         },
         loginUrl: "https://portailahi33.pulseprevention.com/Documents/Invoicing",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class HpInstantIncCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class HpInstantIncCollector extends SketchCollector {
         },
         loginUrl: "https://instantink.hpconnected.com/users/signin?redirect=isep_or_same_origin&theme=RWD",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

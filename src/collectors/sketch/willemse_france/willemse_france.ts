@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class WillemseFranceCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class WillemseFranceCollector extends SketchCollector {
         },
         loginUrl: "https://www.willemsefrance.fr/PBUserLogin.asp?CCode=33",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

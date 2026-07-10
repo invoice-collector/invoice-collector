@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class NextKraftwerkeCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class NextKraftwerkeCollector extends SketchCollector {
         },
         loginUrl: "https://mein-kraftwerk.next-kraftwerke.de/document/invoices",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

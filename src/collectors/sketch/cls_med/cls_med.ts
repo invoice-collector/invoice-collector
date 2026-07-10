@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class ClsMedCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class ClsMedCollector extends SketchCollector {
         },
         loginUrl: "https://www.cls-med.de/login.php?MODsid=7b3c779e52b77d562ec1b5be1832ba33",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

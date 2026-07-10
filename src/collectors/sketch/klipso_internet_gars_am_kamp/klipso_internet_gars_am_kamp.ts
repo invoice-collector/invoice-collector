@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class KlipsoInternetGarsAmKampCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class KlipsoInternetGarsAmKampCollector extends SketchCollector {
         },
         loginUrl: "http://rechnung.klipso.at/(F(oEVfjfDE1sNDQjRiEQf061P56SWAlmNk2feW3k4fPLygV7C8FVU1DW_r7i_GVeR1I2XbXYYkyMAkbOF8oOaYsLcIQOalGLb2OXVgBzIjlNNj-wDvF4imFxCds6Df-6F79A3hEJMJLs1ft1et8z5oUdgxaX04LIsDhe79Nt_ZBCk1))/NonPublic/Rechnungen.aspx",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class AmazonSeCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class AmazonSeCollector extends SketchCollector {
         },
         loginUrl: "https://www.amazon.se/gp/css/order-history?ref_=nav_AccountFlyout_orders",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

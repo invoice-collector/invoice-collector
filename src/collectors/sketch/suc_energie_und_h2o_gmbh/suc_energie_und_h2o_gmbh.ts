@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class SucEnergieUndH2oGmbhCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class SucEnergieUndH2oGmbhCollector extends SketchCollector {
         },
         loginUrl: "https://kundenportal.suec.de/powercommerce/csit3/fo/portal/start",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

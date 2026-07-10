@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class GehePointGesundLebenPointCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class GehePointGesundLebenPointCollector extends SketchCollector {
         },
         loginUrl: "https://www.gehe-point.de/de/auswertungen/rechonline/esare/index.jsp",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

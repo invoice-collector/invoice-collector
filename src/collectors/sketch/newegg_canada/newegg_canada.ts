@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class NeweggCanadaCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class NeweggCanadaCollector extends SketchCollector {
         },
         loginUrl: "https://secure.newegg.ca/NewMyAccount/CartDetail.aspx?CartID=f8sAISU8521nrieBsZRtsNw0yuZrte1s6u%2bv5sObNpgqz42zw6Va11uQWnCr4KmVF3%2bq0WVmuvWCl8tY5TPcN%2bjTJ2C2OFM2anMjjfWgWfU%3d",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

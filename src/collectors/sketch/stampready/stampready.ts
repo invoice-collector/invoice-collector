@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class StampreadyCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class StampreadyCollector extends SketchCollector {
         },
         loginUrl: "https://www.stampready.net/dashboard/account/billing/renderpdf/index.php?token=",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

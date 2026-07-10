@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class VattenfallGoInChargeCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class VattenfallGoInChargeCollector extends SketchCollector {
         },
         loginUrl: "https://my.goincharge.com/#/customer/cards/report/cards-overview?filters=%7B%22dateRange%22:%7B%22startTime%22:%222023-08-04T22:00:00.000Z%22,%22endTime%22:%222023-09-03T22:00:00.000Z%22%7D,%22cards%22:%5B%5D,%22cities%22:%5B%5D,%22stations%22:%5B%5D,%22c",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

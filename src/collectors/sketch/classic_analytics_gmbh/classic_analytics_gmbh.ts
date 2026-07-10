@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class ClassicAnalyticsGmbhCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class ClassicAnalyticsGmbhCollector extends SketchCollector {
         },
         loginUrl: "https://www.classic-analytics.de/de/my_account/bills",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

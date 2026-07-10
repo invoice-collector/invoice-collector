@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class EasyLmsCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class EasyLmsCollector extends SketchCollector {
         },
         loginUrl: "https://easy-lms.chargebee.com/portal/v2/billing_history?source=home",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

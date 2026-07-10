@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class OnlineprohsSchmidtMgDeCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class OnlineprohsSchmidtMgDeCollector extends SketchCollector {
         },
         loginUrl: "https://onlineprohs.schmidt-mg.de/hs/kontoauszug.csp?getPerfacto=1",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

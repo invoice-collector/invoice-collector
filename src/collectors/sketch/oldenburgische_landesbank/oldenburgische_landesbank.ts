@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class OldenburgischeLandesbankCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class OldenburgischeLandesbankCollector extends SketchCollector {
         },
         loginUrl: "https://hbciweb.olb.de/financebrowser5/",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

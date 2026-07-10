@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class IkkDieInnovationskasseCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class IkkDieInnovationskasseCollector extends SketchCollector {
         },
         loginUrl: "https://data-ikknord.bitmarck.org/Web%20Client/ListDir.htm",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

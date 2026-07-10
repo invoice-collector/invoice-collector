@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class TraderepublicCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class TraderepublicCollector extends SketchCollector {
         },
         loginUrl: "https://traderepublic-data-production.s3.eu-central-1.amazonaws.com/timeline/postbox/2023...",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

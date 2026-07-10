@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class ShellClubSmartDeCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class ShellClubSmartDeCollector extends SketchCollector {
         },
         loginUrl: "https://www.shellsmart.com/smart/account/transactions?site=de-de",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class VectorworksServiceSelectCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class VectorworksServiceSelectCollector extends SketchCollector {
         },
         loginUrl: "https://sso.vectorworks.net/accounts/login/?next=https%3A//customers.vectorworks.net/dashboard",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

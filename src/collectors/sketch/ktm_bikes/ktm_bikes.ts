@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class KtmBikesCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class KtmBikesCollector extends SketchCollector {
         },
         loginUrl: "https://shop.ktm-bikes.at/ktm_de_de/sap_customer/listing/invoice/",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

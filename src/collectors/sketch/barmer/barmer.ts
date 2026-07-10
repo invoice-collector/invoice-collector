@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class BarmerCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class BarmerCollector extends SketchCollector {
         },
         loginUrl: "https://barmer-webmail.t-systems-service.com/Barmer/login/webmailLogin.xhtml?username=fibu@haus-im-warndt.de",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

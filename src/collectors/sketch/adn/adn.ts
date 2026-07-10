@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class AdnCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class AdnCollector extends SketchCollector {
         },
         loginUrl: "https://shop.adn.de/index.php?cl=account_order&lang=0&cl=account_order&lang=0",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

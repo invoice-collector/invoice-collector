@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class FloshipCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class FloshipCollector extends SketchCollector {
         },
         loginUrl: "https://admin.floship.com/billing/estimated-balance/pending_fulfilment?sort_by=-create_date",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

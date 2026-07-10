@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class AmazonSellerCentralNlCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class AmazonSellerCentralNlCollector extends SketchCollector {
         },
         loginUrl: "https://sellercentral.amazon.nl/tax/seller-fee-invoices",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

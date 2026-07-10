@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class VyroCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class VyroCollector extends SketchCollector {
         },
         loginUrl: "https://billing.vyro.ai/p/session/live_YWNjdF8xTjFUNWFKc0FuQ3RNcU4yLF9QZnVVM1NQbGxPbXZsQXhVUlRIMTBlbjQyS1pNSDh00100YSlVk2jI",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

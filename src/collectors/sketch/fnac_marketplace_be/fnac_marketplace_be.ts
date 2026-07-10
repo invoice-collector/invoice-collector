@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class FnacMarketplaceBeCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class FnacMarketplaceBeCollector extends SketchCollector {
         },
         loginUrl: "https://secure.fr.fnac.be/identity/server/gateway/signin-signup",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

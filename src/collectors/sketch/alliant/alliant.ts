@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class AlliantCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class AlliantCollector extends SketchCollector {
         },
         loginUrl: "https://www.alliantcreditunion.com/onlinebanking/Accounts/Statements/Estatement.aspx",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

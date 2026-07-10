@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class AnydeskCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class AnydeskCollector extends SketchCollector {
         },
         loginUrl: "https://my.anydesk.com/migrate;jsessionid=3271D5C0D39AD6082DDF24FDA8886492",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

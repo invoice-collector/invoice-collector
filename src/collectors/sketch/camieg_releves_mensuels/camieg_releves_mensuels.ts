@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class CamiegRelevesMensuelsCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class CamiegRelevesMensuelsCollector extends SketchCollector {
         },
         loginUrl: "https://assure.ameli.fr/PortailAS/appmanager/PortailAS/assure?_somtc=true",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class NftcCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class NftcCollector extends SketchCollector {
         },
         loginUrl: "https://frontenac.smarthub.coop/billPdfServlet/2020_05_1_82097127.pdf?account=82097127&timestamp=1588305600000&systemOfRecord=TELECOM",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

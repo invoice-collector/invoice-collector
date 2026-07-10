@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class EdoElektrogrosshandelCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class EdoElektrogrosshandelCollector extends SketchCollector {
         },
         loginUrl: "https://shop.edo-elektrogrosshandel.de/mein_belege_rechnungen,edo,de?eingabe=RE&zeitraum=12&Typ=R",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class UnitedKioskCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class UnitedKioskCollector extends SketchCollector {
         },
         loginUrl: "https://www.united-kiosk.de/bibliothek/user/meine-epaper/alle-epaper/all_user_products?folderId=2120912",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

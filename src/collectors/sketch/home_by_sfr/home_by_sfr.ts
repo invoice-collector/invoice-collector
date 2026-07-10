@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class HomeBySfrCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class HomeBySfrCollector extends SketchCollector {
         },
         loginUrl: "https://boutique.home.sfr.fr/pdf-invoice.php?id_invoice=1684553",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

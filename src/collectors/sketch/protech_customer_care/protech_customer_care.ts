@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class ProtechCustomerCareCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class ProtechCustomerCareCollector extends SketchCollector {
         },
         loginUrl: "https://my.protechassociates.com/My-Protech/My-Paid-Invoices",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

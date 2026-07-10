@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class TelekomBusinessKundenCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class TelekomBusinessKundenCollector extends SketchCollector {
         },
         loginUrl: "https://www.rechnung-online-business.telekom.de/dtroot/login/loginpage.htm",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class PraxairCanadaCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class PraxairCanadaCollector extends SketchCollector {
         },
         loginUrl: "https://xprspay.ipayxepay.net/xprspay/praxaircanada/index.jsp?resource=signon",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

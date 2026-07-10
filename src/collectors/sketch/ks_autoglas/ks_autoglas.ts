@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class KsAutoglasCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class KsAutoglasCollector extends SketchCollector {
         },
         loginUrl: "https://www.ks-partnersystem.de/FranchiseDocumentManagement?WindowId=1696cd77-7653-4467-9e4d-27835714f0fc",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

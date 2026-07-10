@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class GodaddyCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class GodaddyCollector extends SketchCollector {
         },
         loginUrl: "https://sso.godaddy.com/v1/?regionsite=de&path=%2f&realm=idp&marketid=de-DE",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

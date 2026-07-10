@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class FacilFamillesParisCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class FacilFamillesParisCollector extends SketchCollector {
         },
         loginUrl: "https://teleservices.paris.fr/ffaxssl/page/teamnetauth/action/login/error/invalid",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class ActivateReclayCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class ActivateReclayCollector extends SketchCollector {
         },
         loginUrl: "https://activate.reclay.at/activate_austria_german/customer/account/login/referer/aHR0cHM6Ly9hY3RpdmF0ZS5yZWNsYXkuYXQvYWN0aXZhdGVfYXVzdHJpYV9nZXJtYW4v/",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

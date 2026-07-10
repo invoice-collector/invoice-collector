@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class StadtwerkeEssenCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class StadtwerkeEssenCollector extends SketchCollector {
         },
         loginUrl: "https://kundenportal.stadtwerke-essen.de/sap/bc/ui5_ui5/sap/zswe_cu_prv/index.html?sap-client=001&sap-language=DE#/invoice",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

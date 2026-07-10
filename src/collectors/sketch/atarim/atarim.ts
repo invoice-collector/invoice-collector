@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class AtarimCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class AtarimCollector extends SketchCollector {
         },
         loginUrl: "https://atarim.io/account/?parameter_1=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImRmZDA3YWJkOGE3MjFiNTcyNTU0ZWEyYjJlNjVmNjI4NDJjNTdkNzVlOTBjOGFhYjhiMmQ5OTdkNmViNWE2YzAyZTNiOTA5ODQ1YjVjZDU0In0.eyJhdWQiOiIxIiwianRpIjoiZGZkMDdhYmQ4YTcyMWI1NzI1NTRlYTJiMmU2",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

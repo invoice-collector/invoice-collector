@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class LokalesMarkethingCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class LokalesMarkethingCollector extends SketchCollector {
         },
         loginUrl: "https://ergo.ergo-mein-lokales-marketing.de/marcapo_platform//OrderStart.cms",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

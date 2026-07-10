@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class ProimageeditorsDeCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class ProimageeditorsDeCollector extends SketchCollector {
         },
         loginUrl: "https://pigonline.proimageeditors.de/index.php?fuseaction=proimageCustomer.orderList",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

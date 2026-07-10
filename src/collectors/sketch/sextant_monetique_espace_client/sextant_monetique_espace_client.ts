@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class SextantMonetiqueEspaceClientCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class SextantMonetiqueEspaceClientCollector extends SketchCollector {
         },
         loginUrl: "https://espace-clients.sextant-monetique.fr/index.php?module=pages&page=ListeFactures",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

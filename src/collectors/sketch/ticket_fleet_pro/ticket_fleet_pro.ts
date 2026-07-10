@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class TicketFleetProCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class TicketFleetProCollector extends SketchCollector {
         },
         loginUrl: "https://extranet.lacartecarburant.com/petrole/BackOfficeUTA/fr/facturation/consultation-factures-client/",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

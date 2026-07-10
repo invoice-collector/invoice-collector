@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class Monocure3dB2bCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class Monocure3dB2bCollector extends SketchCollector {
         },
         loginUrl: "https://b2b.monocure3d.com.au/my-account/orders/",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

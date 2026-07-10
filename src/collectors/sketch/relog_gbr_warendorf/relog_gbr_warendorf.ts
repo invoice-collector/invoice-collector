@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class RelogGbrWarendorfCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class RelogGbrWarendorfCollector extends SketchCollector {
         },
         loginUrl: "https://services.portal-bereich.de/servicehosts/authority/Account/Login?ReturnUrl=%2Fservicehosts%2Fauthority%2Fconnect%2Fauthorize%2Fcallback%3Fclient_id%3Dimplicitportal%26redirect_uri%3Dhttps%253A%252F%252Frelog-lohn-warendorf.portal-bereich.de%252Fhtm",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

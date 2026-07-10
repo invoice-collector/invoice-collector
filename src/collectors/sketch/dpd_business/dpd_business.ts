@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class DpdBusinessCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class DpdBusinessCollector extends SketchCollector {
         },
         loginUrl: "https://business.dpd.de/profil/meinkonto/rechnung-archiv.aspx",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

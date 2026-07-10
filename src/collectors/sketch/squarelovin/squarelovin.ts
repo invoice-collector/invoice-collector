@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class SquarelovinCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class SquarelovinCollector extends SketchCollector {
         },
         loginUrl: "https://app.squarelovin.com/analytics/9e3c3731-e3d2-4703-8b69-effa03d567ec/settings",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

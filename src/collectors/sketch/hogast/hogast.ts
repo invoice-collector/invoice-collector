@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class HogastCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class HogastCollector extends SketchCollector {
         },
         loginUrl: "https://easygoing.hogast.de/WebShop/fibu/menuBuchhaltungsdaten.do?showNeueRechnungen",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

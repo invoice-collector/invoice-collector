@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class BarmeniaAdcuriMaklerportalCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class BarmeniaAdcuriMaklerportalCollector extends SketchCollector {
         },
         loginUrl: "https://ssl.barmenia24.de/PostBoxWeb/postbox.xhtml",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

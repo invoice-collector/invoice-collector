@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class CpxResearchCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class CpxResearchCollector extends SketchCollector {
         },
         loginUrl: "https://publisher.cpx-research.com/index.php?page=statistics_account_balance",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

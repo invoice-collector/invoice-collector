@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class TuftsHealthEmployerCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class TuftsHealthEmployerCollector extends SketchCollector {
         },
         loginUrl: "https://employers.tufts-health.com/nonsec/emlogon.fcc",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

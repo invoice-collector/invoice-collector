@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class CleverlohnCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class CleverlohnCollector extends SketchCollector {
         },
         loginUrl: "https://app.cleverlohn.de/employer/CF2bkoTSOyQTQSqmxS51/settings/billing",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

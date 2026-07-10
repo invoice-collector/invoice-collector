@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class MangoMobiliteCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class MangoMobiliteCollector extends SketchCollector {
         },
         loginUrl: "https://espaceclient.aprr.fr/aprr/Pages/connexion.aspx",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

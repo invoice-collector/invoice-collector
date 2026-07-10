@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class AhveasyCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class AhveasyCollector extends SketchCollector {
         },
         loginUrl: "https://www.eadminportal.ch/portal/Portal.do?embed=/zl/svasg/igseaagap/agap/",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class HpaAssuranceCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class HpaAssuranceCollector extends SketchCollector {
         },
         loginUrl: "https://hpassurance.courtier-en-ligne.com/fr/contrats/1050/avis",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

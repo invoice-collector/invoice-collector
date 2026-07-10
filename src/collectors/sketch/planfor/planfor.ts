@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class PlanforCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class PlanforCollector extends SketchCollector {
         },
         loginUrl: "https://www.planfor.fr/index.php?action=formulaire_contact&etape=1&orig=moncpte&langue=FR",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

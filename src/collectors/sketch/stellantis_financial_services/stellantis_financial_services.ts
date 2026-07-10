@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class StellantisFinancialServicesCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class StellantisFinancialServicesCollector extends SketchCollector {
         },
         loginUrl: "https://myprofile.stellantis-financial-services.be/nl/web/cuspor/invoices?",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

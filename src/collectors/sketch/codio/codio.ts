@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class CodioCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class CodioCollector extends SketchCollector {
         },
         loginUrl: "https://codio.com/p/login?hsCtaTracking=ad6aa427-4bb5-4a3c-beb3-8bd8df08b02f%7C73a7f5c4-c051-4906-b0ab-b7d61d1bd8a2",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class ShulexVocAiCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class ShulexVocAiCollector extends SketchCollector {
         },
         loginUrl: "https://apps.voc.ai/app#/account/user?redirect=%2Fapp&type=billing",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

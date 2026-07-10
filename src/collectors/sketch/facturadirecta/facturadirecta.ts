@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class FacturadirectaCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class FacturadirectaCollector extends SketchCollector {
         },
         loginUrl: "https://app.facturadirecta.com/#/launchpad/billing/fd2/com_228aa22a-574f-47a6-835a-28b78bf5b12c",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

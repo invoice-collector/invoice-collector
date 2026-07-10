@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class NatixisInterEpargneCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class NatixisInterEpargneCollector extends SketchCollector {
         },
         loginUrl: "https://epargnants.interepargne.natixis.fr/def_int_ep/ep/home.do?language=fr",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

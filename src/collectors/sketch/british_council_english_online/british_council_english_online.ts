@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class BritishCouncilEnglishOnlineCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class BritishCouncilEnglishOnlineCollector extends SketchCollector {
         },
         loginUrl: "https://englishonline.britishcouncil.org/platform/nui/reactui/build/index.html#/subscription/",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

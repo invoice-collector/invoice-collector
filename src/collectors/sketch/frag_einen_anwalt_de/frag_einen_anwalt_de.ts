@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class FragEinenAnwaltDeCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class FragEinenAnwaltDeCollector extends SketchCollector {
         },
         loginUrl: "https://www.123recht.de/thick_register.asp",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

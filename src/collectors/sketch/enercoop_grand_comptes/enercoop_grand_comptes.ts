@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class EnercoopGrandComptesCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class EnercoopGrandComptesCollector extends SketchCollector {
         },
         loginUrl: "https://mon-espace.enercoop.fr/grandscomptes-collectivites/sites",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

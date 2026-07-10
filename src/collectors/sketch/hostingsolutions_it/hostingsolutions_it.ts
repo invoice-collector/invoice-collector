@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class HostingsolutionsItCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class HostingsolutionsItCollector extends SketchCollector {
         },
         loginUrl: "https://pdc.hostingsolutions.it/MasterCP/MasterLogin.pl",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

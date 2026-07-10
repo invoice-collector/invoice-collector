@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class DescampsBoisFrCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class DescampsBoisFrCollector extends SketchCollector {
         },
         loginUrl: "https://www.descamps-bois.fr/connexion?_target_path=/&subdomain=www&extension=fr",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

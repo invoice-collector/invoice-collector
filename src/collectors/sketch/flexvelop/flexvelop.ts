@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class FlexvelopCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class FlexvelopCollector extends SketchCollector {
         },
         loginUrl: "https://www.flexvelop.com/customer-dashboard/contracts/FLEX-Y2X6H7X7",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

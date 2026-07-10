@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class ZenmateCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class ZenmateCollector extends SketchCollector {
         },
         loginUrl: "https://account.zenmate.com/de_DE/login?redirectTo=/de_DE/devices",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class JochenSchweizerEnterprisePortalCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class JochenSchweizerEnterprisePortalCollector extends SketchCollector {
         },
         loginUrl: "https://jep.jochen-schweizer.de/auth",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

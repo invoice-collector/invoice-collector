@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class RcsdUtilitiesCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class RcsdUtilitiesCollector extends SketchCollector {
         },
         loginUrl: "https://www.invoicecloud.com/portal/(S(kql2xvubnjjlcksmunpilrp3))/2/CustomerGroupLedger.aspx?mode=open",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

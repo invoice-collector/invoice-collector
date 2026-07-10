@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class AmazonStoreCardCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class AmazonStoreCardCollector extends SketchCollector {
         },
         loginUrl: "https://www.synchronycredit.com/eService/EBill/eBillAction.action",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

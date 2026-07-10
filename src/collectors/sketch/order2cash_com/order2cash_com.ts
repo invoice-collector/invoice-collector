@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class Order2cashComCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class Order2cashComCollector extends SketchCollector {
         },
         loginUrl: "https://secure.order2cash.com/i2d/#XD3sCs1EKZFx44kyf7RSSQ",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

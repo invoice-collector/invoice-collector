@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class WaalazyCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class WaalazyCollector extends SketchCollector {
         },
         loginUrl: "https://invoice.stripe.com/i/acct_1FOmpmHBSdnTEMdF/live_YWNjdF8xRk9tcG1IQlNkblRFTWRGLF9PN3hZbFJMMHFkb0VFeHk1NzNFSW9nSEtYemgwcWUxLDc4MDYwMzgw02007CedNKg4?s=ap",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

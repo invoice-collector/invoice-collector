@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class VaultpressCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class VaultpressCollector extends SketchCollector {
         },
         loginUrl: "https://vaultpress.com/login/?action=require_for&url=https%3A%2F%2Fdashboard.vaultpress.com%2F",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

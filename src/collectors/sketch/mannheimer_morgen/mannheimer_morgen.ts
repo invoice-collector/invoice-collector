@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class MannheimerMorgenCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class MannheimerMorgenCollector extends SketchCollector {
         },
         loginUrl: "https://www2.mannheimer-morgen.de/service/mein_profil/plenigo_dashboard.html",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class OrangeConnexCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class OrangeConnexCollector extends SketchCollector {
         },
         loginUrl: "https://fulfillment.orangeconnex.com/seller/login?redirectUrl=https%3A%2F%2Ffulfillment.orangeconnex.com%2F",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

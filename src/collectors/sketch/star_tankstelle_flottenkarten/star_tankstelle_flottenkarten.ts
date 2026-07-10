@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class StarTankstelleFlottenkartenCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class StarTankstelleFlottenkartenCollector extends SketchCollector {
         },
         loginUrl: "https://flottenkarte.star.de/Invoice/DownloadInvoice/",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class InvedaNetCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class InvedaNetCollector extends SketchCollector {
         },
         loginUrl: "https://secure.inveda.net/system.user.user.rechnungen.html?RechnungenBox[fad_t_limit]=-1",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

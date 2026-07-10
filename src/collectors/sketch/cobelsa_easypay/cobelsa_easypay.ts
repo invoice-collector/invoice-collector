@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class CobelsaEasypayCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class CobelsaEasypayCollector extends SketchCollector {
         },
         loginUrl: "https://cobelsa-easyonline.easypay-group.com/doc/611/20240220/EXTRA_INFO_PERFORMSHEET_258933_00000894ENGINE014lnt_2024022012082741_R.pdf?rule=com.easypaygroup.global.control.basedata.document.util.GloDocumentUserRule",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

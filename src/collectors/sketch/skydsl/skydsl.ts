@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class SkydslCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class SkydslCollector extends SketchCollector {
         },
         loginUrl: "https://www.skydsl.eu/de-DE/Privatkunden/Satelliten-Internet/customer/faccount/invoice",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

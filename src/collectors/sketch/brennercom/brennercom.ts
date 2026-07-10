@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class BrennercomCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class BrennercomCollector extends SketchCollector {
         },
         loginUrl: "https://mybcom.brennercom.it/de/mybcom/online-rechnung/rechnungen/111-0.html",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

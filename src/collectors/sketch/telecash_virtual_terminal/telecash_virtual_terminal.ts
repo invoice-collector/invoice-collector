@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class TelecashVirtualTerminalCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class TelecashVirtualTerminalCollector extends SketchCollector {
         },
         loginUrl: "https://www.ipg-online.com/vt/view/reports/reports.faces",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

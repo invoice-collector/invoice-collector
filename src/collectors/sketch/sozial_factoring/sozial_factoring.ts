@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class SozialFactoringCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class SozialFactoringCollector extends SketchCollector {
         },
         loginUrl: "https://app.clever-factoring.de/kunde/einrichtungen/F31179/ankaufpositionen/",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class EllaBusinessPortalOsterreichischePostCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class EllaBusinessPortalOsterreichischePostCollector extends SketchCollec
         },
         loginUrl: "https://ella.post.at/en/my-invoices",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

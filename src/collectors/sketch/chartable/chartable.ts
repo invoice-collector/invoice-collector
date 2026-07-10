@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class ChartableCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class ChartableCollector extends SketchCollector {
         },
         loginUrl: "https://chartable.com/teams/bimanu-wertgeschaetzt/dashboard/plans",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class GathertownCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class GathertownCollector extends SketchCollector {
         },
         loginUrl: "https://app.gather.town/dashboard/AqChriOPbROCovtx/konzepthaus%20Web%20Solutions/reservations/subscription",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

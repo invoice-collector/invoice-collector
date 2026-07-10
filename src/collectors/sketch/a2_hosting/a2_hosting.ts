@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class A2HostingCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class A2HostingCollector extends SketchCollector {
         },
         loginUrl: "https://my.a2hosting.com/clientarea.php?_ga=2.227661019.717146942.1523598768-1113095136.1523598768",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

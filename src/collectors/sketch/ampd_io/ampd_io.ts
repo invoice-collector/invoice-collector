@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class AmpdIoCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class AmpdIoCollector extends SketchCollector {
         },
         loginUrl: "https://app.ampd.io/t/druckerpatronenexpress-j6pq1034nj-web/dashboard/assessment",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class AdvanceAutoPartsCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class AdvanceAutoPartsCollector extends SketchCollector {
         },
         loginUrl: "https://shop.advanceautoparts.com/web/TrackOrderStatus?storeId=10151&catalogId=10051&langId=-1",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

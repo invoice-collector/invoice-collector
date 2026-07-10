@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class StadtwerkeStadeCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class StadtwerkeStadeCollector extends SketchCollector {
         },
         loginUrl: "https://swscsit.stadtwerke-stade.de/csit/action/csLogin?formReset.x=true",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

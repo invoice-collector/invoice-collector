@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class CommerzbankKreditkartenabrechnungBusinessCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class CommerzbankKreditkartenabrechnungBusinessCollector extends SketchCo
         },
         loginUrl: "https://www.kreditkartenbanking.de/businesscard/cos_std/dispatch.do;jsessionid=0001mpZQs5zVCVz2U3XAlPYI6Ge:1H4VRRFPLM?rai=0&ref=1500_CHAM&bt_STMTLIST=do",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

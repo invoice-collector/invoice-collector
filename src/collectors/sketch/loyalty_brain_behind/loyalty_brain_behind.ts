@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class LoyaltyBrainBehindCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class LoyaltyBrainBehindCollector extends SketchCollector {
         },
         loginUrl: "https://loyalty.brain-behind.com/VM_Login.aspx",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

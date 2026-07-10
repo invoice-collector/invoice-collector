@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class VolkswagenWeChargeCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class VolkswagenWeChargeCollector extends SketchCollector {
         },
         loginUrl: "https://www.volkswagen.de/de/meine-ladethemen.html",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

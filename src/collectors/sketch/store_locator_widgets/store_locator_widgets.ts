@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class StoreLocatorWidgetsCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class StoreLocatorWidgetsCollector extends SketchCollector {
         },
         loginUrl: "https://www.storelocatorwidgets.com/admin/signin",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

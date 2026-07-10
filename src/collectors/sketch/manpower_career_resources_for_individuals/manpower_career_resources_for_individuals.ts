@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class ManpowerCareerResourcesForIndividualsCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class ManpowerCareerResourcesForIndividualsCollector extends SketchCollec
         },
         loginUrl: "https://www.manpower.com/wps/portal/ManpowerUSA/career-resources",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

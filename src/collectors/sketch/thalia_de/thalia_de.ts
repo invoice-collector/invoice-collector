@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class ThaliaDeCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class ThaliaDeCollector extends SketchCollector {
         },
         loginUrl: "https://www.thalia.de/shop/home/login/login/?_token=5826bcba-526b-4d5b-bcb5-a836f66341a6",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

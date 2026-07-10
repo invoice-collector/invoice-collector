@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class MinterIoCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class MinterIoCollector extends SketchCollector {
         },
         loginUrl: "https://minter.io/payment/in_1EY83nF8TNScfXnTDEIdJFLR/in_1EY83nF8TNScfXnTDEIdJFLR",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class ItRechtKanzleiDeCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class ItRechtKanzleiDeCollector extends SketchCollector {
         },
         loginUrl: "https://www.it-recht-kanzlei.de/Portal/rechnungen.php",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class TldvCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class TldvCollector extends SketchCollector {
         },
         loginUrl: "https://tldv.io/app/login?returnUrl=https%3A%2F%2Ftldv.io%2Fapp%2F%3F",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class SecuofficeCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class SecuofficeCollector extends SketchCollector {
         },
         loginUrl: "https://secuoffice.com/#/M/MRC_W87B9BGFZX6B6V8FGYEUMY890ASCOP/card-processing/invoices?sorting[0][propName]=created&sorting[0][asc]=false&grid=true",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

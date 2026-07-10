@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class CatalogmachineComCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class CatalogmachineComCollector extends SketchCollector {
         },
         loginUrl: "https://www.catalogmachine.com/account/signin?ReturnUrl=%2Fapp%2Fmyaccount%2Finvoices",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

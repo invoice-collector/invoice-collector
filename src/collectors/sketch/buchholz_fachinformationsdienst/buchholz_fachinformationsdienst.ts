@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class BuchholzFachinformationsdienstCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class BuchholzFachinformationsdienstCollector extends SketchCollector {
         },
         loginUrl: "https://partner.bfd-online.info/mybfd/acl_users/credentials_cookie_auth/require_login?came_from=https://partner.bfd-online.info/mybfd/",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

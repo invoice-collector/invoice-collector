@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class PayhawkCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class PayhawkCollector extends SketchCollector {
         },
         loginUrl: "https://portal.payhawk.com/?account=dkn_immobilien_inh_steven_dekan_892c0a06",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

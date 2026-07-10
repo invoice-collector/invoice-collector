@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class DayusePartnersCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class DayusePartnersCollector extends SketchCollector {
         },
         loginUrl: "https://partners.dayuse.io/beta/invoicing/item/list/10989",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class DeutscheTelekomM2mPortalCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class DeutscheTelekomM2mPortalCollector extends SketchCollector {
         },
         loginUrl: "https://portal-m2m.telekom.de/m2m-customer-portal/user/invoices/list",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

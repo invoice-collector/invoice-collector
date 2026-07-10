@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class NrcHandelsbladCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class NrcHandelsbladCollector extends SketchCollector {
         },
         loginUrl: "https://login.nrc.nl/login?service=https%3A%2F%2Fservice.nrc.nl%2Finloggen%2F",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

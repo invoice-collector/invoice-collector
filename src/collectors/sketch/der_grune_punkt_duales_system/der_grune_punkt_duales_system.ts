@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class DerGrunePunktDualesSystemCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class DerGrunePunktDualesSystemCollector extends SketchCollector {
         },
         loginUrl: "https://portal.gruener-punkt.de/onlinedsd/f?p=200:101:::NO:RP::",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

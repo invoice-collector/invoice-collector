@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class CrtServicesCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class CrtServicesCollector extends SketchCollector {
         },
         loginUrl: "https://www.crt.asso.fr/NEA/Facture/FacturesSummary?idEmetteur=4",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

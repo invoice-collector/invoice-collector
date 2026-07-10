@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class CanaraguaCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class CanaraguaCollector extends SketchCollector {
         },
         loginUrl: "https://www.canaragua.es/group/canaragua/mis-facturas?p_p_id=MisFacturas&p_p_lifecycle=1&p_p_state=normal&p_p_mode=view&_MisFacturas_javax.portlet.action=verFactura&_MisFacturas_view=factura&p_auth=d4eEb6GN&_MisFacturas_numeroContrato=10885059&_MisFactura",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

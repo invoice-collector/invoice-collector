@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class AnwbCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class AnwbCollector extends SketchCollector {
         },
         loginUrl: "https://www.anwb.nl/inloggen#client_id=jjanIwY0NfPdbrnFWFQPDMCRCAlBgoMx&redirect_uri=https%3A%2F%2Fwww.anwb.nl%2Fmijn-anwb",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

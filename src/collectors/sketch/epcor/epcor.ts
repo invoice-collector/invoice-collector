@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class EpcorCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class EpcorCollector extends SketchCollector {
         },
         loginUrl: "https://www.epcor.com/myaccount#/auth/login?returnRouteUrl=%2Fmanage%2Faccounts",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

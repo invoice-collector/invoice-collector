@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class ThomannFrCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class ThomannFrCollector extends SketchCollector {
         },
         loginUrl: "https://www.thomann.de/fr/mythomann_login.html?o=https://www.thomann.de/fr/mythomann.html?sid=b4463a701f069547968a1922ba133225",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

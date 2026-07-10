@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class ShippitCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class ShippitCollector extends SketchCollector {
         },
         loginUrl: "https://app.shippit.com/merchant/eco-outdoor-3a2c91cb-c402-4d76-833b-1f7d6b6a2aef/invoices",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

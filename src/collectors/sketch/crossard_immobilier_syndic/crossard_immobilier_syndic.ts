@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class CrossardImmobilierSyndicCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class CrossardImmobilierSyndicCollector extends SketchCollector {
         },
         loginUrl: "https://crossard.crypto-extranet.com/connexion/",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

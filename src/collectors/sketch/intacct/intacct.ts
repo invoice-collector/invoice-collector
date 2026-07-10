@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class IntacctCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class IntacctCollector extends SketchCollector {
         },
         loginUrl: "https://www.intacct.com/ia/acct/login.phtml?_ga=2.74544722.1779628590.1523427773-399854463.1523427773",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

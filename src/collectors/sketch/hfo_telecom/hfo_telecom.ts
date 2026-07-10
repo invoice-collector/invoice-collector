@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class HfoTelecomCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class HfoTelecomCollector extends SketchCollector {
         },
         loginUrl: "https://rechnung.hfo-telecom.de/Portal1/Login.cms?ReturnUrl=%2fPortal1%2f",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class ClubOpticLeaderCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class ClubOpticLeaderCollector extends SketchCollector {
         },
         loginUrl: "https://adherents.opticlibre.com/espace-de-connexion",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

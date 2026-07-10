@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class ViapresseCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class ViapresseCollector extends SketchCollector {
         },
         loginUrl: "https://www.viapresse.com/customer/account/login/referer/aHR0cHM6Ly93d3cudmlhcHJlc3NlLmNvbS9jdXN0b21lci9hY2NvdW50L2luZGV4Lw,,/",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

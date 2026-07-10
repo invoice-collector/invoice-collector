@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class StadtwerkeMuhlheimCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class StadtwerkeMuhlheimCollector extends SketchCollector {
         },
         loginUrl: "https://www.stadtwerke-muehlheim.de/de/Kopfnavigation/Kundenportale/",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

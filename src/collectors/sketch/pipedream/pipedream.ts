@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class PipedreamCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class PipedreamCollector extends SketchCollector {
         },
         loginUrl: "https://billing.stripe.com/p/session/live_YWNjdF8xREFMaUpCU1pzb2x0R2ZDLF9NUWxFRWl6ZUVCMHpiY0pqSFJ1Q0R6Q2dYaXJBMWts0100JFXBsEdX",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

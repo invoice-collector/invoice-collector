@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class LeaseplanDeutschlandCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class LeaseplanDeutschlandCollector extends SketchCollector {
         },
         loginUrl: "https://auth.leaseplan.com/login?state=hKFo2SBxNEdGSUpKaXdHRHNaeTB2dzRqQzBDXzJUWG96b05pS6FupWxvZ2luo3RpZNkgeDRCaV9MOV9tN0lNTzFDTGcwSXU3NlBUbENJYndVQ0KjY2lk2SBONVk2Zzd0VU9DN2NLcWFHYnRyVVRRRzFwVmhjTGRKMA&client=N5Y6g7tUOC7cKqaGbtrUTQG1pVhcLdJ0&protocol=saml",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

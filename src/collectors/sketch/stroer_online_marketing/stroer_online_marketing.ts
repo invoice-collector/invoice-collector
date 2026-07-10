@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class StroerOnlineMarketingCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class StroerOnlineMarketingCollector extends SketchCollector {
         },
         loginUrl: "https://kundencenter.stroeer-online-marketing.de/accounting/invoices",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

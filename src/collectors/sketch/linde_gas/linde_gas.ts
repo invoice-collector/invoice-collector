@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class LindeGasCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class LindeGasCollector extends SketchCollector {
         },
         loginUrl: "https://www.linde-gas.de/shop/NonAjaxAccountProfileFormView?currentSelection=checkoutProfileSlct&fromLink=myAccount&profileFormStyle=strong&catalogId=3074457345616681318&myAcctMain=2&langId=-3&storeId=715845184",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class SpotifyCanadaCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class SpotifyCanadaCollector extends SketchCollector {
         },
         loginUrl: "https://www.spotify.com/ca-en/account/subscription/receipt/",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

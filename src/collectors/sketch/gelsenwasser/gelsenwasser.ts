@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class GelsenwasserCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class GelsenwasserCollector extends SketchCollector {
         },
         loginUrl: "https://onlineservice.gelsenwasser.de/sap/bc/ui5_ui5/sap/zmcf_ui/index.html?CompanyID=1101000_GWAG&sap-client=110",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

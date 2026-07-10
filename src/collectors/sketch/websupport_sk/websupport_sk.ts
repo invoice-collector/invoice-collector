@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class WebsupportSkCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class WebsupportSkCollector extends SketchCollector {
         },
         loginUrl: "https://login.websupport.sk/?s=cart&l=sk&c=websupport.sk",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

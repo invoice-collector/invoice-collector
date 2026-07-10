@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class OnvistaCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class OnvistaCollector extends SketchCollector {
         },
         loginUrl: "https://my.onvista.de/login?from=https://www.onvista.de/&fromEnv=www&cid=website_display_myov_desktop-navigation-cta",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

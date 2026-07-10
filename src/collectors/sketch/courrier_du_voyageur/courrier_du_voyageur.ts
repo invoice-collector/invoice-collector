@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class CourrierDuVoyageurCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class CourrierDuVoyageurCollector extends SketchCollector {
         },
         loginUrl: "https://mon-compte.courrier-du-voyageur.com/bpi.php?p=ec_account&mapage=fac",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

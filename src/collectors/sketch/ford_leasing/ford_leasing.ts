@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class FordLeasingCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class FordLeasingCollector extends SketchCollector {
         },
         loginUrl: "https://www.manager.fordfleetmanagement.fr/portal/flonetpal/DEPENSES/Votre_Coffre_Fort/factures",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

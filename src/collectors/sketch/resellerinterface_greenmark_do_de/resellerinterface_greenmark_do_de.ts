@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class ResellerinterfaceGreenmarkDoDeCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class ResellerinterfaceGreenmarkDoDeCollector extends SketchCollector {
         },
         loginUrl: "https://my.resellerinterface.de/finance/invoices",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class SuewagOnlineServiceCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class SuewagOnlineServiceCollector extends SketchCollector {
         },
         loginUrl: "https://online-service.suewag.de/sap/bc/ui5_ui5/sap/zisuumc_b2c_pri/index.html?CompanyID=SUEWAG&sap-client=001&sap-language=DE#/invoices",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

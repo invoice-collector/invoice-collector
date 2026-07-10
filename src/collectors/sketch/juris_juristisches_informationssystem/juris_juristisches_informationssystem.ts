@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class JurisJuristischesInformationssystemCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class JurisJuristischesInformationssystemCollector extends SketchCollecto
         },
         loginUrl: "https://juris.de/jportal/nav/index.jsp#/",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

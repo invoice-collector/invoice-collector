@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class FigurscoutVertriebsCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class FigurscoutVertriebsCollector extends SketchCollector {
         },
         loginUrl: "https://www.dein-figurplan.de/mein-konto/orders/",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class ChequeDejeunerCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class ChequeDejeunerCollector extends SketchCollector {
         },
         loginUrl: "https://clients.cheque-dejeuner.com/accueil/gerer/mes-factures-et-documents/",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

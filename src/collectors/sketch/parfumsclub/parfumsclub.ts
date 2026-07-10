@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class ParfumsclubCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class ParfumsclubCollector extends SketchCollector {
         },
         loginUrl: "https://www.parfumsclub.de/de/konto/login/?returnUrl=/?returnUrl=/",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

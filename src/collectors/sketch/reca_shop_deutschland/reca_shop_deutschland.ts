@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class RecaShopDeutschlandCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class RecaShopDeutschlandCollector extends SketchCollector {
         },
         loginUrl: "https://shop.recanorm.de/de/DE/EUR/",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

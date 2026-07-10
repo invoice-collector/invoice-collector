@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class KolnerPensionskasseCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class KolnerPensionskasseCollector extends SketchCollector {
         },
         loginUrl: "https://kpk-pkc.foxdox.de/login?next=%2F",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

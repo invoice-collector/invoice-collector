@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class EauDuDunkerquoisCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class EauDuDunkerquoisCollector extends SketchCollector {
         },
         loginUrl: "https://www.eaux-dunkerque.fr/mon-compte-en-ligne/je-me-connecte",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

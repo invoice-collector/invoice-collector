@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class RichardVinsAndSpiritueuxCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class RichardVinsAndSpiritueuxCollector extends SketchCollector {
         },
         loginUrl: "https://pro.vinsrichard.fr/vin/factures/view#bigbook",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

@@ -1,5 +1,5 @@
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 import { log } from 'console';
 
 export class LaBovidaCollector extends SketchCollector {
@@ -28,7 +28,7 @@ export class LaBovidaCollector extends SketchCollector {
         },
         loginUrl: "https://www.labovida.com/connexion?back=my-account",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

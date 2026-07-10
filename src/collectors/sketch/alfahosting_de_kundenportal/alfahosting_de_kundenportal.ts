@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class AlfahostingDeKundenportalCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class AlfahostingDeKundenportalCollector extends SketchCollector {
         },
         loginUrl: "https://secure.alfahosting.de/kunden/index.php/Benutzer:Logout",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

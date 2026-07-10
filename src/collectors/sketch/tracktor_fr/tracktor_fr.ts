@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class TracktorFrCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class TracktorFrCollector extends SketchCollector {
         },
         loginUrl: "https://tracktor.fr/users/2060-simon/bookings/14604#facturation",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

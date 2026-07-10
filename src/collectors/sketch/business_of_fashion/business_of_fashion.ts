@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class BusinessOfFashionCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class BusinessOfFashionCollector extends SketchCollector {
         },
         loginUrl: "https://www.businessoffashion.com/spa#/app/account/personal/your-membership",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

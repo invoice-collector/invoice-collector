@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class IvecoCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class IvecoCollector extends SketchCollector {
         },
         loginUrl: "https://cnhice.espaceclient.fineasy.com/group/france-iveco/factures-avoirs",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

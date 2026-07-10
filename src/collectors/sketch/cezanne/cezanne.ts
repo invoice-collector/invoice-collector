@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class CezanneCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class CezanneCollector extends SketchCollector {
         },
         loginUrl: "https://w3.cezanneondemand.com/CezanneOnDemand/Account/LogIn?ReturnUrl=~%2F",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class MercedesMeFinanceCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class MercedesMeFinanceCollector extends SketchCollector {
         },
         loginUrl: "https://customerportal.mercedes-benz.com/cp-de/portal/documentArchive.html",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

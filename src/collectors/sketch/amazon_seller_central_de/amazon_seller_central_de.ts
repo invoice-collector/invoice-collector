@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class AmazonSellerCentralDeCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class AmazonSellerCentralDeCollector extends SketchCollector {
         },
         loginUrl: "https://sellercentral.amazon.de/gp/payments-account/past-settlements.html/ref=ag_xx_cont_pymtvtrans",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class MailercheckCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class MailercheckCollector extends SketchCollector {
         },
         loginUrl: "https://app.mailercheck.com/login?_ga=2.139472629.730230997.1635224339-1189516071.1635224339",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

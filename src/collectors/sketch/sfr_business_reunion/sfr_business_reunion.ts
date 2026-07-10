@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class SfrBusinessReunionCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class SfrBusinessReunionCollector extends SketchCollector {
         },
         loginUrl: "https://mon-espace-entreprise.sfr.re/documents/3133363030333338343a666163747572655f5346525f575743445f313731363631365f41424f5f3836303031375f3230323231302e706466",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

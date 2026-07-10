@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class StawagLadecloudCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class StawagLadecloudCollector extends SketchCollector {
         },
         loginUrl: "https://stawag.ladecloud.de/account-type/customer/view/payment-documents/tab/invoice-transactions",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

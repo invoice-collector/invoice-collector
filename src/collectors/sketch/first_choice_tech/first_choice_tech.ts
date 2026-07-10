@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class FirstChoiceTechCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class FirstChoiceTechCollector extends SketchCollector {
         },
         loginUrl: "https://www.precisebillonline.com/FirstChoice/V35/Portals/Customer/Profile.aspx",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class CounterpathCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class CounterpathCollector extends SketchCollector {
         },
         loginUrl: "https://secure.counterpath.com/Store/CounterPath/Members/Account/OrderHistory.aspx",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class VodafoneRechnungenCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class VodafoneRechnungenCollector extends SketchCollector {
         },
         loginUrl: "https://webbill.vodafone.de/vf/getInvoice.wb?singleBillIndex=001049733044000000368085913520221108",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

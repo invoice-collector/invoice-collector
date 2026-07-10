@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class DesertWaterAgencyCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class DesertWaterAgencyCollector extends SketchCollector {
         },
         loginUrl: "https://desertwateragencyca.municipalonlinepayments.com/desertwateragencyca/utilities",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

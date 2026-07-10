@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class TeslaHandschuhfachCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class TeslaHandschuhfachCollector extends SketchCollector {
         },
         loginUrl: "https://www.tesla.com/de_DE/teslaaccount/ownership?rn=RN114491712",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

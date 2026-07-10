@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class RheinZeitungKoblenzAnzeigenportalCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class RheinZeitungKoblenzAnzeigenportalCollector extends SketchCollector 
         },
         loginUrl: "https://anzeigen.rhein-zeitung.de/webstore/",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

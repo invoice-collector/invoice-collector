@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class RVVersicherungsAgCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class RVVersicherungsAgCollector extends SketchCollector {
         },
         loginUrl: "https://www.ruv.de/meineruv/portal/vertraege",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

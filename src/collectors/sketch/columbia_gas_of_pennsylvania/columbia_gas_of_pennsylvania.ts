@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class ColumbiaGasOfPennsylvaniaCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class ColumbiaGasOfPennsylvaniaCollector extends SketchCollector {
         },
         loginUrl: "https://myaccount.columbiagaspa.com/bills",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class HondaInteractiveNetworkCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class HondaInteractiveNetworkCollector extends SketchCollector {
         },
         loginUrl: "https://www.in.honda.com/RRAAApps/login/asp/rraalog.asp",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

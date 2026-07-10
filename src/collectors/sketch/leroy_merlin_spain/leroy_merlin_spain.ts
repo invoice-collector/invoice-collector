@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class LeyroyMerlinSpainCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class LeyroyMerlinSpainCollector extends SketchCollector {
         },
         loginUrl: "https://www.leroymerlin.es/mi-cuenta/mis-compras/historial",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

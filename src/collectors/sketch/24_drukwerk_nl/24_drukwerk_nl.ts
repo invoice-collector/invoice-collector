@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class _24DrukwerkNlCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class _24DrukwerkNlCollector extends SketchCollector {
         },
         loginUrl: "https://www.24-drukwerk.nl/mijn-account?zenid=shp22s54ojpe07fjrh89fk8tk7",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

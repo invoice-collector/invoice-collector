@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class QuickbooksSelfEmployedCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class QuickbooksSelfEmployedCollector extends SketchCollector {
         },
         loginUrl: "https://selfemployed.intuit.com/login?utm_source=QBO&utm_medium=Web&utm_content=SignIn",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class Xchangeb2bCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class Xchangeb2bCollector extends SketchCollector {
         },
         loginUrl: "https://xchangeb2b.com/XCH/V4.1d_TC/tr_invoice_history.php",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

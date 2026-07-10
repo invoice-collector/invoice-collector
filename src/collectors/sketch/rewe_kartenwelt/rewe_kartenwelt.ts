@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class ReweKartenweltCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class ReweKartenweltCollector extends SketchCollector {
         },
         loginUrl: "https://kartenwelt.rewe.de/sales/order/invoice/order_id/762116/",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class MaingauMobilfunkCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class MaingauMobilfunkCollector extends SketchCollector {
         },
         loginUrl: "https://kundenportal.maingau-mobilfunk.de/path/app/?rq_AppGuid=F9753FD1A6F904836F333F4C6DF400CB080DF333&rq_TargetPageGuid=9502AC996FF7B23F75F8E049247F3CABDB0CC290&qs_link=F284684140CBDE6BC8BC8D6B10114427A1263E7B&qs_mode=new&qs_page=9502AC996FF7B23F75F8E04",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class ThugaEmobilityCloudCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class ThugaEmobilityCloudCollector extends SketchCollector {
         },
         loginUrl: "https://thuega-energie.emobilitycloud.com/de/account/receipts",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

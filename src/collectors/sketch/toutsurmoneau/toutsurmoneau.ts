@@ -1,5 +1,5 @@
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class ToutSurMonEauCollector extends SketchCollector {
 
@@ -27,7 +27,7 @@ export class ToutSurMonEauCollector extends SketchCollector {
         },
         loginUrl: "https://www.toutsurmoneau.fr/mon-compte-en-ligne/je-me-connecte",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

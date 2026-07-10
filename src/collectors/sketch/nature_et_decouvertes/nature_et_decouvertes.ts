@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class NatureEtDecouvertesCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class NatureEtDecouvertesCollector extends SketchCollector {
         },
         loginUrl: "https://marketplace.natureetdecouvertes.com/mmp/shop/accounting-document/finalized?limit=50&order=DESC&sort=dateCreated",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

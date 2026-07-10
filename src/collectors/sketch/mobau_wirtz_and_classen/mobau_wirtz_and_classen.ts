@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class MobauWirtzAndClassenCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class MobauWirtzAndClassenCollector extends SketchCollector {
         },
         loginUrl: "https://www.mobau-wirtz-classen.de/beratung-service/kundenportal/",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

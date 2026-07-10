@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class EnergieversorgungOberhausenCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class EnergieversorgungOberhausenCollector extends SketchCollector {
         },
         loginUrl: "https://kundenportal.evo-energie.de/evo/index.html#/invoiceOverview/",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

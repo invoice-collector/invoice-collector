@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class FoussierCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class FoussierCollector extends SketchCollector {
         },
         loginUrl: "https://www.foussier.fr/recherche?q=amenagement%20salle%20de%20bain&gclid=EAIaIQobChMIrJbLiI_c7QIVFrqWCh1EdgNVEAAYASAAEgJH_fD_BwE",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

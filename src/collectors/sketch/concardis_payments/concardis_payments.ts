@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class ConcardisPaymentsCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class ConcardisPaymentsCollector extends SketchCollector {
         },
         loginUrl: "https://my.concardis.com/api/api/generated-file/4e897141-ec39-4996-1f80-08db8f0e611b",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

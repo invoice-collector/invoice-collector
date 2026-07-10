@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class BeetlesHouseAdminCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class BeetlesHouseAdminCollector extends SketchCollector {
         },
         loginUrl: "https://beetleshouse.com/w8wlae0ugdwihmvt/",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class CorkBuilderProviderCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class CorkBuilderProviderCollector extends SketchCollector {
         },
         loginUrl: "https://grafton.softco.com/CBP/Home/Detail/Monthly%20Transactions/Monthly%20Transactions/AR%20Invoices/5763827",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

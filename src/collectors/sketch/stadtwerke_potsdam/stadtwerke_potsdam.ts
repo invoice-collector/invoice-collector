@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class StadtwerkePotsdamCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class StadtwerkePotsdamCollector extends SketchCollector {
         },
         loginUrl: "https://service.swp-potsdam.de/powercommerce/swp/fo/portal/start",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

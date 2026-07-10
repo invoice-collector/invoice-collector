@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class PurchasePowerCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class PurchasePowerCollector extends SketchCollector {
         },
         loginUrl: "https://www.pitneybowes.us/signin/logon.go?request_locale=en_US#/account/login",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

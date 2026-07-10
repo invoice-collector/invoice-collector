@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class HomedepotCaCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class HomedepotCaCollector extends SketchCollector {
         },
         loginUrl: "https://www.retailservicescommercial.citi.com/USCRSF/CMLSVC/index.html?siteId=CANP_HOMEDEPOT",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

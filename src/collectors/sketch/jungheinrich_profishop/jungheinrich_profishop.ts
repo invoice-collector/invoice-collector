@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class JungheinrichProfishopCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class JungheinrichProfishopCollector extends SketchCollector {
         },
         loginUrl: "https://www.jh-profishop.de/?gclid=EAIaIQobChMI-aO4gJT6_gIVSvCyCh0hZgo5EAAYAiAAEgJxR_D_BwE&gclsrc=aw.ds",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class LenovoProCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class LenovoProCollector extends SketchCollector {
         },
         loginUrl: "https://account.lenovo.com/de/lenovopro/de/smbaccount/gatekeeper/showpage",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

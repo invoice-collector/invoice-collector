@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class MulhouseEauEtAssainissementCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class MulhouseEauEtAssainissementCollector extends SketchCollector {
         },
         loginUrl: "https://e-services.mulhouse-alsace.fr/services/sde",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

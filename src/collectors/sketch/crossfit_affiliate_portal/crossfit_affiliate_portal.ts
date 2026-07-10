@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class CrossfitAffiliatePortalCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class CrossfitAffiliatePortalCollector extends SketchCollector {
         },
         loginUrl: "https://www.crossfit.com/affiliate-portal/accounts/c1876789accf94fd8c82/payment-center",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class EbaseCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class EbaseCollector extends SketchCollector {
         },
         loginUrl: "https://portal.ebase.com/(e1)/portal.ebase.com/depot/online-postkorb",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

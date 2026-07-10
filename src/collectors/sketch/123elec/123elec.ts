@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class _123elecCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class _123elecCollector extends SketchCollector {
         },
         loginUrl: "https://www.123elec.com/customer/account/login/referer/aHR0cHM6Ly93d3cuMTIzZWxlYy5jb20v/",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

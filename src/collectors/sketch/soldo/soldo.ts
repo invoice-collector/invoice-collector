@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class SoldoCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class SoldoCollector extends SketchCollector {
         },
         loginUrl: "https://manage.soldo.com/b/#/business/users/VIRTUAL_USER/GDHD5843-000003/118954/activity",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

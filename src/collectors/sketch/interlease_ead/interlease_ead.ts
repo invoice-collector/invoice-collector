@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class InterleaseEadCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class InterleaseEadCollector extends SketchCollector {
         },
         loginUrl: "https://interlease.ws/NEpNOGc1aG00UjM2b3ZvUjVWbzVHSjFKckpnMjFzR3NlN0JLVDA4MG9kRT0=",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

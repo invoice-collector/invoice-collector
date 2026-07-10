@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class SellerboardCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class SellerboardCollector extends SketchCollector {
         },
         loginUrl: "https://app.sellerboard.com/en/auth/login/?_ga=2.186678696.1679769345.1559218854-1670839472.1559218854",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

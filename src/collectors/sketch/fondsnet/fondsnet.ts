@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class FondsnetCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class FondsnetCollector extends SketchCollector {
         },
         loginUrl: "https://fondsnet.depotplattform.de/vertriebspartner/abwicklung_provisionsabrechnung.php?mId=102",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

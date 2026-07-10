@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class HctiApiCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class HctiApiCollector extends SketchCollector {
         },
         loginUrl: "https://auth.htmlcsstoimage.com/u/login?state=g6Fo2SBITVA0eklEVURTU2ZnTkpZNjdEQVo4dlFqWEIwNG5DVKN0aWTZIFNMSWZxUVdQVkdybm5FSjRwVnJ4X0dSY1ZGMFZiTjFwo2NpZNkgeE9HTDJzQ0tPMnJja0psbmtSdm5uVnc3RjZqMXlMQ3E",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

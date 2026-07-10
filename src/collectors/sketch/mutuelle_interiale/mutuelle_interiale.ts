@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class MutuelleInterialeCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class MutuelleInterialeCollector extends SketchCollector {
         },
         loginUrl: "https://mamutuelle.interiale.fr/espace-personnel/creer-mon-espace-personnel",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

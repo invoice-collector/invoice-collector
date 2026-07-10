@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class TravelcardNlCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class TravelcardNlCollector extends SketchCollector {
         },
         loginUrl: "https://portal.travelcard.eu/cas/login?locale=nl&service=https://portal.travelcard.eu/portal/initiatessologin",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

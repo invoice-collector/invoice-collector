@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class SauberEnergieCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class SauberEnergieCollector extends SketchCollector {
         },
         loginUrl: "https://onlineservice.service-rz.de/?act=login&werknr=18&tid=a0710196399aa100bcff4f280f19801f",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

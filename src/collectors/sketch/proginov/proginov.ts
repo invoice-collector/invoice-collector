@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class ProginovCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class ProginovCollector extends SketchCollector {
         },
         loginUrl: "https://www.proginov.fr/ProginovDemat/liste-ged/xdoc-xclasschapfactures.html?keycnx=183-C-329613&variante=Vfactures",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

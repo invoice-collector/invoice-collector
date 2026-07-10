@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class EdnaDeCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class EdnaDeCollector extends SketchCollector {
         },
         loginUrl: "https://www.edna.de/epages/Edna.sf/de_DE/?ObjectPath=/Shops/Edna&ViewAction=ViewMyAccount&LastViewAction=ViewMyAccount",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

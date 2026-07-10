@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class PendingSystemsCubeCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class PendingSystemsCubeCollector extends SketchCollector {
         },
         loginUrl: "https://b2b.cube.eu/Account/Login?ReturnUrl=%2f",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

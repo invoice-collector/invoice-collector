@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class EwerkSachsenwaldEmobilitycloudCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class EwerkSachsenwaldEmobilitycloudCollector extends SketchCollector {
         },
         loginUrl: "https://ewerk.emobilitycloud.com/de/account/receipts",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

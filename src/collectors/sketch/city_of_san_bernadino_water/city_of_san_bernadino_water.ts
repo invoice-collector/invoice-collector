@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class CityOfSanBernadinoWaterCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class CityOfSanBernadinoWaterCollector extends SketchCollector {
         },
         loginUrl: "https://www.onlinebiller.com/sbmwd/statements.html",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

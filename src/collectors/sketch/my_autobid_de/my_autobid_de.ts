@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class MyAutobidDeCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class MyAutobidDeCollector extends SketchCollector {
         },
         loginUrl: "https://my.autobid.de/?action=mailbox&actionPath=mailbox/invoices&portal=all",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

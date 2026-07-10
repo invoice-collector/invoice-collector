@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class PerplexityAiCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class PerplexityAiCollector extends SketchCollector {
         },
         loginUrl: "https://stripe.perplexity.ai/p/session/live_YWNjdF8xTjlZcUJHWndqcVBmeGtaLF9RM2R6MkhmTndyWTA4R2pQUHpFQ1gyb1BJVGcwaEZl01001FQMwif6",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

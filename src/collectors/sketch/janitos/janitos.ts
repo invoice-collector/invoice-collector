@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class JanitosCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class JanitosCollector extends SketchCollector {
         },
         loginUrl: "https://portal-a.janitos.de/std/module/such_module/suche_ib/vm_abrechnung_controller.html?RID=1673564465773&RWN=vermittlerabrechnung&posUrl=https://portal-a.janitos.de/global/",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

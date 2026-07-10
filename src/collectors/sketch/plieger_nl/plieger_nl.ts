@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class PliegerNlCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class PliegerNlCollector extends SketchCollector {
         },
         loginUrl: "https://web.plieger.nl/B2B/PAGE_Start/xEMAAO1FevNLU3lMaHlOQXJCjwE",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

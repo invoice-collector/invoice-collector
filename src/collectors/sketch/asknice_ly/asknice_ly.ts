@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class AskniceLyCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class AskniceLyCollector extends SketchCollector {
         },
         loginUrl: "https://start.asknice.ly/findlogin/?w=hYZhMRnDCzX7",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

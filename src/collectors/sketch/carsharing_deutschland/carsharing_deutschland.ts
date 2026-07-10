@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class CarsharingDeutschlandCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class CarsharingDeutschlandCollector extends SketchCollector {
         },
         loginUrl: "https://www.carsharing-deutschland.de/?7rxoobsknyr3h6rjxlxyikcewa=kicwisu5bd3pjmgxdxnivzccau#52.3725-9.7376-13-0/account/bills",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

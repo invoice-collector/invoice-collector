@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class InfomaniakCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class InfomaniakCollector extends SketchCollector {
         },
         loginUrl: "https://login.infomaniak.com/en/login?r=%2Fauthorize%3Fscope%3Dcrypt_key%2Bprivate%2Baccounts%2Busers%2Buser_email%2Buser_info%26state%3D%252F%26s%3Da%26access_type%3Doffline",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class XxxlutzMarktplatzCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class XxxlutzMarktplatzCollector extends SketchCollector {
         },
         loginUrl: "https://marketplace.xxxlgroup.com/sellerpayment/shop/accounting-document/list?sort=issueDate%2CDESC&limit=25",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

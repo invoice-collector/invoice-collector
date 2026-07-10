@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class SpielmaterialCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class SpielmaterialCollector extends SketchCollector {
         },
         loginUrl: "https://www.spielematerial.de/de/sales/order/invoice/order_id/129376/",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

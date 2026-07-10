@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class OneUpCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class OneUpCollector extends SketchCollector {
         },
         loginUrl: "https://app.oneup.com/#customer_invoice/search?after=2023-01-01&before=2023-12-31&on_date=date&sort=due_date&sortOrder=asc&filter=payment-paid",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

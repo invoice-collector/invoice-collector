@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class XsellcoCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class XsellcoCollector extends SketchCollector {
         },
         loginUrl: "https://dashboard.xsellco.com/login?_ga=2.219650970.2018828526.1508765813-806878810.1508765813",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

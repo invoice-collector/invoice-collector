@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class MutuelleHarmonieRsiCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class MutuelleHarmonieRsiCollector extends SketchCollector {
         },
         loginUrl: "https://www.harmonie-mutuelle.fr/web/professionnels-independants-et-tpe",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

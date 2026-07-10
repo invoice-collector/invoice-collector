@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class IberdrolaEsCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class IberdrolaEsCollector extends SketchCollector {
         },
         loginUrl: "https://www.iberdrola.es/webclifr/mac/#/misfacturas/evolucionFacturacion",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

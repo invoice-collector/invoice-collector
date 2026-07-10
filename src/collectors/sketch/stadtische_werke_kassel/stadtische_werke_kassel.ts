@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class StadtischeWerkeKasselCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class StadtischeWerkeKasselCollector extends SketchCollector {
         },
         loginUrl: "https://kundenportal.sw-kassel.de/portal/welcome",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

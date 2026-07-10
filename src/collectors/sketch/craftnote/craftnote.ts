@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class CraftnoteCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class CraftnoteCollector extends SketchCollector {
         },
         loginUrl: "https://58.email.stripe.com/CL0/https:%2F%2Fpay.stripe.com%2Finvoice%2Facct_1D1wBVITF0Uw35TM%2Flive_YWNjdF8xRDF3QlZJVEYwVXczNVRNLF9NTWxYREVDNkxUc0lzbWFqZ2RJRE9LOFNoUVREQmJOLDUyNzc4MTc10200NNpYWnZY%2Fpdf%3Fs=em/1/0100018305119852-0fb9577c-f748-4600-a952-01",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 
