@@ -1,11 +1,11 @@
 import { Location } from '../proxy/abstractProxy';
 import { Secret } from '../model/secret';
-import { TwofaPromise } from '../collect/twofaPromise';
 import { State } from '../model/state';
 import { AbstractCollector, CompleteInvoice, Config } from './abstractCollector';
 import { WebSocketServer } from '../websocket/webSocketServer';
 import { AuthenticationError } from '../error';
 import { ModelInvoice } from '../model/credential';
+import { CustomerAuthenticationMethod } from '../model/customer';
 
 export abstract class V2Collector<C extends Config> extends AbstractCollector<C> {
 
@@ -20,10 +20,10 @@ export abstract class V2Collector<C extends Config> extends AbstractCollector<C>
         download_from_timestamp: number,
         previousInvoices: ModelInvoice[],
         location: Location | null,
-        customerEnableInteractiveLogin: boolean
+        customerAuthenticationMethod: CustomerAuthenticationMethod
     ): Promise<CompleteInvoice[]> {
-        // Update collector params based on customerEnableInteractiveLogin
-        const useInteractiveLogin = AbstractCollector.updateCollectorParams(customerEnableInteractiveLogin, this.config)
+        // Update collector params based on customerAuthenticationMethod
+        const useInteractiveLogin = AbstractCollector.updateCollectorParams(customerAuthenticationMethod, this.config)
 
         // Check if a mandatory field is missing
         for (const [key, value] of Object.entries(this.config.params)) {

@@ -166,10 +166,11 @@ const SWAGGER_DEFINITION = {
                     description: 'Whether the customer is subscribed to all collectors. If true, the subscribedCollectors field is ignored.',
                     example: false
                 },
-                enableInteractiveLogin: {
-                    type: 'boolean',
-                    description: 'Whether the customer has enabled interactive login for collectors that support it.',
-                    example: true
+                authenticationMethod: {
+                    type: 'string',
+                    description: 'The customer authentication method preference for collectors. directOnly and interactiveOnly restrict to a single method, all accepts both, directPrefered and interactivePrefered accept both with a preference.',
+                    enum: ['directOnly', 'interactiveOnly', 'all', 'directPrefered', 'interactivePrefered'],
+                    example: 'all'
                 },
                 displaySketchCollectors: {
                     type: 'boolean',
@@ -297,13 +298,13 @@ const SWAGGER_DEFINITION = {
                             additionalProperties: { $ref: '#/components/schemas/collectorParam' },
                         },
                         captcha: { type: 'string', description: 'Captcha used by the collector.', enum: ['none', 'cloudflare', 'datadome', 'recaptcha', 'other'], example: 'cloudflare' },
-                        enableInteractiveLogin: { type: 'boolean', description: 'Whether the interactive login is enabled for this collector.', example: true },
+                        authenticationMethod: { type: 'string', description: 'The authentication methods supported by this collector.', enum: ['directOnly', 'interactiveOnly', 'all'], example: 'all' },
                         state: { type: 'string', description: 'State of the collector.', enum: ['planned', 'development', 'active'], example: 'active' },
                         loginUrl: { type: 'string', description: 'URL to the login page of the collector. For collectors of type sketch, web and agent only.', example: 'https://www.mycollector.com/login' },
                         entryUrl: { type: 'string', description: 'URL to the invoices page of the collector. For collectors of type web and agent only.', example: 'https://www.mycollector.com/customer/invoices' },
                         baseUrl: { type: 'string', description: 'Base URL of the collector. For collectors of type api only.', example: 'https://api.mycollector.com' },
                     },
-                    required: ['id', 'name', 'description', 'version', 'type', 'website', 'logo', 'params', 'captcha', 'enableInteractiveLogin', 'state'],
+                    required: ['id', 'name', 'description', 'version', 'type', 'website', 'logo', 'params', 'captcha', 'authenticationMethod', 'state'],
                 },
                 minimalistCustomer: {
                     type: 'object',
@@ -323,12 +324,12 @@ const SWAGGER_DEFINITION = {
                         theme: { $ref: '#/components/schemas/theme' },
                         subscribedCollectors: { $ref: '#/components/schemas/subscribedCollectors' },
                         isSubscribedToAll: { $ref: '#/components/schemas/isSubscribedToAll' },
-                        enableInteractiveLogin: { $ref: '#/components/schemas/enableInteractiveLogin' },
+                        authenticationMethod: { $ref: '#/components/schemas/authenticationMethod' },
                         displaySketchCollectors: { $ref: '#/components/schemas/displaySketchCollectors' },
                         maxDelayBetweenCollect: { type: 'number', description: 'Maximum delay between two collects in ms.', example: 2592000000 },
                         plan: { $ref: '#/components/schemas/plan' },
                     },
-                    required: ['id', 'email', 'name', 'callback', 'theme', 'subscribedCollectors', 'isSubscribedToAll', 'enableInteractiveLogin', 'displaySketchCollectors', 'maxDelayBetweenCollect', 'plan'],
+                    required: ['id', 'email', 'name', 'callback', 'theme', 'subscribedCollectors', 'isSubscribedToAll', 'authenticationMethod', 'displaySketchCollectors', 'maxDelayBetweenCollect', 'plan'],
                 },
                 user: {
                     type: 'object',

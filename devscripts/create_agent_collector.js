@@ -172,7 +172,7 @@ async function createAgentCollector() {
     fs.writeFileSync(collectorFile, JSON.stringify(collector, null, 4));
 
     const sketchCollectorContent = `import { AgentCollector } from '../customAgentCollector';
-import { CollectorState, CollectorCaptcha, CollectorType } from '../../../collectors/abstractCollector';
+import { CollectorState, CollectorCaptcha, CollectorType, AuthenticationMethod } from '../../../collectors/abstractCollector';
 
 export class ${collector.id_camel_case}Collector extends AgentCollector {
     static CONFIG = {
@@ -200,7 +200,7 @@ export class ${collector.id_camel_case}Collector extends AgentCollector {
         loginUrl: "${collector.loginUrl}",
         entryUrl: "${collector.entryUrl}",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: AuthenticationMethod.ALL,
         state: CollectorState.DEVELOPMENT
     }
 

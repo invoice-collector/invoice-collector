@@ -1,4 +1,4 @@
-import { CollectorType, CollectorCaptcha, CollectorState, Config } from "./abstractCollector";
+import { CollectorType, CollectorCaptcha, CollectorState, Config, CollectorAuthenticationMethod } from "./abstractCollector";
 import { Driver } from '../driver/driver';
 import { V2Collector } from "./v2Collector";
 import { WebSocketServer } from "../websocket/webSocketServer";
@@ -18,7 +18,7 @@ export type WebConfig = Config & {
         cookieNames?: string[],
         localStorageKeys?: string[]
     },
-    enableInteractiveLogin: boolean
+    authenticationMethod?: CollectorAuthenticationMethod
 }
 
 export abstract class WebCollector extends V2Collector<WebConfig> {
@@ -39,7 +39,8 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
             autoLogin: config.autoLogin || {
                 cookieNames: [],                // Take all cookies by default
                 localStorageKeys: undefined     // Take no localStorage by default
-            }
+            },
+            authenticationMethod: config.authenticationMethod || CollectorAuthenticationMethod.ALL
         });
         this.driver = null;
     }

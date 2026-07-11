@@ -20,6 +20,7 @@ import { WebSocketServer, WebSocketServerManager } from '../src/websocket/webSoc
 import * as utils from '../src/utils';
 import { AbstractCollector, Config } from '../src/collectors/abstractCollector';
 import { Secret } from '../src/model/secret';
+import { CustomerAuthenticationMethod } from '../src/model/customer';
 
 const PORT = parseInt(utils.getEnvVar('PORT')) + 1;
 
@@ -66,7 +67,7 @@ function getHashFromSecret(secret: Secret): string {
     let credential: Credential | null = null;
     let secret: Secret | null = null;
     let secretHash: string | null = null;
-    let useInteractiveLogin: boolean;
+    let authenticationMethod: CustomerAuthenticationMethod;
 
     let httpServer: http.Server | null = null;
     let webSocketClient: WebSocket | null = null;
@@ -129,9 +130,9 @@ function getHashFromSecret(secret: Secret): string {
             collector = await CollectorLoader.get(credential.collector_id);
 
             // Ask user if he wants to test interactive login
-            const enableInteractiveLogin = prompt(`Use interactive login (y/n)? (default y): `).toLowerCase().startsWith('y') ?? true;
+            authenticationMethod = prompt(`Use interactive login (y/n)? (default y): `).toLowerCase().startsWith('y') ? CustomerAuthenticationMethod.INTERACTIVE_PREFERRED : CustomerAuthenticationMethod.DIRECT_ONLY;
             // Update collector params based on customer settings
-            useInteractiveLogin = AbstractCollector.updateCollectorParams(enableInteractiveLogin, collector.config);
+            AbstractCollector.updateCollectorParams(authenticationMethod, collector.config);
 
             // Mock the collector so that if login method is triggered, it raise an error
             (collector as any).login = async () => {
@@ -144,9 +145,9 @@ function getHashFromSecret(secret: Secret): string {
             collector = await CollectorLoader.get(id);
 
             // Ask user if he wants to test interactive login
-            const enableInteractiveLogin = prompt(`Use interactive login (y/n)? (default y): `).toLowerCase().startsWith('y') ?? true;
+            authenticationMethod = prompt(`Use interactive login (y/n)? (default y): `).toLowerCase().startsWith('y') ? CustomerAuthenticationMethod.INTERACTIVE_PREFERRED : CustomerAuthenticationMethod.DIRECT_ONLY;
             // Update collector params based on customer settings
-            useInteractiveLogin = AbstractCollector.updateCollectorParams(enableInteractiveLogin, collector.config);
+            AbstractCollector.updateCollectorParams(authenticationMethod, collector.config);
 
             // Build secret
             secret = new Secret("", {
@@ -233,7 +234,7 @@ function getHashFromSecret(secret: Secret): string {
             Date.UTC(2000, 0, 1),
             [],
             null,
-            useInteractiveLogin
+            authenticationMethod
         );
         console.log(`${newInvoicesPart3.length} invoices downloaded`);
 
@@ -289,7 +290,7 @@ function getHashFromSecret(secret: Secret): string {
             Date.now(),
             [],
             null,
-            useInteractiveLogin
+            authenticationMethod
         );
 
         // ---------- PART 7 : CHECK INVOICES ----------
@@ -323,7 +324,7 @@ function getHashFromSecret(secret: Secret): string {
             Date.UTC(2000, 0, 1),
             modelInvoices,
             null,
-            useInteractiveLogin
+            authenticationMethod
         );
 
         // ---------- PART 9 : CHECK INVOICES ----------

@@ -104,7 +104,7 @@ export class MongoDB extends AbstractDatabase {
             theme: customer.theme,
             subscribedCollectors: customer.subscribedCollectors,
             isSubscribedToAll: customer.isSubscribedToAll,
-            enableInteractiveLogin: customer.enableInteractiveLogin,
+            authenticationMethod: customer.authenticationMethod,
             displaySketchCollectors: customer.displaySketchCollectors,
             maxDelayBetweenCollect: customer.maxDelayBetweenCollect,
             plan: customer.plan
@@ -131,7 +131,7 @@ export class MongoDB extends AbstractDatabase {
             document.theme,
             document.subscribedCollectors,
             document.isSubscribedToAll,
-            document.enableInteractiveLogin,
+            document.authenticationMethod,
             document.displaySketchCollectors,
             document.maxDelayBetweenCollect,
             document.plan
@@ -174,7 +174,7 @@ export class MongoDB extends AbstractDatabase {
                 theme: customer.theme,
                 subscribedCollectors: customer.subscribedCollectors,
                 isSubscribedToAll: customer.isSubscribedToAll,
-                enableInteractiveLogin: customer.enableInteractiveLogin,
+                authenticationMethod: customer.authenticationMethod,
                 displaySketchCollectors: customer.displaySketchCollectors,
                 maxDelayBetweenCollect: customer.maxDelayBetweenCollect,
                 plan: customer.plan

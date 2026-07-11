@@ -1,4 +1,4 @@
-import { CollectorType, CollectorState, Invoice } from "./abstractCollector";
+import { CollectorType, CollectorState, Invoice, CollectorAuthenticationMethod } from "./abstractCollector";
 import { WebConfig } from "./webCollector";
 import { Driver, Element } from "../driver/driver";
 import { WebSocketServer } from "../websocket/webSocketServer";
@@ -14,7 +14,7 @@ export abstract class SketchCollector extends LinearWebCollector {
             ...config,
             type: CollectorType.SKETCH,
             state: CollectorState.PLANNED,
-            enableInteractiveLogin: true
+            authenticationMethod: CollectorAuthenticationMethod.ALL
         });
     }
 

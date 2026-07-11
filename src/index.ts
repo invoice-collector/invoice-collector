@@ -549,8 +549,8 @@ app.get('/api/v1/customer', async (req, res) => {
  *                 $ref: '#/components/schemas/subscribedCollectors'
  *               isSubscribedToAll:
  *                 $ref: '#/components/schemas/isSubscribedToAll'
- *               enableInteractiveLogin:
- *                 $ref: '#/components/schemas/enableInteractiveLogin'
+ *               authenticationMethod:
+ *                 $ref: '#/components/schemas/authenticationMethod'
  *               displaySketchCollectors:
  *                 $ref: '#/components/schemas/displaySketchCollectors'
  *     responses:
@@ -586,7 +586,7 @@ app.put('/api/v1/customer', async (req, res) => {
             req.body.theme,
             req.body.subscribedCollectors,
             req.body.isSubscribedToAll,
-            req.body.enableInteractiveLogin,
+            req.body.authenticationMethod,
             req.body.displaySketchCollectors
         );
 

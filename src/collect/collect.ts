@@ -84,7 +84,7 @@ export class Collect {
                     credential.download_from_timestamp,
                     credential.invoices,
                     user.location,
-                    customer.enableInteractiveLogin
+                    customer.authenticationMethod
                 );
                 console.log(`Found ${credential.invoices.length + newInvoices.length} invoices during collect and ${newInvoices.length} new`);
                 console.log(`Invoice collection for credential ${this.credential_id} succeed`);
