@@ -17,8 +17,8 @@ export enum CustomerAuthenticationMethod {
     DIRECT_ONLY = 'directOnly',
     INTERACTIVE_ONLY = 'interactiveOnly',
     ALL = 'all',
-    DIRECT_PREFERRED = 'directPrefered',
-    INTERACTIVE_PREFERRED = 'interactivePrefered'
+    DIRECT_PREFERRED = 'directPreferred',
+    INTERACTIVE_PREFERRED = 'interactivePreferred'
 }
 
 export interface CustomerStats {
