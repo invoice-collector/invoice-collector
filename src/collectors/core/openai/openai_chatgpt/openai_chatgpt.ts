@@ -1,5 +1,5 @@
 import { Driver, Element } from '../../../../driver/driver';
-import { CollectorCaptcha, CollectorType, Invoice } from '../../../abstractCollector';
+import { CollectorCaptcha, CollectorType, Invoice, CollectorAuthenticationMethod } from '../../../abstractCollector';
 import { OpenaiCommonCollector } from '../openai_common/openaiCommon';
 import { OpenaiSelectors } from './selectors';
 import * as utils from '../../../../utils';
@@ -31,7 +31,7 @@ export class OpenaiChatgptCollector extends OpenaiCommonCollector {
         loginUrl: "https://chatgpt.com/#settings/Account",
         entryUrl: "https://chatgpt.com/#settings/Account",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true
+        authenticationMethod: CollectorAuthenticationMethod.ALL
     }
 
     constructor() {

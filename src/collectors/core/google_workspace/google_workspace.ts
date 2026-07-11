@@ -1,5 +1,5 @@
 import { TwofaPromise } from "../../../collect/twofaPromise";
-import { CollectorCaptcha, CollectorState, CollectorType, Invoice } from "../../abstractCollector";
+import { CollectorCaptcha, CollectorState, CollectorType, Invoice, CollectorAuthenticationMethod } from "../../abstractCollector";
 import { Driver, Element } from "../../../driver/driver";
 import { WebSocketServer } from "../../../websocket/webSocketServer";
 import { GoogleWorkspaceSelectors } from "./selectors";
@@ -34,7 +34,7 @@ export class GoogleWorkspaceCollector extends LinearWebCollector {
         loginUrl: "https://accounts.google.com/",
         entryUrl: "https://accounts.google.com/",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.DEVELOPMENT
     }
 

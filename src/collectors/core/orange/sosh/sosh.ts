@@ -1,5 +1,5 @@
 import { TwofaPromise } from '../../../../collect/twofaPromise';
-import { CollectorCaptcha, CollectorType, Invoice } from '../../../abstractCollector';
+import { CollectorCaptcha, CollectorType, Invoice, CollectorAuthenticationMethod } from '../../../abstractCollector';
 import { OrangeHelper } from '../helper/orangeHelper';
 import { LinearWebCollector } from '../../../linearWebCollector';
 import { Driver, Element } from '../../../../driver/driver';
@@ -35,7 +35,7 @@ export class SoshCollector extends LinearWebCollector {
         entryUrl: "https://espace-client.orange.fr/selectionner-un-contrat?verticale=telco&marketType=RES&sosh=&returnUrl=%2Ffacture-paiement%2F%257B%257Bcid%257D%257D%2Fhistorique-des-factures%3Fsosh%3D",
         captcha: CollectorCaptcha.NONE,
         useProxy: true,
-        enableInteractiveLogin: true
+        authenticationMethod: CollectorAuthenticationMethod.ALL
     }
 
     constructor() {

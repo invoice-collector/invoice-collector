@@ -1,7 +1,7 @@
 import { LinearWebCollector } from '../../linearWebCollector';
 import { IntermarcheSelectors } from './selectors';
 import { Driver, Element } from '../../../driver/driver';
-import { CollectorCaptcha, CollectorState, CollectorType, Invoice } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, Invoice, CollectorAuthenticationMethod } from '../../abstractCollector';
 import { UnfinishedCollectorError } from '../../../error';
 import { WebSocketServer } from '../../../websocket/webSocketServer';
 
@@ -32,7 +32,7 @@ export class IntermarcheCollector extends LinearWebCollector {
         loginUrl: "https://www.intermarche.com/connexion/itm",
         entryUrl: "https://www.intermarche.com/gestion-de-compte/mes-courses",
         captcha: CollectorCaptcha.DATADOME,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,7 +1,7 @@
 import { LinearWebCollector } from '../../linearWebCollector';
 import { LeroyMerlinSelectors } from './selectors';
 import { Driver, Element } from '../../../driver/driver';
-import { Invoice, CollectorCaptcha, CollectorType } from '../../abstractCollector';
+import { Invoice, CollectorCaptcha, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 import * as utils from '../../../utils';
 import { TwofaPromise } from '../../../collect/twofaPromise';
 import { WebSocketServer } from '../../../websocket/webSocketServer';
@@ -33,7 +33,7 @@ export class LeroyMerlinCollector extends LinearWebCollector {
         loginUrl: "https://www.leroymerlin.fr/login.html",
         entryUrl: "https://www.leroymerlin.fr/espace-perso/suivi-de-commande.html?auth-mode=login",
         captcha: CollectorCaptcha.DATADOME,
-        enableInteractiveLogin: true
+        authenticationMethod: CollectorAuthenticationMethod.ALL
     }
 
     constructor() {

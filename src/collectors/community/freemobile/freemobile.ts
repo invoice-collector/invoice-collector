@@ -1,7 +1,7 @@
 import { LinearWebCollector } from '../../linearWebCollector';
 import { FreeMobileSelectors } from './selectors';
 import { Driver, Element } from '../../../driver/driver';
-import { CollectorCaptcha, CollectorType, Invoice } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorType, Invoice, CollectorAuthenticationMethod } from '../../abstractCollector';
 import { TwofaPromise } from '../../../collect/twofaPromise';
 import * as utils from '../../../utils';
 import { WebSocketServer } from '../../../websocket/webSocketServer';
@@ -33,7 +33,7 @@ export class FreeMobileCollector extends LinearWebCollector {
         loginUrl: "https://mobile.free.fr/account/v2/login",
         entryUrl: "https://mobile.free.fr/account",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true
+        authenticationMethod: CollectorAuthenticationMethod.ALL
     }
 
     constructor() {

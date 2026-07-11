@@ -1,7 +1,7 @@
 import { LinearWebCollector } from '../../linearWebCollector';
 import { BureauValleeSelectors } from './selectors';
 import { Driver, Element } from '../../../driver/driver';
-import { CollectorCaptcha, CollectorType, Invoice } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorType, Invoice, CollectorAuthenticationMethod } from '../../abstractCollector';
 import { WebSocketServer } from '../../../websocket/webSocketServer';
 import * as utils from '../../../utils';
 
@@ -32,7 +32,7 @@ export class BureauValleeCollector extends LinearWebCollector {
         loginUrl: "https://www.bureau-vallee.fr/customer/account/login",
         entryUrl: "https://www.bureau-vallee.fr/customer/invoices",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: false
+        authenticationMethod: CollectorAuthenticationMethod.DIRECT_ONLY
     }
 
     constructor() {

@@ -1,7 +1,7 @@
 import { LinearWebCollector } from '../../linearWebCollector';
 import { CarrefourSelectors } from './selectors';
 import { Driver, Element } from '../../../driver/driver';
-import { CollectorCaptcha, CollectorType, Invoice } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorType, Invoice, CollectorAuthenticationMethod } from '../../abstractCollector';
 import { TwofaPromise } from '../../../collect/twofaPromise';
 import { WebSocketServer } from '../../../websocket/webSocketServer';
 
@@ -32,7 +32,7 @@ export class CarrefourCollector extends LinearWebCollector {
         loginUrl: "https://www.carrefour.fr/mon-compte/mes-achats/en-ligne",
         entryUrl: "https://www.carrefour.fr/mon-compte/mes-achats/en-ligne",
         captcha: CollectorCaptcha.CLOUDFLARE,
-        enableInteractiveLogin: true
+        authenticationMethod: CollectorAuthenticationMethod.ALL
     }
 
     constructor() {
