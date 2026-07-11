@@ -134,7 +134,7 @@ export abstract class AbstractCollector<C extends Config> {
                 return ResolvedAuthenticationMethod.DIRECT;
             case CustomerAuthenticationMethod.INTERACTIVE_PREFERRED:
                 return ResolvedAuthenticationMethod.INTERACTIVE;
-            case CustomerAuthenticationMethod.ALL:
+            case CustomerAuthenticationMethod.LET_USER_DECIDE:
             default:
                 // No strong preference: default to interactive login
                 return ResolvedAuthenticationMethod.INTERACTIVE;

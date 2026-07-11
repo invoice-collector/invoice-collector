@@ -16,7 +16,7 @@ export enum Theme {
 export enum CustomerAuthenticationMethod {
     DIRECT_ONLY = 'directOnly',
     INTERACTIVE_ONLY = 'interactiveOnly',
-    ALL = 'all',
+    LET_USER_DECIDE = 'letUserDecide',
     DIRECT_PREFERRED = 'directPreferred',
     INTERACTIVE_PREFERRED = 'interactivePreferred'
 }
