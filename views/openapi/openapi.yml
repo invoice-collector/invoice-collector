@@ -159,11 +159,11 @@ components:
         preference.
       enum:
         - directOnly
-        - interactiveOnly
-        - letUserDecide
         - directPreferred
+        - letUserDecide
+        - interactiveOnly
         - interactivePreferred
-      example: all
+      example: interactivePreferred
     displaySketchCollectors:
       type: boolean
       description: Whether to display sketch collectors.
