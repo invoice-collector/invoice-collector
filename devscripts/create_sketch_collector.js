@@ -169,7 +169,7 @@ async function createSketchCollector() {
     fs.writeFileSync(collectorFile, JSON.stringify(collector, null, 4));
 
     const sketchCollectorContent = `import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorCaptcha, CollectorType, AuthenticationMethod } from '../../abstractCollector';
+import { CollectorState, CollectorCaptcha, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class ${collector.id_camel_case}Collector extends SketchCollector {
 
@@ -197,7 +197,7 @@ export class ${collector.id_camel_case}Collector extends SketchCollector {
         },
         loginUrl: "${collector.loginUrl}",
         captcha: CollectorCaptcha.NONE,
-        authenticationMethod: AuthenticationMethod.ALL,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 
