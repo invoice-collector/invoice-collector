@@ -169,7 +169,7 @@ const SWAGGER_DEFINITION = {
                 authenticationMethod: {
                     type: 'string',
                     description: 'The customer authentication method preference for collectors. directOnly and interactiveOnly restrict to a single method, all accepts both, directPreferred and interactivePreferred accept both with a preference.',
-                    enum: ['directOnly', 'interactiveOnly', 'all', 'directPreferred', 'interactivePreferred'],
+                    enum: ['directOnly', 'interactiveOnly', 'letUserDecide', 'directPreferred', 'interactivePreferred'],
                     example: 'all'
                 },
                 displaySketchCollectors: {

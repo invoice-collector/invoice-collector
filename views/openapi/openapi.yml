@@ -160,7 +160,7 @@ components:
       enum:
         - directOnly
         - interactiveOnly
-        - all
+        - letUserDecide
         - directPreferred
         - interactivePreferred
       example: all
