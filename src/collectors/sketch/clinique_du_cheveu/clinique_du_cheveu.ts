@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class CliniqueDuCheveuCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class CliniqueDuCheveuCollector extends SketchCollector {
         },
         loginUrl: "http://www.cliniqueducheveu.be/",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

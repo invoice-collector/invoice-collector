@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class SonetelCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class SonetelCollector extends SketchCollector {
         },
         loginUrl: "https://portal.sonetel.com/portal/UI/pages/SignIn/SignIn.aspx",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

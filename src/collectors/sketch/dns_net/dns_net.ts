@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class DnsNetCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class DnsNetCollector extends SketchCollector {
         },
         loginUrl: "https://mein.dns-net.de/#/app/welcome",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

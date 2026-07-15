@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class CapitalAreaAccessoryDistributorsCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class CapitalAreaAccessoryDistributorsCollector extends SketchCollector {
         },
         loginUrl: "https://customerportal.gmcaad.com/scs/my_account.ssp#/invoices",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

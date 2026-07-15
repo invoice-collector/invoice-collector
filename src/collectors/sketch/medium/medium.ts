@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class MediumCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class MediumCollector extends SketchCollector {
         },
         loginUrl: "https://help.medium.com/hc/en-us/articles/360033412234-Getting-an-invoice-for-your-membership-subscription",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

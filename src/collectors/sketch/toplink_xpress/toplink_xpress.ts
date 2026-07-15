@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class ToplinkXpressCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class ToplinkXpressCollector extends SketchCollector {
         },
         loginUrl: "https://kundenportal.toplink-xpress.de/#login:welcome",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

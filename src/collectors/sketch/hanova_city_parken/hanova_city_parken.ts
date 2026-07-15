@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class HanovaCityParkenCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class HanovaCityParkenCollector extends SketchCollector {
         },
         loginUrl: "https://cityparken.hanova.de/accountcontractbillings",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

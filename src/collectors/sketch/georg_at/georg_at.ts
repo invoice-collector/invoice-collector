@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class GeorgAtCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class GeorgAtCollector extends SketchCollector {
         },
         loginUrl: "https://kundencenter.georg.at/app/aufladungen_rechnungsbelege.php",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

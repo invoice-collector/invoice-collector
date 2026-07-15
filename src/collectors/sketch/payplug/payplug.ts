@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class PayplugCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class PayplugCollector extends SketchCollector {
         },
         loginUrl: "https://portal.payplug.com/login?_ga=2.195810350.301149794.1561138934-1387182231.1561138934",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

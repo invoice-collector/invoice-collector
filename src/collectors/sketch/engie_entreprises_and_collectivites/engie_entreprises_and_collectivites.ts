@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class EngieEntreprisesAndCollectivitesCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class EngieEntreprisesAndCollectivitesCollector extends SketchCollector {
         },
         loginUrl: "https://espace-client.entreprises-collectivites.engie.fr/eec/#/invoices",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

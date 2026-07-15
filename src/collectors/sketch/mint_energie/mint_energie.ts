@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class MintEnergieCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class MintEnergieCollector extends SketchCollector {
         },
         loginUrl: "https://www.mint-energie.com/Pages/Compte/informations_paiement.aspx",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class BilletreducComCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class BilletreducComCollector extends SketchCollector {
         },
         loginUrl: "https://www.billetreduc.com/monbrconnec.htm?go=monbrresa.htm%3ftype%3dmesresas",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class NextbikeCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class NextbikeCollector extends SketchCollector {
         },
         loginUrl: "https://iframe.nextbike.net/iframe/?domain=de&L=en&id=login&nolinks=0&redirect_index=https://www.nextbike.de/en/&redirect_account=https://secure.nextbike.net/de/en/account/",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

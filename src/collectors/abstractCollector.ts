@@ -1,11 +1,11 @@
 import axios from 'axios';
 import { Location } from '../proxy/abstractProxy';
 import { Secret } from '../model/secret';
-import { TwofaPromise } from '../collect/twofaPromise';
 import { State } from '../model/state';
 import { WebSocketServer } from '../websocket/webSocketServer';
 import { Element } from '../driver/driver';
 import { ModelInvoice } from '../model/credential';
+import { CustomerAuthenticationMethod } from '../model/customer';
 
 export enum CollectorState {
     PLANNED = 'planned',
@@ -29,6 +29,19 @@ export enum CollectorCaptcha {
     FRIENDLY_CAPTCHA = 'friendly_captcha',
     HCAPTCHA = 'hcaptcha',
     OTHER = 'other'
+}
+
+// Authentication methods supported by a collector
+export enum CollectorAuthenticationMethod {
+    SECRETS_ONLY = 'secretsOnly',
+    INTERACTIVE_ONLY = 'interactiveOnly',
+    ALL = 'all'
+}
+
+// Resolved authentication method for a given collect
+export enum ResolvedAuthenticationMethod {
+    DIRECT = 'direct',
+    INTERACTIVE = 'interactive'
 }
 
 export type Config = {
@@ -76,15 +89,69 @@ export type CompleteInvoice = Omit<Invoice, 'downloadButton'> & {
 
 export abstract class AbstractCollector<C extends Config> {
 
-    static updateCollectorParams(customerEnableInteractiveLogin: boolean, config: Config): boolean {
-        // Compute if interactive login
-        const interactiveLogin = 'enableInteractiveLogin' in config && customerEnableInteractiveLogin && config.enableInteractiveLogin as boolean;
-        // If collector is a WebCollector and interactive login is enabled for customer and for collector
-        if (interactiveLogin) {
+    /**
+     * Resolve the authentication method to use for a collect, based on the customer preference
+     * and the collector authentication method.
+     * Returns null if the customer preference and the collector are strictly incompatible.
+     */
+    static resolveAuthenticationMethod(
+        customerAuthenticationMethod: CustomerAuthenticationMethod,
+        config: Config
+    ): ResolvedAuthenticationMethod | null {
+        // Get collector authentication method (collectors without the field only support direct login)
+        const collectorAuthenticationMethod = ('authenticationMethod' in config
+            ? (config as any).authenticationMethod
+            : CollectorAuthenticationMethod.SECRETS_ONLY) as CollectorAuthenticationMethod;
+
+        // Compute methods supported by the collector
+        const collectorSupportsDirect = collectorAuthenticationMethod === CollectorAuthenticationMethod.SECRETS_ONLY
+            || collectorAuthenticationMethod === CollectorAuthenticationMethod.ALL;
+        const collectorSupportsInteractive = collectorAuthenticationMethod === CollectorAuthenticationMethod.INTERACTIVE_ONLY
+            || collectorAuthenticationMethod === CollectorAuthenticationMethod.ALL;
+
+        // Compute methods accepted by the customer
+        const customerAcceptsDirect = customerAuthenticationMethod !== CustomerAuthenticationMethod.INTERACTIVE_ONLY;
+        const customerAcceptsInteractive = customerAuthenticationMethod !== CustomerAuthenticationMethod.SECRETS_ONLY;
+
+        // Compute which methods are possible for both the collector and the customer
+        const canDirect = collectorSupportsDirect && customerAcceptsDirect;
+        const canInteractive = collectorSupportsInteractive && customerAcceptsInteractive;
+
+        // Strictly incompatible: no method available
+        if (!canDirect && !canInteractive) {
+            return null;
+        }
+        // Only one method available
+        if (canDirect && !canInteractive) {
+            return ResolvedAuthenticationMethod.DIRECT;
+        }
+        if (!canDirect && canInteractive) {
+            return ResolvedAuthenticationMethod.INTERACTIVE;
+        }
+        // Both methods available: resolve using the customer preference
+        switch (customerAuthenticationMethod) {
+            case CustomerAuthenticationMethod.SECRETS_PREFERRED:
+                return ResolvedAuthenticationMethod.DIRECT;
+            case CustomerAuthenticationMethod.INTERACTIVE_PREFERRED:
+                return ResolvedAuthenticationMethod.INTERACTIVE;
+            case CustomerAuthenticationMethod.LET_USER_DECIDE:
+            default:
+                // No strong preference: default to interactive login
+                return ResolvedAuthenticationMethod.INTERACTIVE;
+        }
+    }
+
+    static updateCollectorParams(customerAuthenticationMethod: CustomerAuthenticationMethod, config: Config): boolean {
+        // Resolve the authentication method to use for this collector
+        const resolvedAuthenticationMethod = AbstractCollector.resolveAuthenticationMethod(customerAuthenticationMethod, config);
+        // Use interactive login when the resolved method is interactive
+        const useInteractiveLogin = resolvedAuthenticationMethod === ResolvedAuthenticationMethod.INTERACTIVE;
+        // If interactive login is used, params are not needed anymore
+        if (useInteractiveLogin) {
             // Remove all params
             config.params = {};
         }
-        return interactiveLogin;
+        return useInteractiveLogin;
     }
 
     config: C;
@@ -112,6 +179,6 @@ export abstract class AbstractCollector<C extends Config> {
         download_from_timestamp: number,
         previousInvoices: ModelInvoice[],
         location: Location | null,
-        customerEnableInteractiveLogin: boolean
+        customerAuthenticationMethod: CustomerAuthenticationMethod
     ): Promise<CompleteInvoice[]>;
 }

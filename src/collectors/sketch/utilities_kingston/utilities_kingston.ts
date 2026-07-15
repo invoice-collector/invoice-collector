@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class UtilitiesKingstonCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class UtilitiesKingstonCollector extends SketchCollector {
         },
         loginUrl: "https://my.utilitieskingston.com/app/login.jsp",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class HydroQuebecCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class HydroQuebecCollector extends SketchCollector {
         },
         loginUrl: "https://www.hydroquebec.com/portail/en/group/clientele/gerer-mon-compte",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

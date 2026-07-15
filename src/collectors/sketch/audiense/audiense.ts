@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class AudienseCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class AudienseCollector extends SketchCollector {
         },
         loginUrl: "https://dashboard.audiense.com/?main-product=true&_ga=2.201741969.165080570.1524064356-374652238.1524064356#/login",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

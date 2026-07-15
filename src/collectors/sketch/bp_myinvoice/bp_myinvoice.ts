@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class BpMyinvoiceCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class BpMyinvoiceCollector extends SketchCollector {
         },
         loginUrl: "https://flpnwc-h04f3hobm1.dispatcher.eu2.hana.ondemand.com/sites/fuels#AirBP-Invoice_Search&/invoices",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

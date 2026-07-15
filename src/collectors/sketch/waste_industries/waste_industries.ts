@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class WasteIndustriesCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class WasteIndustriesCollector extends SketchCollector {
         },
         loginUrl: "https://wasteindustries.com/myaccount/login?ReturnUrl=%2fmyaccount%2fhome",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

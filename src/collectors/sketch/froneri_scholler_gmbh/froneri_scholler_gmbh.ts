@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class FroneriSchollerGmbhCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class FroneriSchollerGmbhCollector extends SketchCollector {
         },
         loginUrl: "https://www.froneri-schoeller.de/mein-schoeller/meine-bestellungen",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

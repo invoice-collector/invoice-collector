@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class ActionMagasinsFranceCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class ActionMagasinsFranceCollector extends SketchCollector {
         },
         loginUrl: "https://www.action.com/fr-fr/mon-action/#mes-tickets-de-caisse",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

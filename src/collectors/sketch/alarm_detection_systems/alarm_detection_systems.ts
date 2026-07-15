@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class AlarmDetectionSystemsCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class AlarmDetectionSystemsCollector extends SketchCollector {
         },
         loginUrl: "https://www2.adsalarm.com/MyADS/LoginPage.aspx?_gl=1*jbfak8*_ga*MTQ2MDIyODc3Mi4xNjk0NTM2NzU3*_ga_JNDSRR9E48*MTY5NDUzNjc1Ny4xLjAuMTY5NDUzNjc1Ny42MC4wLjA.",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

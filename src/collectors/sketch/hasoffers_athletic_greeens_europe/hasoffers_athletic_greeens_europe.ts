@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class HasoffersAthleticGreeensEuropeCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class HasoffersAthleticGreeensEuropeCollector extends SketchCollector {
         },
         loginUrl: "http://euroathleticgreens.hasoffers.com/publisher/#!/billing",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

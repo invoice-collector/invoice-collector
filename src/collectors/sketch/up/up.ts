@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class UpCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class UpCollector extends SketchCollector {
         },
         loginUrl: "https://moncommerce.up.coop/acdce77d-6280-436b-9d39-69f3ec9fe7e6/billing",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

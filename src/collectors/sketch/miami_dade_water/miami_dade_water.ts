@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class MiamiDadeWaterCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class MiamiDadeWaterCollector extends SketchCollector {
         },
         loginUrl: "https://apps.miamidade.gov/wasdservice/index.html#!/wasd/2227824657/billing-history",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

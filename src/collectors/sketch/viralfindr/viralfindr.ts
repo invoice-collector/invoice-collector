@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class ViralfindrCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class ViralfindrCollector extends SketchCollector {
         },
         loginUrl: "https://billing.stripe.com/p/session/live_YWNjdF8xOURaTkhBTk9iWjVvNURqLF9OZjhDQ0JPWGE3OER4blZCemhJNEdPUTN0VDZ1b05O0100SJhZ4lI2",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

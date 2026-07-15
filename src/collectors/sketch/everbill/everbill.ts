@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class EverbillCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class EverbillCollector extends SketchCollector {
         },
         loginUrl: "https://secure.everbill.eu/?_ga=1.5276915.1941659048.1493191247",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

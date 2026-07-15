@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class FloridaPublicUtilitiesCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class FloridaPublicUtilitiesCollector extends SketchCollector {
         },
         loginUrl: "https://secure8.i-doxs.net/Florida/Secure/Bills.aspx",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

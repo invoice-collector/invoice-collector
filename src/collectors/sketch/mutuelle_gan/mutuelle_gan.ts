@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class MutuelleGanCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class MutuelleGanCollector extends SketchCollector {
         },
         loginUrl: "https://authentification.ganassurances.fr/cas/login?service=https%3A%2F%2Fauthentification.ganassurances.fr%2Fcas%2Foauth2.0%2FcallbackAuthorize&client_id=ecli_ganass",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class GeneraliAtCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class GeneraliAtCollector extends SketchCollector {
         },
         loginUrl: "https://kundenportal.generali.at/iss/gui/kundenportal/login/login.seam?conversationId=16500",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

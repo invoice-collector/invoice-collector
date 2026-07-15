@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class GLockAppsCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class GLockAppsCollector extends SketchCollector {
         },
         loginUrl: "https://app.glockapps.com/login?_ga=2.128968906.738088806.1523938159-636296687.1523938159",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

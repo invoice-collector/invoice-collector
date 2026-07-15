@@ -4,7 +4,7 @@ import { SecretManagerFactory } from './secret_manager/secretManagerFactory';
 import { OauthError, MissingField, MissingParams, StatusError, AuthenticationBearerError } from './error';
 import { CollectorLoader } from './collectors/collectorLoader';
 import { User, UserStats } from './model/user';
-import { Customer, CustomerStats } from './model/customer';
+import { Customer, CustomerAuthenticationMethod, CustomerStats } from './model/customer';
 import { Credential } from './model/credential';
 import { CollectTask } from './collect/collectTask';
 import { ProxyFactory } from './proxy/proxyFactory';
@@ -443,7 +443,7 @@ export class Server {
         theme: string,
         subscribedCollectors: string[],
         isSubscribedToAll: boolean,
-        enableInteractiveLogin: boolean,
+        authenticationMethod: CustomerAuthenticationMethod,
         displaySketchCollectors: boolean,
         maxDelayBetweenCollect: number,
         plan: Plan
@@ -463,7 +463,7 @@ export class Server {
             theme: customer.theme,
             subscribedCollectors: customer.subscribedCollectors,
             isSubscribedToAll: customer.isSubscribedToAll,
-            enableInteractiveLogin: customer.enableInteractiveLogin,
+            authenticationMethod: customer.authenticationMethod,
             displaySketchCollectors: customer.displaySketchCollectors,
             maxDelayBetweenCollect: customer.maxDelayBetweenCollect,
             plan: customer.plan
@@ -479,7 +479,7 @@ export class Server {
         theme: string | undefined,
         subscribedCollectors: string[] | undefined,
         isSubscribedToAll: boolean | undefined,
-        enableInteractiveLogin: boolean | undefined,
+        authenticationMethod: string | undefined,
         displaySketchCollectors: boolean | undefined
     ): Promise<{
         id: string,
@@ -492,7 +492,7 @@ export class Server {
         theme: string,
         subscribedCollectors: string[],
         isSubscribedToAll: boolean,
-        enableInteractiveLogin: boolean,
+        authenticationMethod: CustomerAuthenticationMethod,
         displaySketchCollectors: boolean,
         maxDelayBetweenCollect: number,
         plan: Plan
@@ -528,8 +528,8 @@ export class Server {
             customer.isSubscribedToAll = isSubscribedToAll;
         }
 
-        if (typeof enableInteractiveLogin === 'boolean') {
-            customer.enableInteractiveLogin = enableInteractiveLogin;
+        if (authenticationMethod) {
+            customer.setAuthenticationMethod(authenticationMethod);
         }
 
         if (typeof displaySketchCollectors === 'boolean') {
@@ -551,7 +551,7 @@ export class Server {
             theme: customer.theme,
             subscribedCollectors: customer.subscribedCollectors,
             isSubscribedToAll: customer.isSubscribedToAll,
-            enableInteractiveLogin: customer.enableInteractiveLogin,
+            authenticationMethod: customer.authenticationMethod,
             displaySketchCollectors: customer.displaySketchCollectors,
             maxDelayBetweenCollect: customer.maxDelayBetweenCollect,
             plan: customer.plan
@@ -953,7 +953,7 @@ export class Server {
             const customer = await user.getCustomer();
 
             // Update collector params based on customer settings
-            AbstractCollector.updateCollectorParams(customer.enableInteractiveLogin, collector.config);
+            AbstractCollector.updateCollectorParams(customer.authenticationMethod, collector.config);
 
             // Get current collect
             const collect = CollectPool.getInstance().get(credential.id);
@@ -1029,7 +1029,7 @@ export class Server {
         const customer = await user.getCustomer();
 
         // Update collector params based on customer settings
-        AbstractCollector.updateCollectorParams(customer.enableInteractiveLogin, collector.config);
+        AbstractCollector.updateCollectorParams(customer.authenticationMethod, collector.config);
 
         // Check if customer has subscribed to the collector
         if (!customer.isSubscribedToAll && !customer.subscribedCollectors.includes(collector.config.id)) {
@@ -1172,7 +1172,7 @@ export class Server {
         const customer = await user.getCustomer();
 
         // Update collector params based on customer settings
-        AbstractCollector.updateCollectorParams(customer.enableInteractiveLogin, collector.config);
+        AbstractCollector.updateCollectorParams(customer.authenticationMethod, collector.config);
 
         // Get current collect
         const collect = CollectPool.getInstance().get(credential.id);
@@ -1317,7 +1317,7 @@ export class Server {
             const customer = await user.getCustomer();
 
             // Update collector params based on customer settings
-            AbstractCollector.updateCollectorParams(customer.enableInteractiveLogin, collector.config);
+            AbstractCollector.updateCollectorParams(customer.authenticationMethod, collector.config);
 
             // Start web socket server and get token
             const webSocketServer = new WebSocketServer(this.httpServer, user.locale, collector);
@@ -1362,14 +1362,14 @@ export class Server {
         // Check if token is missing or incorrect
         let subscribedCollectors: string[] = Customer.DEFAULT_SUBSCRIBED_COLLECTORS;
         let isSubscribedToAll: boolean = Customer.DEFAULT_IS_SUBSCRIBED_TO_ALL;
-        let enableInteractiveLogin: boolean = false;
+        let authenticationMethod: CustomerAuthenticationMethod = Customer.DEFAULT_AUTHENTICATION_METHOD;
         let displaySketchCollectors: boolean = Customer.DEFAULT_DISPLAY_SKETCH_COLLECTORS;
         if(token || bearer) {
             // Get customer from bearer or token
             const customer = await this.getCustomerFromBearerOrToken(bearer, token);
             subscribedCollectors = customer.subscribedCollectors;
             isSubscribedToAll = customer.isSubscribedToAll;
-            enableInteractiveLogin = customer.enableInteractiveLogin;
+            authenticationMethod = customer.authenticationMethod;
             displaySketchCollectors = customer.displaySketchCollectors;
         }
 
@@ -1388,9 +1388,11 @@ export class Server {
             .map((config: Config): Config => ({ ...config }))
             .filter((config: Config) => isSubscribedToAll || subscribedCollectors.includes(config.id))
             .filter((config: Config) => config.type !== CollectorType.SKETCH || displaySketchCollectors)
+            // Hide collectors that are incompatible with the customer authentication method preference
+            .filter((config: Config) => AbstractCollector.resolveAuthenticationMethod(authenticationMethod, config) !== null)
             .map((config: Config): Config => {
                 // Update collector params based on customer settings
-                AbstractCollector.updateCollectorParams(enableInteractiveLogin, config);
+                AbstractCollector.updateCollectorParams(authenticationMethod, config);
                 // Translate collector name and description
                 return I18n.translateCollector(config, locale);
             });

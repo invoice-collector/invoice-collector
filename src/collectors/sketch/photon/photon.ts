@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class PhotonCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class PhotonCollector extends SketchCollector {
         },
         loginUrl: "https://dashboard.photonengine.com/en-US/Billing/BillingAccount#acc-statement-history",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

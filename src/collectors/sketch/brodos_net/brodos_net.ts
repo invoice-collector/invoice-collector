@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class BrodosNetCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class BrodosNetCollector extends SketchCollector {
         },
         loginUrl: "https://www.brodos.net/index.php/mpath/svoucher_sales_salvoucher/",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

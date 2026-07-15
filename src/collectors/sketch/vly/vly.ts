@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class VlyCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class VlyCollector extends SketchCollector {
         },
         loginUrl: "https://www.vlyfoods.com/tools/recurring/portal/72f5a1fc2fb5056f70bb9f6b3d731c/orders?token=1cee0f50f0e34d7a8775a6534c96eb5f",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

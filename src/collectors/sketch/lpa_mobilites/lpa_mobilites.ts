@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class LpaMobilitesCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class LpaMobilitesCollector extends SketchCollector {
         },
         loginUrl: "https://espaceclient.lpa.fr/ESCLAB/public/account-fac-lister",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class AbrechnungszentrumEmmendingenCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class AbrechnungszentrumEmmendingenCollector extends SketchCollector {
         },
         loginUrl: "https://www.mein-le-portal.de/helic-arze-leportal/",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

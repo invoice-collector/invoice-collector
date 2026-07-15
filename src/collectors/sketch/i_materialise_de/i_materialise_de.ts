@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class IMaterialiseDeCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class IMaterialiseDeCollector extends SketchCollector {
         },
         loginUrl: "https://i.materialise.de/de/account/login?returnUrl=%2fde",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

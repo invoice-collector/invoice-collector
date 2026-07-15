@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class DeutschePostEfilialeCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class DeutschePostEfilialeCollector extends SketchCollector {
         },
         loginUrl: "https://shop.deutschepost.de/shop/login_page.jsp",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

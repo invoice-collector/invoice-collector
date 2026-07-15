@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class EnterpriseCarshareCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class EnterpriseCarshareCollector extends SketchCollector {
         },
         loginUrl: "https://www.enterprisecarshare.com/us/en/login.html",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

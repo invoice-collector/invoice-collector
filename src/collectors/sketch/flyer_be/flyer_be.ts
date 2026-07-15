@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class FlyerBeCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class FlyerBeCollector extends SketchCollector {
         },
         loginUrl: "https://www.flyer.be/benl/myprintconnect/login?return=myprintconnect",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class EwrAgHerznetCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class EwrAgHerznetCollector extends SketchCollector {
         },
         loginUrl: "https://mein.ewr-internett.de/Default.asp?rq_Lang=de#{2}",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

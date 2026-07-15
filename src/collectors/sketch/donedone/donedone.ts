@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class DonedoneCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class DonedoneCollector extends SketchCollector {
         },
         loginUrl: "https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

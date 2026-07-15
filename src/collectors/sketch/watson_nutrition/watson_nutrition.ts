@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class WatsonNutritionCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class WatsonNutritionCollector extends SketchCollector {
         },
         loginUrl: "https://watsonnutrition.de/mein-konto/view-order/55313/",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

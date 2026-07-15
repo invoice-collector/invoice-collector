@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class Cin7InventorySoftwareCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class Cin7InventorySoftwareCollector extends SketchCollector {
         },
         loginUrl: "https://auth.cin7.com/account/login?returnUrl=%2Fconnect%2Fauthorize%2Flogin%3Fclient_id%3DCloudImplicit%26response_mode%3Dform_post%26response_type%3Did_token%2520token%26scope%3Dopenid%2520profile%2520email%2520cin7Roles%26state%3DOpenIdConnect.Authenti",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

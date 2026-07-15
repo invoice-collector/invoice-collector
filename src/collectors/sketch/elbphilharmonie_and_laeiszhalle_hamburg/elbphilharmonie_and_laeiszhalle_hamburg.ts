@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class ElbphilharmonieAndLaeiszhalleHamburgCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class ElbphilharmonieAndLaeiszhalleHamburgCollector extends SketchCollect
         },
         loginUrl: "https://shop.elbphilharmonie.de/de/meine-daten/#/my-orders",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

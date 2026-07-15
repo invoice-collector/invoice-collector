@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class CaptivateCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class CaptivateCollector extends SketchCollector {
         },
         loginUrl: "https://my.captivate.fm/login?returnUrl=%2Fdashboard%2Fstart",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

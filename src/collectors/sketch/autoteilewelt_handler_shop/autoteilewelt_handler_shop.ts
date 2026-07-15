@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class AutoteileweltHandlerShopCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class AutoteileweltHandlerShopCollector extends SketchCollector {
         },
         loginUrl: "https://shop.autoteilewelt.de/efa704/opencms/html/de/01_Division/X/Home/Haendlerbereich/",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

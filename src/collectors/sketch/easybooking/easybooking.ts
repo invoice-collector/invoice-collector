@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class EasybookingCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class EasybookingCollector extends SketchCollector {
         },
         loginUrl: "https://web-eb-de-3.easy-booking.at/julia/?customer=2647",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

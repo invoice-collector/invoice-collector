@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class MiraklAutodocMarketplaceCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class MiraklAutodocMarketplaceCollector extends SketchCollector {
         },
         loginUrl: "https://autodocde-prod.mirakl.net/sellerpayment/shop/transaction?select-search=ORDER_NUMBER_REF&limit=25",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

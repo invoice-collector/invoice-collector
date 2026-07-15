@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class CommercialcafeSecurecafe3Collector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class CommercialcafeSecurecafe3Collector extends SketchCollector {
         },
         loginUrl: "https://www.securecafe3.com/newtenantportal/content2/login/?companyID=1816&propertyID=65162",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

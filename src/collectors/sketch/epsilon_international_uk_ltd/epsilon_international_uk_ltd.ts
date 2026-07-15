@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class EpsilonInternationalUkLtdCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class EpsilonInternationalUkLtdCollector extends SketchCollector {
         },
         loginUrl: "https://na2.esker.com/ondemand/webaccess/CustomerLogon.aspx?server=W03&skin=skin15&lang=en&uid=2963535A305854276F352C4A7321734441",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

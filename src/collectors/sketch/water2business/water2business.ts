@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class Water2businessCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class Water2businessCollector extends SketchCollector {
         },
         loginUrl: "https://portal.water2business.co.uk/SignIn?returnUrl=/my-profile/",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

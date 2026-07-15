@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class IcfHabitatCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class IcfHabitatCollector extends SketchCollector {
         },
         loginUrl: "https://www.espaceclient.icfhabitat.fr/locataires/index.php/accueil-non-connecte",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

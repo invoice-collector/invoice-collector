@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class FunnelyticsCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class FunnelyticsCollector extends SketchCollector {
         },
         loginUrl: "https://app.funnelytics.io/login?_fs=3ed242b0-b9fd-4af6-b6fc-d44c9bc1f797",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

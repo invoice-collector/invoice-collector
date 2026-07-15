@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class BundesfinanzministeriumDerFinanzenCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class BundesfinanzministeriumDerFinanzenCollector extends SketchCollector
         },
         loginUrl: "https://www.formulare-bfinv.de/ffw/form/display.do?%24context=47338A5590A07F201351",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

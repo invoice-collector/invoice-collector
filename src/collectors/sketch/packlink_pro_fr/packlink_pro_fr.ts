@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class PacklinkProFrCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class PacklinkProFrCollector extends SketchCollector {
         },
         loginUrl: "https://auth.packlink.com/fr-FR/pro/login?platform=PRO&platform_country=FR",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

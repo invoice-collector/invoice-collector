@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class FsComGmbhCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class FsComGmbhCollector extends SketchCollector {
         },
         loginUrl: "https://www.fs.com/de/order_invoice?id=1406983&type=2&orderType=1",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class AtlanticBroadbandCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class AtlanticBroadbandCollector extends SketchCollector {
         },
         loginUrl: "https://atlbb.convergentcare.com/atlbb/goToLogin.action?subClientId=2002#ContextMenu/documentView",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

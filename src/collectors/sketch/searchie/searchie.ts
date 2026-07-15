@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class SearchieCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class SearchieCollector extends SketchCollector {
         },
         loginUrl: "https://app.searchie.io/login?_fs=0d684fd8-0964-4299-8a92-85600876d291",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

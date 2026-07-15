@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class CleverElementsCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class CleverElementsCollector extends SketchCollector {
         },
         loginUrl: "https://www.sendcockpit.com/appl/ce/software/code/DoorLogin.php?&b=cleverelements&bid=?&bid=1",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

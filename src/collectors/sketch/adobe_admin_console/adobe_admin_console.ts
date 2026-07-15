@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class AdobeAdminConsoleCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class AdobeAdminConsoleCollector extends SketchCollector {
         },
         loginUrl: "https://adminconsole.adobe.com/2B7A015D60D18D5C0A495E16@AdobeOrg/account",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

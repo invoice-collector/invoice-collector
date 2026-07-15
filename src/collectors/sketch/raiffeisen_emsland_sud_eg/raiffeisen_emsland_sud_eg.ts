@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class RaiffeisenEmslandSudEgCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class RaiffeisenEmslandSudEgCollector extends SketchCollector {
         },
         loginUrl: "https://belege24.raiffeisen-emsland-sued.de/belegarchiv/1010/login",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

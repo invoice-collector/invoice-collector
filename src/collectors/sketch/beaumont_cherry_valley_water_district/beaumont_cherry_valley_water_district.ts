@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class BeaumontCherryValleyWaterDistrictCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class BeaumontCherryValleyWaterDistrictCollector extends SketchCollector 
         },
         loginUrl: "https://bcvwd.merchanttransact.com/secure/MyBill",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

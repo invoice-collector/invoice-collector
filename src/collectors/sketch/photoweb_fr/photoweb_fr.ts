@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class PhotowebFrCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class PhotowebFrCollector extends SketchCollector {
         },
         loginUrl: "https://www.photoweb.fr/moncompte/Account/LogOn?ReturnUrl=%2fmoncompte%2f#registration-modal",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

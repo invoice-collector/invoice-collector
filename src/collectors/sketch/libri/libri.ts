@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class LibriCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class LibriCollector extends SketchCollector {
         },
         loginUrl: "https://mein.libri.de/lieferung/lieferscheine-und-gutschriftanzeigen.html",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

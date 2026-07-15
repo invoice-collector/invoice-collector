@@ -1,7 +1,7 @@
 import { LinearWebCollector } from '../../linearWebCollector';
 import { FreeSelectors } from './selectors';
 import { Driver, Element } from '../../../driver/driver';
-import { CollectorCaptcha, CollectorType, Invoice } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorType, Invoice, CollectorAuthenticationMethod } from '../../abstractCollector';
 import { WebSocketServer } from '../../../websocket/webSocketServer';
 
 export class FreeCollector extends LinearWebCollector {
@@ -31,7 +31,7 @@ export class FreeCollector extends LinearWebCollector {
         loginUrl: "https://subscribe.free.fr/login/",
         entryUrl: "https://adsl.free.fr/facture_liste.pl",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: false
+        authenticationMethod: CollectorAuthenticationMethod.SECRETS_ONLY
     }
 
     constructor() {

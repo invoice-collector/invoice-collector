@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class KahunasIoCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class KahunasIoCollector extends SketchCollector {
         },
         loginUrl: "https://kahunas.io/login?redirect=https%3A%2F%2Fkahunas.io%2Fprofile%2Fbilling",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

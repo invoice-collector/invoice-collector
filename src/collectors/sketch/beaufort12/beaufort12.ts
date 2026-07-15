@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class Beaufort12Collector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class Beaufort12Collector extends SketchCollector {
         },
         loginUrl: "https://alpha-deutschland.lightning.force.com/lightning/n/wbsendit__CM_Settings",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

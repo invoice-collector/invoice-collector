@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class AdidasClickABillCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class AdidasClickABillCollector extends SketchCollector {
         },
         loginUrl: "https://click-a-bill.adidas-group.com/irj/portal/bd-we",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

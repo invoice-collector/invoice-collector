@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class SynaxonEgisCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class SynaxonEgisCollector extends SketchCollector {
         },
         loginUrl: "https://www.egis-online.de/cgi-bin/WebObjects.exe/EGIS.woa",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

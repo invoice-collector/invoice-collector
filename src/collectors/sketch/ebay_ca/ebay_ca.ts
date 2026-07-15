@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class EbayCaCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class EbayCaCollector extends SketchCollector {
         },
         loginUrl: "https://cgi3.ebay.ca/ws/eBayISAPI.dll?MfcISAPICommand=ViewAccount&acctpagetype=0&invoiceYear=0&sortorder=1&daysback=-1&startmonth=&startday=&startyear=&endmonth=&endday=&endyear=&TabSelected=PaymentsRefunds&cid=002",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

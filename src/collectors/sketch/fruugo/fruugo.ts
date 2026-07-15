@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class FruugoCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class FruugoCollector extends SketchCollector {
         },
         loginUrl: "https://retailer.fruugo.com/index?rccsPublicRootUrl=https%3A%2F%2Fwww.fruugo.com%2F",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

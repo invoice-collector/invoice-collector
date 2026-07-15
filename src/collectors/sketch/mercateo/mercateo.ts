@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class MercateoCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class MercateoCollector extends SketchCollector {
         },
         loginUrl: "https://www.mercateo.com/login/?locale=de-DE&geoArea=deÂ®istration=customer&state=https%253A%252F%252Fwww.mercateo.com%252Fmy-mercateo%252FMEViewPlacedOrderHistory-Start",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

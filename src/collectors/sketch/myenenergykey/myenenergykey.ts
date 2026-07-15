@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class MyenenergykeyCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class MyenenergykeyCollector extends SketchCollector {
         },
         loginUrl: "https://myenergykey.com/login?state=hKFo2SAzdFhxZWVMZy1pUXFDMF9BNjJ0SUNLdXc5Uk83UVY1VaFupWxvZ2luo3RpZNkgM0RrVDhJMUpuX1ViNHF2aHZ2ZllVd3M5b1o0dWpTLXCjY2lk2SBDcGJhTnRVTGtkRXlEajRtdUo5SjZ6d05vdTNtVEJyQQ&client=CpbaNtULkdEyDj4muJ9J6zwNou3mTBrA&protocol=oauth2&",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

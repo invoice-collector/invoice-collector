@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class GroupamaContratsGroupeCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class GroupamaContratsGroupeCollector extends SketchCollector {
         },
         loginUrl: "https://www.contrat-groupe-groupama.fr/lib/aspx/EspacePublic/homeErgoAlt.aspx",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

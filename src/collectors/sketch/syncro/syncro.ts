@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class SyncroCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class SyncroCollector extends SketchCollector {
         },
         loginUrl: "https://admin.syncromsp.com/users/sign_in?_ga=2.167324414.1585489120.1631954032-2027211550.1631954032",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class CreditMutuelCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class CreditMutuelCollector extends SketchCollector {
         },
         loginUrl: "https://www.creditmutuel.fr/fr/authentification.html?utm_source=sitecmpros&utm_medium=redirection",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

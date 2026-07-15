@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class BbxMarketplaceCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class BbxMarketplaceCollector extends SketchCollector {
         },
         loginUrl: "https://bbxworld.com/Member/Account/Login?ReturnUrl=/Member/Dashboard#/",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

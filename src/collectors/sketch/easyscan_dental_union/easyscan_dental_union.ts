@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class EasyscanDentalUnionCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class EasyscanDentalUnionCollector extends SketchCollector {
         },
         loginUrl: "https://easyscan.dental-union.de/index.php/locale:de_DE/archive",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

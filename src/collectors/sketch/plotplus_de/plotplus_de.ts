@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class PlotplusDeCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class PlotplusDeCollector extends SketchCollector {
         },
         loginUrl: "https://www.plotplus.de/mein-konto/user/invoice/your-invoice/",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

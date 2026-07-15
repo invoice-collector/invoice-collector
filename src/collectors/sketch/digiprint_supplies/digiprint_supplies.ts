@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class DigiprintSuppliesCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class DigiprintSuppliesCollector extends SketchCollector {
         },
         loginUrl: "https://www.digiprint-supplies.com/en/invoices/index/list/order_id/333694/",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

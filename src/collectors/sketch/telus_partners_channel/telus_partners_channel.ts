@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class TelusPartnersChannelCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class TelusPartnersChannelCollector extends SketchCollector {
         },
         loginUrl: "https://channelpartners.telus.com/cws/orderManager#!/search",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

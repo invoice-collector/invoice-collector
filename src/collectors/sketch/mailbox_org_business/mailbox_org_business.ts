@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class MailboxOrgBusinessCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class MailboxOrgBusinessCollector extends SketchCollector {
         },
         loginUrl: "https://setup.mailbox.org/#/account=sekucon",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

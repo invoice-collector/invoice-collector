@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class HostingerPartnersCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class HostingerPartnersCollector extends SketchCollector {
         },
         loginUrl: "https://affiliates.hostinger.com/publisher/#!/billing?limit=50&page=1",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

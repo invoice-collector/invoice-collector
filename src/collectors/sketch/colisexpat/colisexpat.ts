@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class ColisexpatCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class ColisexpatCollector extends SketchCollector {
         },
         loginUrl: "https://client.colisexpat.com/de/comptes/displayClientFacture/888678/",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class KsAuxiliaCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class KsAuxiliaCollector extends SketchCollector {
         },
         loginUrl: "https://portal.ks-auxilia.de/ng/#/kunden/dokumente",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class NorthHudsonSewerageAuthorityCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class NorthHudsonSewerageAuthorityCollector extends SketchCollector {
         },
         loginUrl: "https://wipp.edmundsassoc.com/Wipp/?wippid=NHSA",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

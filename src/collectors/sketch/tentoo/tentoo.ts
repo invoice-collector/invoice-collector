@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class TentooCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class TentooCollector extends SketchCollector {
         },
         loginUrl: "https://my.tentoo.nl/login/?_ga=2.93198430.2110826057.1524058832-1623198614.1524058832",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

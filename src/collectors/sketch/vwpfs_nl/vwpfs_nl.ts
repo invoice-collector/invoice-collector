@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class VwpfsNlCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class VwpfsNlCollector extends SketchCollector {
         },
         loginUrl: "https://e-invoice.vwpfs.nl/vwpfs/welcome.html?9d9sgshrkor2ntdie9fr72eerc=g862dns1ajil4q3mrol6rl99gr",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

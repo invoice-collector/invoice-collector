@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class ShCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class ShCollector extends SketchCollector {
         },
         loginUrl: "https://www.sh-diwi.de/diwi/accounting/accounting-overview.xhtml?c=2-0",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

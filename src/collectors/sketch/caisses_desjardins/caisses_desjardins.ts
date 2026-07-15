@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class CaissesDesjardinsCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class CaissesDesjardinsCollector extends SketchCollector {
         },
         loginUrl: "https://accweb.mouv.desjardins.com/identifiantunique/identification?domaineVirtuel=desjardins&langueCible=en",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

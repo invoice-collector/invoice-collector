@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class ProvinzialOnlineCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class ProvinzialOnlineCollector extends SketchCollector {
         },
         loginUrl: "https://www.provinzial-online.de/content/privat/meine-provinzial/elektronisches-postfach/#!/elpo",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

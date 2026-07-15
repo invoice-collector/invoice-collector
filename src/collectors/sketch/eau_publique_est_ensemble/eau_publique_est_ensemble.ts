@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class EauPubliqueEstEnsembleCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class EauPubliqueEstEnsembleCollector extends SketchCollector {
         },
         loginUrl: "https://eau-potable.est-ensemble.fr/#/facture",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class FlinkCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class FlinkCollector extends SketchCollector {
         },
         loginUrl: "https://www.goflink.com/de-DE/account/order-details/ea933e44-7ecc-4fbc-9790-ecd9e700d016/",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

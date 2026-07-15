@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class MutuelleAonHewittRelevesMensuelsCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class MutuelleAonHewittRelevesMensuelsCollector extends SketchCollector {
         },
         loginUrl: "https://www.aon.com/human-capital-consulting/default.jsp",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

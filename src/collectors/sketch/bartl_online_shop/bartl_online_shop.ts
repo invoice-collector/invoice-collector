@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class BartlOnlineShopCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class BartlOnlineShopCollector extends SketchCollector {
         },
         loginUrl: "https://b2b.bartlshop.de/de/account/?action=document_archive",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

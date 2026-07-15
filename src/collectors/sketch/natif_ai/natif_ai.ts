@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class NatifAiCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class NatifAiCollector extends SketchCollector {
         },
         loginUrl: "https://platform.natif.ai/api-hub/workflow/invoice_extraction/live-interface",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class PomomCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class PomomCollector extends SketchCollector {
         },
         loginUrl: "https://app.lexoffice.de/customerportal/authenticate/133a9abb-727a-4259-8ad6-23fc720a1054",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

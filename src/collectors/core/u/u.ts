@@ -1,7 +1,7 @@
 import { LinearWebCollector } from '../../linearWebCollector';
 import { USelectors } from './selectors';
 import { Driver, Element } from '../../../driver/driver';
-import { CollectorCaptcha, CollectorState, CollectorType, Invoice } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, Invoice, CollectorAuthenticationMethod } from '../../abstractCollector';
 import { UnfinishedCollectorError } from '../../../error';
 import { WebSocketServer } from '../../../websocket/webSocketServer';
 
@@ -32,7 +32,7 @@ export class UCollector extends LinearWebCollector {
         loginUrl: "https://www.coursesu.com/connexion",
         entryUrl: "https://www.coursesu.com/mon-compte/mes-commandes",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.DEVELOPMENT
     }
 

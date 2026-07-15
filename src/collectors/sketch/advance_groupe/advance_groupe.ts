@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class AdvanceGroupeCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class AdvanceGroupeCollector extends SketchCollector {
         },
         loginUrl: "https://artis-advance-bureautique.artis.fr/ArtisWebAdvanceBureautique/portail/login/auth/01.action?autoConnect=false",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class BrunataMetronaCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class BrunataMetronaCollector extends SketchCollector {
         },
         loginUrl: "https://portal.brunata-muenchen.de/Dienste?UHJvcGVydHlNYW5hZ2VtZW50SUQ9JzEwMDAxNTE5OTMn#Shell-home",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

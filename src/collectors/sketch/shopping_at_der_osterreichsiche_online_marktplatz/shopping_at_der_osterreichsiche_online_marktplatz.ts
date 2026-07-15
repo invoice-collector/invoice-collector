@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class ShoppingAtDerOsterreichsicheOnlineMarktplatzCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class ShoppingAtDerOsterreichsicheOnlineMarktplatzCollector extends Sketc
         },
         loginUrl: "https://portal.shoepping.at/marketplaceportal/login",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

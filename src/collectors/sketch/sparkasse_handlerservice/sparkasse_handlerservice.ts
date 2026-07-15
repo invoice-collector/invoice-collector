@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class SparkasseHandlerserviceCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class SparkasseHandlerserviceCollector extends SketchCollector {
         },
         loginUrl: "https://portal.s-haendlerservice.de/cms/spksp/Postfach/dokumente/neue-dokumente",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

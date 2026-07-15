@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class TailorBrandsCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class TailorBrandsCollector extends SketchCollector {
         },
         loginUrl: "https://studio.tailorbrands.com/settings/invoices?selectedOrgId=15884670",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

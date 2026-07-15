@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class WwwZrkPortalDeCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class WwwZrkPortalDeCollector extends SketchCollector {
         },
         loginUrl: "https://www.zrk-portal.de/azh_oc/noc/pt/rezeptAbrechnung",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

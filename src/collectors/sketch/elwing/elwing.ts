@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class ElwingCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class ElwingCollector extends SketchCollector {
         },
         loginUrl: "https://books.zoho.eu/portal/elwingtech/index#/invoices?sort_order=D",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class AwinAffiliateCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class AwinAffiliateCollector extends SketchCollector {
         },
         loginUrl: "https://ui.awin.com/awin/affiliate/392069/payments/history",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

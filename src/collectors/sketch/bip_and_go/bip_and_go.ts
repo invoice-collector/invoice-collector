@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class BipAndGoCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class BipAndGoCollector extends SketchCollector {
         },
         loginUrl: "https://www.bipandgo.com/login_form?came_from=https%3A//www.bipandgo.com/mon_compte/&retry=&disable_cookie_login__=1",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

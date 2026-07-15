@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class BigcommerceCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class BigcommerceCollector extends SketchCollector {
         },
         loginUrl: "https://login.bigcommerce.com/login?_ga=2.230316319.2079475974.1523600767-1463894689.1523600767",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

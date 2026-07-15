@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class VersicherungskammerbayernCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class VersicherungskammerbayernCollector extends SketchCollector {
         },
         loginUrl: "https://www.vkb.de/content/services/mein-premiumservice/#/anmeldung",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

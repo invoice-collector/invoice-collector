@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class MutuelleGroupeLourmelPersonnelCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class MutuelleGroupeLourmelPersonnelCollector extends SketchCollector {
         },
         loginUrl: "https://espaceabonne.lourmel.com/lourmel/parAccueil.do?accueil=true&activerFrameResponsive=true",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

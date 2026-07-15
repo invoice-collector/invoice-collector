@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class FutalisCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class FutalisCollector extends SketchCollector {
         },
         loginUrl: "https://futalis.de/customer/account/index/#/bestellungen/378577?utm_campaign=systemmail&utm_medium=email&utm_source=system",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

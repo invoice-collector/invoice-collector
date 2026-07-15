@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class Amt24SachsenGastetaxCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class Amt24SachsenGastetaxCollector extends SketchCollector {
         },
         loginUrl: "https://sso.amt24.sachsen.de/idp/profile/SAML2/Redirect/SSO?execution=e3s1",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

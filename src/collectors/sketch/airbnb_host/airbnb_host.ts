@@ -1,4 +1,4 @@
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 import { Driver } from '../../../driver/driver';
 import { SketchCollector } from '../../sketchCollector';
 
@@ -29,7 +29,7 @@ export class AirbnbHostCollector extends SketchCollector {
         loginUrl: "https://www.airbnb.com/login?redirect_url=%2Fusers%2Ftransaction_history",
         entryUrl: "https://www.airbnb.com/users/transaction_history",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

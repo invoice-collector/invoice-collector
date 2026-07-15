@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class CityOfSanfordCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class CityOfSanfordCollector extends SketchCollector {
         },
         loginUrl: "https://sanf-egov.aspgov.com/Click2GovCX/billingdetail.html?OWASP_CSRFTOKEN=OFY8-V7ON-VWPN-YQ6O-IFBE-SEQA-9CJU-AH1R&billingHistoryView=true",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

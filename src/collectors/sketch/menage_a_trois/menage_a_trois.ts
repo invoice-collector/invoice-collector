@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class MenageATroisCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class MenageATroisCollector extends SketchCollector {
         },
         loginUrl: "https://extranet.ximi.xelya.io/Ximi/swee/Account/SignIn?returnUrl=%2Fximi%2Fswee%2F",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class CrowdfarmingCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class CrowdfarmingCollector extends SketchCollector {
         },
         loginUrl: "https://www.crowdfarming.com/de/private-zone/my-order/list",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

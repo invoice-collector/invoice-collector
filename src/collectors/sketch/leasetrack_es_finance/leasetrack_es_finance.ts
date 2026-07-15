@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class LeasetrackEsFinanceCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class LeasetrackEsFinanceCollector extends SketchCollector {
         },
         loginUrl: "https://esfinance.customercorner.fineasy.com/group/es_finance/factures-avoirs",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

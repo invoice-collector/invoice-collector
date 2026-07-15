@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class AcvGmbhCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class AcvGmbhCollector extends SketchCollector {
         },
         loginUrl: "https://shop.acvgmbh.de/de/kundencenter/rechnungen.html?&_date=1705273200",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

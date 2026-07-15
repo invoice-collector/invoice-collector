@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class ParkenInMainzGmbhCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class ParkenInMainzGmbhCollector extends SketchCollector {
         },
         loginUrl: "https://pmg.evopark.de/b/aHR0cHM6Ly9hcGktcHJvZHVjdC5ldm9wYXJrLmRlL3BtZy5ldm9wYXJrLmRlL2ludm9pY2Vz",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

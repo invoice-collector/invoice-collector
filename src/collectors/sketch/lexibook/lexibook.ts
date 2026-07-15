@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class LexibookCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class LexibookCollector extends SketchCollector {
         },
         loginUrl: "https://www.lexibook.com/en/customer/account/login/referer/aHR0cHM6Ly93d3cubGV4aWJvb2suY29tL2VuL2N1c3RvbWVyL2FjY291bnQvaW5kZXgv/",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

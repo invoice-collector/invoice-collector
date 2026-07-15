@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class DieEnergieCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class DieEnergieCollector extends SketchCollector {
         },
         loginUrl: "https://www.kundenonlineservice.de/powercommerce/fk-elv/action/flightteaser;jsessionid=66305684A43DA3E325824415FBA3A972?gap=3283",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class AtAndTBusinessDirectCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class AtAndTBusinessDirectCollector extends SketchCollector {
         },
         loginUrl: "https://www.businessdirect.att.com/portal/index.jsp",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

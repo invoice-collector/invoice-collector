@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class FeratelDeskclientCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class FeratelDeskclientCollector extends SketchCollector {
         },
         loginUrl: "https://webclient4.deskline.net/JOH/de/settlements/vrsettlementlist/8ca6dca5-b284-4a13-9941-12a851a24dbf?dbOv=MT3",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

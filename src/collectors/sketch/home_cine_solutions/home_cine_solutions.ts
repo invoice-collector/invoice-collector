@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class HomeCineSolutionsCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class HomeCineSolutionsCollector extends SketchCollector {
         },
         loginUrl: "https://www.homecinesolutions.fr/customer_session/new?return_to=%2Fcustomer",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

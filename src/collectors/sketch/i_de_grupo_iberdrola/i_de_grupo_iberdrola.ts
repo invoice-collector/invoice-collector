@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class IDeGrupoIberdrolaCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class IDeGrupoIberdrolaCollector extends SketchCollector {
         },
         loginUrl: "https://www.i-de.es/consumidores/web/home/contract/consumption-electronic-bill",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

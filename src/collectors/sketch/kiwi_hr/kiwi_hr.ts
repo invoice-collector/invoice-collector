@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class KiwiHrCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class KiwiHrCollector extends SketchCollector {
         },
         loginUrl: "https://billing.stripe.com/session/live_YWNjdF8xRDlUVWdEZ3hvdmVpQUp1LF9McnpQODdZS3FGeExEMGk2dHFSa2NnTlJTSFNCempt01008ksIAlnO",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

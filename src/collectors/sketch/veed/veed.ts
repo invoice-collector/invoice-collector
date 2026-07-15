@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class VeedCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class VeedCollector extends SketchCollector {
         },
         loginUrl: "https://www.veed.io/workspaces/d3757d68-f1f3-446f-8783-7b635bd00103/billing",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

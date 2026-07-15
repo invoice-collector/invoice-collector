@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class VavVersicherungenCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class VavVersicherungenCollector extends SketchCollector {
         },
         loginUrl: "https://mein.vav.at/meinvav/meine-polizzen/polizzen-details?id=1495719001",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

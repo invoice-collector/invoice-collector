@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class DAndHCanadaCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class DAndHCanadaCollector extends SketchCollector {
         },
         loginUrl: "https://www.dandh.ca/v4/view?pageReq=myOrders&int_cid=LP33&utm_campaign=OpenOrder",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

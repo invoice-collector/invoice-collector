@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class YellowbrickBelgiumCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class YellowbrickBelgiumCollector extends SketchCollector {
         },
         loginUrl: "https://my.yellowbrick.be/MyYellowbrick/invoice/list?interval=1&searchField=Date&searchValue=",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

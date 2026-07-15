@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class ReisekostenGorillaCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class ReisekostenGorillaCollector extends SketchCollector {
         },
         loginUrl: "https://www.reisekosten-gorilla.com/admin/teams/a9e9e9b8-657b-11e7-bbf2-06f35348abf7/invoices",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class KohlpharmaCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class KohlpharmaCollector extends SketchCollector {
         },
         loginUrl: "https://kundenportal.kohlpharma.com/PIDocument/Document/DocumentOverview?isDirectCall=False",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

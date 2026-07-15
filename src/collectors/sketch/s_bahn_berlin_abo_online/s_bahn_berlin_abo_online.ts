@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class SBahnBerlinAboOnlineCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class SBahnBerlinAboOnlineCollector extends SketchCollector {
         },
         loginUrl: "https://www.abo-antrag.de/de/sites/Postfach/Default.aspx",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

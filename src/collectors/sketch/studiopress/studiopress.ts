@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class StudiopressCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class StudiopressCollector extends SketchCollector {
         },
         loginUrl: "https://my.studiopress.com/wp-login.php?redirect_to=https%3A%2F%2Fmy.studiopress.com%2F%2F%3F_ga%3D2.24493562.1974328791.1524113316-104450928.1524113316",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

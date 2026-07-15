@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class AllegroSanitationCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class AllegroSanitationCollector extends SketchCollector {
         },
         loginUrl: "https://asc.onlineportal.us.com/User/Login?ReturnUrl=%2f",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

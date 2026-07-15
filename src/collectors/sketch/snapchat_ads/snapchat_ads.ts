@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class SnapchatAdsCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class SnapchatAdsCollector extends SketchCollector {
         },
         loginUrl: "https://accounts.snapchat.com/accounts/login?client_id=ads-api&referrer=https%3A%2F%2Fads.snapchat.com%2F",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

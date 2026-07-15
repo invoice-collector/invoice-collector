@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class KitchenerUtilityCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class KitchenerUtilityCollector extends SketchCollector {
         },
         loginUrl: "https://ebilling.kitchener.ca/sap/bc/ui5_ui5/sap/ZUMCUI5/index.html#page|%7B%22id%22%3A%22login%22%7D|0",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

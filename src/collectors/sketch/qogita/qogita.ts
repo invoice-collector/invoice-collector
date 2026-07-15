@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class QogitaCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class QogitaCollector extends SketchCollector {
         },
         loginUrl: "https://www.qogita.com/login/?redirectTo=%2Faccount%2Fprofile%2F",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

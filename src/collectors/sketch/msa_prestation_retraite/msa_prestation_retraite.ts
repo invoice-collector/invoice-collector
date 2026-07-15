@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class MsaPrestationRetraiteCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class MsaPrestationRetraiteCollector extends SketchCollector {
         },
         loginUrl: "https://monespaceprive.msa.fr/lfy/web/msa/retraite?modalId=2",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

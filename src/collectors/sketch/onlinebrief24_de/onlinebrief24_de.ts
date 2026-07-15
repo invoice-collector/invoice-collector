@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class Onlinebrief24DeCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class Onlinebrief24DeCollector extends SketchCollector {
         },
         loginUrl: "https://service.onlinebrief24.de/kundencenter.pl?act=loginerror&providerid=onlinebrief24",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class CrewlifeAeroCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class CrewlifeAeroCollector extends SketchCollector {
         },
         loginUrl: "https://portal.crewlife.aero/app/profi/partner/anzeigen",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

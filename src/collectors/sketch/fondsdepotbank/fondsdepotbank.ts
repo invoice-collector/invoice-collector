@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class FondsdepotbankCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class FondsdepotbankCollector extends SketchCollector {
         },
         loginUrl: "https://finanzportal.fondsdepotbank.de/fdb/abaxx-?$part=Home.content.Welcome.Dashboard",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class FinanceadsCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class FinanceadsCollector extends SketchCollector {
         },
         loginUrl: "https://login.financeads.net/de/index.php?module=login&msg=cookieerr",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

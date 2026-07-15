@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class WortmannCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class WortmannCollector extends SketchCollector {
         },
         loginUrl: "https://b2b.wortmann.de/de-de/profile/login.aspx?returnurl=%2fde-de%2fproductlist%2faktionsprodukte%2fherzlich-willkommen.aspx",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

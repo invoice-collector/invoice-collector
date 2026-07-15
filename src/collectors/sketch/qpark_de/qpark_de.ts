@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class QparkDeCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class QparkDeCollector extends SketchCollector {
         },
         loginUrl: "https://www.q-park.de/de-de/myqpark/mein-q-park/meine-rechnungen/",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

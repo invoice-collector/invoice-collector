@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class LOrealCosmetiqueActiveCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class LOrealCosmetiqueActiveCollector extends SketchCollector {
         },
         loginUrl: "https://www.loreal.com/en/active-cosmetics-division/",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

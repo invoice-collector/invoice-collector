@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class SaxoprintCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class SaxoprintCollector extends SketchCollector {
         },
         loginUrl: "https://www.saxoprint.de/login.aspx?url=%2fkundenbereich%2fauftragsuebersicht",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

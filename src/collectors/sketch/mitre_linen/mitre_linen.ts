@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class MitreLinenCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class MitreLinenCollector extends SketchCollector {
         },
         loginUrl: "https://www.mitrelinen.co.uk/my-account/invoicesandcredits",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class ThermonoordCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class ThermonoordCollector extends SketchCollector {
         },
         loginUrl: "https://web.thermonoord.nl/B2B/PAGE_Start/7A8AANwHRfNPZGdZZmJvRkdkQwA",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

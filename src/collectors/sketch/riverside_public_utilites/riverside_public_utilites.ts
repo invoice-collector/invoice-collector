@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class RiversidePublicUtilitesCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class RiversidePublicUtilitesCollector extends SketchCollector {
         },
         loginUrl: "https://billpay.riversideca.gov/iwr/billing/billingManager.seam?cid=8887&rvn=1",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

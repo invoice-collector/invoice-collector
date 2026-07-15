@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class ReifenGoggelCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class ReifenGoggelCollector extends SketchCollector {
         },
         loginUrl: "https://www.goeggel-reifenserver.de/shop/bestueb.php?site=anzeige&s=1&PHPSESSID=57f3979423ada967e9b691a5f72b0815",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

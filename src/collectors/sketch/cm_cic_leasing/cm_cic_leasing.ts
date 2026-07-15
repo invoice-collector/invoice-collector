@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class CmCicLeasingCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class CmCicLeasingCollector extends SketchCollector {
         },
         loginUrl: "https://www.espaceclients.cmcic-leasing.fr/espaceclients/initMesContrats#horizontalTab3",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class Gs1CanadaCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class Gs1CanadaCollector extends SketchCollector {
         },
         loginUrl: "https://www.gs1ca.org/app_invoices/onlinePayment/Display.aspx",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class HertzEBillingCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class HertzEBillingCollector extends SketchCollector {
         },
         loginUrl: "https://www.hertz-ebilling.com/hertz/welcome.html?se32p3dd1r30825ncv9jmpnimb=kc1ehvtqskqqbvgjuh4n6upf91#",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

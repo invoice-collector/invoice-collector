@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class WebpagetestCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class WebpagetestCollector extends SketchCollector {
         },
         loginUrl: "https://iowpt.catchpoint.com/auth/WptAccount/Login?ReturnUrl=https://www.webpagetest.org/cpauth",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

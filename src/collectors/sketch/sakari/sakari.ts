@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class SakariCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class SakariCollector extends SketchCollector {
         },
         loginUrl: "https://auth.sakari.io/u/login?state=hKFo2SBPcnpDbWxrVTA2RnN1R0lveGtBZTJHOHd6aTBxdkRfcaFur3VuaXZlcnNhbC1sb2dpbqN0aWTZIFZDS0hCeVVfdmdVTmNaLWVDUE9HVnZxamFJVHVOS0pVo2NpZNkgVlZua0lWcE95eVRaYzIyRWRPTHA0bjZYMlZBeWNMTHQ",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

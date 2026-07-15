@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class MmaContratsCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class MmaContratsCollector extends SketchCollector {
         },
         loginUrl: "https://espace-client.mma.fr/authenticationForm/compteClientLogin/index?nexturl=https%3A%2F%2Fespace-client.mma.fr%2Fconnaissance-client%2Fsynthese&domain=client",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

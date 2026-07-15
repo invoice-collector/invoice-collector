@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class HelloFreshCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class HelloFreshCollector extends SketchCollector {
         },
         loginUrl: "https://www.hellofresh.de/customer/account/login/?redirectUrl=%2Faccount-settings%2Forder-history",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

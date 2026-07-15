@@ -151,11 +151,19 @@ components:
       description: Whether the customer is subscribed to all collectors. If true, the
         subscribedCollectors field is ignored.
       example: false
-    enableInteractiveLogin:
-      type: boolean
-      description: Whether the customer has enabled interactive login for collectors
-        that support it.
-      example: true
+    authenticationMethod:
+      type: string
+      description: The customer authentication method preference for collectors.
+        secretsOnly and interactiveOnly restrict to a single method, all accepts
+        both, secretsPreferred and interactivePreferred accept both with a
+        preference.
+      enum:
+        - secretsOnly
+        - secretsPreferred
+        - letUserDecide
+        - interactiveOnly
+        - interactivePreferred
+      example: interactivePreferred
     displaySketchCollectors:
       type: boolean
       description: Whether to display sketch collectors.
@@ -411,10 +419,14 @@ components:
             - recaptcha
             - other
           example: cloudflare
-        enableInteractiveLogin:
-          type: boolean
-          description: Whether the interactive login is enabled for this collector.
-          example: true
+        authenticationMethod:
+          type: string
+          description: The authentication methods supported by this collector.
+          enum:
+            - secretsOnly
+            - interactiveOnly
+            - all
+          example: all
         state:
           type: string
           description: State of the collector.
@@ -447,7 +459,7 @@ components:
         - logo
         - params
         - captcha
-        - enableInteractiveLogin
+        - authenticationMethod
         - state
     minimalistCustomer:
       type: object
@@ -480,8 +492,8 @@ components:
           $ref: "#/components/schemas/subscribedCollectors"
         isSubscribedToAll:
           $ref: "#/components/schemas/isSubscribedToAll"
-        enableInteractiveLogin:
-          $ref: "#/components/schemas/enableInteractiveLogin"
+        authenticationMethod:
+          $ref: "#/components/schemas/authenticationMethod"
         displaySketchCollectors:
           $ref: "#/components/schemas/displaySketchCollectors"
         maxDelayBetweenCollect:
@@ -498,7 +510,7 @@ components:
         - theme
         - subscribedCollectors
         - isSubscribedToAll
-        - enableInteractiveLogin
+        - authenticationMethod
         - displaySketchCollectors
         - maxDelayBetweenCollect
         - plan
@@ -1125,8 +1137,8 @@ paths:
                   $ref: "#/components/schemas/subscribedCollectors"
                 isSubscribedToAll:
                   $ref: "#/components/schemas/isSubscribedToAll"
-                enableInteractiveLogin:
-                  $ref: "#/components/schemas/enableInteractiveLogin"
+                authenticationMethod:
+                  $ref: "#/components/schemas/authenticationMethod"
                 displaySketchCollectors:
                   $ref: "#/components/schemas/displaySketchCollectors"
       responses:

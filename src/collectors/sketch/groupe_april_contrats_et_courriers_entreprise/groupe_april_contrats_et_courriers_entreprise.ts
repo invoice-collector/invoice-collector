@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class GroupeAprilContratsEtCourriersEntrepriseCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class GroupeAprilContratsEtCourriersEntrepriseCollector extends SketchCol
         },
         loginUrl: "https://espace-entreprises-collectives.april-sante-prevoyance.fr/Authentification/tabid/62/Default.aspx?returnurl=%2fDefault.aspx",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

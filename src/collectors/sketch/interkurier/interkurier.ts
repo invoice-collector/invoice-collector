@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class InterkurierCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class InterkurierCollector extends SketchCollector {
         },
         loginUrl: "https://cloud-11.datenbanken24.de/apps/ikauftrag/base.nsf",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

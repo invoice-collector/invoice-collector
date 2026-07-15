@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class CityOfLongBeachCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class CityOfLongBeachCollector extends SketchCollector {
         },
         loginUrl: "https://clbutilitywebservices.longbeach.gov/meridian.html#/log",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class HandelsbankCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class HandelsbankCollector extends SketchCollector {
         },
         loginUrl: "https://banking.handelsbank.com/print/inbox.document.php?fileid=OTY4Mjg3&reloadid=N21zYXNxY3BndWJkZXEzcmpkODJ0a3A0cDd8fHw1NjY1ZDUyNjU3NTI5YTcyNjk5NmJmMmJkYTZjZjM3MXx8fDc4MDQ0NDc0OTA%3D",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

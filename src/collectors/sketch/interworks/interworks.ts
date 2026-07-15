@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class InterworksCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class InterworksCollector extends SketchCollector {
         },
         loginUrl: "https://bss.adncloud.de/ModulePages/Invoices/Invoices.aspx#v=689",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

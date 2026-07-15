@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class TrovitCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class TrovitCollector extends SketchCollector {
         },
         loginUrl: "https://accounts.trovit.com/?cod=check_login&url=https%3A%2F%2Fhomes.trovit.com%2Findex.php%2Fcod.mail_preferences&language=en_US&",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

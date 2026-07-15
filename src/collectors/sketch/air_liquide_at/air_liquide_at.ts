@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class AirLiquideAtCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class AirLiquideAtCollector extends SketchCollector {
         },
         loginUrl: "https://portal.airliquide.at/portal/secure/abfragen/airliquide",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

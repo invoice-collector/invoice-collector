@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class StatkraftDeCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class StatkraftDeCollector extends SketchCollector {
         },
         loginUrl: "https://kundenportal.statkraft.de/portal/documents?filter-anlage%5B0%5D=3160&filter-anlage%5B1%5D=3206",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

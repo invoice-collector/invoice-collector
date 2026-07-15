@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class RakutenFrCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class RakutenFrCollector extends SketchCollector {
         },
         loginUrl: "https://fr.shopping.rakuten.com/usersecure?action=invoicesaction",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

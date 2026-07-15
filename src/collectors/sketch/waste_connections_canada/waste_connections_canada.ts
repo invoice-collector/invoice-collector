@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class WasteConnectionsCanadaCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class WasteConnectionsCanadaCollector extends SketchCollector {
         },
         loginUrl: "https://secure6.i-doxs.net/bdx/default.aspx?BillerID=H1ol0uvn2h",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class LogicsaleEbayCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class LogicsaleEbayCollector extends SketchCollector {
         },
         loginUrl: "https://ebay.logicsale.com/index.php?action=mydata",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

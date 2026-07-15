@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class HostwindsCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class HostwindsCollector extends SketchCollector {
         },
         loginUrl: "https://clients.hostwinds.com/clientarea.php?_ga=2.94389849.438283618.1636343183-124337738.1636203898",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

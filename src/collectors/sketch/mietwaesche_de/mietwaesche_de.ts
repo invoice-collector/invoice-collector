@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class MietwaescheDeCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class MietwaescheDeCollector extends SketchCollector {
         },
         loginUrl: "https://auftrag.mietwaesche.de/kundenlogin/login.php",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

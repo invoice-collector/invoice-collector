@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class WizaCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class WizaCollector extends SketchCollector {
         },
         loginUrl: "https://wiza.co/?xsln5i53hj2e7a7rjwjumiuhoa=suxroadeng6eyg3n7a32nmkrlq",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class DelmarvaPowerCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class DelmarvaPowerCollector extends SketchCollector {
         },
         loginUrl: "https://secure.delmarva.com/MyAccount/MyBillUsage/pages/secure/MyBillUsage.aspx",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

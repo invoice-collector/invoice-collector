@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class MutuelleDiotSanteCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class MutuelleDiotSanteCollector extends SketchCollector {
         },
         loginUrl: "https://www.diot.com/fr/nos-solutions-d-assurances-diot/particuliers/sante-auto-habitation-protection-de-la-famille",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

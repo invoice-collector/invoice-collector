@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class RefurbedMerchantCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class RefurbedMerchantCollector extends SketchCollector {
         },
         loginUrl: "https://merchant.refurbed.com/sales/sales-payouts",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

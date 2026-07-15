@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class BuromarktBottcherCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class BuromarktBottcherCollector extends SketchCollector {
         },
         loginUrl: "https://www.bueromarkt-ag.de/mein_konto/uebersicht.php?kontolink=meine_bestellungen",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class VirginMediaBusinessCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class VirginMediaBusinessCollector extends SketchCollector {
         },
         loginUrl: "https://mybill.virginmediabusiness.co.uk/group/analysis/downloads",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class IkeaKreditkarteCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class IkeaKreditkarteCollector extends SketchCollector {
         },
         loginUrl: "https://www.onlinebanking.ikea-kreditkarte.de/#/login/cred",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

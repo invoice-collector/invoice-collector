@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class TravisPerkinsCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class TravisPerkinsCollector extends SketchCollector {
         },
         loginUrl: "https://www.travisperkins.co.uk/login?targetUrl=/cart&uiel=Desktop",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

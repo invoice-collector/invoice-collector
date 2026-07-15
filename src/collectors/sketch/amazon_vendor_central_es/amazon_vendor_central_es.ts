@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class AmazonVendorCentralEsCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class AmazonVendorCentralEsCollector extends SketchCollector {
         },
         loginUrl: "https://vendorcentral.amazon.es/gp/vendor/members/contracogs?ref_=vc_ven-ven-home_subNav",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class BsiCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class BsiCollector extends SketchCollector {
         },
         loginUrl: "https://portail-groupe-sequences.artis.fr/ArtisWebBsi/portail/ventes/factures/entree.action?cKey=1&cStatus=P&session=1Acv5ijjkTIaRZO9&typeLicence=BSI",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

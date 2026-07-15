@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class MaafAvisEcheanceCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class MaafAvisEcheanceCollector extends SketchCollector {
         },
         loginUrl: "https://www.maaf.fr/assurances/fr/d_16103/maaf-vie",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

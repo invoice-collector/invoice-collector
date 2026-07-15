@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class ImmoweltCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class ImmoweltCollector extends SketchCollector {
         },
         loginUrl: "https://meine.immowelt.de/0-558/meineimmowelt/index.aspx?returnurl=%2f0-558%2fmeineimmowelt%2fverwaltung%2faccountoverview.aspx",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

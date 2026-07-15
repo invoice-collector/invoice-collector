@@ -1,5 +1,5 @@
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class KnaufIndustriesCollector extends SketchCollector {
 
@@ -27,7 +27,7 @@ export class KnaufIndustriesCollector extends SketchCollector {
         },
         loginUrl: "https://account.knauf.com/auth/signin?callbackUrl=%2F",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class KoodoMobileCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class KoodoMobileCollector extends SketchCollector {
         },
         loginUrl: "https://www.koodomobile.com/my-account/billing/bill_summary?INTCMP=KMNew_NavBar_Billing",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class EnergiaUkBusinessCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class EnergiaUkBusinessCollector extends SketchCollector {
         },
         loginUrl: "https://www.energia-online.co.uk/energiaplus/Energia.Utilities.Q4C.WebPages/Login.aspx",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

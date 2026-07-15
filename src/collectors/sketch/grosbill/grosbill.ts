@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class GrosbillCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class GrosbillCollector extends SketchCollector {
         },
         loginUrl: "https://www.grosbill.com/comptev2/index.php?redirection=compte_accueil",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

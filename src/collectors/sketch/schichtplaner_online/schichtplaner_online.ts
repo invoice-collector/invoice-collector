@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class SchichtplanerOnlineCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class SchichtplanerOnlineCollector extends SketchCollector {
         },
         loginUrl: "https://schichtplaner-online.de/pro/invoice_download/15477",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

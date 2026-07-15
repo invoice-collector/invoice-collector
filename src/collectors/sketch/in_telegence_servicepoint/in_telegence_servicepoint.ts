@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class InTelegenceServicepointCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class InTelegenceServicepointCollector extends SketchCollector {
         },
         loginUrl: "https://www.in-servicepoint.net/sp/files.iface",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

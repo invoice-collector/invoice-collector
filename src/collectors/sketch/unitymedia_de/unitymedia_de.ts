@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class UnitymediaDeCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class UnitymediaDeCollector extends SketchCollector {
         },
         loginUrl: "https://www.unitymedia.de/kundencenter/meine-rechnungen/alle-rechnungen?months=12",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

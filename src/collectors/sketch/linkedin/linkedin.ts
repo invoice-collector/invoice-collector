@@ -1,5 +1,5 @@
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class LinkedinCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class LinkedinCollector extends SketchCollector {
         loginUrl: "https://www.linkedin.com/uas/login?session_redirect=https%3A%2F%2Fwww.linkedin.com%2Fmanage%2Fpurchases-payments%2Ftransactions",
         entryUrl: "https://www.linkedin.com/manage/purchases-payments/transactions",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

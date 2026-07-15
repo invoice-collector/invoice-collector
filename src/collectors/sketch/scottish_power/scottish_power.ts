@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class ScottishPowerCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class ScottishPowerCollector extends SketchCollector {
         },
         loginUrl: "https://www.scottishpower.co.uk/account/login.process?execution=e1s1",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

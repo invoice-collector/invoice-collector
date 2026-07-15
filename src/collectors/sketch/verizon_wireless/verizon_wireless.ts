@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class VerizonWirelessCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class VerizonWirelessCollector extends SketchCollector {
         },
         loginUrl: "https://myvpostpay.verizonwireless.com/ui/bill/ao/viewbill#!/",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

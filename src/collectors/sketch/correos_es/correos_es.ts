@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class CorreosEsCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class CorreosEsCollector extends SketchCollector {
         },
         loginUrl: "https://epostal.correos.es/OV2PREENVWEB/jsp/_rlvid.jsp.faces?_rap=mov_listaRelacionesPagadasHandler.mostrarVista&om=1",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

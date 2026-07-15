@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class FlyeralarmOsterreichCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class FlyeralarmOsterreichCollector extends SketchCollector {
         },
         loginUrl: "https://login.flyeralarm.com/auth/realms/flyeralarm_at/protocol/openid-connect/auth?client_id=flyshop&scope=openid&response_type=code&redirect_uri=https://www.flyeralarm.com/at/auth/openid/token&kc_locale=de-at",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

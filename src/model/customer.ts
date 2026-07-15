@@ -12,6 +12,15 @@ export enum Theme {
     OCEAN = 'ocean'
 }
 
+// Authentication method preferences a customer can choose
+export enum CustomerAuthenticationMethod {
+    SECRETS_ONLY = 'secretsOnly',
+    SECRETS_PREFERRED = 'secretsPreferred',
+    LET_USER_DECIDE = 'letUserDecide',
+    INTERACTIVE_PREFERRED = 'interactivePreferred',
+    INTERACTIVE_ONLY = 'interactiveOnly'
+}
+
 export interface CustomerStats {
     users: number;
     credentials: number;
@@ -37,7 +46,7 @@ export class Customer {
     static DEFAULT_BEARER = "";
     static DEFAULT_SUBSCRIBED_COLLECTORS: string[] = [];
     static DEFAULT_IS_SUBSCRIBED_TO_ALL = true;
-    static DEFAULT_ENABLE_INTERACTIVE_LOGIN = true;
+    static DEFAULT_AUTHENTICATION_METHOD = CustomerAuthenticationMethod.INTERACTIVE_PREFERRED;
     static DEFAULT_DISPLAY_SKETCH_COLLECTORS = true;
     static DEFAULT_MAX_DELAY_BETWEEN_COLLECT = 2592000000; // 30 days in milliseconds
 
@@ -104,7 +113,7 @@ export class Customer {
     theme: Theme;
     subscribedCollectors: string[];
     isSubscribedToAll: boolean;
-    enableInteractiveLogin: boolean;
+    authenticationMethod: CustomerAuthenticationMethod;
     displaySketchCollectors: boolean;
     maxDelayBetweenCollect: number;
     plan: Plan;
@@ -121,7 +130,7 @@ export class Customer {
         theme: Theme = Theme.DEFAULT,
         subscribedCollectors: string[] = Customer.DEFAULT_SUBSCRIBED_COLLECTORS,
         isSubscribedToAll: boolean = Customer.DEFAULT_IS_SUBSCRIBED_TO_ALL,
-        enableInteractiveLogin: boolean = Customer.DEFAULT_ENABLE_INTERACTIVE_LOGIN,
+        authenticationMethod: CustomerAuthenticationMethod = Customer.DEFAULT_AUTHENTICATION_METHOD,
         displaySketchCollectors: boolean = Customer.DEFAULT_DISPLAY_SKETCH_COLLECTORS,
         maxDelayBetweenCollect: number = Customer.DEFAULT_MAX_DELAY_BETWEEN_COLLECT,
         plan: Plan = Server.IS_SELF_HOSTED ? Plan.FREE : Plan.TRIAL,
@@ -138,7 +147,7 @@ export class Customer {
         this.theme = theme;
         this.subscribedCollectors = subscribedCollectors;
         this.isSubscribedToAll = isSubscribedToAll;
-        this.enableInteractiveLogin = enableInteractiveLogin;
+        this.authenticationMethod = authenticationMethod;
         this.displaySketchCollectors = displaySketchCollectors;
         this.maxDelayBetweenCollect = maxDelayBetweenCollect;
         this.plan = plan;
@@ -178,6 +187,15 @@ export class Customer {
         }
 
         this.theme = theme as Theme;
+    }
+
+    setAuthenticationMethod(authenticationMethod: string): void {
+        // Check if authentication method is supported
+        if(!Object.values(CustomerAuthenticationMethod).includes(authenticationMethod as CustomerAuthenticationMethod)) {
+            throw new StatusError(`Authentication method "${authenticationMethod}" not supported. Available methods are: ${Object.values(CustomerAuthenticationMethod).join(", ")}.`, 400);
+        }
+
+        this.authenticationMethod = authenticationMethod as CustomerAuthenticationMethod;
     }
 
     async setSubscribedCollectors(collectors: string[]): Promise<void> {

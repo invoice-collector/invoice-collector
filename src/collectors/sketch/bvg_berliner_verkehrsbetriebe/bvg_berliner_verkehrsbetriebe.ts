@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class BvgBerlinerVerkehrsbetriebeCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class BvgBerlinerVerkehrsbetriebeCollector extends SketchCollector {
         },
         loginUrl: "https://shop.bvg.de/index.php/personal_data/orderList/",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class GroupeAprilContratsEtCourriersAssureSalarieCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class GroupeAprilContratsEtCourriersAssureSalarieCollector extends Sketch
         },
         loginUrl: "https://espace-assures.april-entreprise-prevoyance.fr/",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

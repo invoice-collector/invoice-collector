@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class InfoleasysCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class InfoleasysCollector extends SketchCollector {
         },
         loginUrl: "https://portail.infoleasys.fr/ArtisWeb/portail/login/auth/01.action",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

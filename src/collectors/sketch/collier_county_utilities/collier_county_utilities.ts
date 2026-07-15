@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class CollierCountyUtilitiesCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class CollierCountyUtilitiesCollector extends SketchCollector {
         },
         loginUrl: "https://www.invoicecloud.com/portal/(S(qbumyc0ayz3zy5kmqgu5e5jl))/2/CustomerGroupLedger.aspx?mode=open",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

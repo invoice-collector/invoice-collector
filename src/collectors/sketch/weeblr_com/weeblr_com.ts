@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class WeeblrComCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class WeeblrComCollector extends SketchCollector {
         },
         loginUrl: "https://weeblr.com/dashboard?layout=subscription&subscription_key=8O56WJCO5F94",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

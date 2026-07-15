@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class QuestionproCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class QuestionproCollector extends SketchCollector {
         },
         loginUrl: "https://eu.questionpro.com/a/showUpgradeUser.do?payment=PaymentHistory",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

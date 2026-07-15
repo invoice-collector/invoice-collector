@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class EcomdataGmbhCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class EcomdataGmbhCollector extends SketchCollector {
         },
         loginUrl: "https://my.ecomdata.de/clientarea.php?_ga=2.6130931.1786468032.1601532605-1955470257.1601532605",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class EnworCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class EnworCollector extends SketchCollector {
         },
         loginUrl: "https://www.enwor.de/enworPortal/Portal?Anwendung=RhenagRechnungslisteV2&Methode=Init&AuswahlVertragSchluessel=214992062!4",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

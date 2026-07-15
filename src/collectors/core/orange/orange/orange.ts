@@ -1,6 +1,6 @@
 import { OrangeSelectors } from './selectors';
 import { Driver, Element } from '../../../../driver/driver';
-import { CollectorCaptcha, CollectorType, Invoice } from '../../../../collectors/abstractCollector';
+import { CollectorCaptcha, CollectorType, Invoice, CollectorAuthenticationMethod } from '../../../../collectors/abstractCollector';
 import { AuthenticationError } from '../../../../error';
 import { OrangeHelper } from '../helper/orangeHelper';
 import { WebSocketServer } from '../../../../websocket/webSocketServer';
@@ -36,7 +36,7 @@ export class OrangeCollector extends LinearWebCollector {
         entryUrl: "https://espace-client.orange.fr/selectionner-un-contrat?returnUrl=%2Ffacture-paiement%2F%257B%257Bcid%257D%257D%2Fhistorique-des-factures&verticale=telco&marketType=RES",
         captcha: CollectorCaptcha.NONE,
         useProxy: true,
-        enableInteractiveLogin: true
+        authenticationMethod: CollectorAuthenticationMethod.ALL
     }
 
     constructor() {

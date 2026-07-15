@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class JyllandsPostenCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class JyllandsPostenCollector extends SketchCollector {
         },
         loginUrl: "https://jyllands-posten.dk/login?returnUrl=%2F%3FloggedIn%3Dtrue%26loggedIn%3Dtrue",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

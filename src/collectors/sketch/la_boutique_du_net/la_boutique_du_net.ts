@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class LaBoutiqueDuNetCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class LaBoutiqueDuNetCollector extends SketchCollector {
         },
         loginUrl: "https://www.laboutiquedunet.com/c-connexion/Connexion.html?ProcessusOrigine=&PageOrigine=&Var1Origine=&Var2Origine=",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

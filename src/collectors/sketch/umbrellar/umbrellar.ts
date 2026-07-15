@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class UmbrellarCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class UmbrellarCollector extends SketchCollector {
         },
         loginUrl: "https://secure.umbrellar.nz/login?_ga=2.21273272.2058613503.1523600439-117179229.1523600439",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

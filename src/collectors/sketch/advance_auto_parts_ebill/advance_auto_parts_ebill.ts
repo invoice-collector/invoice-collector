@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class AdvanceAutoPartsEbillCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class AdvanceAutoPartsEbillCollector extends SketchCollector {
         },
         loginUrl: "https://ebill.advancecommercial.com/psp/ebill/CUSTOMER/ASC_ARP/c/ASC_CUSTOM_AR.ASC_EBILL_SEARCH.GBL?FolderPath=PORTAL_ROOT_OBJECT.ASC_EBILL_SEARCH&IsFolder=false&IgnoreParamTempl=FolderPath%2cIsFolder",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

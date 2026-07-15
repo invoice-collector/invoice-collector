@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class B2vRetraitePrevoyanceParticuliersCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class B2vRetraitePrevoyanceParticuliersCollector extends SketchCollector 
         },
         loginUrl: "https://www.b2v.fr/particuliers/espace-client",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

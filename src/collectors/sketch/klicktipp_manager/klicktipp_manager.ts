@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class KlicktippManagerCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class KlicktippManagerCollector extends SketchCollector {
         },
         loginUrl: "https://www.digistore24.com/receipt/3A4YFYVP/YS9R3NMX",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

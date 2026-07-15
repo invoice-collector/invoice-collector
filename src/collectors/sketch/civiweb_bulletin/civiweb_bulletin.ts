@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class CiviwebBulletinCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class CiviwebBulletinCollector extends SketchCollector {
         },
         loginUrl: "https://www.civiweb.com/FR/article/votre-tableau-de-bord.aspx",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

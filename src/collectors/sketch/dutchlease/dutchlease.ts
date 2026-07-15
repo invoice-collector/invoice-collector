@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class DutchleaseCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class DutchleaseCollector extends SketchCollector {
         },
         loginUrl: "https://dutchlease.fleetplatform.com/FleetPlatform/s:nl_NL/login",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class OneSourceCommunicationCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class OneSourceCommunicationCollector extends SketchCollector {
         },
         loginUrl: "https://esp.1scom.com/esp/security/login?ReturnUrl=https%3a%2f%2fesp.1scom.com%2fesp%2f",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

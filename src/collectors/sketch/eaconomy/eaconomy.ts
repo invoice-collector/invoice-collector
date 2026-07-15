@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class EaconomyCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class EaconomyCollector extends SketchCollector {
         },
         loginUrl: "https://eaconomy.net/wp-admin/admin.php?page=user-report&tab=payout",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

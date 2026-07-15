@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class GreenfiberInternetCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class GreenfiberInternetCollector extends SketchCollector {
         },
         loginUrl: "https://kundenportal.greenfiber.de/Greenfiber/MeineRechnungen.cms?ActiveID=1002",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

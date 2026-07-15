@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class MatthiesAutoteileCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class MatthiesAutoteileCollector extends SketchCollector {
         },
         loginUrl: "https://www.matthies.de/mein-matthies/e-rechnung-belegarchiv.html?no_cache=1#",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

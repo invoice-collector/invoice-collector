@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class OperatorDeCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class OperatorDeCollector extends SketchCollector {
         },
         loginUrl: "http://www.telefonkonferenz-operator.de/conference/ng/login.html;jsessionid=9236054249FE742C4E4B3E93A80F8F3C?wicket-crypt=2A0x73ua85w",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

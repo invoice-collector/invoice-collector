@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class GothaerMaklerportalCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class GothaerMaklerportalCollector extends SketchCollector {
         },
         loginUrl: "https://makler.gothaer.de/app/ProvisionsabrechnungOnline/start.jsp",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

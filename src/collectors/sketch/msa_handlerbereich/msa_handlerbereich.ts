@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class MsaHandlerbereichCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class MsaHandlerbereichCollector extends SketchCollector {
         },
         loginUrl: "https://www.haendlerbereich.de/index.php?x=11&y=9&Filter_Marke=KY&Filter_h=serv&Filter_s=home",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class MarmosetCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class MarmosetCollector extends SketchCollector {
         },
         loginUrl: "https://account.marmoset.co/orders?63lvh5yg66sgu6jswt4224rrva=qkz5clxxhgeegpkwqbdthbuokq",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class VeoliaEauEspaceClientCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class VeoliaEauEspaceClientCollector extends SketchCollector {
         },
         loginUrl: "https://espace-client.vedif.eau.veolia.fr/s/",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

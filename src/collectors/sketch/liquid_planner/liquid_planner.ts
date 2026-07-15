@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class LiquidPlannerCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class LiquidPlannerCollector extends SketchCollector {
         },
         loginUrl: "https://app.liquidplanner.com/login?_ga=2.149206070.1614711150.1523347147-1211154284.1523347147",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

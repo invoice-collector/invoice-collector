@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class GrundeigentumVerlagCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class GrundeigentumVerlagCollector extends SketchCollector {
         },
         loginUrl: "https://premium.grundeigentum-verlag.de/zugang/login",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

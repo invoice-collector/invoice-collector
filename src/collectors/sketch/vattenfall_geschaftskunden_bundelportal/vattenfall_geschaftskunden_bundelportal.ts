@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class VattenfallGeschaftskundenBundelportalCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class VattenfallGeschaftskundenBundelportalCollector extends SketchCollec
         },
         loginUrl: "https://portal.realestate.vattenfall.de",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

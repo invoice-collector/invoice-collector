@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class PrincipalCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class PrincipalCollector extends SketchCollector {
         },
         loginUrl: "https://employers-groupbenefits.principal.com/GroupBenefitsEmployerUI/memberInformation/1171505/10001/billing",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class CampaignMonitorCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class CampaignMonitorCollector extends SketchCollector {
         },
         loginUrl: "https://login.createsend.com/l?_ga=2.41260645.657612371.1523338420-1375527042.1523338420",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class ServmaskCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class ServmaskCollector extends SketchCollector {
         },
         loginUrl: "https://servmask.com/subscription/fee64cdd-78c0-4b79-82eb-54134e2db720/billing-details",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

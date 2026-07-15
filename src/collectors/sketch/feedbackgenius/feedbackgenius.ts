@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class FeedbackgeniusCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class FeedbackgeniusCollector extends SketchCollector {
         },
         loginUrl: "https://accounts.sellerlabs.com/login?redirect=%2Foauth%2Fauth%3Fclient_id%3D17%26redirect_uri%3Dhttps%253A%252F%252Ffeedbackgenius.sellerlabs.com%252Foauth%252Freceive%26scope%3D%26response_type%3Dcode",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

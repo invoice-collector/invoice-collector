@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class QuickbooksOnlineAccountantUkCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class QuickbooksOnlineAccountantUkCollector extends SketchCollector {
         },
         loginUrl: "https://c1.qbo.intuit.com/c1/v1608.1641/0/login?redirect=true&accountant-sign-in=&redirect=true&locale=en_gb",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

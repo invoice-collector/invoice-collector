@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class SubscriptionsZohoMarketmanCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class SubscriptionsZohoMarketmanCollector extends SketchCollector {
         },
         loginUrl: "https://subscriptions.zoho.com/portal/marketmanuk/index#/invoices",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

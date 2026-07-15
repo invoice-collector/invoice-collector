@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class CityOfLomaLindaCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class CityOfLomaLindaCollector extends SketchCollector {
         },
         loginUrl: "https://selfservice.lomalinda-ca.gov/css/citizens/UtilityBilling/ViewPayBills.aspx",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class NaturstromCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class NaturstromCollector extends SketchCollector {
         },
         loginUrl: "https://kundenservice.naturstrom.de/naturstrom/#/loginRegistration",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

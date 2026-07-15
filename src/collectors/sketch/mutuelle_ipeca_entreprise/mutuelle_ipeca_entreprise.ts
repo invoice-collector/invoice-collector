@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class MutuelleIpecaEntrepriseCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class MutuelleIpecaEntrepriseCollector extends SketchCollector {
         },
         loginUrl: "https://adherents.ipeca.fr/Entreprise/Pages/entreprise-home-actu.aspx",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

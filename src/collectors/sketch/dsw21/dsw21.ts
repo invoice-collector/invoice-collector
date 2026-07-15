@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class Dsw21Collector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class Dsw21Collector extends SketchCollector {
         },
         loginUrl: "https://meinabo.dsw21.de/de/company/0001248199/type/default/agreement/0007008793/main/invoice",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class McafeeEpolicyOrchestratorCloudCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class McafeeEpolicyOrchestratorCloudCollector extends SketchCollector {
         },
         loginUrl: "https://home.mcafee.com/secure/protected/login.aspx?rfhs=1&culture=en-us",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

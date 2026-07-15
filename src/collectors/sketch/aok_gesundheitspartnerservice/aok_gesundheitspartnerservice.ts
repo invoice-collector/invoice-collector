@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class AokGesundheitspartnerserviceCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class AokGesundheitspartnerserviceCollector extends SketchCollector {
         },
         loginUrl: "https://gp.meine.aok.de/client/postbox/inbox",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

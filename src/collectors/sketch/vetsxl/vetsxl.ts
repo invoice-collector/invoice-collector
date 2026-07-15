@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class VetsxlCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class VetsxlCollector extends SketchCollector {
         },
         loginUrl: "https://www.myvetsxl.com/de/Konto/Konto_Rechnungen/Default.aspx",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

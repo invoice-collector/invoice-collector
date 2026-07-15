@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class VodafoneDeFirmenkundenCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class VodafoneDeFirmenkundenCollector extends SketchCollector {
         },
         loginUrl: "https://www.vodafone.de/ussa/enterprise/fkpDashboardLogin.ftel",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

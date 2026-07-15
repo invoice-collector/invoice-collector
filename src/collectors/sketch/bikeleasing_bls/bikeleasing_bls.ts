@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class BikeleasingBlsCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class BikeleasingBlsCollector extends SketchCollector {
         },
         loginUrl: "https://portal.bikeleasing-service.de/user/retailer/credits",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

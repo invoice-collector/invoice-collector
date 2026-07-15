@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class ArbeitszeiterfassungCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class ArbeitszeiterfassungCollector extends SketchCollector {
         },
         loginUrl: "https://arbeitszeiterfassung.com/meine-rechnungen",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

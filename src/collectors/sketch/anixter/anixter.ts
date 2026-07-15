@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class AnixterCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class AnixterCollector extends SketchCollector {
         },
         loginUrl: "https://www.eanixter.com/login.xhtml?spring-security-redirect=%2Fhome.xhtml&faces-redirect=true",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class PrimerocomDeCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class PrimerocomDeCollector extends SketchCollector {
         },
         loginUrl: "https://mein.primerocom.de/Default.asp?rq_Lang=de",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

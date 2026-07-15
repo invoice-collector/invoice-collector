@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class MaxiburoCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class MaxiburoCollector extends SketchCollector {
         },
         loginUrl: "https://www.maxiburo.fr/Client/Identification?ReturnUrl=%2fmon-compte%2faccueil.htm",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

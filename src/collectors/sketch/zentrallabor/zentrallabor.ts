@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class ZentrallaborCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class ZentrallaborCollector extends SketchCollector {
         },
         loginUrl: "https://zlportal.zlgmbh.com/zl/frontend/index.php?section=postfach",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

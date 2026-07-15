@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class StadtwerkeSchwerinCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class StadtwerkeSchwerinCollector extends SketchCollector {
         },
         loginUrl: "https://kundenportal.swsn.de/powercommerce/swsn/fo/portal/start",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

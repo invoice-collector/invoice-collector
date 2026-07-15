@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class RajaFrCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class RajaFrCollector extends SketchCollector {
         },
         loginUrl: "https://www.raja.fr/INTERSHOP/web/WFS/RAJA-FR-Site/fr_FR/-/EUR/ViewHeader-ViewAccountIdentification?TargetPipeline=ViewHomepage-Start&T_From=Header",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class ZinioCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class ZinioCollector extends SketchCollector {
         },
         loginUrl: "https://www.zinio.com/gb/sign-in?redirect_to=%2Fmy-library",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

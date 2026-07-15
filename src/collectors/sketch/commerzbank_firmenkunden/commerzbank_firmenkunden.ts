@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class CommerzbankFirmenkundenCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class CommerzbankFirmenkundenCollector extends SketchCollector {
         },
         loginUrl: "https://cbportal.commerzbank.com/gpp/pages/konto/tabs/uebersicht.xhtml",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

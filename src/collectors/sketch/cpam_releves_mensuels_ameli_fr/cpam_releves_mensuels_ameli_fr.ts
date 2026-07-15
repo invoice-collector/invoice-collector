@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class CpamRelevesMensuelsAmeliFrCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class CpamRelevesMensuelsAmeliFrCollector extends SketchCollector {
         },
         loginUrl: "https://utilisateur-forum-assures.ameli.fr/cas/login?service=https%3A%2F%2Fforum-assures.ameli.fr%2Fquestions%2F1559000-telecharger-releves-mensuels-paiements&env=desk",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

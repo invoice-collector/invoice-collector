@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class GeneraliEspaceEpargneCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class GeneraliEspaceEpargneCollector extends SketchCollector {
         },
         loginUrl: "https://espace-epargne.generali.fr/b2b2c/entreesite/EntAccLog?ssbouCode=8000857",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

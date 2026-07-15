@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class ViralLaunchCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class ViralLaunchCollector extends SketchCollector {
         },
         loginUrl: "https://viral-launch.com/sellers/launch-staging/pages/account-management.html#/account-settings",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

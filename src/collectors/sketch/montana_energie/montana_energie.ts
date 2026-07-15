@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class MontanaEnergieCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class MontanaEnergieCollector extends SketchCollector {
         },
         loginUrl: "https://kundenportal.montana-energie.at/customerportal/index.php?page=invoices",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

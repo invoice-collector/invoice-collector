@@ -1,7 +1,7 @@
 import path from 'path';
 import { glob } from 'glob';
 import fs from 'fs';
-import { AbstractCollector, CollectorCaptcha, CollectorType, Config } from './abstractCollector';
+import { AbstractCollector, CollectorAuthenticationMethod, CollectorCaptcha, CollectorType, Config } from './abstractCollector';
 import { StatusError } from '../error';
 import { CollectorState } from './abstractCollector';
 
@@ -61,6 +61,11 @@ export class CollectorLoader {
                             // Replace all occurrences of CollectorType enum values
                             for (const [key, value] of Object.entries(CollectorType)) {
                                 configStr = configStr.replaceAll(`CollectorType.${key}`, `"${value}"`);
+                            }
+
+                            // Replace all occurences of CollectorAuthenticationMethod enum values
+                            for (const [key, value] of Object.entries(CollectorAuthenticationMethod)) {
+                                configStr = configStr.replaceAll(`CollectorAuthenticationMethod.${key}`, `"${value}"`);
                             }
 
                             // Evaluate the config object

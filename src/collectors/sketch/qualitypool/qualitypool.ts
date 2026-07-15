@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class QualitypoolCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class QualitypoolCollector extends SketchCollector {
         },
         loginUrl: "https://extranet.asc-online.de/intern/Postkorb/Lieferung/B1A38EDB-45CB-4D7E-826D-AAF2CE8B8183",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

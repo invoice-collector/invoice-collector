@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class VikingDirectCoUkCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class VikingDirectCoUkCollector extends SketchCollector {
         },
         loginUrl: "https://www.viking-direct.co.uk/account/loginAccountDisplay.do",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

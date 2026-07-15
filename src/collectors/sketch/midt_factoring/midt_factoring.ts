@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class MidtFactoringCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class MidtFactoringCollector extends SketchCollector {
         },
         loginUrl: "https://mfo.midtfactoring.dk/Login/Login.aspx?ReturnUrl=%2fHome%2fWelcome.aspx",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

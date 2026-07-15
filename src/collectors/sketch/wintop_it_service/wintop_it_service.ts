@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class WintopItServiceCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class WintopItServiceCollector extends SketchCollector {
         },
         loginUrl: "https://www.emeldeschein.de/oms/hausstat/viewAbrechnung.xhtml?faces-redirect=trueewAbrechnung.xhtml",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class JunuxCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class JunuxCollector extends SketchCollector {
         },
         loginUrl: "https://account.junux.de/auth/login?returnUrl=%2Faccount%2Fsubscriptions",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

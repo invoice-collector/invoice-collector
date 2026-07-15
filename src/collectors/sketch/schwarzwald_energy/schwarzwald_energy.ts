@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class SchwarzwaldEnergyCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class SchwarzwaldEnergyCollector extends SketchCollector {
         },
         loginUrl: "https://kundencenter.schwarzwald-energy.de/csit/action/csShowInvoices",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

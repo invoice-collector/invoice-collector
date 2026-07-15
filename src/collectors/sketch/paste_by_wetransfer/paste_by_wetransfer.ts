@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class PasteByWetransferCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class PasteByWetransferCollector extends SketchCollector {
         },
         loginUrl: "https://pasteapp.com/?next=%2Fadmin%2Fteams%2Fbilling",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

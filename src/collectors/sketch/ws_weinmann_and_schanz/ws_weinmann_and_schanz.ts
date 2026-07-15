@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class WsWeinmannAndSchanzCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class WsWeinmannAndSchanzCollector extends SketchCollector {
         },
         loginUrl: "https://www.weinmann-schanz.de/de/de/Anmelden-Abmelden/Anmelden.html",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class FotoshareCloudCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class FotoshareCloudCollector extends SketchCollector {
         },
         loginUrl: "https://fotoshare.co/admin/licenses/fotoshare_cloud",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

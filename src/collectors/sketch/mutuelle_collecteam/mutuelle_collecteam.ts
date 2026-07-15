@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class MutuelleCollecteamCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class MutuelleCollecteamCollector extends SketchCollector {
         },
         loginUrl: "https://www.collecteam.fr/espace-client/connexion-a-l-espace-client.html",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

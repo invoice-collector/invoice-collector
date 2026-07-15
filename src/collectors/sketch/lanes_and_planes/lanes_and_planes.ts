@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class LanesAndPlanesCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class LanesAndPlanesCollector extends SketchCollector {
         },
         loginUrl: "https://app.lanes-planes.com/admin/#/admin/company/accounting",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class SegenSolarGmbhCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class SegenSolarGmbhCollector extends SketchCollector {
         },
         loginUrl: "https://portal.segensolar.de/Reseller/Orders/RecentInvoices",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

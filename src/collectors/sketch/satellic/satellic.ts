@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class SatellicCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class SatellicCollector extends SketchCollector {
         },
         loginUrl: "https://rup.satellic.be/rup/login?wicket-crypt=ZNKDKzsV46U",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

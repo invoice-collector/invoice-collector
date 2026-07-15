@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class MytpboxCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class MytpboxCollector extends SketchCollector {
         },
         loginUrl: "https://scoubidou26.mytpbox.com/TPBox?session=d6c8e0102748de2a2d0871f819df4259",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 

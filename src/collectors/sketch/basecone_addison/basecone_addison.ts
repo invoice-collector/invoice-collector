@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
 export class BaseconeAddisonCollector extends SketchCollector {
 
@@ -28,7 +28,7 @@ export class BaseconeAddisonCollector extends SketchCollector {
         },
         loginUrl: "https://identity.basecone.com/authentication/login?signin=6dd09df2f7dca6eada587463a123cbe7",
         captcha: CollectorCaptcha.NONE,
-        enableInteractiveLogin: true,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
     }
 
