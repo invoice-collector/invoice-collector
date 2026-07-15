@@ -1,5 +1,5 @@
 import { Driver, Element } from "../driver/driver";
-import { AuthenticationError, DisconnectedError, NoInvoiceFoundError } from "../error";
+import { AuthenticationError, CollectorError, DisconnectedError, NoInvoiceFoundError } from "../error";
 import * as utils from "../utils";
 import { Invoice } from "../collectors/abstractCollector";
 import { Secret } from "./secret";
@@ -17,6 +17,7 @@ export enum ActionEnum  {
     MIDDLE_CLICK = 'middleClick',
     CUSTOM = 'custom',
     ERROR_LOGIN_PAGE_DISPLAYED = 'errorLoginPageDisplayed',
+    ERROR_CAPTCHA_DISPLAYED = 'errorCaptchaDisplayed',
     WAIT = 'wait',
 }
 
@@ -969,6 +970,63 @@ export class ErrorLoginPageDisplayedAction extends ActionV2<ErrorLoginPageDispla
     }
 }
 
+export type ErrorCaptchaDisplayedContext = {
+    driver: Driver;
+}
+
+export type ErrorCaptchaDisplayedArgs = {
+    cssSelector: string;
+}
+
+export class ErrorCaptchaDisplayedAction extends ActionV2<ErrorCaptchaDisplayedContext, ErrorCaptchaDisplayedArgs, ErrorCaptchaDisplayedContext> {
+
+    constructor(
+        id: string | null,
+        description: string,
+        pageUrlRegex: string,
+        objectiveId: string | null,
+        lastUsed: string | null,
+        args: ErrorCaptchaDisplayedArgs,
+        destinationIds: string[] = []
+    ) {
+        if (!args.cssSelector) {
+            throw new Error('ErrorCaptchaDisplayedAction requires a cssSelector to locate the challenge');
+        }
+        super(
+            id,
+            ActionEnum.ERROR_CAPTCHA_DISPLAYED,
+            description,
+            pageUrlRegex,
+            objectiveId,
+            lastUsed,
+            args,
+            destinationIds
+        );
+    }
+
+    async _perform(context: ErrorCaptchaDisplayedContext): Promise<ErrorCaptchaDisplayedContext> {
+        // Raise AuthenticationError to signal that an unsolvable captcha / anti-bot challenge is blocking the collect
+        throw new CollectorError('i18n.collectors.all.captcha', context.driver.collector);
+    }
+
+    async canPerform(context: ErrorCaptchaDisplayedContext): Promise<boolean> {
+        if (!new RegExp(this.pageUrlRegex).test(context.driver.url())) {
+            return false;
+        }
+        const el = await context.driver.getElement({ selector: this.args.cssSelector }, { raiseException: false, timeout: 100 });
+        return el?.isClickable() || false;
+    }
+
+    canFollow(previousAction: ActionEnum | null, secondPreviousAction: ActionEnum | null): boolean {
+        return previousAction === ActionEnum.LEFT_CLICK ||
+        previousAction === ActionEnum.WAIT ||
+        previousAction === ActionEnum.INPUT_TEXT ||
+        previousAction === ActionEnum.INPUT_2FA_CODE ||
+        previousAction === ActionEnum.CUSTOM ||
+        previousAction === null;
+    }
+}
+
 export type WaitContext = {
     driver: Driver;
 }
@@ -1035,4 +1093,5 @@ export const ClassActionMap = {
     [ActionEnum.CUSTOM]: CustomAction,
     [ActionEnum.WAIT]: WaitAction,
     [ActionEnum.ERROR_LOGIN_PAGE_DISPLAYED]: ErrorLoginPageDisplayedAction,
+    [ActionEnum.ERROR_CAPTCHA_DISPLAYED]: ErrorCaptchaDisplayedAction,
 }
