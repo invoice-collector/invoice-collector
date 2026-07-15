@@ -15,7 +15,15 @@ body:
     id: collector-website
     attributes:
       label: Website
-      description: Link to the website or the API
+      description: Link to the website
       placeholder: https://...
     validations:
       required: true
+  - type: input
+    id: collector-invoices-url
+    attributes:
+      label: Invoices URL
+      description: Link to the page where the invoices are listed (if applicable) or the API documentation
+      placeholder: https://...
+    validations:
+      required: false

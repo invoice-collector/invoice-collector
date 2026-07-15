@@ -10,7 +10,7 @@ export class IonosUkCollector extends SketchCollector {
         description: "i18n.collectors.ionos_uk.description",
         version: "0",
         website: "https://login.ionos.co.uk/",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/121683.jpg",
+        logo: "https://upload.wikimedia.org/wikipedia/commons/4/4e/Ionos_Logo_2022.svg",
         type: CollectorType.SKETCH,
         params: {
             email: {
