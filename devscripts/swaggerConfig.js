@@ -168,8 +168,8 @@ const SWAGGER_DEFINITION = {
                 },
                 authenticationMethod: {
                     type: 'string',
-                    description: 'The customer authentication method preference for collectors. directOnly and interactiveOnly restrict to a single method, all accepts both, directPreferred and interactivePreferred accept both with a preference.',
-                    enum: ['directOnly', 'directPreferred', 'letUserDecide', 'interactiveOnly', 'interactivePreferred'],
+                    description: 'The customer authentication method preference for collectors. secretsOnly and interactiveOnly restrict to a single method, all accepts both, secretsPreferred and interactivePreferred accept both with a preference.',
+                    enum: ['secretsOnly', 'secretsPreferred', 'letUserDecide', 'interactiveOnly', 'interactivePreferred'],
                     example: 'interactivePreferred'
                 },
                 displaySketchCollectors: {
@@ -298,7 +298,7 @@ const SWAGGER_DEFINITION = {
                             additionalProperties: { $ref: '#/components/schemas/collectorParam' },
                         },
                         captcha: { type: 'string', description: 'Captcha used by the collector.', enum: ['none', 'cloudflare', 'datadome', 'recaptcha', 'other'], example: 'cloudflare' },
-                        authenticationMethod: { type: 'string', description: 'The authentication methods supported by this collector.', enum: ['directOnly', 'interactiveOnly', 'all'], example: 'all' },
+                        authenticationMethod: { type: 'string', description: 'The authentication methods supported by this collector.', enum: ['secretsOnly', 'interactiveOnly', 'all'], example: 'all' },
                         state: { type: 'string', description: 'State of the collector.', enum: ['planned', 'development', 'active'], example: 'active' },
                         loginUrl: { type: 'string', description: 'URL to the login page of the collector. For collectors of type sketch, web and agent only.', example: 'https://www.mycollector.com/login' },
                         entryUrl: { type: 'string', description: 'URL to the invoices page of the collector. For collectors of type web and agent only.', example: 'https://www.mycollector.com/customer/invoices' },

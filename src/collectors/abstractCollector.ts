@@ -33,7 +33,7 @@ export enum CollectorCaptcha {
 
 // Authentication methods supported by a collector
 export enum CollectorAuthenticationMethod {
-    DIRECT_ONLY = 'directOnly',
+    SECRETS_ONLY = 'secretsOnly',
     INTERACTIVE_ONLY = 'interactiveOnly',
     ALL = 'all'
 }
@@ -101,17 +101,17 @@ export abstract class AbstractCollector<C extends Config> {
         // Get collector authentication method (collectors without the field only support direct login)
         const collectorAuthenticationMethod = ('authenticationMethod' in config
             ? (config as any).authenticationMethod
-            : CollectorAuthenticationMethod.DIRECT_ONLY) as CollectorAuthenticationMethod;
+            : CollectorAuthenticationMethod.SECRETS_ONLY) as CollectorAuthenticationMethod;
 
         // Compute methods supported by the collector
-        const collectorSupportsDirect = collectorAuthenticationMethod === CollectorAuthenticationMethod.DIRECT_ONLY
+        const collectorSupportsDirect = collectorAuthenticationMethod === CollectorAuthenticationMethod.SECRETS_ONLY
             || collectorAuthenticationMethod === CollectorAuthenticationMethod.ALL;
         const collectorSupportsInteractive = collectorAuthenticationMethod === CollectorAuthenticationMethod.INTERACTIVE_ONLY
             || collectorAuthenticationMethod === CollectorAuthenticationMethod.ALL;
 
         // Compute methods accepted by the customer
         const customerAcceptsDirect = customerAuthenticationMethod !== CustomerAuthenticationMethod.INTERACTIVE_ONLY;
-        const customerAcceptsInteractive = customerAuthenticationMethod !== CustomerAuthenticationMethod.DIRECT_ONLY;
+        const customerAcceptsInteractive = customerAuthenticationMethod !== CustomerAuthenticationMethod.SECRETS_ONLY;
 
         // Compute which methods are possible for both the collector and the customer
         const canDirect = collectorSupportsDirect && customerAcceptsDirect;
@@ -130,7 +130,7 @@ export abstract class AbstractCollector<C extends Config> {
         }
         // Both methods available: resolve using the customer preference
         switch (customerAuthenticationMethod) {
-            case CustomerAuthenticationMethod.DIRECT_PREFERRED:
+            case CustomerAuthenticationMethod.SECRETS_PREFERRED:
                 return ResolvedAuthenticationMethod.DIRECT;
             case CustomerAuthenticationMethod.INTERACTIVE_PREFERRED:
                 return ResolvedAuthenticationMethod.INTERACTIVE;

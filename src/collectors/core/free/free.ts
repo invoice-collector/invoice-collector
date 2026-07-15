@@ -31,7 +31,7 @@ export class FreeCollector extends LinearWebCollector {
         loginUrl: "https://subscribe.free.fr/login/",
         entryUrl: "https://adsl.free.fr/facture_liste.pl",
         captcha: CollectorCaptcha.NONE,
-        authenticationMethod: CollectorAuthenticationMethod.DIRECT_ONLY
+        authenticationMethod: CollectorAuthenticationMethod.SECRETS_ONLY
     }
 
     constructor() {

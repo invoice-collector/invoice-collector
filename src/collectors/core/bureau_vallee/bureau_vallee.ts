@@ -32,7 +32,7 @@ export class BureauValleeCollector extends LinearWebCollector {
         loginUrl: "https://www.bureau-vallee.fr/customer/account/login",
         entryUrl: "https://www.bureau-vallee.fr/customer/invoices",
         captcha: CollectorCaptcha.NONE,
-        authenticationMethod: CollectorAuthenticationMethod.DIRECT_ONLY
+        authenticationMethod: CollectorAuthenticationMethod.SECRETS_ONLY
     }
 
     constructor() {

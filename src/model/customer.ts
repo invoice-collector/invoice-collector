@@ -14,11 +14,11 @@ export enum Theme {
 
 // Authentication method preferences a customer can choose
 export enum CustomerAuthenticationMethod {
-    DIRECT_ONLY = 'directOnly',
-    INTERACTIVE_ONLY = 'interactiveOnly',
+    SECRETS_ONLY = 'secretsOnly',
+    SECRETS_PREFERRED = 'secretsPreferred',
     LET_USER_DECIDE = 'letUserDecide',
-    DIRECT_PREFERRED = 'directPreferred',
-    INTERACTIVE_PREFERRED = 'interactivePreferred'
+    INTERACTIVE_PREFERRED = 'interactivePreferred',
+    INTERACTIVE_ONLY = 'interactiveOnly'
 }
 
 export interface CustomerStats {

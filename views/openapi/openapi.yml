@@ -154,12 +154,12 @@ components:
     authenticationMethod:
       type: string
       description: The customer authentication method preference for collectors.
-        directOnly and interactiveOnly restrict to a single method, all accepts
-        both, directPreferred and interactivePreferred accept both with a
+        secretsOnly and interactiveOnly restrict to a single method, all accepts
+        both, secretsPreferred and interactivePreferred accept both with a
         preference.
       enum:
-        - directOnly
-        - directPreferred
+        - secretsOnly
+        - secretsPreferred
         - letUserDecide
         - interactiveOnly
         - interactivePreferred
@@ -423,7 +423,7 @@ components:
           type: string
           description: The authentication methods supported by this collector.
           enum:
-            - directOnly
+            - secretsOnly
             - interactiveOnly
             - all
           example: all
