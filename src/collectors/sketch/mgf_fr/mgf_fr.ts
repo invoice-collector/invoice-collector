@@ -9,7 +9,7 @@ export class MgfCollector extends SketchCollector {
         description: "i18n.collectors.mgf_fr.description",
         version: "0",
         website: "https://www.mgf-info.fr",
-        logo: "https://www.mgf-info.fr/pub/media/logo/websites/1/MGF_133x60.png",
+        logo: "https://www.mgf-info.fr/static/version1783690429/frontend/Mgf/default/fr_FR/images/logo.svg",
         type: CollectorType.SKETCH,
         params: {
             email: {

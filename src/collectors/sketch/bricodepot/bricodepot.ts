@@ -9,7 +9,7 @@ export class BricoDepotCollector extends SketchCollector {
         description: "i18n.collectors.bricodepot.description",
         version: "0",
         website: "https://bricodepot.fr",
-        logo: "https://upload.wikimedia.org/wikipedia/commons/f/fe/Bricodepot.svg",
+        logo: "https://upload.wikimedia.org/wikipedia/commons/8/84/Brico_Depot_logo_2021.svg",
         type: CollectorType.SKETCH,
         params: {
             email: {

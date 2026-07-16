@@ -9,7 +9,7 @@ export class RadiusFuelCollector extends SketchCollector {
         description: "i18n.collectors.radiusfuel.description",
         version: "0",
         website: "https://www.radiusfuelsolutions.com",
-        logo: "https://www.adamphones.com/wp-content/uploads/2020/02/radius-products-radius-fuel-solutions.png",
+        logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQP8_og-5R0TyNTSImEECDOIyo6yV62_o2Nd0vl-B0MnA&s=10",
         type: CollectorType.SKETCH,
         params: {
             email: {
