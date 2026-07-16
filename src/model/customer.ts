@@ -9,7 +9,8 @@ import { Callback } from "./callback";
 
 export enum Theme {
     DEFAULT = 'default',
-    OCEAN = 'ocean'
+    OCEAN = 'ocean',
+    DARK = 'dark'
 }
 
 // Authentication method preferences a customer can choose
