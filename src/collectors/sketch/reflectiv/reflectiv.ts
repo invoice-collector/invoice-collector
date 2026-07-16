@@ -1,6 +1,5 @@
 import { SketchCollector } from '../../sketchCollector';
 import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
-import { log } from 'console';
 
 export class ReflectivCollector extends SketchCollector {
 
@@ -10,7 +9,7 @@ export class ReflectivCollector extends SketchCollector {
         description: "i18n.collectors.reflectiv.description",
         version: "0",
         website: "https://www.reflectiv.com",
-        logo: "https://www.reflectiv.com/img/reflectiv-logo-1639737546.jpg",
+        logo: "https://www.reflectiv.com/logo.svg",
         type: CollectorType.SKETCH,
         params: {
             email: {

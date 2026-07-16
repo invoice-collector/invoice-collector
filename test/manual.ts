@@ -130,7 +130,7 @@ function getHashFromSecret(secret: Secret): string {
             collector = await CollectorLoader.get(credential.collector_id);
 
             // Ask user if he wants to test interactive login
-            authenticationMethod = prompt(`Use interactive login (y/n)? (default y): `).toLowerCase().startsWith('y') ? CustomerAuthenticationMethod.INTERACTIVE_PREFERRED : CustomerAuthenticationMethod.DIRECT_ONLY;
+            authenticationMethod = prompt(`Use interactive login (y/n)? (default y): `).toLowerCase().startsWith('y') ? CustomerAuthenticationMethod.INTERACTIVE_PREFERRED : CustomerAuthenticationMethod.SECRETS_ONLY;
             // Update collector params based on customer settings
             AbstractCollector.updateCollectorParams(authenticationMethod, collector.config);
 
@@ -145,7 +145,7 @@ function getHashFromSecret(secret: Secret): string {
             collector = await CollectorLoader.get(id);
 
             // Ask user if he wants to test interactive login
-            authenticationMethod = prompt(`Use interactive login (y/n)? (default y): `).toLowerCase().startsWith('y') ? CustomerAuthenticationMethod.INTERACTIVE_PREFERRED : CustomerAuthenticationMethod.DIRECT_ONLY;
+            authenticationMethod = prompt(`Use interactive login (y/n)? (default y): `).toLowerCase().startsWith('y') ? CustomerAuthenticationMethod.INTERACTIVE_PREFERRED : CustomerAuthenticationMethod.SECRETS_ONLY;
             // Update collector params based on customer settings
             AbstractCollector.updateCollectorParams(authenticationMethod, collector.config);
 

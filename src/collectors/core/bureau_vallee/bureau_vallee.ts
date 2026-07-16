@@ -13,7 +13,7 @@ export class BureauValleeCollector extends LinearWebCollector {
         description: "i18n.collectors.bureau_vallee.description",
         version: "14",
         website: "https://www.bureau-vallee.fr",
-        logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Logo-bureau-vallee-2021.png/320px-Logo-bureau-vallee-2021.png",
+        logo: "https://upload.wikimedia.org/wikipedia/commons/3/32/Logo-bureau-vallee-2021.png",
         type: CollectorType.WEB,
         params: {
             id: {

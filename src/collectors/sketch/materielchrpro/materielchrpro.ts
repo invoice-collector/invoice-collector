@@ -1,6 +1,5 @@
 import { SketchCollector } from '../../sketchCollector';
 import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
-import { log } from 'console';
 
 export class MaterielChrProCollector extends SketchCollector {
 
@@ -10,7 +9,7 @@ export class MaterielChrProCollector extends SketchCollector {
         description: "i18n.collectors.materielchrpro.description",
         version: "0",
         website: "https://www.materiel-chr-pro.com",
-        logo: "https://www.materiel-chr-pro.com/static/version1761822080/frontend/MaterielCHR/materielchr/fr_FR/images/logo.svg",
+        logo: "https://www.materiel-chr-pro.com/static/version1784194285/frontend/Chr/default/fr_FR/images/logo.svg",
         type: CollectorType.SKETCH,
         params: {
             email: {

@@ -1,6 +1,5 @@
 import { SketchCollector } from '../../sketchCollector';
 import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
-import { log } from 'console';
 
 export class SumUpCollector extends SketchCollector {
 

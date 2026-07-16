@@ -8,8 +8,8 @@ export class AelBureautiqueCollector extends SketchCollector {
         name: "Ael bureautique",
         description: "i18n.collectors.aelbureautique.description",
         version: "0",
-        website: "https://aelbureautique.fournituredebureau.net",
-        logo: "https://aelbureautique.fournituredebureau.net/INTERSHOP/static/WFS/ADVEO-6019898-Site/-/ADVEO-6019898/fr_FR/logo/logo-ael-bureautique.jpg",
+        website: "https://aelbureautique.com/",
+        logo: "https://aelbureautique.com/IMG/logo/logo-ael.svg",
         type: CollectorType.SKETCH,
         params: {
             email: {
