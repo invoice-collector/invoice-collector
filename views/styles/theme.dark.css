@@ -8,31 +8,34 @@
    =================================== */
 
 :root {
+  /* Font */
+  --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
   /* Background & Text */
   --bg: #ffffff;
-  --text: #1d1d1b;
-  --text-secondary: #1d1d1b;
+  --text: #050505;
+  --text-secondary: #050505;
   --muted: #6c6c6c;
   --placeholder: #a0a0a0;
 
-  /* Primary - Qonto Black */
-  --primary: #1d1d1b;
-  --primary-hover: #000000;
-  --primary-gradient: #1d1d1b;
+  /* Primary - Black */
+  --primary: #050505;
+  --primary-hover: #1d1d1beb;
+  --primary-gradient: #050505;
   --primary-focus: rgba(29, 29, 27, 0.15);
-  --label-focus: #1d1d1b;
+  --label-focus: #050505;
 
   /* Secondary */
-  --secondary: #f5f4f2;
-  --secondary-hover: #ecebe8;
+  --secondary: #ffffff;
+  --secondary-hover: #1d1d1b14;
 
-  /* Accent - Qonto Purple */
-  --accent: #1d1d1b;
+  /* Accent - Purple */
+  --accent: #050505;
   --accent-light: #632879;
 
   /* Cards */
   --card: #ffffff;
-  --card-border: rgba(0, 0, 0, 0.12);
+  --card-border: #050505;
   --card-border-default: rgba(0, 0, 0, 0.2);
   --card-special: #ffffff;
   --card-special-hover: #f5f4f2;
@@ -81,7 +84,7 @@
   --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.2);
 
   /* Border Radius */
-  --radius: 8px;
+  --radius: .5rem;
   --radius-lg: 10px;
   --radius-xl: 16px;
   --radius-full: 9999px;
@@ -107,7 +110,7 @@ html {
 }
 
 body {
-  font-family: 'QontoSans', sans-serif;
+  font-family: var(--font);
   line-height: 1.42857143;
   font-size: var(--text-base);
   background-color: var(--bg);
@@ -155,7 +158,7 @@ body {
 }
 
 .ic-header-title {
-  font-family: 'QontoSans', sans-serif;
+  font-family: var(--font);
   font-size: 28px;
   font-weight: 700;
   color: var(--text);
@@ -229,6 +232,7 @@ body {
 
 .ic-card:hover {
   border: 1px solid var(--primary-hover);
+  background-color: var(--input-background-hover);
 }
 
 .ic-card--special {
@@ -260,7 +264,7 @@ body {
 }
 
 .ic-card-title {
-  font-family: 'QontoSans', sans-serif;
+  font-family: var(--font);
   font-size: 0.9rem;
   color: var(--primary);
   margin-bottom: 0;
@@ -400,7 +404,6 @@ body {
 .ic-button--primary:hover {
   background: var(--primary-hover);
   border-color: var(--primary-hover);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
 }
 
 .ic-button--primary:active {
@@ -408,14 +411,14 @@ body {
 }
 
 .ic-button--secondary {
-  background: #ffffff;
+  background: var(--secondary);
   color: var(--text);
   border: 1px solid var(--text);
   box-shadow: var(--shadow);
 }
 
 .ic-button--secondary:hover {
-  background: var(--secondary);
+  background: var(--primary);
   color: var(--text);
   border: 1px solid var(--text);
 }
@@ -800,8 +803,8 @@ body {
   margin-bottom: 1.5rem;
   padding: 0.5rem 1rem;
   transition: color 0.2s ease;
-  border-radius: var(--radius-full);
-  border: 1px solid var(--input-border);
+  border-radius: var(--radius);
+  border: 1px solid var(--primary);
   width: fit-content;
   margin-top: auto;
   margin-bottom: auto;
@@ -815,7 +818,6 @@ body {
 .ic-back-button:hover {
   color: var(--primary-hover);
   background-color: var(--input-background-hover);
-  border: 1px solid var(--primary-hover);
 }
 
 .ic-back-icon img {
@@ -865,7 +867,7 @@ body {
 }
 
 .ic-collector-info-name {
-  font-family: 'QontoSans', sans-serif;
+  font-family: var(--font);
   font-size: 22px;
   font-weight: 600;
   color: var(--primary);
@@ -912,7 +914,7 @@ body {
 }
 
 .ic-progress-card-title {
-  font-family: 'QontoSans', sans-serif;
+  font-family: var(--font);
   font-size: 22px;
   font-weight: 600;
   color: var(--text);
@@ -1158,7 +1160,7 @@ body {
 }
 
 .ic-modal-title {
-  font-family: 'QontoSans', sans-serif;
+  font-family: var(--font);
   font-size: 22px;
   font-weight: 600;
   color: var(--text);
