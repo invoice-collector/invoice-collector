@@ -12,7 +12,7 @@ export class LeroyMerlinCollector extends LinearWebCollector {
         id: "leroy_merlin",
         name: "Leroy Merlin",
         description: "i18n.collectors.leroy_merlin.description",
-        version: "21",
+        version: "22",
         website: "https://www.leroymerlin.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/a/a4/Leroy_Merlin_-_logo_%28France%2C_1995-%29.svg",
         type: CollectorType.WEB,
@@ -106,6 +106,11 @@ export class LeroyMerlinCollector extends LinearWebCollector {
         if (twofa_alert) {
             return await twofa_alert.textContent("i18n.collectors.all.2fa.error");
         }
+    }
+
+    async navigate(driver: Driver): Promise<void> {
+        // Refuse cookies
+        await driver.leftClick(LeroyMerlinSelectors.BUTTON_REFUSE_COOKIES, { raiseException: false, navigation: false });
     }
 
     async getInvoices(driver: Driver): Promise<Element[]> {
