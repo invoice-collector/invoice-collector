@@ -411,15 +411,10 @@ export class ErrorDisplayedAction extends ActionV2<RaiseErrorContext, RaiseError
     }
 
     canFollow(actions: ActionEnum[], previousAction: ActionEnum | null, secondPreviousAction: ActionEnum | null): boolean {
-        return (
-            previousAction === ActionEnum.LEFT_CLICK &&
-            (
-                secondPreviousAction === ActionEnum.INPUT_TEXT ||
-                secondPreviousAction === ActionEnum.INPUT_2FA_CODE
-            )
-        ) ||
-        previousAction === ActionEnum.INPUT_2FA_CODE ||
-        previousAction === ActionEnum.CUSTOM;
+        return previousAction !== ActionEnum.GET_INVOICES &&
+            previousAction !== ActionEnum.EXTRACT_INVOICE_DATA &&
+            previousAction !== ActionEnum.MIDDLE_CLICK &&
+            previousAction !== ActionEnum.INPUT_TEXT
     }
 }
 
@@ -598,6 +593,7 @@ export class GetInvoicesAction extends ActionV2<GetInvoicesInputContext, GetInvo
         return !actions.includes(ActionEnum.GET_INVOICES) &&
         (previousAction === ActionEnum.LEFT_CLICK ||
         previousAction === ActionEnum.NOOP ||
+        previousAction === ActionEnum.WAIT ||
         previousAction === ActionEnum.CUSTOM);
     }
 }
@@ -658,6 +654,7 @@ export class ErrorNoInvoicesAction extends ActionV2<ErrorNoInvoicesContext, Erro
     canFollow(actions: ActionEnum[], previousAction: ActionEnum | null, secondPreviousAction: ActionEnum | null): boolean {
         return previousAction === ActionEnum.LEFT_CLICK ||
         previousAction === ActionEnum.NOOP ||
+        previousAction === ActionEnum.WAIT ||
         previousAction === ActionEnum.CUSTOM;
     }
 }
