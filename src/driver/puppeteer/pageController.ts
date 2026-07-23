@@ -66,6 +66,29 @@ export async function pageController({
             }
         });
 
+        // Prevent the native Windows Hello / passkey dialogs (both the "save the
+        // private key" enrollment popup and the "sign in with a passkey / enter PIN"
+        // authentication popup) by rejecting the WebAuthn API. The site then falls
+        // back to password-based sign-in instead of triggering the OS dialog.
+        if (navigator.credentials) {
+            const rejectWebauthn = () =>
+                Promise.reject(new DOMException('Passkey disabled', 'NotAllowedError'));
+            if (navigator.credentials.create) {
+                navigator.credentials.create = rejectWebauthn;
+            }
+            if (navigator.credentials.get) {
+                navigator.credentials.get = rejectWebauthn;
+            }
+            // Report platform authenticator (Windows Hello) as unavailable so the site doesn't even offer the passkey path.
+            if ((window as any).PublicKeyCredential) {
+                (window as any).PublicKeyCredential.isUserVerifyingPlatformAuthenticatorAvailable =
+                    () => Promise.resolve(false);
+                if ((window as any).PublicKeyCredential.isConditionalMediationAvailable) {
+                    (window as any).PublicKeyCredential.isConditionalMediationAvailable =
+                        () => Promise.resolve(false);
+                }
+            }
+        }
     });
 
     const cursor = createCursor(page);
