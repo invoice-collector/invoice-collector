@@ -1,0 +1,53 @@
+# Dependencies
+node_modules
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Version control
+.git
+.gitignore
+.gitattributes
+
+# Build output
+dist
+build
+coverage
+*.tsbuildinfo
+
+# Editor / IDE
+.vscode
+.idea
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Environment / secrets
+.env
+.env.*
+*.pem
+*.key
+
+# Docker
+Dockerfile
+docker-compose*.yml
+.dockerignore
+
+# Logs
+logs
+*.log
+
+# Runtime / downloaded data (may contain special files that break the build context)
+media/download
+
+# Local MongoDB data directory
+.mongodb
+
+# Docs and misc dev-only assets
+images
+devscripts
+README.md
+LICENSE
