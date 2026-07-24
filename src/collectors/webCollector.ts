@@ -95,21 +95,39 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
 
             // Define what to do on click event
             webSocketServer.onClick = async (event: MessageClick) => {
-                await driver.page?.mouse.click(event.x, event.y);
+                try {
+                    await driver.page?.mouse.click(event.x, event.y);
+                } catch (err) {
+                    // The page may have been closed/navigated while dispatching the input.
+                    // Reject the promise to avoid crashing the process with an unhandled rejection.
+                    reject(new DisconnectedError('i18n.collectors.all.login.expired', this));
+                }
             };
             // Define what to do on keydown event
             webSocketServer.onKeydown = async (event: MessageKeydown) => {
-                // If key is a single character, type it, else press the key
-                if (event.key.length === 1){
-                    await driver.page?.keyboard.type(event.key);
-                }
-                else {
-                    await driver.page?.keyboard.press(event.key as KeyInput);
+                try {
+                    // If key is a single character, type it, else press the key
+                    if (event.key.length === 1){
+                        await driver.page?.keyboard.type(event.key);
+                    }
+                    else {
+                        await driver.page?.keyboard.press(event.key as KeyInput);
+                    }
+                } catch (err) {
+                    // The page may have been closed/navigated while dispatching the input.
+                    // Reject the promise to avoid crashing the process with an unhandled rejection.
+                    reject(new DisconnectedError('i18n.collectors.all.login.expired', this));
                 }
             };
             // Define what to do on text event
             webSocketServer.onText = async (event: MessageText) => {
-                await driver.page?.keyboard.type(event.text);
+                try {
+                    await driver.page?.keyboard.type(event.text);
+                } catch (err) {
+                    // The page may have been closed/navigated while dispatching the input.
+                    // Reject the promise to avoid crashing the process with an unhandled rejection.
+                    reject(new DisconnectedError('i18n.collectors.all.login.expired', this));
+                }
             };
             // Define what to do on interactive event
             webSocketServer.onInteractive = async (event) => {

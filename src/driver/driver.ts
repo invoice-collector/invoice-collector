@@ -135,26 +135,31 @@ export class Driver extends EventEmitter {
         await this.stopScreenCast();
 
         // Create CDP session on the current page
-        const cdp = await this.page.createCDPSession();
-        await cdp.send('Page.enable');
+        try {
+            const cdp = await this.page.createCDPSession();
+            await cdp.send('Page.enable');
 
-        // Listen for screencast frames and emit them as 'screenshot' events
-        cdp.on('Page.screencastFrame', async ({ data, sessionId }) => {
-            this.emit('screenshot', data, Driver.VIEWPORT_WIDTH, Driver.VIEWPORT_HEIGHT);
-            // Acknowledge frame
-            await cdp.send('Page.screencastFrameAck', { sessionId }).catch(() => {});
-        });
+            // Listen for screencast frames and emit them as 'screenshot' events
+            cdp.on('Page.screencastFrame', async ({ data, sessionId }) => {
+                this.emit('screenshot', data, Driver.VIEWPORT_WIDTH, Driver.VIEWPORT_HEIGHT);
+                // Acknowledge frame
+                await cdp.send('Page.screencastFrameAck', { sessionId }).catch(() => {});
+            });
 
-        // Start screencast
-        await cdp.send('Page.startScreencast', {
-            format: 'jpeg',         // jpeg = smaller than png
-            quality: 100,           // 0–100
-            maxWidth: Driver.VIEWPORT_WIDTH,
-            maxHeight: Driver.VIEWPORT_HEIGHT,
-            everyNthFrame: 1        // increase to reduce FPS
-        });
+            // Start screencast
+            await cdp.send('Page.startScreencast', {
+                format: 'jpeg',         // jpeg = smaller than png
+                quality: 100,           // 0–100
+                maxWidth: Driver.VIEWPORT_WIDTH,
+                maxHeight: Driver.VIEWPORT_HEIGHT,
+                everyNthFrame: 1        // increase to reduce FPS
+            });
 
-        this.screencastCdp = cdp;
+            this.screencastCdp = cdp;
+        } catch (err) {
+            console.error('Remote target is gone, unable to start screencast');
+            await this.stopScreenCast();
+        }
     }
 
     async stopScreenCast(): Promise<void> {
