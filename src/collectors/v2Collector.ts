@@ -19,6 +19,7 @@ export abstract class V2Collector<C extends Config> extends AbstractCollector<C>
         secret: Secret,
         download_from_timestamp: number,
         previousInvoices: ModelInvoice[],
+        locale: string,
         location: Location | null,
         customerAuthenticationMethod: CustomerAuthenticationMethod
     ): Promise<CompleteInvoice[]> {
@@ -35,7 +36,16 @@ export abstract class V2Collector<C extends Config> extends AbstractCollector<C>
 
         try {
             // Get invoices
-            return await this._collect(state, webSocketServer, secret, download_from_timestamp, previousInvoices, location, useInteractiveLogin);
+            return await this._collect(
+                state,
+                webSocketServer,
+                secret,
+                download_from_timestamp,
+                previousInvoices,
+                locale,
+                location,
+                useInteractiveLogin
+            );
         }
         finally {
             // Close the collector resources
@@ -51,6 +61,7 @@ export abstract class V2Collector<C extends Config> extends AbstractCollector<C>
         secret: Secret,
         download_from_timestamp: number,
         previousInvoices: any[],
+        locale: string,
         location: Location | null,
         useInteractiveLogin: boolean
     ): Promise<CompleteInvoice[]>;

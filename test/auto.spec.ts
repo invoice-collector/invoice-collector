@@ -9,17 +9,17 @@ import { CollectorLoader } from '../src/collectors/collectorLoader';
 import { AuthenticationError } from '../src/error';
 import { State } from '../src/model/state';
 import { AbstractCollector, CollectorType, Config } from '../src/collectors/abstractCollector';
-import { TwofaPromise } from '../src/collect/twofaPromise';
 import * as utils from '../src/utils';
 import { I18n } from '../src/i18n';
 import { WebSocketServer } from '../src/websocket/webSocketServer';
-import { WebCollector } from '../src/collectors/webCollector';
 import { Secret } from '../src/model/secret';
+import { CustomerAuthenticationMethod } from '../src/model/customer';
 
 const id = process.argv[4] || null;
 const ONE_MINUTE = 60 * 1000;       // 1 minute in milliseconds
 const TWO_MINUTES = 2 * ONE_MINUTE; // 2 minutes in milliseconds
 const PORT = parseInt(utils.getEnvVar('PORT')) + 1;
+const LOCALE = "en";
 
 // Check if id is provided
 if (!id) {
@@ -114,13 +114,13 @@ for (const collectorConfig of await CollectorLoader.getAll()) {
                 // Collect invoices
                 await expect(collector.collect_new_invoices(
                     State.DEFAULT_STATE,
-                    new TwofaPromise(),
                     undefined,
                     secret,
                     Date.UTC(2000, 0, 1),
                     [],
+                    LOCALE,
                     null,
-                    false
+                    CustomerAuthenticationMethod.SECRETS_ONLY
                 ))
                     .rejects.toThrow(AuthenticationError);
             }, ONE_MINUTE);
@@ -138,13 +138,13 @@ for (const collectorConfig of await CollectorLoader.getAll()) {
                 // Collect invoices
                 await expect(collector.collect_new_invoices(
                     State.DEFAULT_STATE,
-                    new TwofaPromise(),
                     undefined,
                     secret,
                     Date.UTC(2000, 0, 1),
                     [],
+                    LOCALE,
                     null,
-                    false
+                    CustomerAuthenticationMethod.SECRETS_ONLY
                 ))
                     .rejects.toThrow(AuthenticationError);
             }, ONE_MINUTE);
@@ -162,13 +162,13 @@ for (const collectorConfig of await CollectorLoader.getAll()) {
                 // Collect invoices
                 await expect(collector.collect_new_invoices(
                     State.DEFAULT_STATE,
-                    new TwofaPromise(),
                     undefined,
                     secret,
                     Date.UTC(2000, 0, 1),
                     [],
+                    LOCALE,
                     null,
-                    false
+                    CustomerAuthenticationMethod.SECRETS_ONLY
                 ))
                     .rejects.toThrow(AuthenticationError);
             }, ONE_MINUTE);
@@ -190,13 +190,13 @@ for (const collectorConfig of await CollectorLoader.getAll()) {
 
                 await collector.collect_new_invoices(
                     State.DEFAULT_STATE,
-                    new TwofaPromise(),
                     webSocketServer,
                     secret,
                     Date.UTC(2000, 0, 1),
                     [],
+                    LOCALE,
                     null,
-                    false
+                    CustomerAuthenticationMethod.SECRETS_ONLY
                 );
 
                 // Assert cookies are not null
@@ -221,13 +221,13 @@ for (const collectorConfig of await CollectorLoader.getAll()) {
                 // Collect invoices
                 await collector.collect_new_invoices(
                     State.DEFAULT_STATE,
-                    new TwofaPromise(),
                     webSocketServer,
                     testSecret,
                     Date.UTC(2000, 0, 1),
                     [],
+                    LOCALE,
                     null,
-                    false
+                    CustomerAuthenticationMethod.SECRETS_ONLY
                 );
             }, TWO_MINUTES);
         });

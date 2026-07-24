@@ -57,9 +57,9 @@ export class Driver extends EventEmitter {
         this.screencastCdp = null;
     }
 
-    async open(proxy: Proxy | null = null) {
+    async open(locale: string, proxy: Proxy | null = null) {
         // Open browser and page
-        const { browser, page } = await BrowserFactory.connect(this.collector.config.remoteBrowser || false, proxy);
+        const { browser, page } = await BrowserFactory.connect(this.collector.config.remoteBrowser || false, locale, proxy);
         this.browser = browser;
         this.page = page;
         this.proxy = proxy;
@@ -165,14 +165,14 @@ export class Driver extends EventEmitter {
         }
     }
 
-    async update(proxy: Proxy | null = null): Promise<void> {
+    async update(locale: string, proxy: Proxy | null = null): Promise<void> {
         const currentUrl = this.url();
         const cookies = (currentUrl && currentUrl.startsWith('http')) ? await this.getCookies([]) : null;
         const localStorage = (currentUrl && currentUrl.startsWith('http')) ? await this.getLocalStorage([]) : null;
         // Close old browser
         await this.close();
         // Open new browser
-        await this.open(proxy);
+        await this.open(locale, proxy);
         if (currentUrl && currentUrl.startsWith('http')) {
             await this.setCookies(cookies);
             await this.setLocalStorage(localStorage);

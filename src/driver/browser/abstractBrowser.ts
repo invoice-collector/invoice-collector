@@ -31,9 +31,9 @@ export abstract class AbstractBrowser {
   static PARENT_DOWNLOAD_PATH = path.resolve(__dirname, '../../media/download');
   protected static instanceCounter = 0;
 
-  private getPuppeteerConfig(downloadPath: string): Options {
+  private getPuppeteerConfig(locale: string): Options {
       return {
-          args: ["--start-maximized"],
+          args: ["--start-maximized", `--lang=${locale}`],
           turnstile: true,
           headless: false,
           customConfig: {
@@ -86,12 +86,13 @@ export abstract class AbstractBrowser {
   }
 
   async connect(
+    locale: string,
     proxy: Proxy | null
   ): Promise<PageWithCursor> {
     const dynamicImport = new Function('specifier', 'return import(specifier)');
     const { Launcher } = await dynamicImport('chrome-launcher');
 
-    let puppeteerConfig = this.getPuppeteerConfig(this.downloadPath);
+    let puppeteerConfig = this.getPuppeteerConfig(locale);
 
     if (process.platform === "linux" && puppeteerConfig.disableXvfb === false && !xvfbsession) {
       try {

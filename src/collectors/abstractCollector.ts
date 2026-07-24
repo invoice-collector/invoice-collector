@@ -178,6 +178,7 @@ export abstract class AbstractCollector<C extends Config> {
         secret: Secret,
         download_from_timestamp: number,
         previousInvoices: ModelInvoice[],
+        locale: string,
         location: Location | null,
         customerAuthenticationMethod: CustomerAuthenticationMethod
     ): Promise<CompleteInvoice[]>;

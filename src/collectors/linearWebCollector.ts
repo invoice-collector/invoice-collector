@@ -27,6 +27,7 @@ export abstract class LinearWebCollector extends WebCollector {
         secret: Secret,
         download_from_timestamp: number,
         previousInvoices: any[],
+        locale: string,
         location: Location | null,
         useInteractiveLogin: boolean
     ): Promise<CompleteInvoice[]> {
@@ -39,7 +40,7 @@ export abstract class LinearWebCollector extends WebCollector {
         // Start browser and page
         let driver = new Driver(this);
         this.driver = driver;
-        await driver.open(proxy);
+        await driver.open(locale, proxy);
 
         // Set cookies
         await driver.setCookies(await secret.getCookies());
@@ -72,7 +73,7 @@ export abstract class LinearWebCollector extends WebCollector {
                         const proxy = await ProxyFactory.getProxy().get(location);
                         // Open new driver with proxy
                         driver = new Driver(this);
-                        await driver.open(proxy);
+                        await driver.open(locale, proxy);
                         // Transfer cookies, localStorage and url to new driver
                         await driver.setCookies(await this.driver.getCookies([]));
                         await driver.setLocalStorage(await this.driver.getLocalStorage([]));
@@ -147,7 +148,7 @@ export abstract class LinearWebCollector extends WebCollector {
                         const proxy = await ProxyFactory.getProxy().get(location);
                         // Open new driver with proxy
                         driver = new Driver(this);
-                        await driver.open(proxy);
+                        await driver.open(locale, proxy);
                         // Close old driver
                         await this.driver.close();
                         // Replace driver instance variable with new driver
