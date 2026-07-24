@@ -9,11 +9,11 @@ export class CollectorLoader {
     private static collectors: Map<string, {config: Config, file: string}> = new Map();
 
     static async load(filter: string | null = null): Promise<Map<string, {config: Config, file: string}>> {
-        //await this.loadFolders("sketch", "sketch", filter)
+        await this.loadFolders("sketch", "sketch", filter)
         await this.loadFolders("community", "community", filter)
         await this.loadFolders("core", "core", filter)
         await this.loadFolders("premium", "../premium/collectors/premium", filter)
-        //await this.loadFolders("graph", "../premium/collectors/graph", filter)
+        await this.loadFolders("graph", "../premium/collectors/graph", filter)
 
         //Order collectors by id
         CollectorLoader.collectors = new Map([...CollectorLoader.collectors.entries()]
