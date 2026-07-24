@@ -86,48 +86,38 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
             throw new DisconnectedError('i18n.collectors.all.login.expired', this);
         }
 
+        // Handler used to reject the interactive promise if the screencast fails to (re)start
+        let onScreencastError: ((err: unknown) => void) | undefined;
+
         const interactiveEndPromise = new Promise<void>((resolve, reject) => {
             // Define timeout
             setTimeout(() => {
                 reject(new AuthenticationError('i18n.collectors.all.login.timeout', this))
             }, WebCollector.LOGIN_TIMEOUT_MS)
 
+            // Reject if the screencast could not be started (e.g. the target was destroyed)
+            onScreencastError = () => {
+                reject(new DisconnectedError('i18n.collectors.all.login.error', this));
+            };
+            driver.on('screencast_error', onScreencastError);
 
             // Define what to do on click event
             webSocketServer.onClick = async (event: MessageClick) => {
-                try {
-                    await driver.page?.mouse.click(event.x, event.y);
-                } catch (err) {
-                    // The page may have been closed/navigated while dispatching the input.
-                    // Reject the promise to avoid crashing the process with an unhandled rejection.
-                    reject(new DisconnectedError('i18n.collectors.all.login.expired', this));
-                }
+                await driver.page?.mouse.click(event.x, event.y);
             };
             // Define what to do on keydown event
             webSocketServer.onKeydown = async (event: MessageKeydown) => {
-                try {
-                    // If key is a single character, type it, else press the key
-                    if (event.key.length === 1){
-                        await driver.page?.keyboard.type(event.key);
-                    }
-                    else {
-                        await driver.page?.keyboard.press(event.key as KeyInput);
-                    }
-                } catch (err) {
-                    // The page may have been closed/navigated while dispatching the input.
-                    // Reject the promise to avoid crashing the process with an unhandled rejection.
-                    reject(new DisconnectedError('i18n.collectors.all.login.expired', this));
+                // If key is a single character, type it, else press the key
+                if (event.key.length === 1){
+                    await driver.page?.keyboard.type(event.key);
+                }
+                else {
+                    await driver.page?.keyboard.press(event.key as KeyInput);
                 }
             };
             // Define what to do on text event
             webSocketServer.onText = async (event: MessageText) => {
-                try {
-                    await driver.page?.keyboard.type(event.text);
-                } catch (err) {
-                    // The page may have been closed/navigated while dispatching the input.
-                    // Reject the promise to avoid crashing the process with an unhandled rejection.
-                    reject(new DisconnectedError('i18n.collectors.all.login.expired', this));
-                }
+                await driver.page?.keyboard.type(event.text);
             };
             // Define what to do on interactive event
             webSocketServer.onInteractive = async (event) => {
@@ -139,7 +129,7 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
                         resolve();
                         break;
                     case 'cancel':
-                        reject(new DisconnectedError('i18n.collectors.all.login.expired', this));
+                        reject(new DisconnectedError('i18n.collectors.all.login.error', this));
                         break;
                     case 'remove':
                         reject(new RemoveError(this));
@@ -171,6 +161,9 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
             await interactiveEndPromise;
         } finally {
             driver.off('screenshot', onScreenshot);
+            if (onScreencastError) {
+                driver.off('screencast_error', onScreencastError);
+            }
             await driver.stopScreenCast();
         }
     }

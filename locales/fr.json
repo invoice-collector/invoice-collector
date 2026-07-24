@@ -345,6 +345,7 @@
   "i18n.collectors.all.identifier.error": "Identifiant incorrect",
   "i18n.collectors.all.identifier.placeholder": "Identifiant de connexion",
   "i18n.collectors.all.login.cancel": "Vous avez annulé l'ajout du collecteur",
+  "i18n.collectors.all.login.error": "Une erreur est survenue lors de la connexion. Reconnectez le compte pour réessayer.",
   "i18n.collectors.all.login.expired": "Votre compte à été déconnecté. Reconnectez le pour continuer à recevoir vos factures automatiquement.",
   "i18n.collectors.all.login.timeout": "Temps de connexion écoulé. Veuillez réessayer.",
   "i18n.collectors.all.missing_param": "Un paramètre requis est manquant. Veuillez créer un nouveau collecteur et supprimer celui-ci.",

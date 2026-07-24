@@ -159,6 +159,8 @@ export class Driver extends EventEmitter {
         } catch (err) {
             console.error('Remote target is gone, unable to start screencast');
             await this.stopScreenCast();
+            // Notify listeners (e.g. the interactive session) that the screencast could not be started
+            this.emit('screencast_error', err);
         }
     }
 
