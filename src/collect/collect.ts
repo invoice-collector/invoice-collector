@@ -83,6 +83,7 @@ export class Collect {
                     secret,
                     credential.download_from_timestamp,
                     credential.invoices,
+                    user.locale,
                     user.location,
                     customer.authenticationMethod
                 );

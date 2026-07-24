@@ -23,6 +23,7 @@ import { Secret } from '../src/model/secret';
 import { CustomerAuthenticationMethod } from '../src/model/customer';
 
 const PORT = parseInt(utils.getEnvVar('PORT')) + 1;
+const LOCALE = "en";
 
 async function getCredentialFromId(credential_id: string): Promise<Credential> {
     const credential = await DatabaseFactory.getDatabase().getCredential(credential_id);
@@ -233,6 +234,7 @@ function getHashFromSecret(secret: Secret): string {
             secret,
             Date.UTC(2000, 0, 1),
             [],
+            LOCALE,
             null,
             authenticationMethod
         );
@@ -289,6 +291,7 @@ function getHashFromSecret(secret: Secret): string {
             secret,
             Date.now(),
             [],
+            LOCALE,
             null,
             authenticationMethod
         );
@@ -323,6 +326,7 @@ function getHashFromSecret(secret: Secret): string {
             secret,
             Date.UTC(2000, 0, 1),
             modelInvoices,
+            LOCALE,
             null,
             authenticationMethod
         );
