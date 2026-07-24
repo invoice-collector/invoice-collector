@@ -33,7 +33,7 @@ export abstract class AbstractBrowser {
 
   private getPuppeteerConfig(locale: string): Options {
       return {
-          args: ["--start-maximized", `--lang=${locale}`],
+          args: ["--start-maximized", `--lang=${locale}`, `--accept-lang=${locale}`],
           turnstile: true,
           headless: false,
           customConfig: {
@@ -164,6 +164,7 @@ export abstract class AbstractBrowser {
       page,
       proxy,
       turnstile: puppeteerConfig.turnstile,
+      locale
     };
 
     let pageWithCursor = await pageController({

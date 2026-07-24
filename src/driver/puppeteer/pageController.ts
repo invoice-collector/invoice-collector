@@ -15,6 +15,7 @@ export interface PageControllerOptions {
     proxy: Proxy | null,
     turnstile: boolean,
     killProcess: boolean,
+    locale: string,
     abstractBrowser?: AbstractBrowser
 };
 
@@ -24,6 +25,7 @@ export async function pageController({
     proxy,
     turnstile,
     killProcess = false,
+    locale,
     abstractBrowser
 }: PageControllerOptions): Promise<PageWithCursor> {
 
@@ -32,7 +34,6 @@ export async function pageController({
     page.on('close', () => {
         solveStatus = false
     });
-
 
     browser.on('disconnected', async () => {
         solveStatus = false
@@ -48,6 +49,11 @@ export async function pageController({
         }
         return
     }
+
+    // Define locale on new page
+    await page.setExtraHTTPHeaders({
+        'Accept-Language': `${locale},${locale.split('-')[0]};q=0.9,en;q=0.8`,
+    });
 
     captchaSolver()
 
