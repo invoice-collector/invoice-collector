@@ -794,6 +794,7 @@ export type MiddleClickArgs = {
     cssSelector?: string;
     raiseException?: boolean;
     timeout?: number;
+    useFallbackMethod?: boolean;
 }
 
 export class MiddleClickAction extends ActionV2<MiddleClickContext, MiddleClickArgs, MiddleClickContext> {
@@ -836,7 +837,7 @@ export class MiddleClickAction extends ActionV2<MiddleClickContext, MiddleClickA
         
         try {
             // Perform middle click
-            await element.middleClick({ timeout: this.args.timeout });
+            await element.middleClick({ timeout: this.args.timeout, useFallbackMethod: this.args.useFallbackMethod });
         } catch (error) {
             // If error occurs, it may be because middle click is not supported and a simple click was already performed
         }
