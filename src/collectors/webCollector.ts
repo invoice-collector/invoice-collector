@@ -86,12 +86,20 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
             throw new DisconnectedError('i18n.collectors.all.login.expired', this);
         }
 
+        // Handler used to reject the interactive promise if the screencast fails to (re)start
+        let onScreencastError: ((err: unknown) => void) | undefined;
+
         const interactiveEndPromise = new Promise<void>((resolve, reject) => {
             // Define timeout
             setTimeout(() => {
                 reject(new AuthenticationError('i18n.collectors.all.login.timeout', this))
             }, WebCollector.LOGIN_TIMEOUT_MS)
 
+            // Reject if the screencast could not be started (e.g. the target was destroyed)
+            onScreencastError = () => {
+                reject(new DisconnectedError('i18n.collectors.all.login.error', this));
+            };
+            driver.on('screencast_error', onScreencastError);
 
             // Define what to do on click event
             webSocketServer.onClick = async (event: MessageClick) => {
@@ -153,6 +161,9 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
             await interactiveEndPromise;
         } finally {
             driver.off('screenshot', onScreenshot);
+            if (onScreencastError) {
+                driver.off('screencast_error', onScreencastError);
+            }
             await driver.stopScreenCast();
         }
     }
