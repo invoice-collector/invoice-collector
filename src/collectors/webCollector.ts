@@ -129,7 +129,7 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
                         resolve();
                         break;
                     case 'cancel':
-                        reject(new DisconnectedError('i18n.collectors.all.login.error', this));
+                        reject(new DisconnectedError('i18n.collectors.all.login.expired', this));
                         break;
                     case 'remove':
                         reject(new RemoveError(this));
