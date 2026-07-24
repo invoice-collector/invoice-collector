@@ -1,4 +1,3 @@
-
 import { SketchCollector } from '../../sketchCollector';
 import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 
@@ -8,7 +7,7 @@ export class IndigoNeoCollector extends SketchCollector {
         id: "indigo_neo",
         name: "Indigo NEO",
         description: "i18n.collectors.indigo_neo.description",
-        version: "0",
+        version: "1",
         website: "https://www.indigoneo.fr/fr/account/informations",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2732072.jpg",
         type: CollectorType.SKETCH,
@@ -27,6 +26,7 @@ export class IndigoNeoCollector extends SketchCollector {
             }
         },
         loginUrl: "https://www.indigoneo.fr/fr/account/informations",
+        entryUrl: "https://www.indigoneo.fr/fr/account/orders",
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.PLANNED
