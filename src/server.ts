@@ -108,15 +108,30 @@ export class Server {
     }
 
     // TOKEN AUTHENTICATION
-    public async get_ui(token: any): Promise<{locale: string, theme: string}> {
+    public async get_ui(token: any): Promise<{
+        collectors: Config[],
+        locale: string,
+        theme: string
+    }> {
         // Get user from token
         const user = this.getUserFromUiToken(token);
 
         // Get customer from user
         const customer = await user.getCustomer();
 
-        // Return locale and theme for UI rendering
-        return { locale: user.locale, theme: customer.theme };
+        // Get collectors
+        const collectors = await this.get_collectors(
+            undefined,
+            token,
+            user.locale
+        );
+
+        // Return collectors, locale and theme
+        return {
+            collectors: collectors,
+            locale: user.locale,
+            theme: customer.theme
+        };
     }
 
     // TOKEN AUTHENTICATION

@@ -23,45 +23,6 @@ let currentWebSocket = null; // WebSocket actif
 
 ## Fonctions API
 
-### getCollectors()
-
-**Rôle** : Récupère la liste des collecteurs disponibles
-
-```javascript
-async function getCollectors() {
-    const response = await fetch(`collectors?locale=${locale}&token=${token}`);
-    return await response.json();
-}
-```
-
-**Retour** : Array d'objets collecteur
-
-```javascript
-{
-    id: 'collector-id',
-    name: 'Nom du collecteur',
-    description: 'Description',
-    logo: '/path/to/logo.png',
-    state: 'active' | 'development' | 'maintenance',
-    type: 'default' | 'sketch',
-    instructions: 'Instructions optionnelles',
-    params: {
-        email: {
-            name: 'Email',
-            type: 'text',
-            placeholder: 'exemple@email.com',
-            mandatory: true
-        },
-        password: {
-            name: 'Mot de passe',
-            type: 'password',
-            placeholder: '••••••••',
-            mandatory: true
-        }
-    }
-}
-```
-
 ### post_send_feedback(body)
 
 **Rôle** : Envoie un feedback (demande de nouveau collecteur)

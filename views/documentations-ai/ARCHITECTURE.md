@@ -111,7 +111,7 @@ let currentWebSocket // WebSocket actif
 | Section | Fonctions | Rôle |
 |---------|-----------|------|
 | Initialization | DOMContentLoaded | Setup initial |
-| API Functions | `getCollectors()`, `post_send_feedback()`, `deleteCredential()` | Appels serveur |
+| API Functions | `post_send_feedback()`, `deleteCredential()` | Appels serveur |
 | Navigation | `closeIframe()`, `showCompanies()`, `showFeedback()` | Navigation entre sections |
 | Companies | `filterCompanies()`, `searchCollectorsWithScore()`, `renderCompanies()` | Gestion liste collecteurs |
 | Form | `showForm()`, `addCredential()` | Gestion formulaire |
