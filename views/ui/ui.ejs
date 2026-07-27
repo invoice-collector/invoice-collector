@@ -374,7 +374,10 @@
          Internationalization & Script Loading
          ============================================ -->
 
-    <script>        
+    <script>
+        // Collectors
+        const companies = <%- JSON.stringify(collectors) %>;
+
         // Current locale
         const locale = "<%= locale %>";
         

@@ -8,7 +8,6 @@
 
 const token = new URLSearchParams(window.location.search).get('token');
 const collect_credential_id = new URLSearchParams(window.location.search).get('credential_id');
-let companies = [];
 let hit = [];
 let datepickerSince = null;
 let isSubmitting = false;
@@ -29,27 +28,15 @@ document.addEventListener('DOMContentLoaded', async () => {
     document.querySelector('#feedback-form select[name="collector_type"]').addEventListener('change', feedbackTypeChanged);
     document.getElementById('feedback-form').addEventListener('submit', sendFeedback);
     
-    getCollectors()
-        .then(c => {
-            companies = c;
-            if (!collect_credential_id) {
-                showCompanies();
-            }
-        })
-        .catch(error => {
-            console.error('Error getting the companies:', error);
-        });
+    if (!collect_credential_id) {
+        showCompanies();
+    }
 });
 
 
 /* ===================================
    API FUNCTIONS
    =================================== */
-
-async function getCollectors() {
-    const response = await fetch(`collectors?locale=${locale}&token=${token}`);
-    return await response.json();
-}
 
 async function post_send_feedback(body) {
     return await fetch(`feedback?token=${token}`, {

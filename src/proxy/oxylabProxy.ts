@@ -49,7 +49,8 @@ export class OxylabProxy extends AbstractProxy {
         for (const radius of OxylabProxy.RADIUS_ACCURACIES) {
             try {
                 await axios.get(OxylabProxy.LOCATION_URL, {
-                    httpsAgent: new HttpsProxyAgent(proxy.uri, {
+                    httpsAgent: new HttpsProxyAgent({
+                        path: proxy.uri,
                         headers: {
                             "X-Oxylabs-Geolocation": `${location.lat}:${location.lon};${radius}`
                         }
