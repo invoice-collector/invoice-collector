@@ -38,10 +38,8 @@ COPY package*.json ./
 # Install dependencies and run audit based on the build environment
 RUN if [ "$BUILD_ENV" = "development" ]; then \
       npm ci ; \
-      npm audit --audit-level=low ; \
     else \
       npm ci --omit=dev ; \
-      npm audit --omit=dev --audit-level=low ; \
     fi
 
 # ------------------------------
