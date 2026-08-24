@@ -344,7 +344,7 @@ function getHashFromSecret(secret: Secret): string {
         if (error instanceof LoggableError) {
             // Save screenshot if exists
             if (error.screenshot) {
-                fs.writeFileSync(`./media/${id}_screenshot.png`, Buffer.from(error.screenshot, 'base64'));
+                fs.writeFileSync(`./media/${id}_screenshot.png`, Buffer.from(error.screenshot.data, 'base64'));
             }
 
             // Save source code if exists

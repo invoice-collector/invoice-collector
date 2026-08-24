@@ -55,7 +55,7 @@ export class HttpAnalytics extends AbstractAnalytics {
             error: err.name,
             traceback: fullStackTrace(err),
             source_code: err.source_code,
-            screenshot: err.screenshot
+            screenshot: err.screenshot.data
         })
         .then(response => {
             console.log("Analytics server successfully reached");
