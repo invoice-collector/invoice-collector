@@ -1,6 +1,6 @@
 import { Config } from "./collectors/abstractCollector";
 import { AbstractCollector } from "./collectors/abstractCollector";
-import { Theme } from "./model/customer";
+import { Screenshot } from "./driver/driver";
 
 export function fullStackTrace(error: Error): string {
     let output = error.stack || "";
@@ -122,7 +122,7 @@ export class DisconnectedError extends CollectorError {
 export class LoggableError extends CollectorError {
     url: string;
     source_code: string;
-    screenshot: string;
+    screenshot: Screenshot;
 
     constructor(message: string, collector: AbstractCollector<Config>, opts = {}) {
         super(
@@ -133,7 +133,7 @@ export class LoggableError extends CollectorError {
         this.name = this.constructor.name;
         this.url = "";
         this.source_code = "";
-        this.screenshot = "";
+        this.screenshot = { data: "", width: 0, height: 0 };
     }
 }
 
