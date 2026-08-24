@@ -7,6 +7,12 @@ import { WebCollector } from '../collectors/webCollector';
 import { BrowserFactory } from './browser/browserFactory';
 import { AbstractBrowser } from './browser/abstractBrowser';
 
+export type Screenshot = {
+    data: string; // Base64 encoded image data
+    width: number;
+    height: number;
+}
+
 export class Driver extends EventEmitter {
 
     static DEFAULT_NAVIGATION_TIMEOUT = 30000;  // 30 seconds
@@ -591,11 +597,16 @@ export class Driver extends EventEmitter {
 
     // SCREENSHOT
 
-    async screenshot() {
+    async screenshot(): Promise<Screenshot> {
         if (this.page === null) {
             throw new Error('Page is not initialized.');
         }
-        return await this.page.screenshot({encoding: 'base64'});
+        const data = await this.page.screenshot({encoding: 'base64'});
+        return {
+            data,
+            width: this.page.viewport()?.width || Driver.VIEWPORT_WIDTH,
+            height: this.page.viewport()?.height || Driver.VIEWPORT_HEIGHT,
+        };
     }
 
     async downloadFile(url: string): Promise<string> {
