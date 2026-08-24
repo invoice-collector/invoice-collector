@@ -10,6 +10,14 @@ import { CollectorState, CollectorType, CompleteInvoice, Config } from './collec
 
 const FAKE_INVOICE_FILE = path.resolve(__dirname, '../data/fake_invoice.pdf');
 
+const MIMETYPE_BASE64_SIGNATURE = {
+    JVBERi0: "application/pdf",
+    ACVQREY: "application/pdf",
+    iVBORw0KGgo: "image/png",
+    "/9j/": "image/jpg",
+    "UEsDB": "application/zip"
+};
+
 export enum BearerType {
     CUSTOMER_SESSION = "c_sess",
     USER_SESSION = "u_sess",
@@ -83,16 +91,9 @@ export function mimetypeFromBase64(base64: string | null): string {
         return 'application/octet-stream';
     }
 
-    var signatures = {
-        JVBERi0: "application/pdf",
-        iVBORw0KGgo: "image/png",
-        "/9j/": "image/jpg",
-        "UEsDB": "application/zip"
-      };
-
-      for (var s in signatures) {
+    for (var s in MIMETYPE_BASE64_SIGNATURE) {
         if (base64.startsWith(s)) {
-            return signatures[s];
+            return MIMETYPE_BASE64_SIGNATURE[s];
         }
     }
 
