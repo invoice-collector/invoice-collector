@@ -1993,7 +1993,9 @@ app.delete('/api/v1/callback/:callbackId', async (req, res) => {
  *                     type: object
  *                     properties:
  *                       type:
- *                         $ref: '#/components/schemas/callbackType'
+ *                         allOf:
+ *                           - $ref: '#/components/schemas/callbackType'
+ *                         example: 'notification_disconnected'
  *                       credential_id:
  *                        $ref: '#/components/schemas/credentialId'
  *                       user_id:
