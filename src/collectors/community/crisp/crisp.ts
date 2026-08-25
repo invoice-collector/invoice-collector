@@ -83,12 +83,8 @@ export class CrispCollector extends LinearWebCollector {
     }
 
     async navigate(driver: Driver): Promise<void> {
-        // Crisp keeps websockets open at all time (wss://*.relay.crisp.chat),
-        // so the page never reaches the network idle state and waiting for it
-        // only burns the navigation timeout.
-        await driver.goto(this.config.entryUrl, { navigation: false });
-
-        // Wait for the list to be rendered
+        // The framework already opened `entryUrl`, only the SPA rendering the
+        // list is left to wait for
         await driver.getElement(CrispSelectors.CONTAINER_INVOICES_LIST);
     }
 
