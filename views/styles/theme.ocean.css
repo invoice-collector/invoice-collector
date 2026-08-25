@@ -379,6 +379,19 @@ body {
   background: var(--danger-bg);
   color: var(--danger-text);
 }
+.ic-card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  width: 100%;
+}
+
+.ic-card-actions .ic-button {
+  /* Les libelles sont en white-space: nowrap : sans base de flex les boutons
+     debordent de la carte. Ils passent a la ligne quand la place manque. */
+  flex: 1 1 9rem;
+}
 
 /* ===================================
    BUTTONS

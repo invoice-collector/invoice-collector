@@ -279,7 +279,10 @@ function formatCollectTimestamp(timestamp) {
     if (typeof timestamp !== 'number' || !isFinite(timestamp)) {
         return i18n.credentials.never;
     }
-    return new Date(timestamp).toLocaleString(locale);
+    return new Date(timestamp).toLocaleString(locale, {
+        dateStyle: 'medium',
+        timeStyle: 'short',
+    });
 }
 
 function renderCredentialBadge(state) {
@@ -370,9 +373,9 @@ function renderCredentials(credentials) {
                 </div>
                 ${renderCredentialBadge(credential.state)}
             </div>
-            <div style="display: flex; gap: 0.5rem; margin-top: 1rem;">
-                <button type="button" class="ic-button ic-button--primary" style="flex: 1;">${i18n.credentials.collect}</button>
-                <button type="button" class="ic-button ic-button--danger" style="flex: 1;">${i18n.credentials.deleteLabel}</button>
+            <div class="ic-card-actions">
+                <button type="button" class="ic-button ic-button--primary">${i18n.credentials.collect}</button>
+                <button type="button" class="ic-button ic-button--danger">${i18n.credentials.deleteLabel}</button>
             </div>
         `;
 
