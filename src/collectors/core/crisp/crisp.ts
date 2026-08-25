@@ -1,0 +1,164 @@
+import { LinearWebCollector } from '../../linearWebCollector';
+import { CrispSelectors, MONTHS } from './selectors';
+import { Driver, Element } from '../../../driver/driver';
+import { CollectorCaptcha, CollectorType, Invoice, CollectorAuthenticationMethod } from '../../abstractCollector';
+import { WebSocketServer } from '../../../websocket/webSocketServer';
+import * as utils from '../../../utils';
+
+export class CrispCollector extends LinearWebCollector {
+
+    static CONFIG = {
+        id: "crisp",
+        name: "Crisp",
+        description: "i18n.collectors.crisp.description",
+        version: "1",
+        website: "https://crisp.chat",
+        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/119879.jpg",
+        type: CollectorType.WEB,
+        params: {
+            email: {
+                type: "email",
+                name: "i18n.collectors.all.email",
+                placeholder: "i18n.collectors.all.email.placeholder",
+                mandatory: true
+            },
+            password: {
+                type: "password",
+                name: "i18n.collectors.all.password",
+                placeholder: "i18n.collectors.all.password.placeholder",
+                mandatory: true
+            }
+        },
+        loginUrl: "https://app.crisp.chat/initiate/login/",
+        // The "/all/" suffix lists the whole history. Without it the page only
+        // shows the most recent invoices.
+        entryUrl: "https://app.crisp.chat/settings/billing/invoices/all/",
+        captcha: CollectorCaptcha.NONE,
+        authenticationMethod: CollectorAuthenticationMethod.ALL
+    }
+
+    constructor() {
+        super(CrispCollector.CONFIG);
+    }
+
+    /**
+     * Converts a Crisp period label ("Aoû 2026") into a timestamp.
+     * Crisp only exposes the month and the year, so the first day of the month
+     * is used.
+     */
+    private parseDate(raw: string): number {
+        const cleaned = (raw || '')
+            .normalize('NFD')
+            .replace(/[\u0300-\u036f]/g, '')  // Strip the accents
+            .toLowerCase()
+            .trim();
+
+        const match = cleaned.match(/([a-z]+)\.?\s+(\d{4})/);
+        if (!match) {
+            throw new Error(`Unable to parse the Crisp date "${raw}"`);
+        }
+
+        const [, monthLabel, yearLabel] = match;
+
+        // Try four letters first, "juin" and "juil" share the "jui" prefix
+        const month = MONTHS[monthLabel.slice(0, 4)] ?? MONTHS[monthLabel.slice(0, 3)];
+        if (month === undefined) {
+            throw new Error(`Unknown Crisp month "${monthLabel}" in date "${raw}"`);
+        }
+
+        return Date.UTC(Number(yearLabel), month, 1);
+    }
+
+    /**
+     * Extracts "141.40 EUR" from "Total : 141.40 EUR".
+     * Crisp suffixes the currency, the prefixed form is handled as a fallback.
+     */
+    private parseAmount(raw: string): string {
+        const text = raw || '';
+        const suffixed = text.match(/(\d[\d\s.,]*\s*(?:EUR|USD|€|\$))/i);
+        if (suffixed) {
+            return suffixed[1].trim();
+        }
+        const prefixed = text.match(/((?:€|\$|EUR|USD)\s*\d[\d\s.,]*)/i);
+        return prefixed ? prefixed[1].trim() : text.trim();
+    }
+
+    async login(driver: Driver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
+        await driver.inputText(CrispSelectors.FIELD_EMAIL, params.email);
+        await driver.inputText(CrispSelectors.FIELD_PASSWORD, params.password);
+
+        // Not blocking if the checkbox disappears from the form
+        await driver.leftClick(CrispSelectors.CHECKBOX_REMEMBER, {
+            raiseException: false,
+            timeout: 3000,
+            navigation: false
+        });
+
+        // The submit button is driven by JavaScript, no navigation event is
+        // guaranteed to happen
+        await driver.leftClick(CrispSelectors.BUTTON_SUBMIT, { navigation: false });
+
+        // The login succeeded once the login page has been left
+        const deadline = Date.now() + Driver.DEFAULT_NAVIGATION_TIMEOUT;
+        while (Date.now() < deadline) {
+            await utils.delay(1000);
+            if (!await this.needLogin(driver)) {
+                return;
+            }
+        }
+
+        return "i18n.collectors.all.password.error";
+    }
+
+    async needLogin(driver: Driver): Promise<boolean> {
+        // Crisp redirects to the login page when the session expired. The
+        // default implementation cannot be used here because the invoices URL
+        // is rewritten by the SPA once loaded.
+        return driver.url().includes('/initiate/login');
+    }
+
+    async navigate(driver: Driver): Promise<void> {
+        // Crisp keeps websockets open at all time (wss://*.relay.crisp.chat),
+        // so the page never reaches the network idle state and waiting for it
+        // only burns the navigation timeout.
+        await driver.goto(this.config.entryUrl, { navigation: false });
+
+        // Wait for the list to be rendered
+        await driver.getElement(CrispSelectors.CONTAINER_INVOICES_LIST);
+    }
+
+    async isEmpty(driver: Driver): Promise<boolean> {
+        return await driver.getElement(CrispSelectors.CONTAINER_INVOICE, { raiseException: false, timeout: 5000 }) == null;
+    }
+
+    async getInvoices(driver: Driver): Promise<Element[]> {
+        return await driver.getElements(CrispSelectors.CONTAINER_INVOICE);
+    }
+
+    async data(driver: Driver, element: Element): Promise<Invoice | null> {
+        const date = await element.getAttribute(CrispSelectors.CONTAINER_INVOICE_DATE, "textContent");
+
+        // Ignore the rows that do not carry a period label
+        if (!date) {
+            return null;
+        }
+
+        const amount = this.parseAmount(await element.getAttribute(CrispSelectors.CONTAINER_INVOICE_AMOUNT, "textContent"));
+        const downloadButton = await element.getElement(CrispSelectors.BUTTON_INVOICE_DOWNLOAD);
+
+        return {
+            id: utils.hash_string(`${date.trim()}${amount}`),
+            timestamp: this.parseDate(date),
+            amount,
+            link: "",
+            downloadButton
+        };
+    }
+
+    async download(driver: Driver, invoice: Invoice): Promise<string[]> {
+        // The download button has no href, it triggers the download in
+        // JavaScript: the file has to be read back from the download folder.
+        await invoice.downloadButton.leftClick();
+        return [await this.download_from_file(driver)];
+    }
+}
