@@ -56,25 +56,3 @@ export const CrispSelectors = {
         info: "download invoice button"
     }
 }
-
-/**
- * Crisp uses its own month abbreviations ("Aoû", "Fév") that date-fns cannot
- * parse: its French abbreviations are "août" and "févr.". Hence this map.
- *
- * Keys are lowercase and accent free. "juin" and "juil" share the "jui"
- * prefix, so four letter keys are looked up first.
- */
-export const MONTHS: { [key: string]: number } = {
-    jan: 0, janv: 0,
-    fev: 1, feb: 1, fevr: 1,
-    mar: 2, mars: 2,
-    avr: 3, apr: 3, avri: 3,
-    mai: 4, may: 4,
-    juin: 5, jun: 5,
-    juil: 6, jul: 6,
-    aou: 7, aug: 7, aout: 7,
-    sep: 8, sept: 8,
-    oct: 9,
-    nov: 10,
-    dec: 11
-};

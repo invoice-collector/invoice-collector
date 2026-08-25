@@ -1,5 +1,5 @@
 import { LinearWebCollector } from '../../linearWebCollector';
-import { CrispSelectors, MONTHS } from './selectors';
+import { CrispSelectors } from './selectors';
 import { Driver, Element } from '../../../driver/driver';
 import { CollectorCaptcha, CollectorType, Invoice, CollectorAuthenticationMethod } from '../../abstractCollector';
 import { WebSocketServer } from '../../../websocket/webSocketServer';
@@ -42,31 +42,16 @@ export class CrispCollector extends LinearWebCollector {
     }
 
     /**
-     * Converts a Crisp period label ("Aoû 2026") into a timestamp.
-     * Crisp only exposes the month and the year, so the first day of the month
-     * is used.
+     * Rewrites the month of a Crisp period label ("Aoû 2026") into a form
+     * `timestampFromString` can parse. Crisp shortens two French month names
+     * down to three letters, "Fév" and "Aoû", where date-fns expects "févr."
+     * and "août". Every other label it renders is already a valid date-fns
+     * abbreviation, in French as well as in English.
      */
-    private parseDate(raw: string): number {
-        const cleaned = (raw || '')
-            .normalize('NFD')
-            .replace(/[\u0300-\u036f]/g, '')  // Strip the accents
-            .toLowerCase()
-            .trim();
-
-        const match = cleaned.match(/([a-z]+)\.?\s+(\d{4})/);
-        if (!match) {
-            throw new Error(`Unable to parse the Crisp date "${raw}"`);
-        }
-
-        const [, monthLabel, yearLabel] = match;
-
-        // Try four letters first, "juin" and "juil" share the "jui" prefix
-        const month = MONTHS[monthLabel.slice(0, 4)] ?? MONTHS[monthLabel.slice(0, 3)];
-        if (month === undefined) {
-            throw new Error(`Unknown Crisp month "${monthLabel}" in date "${raw}"`);
-        }
-
-        return Date.UTC(Number(yearLabel), month, 1);
+    private normalizeDate(raw: string): string {
+        return utils.trim(raw)
+            .replace(/^f[ée]v(?=\s)/i, "févr")
+            .replace(/^ao[uû](?=\s)/i, "août");
     }
 
     /**
@@ -148,7 +133,9 @@ export class CrispCollector extends LinearWebCollector {
 
         return {
             id: utils.hash_string(`${date.trim()}${amount}`),
-            timestamp: this.parseDate(date),
+            // Crisp only exposes the month and the year, so the timestamp
+            // lands on the first day of the month
+            timestamp: utils.timestampFromString(this.normalizeDate(date), "MMM yyyy", 'fr'),
             amount,
             link: "",
             downloadButton
