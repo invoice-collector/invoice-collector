@@ -113,7 +113,9 @@ export class CrispCollector extends LinearWebCollector {
             // lands on the first day of the month
             timestamp: utils.timestampFromString(this.normalizeDate(date), "MMM yyyy", 'fr'),
             amount,
-            link: "",
+            // The download is JavaScript driven, so there is no direct link.
+            // The invoices page is exposed instead, like `openai_api` does.
+            link: driver.url(),
             downloadButton
         };
     }
