@@ -38,6 +38,11 @@
             </div>
         </div>
         
+        <!-- My Connectors -->
+        <button type="button" class="ic-button ic-button--secondary ic-mb-3" onclick="showCredentials();">
+            <%= __('i18n.views.manage.credentials') %>
+        </button>
+
         <!-- Search Input -->
         <div class="ic-search-bar" style="margin-bottom: 2rem;">
             <div style="position: relative;">
@@ -370,7 +375,54 @@
     </div>
 
     <!-- ============================================
-         SECTION 6: JAVASCRIPT
+         SECTION 6: CREDENTIALS LIST
+         Connectors already configured by the user
+         ============================================ -->
+
+    <div id="credentials-container" class="ic-container ic-hidden">
+
+        <!-- Header -->
+        <div class="ic-header">
+            <!-- Back Button -->
+            <a href="#" class="ic-back-button" onclick="event.preventDefault(); showCompanies();">
+                <span class="ic-back-icon">
+                    <img src="/views/icons/move-left.svg" alt="Back">
+                </span>
+                <div>
+                    <%= __('i18n.views.manage.return') %>
+                </div>
+            </a>
+
+            <div>
+                <h1 class="ic-header-title"><%= __('i18n.views.manage.credentials') %></h1>
+                <p class="ic-header-subtitle"><%= __('i18n.views.manage.credentials.subtitle') %></p>
+            </div>
+        </div>
+
+        <!-- Loading State -->
+        <div id="credentials-loading" class="ic-loader ic-hidden">
+            <div class="ic-spinner ic-spinner--large"></div>
+        </div>
+
+        <!-- Error Alert -->
+        <div class="ic-alert ic-alert--error ic-hidden" id="credentials-error">
+            <img src="/views/icons/x.svg" alt="Error" class="ic-alert-icon">
+            <div><%= __('i18n.views.manage.credentials.error') %></div>
+        </div>
+
+        <!-- Empty State -->
+        <div class="ic-alert ic-alert--info ic-hidden" id="credentials-empty">
+            <img src="/views/icons/circle-question-mark.svg" alt="Info" class="ic-alert-icon">
+            <div><%= __('i18n.views.manage.credentials.empty') %></div>
+        </div>
+
+        <!-- Credentials Grid (populated by JavaScript) -->
+        <div class="ic-grid" id="credentials-list"></div>
+
+    </div>
+
+    <!-- ============================================
+         SECTION 7: JAVASCRIPT
          Internationalization & Script Loading
          ============================================ -->
 
@@ -391,6 +443,18 @@
             // Form validation
             fieldsRequired: "<%= __('i18n.views.manage.fields_required') %>",
             fieldRequired: "<%= __('i18n.views.manage.field_required') %>",
+
+            // Credentials list
+            credentials: {
+                collect: "<%= __('i18n.views.manage.credentials.collect') %>",
+                deleteConfirm: "<%= __('i18n.views.manage.credentials.delete_confirm') %>",
+                deleteError: "<%= __('i18n.views.manage.credentials.delete_error') %>",
+                deleteLabel: "<%= __('i18n.views.manage.credentials.delete') %>",
+                invoices: "<%= __('i18n.views.manage.credentials.invoices') %>",
+                lastCollect: "<%= __('i18n.views.manage.credentials.last_collect') %>",
+                never: "<%= __('i18n.views.manage.credentials.never') %>",
+                nextCollect: "<%= __('i18n.views.manage.credentials.next_collect') %>"
+            },
             
             // Datepicker translations
             datepicker: {

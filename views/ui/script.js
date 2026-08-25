@@ -67,6 +67,24 @@ async function post_credential_collect(credential_id) {
     });
 }
 
+async function get_credentials() {
+    return await fetch(`user/me/credentials?token=${token}`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    });
+}
+
+async function delete_credential(credential_id) {
+    return await fetch(`user/me/credential/${credential_id}?token=${token}`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    });
+}
+
 /* ===================================
    NAVIGATION FUNCTIONS
    =================================== */
@@ -75,6 +93,7 @@ const NAVIGATION_EVENT_CLOSE = { type: 'ic-close' };
 const NAVIGATION_EVENT_SHOW_COMPANIES = { type: 'ic-panel-search' };
 const NAVIGATION_EVENT_SHOW_FORM = { type: 'ic-panel-form' };
 const NAVIGATION_EVENT_SHOW_FEEDBACK = { type: 'ic-panel-feedback' };
+const NAVIGATION_EVENT_SHOW_CREDENTIALS = { type: 'ic-panel-credentials' };
 const NAVIGATION_EVENT_SHOW_PROGRESS = { type: 'ic-panel-progress' };
 const NAVIGATION_EVENT_SHOW_INTERACTIVE = { type: 'ic-panel-interactive' };
 
@@ -93,6 +112,7 @@ async function hiddeAllPanels() {
     document.getElementById('form-container').classList.add('ic-hidden');
     document.getElementById('progress-container').classList.add('ic-hidden');
     document.getElementById('feedback-container').classList.add('ic-hidden');
+    document.getElementById('credentials-container').classList.add('ic-hidden');
 }
 
 async function showCompanies() {
@@ -100,6 +120,7 @@ async function showCompanies() {
     document.getElementById('form-container').classList.add('ic-hidden');
     document.getElementById('progress-container').classList.add('ic-hidden');
     document.getElementById('feedback-container').classList.add('ic-hidden');
+    document.getElementById('credentials-container').classList.add('ic-hidden');
     
     document.body.style.overflow = 'hidden';
     
@@ -117,6 +138,7 @@ function showFeedback(type) {
     document.getElementById('form-container').classList.add('ic-hidden');
     document.getElementById('progress-container').classList.add('ic-hidden');
     document.getElementById('feedback-container').classList.remove('ic-hidden');
+    document.getElementById('credentials-container').classList.add('ic-hidden');
     
     document.getElementById('feedback-response-success').classList.add('ic-hidden');
     document.getElementById('feedback-response-error').classList.add('ic-hidden');
@@ -239,6 +261,154 @@ function renderCompanies(companiesToRender) {
 
 
 /* ===================================
+   CREDENTIALS LIST
+   =================================== */
+
+function escapeHtml(value) {
+    return String(value === null || value === undefined ? '' : value)
+        .replaceAll('&', '&amp;')
+        .replaceAll('<', '&lt;')
+        .replaceAll('>', '&gt;')
+        .replaceAll('"', '&quot;')
+        .replaceAll("'", '&#39;');
+}
+
+function formatCollectTimestamp(timestamp) {
+    // Collect timestamps are NaN until the credential has been collected once,
+    // and NaN is serialized as null
+    if (typeof timestamp !== 'number' || !isFinite(timestamp)) {
+        return i18n.credentials.never;
+    }
+    return new Date(timestamp).toLocaleString(locale);
+}
+
+function renderCredentialBadge(state) {
+    if (!state) {
+        return '';
+    }
+    const title = escapeHtml(state.title);
+    if (state.index < 0) {
+        return `<span class="ic-badge ic-badge--danger">${title}</span>`;
+    }
+    if (state.index >= state.max) {
+        return `<span class="ic-badge ic-badge--stable">${title}</span>`;
+    }
+    return `<span class="ic-badge ic-badge--beta">${title}</span>`;
+}
+
+async function showCredentials() {
+    document.getElementById('companies-container').classList.add('ic-hidden');
+    document.getElementById('form-container').classList.add('ic-hidden');
+    document.getElementById('progress-container').classList.add('ic-hidden');
+    document.getElementById('feedback-container').classList.add('ic-hidden');
+    document.getElementById('credentials-container').classList.remove('ic-hidden');
+
+    window.parent.postMessage(NAVIGATION_EVENT_SHOW_CREDENTIALS, '*');
+
+    const loading = document.getElementById('credentials-loading');
+    const error = document.getElementById('credentials-error');
+    const empty = document.getElementById('credentials-empty');
+    const list = document.getElementById('credentials-list');
+
+    loading.classList.remove('ic-hidden');
+    error.classList.add('ic-hidden');
+    empty.classList.add('ic-hidden');
+    list.innerHTML = '';
+
+    try {
+        const response = await get_credentials();
+        const content = await response.json();
+
+        if (!response.ok) {
+            console.error('Error when loading the credentials:', content);
+            error.classList.remove('ic-hidden');
+            return;
+        }
+
+        if (content.length === 0) {
+            empty.classList.remove('ic-hidden');
+            return;
+        }
+
+        renderCredentials(content);
+    } catch (e) {
+        console.error('Error when loading the credentials:', e);
+        error.classList.remove('ic-hidden');
+    } finally {
+        loading.classList.add('ic-hidden');
+    }
+}
+
+function renderCredentials(credentials) {
+    const list = document.getElementById('credentials-list');
+    list.innerHTML = '';
+
+    credentials.forEach(credential => {
+        const collector = credential.collector;
+
+        const credentialCard = document.createElement('div');
+        credentialCard.className = 'ic-card';
+        credentialCard.innerHTML = `
+            <div class="ic-card-header">
+                <img src="${collector.logo}" alt="${collector.name}" class="ic-card-logo">
+                <div>
+                    <label class="ic-card-title">${collector.name}</label>
+                </div>
+            </div>
+            <div class="ic-card-body">
+                <p class="ic-card-description">${escapeHtml(credential.note) || collector.description}</p>
+                <div class="ic-card-meta">
+                    <span>${i18n.credentials.lastCollect} ${formatCollectTimestamp(credential.last_collect_timestamp)}</span>
+                </div>
+                <div class="ic-card-meta">
+                    <span>${i18n.credentials.nextCollect} ${formatCollectTimestamp(credential.next_collect_timestamp)}</span>
+                </div>
+            </div>
+            <div class="ic-card-footer">
+                <div class="ic-card-meta">
+                    <span>${credential.invoices.length} ${i18n.credentials.invoices}</span>
+                </div>
+                ${renderCredentialBadge(credential.state)}
+            </div>
+            <div style="display: flex; gap: 0.5rem; margin-top: 1rem;">
+                <button type="button" class="ic-button ic-button--primary" style="flex: 1;">${i18n.credentials.collect}</button>
+                <button type="button" class="ic-button ic-button--danger" style="flex: 1;">${i18n.credentials.deleteLabel}</button>
+            </div>
+        `;
+
+        const buttons = credentialCard.querySelectorAll('button');
+        buttons[0].addEventListener('click', () => collectCredential(credential.id));
+        buttons[1].addEventListener('click', () => deleteCredential(credential));
+
+        list.appendChild(credentialCard);
+    });
+}
+
+async function deleteCredential(credential) {
+    if (!confirm(`${credential.collector.name} - ${i18n.credentials.deleteConfirm}`)) {
+        return;
+    }
+
+    try {
+        const response = await delete_credential(credential.id);
+
+        if (!response.ok) {
+            const content = await response.json();
+            console.error('Error when deleting the credential:', content);
+            alert(`Error: ${content.message || i18n.credentials.deleteError}`);
+            return;
+        }
+    } catch (e) {
+        console.error('Error when deleting the credential:', e);
+        alert(i18n.credentials.deleteError);
+        return;
+    }
+
+    showCredentials();
+}
+
+
+/* ===================================
    CREDENTIAL FORM
    =================================== */
 
@@ -247,6 +417,7 @@ function showForm(company) {
     document.getElementById('form-container').classList.remove('ic-hidden');
     document.getElementById('progress-container').classList.add('ic-hidden');
     document.getElementById('feedback-container').classList.add('ic-hidden');
+    document.getElementById('credentials-container').classList.add('ic-hidden');
     
     document.getElementById('form-logo').src = company.logo;
     document.getElementById('form-name').textContent = company.name;
@@ -522,6 +693,7 @@ async function showProgress(credential_id, wsPath) {
     document.getElementById('form-container').classList.add('ic-hidden');
     document.getElementById('progress-container').classList.remove('ic-hidden');
     document.getElementById('feedback-container').classList.add('ic-hidden');
+    document.getElementById('credentials-container').classList.add('ic-hidden');
     
     const VIRTUAL_MAX = 5;
     

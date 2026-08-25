@@ -372,6 +372,10 @@ body {
   background: var(--info-bg);
   color: var(--info-text);
 }
+.ic-badge--danger {
+  background: var(--danger-bg);
+  color: var(--danger-text);
+}
 
 /* ===================================
    BUTTONS
