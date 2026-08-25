@@ -12,7 +12,7 @@ export class OpenaiApiCollector extends OpenaiCommonCollector {
         description: "i18n.collectors.openai_api.description",
         version: "19",
         website: "https://openai.com",
-        logo: "https://upload.wikimedia.org/wikipedia/commons/4/4d/OpenAI_Logo.svg",
+        logo: "https://upload.wikimedia.org/wikipedia/commons/6/66/OpenAI_logo_2025_(symbol).svg",
         type: CollectorType.WEB,
         params: {
             email: {
