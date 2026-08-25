@@ -52,14 +52,14 @@ export class ImapCollector extends EmailProvider<ImapProviderConfig> {
             },
             username: {
                 type: 'text',
-                name: "i18n.collectors.imap.username",
-                placeholder: 'user@example.com',
+                name: "i18n.collectors.all.email",
+                placeholder: 'i18n.collectors.all.email.placeholder',
                 mandatory: true
             },
             password: {
                 type: 'password',
-                name: "i18n.collectors.imap.password",
-                placeholder: '********',
+                name: "i18n.collectors.all.password",
+                placeholder: 'i18n.collectors.all.password.placeholder',
                 mandatory: true
             },
             secure: {
