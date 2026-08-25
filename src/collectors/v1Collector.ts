@@ -40,7 +40,7 @@ export abstract class V1Collector<C extends Config> extends AbstractCollector<C>
             );
 
             // Get previous invoice ids
-            const previousInvoiceIds = previousInvoices.map((inv) => inv.id);
+            const previousInvoiceIds = AbstractCollector.getPreviousInvoiceIds(previousInvoices, download_from_timestamp);
 
             // Get new invoices only
             const newInvoices = uniqueInvoices.filter((inv) => !previousInvoiceIds.includes(inv.id));

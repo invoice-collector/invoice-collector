@@ -154,6 +154,24 @@ export abstract class AbstractCollector<C extends Config> {
         return useInteractiveLogin;
     }
 
+    /**
+     * Returns the ids of the invoices that must not be collected again.
+     *
+     * An invoice that was only listed, never downloaded, has a null hash: it was
+     * older than the download from timestamp when the collect ran. Such an
+     * invoice stays collectable as soon as it falls back inside the window,
+     * otherwise lowering `download_from_timestamp` could never recover the
+     * history it is meant to open.
+     */
+    static getPreviousInvoiceIds(
+        previousInvoices: ModelInvoice[],
+        download_from_timestamp: number
+    ): string[] {
+        return previousInvoices
+            .filter((invoice) => invoice.hash !== null || invoice.timestamp < download_from_timestamp)
+            .map((invoice) => invoice.id);
+    }
+
     config: C;
 
     constructor(config: C) {
