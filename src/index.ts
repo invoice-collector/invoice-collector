@@ -1308,6 +1308,103 @@ app.get('/api/v1/credential/:credential_id', async (req, res) => {
 /**
  * @openapi
  * /user/{userId}/credential/{credentialId}:
+ *   put:
+ *     tags: [Credential]
+ *     summary: Update credential (Bearer)
+ *     description: Updates a credential and starts collection. Only the provided fields are updated.
+ *     security:
+ *       - CustomerBearerAuth: []
+ *       - UserBearerAuth: []
+ *       - TokenAuth: []
+ *     parameters:
+ *       - name: userId
+ *         in: path
+ *         required: true
+ *         schema:
+ *           $ref: "#/components/schemas/userId"
+ *       - name: credentialId
+ *         in: path
+ *         required: true
+ *         schema:
+ *           $ref: "#/components/schemas/credentialId"
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               params:
+ *                 allOf:
+ *                   - $ref: "#/components/schemas/credentialParams"
+ *                 description: 'Replaces the stored parameters. _The cookies and the local storage are kept._'
+ *               download_from_timestamp:
+ *                 allOf:
+ *                   - $ref: "#/components/schemas/downloadFromTimestamp"
+ *                 description: 'Timestamp to start downloading invoices from in ms.'
+ *     responses:
+ *       200:
+ *         description: Success
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/credential'
+ *       400:
+ *         description: Bad request
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       401:
+ *         description: Authentication error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       403:
+ *         description: Credential does not belong to user
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       409:
+ *         description: A collect is already in progress for this credential
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       500:
+ *         description: Internal server error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ */
+// BEARER AUTHENTICATION
+app.put('/api/v1/user/:user_id/credential/:credential_id', async (req, res) => {
+    try {
+        // Update credential
+        console.log(`PUT /user/${req.params.user_id}/credential/${req.params.credential_id}`);
+        const response = await server.put_credential(
+            req.headers.authorization,
+            req.params.user_id,
+            req.query.token,
+            req.params.credential_id,
+            req.body.params,
+            req.body.download_from_timestamp
+        );
+
+        // Build response
+        res.setHeader('Content-Type', 'application/json');
+        res.end(JSON.stringify(response));
+    } catch (e) {
+        handle_error(e, req, res);
+    }
+});
+
+/**
+ * @openapi
+ * /user/{userId}/credential/{credentialId}:
  *   delete:
  *     tags: [Credential]
  *     summary: Delete credential (Bearer)
