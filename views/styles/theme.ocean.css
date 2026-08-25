@@ -17,7 +17,7 @@
   /* Background & Text */
   --bg: #ffffff;
   --text: #333333;
-  --text-secondary: #333333;
+  --text-secondary: #5b6472;
   --muted: #666666;
   --placeholder: #999999;
 
@@ -38,7 +38,7 @@
 
   /* Cards */
   --card: #ffffff;
-  --card-border: #00f;
+  --card-border: #d6e0ec;
   --card-border-default: rgba(0, 0, 0, 0.2);
   --card-special: rgba(208, 235, 253, 0.1);
   --card-special-hover: rgba(208, 235, 253, 0.2);
@@ -155,8 +155,20 @@ body {
 }
 
 .ic-header {
+  /* Le bouton retour etait pose a cote du titre par un flex en ligne, ce qui
+     le laissait flotter dans la marge sans alignement avec le contenu. Il est
+     desormais empile au-dessus. */
   display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
   margin-bottom: 2rem;
+  /* Meme colonne que .ic-search-bar et .ic-grid : sans cela le titre est cale
+     sur le bord du conteneur tandis que le contenu est centre. */
+  width: 100%;
+  max-width: 56rem;
+  margin-left: auto;
+  margin-right: auto;
   padding-bottom: 20px;
   border-bottom: 1px solid rgba(0, 0, 0, .1);
 }
@@ -194,27 +206,12 @@ body {
   display: grid;
   gap: 1.5rem;
   max-width: 56rem;
-  grid-template-columns: 1fr;
+  /* Les colonnes suivent la largeur reelle plutot que des paliers fixes : le
+     widget est souvent embarque dans une iframe etroite, dont la largeur n'a
+     aucun rapport avec celle de la fenetre interrogee par une media query. */
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
   margin-left: auto;
   margin-right: auto;
-}
-
-@media (min-width: 500px) {
-  .ic-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media (min-width: 750px) {
-  .ic-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-}
-
-@media (min-width: 1000px) {
-  .ic-grid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
 }
 
 /* ===================================
@@ -570,6 +567,57 @@ body {
   outline: none;
   border-color: var(--primary);
   box-shadow: 0 0 0 3px var(--primary-focus);
+}
+
+/* ===================================
+   FOCUS VISIBILITY & MOTION
+   =================================== */
+
+/* Tout element atteignable au clavier doit montrer ou se trouve le focus.
+   L'anneau est dessine avec outline plutot qu'avec box-shadow pour rester
+   visible dans les modes de contraste forces. */
+.ic-button:focus-visible,
+.ic-card:focus-visible,
+.ic-back-button:focus-visible,
+.ic-input:focus-visible,
+.ic-textarea:focus-visible,
+.ic-datepicker-input:focus-visible,
+.ic-datepicker-day:focus-visible,
+.ic-datepicker-nav-button:focus-visible,
+.ic-datepicker-footer-button:focus-visible,
+.ic-datepicker-month-year-select select:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* La souris ne doit pas declencher l'anneau. */
+.ic-button:focus:not(:focus-visible),
+.ic-card:focus:not(:focus-visible),
+.ic-back-button:focus:not(:focus-visible) {
+  outline: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ===================================
+   TOUCH TARGETS
+   =================================== */
+
+/* 44px est la cible tactile minimale recommandee. */
+.ic-button,
+.ic-input,
+.ic-textarea,
+.ic-datepicker-input {
+  min-height: 2.75rem;
 }
 
 .ic-input::placeholder,
