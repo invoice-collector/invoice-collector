@@ -31,7 +31,13 @@ export abstract class EmailProvider<C extends EmailProviderConfig> extends V2Col
         location: Location | null,
         useInteractiveLogin: boolean
     ): Promise<CompleteInvoice[]> {
-        await this.authenticate(state, webSocketServer, secret, locale, location, useInteractiveLogin);
+        await this.authenticate(
+            state,
+            webSocketServer,
+            secret,
+            locale,
+            location
+        );
 
         // Email providers only authenticate the account and do not collect invoices.
         return [];
@@ -42,7 +48,6 @@ export abstract class EmailProvider<C extends EmailProviderConfig> extends V2Col
         webSocketServer: WebSocketServer | undefined,
         secret: Secret,
         locale: string,
-        location: Location | null,
-        useInteractiveLogin: boolean
+        location: Location | null
     ): Promise<void>;
 }

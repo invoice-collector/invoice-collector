@@ -101,18 +101,8 @@ export class ImapCollector extends EmailProvider<ImapProviderConfig> {
         webSocketServer: WebSocketServer | undefined,
         secret: Secret,
         locale: string,
-        location: Location | null,
-        useInteractiveLogin: boolean
+        location: Location | null
     ): Promise<void> {
-        void state;
-        void webSocketServer;
-        void locale;
-        void location;
-
-        if (useInteractiveLogin) {
-            throw new AuthenticationError('i18n.collectors.all.interactive_login_not_supported', this);
-        }
-
         const params = await secret.getParams();
 
         const host = params.host as string;
@@ -120,16 +110,16 @@ export class ImapCollector extends EmailProvider<ImapProviderConfig> {
         const password = params.password as string;
         const secure = this.parseBoolean(params.secure, true);
 
-        if (!host || !username || !password) {
-            throw new AuthenticationError('i18n.collectors.all.missing_param', this);
-        }
-
         const port = Number(params.port);
         if (!Number.isFinite(port) || port <= 0) {
-            throw new AuthenticationError('i18n.collectors.all.missing_param', this);
+            throw new AuthenticationError('i18n.collectors.imap.invalid_port', this);
         }
 
         try {
+            // Set progress step to logging in
+            state.update(State._2_LOGGING_IN);
+            webSocketServer?.sendState(State._2_LOGGING_IN);
+
             this.client = new ImapFlow({
                 host,
                 port,
@@ -141,6 +131,10 @@ export class ImapCollector extends EmailProvider<ImapProviderConfig> {
                 //disableCompression: true,
                 logger: false
             });
+
+            // Set progress step to collecting
+            state.update(State._5_COLLECTING);
+            webSocketServer?.sendState(State._5_COLLECTING);
 
             await this.client.connect();
             await this.client.noop();
