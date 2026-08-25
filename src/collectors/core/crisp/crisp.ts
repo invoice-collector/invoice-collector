@@ -79,27 +79,7 @@ export class CrispCollector extends LinearWebCollector {
             navigation: false
         });
 
-        // The submit button is driven by JavaScript, no navigation event is
-        // guaranteed to happen
-        await driver.leftClick(CrispSelectors.BUTTON_SUBMIT, { navigation: false });
-
-        // The login succeeded once the login page has been left
-        const deadline = Date.now() + Driver.DEFAULT_NAVIGATION_TIMEOUT;
-        while (Date.now() < deadline) {
-            await utils.delay(1000);
-            if (!await this.needLogin(driver)) {
-                return;
-            }
-        }
-
-        return "i18n.collectors.all.password.error";
-    }
-
-    async needLogin(driver: Driver): Promise<boolean> {
-        // Crisp redirects to the login page when the session expired. The
-        // default implementation cannot be used here because the invoices URL
-        // is rewritten by the SPA once loaded.
-        return driver.url().includes('/initiate/login');
+        await driver.leftClick(CrispSelectors.BUTTON_SUBMIT);
     }
 
     async navigate(driver: Driver): Promise<void> {
