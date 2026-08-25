@@ -5,6 +5,8 @@ import { SecretManagerFactory } from "../secret_manager/secretManagerFactory";
 import { Credential } from "./credential";
 import { Customer } from "./customer";
 import { Callback } from "./callback";
+import { CollectorLoader } from "../collectors/collectorLoader";
+import { CollectorType } from "../collectors/abstractCollector";
 
 export enum UserStatus {
     ACTIVE = "active",
@@ -86,6 +88,27 @@ export class User {
 
     async getCredentials() {
         return await DatabaseFactory.getDatabase().getCredentials(this.id);
+    }
+
+    // Return every credential of this user whose collector is an email provider (mailbox connection)
+    async getAllProviders(): Promise<Credential[]> {
+        const credentials = await this.getCredentials();
+        const providers: Credential[] = [];
+
+        for (const credential of credentials) {
+            try {
+                const config = await CollectorLoader.getConfig(credential.collector_id);
+                if (config.type === CollectorType.PROVIDER) {
+                    providers.push(credential);
+                }
+            }
+            catch {
+                continue;
+            }
+
+        }
+
+        return providers;
     }
     
     async getCallbacks(): Promise<Callback[]> {

@@ -108,6 +108,18 @@ export class CollectorLoader {
         return Array.from(CollectorLoader.collectors.values()).map((collector) => collector.config);
     }
 
+    public static async getConfig(id: string): Promise<Config> {
+        //Check if collectors are loaded
+        if (CollectorLoader.collectors.size == 0) {
+            await CollectorLoader.load();
+        }
+        const collector = CollectorLoader.collectors.get(id.toLowerCase());
+        if (!collector) {
+            throw new StatusError(`No collector with id "${id}" found.`, 400);
+        }
+        return collector.config;
+    }
+
     public static async get(id: string): Promise<AbstractCollector<Config>> {
         //Check if collectors are loaded
         if (CollectorLoader.collectors.size == 0) {

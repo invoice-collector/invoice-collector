@@ -1,11 +1,11 @@
-import { ImapFlow } from 'imapflow';
+import { ImapFlow, MessageStructureObject } from 'imapflow';
 import { Location } from '../../../proxy/abstractProxy';
 import { Secret } from '../../../model/secret';
 import { State } from '../../../model/state';
-import { AuthenticationError } from '../../../error';
+import { AuthenticationError, LoggableError } from '../../../error';
 import { WebSocketServer } from '../../../websocket/webSocketServer';
 import { CollectorAuthenticationMethod, CollectorState, CollectorType } from '../../abstractCollector';
-import { EmailProvider, EmailProviderConfig } from '../../emailProvider';
+import { DownloadedEmailInvoice, EmailInvoice, EmailInvoiceFilters, EmailProvider, EmailProviderConfig } from '../../emailProvider';
 
 const MAILBOX_TO_IGNORE = [
     'sent',
@@ -36,7 +36,7 @@ export class ImapCollector extends EmailProvider<ImapProviderConfig> {
         version: '1',
         website: 'https://imap.example.com',
         logo: 'https://upload.wikimedia.org/wikipedia/commons/5/5d/Email_icon.png',
-        type: CollectorType.EMAIL,
+        type: CollectorType.PROVIDER,
         params: {
             host: {
                 type: 'text',
@@ -141,6 +141,139 @@ export class ImapCollector extends EmailProvider<ImapProviderConfig> {
         } catch (error) {
             throw new AuthenticationError('i18n.collectors.all.login.error', this, { cause: error });
         }
+    }
+
+    async getInvoices(filters: EmailInvoiceFilters, download_from_timestamp: number): Promise<EmailInvoice[]> {
+        if (!this.client) {
+            throw new AuthenticationError('i18n.collectors.all.login.error', this);
+        }
+
+        const senderRegex = this.wildcardToRegex(filters.senderRegex);
+        const subjectRegex = this.wildcardToRegex(filters.subjectRegex);
+        const bodyRegex = this.wildcardToRegex(filters.bodyRegex);
+        const attachmentNameRegex = this.wildcardToRegex(filters.attachmentNameRegex);
+
+        const since = new Date(download_from_timestamp);
+        const invoices: EmailInvoice[] = [];
+        const mailboxes = await this.client.list();
+
+        for (const mailbox of mailboxes) {
+            if (MAILBOX_TO_IGNORE.includes(mailbox.name.toLowerCase())) {
+                continue;
+            }
+
+            const lock = await this.client.getMailboxLock(mailbox.path, { readOnly: true });
+            try {
+                const uids = await this.client.search({ since }, { uid: true });
+                if (!uids || uids.length === 0) {
+                    continue;
+                }
+
+                const messages = await this.client.fetchAll(uids, { envelope: true, bodyStructure: true }, { uid: true });
+
+                for (const message of messages) {
+                    const senderAddress = message.envelope?.from?.[0]?.address || '';
+                    if (!senderRegex.test(senderAddress)) {
+                        continue;
+                    }
+
+                    const subject = message.envelope?.subject || '';
+                    if (!subjectRegex.test(subject)) {
+                        continue;
+                    }
+
+                    // The envelope does not expose the message body, so this only matches wildcard-only filters
+                    if (!bodyRegex.test('')) {
+                        continue;
+                    }
+
+                    const attachments = this.findAttachments(message.bodyStructure);
+                    for (const attachment of attachments) {
+                        if (!attachmentNameRegex.test(attachment.filename)) {
+                            continue;
+                        }
+
+                        invoices.push({
+                            id: `${mailbox.path}:${message.uid}:${attachment.part}`,
+                            timestamp: message.envelope?.date ? new Date(message.envelope.date).getTime() : Date.now(),
+                            metadata: {
+                                mailbox: mailbox.path,
+                                uid: message.uid,
+                                part: attachment.part,
+                                filename: attachment.filename,
+                                senderAddress
+                            }
+                        });
+                    }
+                }
+            } finally {
+                lock.release();
+            }
+        }
+
+        return invoices;
+    }
+
+    async downloadInvoice(invoice: EmailInvoice): Promise<DownloadedEmailInvoice> {
+        if (!this.client) {
+            throw new AuthenticationError('i18n.collectors.all.login.error', this);
+        }
+
+        const { mailbox, uid, part } = invoice.metadata as { mailbox: string, uid: number, part: string };
+
+        const lock = await this.client.getMailboxLock(mailbox, { readOnly: true });
+        try {
+            const downloaded = await this.client.downloadMany(String(uid), [part], { uid: true });
+            const content = downloaded[part]?.content;
+
+            if (!content) {
+                throw new LoggableError(`No content found for invoice ${invoice.id}`, this);
+            }
+
+            return {
+                ...invoice,
+                data: content.toString('base64'),
+                mimetype: downloaded[part].meta.contentType || 'application/octet-stream'
+            };
+        } finally {
+            lock.release();
+        }
+    }
+
+    private wildcardToRegex(pattern: string): RegExp {
+        const escaped = pattern.replace(/[.+?^${}()|[\]\\]/g, '\\$&');
+        return new RegExp('^' + escaped.replace(/\*/g, '.*') + '$', 'i');
+    }
+
+    private findAttachments(node?: MessageStructureObject): { part: string, type: string, filename: string }[] {
+        if (!node) {
+            return [];
+        }
+
+        const attachments: { part: string, type: string, filename: string }[] = [];
+        const topType = (node.type || '').split('/')[0];
+
+        const isAttachment =
+            node.disposition === 'attachment' ||
+            (!!node.type && topType !== 'text' && topType !== 'multipart' && !node.disposition);
+
+        if (isAttachment) {
+            attachments.push({
+                part: node.part || '1',
+                type: node.type,
+                filename: node.dispositionParameters?.filename ||
+                    node.parameters?.name ||
+                    'unnamed'
+            });
+        }
+
+        if (node.childNodes) {
+            for (const child of node.childNodes) {
+                attachments.push(...this.findAttachments(child));
+            }
+        }
+
+        return attachments;
     }
 
     async _close(): Promise<void> {

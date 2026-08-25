@@ -76,6 +76,9 @@ export class Collect {
                     this.webSocketServer.twofa_promise.collector = collector;
                 }
 
+                // Get the user's email providers, usable by email-based collectors
+                const providers = await user.getAllProviders();
+
                 // Collect invoices
                 const newInvoices = await collector.collect_new_invoices(
                     this.state,
@@ -85,7 +88,8 @@ export class Collect {
                     credential.invoices,
                     user.locale,
                     user.location,
-                    customer.authenticationMethod
+                    customer.authenticationMethod,
+                    providers
                 );
                 console.log(`Found ${credential.invoices.length + newInvoices.length} invoices during collect and ${newInvoices.length} new`);
                 console.log(`Invoice collection for credential ${this.credential_id} succeed`);

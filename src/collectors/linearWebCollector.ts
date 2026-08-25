@@ -29,7 +29,8 @@ export abstract class LinearWebCollector extends WebCollector {
         previousInvoices: any[],
         locale: string,
         location: Location | null,
-        useInteractiveLogin: boolean
+        useInteractiveLogin: boolean,
+        providers: EmailProviderEntry[]
     ): Promise<CompleteInvoice[]> {
         // Get proxy
         let proxy: Proxy | null = null;

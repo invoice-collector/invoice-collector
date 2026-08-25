@@ -4,7 +4,7 @@ import { State } from '../model/state';
 import { AbstractCollector, CompleteInvoice, Config } from './abstractCollector';
 import { WebSocketServer } from '../websocket/webSocketServer';
 import { AuthenticationError } from '../error';
-import { ModelInvoice } from '../model/credential';
+import { Credential, ModelInvoice } from '../model/credential';
 import { CustomerAuthenticationMethod } from '../model/customer';
 
 export abstract class V2Collector<C extends Config> extends AbstractCollector<C> {
@@ -21,7 +21,8 @@ export abstract class V2Collector<C extends Config> extends AbstractCollector<C>
         previousInvoices: ModelInvoice[],
         locale: string,
         location: Location | null,
-        customerAuthenticationMethod: CustomerAuthenticationMethod
+        customerAuthenticationMethod: CustomerAuthenticationMethod,
+        providers: Credential[]
     ): Promise<CompleteInvoice[]> {
         // Update collector params based on customerAuthenticationMethod
         const useInteractiveLogin = AbstractCollector.updateCollectorParams(customerAuthenticationMethod, this.config)
@@ -44,7 +45,8 @@ export abstract class V2Collector<C extends Config> extends AbstractCollector<C>
                 previousInvoices,
                 locale,
                 location,
-                useInteractiveLogin
+                useInteractiveLogin,
+                providers
             );
         }
         finally {
@@ -63,7 +65,8 @@ export abstract class V2Collector<C extends Config> extends AbstractCollector<C>
         previousInvoices: any[],
         locale: string,
         location: Location | null,
-        useInteractiveLogin: boolean
+        useInteractiveLogin: boolean,
+        providers: Credential[]
     ): Promise<CompleteInvoice[]>;
 
     abstract _close(): Promise<void>;
