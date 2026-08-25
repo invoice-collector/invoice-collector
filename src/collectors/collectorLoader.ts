@@ -12,6 +12,7 @@ export class CollectorLoader {
         await this.loadFolders("sketch", "sketch", filter)
         await this.loadFolders("community", "community", filter)
         await this.loadFolders("core", "core", filter)
+        await this.loadFolders("email_provider", "email_provider", filter)
         await this.loadFolders("premium", "../premium/collectors/premium", filter)
         await this.loadFolders("graph", "../premium/collectors/graph", filter)
 
