@@ -149,12 +149,23 @@ export class Credential {
     }
 
     addInvoice(invoice: CompleteInvoice) {
-        this.invoices.push({
+        const record = {
             id: invoice.id,
             timestamp: invoice.timestamp,
             collected_timestamp: invoice.collected_timestamp,
             hash: invoice.hash
-        });
+        };
+
+        // An invoice that was listed but not downloaded is already recorded with
+        // a null hash. Replace it instead of pushing a duplicate when it is
+        // downloaded later on.
+        const index = this.invoices.findIndex((previous) => previous.id === record.id);
+        if (index !== -1) {
+            this.invoices[index] = record;
+        }
+        else {
+            this.invoices.push(record);
+        }
     }
 
     sortInvoices() {

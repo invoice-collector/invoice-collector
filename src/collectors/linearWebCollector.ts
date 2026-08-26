@@ -1,4 +1,4 @@
-import { Invoice, CompleteInvoice } from "./abstractCollector";
+import { AbstractCollector, Invoice, CompleteInvoice } from "./abstractCollector";
 import { Driver, Element } from '../driver/driver';
 import { AuthenticationError, CollectorError, DisconnectedError, LoggableError, NoInvoiceFoundError } from '../error';
 import { ProxyFactory } from '../proxy/proxyFactory';
@@ -227,7 +227,7 @@ export abstract class LinearWebCollector extends WebCollector {
             await this.navigate(driver);
 
             // Get previous invoice ids
-            const previousInvoiceIds = previousInvoices.map((inv) => inv.id);
+            const previousInvoiceIds = AbstractCollector.getPreviousInvoiceIds(previousInvoices, download_from_timestamp);
 
             // For each page
             let invoices: CompleteInvoice[] = [];
