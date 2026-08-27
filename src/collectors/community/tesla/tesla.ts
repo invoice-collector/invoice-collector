@@ -1,4 +1,4 @@
-import axios, { AxiosInstance } from "axios";
+import { AxiosInstance } from "axios";
 import { ApiCollector } from '../../apiCollector';
 import { CollectorType, DownloadedInvoice } from '../../abstractCollector';
 import { AuthenticationError } from '../../../error';
@@ -47,23 +47,24 @@ export class TeslaCollector extends ApiCollector {
     static PAGE_SIZE = 25;
     static MAX_PAGES = 40;
 
+    // Regional servers of the account. Tesla exposes three of them and a token is only valid on its own.
+    static REGIONS = {
+        EU: "https://fleet-api.prd.eu.vn.cloud.tesla.com",
+        NA: "https://fleet-api.prd.na.vn.cloud.tesla.com",
+        CN: "https://fleet-api.prd.cn.vn.cloud.tesla.cn",
+    };
+
     /**
-     * Regional server of the account. Tesla exposes three of them and a token
-     * is only valid on its own. The region is carried by the token itself, in
-     * the `ou_code` claim, so it does not have to be asked of the user.
+     * Regional server of the account. The region is carried by the token
+     * itself, in the `ou_code` claim, so it does not have to be asked of the user.
      */
     private baseUrlFromToken(accessToken: string): string {
-        const regions = {
-            EU: "https://fleet-api.prd.eu.vn.cloud.tesla.com",
-            NA: "https://fleet-api.prd.na.vn.cloud.tesla.com",
-            CN: "https://fleet-api.prd.cn.vn.cloud.tesla.cn",
-        };
         try {
             const payload = accessToken.split('.')[1];
             const claims = JSON.parse(Buffer.from(payload, 'base64url').toString('utf8'));
-            return regions[claims.ou_code] || regions.EU;
+            return TeslaCollector.REGIONS[claims.ou_code] || TeslaCollector.REGIONS.EU;
         } catch {
-            return regions.EU;
+            return TeslaCollector.REGIONS.EU;
         }
     }
 
@@ -72,27 +73,40 @@ export class TeslaCollector extends ApiCollector {
      * is reusable, so the one returned here is ignored and the user never has
      * to enter a new one.
      */
-    private async refreshAccessToken(params: any): Promise<string> {
+    private async refreshAccessToken(instance: AxiosInstance, params: any): Promise<string> {
         const body = new URLSearchParams({
             grant_type: 'refresh_token',
             client_id: params.client_id,
             refresh_token: params.refresh_token,
         });
 
-        const response = await axios.post(TeslaCollector.TOKEN_URL, body.toString(), {
+        const data = await this.request(instance, 'POST', TeslaCollector.TOKEN_URL, {
+            data: body.toString(),
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            validateStatus: () => true,
-            timeout: 20000,
         });
 
-        if (response.status !== 200 || !response.data?.access_token) {
+        if (!data?.access_token) {
             throw new AuthenticationError('i18n.collectors.tesla.authentication_error', this);
         }
-        return response.data.access_token;
+        return data.access_token;
+    }
+
+    // Make request to Tesla API
+    private async request(instance: AxiosInstance, method: string, url: string, options: any = {}): Promise<any> {
+        const response = await instance.request({
+            method,
+            url,
+            validateStatus: () => true,
+            ...options,
+        });
+        if (response.status !== 200) {
+            throw new AuthenticationError('i18n.collectors.tesla.authentication_error', this);
+        }
+        return response.data;
     }
 
     async collect(instance: AxiosInstance, params: any): Promise<any[]> {
-        const accessToken = await this.refreshAccessToken(params);
+        const accessToken = await this.refreshAccessToken(instance, params);
 
         instance.defaults.baseURL = this.baseUrlFromToken(accessToken);
         instance.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`;
@@ -100,18 +114,11 @@ export class TeslaCollector extends ApiCollector {
         const invoices: any[] = [];
 
         for (let page = 1; page <= TeslaCollector.MAX_PAGES; page++) {
-            const response = await instance.request({
-                method: 'GET',
-                url: '/api/1/dx/charging/history',
+            const data = await this.request(instance, 'GET', '/api/1/dx/charging/history', {
                 params: { pageNo: page, pageSize: TeslaCollector.PAGE_SIZE },
-                validateStatus: () => true,
             });
 
-            if (response.status !== 200) {
-                throw new AuthenticationError('i18n.collectors.tesla.authentication_error', this);
-            }
-
-            const sessions = response.data?.data || [];
+            const sessions = data?.data || [];
             if (sessions.length === 0) {
                 break;
             }
@@ -153,20 +160,11 @@ export class TeslaCollector extends ApiCollector {
     async download(instance: AxiosInstance, invoice: any): Promise<DownloadedInvoice> {
         // The PDF is served by the API itself, so it needs the token: a plain
         // link download would not do.
-        const response = await instance.request({
-            method: 'GET',
-            url: invoice.link,
-            responseType: 'arraybuffer',
-            validateStatus: () => true,
-        });
-
-        if (response.status !== 200) {
-            throw new AuthenticationError('i18n.collectors.tesla.authentication_error', this);
-        }
+        const data = await this.request(instance, 'GET', invoice.link, { responseType: 'arraybuffer' });
 
         return {
             ...invoice,
-            documents: [Buffer.from(response.data).toString('base64')],
+            documents: [Buffer.from(data).toString('base64')],
         };
     }
 }
