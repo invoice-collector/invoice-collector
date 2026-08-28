@@ -472,6 +472,8 @@
   "i18n.collectors.ambetter_health.description": "A health insurance provider offering affordable plans through the Health Insurance Marketplace.",
   "i18n.collectors.ambit_energy.description": "A retail energy provider offering electricity and natural gas services across multiple US states.",
   "i18n.collectors.amboss.description": "A comprehensive online medical learning platform for students and physicians.",
+  "i18n.collectors.ameli.description": "Ameli is the official portal for French health insurance.",
+  "i18n.collectors.ameli.identifier.placeholder": "13-digit Social Security number",
   "i18n.collectors.amen_fr.description": "A French web hosting and domain registration service provider.",
   "i18n.collectors.american_dream.description": "An online service offering a variety of American-themed products and cultural experiences.",
   "i18n.collectors.american_water.description": "A leading provider of water and wastewater services across the United States.",
