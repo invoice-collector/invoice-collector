@@ -3,6 +3,7 @@ import { AxiosInstance } from "axios";
 import { ApiCollector } from '../../apiCollector';
 import { CollectorType, DownloadedInvoice } from '../../abstractCollector';
 import { AuthenticationError } from '../../../error';
+import { WebSocketServer } from '../../../websocket/webSocketServer';
 
 export class OvhCollector extends ApiCollector {
 
@@ -53,7 +54,7 @@ export class OvhCollector extends ApiCollector {
         super(OvhCollector.CONFIG);
     }
 
-    async collect(instance: AxiosInstance, params: any): Promise<any[]> {
+    async collect(instance: AxiosInstance, webSocketServer: WebSocketServer | undefined, params: any): Promise<any[]> {
         // Set default headers
         instance.defaults.headers.common['X-Ovh-Application'] = params.app_key;
         instance.defaults.headers.common['X-Ovh-Consumer'] = params.consumer_key;

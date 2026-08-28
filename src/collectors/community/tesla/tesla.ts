@@ -2,6 +2,8 @@ import { AxiosInstance } from "axios";
 import { ApiCollector } from '../../apiCollector';
 import { CollectorType, DownloadedInvoice } from '../../abstractCollector';
 import { AuthenticationError } from '../../../error';
+import { WebSocketServer } from "../../../websocket/webSocketServer";
+import * as utils from '../../../utils';
 
 /**
  * Tesla charging invoices, through the official Fleet API, which exposes the
@@ -43,6 +45,7 @@ export class TeslaCollector extends ApiCollector {
         super(TeslaCollector.CONFIG);
     }
 
+    static OAUTH2_URL = "https://auth.tesla.com/oauth2/v3/authorize?client_id=86f1cbbc-3023-4e1c-98ea-dd4bb2171f3e&locale=en-US&prompt=login&redirect_uri=https%3A%2F%2Fapi.invoice-collector.com%2Fapi%2Fv1%2Foauth2&response_type=code&scope=openid%20vehicle_charging_cmds%20offline_access&state={state}";
     static TOKEN_URL = "https://fleet-auth.prd.vn.cloud.tesla.com/oauth2/v3/token";
     static PAGE_SIZE = 25;
     static MAX_PAGES = 40;
@@ -105,7 +108,18 @@ export class TeslaCollector extends ApiCollector {
         return response.data;
     }
 
-    async collect(instance: AxiosInstance, params: any): Promise<any[]> {
+    async collect(instance: AxiosInstance, webSocketServer: WebSocketServer | undefined, params: any): Promise<any[]> {
+        // If param does not contain a refresh token, the user has not authenticated yet, so the collector cannot proceed.
+        if (!params.refresh_token && webSocketServer != undefined) {
+            // Build the Oauth2 URL with the state
+            const oauth2Url = TeslaCollector.OAUTH2_URL.replace('{state}', webSocketServer.oauth2State);
+            // Send Oauth2 url
+            const code = await webSocketServer.sendOauth2(oauth2Url);
+            //TODO: Exchange code for refresh token and access token, then continue collection
+        }
+        else if (!params.refresh_token && webSocketServer == undefined) {
+            throw new AuthenticationError('i18n.collectors.tesla.authentication_error', this);
+        }
         const accessToken = await this.refreshAccessToken(instance, params);
 
         instance.defaults.baseURL = this.baseUrlFromToken(accessToken);

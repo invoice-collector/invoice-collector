@@ -1,16 +1,17 @@
 import { Server, WebSocket } from 'ws';
 import http from 'http';
 import * as utils from '../utils';
-import { MessageClick, MessageInteractive, MessageKeydown, MessageScreenshot, MessageState, MessageText, MessageTwofa } from './message';
+import { MessageClick, MessageInteractive, MessageKeydown, MessageOauth2, MessageScreenshot, MessageState, MessageText, MessageTwofa } from './message';
 import { State } from '../model/state';
 import { Driver } from '../driver/driver';
 import { I18n } from '../i18n';
 import { DisconnectedError } from '../error';
 import { AbstractCollector, Config } from '../collectors/abstractCollector';
 import { TwofaPromise } from '../collect/twofaPromise';
+import { EventEmitter } from 'events';
 
 // Singleton WebSocket server manager
-export class WebSocketServerManager {
+export class WebSocketServerManager{
     private static instance: WebSocketServerManager | null = null;
     private wss: Server | null = null;
     private handlers: Map<string, WebSocketServer> = new Map();
@@ -64,7 +65,7 @@ export class WebSocketServerManager {
     }
 }
 
-export class WebSocketServer {
+export class WebSocketServer extends EventEmitter {
 
     public static PATH = '/api/v1/ws/';
     public static TWOFA_TIMEOUT_MS = 1000 * 60 * 5; // 5 minutes
@@ -74,6 +75,7 @@ export class WebSocketServer {
     private ws: WebSocket | null = null;
     private locale: string;
     private collector: AbstractCollector<Config>;
+    oauth2State: string;
     private lastState : State | null = null;
     twofa_promise: TwofaPromise;
 
@@ -83,10 +85,12 @@ export class WebSocketServer {
     public onText: ((event: MessageText) => void) | undefined;
     public onInteractive: ((event: MessageInteractive) => void) | undefined;
 
-    constructor(httpServer: http.Server, locale: string, collector: AbstractCollector<Config>) {
+    constructor(httpServer: http.Server, locale: string, collector: AbstractCollector<Config>, oauth2State: string) {
+        super();
         this.path = `${WebSocketServer.PATH}${utils.generate_token()}`;
         this.locale = locale
         this.collector = collector;
+        this.oauth2State = oauth2State;
 
         // Initialize the singleton WebSocket server manager
         WebSocketServerManager.getInstance().initialize(httpServer);
@@ -218,6 +222,21 @@ export class WebSocketServer {
             instructions: I18n.get(instructions, this.locale)
         };
         this.sendMessage(message);
+    }
+
+    public async sendOauth2(url: string): Promise<string> {
+        const message: MessageOauth2 = {
+            type: 'oauth2',
+            url: url
+        };
+        this.sendMessage(message);
+
+        // Wait for oauth2 code
+        return await new Promise((resolve, reject) => {
+            this.once("oauth2_code", (event: { code: string }) => {
+                resolve(event.code);
+            });
+        });
     }
 
     public getTwofa(instructions?: string): Promise<string> {

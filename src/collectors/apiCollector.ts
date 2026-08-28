@@ -7,6 +7,7 @@ import { Secret } from "../model/secret";
 import { TwofaPromise } from "../collect/twofaPromise";
 import { State } from "../model/state";
 import * as utils from '../utils';
+import { WebSocketServer } from "../websocket/webSocketServer";
 
 
 export type ApiConfig = Config & {
@@ -27,7 +28,7 @@ export abstract class ApiCollector extends V1Collector<ApiConfig> {
         this.instance = null;
     }
 
-    async _collect(state: State, secret: Secret, location: Location | null): Promise<Invoice[]> {
+    async _collect(state: State, webSocketServer: WebSocketServer | undefined, secret: Secret, location: Location | null): Promise<Invoice[]> {
         console.log(`API Collector, do not use proxy`);
 
         // Initialise axios instance
@@ -41,7 +42,7 @@ export abstract class ApiCollector extends V1Collector<ApiConfig> {
             state.update(State._5_COLLECTING);
 
             // Collect invoices
-            const invoices = await this.collect(this.instance, await secret.getParams());
+            const invoices = await this.collect(this.instance, webSocketServer, await secret.getParams());
             
             // If invoices is undefined, collector is unfinished
             if (invoices === undefined) {
@@ -133,7 +134,7 @@ export abstract class ApiCollector extends V1Collector<ApiConfig> {
     }
     
     //NOT IMPLEMENTED
-    abstract collect(instance: AxiosInstance, params: any): Promise<Invoice[] | void>;
+    abstract collect(instance: AxiosInstance, webSocketServer: WebSocketServer | undefined, params: any): Promise<Invoice[] | void>;
     
     abstract download(instance: AxiosInstance, invoice: Invoice): Promise<DownloadedInvoice>;
 }

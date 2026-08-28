@@ -32,7 +32,7 @@ export abstract class V1Collector<C extends Config> extends AbstractCollector<C>
 
         try {
             // Get invoices
-            const invoices = (await this._collect(state, secret, location))
+            const invoices = (await this._collect(state, webSocketServer, secret, location))
 
             // Remove duplicates
             const uniqueInvoices = invoices.filter((inv, index, self) =>
@@ -97,7 +97,7 @@ export abstract class V1Collector<C extends Config> extends AbstractCollector<C>
 
     //NOT IMPLEMENTED
 
-    abstract _collect(state: State, secret: Secret, location: Location | null): Promise<Invoice[]>;
+    abstract _collect(state: State, webSocketServer: WebSocketServer | undefined, secret: Secret, location: Location | null): Promise<Invoice[]>;
 
     abstract _download(invoice: Invoice): Promise<CompleteInvoice>;
 

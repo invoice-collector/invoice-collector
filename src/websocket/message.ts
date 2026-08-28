@@ -46,3 +46,8 @@ export type MessageScreenshot = AbstractMessage & {
     width: number;
     height: number;
 }
+
+export type MessageOauth2 = AbstractMessage & {
+    type: 'oauth2';
+    url: string;
+}

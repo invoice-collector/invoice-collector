@@ -32,6 +32,7 @@ export class Server {
     customerResetTokens: { [key: string]: string };
     userUiBearers: { [key: string]: string };
     userUiTokens: { [key: string]: User };
+    credentialOauth2States: { [key: string]: Credential };
     userResetTokens: { [key: string]: string };
 
     collect_task: CollectTask;
@@ -42,6 +43,7 @@ export class Server {
         this.customerResetTokens = {};
         this.userUiBearers = {};
         this.userUiTokens = {};
+        this.credentialOauth2States = {};
         this.userResetTokens = {};
         this.collect_task = new CollectTask();
 	}
@@ -1107,8 +1109,11 @@ export class Server {
         // Create credential in database
         await credential.commit();
 
+        // Generate oauth2 state from credential
+        const oauth2State = this.generateOauth2State(credential);
+
         // Start web socket server and get token
-        const webSocketServer = new WebSocketServer(this.httpServer, user.locale, collector);
+        const webSocketServer = new WebSocketServer(this.httpServer, user.locale, collector, oauth2State);
         const wsPath = webSocketServer.start();
 
         // Start collect
@@ -1295,6 +1300,28 @@ export class Server {
         collect.webSocketServer?.sendState(State._4_2FA_PROCEEDING);
     }
 
+    // TOKEN AUTHENTICATION
+    public async get_credential_oauth2(
+        oauth2State: any,
+        code: any
+    ): Promise<void> {
+        // Get credential from oauth2 state
+        const credential = await this.getCredentialFromOauth2State(oauth2State);
+
+        // Get collect from id
+        const collect = await CollectPool.getInstance().get(credential.id);
+
+        // Check if collect exists
+        if (!collect) {
+            throw new StatusError(`No collect in progress for credential "${credential.id}".`, 400);
+        }
+
+        // Resolve collect promise and pass the code to the collector
+        collect.webSocketServer?.emit("oauth2_code", {
+            code: code,
+        });
+    }
+
     // BEARER AUTHENTICATION
     public async post_credential_collect(
         bearer: string | undefined,
@@ -1334,8 +1361,11 @@ export class Server {
             // Update collector params based on customer settings
             AbstractCollector.updateCollectorParams(customer.authenticationMethod, collector.config);
 
+            // Generate oauth2 state from credential
+            const oauth2State = this.generateOauth2State(credential); 
+
             // Start web socket server and get token
-            const webSocketServer = new WebSocketServer(this.httpServer, user.locale, collector);
+            const webSocketServer = new WebSocketServer(this.httpServer, user.locale, collector, oauth2State);
             wsPath = webSocketServer.start();
 
             // Start collect
@@ -1696,6 +1726,30 @@ export class Server {
             throw new OauthError();
         }
         return this.userUiTokens[uiToken];
+    }
+
+    private generateOauth2State(credential: Credential): string {
+        // Generate oauth token
+        const oauth2State = utils.generate_token();
+
+        // Map token with user
+        this.credentialOauth2States[oauth2State] = credential;
+
+        // Schedule token delete after validity duration
+        setTimeout(() => {
+            delete this.credentialOauth2States[oauth2State];
+        }, Server.OAUTH_TOKEN_VALIDITY_DURATION_MS);
+
+        // Return token
+        return oauth2State;
+    }
+
+    private getCredentialFromOauth2State(oauth2State: any): Credential {
+        // Check if state is missing or incorrect
+        if(!oauth2State || !this.credentialOauth2States.hasOwnProperty(oauth2State) || typeof oauth2State !== 'string') {
+            throw new OauthError();
+        }
+        return this.credentialOauth2States[oauth2State];
     }
 
     private async getCustomerFromBearerOrToken(bearer: string | undefined, token: any): Promise<Customer> {

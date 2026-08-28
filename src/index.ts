@@ -1494,6 +1494,22 @@ app.post('/api/v1/credential/:credential_id/2fa', async (req, res) => {
     }
 });
 
+// TOKEN AUTHENTICATION
+app.get('/api/v1/oauth', async (req, res) => {
+    try {
+        // Post oauth2
+        await server.get_credential_oauth2(
+            req.query.state,
+            req.query.code,
+        );
+
+        // Build response
+        res.end()
+    } catch (e) {
+        handle_error(e, req, res);
+    }
+});
+
 /**
  * @openapi
  * /user/{userId}/credential/{credentialId}/collect:
