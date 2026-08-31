@@ -32,6 +32,12 @@ const SWAGGER_DEFINITION = {
                     name: 'token',
                     description: 'UI token obtained from POST /user',
                 },
+                StateAuth: {
+                    type: 'apiKey',
+                    in: 'query',
+                    name: 'state',
+                    description: 'OAuth2 state parameter.',
+                },
             },
             schemas: {
                 // --- Simple / reusable type schemas ---
@@ -116,6 +122,11 @@ const SWAGGER_DEFINITION = {
                     type: 'string',
                     description: 'Token to be used for password reset. You can get it using the POST /signup endpoint.',
                     example: '<reset_token>',
+                },
+                state: {
+                    type: 'string',
+                    description: 'OAuth2 state parameter.',
+                    example: '<state>',
                 },
                 credentialId: {
                     type: 'string',

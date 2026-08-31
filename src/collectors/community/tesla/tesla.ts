@@ -18,25 +18,11 @@ export class TeslaCollector extends ApiCollector {
         id: "tesla",
         name: "Tesla",
         description: "i18n.collectors.tesla.description",
-        instructions: "i18n.collectors.tesla.instructions",
         version: "1",
         website: "https://www.tesla.com",
         logo: "https://upload.wikimedia.org/wikipedia/commons/e/e8/Tesla_logo.png",
         type: CollectorType.API,
-        params: {
-            client_id: {
-                type: "string",
-                name: "i18n.collectors.tesla.client_id",
-                placeholder: "i18n.collectors.tesla.client_id.placeholder",
-                mandatory: true
-            },
-            refresh_token: {
-                type: "password",
-                name: "i18n.collectors.tesla.refresh_token",
-                placeholder: "i18n.collectors.tesla.refresh_token.placeholder",
-                mandatory: true
-            }
-        },
+        params: {},
         // Replaced at runtime with the region of the account, see collect()
         baseUrl: "https://fleet-api.prd.eu.vn.cloud.tesla.com"
     }
@@ -45,7 +31,10 @@ export class TeslaCollector extends ApiCollector {
         super(TeslaCollector.CONFIG);
     }
 
-    static OAUTH2_URL = "https://auth.tesla.com/oauth2/v3/authorize?client_id=86f1cbbc-3023-4e1c-98ea-dd4bb2171f3e&locale=en-US&prompt=login&redirect_uri=https%3A%2F%2Fapi.invoice-collector.com%2Fapi%2Fv1%2Foauth2&response_type=code&scope=openid%20vehicle_charging_cmds%20offline_access&state={state}";
+    static REDIRECT_URI = utils.getEnvVar("FRONTEND", "https://api.invoice-collector.com") + "/api/v1/oauth2";
+    static CLIENT_ID = "86f1cbbc-3023-4e1c-98ea-dd4bb2171f3e";
+    static CLIENT_SECRET = utils.getEnvVar("OAUTH2_TESLA_CLIENT_SECRET");
+    static OAUTH2_URL = `https://auth.tesla.com/oauth2/v3/authorize?client_id=${TeslaCollector.CLIENT_ID}&locale=en-US&prompt=login&redirect_uri=${encodeURIComponent(TeslaCollector.REDIRECT_URI)}&response_type=code&scope=openid%20vehicle_charging_cmds%20offline_access&state={state}`;
     static TOKEN_URL = "https://fleet-auth.prd.vn.cloud.tesla.com/oauth2/v3/token";
     static PAGE_SIZE = 25;
     static MAX_PAGES = 40;
@@ -58,17 +47,45 @@ export class TeslaCollector extends ApiCollector {
     };
 
     /**
-     * Regional server of the account. The region is carried by the token
-     * itself, in the `ou_code` claim, so it does not have to be asked of the user.
+     * Regional server of the account. The region is carried by the code.
      */
-    private baseUrlFromToken(accessToken: string): string {
-        try {
-            const payload = accessToken.split('.')[1];
-            const claims = JSON.parse(Buffer.from(payload, 'base64url').toString('utf8'));
-            return TeslaCollector.REGIONS[claims.ou_code] || TeslaCollector.REGIONS.EU;
-        } catch {
-            return TeslaCollector.REGIONS.EU;
+    private baseUrlFromCode(code: string): string {
+        for (const [key, value] of Object.entries(TeslaCollector.REGIONS)) {
+            if (code.startsWith(key)) {
+                return value;
+            }
         }
+        return TeslaCollector.REGIONS.EU;
+    }
+    /**
+     * Exchanges the authorization code obtained from the user consent redirect
+     * for an access token and a refresh token (Fleet API third-party tokens, step 3: code exchange).
+     */
+    private async getAccessToken(instance: AxiosInstance, params: any, code: string): Promise<void> {
+        // Get the base URL from the code and update the instance defaults
+        const baseUrl = this.baseUrlFromCode(code);
+        instance.defaults.baseURL = baseUrl;
+        // Exchange the code for tokens
+        const body = new URLSearchParams({
+            grant_type: 'authorization_code',
+            client_id: TeslaCollector.CLIENT_ID,
+            client_secret: TeslaCollector.CLIENT_SECRET,
+            code: code,
+            audience: baseUrl,
+            redirect_uri: TeslaCollector.REDIRECT_URI,
+        });
+
+        const data = await this.request(instance, 'POST', TeslaCollector.TOKEN_URL, {
+            data: body.toString(),
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        });
+
+        if (!data?.access_token || !data?.refresh_token) {
+            throw new AuthenticationError('i18n.collectors.tesla.authentication_error', this);
+        }
+        // Update params with the new tokens for future use
+        params.access_token = data.access_token;
+        params.refresh_token = data.refresh_token;
     }
 
     /**
@@ -76,10 +93,12 @@ export class TeslaCollector extends ApiCollector {
      * is reusable, so the one returned here is ignored and the user never has
      * to enter a new one.
      */
-    private async refreshAccessToken(instance: AxiosInstance, params: any): Promise<string> {
+    private async refreshAccessToken(instance: AxiosInstance, params: any): Promise<void> {
+        // Set the base URL from the code and update the instance defaults
+        instance.defaults.baseURL = this.baseUrlFromCode(params.refresh_token);
         const body = new URLSearchParams({
             grant_type: 'refresh_token',
-            client_id: params.client_id,
+            client_id: TeslaCollector.CLIENT_ID,
             refresh_token: params.refresh_token,
         });
 
@@ -91,7 +110,8 @@ export class TeslaCollector extends ApiCollector {
         if (!data?.access_token) {
             throw new AuthenticationError('i18n.collectors.tesla.authentication_error', this);
         }
-        return data.access_token;
+        params.access_token = data.access_token;
+        params.refresh_token = data.refresh_token;
     }
 
     // Make request to Tesla API
@@ -110,23 +130,23 @@ export class TeslaCollector extends ApiCollector {
 
     async collect(instance: AxiosInstance, webSocketServer: WebSocketServer | undefined, params: any): Promise<any[]> {
         // If param does not contain a refresh token, the user has not authenticated yet, so the collector cannot proceed.
-        if (!params.refresh_token && webSocketServer != undefined) {
+        if (!params.refresh_token && !params.access_token && webSocketServer != undefined) {
             // Build the Oauth2 URL with the state
             const oauth2Url = TeslaCollector.OAUTH2_URL.replace('{state}', webSocketServer.oauth2State);
-            // Send Oauth2 url
-            const code = await webSocketServer.sendOauth2(oauth2Url);
-            //TODO: Exchange code for refresh token and access token, then continue collection
+            // Send oauth2 url
+            const code = await webSocketServer.sendOauth2(oauth2Url, false);
+            // Exchange the code for tokens
+            await this.getAccessToken(instance, params, code);
         }
-        else if (!params.refresh_token && webSocketServer == undefined) {
-            throw new AuthenticationError('i18n.collectors.tesla.authentication_error', this);
+        else if (params.refresh_token && params.access_token && webSocketServer != undefined) {
+            // Refresh the access token to ensure it is valid and up to date
+            await this.refreshAccessToken(instance, params);
         }
-        const accessToken = await this.refreshAccessToken(instance, params);
 
-        instance.defaults.baseURL = this.baseUrlFromToken(accessToken);
-        instance.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`;
+        // Set the Authorization header for future requests
+        instance.defaults.headers.common['Authorization'] = `Bearer ${params.access_token}`;
 
         const invoices: any[] = [];
-
         for (let page = 1; page <= TeslaCollector.MAX_PAGES; page++) {
             const data = await this.request(instance, 'GET', '/api/1/dx/charging/history', {
                 params: { pageNo: page, pageSize: TeslaCollector.PAGE_SIZE },

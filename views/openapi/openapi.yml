@@ -24,6 +24,11 @@ components:
       in: query
       name: token
       description: UI token obtained from POST /user
+    StateAuth:
+      type: apiKey
+      in: query
+      name: state
+      description: OAuth2 state parameter.
   schemas:
     email:
       type: string
@@ -100,6 +105,31 @@ components:
       description: Token to be used for password reset. You can get it using the POST
         /signup endpoint.
       example: <reset_token>
+    state:
+      type: object
+      properties:
+        index:
+          type: number
+          description: Index of the state. A negative index means that the state is in
+            error. An index equal to max means that the process is finished.
+          example: 2
+        max:
+          type: number
+          description: Maximum index of the state. This is used to know the progress.
+          example: 6
+        title:
+          type: string
+          description: Title of the state.
+          example: 2FA
+        message:
+          type: string
+          description: Message to be displayed to the user.
+          example: Please enter the code received by SMS.
+      required:
+        - index
+        - max
+        - title
+        - message
     credentialId:
       type: string
       description: Id of the credential.
@@ -310,31 +340,6 @@ components:
           type: object
           additionalProperties:
             type: integer
-    state:
-      type: object
-      properties:
-        index:
-          type: number
-          description: Index of the state. A negative index means that the state is in
-            error. An index equal to max means that the process is finished.
-          example: 2
-        max:
-          type: number
-          description: Maximum index of the state. This is used to know the progress.
-          example: 6
-        title:
-          type: string
-          description: Title of the state.
-          example: 2FA
-        message:
-          type: string
-          description: Message to be displayed to the user.
-          example: Please enter the code received by SMS.
-      required:
-        - index
-        - max
-        - title
-        - message
     collectorParam:
       type: object
       properties:
@@ -1676,6 +1681,39 @@ paths:
                 $ref: "#/components/schemas/error"
         "403":
           description: Credential does not belong to user
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/error"
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/error"
+  /oauth2:
+    get:
+      tags:
+        - General
+      summary: Oauth2 callback
+      description: Returns a UI page for the OAuth2 callback.
+      security:
+        - StateAuth: []
+      parameters:
+        - name: state
+          in: query
+          required: true
+          schema:
+            $ref: "#/components/schemas/oauth2State"
+      responses:
+        "200":
+          description: Success
+          content:
+            text/html:
+              schema:
+                type: string
+        "401":
+          description: Authentication error
           content:
             application/json:
               schema:

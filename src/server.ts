@@ -1304,9 +1304,18 @@ export class Server {
     public async get_credential_oauth2(
         oauth2State: any,
         code: any
-    ): Promise<void> {
+    ): Promise<{
+        locale: string,
+        theme: string
+    }> {
         // Get credential from oauth2 state
         const credential = await this.getCredentialFromOauth2State(oauth2State);
+
+        // Get user from credential
+        const user = await credential.getUser();
+
+        // Get customer from user
+        const customer = await user.getCustomer();
 
         // Get collect from id
         const collect = await CollectPool.getInstance().get(credential.id);
@@ -1320,6 +1329,11 @@ export class Server {
         collect.webSocketServer?.emit("oauth2_code", {
             code: code,
         });
+
+        return {
+            locale: user.locale,
+            theme: customer.theme
+        };
     }
 
     // BEARER AUTHENTICATION

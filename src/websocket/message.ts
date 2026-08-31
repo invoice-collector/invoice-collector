@@ -1,6 +1,6 @@
 import { State } from "../model/state";
 
-type AbstractMessage = {
+export type AbstractMessage = {
     type: string;
 }
 
@@ -50,4 +50,5 @@ export type MessageScreenshot = AbstractMessage & {
 export type MessageOauth2 = AbstractMessage & {
     type: 'oauth2';
     url: string;
+    iframe: boolean;
 }

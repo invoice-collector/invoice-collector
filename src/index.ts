@@ -1494,17 +1494,53 @@ app.post('/api/v1/credential/:credential_id/2fa', async (req, res) => {
     }
 });
 
+/**
+ * @openapi
+ * /oauth2:
+ *   get:
+ *     tags: [General]
+ *     summary: Oauth2 callback
+ *     description: Returns a UI page for the OAuth2 callback.
+ *     security:
+ *       - StateAuth: []
+ *     parameters:
+ *       - name: state
+ *         in: query
+ *         required: true
+ *         schema:
+ *           $ref: '#/components/schemas/oauth2State'
+ *     responses:
+ *       200:
+ *         description: Success
+ *         content:
+ *           text/html:
+ *             schema:
+ *               type: string
+ *       401:
+ *         description: Authentication error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       500:
+ *         description: Internal server error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ */
 // TOKEN AUTHENTICATION
-app.get('/api/v1/oauth', async (req, res) => {
+app.get('/api/v1/oauth2', async (req, res) => {
     try {
         // Post oauth2
-        await server.get_credential_oauth2(
+        const context = await server.get_credential_oauth2(
             req.query.state,
             req.query.code,
         );
 
-        // Build response
-        res.end()
+        // Render oauth2.ejs
+        req.setLocale(context.locale);
+        res.render('ui/oauth2', context);
     } catch (e) {
         handle_error(e, req, res);
     }
