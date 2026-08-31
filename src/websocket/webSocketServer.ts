@@ -1,7 +1,7 @@
 import { Server, WebSocket } from 'ws';
 import http from 'http';
 import * as utils from '../utils';
-import { MessageClick, MessageInteractive, MessageKeydown, MessageOauth2, MessageScreenshot, MessageState, MessageText, MessageTwofa } from './message';
+import { AbstractMessage, MessageClick, MessageInteractive, MessageKeydown, MessageOauth2, MessageScreenshot, MessageState, MessageText, MessageTwofa } from './message';
 import { State } from '../model/state';
 import { Driver } from '../driver/driver';
 import { I18n } from '../i18n';
@@ -76,7 +76,8 @@ export class WebSocketServer extends EventEmitter {
     private locale: string;
     private collector: AbstractCollector<Config>;
     oauth2State: string;
-    private lastState : State | null = null;
+    // Only the latest message of each type is kept, to avoid unbounded growth while disconnected (e.g. screenshots)
+    private messageQueue: Map<string, AbstractMessage> = new Map();
     twofa_promise: TwofaPromise;
 
     public onTwofa: ((event: MessageTwofa) => void) | undefined;
@@ -108,10 +109,11 @@ export class WebSocketServer extends EventEmitter {
         console.log(`WebSocket connection established on ${this.path}`);
         this.ws = ws;
 
-        // Send last state if exists
-        if (this.lastState) {
-            this.sendState(this.lastState);
+        // Flush any messages queued while disconnected
+        for (const message of this.messageQueue.values()) {
+            this.sendMessage(message, false);
         }
+        this.messageQueue.clear();
 
         const keepAliveInterval = setInterval(() => {
             if (this.ws && this.ws.readyState === WebSocket.OPEN) {
@@ -182,9 +184,11 @@ export class WebSocketServer extends EventEmitter {
         this.ws = null;
     }
 
-    private sendMessage(message: object) {
+    private sendMessage(message: AbstractMessage, persist: boolean) {
         if (this.ws && this.ws.readyState === WebSocket.OPEN) {
             this.ws.send(JSON.stringify(message));
+        } else if (persist) {
+            this.messageQueue.set(message.type, message);
         }
     }
 
@@ -195,7 +199,7 @@ export class WebSocketServer extends EventEmitter {
             width: width,
             height: height
         };
-        this.sendMessage(message);
+        this.sendMessage(message, false);
     }
 
     public sendState(state: State, stateMessage?: string) {
@@ -205,14 +209,11 @@ export class WebSocketServer extends EventEmitter {
         state.title = I18n.get(state.title, this.locale);
         state.message = I18n.get(state.message, this.locale);
 
-        // Define last state
-        this.lastState = state;
-
         const message: MessageState = {
             type: 'state',
             state: state
         };
-        this.sendMessage(message);
+        this.sendMessage(message, true);
     }
 
     public sendInteractiveOpen(instructions: string) {
@@ -221,15 +222,16 @@ export class WebSocketServer extends EventEmitter {
             reason: 'open',
             instructions: I18n.get(instructions, this.locale)
         };
-        this.sendMessage(message);
+        this.sendMessage(message, true);
     }
 
-    public async sendOauth2(url: string): Promise<string> {
+    public async sendOauth2(url: string, iframe: boolean): Promise<string> {
         const message: MessageOauth2 = {
             type: 'oauth2',
-            url: url
+            url: url,
+            iframe: iframe
         };
-        this.sendMessage(message);
+        this.sendMessage(message, true);
 
         // Wait for oauth2 code
         return await new Promise((resolve, reject) => {

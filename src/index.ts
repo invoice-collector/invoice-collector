@@ -1495,7 +1495,7 @@ app.post('/api/v1/credential/:credential_id/2fa', async (req, res) => {
 });
 
 // TOKEN AUTHENTICATION
-app.get('/api/v1/oauth', async (req, res) => {
+app.get('/api/v1/oauth2', async (req, res) => {
     try {
         // Post oauth2
         await server.get_credential_oauth2(

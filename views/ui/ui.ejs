@@ -297,6 +297,46 @@
     </div>
 
     <!-- ============================================
+         SECTION 4bis: OAUTH2 (Full Screen)
+         Displays a third-party OAuth2 authentication page, either embedded
+         in an iframe or, when the provider forbids framing (e.g. Tesla), via a new tab
+         ============================================ -->
+
+    <div id="oauth2-container" class="ic-canvas-fullscreen" hidden>
+        
+        <!-- Toolbar -->
+        <div class="ic-canvas-toolbar">
+            
+            <!-- Back Button -->
+            <button id="oauth2-cancel" class="ic-canvas-toolbar-back">
+                <img src="/views/icons/move-left.svg" alt="Back">
+            </button>
+            
+            <!-- Icon & Instructions -->
+            <span class="ic-canvas-toolbar-icon">
+                <img src="/views/icons/key-round.svg" alt="Key">
+            </span>
+            <span class="ic-canvas-toolbar-text">
+                <%= __('i18n.views.oauth2.instructions') %>
+            </span>
+            
+        </div>
+        
+        <!-- Iframe mode -->
+        <div id="oauth2-iframe-content" class="ic-canvas-content" hidden>
+            <iframe id="oauth2-iframe" src="" allow="clipboard-read; clipboard-write"></iframe>
+        </div>
+        
+        <!-- New tab mode -->
+        <div id="oauth2-tab-content" class="ic-canvas-content" hidden>
+            <button id="oauth2-open-button" class="ic-button ic-button--primary">
+                <%= __('i18n.views.oauth2.open') %>
+            </button>
+        </div>
+        
+    </div>
+
+    <!-- ============================================
          SECTION 5: FEEDBACK FORM
          Request a new collector
          ============================================ -->
