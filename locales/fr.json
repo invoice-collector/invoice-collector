@@ -8005,8 +8005,6 @@
   "i18n.collectors.tesco_broadband.description": "Services Internet abordables et fiables proposés par Tesco, un grand détaillant britannique.",
   "i18n.collectors.tesla.authentication_error": "Tesla a refusé ces identifiants. Vérifiez l'ID client, le refresh token, et que le champ d'application « Gestion de la recharge du véhicule » est bien activé.",
   "i18n.collectors.tesla.description": "Service en ligne pour gérer les véhicules Tesla, les produits énergétiques et les paramètres de compte.",
-  "i18n.collectors.tesla.refresh_token": "Refresh token",
-  "i18n.collectors.tesla.refresh_token.placeholder": "",
   "i18n.collectors.tesla_business.description": "Une plateforme en ligne innovante proposant les véhicules électriques, solutions énergétiques et services professionnels de Tesla pour une mobilité durable.",
   "i18n.collectors.tesla_handschuhfach.description": "Service en ligne pour accéder et gérer les fonctionnalités de la boîte à gants des véhicules Tesla.",
   "i18n.collectors.teslafi.description": "Un service complet de suivi et d'analyse pour véhicules Tesla destiné aux propriétaires.",

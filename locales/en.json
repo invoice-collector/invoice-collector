@@ -8005,8 +8005,6 @@
   "i18n.collectors.tesco_broadband.description": "Affordable and reliable broadband services offered by Tesco, a leading UK retailer.",
   "i18n.collectors.tesla.authentication_error": "Tesla rejected these credentials. Check the client ID, the refresh token, and that the \"Vehicle Charging Management\" scope is enabled.",
   "i18n.collectors.tesla.description": "Online service for managing Tesla vehicles, energy products, and account settings.",
-  "i18n.collectors.tesla.refresh_token": "Refresh token",
-  "i18n.collectors.tesla.refresh_token.placeholder": "",
   "i18n.collectors.tesla_business.description": "An innovative online platform offering Tesla's electric vehicles, energy solutions, and business services for sustainable mobility.",
   "i18n.collectors.tesla_handschuhfach.description": "Online service for accessing and managing Tesla vehicle glove compartment features.",
   "i18n.collectors.teslafi.description": "A comprehensive Tesla vehicle tracking and analytics service for owners.",
