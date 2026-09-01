@@ -105,31 +105,10 @@ components:
       description: Token to be used for password reset. You can get it using the POST
         /signup endpoint.
       example: <reset_token>
-    state:
-      type: object
-      properties:
-        index:
-          type: number
-          description: Index of the state. A negative index means that the state is in
-            error. An index equal to max means that the process is finished.
-          example: 2
-        max:
-          type: number
-          description: Maximum index of the state. This is used to know the progress.
-          example: 6
-        title:
-          type: string
-          description: Title of the state.
-          example: 2FA
-        message:
-          type: string
-          description: Message to be displayed to the user.
-          example: Please enter the code received by SMS.
-      required:
-        - index
-        - max
-        - title
-        - message
+    oauth2State:
+      type: string
+      description: OAuth2 state parameter.
+      example: <state>
     credentialId:
       type: string
       description: Id of the credential.
@@ -340,6 +319,31 @@ components:
           type: object
           additionalProperties:
             type: integer
+    state:
+      type: object
+      properties:
+        index:
+          type: number
+          description: Index of the state. A negative index means that the state is in
+            error. An index equal to max means that the process is finished.
+          example: 2
+        max:
+          type: number
+          description: Maximum index of the state. This is used to know the progress.
+          example: 6
+        title:
+          type: string
+          description: Title of the state.
+          example: 2FA
+        message:
+          type: string
+          description: Message to be displayed to the user.
+          example: Please enter the code received by SMS.
+      required:
+        - index
+        - max
+        - title
+        - message
     collectorParam:
       type: object
       properties:

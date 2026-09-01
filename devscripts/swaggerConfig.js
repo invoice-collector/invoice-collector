@@ -123,7 +123,7 @@ const SWAGGER_DEFINITION = {
                     description: 'Token to be used for password reset. You can get it using the POST /signup endpoint.',
                     example: '<reset_token>',
                 },
-                state: {
+                oauth2State: {
                     type: 'string',
                     description: 'OAuth2 state parameter.',
                     example: '<state>',
