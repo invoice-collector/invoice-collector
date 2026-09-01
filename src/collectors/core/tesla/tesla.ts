@@ -30,10 +30,10 @@ export class TeslaCollector extends ApiCollector {
         super(TeslaCollector.CONFIG);
     }
 
-    static REDIRECT_URI = utils.getEnvVar("FRONTEND", "https://api.invoice-collector.com") + "/api/v1/oauth2";
+    static REDIRECT_URI = `${utils.BACKEND_URI}/api/v1/oauth2`;
     static CLIENT_ID = "86f1cbbc-3023-4e1c-98ea-dd4bb2171f3e";
     static CLIENT_SECRET = utils.getEnvVar("OAUTH2_TESLA_CLIENT_SECRET");
-    static OAUTH2_URL = `https://auth.tesla.com/oauth2/v3/authorize?client_id=${TeslaCollector.CLIENT_ID}&locale=en-US&prompt=login&redirect_uri=${encodeURIComponent(TeslaCollector.REDIRECT_URI)}&response_type=code&scope=openid%20vehicle_charging_cmds%20offline_access&state={state}`;
+    static OAUTH2_URL = `https://auth.tesla.com/oauth2/v3/authorize?client_id=${TeslaCollector.CLIENT_ID}&locale=en-US&prompt=login&prompt_missing_scopes=true&redirect_uri=${encodeURIComponent(TeslaCollector.REDIRECT_URI)}&response_type=code&scope=openid%20vehicle_charging_cmds%20offline_access&state={state}`;
     static TOKEN_URL = "https://fleet-auth.prd.vn.cloud.tesla.com/oauth2/v3/token";
     static PAGE_SIZE = 25;
     static MAX_PAGES = 40;
