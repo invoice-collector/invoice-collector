@@ -194,7 +194,16 @@
                             </button>
                         </form>
                     </div>
-                    
+
+                    <!-- Oauth2 Button (shown when authentication must happen in a new tab) -->
+                    <div id="open-oauth2-container" hidden style="margin-top: 1.5rem;">
+                        <p class="ic-header-subtitle">
+                            <%= __('i18n.views.oauth2.instructions') %>
+                        </p>
+                        <button id="oauth2-open-button" type="button" class="ic-button ic-button--primary" style="width: 100%;">
+                            <%= __('i18n.views.oauth2.open') %>
+                        </button>
+                    </div>
                 </div>
                 
                 <!-- Success Response -->
@@ -298,8 +307,9 @@
 
     <!-- ============================================
          SECTION 4bis: OAUTH2 (Full Screen)
-         Displays a third-party OAuth2 authentication page, either embedded
-         in an iframe or, when the provider forbids framing (e.g. Tesla), via a new tab
+         Displays a third-party OAuth2 authentication page embedded in an
+         iframe, when the provider allows framing. Otherwise, authentication
+         happens in a new tab, opened from the inline button above
          ============================================ -->
 
     <div id="oauth2-container" class="ic-canvas-fullscreen" hidden>
@@ -322,16 +332,9 @@
             
         </div>
         
-        <!-- Iframe mode -->
-        <div id="oauth2-iframe-content" class="ic-canvas-content" hidden>
+        <!-- Iframe -->
+        <div class="ic-canvas-content">
             <iframe id="oauth2-iframe" src="" allow="clipboard-read; clipboard-write"></iframe>
-        </div>
-        
-        <!-- New tab mode -->
-        <div id="oauth2-tab-content" class="ic-canvas-content" hidden>
-            <button id="oauth2-open-button" class="ic-button ic-button--primary">
-                <%= __('i18n.views.oauth2.open') %>
-            </button>
         </div>
         
     </div>
