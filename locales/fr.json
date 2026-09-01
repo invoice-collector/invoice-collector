@@ -8004,8 +8004,6 @@
   "i18n.collectors.tesch_inkasso_finance.description": "Un service allemand de recouvrement de créances spécialisé dans les solutions de récupération financière pour les entreprises.",
   "i18n.collectors.tesco_broadband.description": "Services Internet abordables et fiables proposés par Tesco, un grand détaillant britannique.",
   "i18n.collectors.tesla.authentication_error": "Tesla a refusé ces identifiants. Vérifiez l'ID client, le refresh token, et que le champ d'application « Gestion de la recharge du véhicule » est bien activé.",
-  "i18n.collectors.tesla.client_id": "ID client",
-  "i18n.collectors.tesla.client_id.placeholder": "00000000-0000-0000-0000-000000000000",
   "i18n.collectors.tesla.description": "Service en ligne pour gérer les véhicules Tesla, les produits énergétiques et les paramètres de compte.",
   "i18n.collectors.tesla.refresh_token": "Refresh token",
   "i18n.collectors.tesla.refresh_token.placeholder": "",
