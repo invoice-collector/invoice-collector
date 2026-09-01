@@ -57,7 +57,7 @@ export class TwofaPromise{
         }
         else {
             timeoutPromise = new Promise<string>((_, reject) =>
-                setTimeout(() => reject(new Error('No 2FA code provided within the alloteted time. Please try again.')), TwofaPromise.TWOFA_TIMEOUT_MS)
+                setTimeout(() => reject(new Error('No 2FA code provided within the allotted time. Please try again.')), TwofaPromise.TWOFA_TIMEOUT_MS)
             )
         }
         
