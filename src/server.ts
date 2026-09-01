@@ -1736,7 +1736,7 @@ export class Server {
 
     private getUserFromUiToken(uiToken: any): User {
         // Check if token is missing or incorrect
-        if(!uiToken || !this.userUiTokens.hasOwnProperty(uiToken) || typeof uiToken !== 'string') {
+        if(!uiToken || typeof uiToken !== 'string' || !this.userUiTokens.hasOwnProperty(uiToken)) {
             throw new OauthError();
         }
         return this.userUiTokens[uiToken];
@@ -1760,7 +1760,7 @@ export class Server {
 
     private getCredentialFromOauth2State(oauth2State: any): Credential {
         // Check if state is missing or incorrect
-        if(!oauth2State || !this.credentialOauth2States.hasOwnProperty(oauth2State) || typeof oauth2State !== 'string') {
+        if(!oauth2State || typeof oauth2State !== 'string' || !this.credentialOauth2States.hasOwnProperty(oauth2State)) {
             throw new OauthError();
         }
         return this.credentialOauth2States[oauth2State];
