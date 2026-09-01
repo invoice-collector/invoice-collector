@@ -226,8 +226,11 @@ export class TeslaCollector extends ApiCollector {
             validateStatus: () => true,
             ...options,
         });
-        if (response.status !== 200) {
+        if(response.status == 401 || response.status == 403) {
             throw new AuthenticationError('i18n.collectors.tesla.authentication_error', this);
+        }
+        else if(response.status !== 200) {
+            throw new Error(`Request failed with status code ${response.status}`);
         }
         return response.data;
     }
