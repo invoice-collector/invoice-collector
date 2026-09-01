@@ -29,5 +29,6 @@ jobs:
       - name: Run locales tests
         run: npm run test.cicd.collectors
         env:
-          FRONTEND: localhost:8080
+          PORT: 8080
+          FRONTEND: localhost:5173
           OAUTH2_TESLA_CLIENT_SECRET: mock
