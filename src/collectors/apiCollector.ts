@@ -38,8 +38,9 @@ export abstract class ApiCollector extends V1Collector<ApiConfig> {
         });
 
         try {
-            // Set progress step to collecting
-            state.update(State._5_COLLECTING);
+            // Set progress step to logging in
+            state.update(State._2_LOGGING_IN);
+            webSocketServer?.sendState(State._2_LOGGING_IN);
 
             // Collect invoices
             const invoices = await this.collect(this.instance, webSocketServer, await secret.getParams());
