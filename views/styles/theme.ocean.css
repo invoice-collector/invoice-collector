@@ -994,6 +994,10 @@ body {
   margin-bottom: 0;
 }
 
+#open-oauth2-container .ic-header-subtitle {
+  margin-bottom: 1rem;
+}
+
 /* ===================================
    CANVAS FULLSCREEN MODE
    =================================== */
