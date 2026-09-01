@@ -11,7 +11,7 @@ import { TwofaPromise } from '../collect/twofaPromise';
 import { EventEmitter } from 'events';
 
 // Singleton WebSocket server manager
-export class WebSocketServerManager{
+export class WebSocketServerManager {
     private static instance: WebSocketServerManager | null = null;
     private wss: Server | null = null;
     private handlers: Map<string, WebSocketServer> = new Map();
@@ -75,9 +75,8 @@ export class WebSocketServer extends EventEmitter {
     private ws: WebSocket | null = null;
     private locale: string;
     private collector: AbstractCollector<Config>;
-    oauth2State: string;
-    // Only the latest message of each type is kept, to avoid unbounded growth while disconnected (e.g. screenshots)
     private messageQueue: Map<string, AbstractMessage> = new Map();
+    oauth2State: string;
     twofa_promise: TwofaPromise;
 
     public onTwofa: ((event: MessageTwofa) => void) | undefined;
@@ -109,7 +108,7 @@ export class WebSocketServer extends EventEmitter {
         console.log(`WebSocket connection established on ${this.path}`);
         this.ws = ws;
 
-        // Flush any messages queued while disconnected
+        // Flush any messages queued on connection
         for (const message of this.messageQueue.values()) {
             this.sendMessage(message, false);
         }

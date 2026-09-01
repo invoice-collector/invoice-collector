@@ -1746,15 +1746,15 @@ export class Server {
         // Generate oauth token
         const oauth2State = utils.generate_token();
 
-        // Map token with user
+        // Map state with credential
         this.credentialOauth2States[oauth2State] = credential;
 
-        // Schedule token delete after validity duration
+        // Schedule state delete after validity duration
         setTimeout(() => {
             delete this.credentialOauth2States[oauth2State];
         }, Server.OAUTH_TOKEN_VALIDITY_DURATION_MS);
 
-        // Return token
+        // Return state
         return oauth2State;
     }
 

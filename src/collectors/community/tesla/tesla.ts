@@ -23,7 +23,6 @@ export class TeslaCollector extends ApiCollector {
         logo: "https://upload.wikimedia.org/wikipedia/commons/e/e8/Tesla_logo.png",
         type: CollectorType.API,
         params: {},
-        // Replaced at runtime with the region of the account, see collect()
         baseUrl: "https://fleet-api.prd.eu.vn.cloud.tesla.com"
     }
 
@@ -46,6 +45,79 @@ export class TeslaCollector extends ApiCollector {
         CN: "https://fleet-api.prd.cn.vn.cloud.tesla.cn",
     };
 
+    async collect(instance: AxiosInstance, webSocketServer: WebSocketServer | undefined, params: any): Promise<any[]> {
+        // If param does not contain a refresh token nor an access token, the user has not authenticated yet.
+        if (!params.refresh_token && !params.access_token && webSocketServer != undefined) {
+            // Build the Oauth2 URL with the state
+            const oauth2Url = TeslaCollector.OAUTH2_URL.replace('{state}', webSocketServer.oauth2State);
+            // Send oauth2 url and wait for code
+            const code = await webSocketServer.sendOauth2(oauth2Url, false);
+            // Exchange the code for tokens
+            await this.getAccessToken(instance, params, code);
+        }
+        else if (params.refresh_token) {
+            // Refresh the access token to ensure it is valid and up to date
+            await this.refreshAccessToken(instance, params);
+        }
+
+        // Set the Authorization header for future requests
+        instance.defaults.headers.common['Authorization'] = `Bearer ${params.access_token}`;
+
+        const invoices: any[] = [];
+        for (let page = 1; page <= TeslaCollector.MAX_PAGES; page++) {
+            // Get the charging history for the current page
+            const sessions = await this.getChargingHistory(instance, page);
+
+            // If no sessions are returned, we have reached the end of the history
+            if (sessions.length === 0) {
+                break;
+            }
+
+            // For each session
+            for (const session of sessions) {
+                // A session without an invoice cannot be collected
+                const invoice = (session.invoices || [])[0];
+                if (!invoice || !invoice.contentId) {
+                    continue;
+                }
+
+                // Compute invoice datas
+                const fees = session.fees || [];
+                const total = fees.reduce((sum: number, fee: any) => sum + (fee.totalDue || 0), 0);
+                const currency = (fees[0] || {}).currencyCode || '';
+                const amount = `${total.toFixed(2)} ${currency}`.trim();
+                const timestamp = new Date(session.chargeStartDateTime).getTime();
+
+                invoices.push({
+                    id: invoice.contentId,
+                    timestamp: timestamp,
+                    amount: amount,
+                    link: `/api/1/dx/charging/invoice/${invoice.contentId}`,
+                    metadata: {
+                        site: session.siteLocationName,
+                        fileName: invoice.fileName,
+                    },
+                });
+            }
+
+            // If last page reached
+            if (sessions.length < TeslaCollector.PAGE_SIZE) {
+                break;
+            }
+        }
+
+        return invoices;
+    }
+
+    async download(instance: AxiosInstance, invoice: any): Promise<DownloadedInvoice> {
+        // Download the PDF
+        const data = await this.downloadInvoice(instance, invoice.link);
+        return {
+            ...invoice,
+            documents: [data],
+        };
+    }
+
     /**
      * Regional server of the account. The region is carried by the code.
      */
@@ -57,9 +129,10 @@ export class TeslaCollector extends ApiCollector {
         }
         return TeslaCollector.REGIONS.EU;
     }
+
     /**
      * Exchanges the authorization code obtained from the user consent redirect
-     * for an access token and a refresh token (Fleet API third-party tokens, step 3: code exchange).
+     * for an access token and a refresh token.
      */
     private async getAccessToken(instance: AxiosInstance, params: any, code: string): Promise<void> {
         // Get the base URL from the code and update the instance defaults
@@ -74,12 +147,11 @@ export class TeslaCollector extends ApiCollector {
             audience: baseUrl,
             redirect_uri: TeslaCollector.REDIRECT_URI,
         });
-
+        // Perform request
         const data = await this.request(instance, 'POST', TeslaCollector.TOKEN_URL, {
             data: body.toString(),
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         });
-
         if (!data?.access_token || !data?.refresh_token) {
             throw new AuthenticationError('i18n.collectors.tesla.authentication_error', this);
         }
@@ -89,9 +161,7 @@ export class TeslaCollector extends ApiCollector {
     }
 
     /**
-     * Exchanges the refresh token for an access token. The Tesla refresh token
-     * is reusable, so the one returned here is ignored and the user never has
-     * to enter a new one.
+     * Exchanges the refresh token for an access token and a new refresh token.
      */
     private async refreshAccessToken(instance: AxiosInstance, params: any): Promise<void> {
         // Set the base URL from the code and update the instance defaults
@@ -101,20 +171,54 @@ export class TeslaCollector extends ApiCollector {
             client_id: TeslaCollector.CLIENT_ID,
             refresh_token: params.refresh_token,
         });
-
+        // Perform request
         const data = await this.request(instance, 'POST', TeslaCollector.TOKEN_URL, {
             data: body.toString(),
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         });
-
         if (!data?.access_token) {
             throw new AuthenticationError('i18n.collectors.tesla.authentication_error', this);
         }
+        // Update params with the new tokens for future use
         params.access_token = data.access_token;
         params.refresh_token = data.refresh_token;
     }
 
-    // Make request to Tesla API
+    /**
+     * Gets the charging history
+     * @param instance The Axios instance to use for the request.
+     * @param page The page number to retrieve.
+     * @returns The charging history data for the specified page.
+     */
+    private async getChargingHistory(instance: AxiosInstance, page: number): Promise<any> {
+        const data = await this.request(instance, 'GET', '/api/1/dx/charging/history', {
+            params: { pageNo: page, pageSize: TeslaCollector.PAGE_SIZE },
+        });
+        return data?.data || [];
+    }
+
+    /**
+     * Download invoice as PDF.
+     * @param instance The Axios instance to use for the request.
+     * @param url The URL of the invoice to download.
+     * @returns The downloaded invoice as a base64-encoded string.
+     */
+    private async downloadInvoice(instance: AxiosInstance, url: string): Promise<string> {
+        // Perform request
+        const data = await this.request(instance, 'GET', url, { responseType: 'arraybuffer' });
+        // Return the downloaded invoice as base64
+        return Buffer.from(data).toString('base64');
+    }
+
+    /**
+     * Makes a request to Tesla API using the provided Axios instance and options.
+     * 
+     * @param instance The Axios instance to use for the request.
+     * @param method The HTTP method (GET, POST, etc.).
+     * @param url The URL to send the request to.
+     * @param options Additional request options.
+     * @returns The response data from the request.
+     */
     private async request(instance: AxiosInstance, method: string, url: string, options: any = {}): Promise<any> {
         const response = await instance.request({
             method,
@@ -126,79 +230,5 @@ export class TeslaCollector extends ApiCollector {
             throw new AuthenticationError('i18n.collectors.tesla.authentication_error', this);
         }
         return response.data;
-    }
-
-    async collect(instance: AxiosInstance, webSocketServer: WebSocketServer | undefined, params: any): Promise<any[]> {
-        // If param does not contain a refresh token, the user has not authenticated yet, so the collector cannot proceed.
-        if (!params.refresh_token && !params.access_token && webSocketServer != undefined) {
-            // Build the Oauth2 URL with the state
-            const oauth2Url = TeslaCollector.OAUTH2_URL.replace('{state}', webSocketServer.oauth2State);
-            // Send oauth2 url
-            const code = await webSocketServer.sendOauth2(oauth2Url, false);
-            // Exchange the code for tokens
-            await this.getAccessToken(instance, params, code);
-        }
-        else if (params.refresh_token && params.access_token && webSocketServer != undefined) {
-            // Refresh the access token to ensure it is valid and up to date
-            await this.refreshAccessToken(instance, params);
-        }
-
-        // Set the Authorization header for future requests
-        instance.defaults.headers.common['Authorization'] = `Bearer ${params.access_token}`;
-
-        const invoices: any[] = [];
-        for (let page = 1; page <= TeslaCollector.MAX_PAGES; page++) {
-            const data = await this.request(instance, 'GET', '/api/1/dx/charging/history', {
-                params: { pageNo: page, pageSize: TeslaCollector.PAGE_SIZE },
-            });
-
-            const sessions = data?.data || [];
-            if (sessions.length === 0) {
-                break;
-            }
-
-            for (const session of sessions) {
-                // A session without an invoice cannot be collected
-                const invoice = (session.invoices || [])[0];
-                if (!invoice || !invoice.contentId) {
-                    continue;
-                }
-
-                // A session carries several fees: charging, congestion,
-                // idle. The invoiced amount is their sum.
-                const fees = session.fees || [];
-                const total = fees.reduce((sum: number, fee: any) => sum + (fee.totalDue || 0), 0);
-                const currency = (fees[0] || {}).currencyCode || '';
-
-                invoices.push({
-                    id: invoice.contentId,
-                    timestamp: new Date(session.chargeStartDateTime).getTime(),
-                    amount: `${total.toFixed(2)} ${currency}`.trim(),
-                    link: `/api/1/dx/charging/invoice/${invoice.contentId}`,
-                    metadata: {
-                        site: session.siteLocationName,
-                        fileName: invoice.fileName,
-                    },
-                });
-            }
-
-            // Last page reached
-            if (sessions.length < TeslaCollector.PAGE_SIZE) {
-                break;
-            }
-        }
-
-        return invoices;
-    }
-
-    async download(instance: AxiosInstance, invoice: any): Promise<DownloadedInvoice> {
-        // The PDF is served by the API itself, so it needs the token: a plain
-        // link download would not do.
-        const data = await this.request(instance, 'GET', invoice.link, { responseType: 'arraybuffer' });
-
-        return {
-            ...invoice,
-            documents: [Buffer.from(data).toString('base64')],
-        };
     }
 }
