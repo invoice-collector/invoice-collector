@@ -69,6 +69,7 @@ export class WebSocketServer extends EventEmitter {
 
     public static PATH = '/api/v1/ws/';
     public static TWOFA_TIMEOUT_MS = 1000 * 60 * 5; // 5 minutes
+    public static OAUTH2_TIMEOUT_MS = 1000 * 60 * 5; // 5 minutes
     public static KEEP_ALIVE_INTERVAL = 1000 * 30;  // 30 seconds
 
     public path: string;
@@ -234,6 +235,7 @@ export class WebSocketServer extends EventEmitter {
 
         // Wait for oauth2 code
         return await new Promise((resolve, reject) => {
+            setTimeout(() => reject(new DisconnectedError('i18n.collectors.all.oauth2.timeout', this.collector)), WebSocketServer.OAUTH2_TIMEOUT_MS)
             this.once("oauth2_code", (event: { code: string }) => {
                 resolve(event.code);
             });
