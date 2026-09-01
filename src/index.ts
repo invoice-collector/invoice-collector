@@ -22,8 +22,6 @@ declare global {
 
 // Create server
 const server = new Server();
-const PORT = utils.getEnvVar("PORT");
-const DEBUG_ENABLED = utils.getEnvVar("ENV", "prod") === "debug";
 
 function handle_error(e, req, res){
     if(e instanceof StatusError) {
@@ -33,7 +31,7 @@ function handle_error(e, req, res){
     else {
         console.error(e);
         let message;
-        if (DEBUG_ENABLED) {
+        if (utils.DEBUG_ENABLED) {
             message = e.message;
         }
         else {
@@ -2112,8 +2110,8 @@ app.use((req, res, next) => {
 
 // Start server
 server.start().then(() => {
-    const httpServer = app.listen(PORT, () => {
-        console.log(`App listening on port ${PORT}`)
+    const httpServer = app.listen(utils.PORT, () => {
+        console.log(`App listening on port ${utils.PORT}`)
     });
 
     // Set http server to server instance to be able to use websockets
