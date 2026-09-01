@@ -9263,6 +9263,6 @@
   "i18n.views.manage.submit_request": "Envoyer la demande",
   "i18n.views.manage.unknown": "Oups ! Quelque chose s'est mal passé... Veuillez réessayer plus tard.",
   "i18n.views.oauth2.close": "Vous pouvez fermer cette fenêtre.",
-  "i18n.views.oauth2.instructions": "Terminez l'authentification dans la fenêtre ci-dessous. Elle se fermera automatiquement une fois terminée.",
+  "i18n.views.oauth2.instructions": "Terminez l'authentification ci-dessous. Cette page se fermera automatiquement une fois terminée.",
   "i18n.views.oauth2.open": "Ouvrir la page d'authentification"
 }

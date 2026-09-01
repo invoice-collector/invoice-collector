@@ -9263,6 +9263,6 @@
   "i18n.views.manage.submit_request": "Submit Request",
   "i18n.views.manage.unknown": "Oops! Something went wrong... Lets try again later.",
   "i18n.views.oauth2.close": "You can close this tab.",
-  "i18n.views.oauth2.instructions": "Complete the authentication in the opened tab. This page will continue automatically once you're done.",
+  "i18n.views.oauth2.instructions": "Complete the authentication bellow. This page will be automatically closed once done.",
   "i18n.views.oauth2.open": "Open authentication page"
 }
