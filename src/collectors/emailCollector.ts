@@ -6,7 +6,7 @@ import { V2Collector } from './v2Collector';
 import { WebSocketServer } from '../websocket/webSocketServer';
 import { Credential, ModelInvoice } from '../model/credential';
 import type { EmailInvoiceFilters, EmailProvider, EmailProviderConfig } from './emailProvider';
-import { AuthenticationError } from '../error';
+import { DisconnectedError } from '../error';
 import * as utils from '../utils';
 import { CollectorLoader } from './collectorLoader';
 
@@ -40,6 +40,13 @@ export abstract class EmailCollector<C extends EmailCollectorConfig> extends V2C
     ): Promise<CompleteInvoice[]> {
         const completeInvoices: CompleteInvoice[] = [];
 
+        // If no provider, raise Disconnected error
+        if (!providers || providers.length === 0) {
+            throw new DisconnectedError('i18n.collectors.email.no_provider', this);
+        }
+
+        let atLeastOneProviderSucceeded = false;
+
         // For each provider
         for (const provider of providers) {
             // Get email provider instance
@@ -52,8 +59,12 @@ export abstract class EmailCollector<C extends EmailCollectorConfig> extends V2C
                 state.update(State._2_LOGGING_IN);
                 webSocketServer?.sendState(State._2_LOGGING_IN);
 
-                // Authenticate to open the underlying mailbox connection
-                await emailProvider.authenticate(await providerSecret.getParams());
+                try {
+                    // Authenticate to open the underlying mailbox connection
+                    await emailProvider.authenticate(await providerSecret.getParams());
+                } catch (error) {
+                    continue;
+                }
 
                 const filters: EmailInvoiceFilters = {
                     senderRegex: this.config.senderRegex,
@@ -110,12 +121,15 @@ export abstract class EmailCollector<C extends EmailCollectorConfig> extends V2C
                         });
                     }
                 }
-
+                atLeastOneProviderSucceeded = true;
             }
             finally {
                 // Close the underlying mailbox connection
                 await emailProvider._close();
             }
+        }
+        if (!atLeastOneProviderSucceeded && webSocketServer) {
+            throw new DisconnectedError('i18n.collectors.email.authentication_failed', this);
         }
         return completeInvoices;
     }

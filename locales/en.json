@@ -2540,6 +2540,8 @@
   "i18n.collectors.elwing.description": "An online book management and publishing service by Zoho for European users.",
   "i18n.collectors.elyxis.description": "A secure online platform for managing and accessing business services and resources.",
   "i18n.collectors.emag.description": "eMAG is a leading online marketplace in Eastern Europe, offering a wide range of products from electronics to home goods.",
+  "i18n.collectors.email.authentication_failed": "Your email providers (Gmail, Outlook or IMAP) are in error. Fix it first.",
+  "i18n.collectors.email.no_provider": "You need to add an email provider (Gmail, Outlook or IMAP) to use this collector. Add one then reconnect the collector.",
   "i18n.collectors.email_hippo.description": "An email verification service that checks the validity and deliverability of email addresses.",
   "i18n.collectors.email_js.description": "A cloud-based service that lets you send emails directly from client-side JavaScript without a backend.",
   "i18n.collectors.email_on_acid.description": "A tool for testing and previewing email campaigns across clients and devices before sending.",
