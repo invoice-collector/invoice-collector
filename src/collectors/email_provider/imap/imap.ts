@@ -117,10 +117,6 @@ export class ImapCollector extends EmailProvider<ImapProviderConfig> {
         }
 
         try {
-            // Set progress step to logging in
-            state.update(State._2_LOGGING_IN);
-            webSocketServer?.sendState(State._2_LOGGING_IN);
-
             this.client = new ImapFlow({
                 host,
                 port,
@@ -133,20 +129,16 @@ export class ImapCollector extends EmailProvider<ImapProviderConfig> {
                 logger: false
             });
 
-            // Set progress step to collecting
-            state.update(State._5_COLLECTING);
-            webSocketServer?.sendState(State._5_COLLECTING);
-
             await this.client.connect();
             await this.client.noop();
         } catch (error) {
-            throw new AuthenticationError('i18n.collectors.all.login.error', this, { cause: error });
+            throw new AuthenticationError('i18n.collectors.imap.login.error', this, { cause: error });
         }
     }
 
     async getInvoices(filters: EmailInvoiceFilters, download_from_timestamp: number): Promise<EmailInvoice[]> {
         if (!this.client) {
-            throw new AuthenticationError('i18n.collectors.all.login.error', this);
+            throw new Error('IMAP client is not connected');
         }
 
         const senderRegex = this.wildcardToRegex(filters.senderRegex);
@@ -217,7 +209,7 @@ export class ImapCollector extends EmailProvider<ImapProviderConfig> {
 
     async downloadInvoice(invoice: EmailInvoice): Promise<DownloadedEmailInvoice> {
         if (!this.client) {
-            throw new AuthenticationError('i18n.collectors.all.login.error', this);
+            throw new Error('IMAP client is not connected');
         }
 
         const { mailbox, uid, part } = invoice.metadata as { mailbox: string, uid: number, part: string };

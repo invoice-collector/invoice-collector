@@ -48,6 +48,10 @@ export abstract class EmailCollector<C extends EmailCollectorConfig> extends V2C
                 // Get provider secret
                 const providerSecret = provider.getSecret();
 
+                // Set progress step to logging in
+                state.update(State._2_LOGGING_IN);
+                webSocketServer?.sendState(State._2_LOGGING_IN);
+
                 // Authenticate to open the underlying mailbox connection
                 await emailProvider.authenticate(state, webSocketServer, providerSecret, locale, location);
 
@@ -57,6 +61,10 @@ export abstract class EmailCollector<C extends EmailCollectorConfig> extends V2C
                     bodyRegex: this.config.bodyRegex,
                     attachmentNameRegex: this.config.attachmentNameRegex
                 };
+
+                // Set progress step to downloading
+                state.update(State._5_COLLECTING);
+                webSocketServer?.sendState(State._5_COLLECTING);
 
                 // Get emails matching the filters since download_from_timestamp
                 const invoices = await emailProvider.getInvoices(filters, download_from_timestamp);

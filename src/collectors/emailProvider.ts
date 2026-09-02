@@ -50,6 +50,10 @@ export abstract class EmailProvider<C extends EmailProviderConfig> extends V2Col
         useInteractiveLogin: boolean,
         providers: Credential[]
     ): Promise<CompleteInvoice[]> {
+        // Set progress step to logging in
+        state.update(State._2_LOGGING_IN);
+        webSocketServer?.sendState(State._2_LOGGING_IN);
+    
         await this.authenticate(
             state,
             webSocketServer,
@@ -57,6 +61,10 @@ export abstract class EmailProvider<C extends EmailProviderConfig> extends V2Col
             locale,
             location
         );
+
+        // Set progress step to collecting
+        state.update(State._5_COLLECTING);
+        webSocketServer?.sendState(State._5_COLLECTING);
 
         // Email providers only authenticate the account and do not collect invoices.
         return [];
