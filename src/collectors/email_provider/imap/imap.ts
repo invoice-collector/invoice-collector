@@ -6,6 +6,7 @@ import { AuthenticationError, LoggableError } from '../../../error';
 import { WebSocketServer } from '../../../websocket/webSocketServer';
 import { CollectorAuthenticationMethod, CollectorState, CollectorType } from '../../abstractCollector';
 import { DownloadedEmailInvoice, EmailInvoice, EmailInvoiceFilters, EmailProvider, EmailProviderConfig } from '../../emailProvider';
+import * as utils from '../../../utils';
 
 const MAILBOX_TO_IGNORE = [
     'sent',
@@ -194,7 +195,7 @@ export class ImapCollector extends EmailProvider<ImapProviderConfig> {
                         }
 
                         invoices.push({
-                            id: `${mailbox.path}:${message.uid}:${attachment.part}`,
+                            id: utils.hash_string(`${message.uid}:${attachment.part}`),
                             timestamp: message.envelope?.date ? new Date(message.envelope.date).getTime() : Date.now(),
                             metadata: {
                                 mailbox: mailbox.path,
