@@ -12,7 +12,7 @@ export class OpenaiChatgptCollector extends OpenaiCommonCollector {
         description: "i18n.collectors.openai_chatgpt.description",
         version: "11",
         website: "https://chatgpt.com",
-        logo: "https://upload.wikimedia.org/wikipedia/commons/4/4d/OpenAI_Logo.svg",
+        logo: "https://upload.wikimedia.org/wikipedia/commons/6/66/OpenAI_logo_2025_(symbol).svg",
         type: CollectorType.WEB,
         params: {
             email: {

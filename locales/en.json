@@ -9213,6 +9213,7 @@
   "i18n.views.manage.cant_find_collector": "Can't find a collector?",
   "i18n.views.manage.close": "Close",
   "i18n.views.manage.collecting_data": "Collecting data...",
+  "i18n.views.manage.configure": "Configure",
   "i18n.views.manage.connect_account": "Connect your account to start collecting invoices",
   "i18n.views.manage.continue": "Continue",
   "i18n.views.manage.date_placeholder": "dd / mm / yyyy",

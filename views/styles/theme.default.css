@@ -42,7 +42,7 @@
   --warning: #fdd835;        /* yellow-600 */
   --warning-hover: #fbc02d;  /* yellow-700 */
   --warning-bg: #fff9c4;     /* yellow-100 */
-  --warning-text: #f9a825;   /* yellow-800 */
+  --warning-text: #854d0e;   /* yellow-800 */
 
   /* Status - Danger */
   --danger: #dc2626;         /* red-600 */
@@ -134,7 +134,14 @@ body {
 
 .ic-header {
   display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
   margin-bottom: 2rem;
+  width: 100%;
+  max-width: 56rem;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .ic-header-title {
@@ -169,21 +176,9 @@ body {
   display: grid;
   gap: 1.5rem;
   max-width: 56rem;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
   margin-left: auto;
   margin-right: auto;
-}
-
-@media (min-width: 500px) {
-  .ic-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media (min-width: 750px) {
-  .ic-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
 }
 
 /* ===================================
@@ -509,6 +504,52 @@ body {
   outline: none;
   border-color: var(--primary-hover);
   box-shadow: 0 0 0 2px var(--primary-focus);
+}
+
+/* ===================================
+   FOCUS VISIBILITY & MOTION
+   =================================== */
+
+.ic-button:focus-visible,
+.ic-card:focus-visible,
+.ic-back-button:focus-visible,
+.ic-input:focus-visible,
+.ic-textarea:focus-visible,
+.ic-datepicker-input:focus-visible,
+.ic-datepicker-day:focus-visible,
+.ic-datepicker-nav-button:focus-visible,
+.ic-datepicker-footer-button:focus-visible,
+.ic-datepicker-month-year-select select:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.ic-button:focus:not(:focus-visible),
+.ic-card:focus:not(:focus-visible),
+.ic-back-button:focus:not(:focus-visible) {
+  outline: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ===================================
+   TOUCH TARGETS
+   =================================== */
+
+.ic-button,
+.ic-input,
+.ic-textarea,
+.ic-datepicker-input {
+  min-height: 2.75rem;
 }
 
 .ic-input::placeholder,

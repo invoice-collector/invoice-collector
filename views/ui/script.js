@@ -252,7 +252,7 @@ function showForm(company) {
     document.getElementById('form-logo').src = company.logo;
     document.getElementById('form-name').textContent = company.name;
     document.getElementById('form-description').textContent = company.description;
-    document.getElementById('form-title').textContent = `Configure ${company.name}`;
+    document.getElementById('form-title').textContent = `${i18n.configure} ${company.name}`;
     
     const badge = document.getElementById('form-badge');
     if (company.state === 'planned') {
