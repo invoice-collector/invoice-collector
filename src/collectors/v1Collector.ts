@@ -26,9 +26,9 @@ export abstract class V1Collector<C extends Config> extends AbstractCollector<C>
         void providers; // V1 collectors do not use email providers
 
         // Check if a mandatory field is missing
+        const secretParams = await secret.getParams();
         for (const [key, value] of Object.entries(this.config.params)) {
-            const secretParams = await secret.getParams();
-            if (value.mandatory && !secretParams[key]) {
+            if (value.mandatory && !secretParams.hasOwnProperty(key)) {
                 throw new Error(`Field "${key}" is missing.`);
             }
         }

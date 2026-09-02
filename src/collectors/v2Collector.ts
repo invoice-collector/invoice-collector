@@ -28,9 +28,9 @@ export abstract class V2Collector<C extends Config> extends AbstractCollector<C>
         const useInteractiveLogin = AbstractCollector.updateCollectorParams(customerAuthenticationMethod, this.config)
 
         // Check if a mandatory field is missing
+        const secretParams = await secret.getParams();
         for (const [key, value] of Object.entries(this.config.params)) {
-            const secretParams = await secret.getParams();
-            if (value.mandatory && !secretParams[key]) {
+            if (value.mandatory && !secretParams.hasOwnProperty(key)) {
                 throw new AuthenticationError('i18n.collectors.all.missing_param', this);
             }
         }
