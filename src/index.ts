@@ -22,8 +22,6 @@ declare global {
 
 // Create server
 const server = new Server();
-const PORT = utils.getEnvVar("PORT");
-const DEBUG_ENABLED = utils.getEnvVar("ENV", "prod") === "debug";
 
 function handle_error(e, req, res){
     if(e instanceof StatusError) {
@@ -33,7 +31,7 @@ function handle_error(e, req, res){
     else {
         console.error(e);
         let message;
-        if (DEBUG_ENABLED) {
+        if (utils.DEBUG_ENABLED) {
             message = e.message;
         }
         else {
@@ -1496,6 +1494,58 @@ app.post('/api/v1/credential/:credential_id/2fa', async (req, res) => {
 
 /**
  * @openapi
+ * /oauth2:
+ *   get:
+ *     tags: [General]
+ *     summary: Oauth2 callback
+ *     description: Returns a UI page for the OAuth2 callback.
+ *     security:
+ *       - StateAuth: []
+ *     parameters:
+ *       - name: state
+ *         in: query
+ *         required: true
+ *         schema:
+ *           $ref: '#/components/schemas/oauth2State'
+ *     responses:
+ *       200:
+ *         description: Success
+ *         content:
+ *           text/html:
+ *             schema:
+ *               type: string
+ *       401:
+ *         description: Authentication error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       500:
+ *         description: Internal server error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ */
+// TOKEN AUTHENTICATION
+app.get('/api/v1/oauth2', async (req, res) => {
+    try {
+        // Post oauth2
+        const context = await server.get_credential_oauth2(
+            req.query.state,
+            req.query.code,
+        );
+
+        // Render oauth2.ejs
+        req.setLocale(context.locale);
+        res.render('ui/oauth2', context);
+    } catch (e) {
+        handle_error(e, req, res);
+    }
+});
+
+/**
+ * @openapi
  * /user/{userId}/credential/{credentialId}/collect:
  *   post:
  *     tags: [Credential]
@@ -2060,8 +2110,8 @@ app.use((req, res, next) => {
 
 // Start server
 server.start().then(() => {
-    const httpServer = app.listen(PORT, () => {
-        console.log(`App listening on port ${PORT}`)
+    const httpServer = app.listen(utils.PORT, () => {
+        console.log(`App listening on port ${utils.PORT}`)
     });
 
     // Set http server to server instance to be able to use websockets

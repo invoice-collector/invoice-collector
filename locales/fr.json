@@ -349,6 +349,7 @@
   "i18n.collectors.all.login.expired": "Votre compte à été déconnecté. Reconnectez le pour continuer à recevoir vos factures automatiquement.",
   "i18n.collectors.all.login.timeout": "Temps de connexion écoulé. Veuillez réessayer.",
   "i18n.collectors.all.missing_param": "Un paramètre requis est manquant. Veuillez créer un nouveau collecteur et supprimer celui-ci.",
+  "i18n.collectors.all.oauth2.timeout": "Aucun code OAuth2 fourni dans le temps imparti. Veuillez réessayer.",
   "i18n.collectors.all.password": "Mot de passe",
   "i18n.collectors.all.password.error": "Mot de passe incorrect",
   "i18n.collectors.all.password.placeholder": "Mot de passe du compte",
@@ -8003,6 +8004,7 @@
   "i18n.collectors.terralink_networks.description": "Terralink Networks offre des services Internet et de télécommunication fiables en Allemagne.",
   "i18n.collectors.tesch_inkasso_finance.description": "Un service allemand de recouvrement de créances spécialisé dans les solutions de récupération financière pour les entreprises.",
   "i18n.collectors.tesco_broadband.description": "Services Internet abordables et fiables proposés par Tesco, un grand détaillant britannique.",
+  "i18n.collectors.tesla.authentication_error": "Tesla a refusé ces identifiants. Vérifiez l'ID client, le refresh token, et que le champ d'application « Gestion de la recharge du véhicule » est bien activé.",
   "i18n.collectors.tesla.description": "Service en ligne pour gérer les véhicules Tesla, les produits énergétiques et les paramètres de compte.",
   "i18n.collectors.tesla_business.description": "Une plateforme en ligne innovante proposant les véhicules électriques, solutions énergétiques et services professionnels de Tesla pour une mobilité durable.",
   "i18n.collectors.tesla_handschuhfach.description": "Service en ligne pour accéder et gérer les fonctionnalités de la boîte à gants des véhicules Tesla.",
@@ -9261,5 +9263,8 @@
   "i18n.views.manage.search_placeholder": "Rechercher un collecteur...",
   "i18n.views.manage.select_collector": "Sélectionnez un collecteur pour commencer",
   "i18n.views.manage.submit_request": "Envoyer la demande",
-  "i18n.views.manage.unknown": "Oups ! Quelque chose s'est mal passé... Veuillez réessayer plus tard."
+  "i18n.views.manage.unknown": "Oups ! Quelque chose s'est mal passé... Veuillez réessayer plus tard.",
+  "i18n.views.oauth2.close": "Vous pouvez fermer cette fenêtre.",
+  "i18n.views.oauth2.instructions": "Terminez l'authentification ci-dessous. Cette page se fermera automatiquement une fois terminée.",
+  "i18n.views.oauth2.open": "Ouvrir la page d'authentification"
 }

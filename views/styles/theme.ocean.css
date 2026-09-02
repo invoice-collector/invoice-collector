@@ -1029,6 +1029,10 @@ body {
   margin-bottom: 0;
 }
 
+#open-oauth2-container .ic-header-subtitle {
+  margin-bottom: 1rem;
+}
+
 /* ===================================
    CANVAS FULLSCREEN MODE
    =================================== */
@@ -1151,6 +1155,13 @@ body {
   width: auto;
   height: auto;
   background:  var(--bg);
+}
+
+.ic-canvas-content iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: var(--bg);
 }
 
 /* ===================================

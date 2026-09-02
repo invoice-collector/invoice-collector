@@ -77,6 +77,7 @@ const NAVIGATION_EVENT_SHOW_FORM = { type: 'ic-panel-form' };
 const NAVIGATION_EVENT_SHOW_FEEDBACK = { type: 'ic-panel-feedback' };
 const NAVIGATION_EVENT_SHOW_PROGRESS = { type: 'ic-panel-progress' };
 const NAVIGATION_EVENT_SHOW_INTERACTIVE = { type: 'ic-panel-interactive' };
+const NAVIGATION_EVENT_SHOW_OAUTH2 = { type: 'ic-panel-oauth2' };
 
 function closeIframe() {
     window.parent.postMessage(NAVIGATION_EVENT_CLOSE, '*');
@@ -503,8 +504,22 @@ async function showProgress(credential_id, wsPath) {
     const responseErrorText = document.getElementById('progress-response-error-text');
     const container2FA = document.getElementById('send-2fa-container');
     const containerCanvas = document.getElementById('canvas-container');
+    const containerOauth2 = document.getElementById('oauth2-container');
+    const oauth2Iframe = document.getElementById('oauth2-iframe');
+    const oauth2CancelButton = document.getElementById('oauth2-cancel');
+    const oauth2OpenContainer = document.getElementById('open-oauth2-container');
+    const oauth2OpenButton = document.getElementById('oauth2-open-button');
     const form2fa = document.getElementById('send-2fa-form');
     const form2faInstructions = document.getElementById('send-2fa-instructions');
+    
+    let oauth2Url = null;
+
+    // Opens the oauth2 url in a new tab; also used as the open button's click handler
+    function openOauth2Tab() {
+        if (oauth2Url) {
+            window.open(oauth2Url, '_blank');
+        }
+    }
     
     progressLoading.hidden = false;
     progressBarSection.hidden = false;
@@ -515,6 +530,9 @@ async function showProgress(credential_id, wsPath) {
     responseError.hidden = true;
     container2FA.hidden = true;
     containerCanvas.hidden = true;
+    containerOauth2.hidden = true;
+    oauth2OpenContainer.hidden = true;
+    oauth2Iframe.src = '';
     form2fa.reset();
     form2faInstructions.textContent = '';
     
@@ -533,6 +551,9 @@ async function showProgress(credential_id, wsPath) {
         progressBarSection.hidden = true;
         container2FA.hidden = true;
         containerCanvas.hidden = true;
+        containerOauth2.hidden = true;
+        oauth2OpenContainer.hidden = true;
+        oauth2Iframe.src = '';
         
         if (state.index >= VIRTUAL_MAX) {
             responseSuccess.hidden = false;
@@ -555,6 +576,9 @@ async function showProgress(credential_id, wsPath) {
     function cancelAndClose() {
         cancelled = true;
         containerCanvas.hidden = true;
+        containerOauth2.hidden = true;
+        oauth2OpenContainer.hidden = true;
+        oauth2Iframe.src = '';
         if (ws.readyState === WebSocket.OPEN) {
             ws.send(JSON.stringify({ type: 'interactive', reason: !collect_credential_id ? 'remove' : 'cancel' }));
             ws.close();
@@ -615,6 +639,8 @@ async function showProgress(credential_id, wsPath) {
         
         canvasCancelButton.onclick = cancelAndClose;
         canvasBackButton.onclick = cancelAndClose;
+        oauth2CancelButton.onclick = cancelAndClose;
+        oauth2OpenButton.onclick = openOauth2Tab;
     };
     
     let previous_state, current_state;
@@ -648,7 +674,28 @@ async function showProgress(credential_id, wsPath) {
                 }
             });
         }
+        else if (parsedData.type === 'oauth2' && parsedData.url) {
+            if (parsedData.iframe) {
+                containerOauth2.hidden = false;
+                oauth2Iframe.src = parsedData.url;
+                document.getElementById('progress-container').classList.add('ic-hidden');
+                window.parent.postMessage(NAVIGATION_EVENT_SHOW_OAUTH2, '*');
+            } else {
+                oauth2Url = parsedData.url;
+                oauth2OpenContainer.hidden = false;
+                openOauth2Tab();
+            }
+        }
         else if (parsedData.type === 'state') {
+            // Resuming progress means the oauth2 step is done, so hide whichever oauth2 UI was shown
+            oauth2OpenContainer.hidden = true;
+            if (!containerOauth2.hidden) {
+                containerOauth2.hidden = true;
+                oauth2Iframe.src = '';
+                document.getElementById('progress-container').classList.remove('ic-hidden');
+                window.parent.postMessage(NAVIGATION_EVENT_SHOW_PROGRESS, '*');
+            }
+
             current_state = parsedData.state;
             
             if (current_state.index >= VIRTUAL_MAX || current_state.index < 0) {
@@ -673,6 +720,9 @@ async function showProgress(credential_id, wsPath) {
     
     ws.onclose = () => {
         containerCanvas.hidden = true;
+        containerOauth2.hidden = true;
+        oauth2OpenContainer.hidden = true;
+        oauth2Iframe.src = '';
         
         if (cancelled) return;
         
