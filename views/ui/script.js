@@ -308,7 +308,9 @@ function showForm(company) {
         
         const input = document.createElement('input');
         input.className = 'ic-input';
-        input.type = param.type === 'password' ? 'password' : 'text';
+        input.type = param.type === 'password' || param.type === 'number'
+            ? param.type
+            : param.type === 'boolean' ? 'checkbox' : 'text';
         input.name = key;
         input.placeholder = param.placeholder;
         input.required = param.mandatory;

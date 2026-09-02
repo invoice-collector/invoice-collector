@@ -63,7 +63,7 @@ export class ImapCollector extends EmailProvider<ImapProviderConfig> {
                 type: 'boolean',
                 name: 'i18n.collectors.imap.secure',
                 placeholder: 'true',
-                mandatory: true
+                mandatory: false
             }
         },
         state: CollectorState.ACTIVE,
@@ -81,7 +81,7 @@ export class ImapCollector extends EmailProvider<ImapProviderConfig> {
         const host = params.host as string;
         const username = params.username as string;
         const password = params.password as string;
-        const secure = utils.parseBoolean(params.secure, true);
+        const secure = utils.parseBoolean(params.secure, false);
 
         const port = Number(params.port);
         if (!Number.isFinite(port) || port <= 0) {
