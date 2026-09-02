@@ -77,7 +77,7 @@ export class Collect {
                 }
 
                 // Get the user's email providers, usable by email-based collectors
-                const providers = await user.getAllProviders();
+                const providers = await user.getProviders();
 
                 // Collect invoices
                 const newInvoices = await collector.collect_new_invoices(

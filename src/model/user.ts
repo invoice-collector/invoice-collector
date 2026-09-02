@@ -91,7 +91,7 @@ export class User {
     }
 
     // Return every credential of this user whose collector is an email provider (mailbox connection)
-    async getAllProviders(): Promise<Credential[]> {
+    async getProviders(): Promise<Credential[]> {
         const credentials = await this.getCredentials();
         const providers: Credential[] = [];
 
