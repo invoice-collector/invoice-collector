@@ -57,7 +57,7 @@ export abstract class EmailProvider<C extends EmailProviderConfig> extends V2Col
         await this.authenticate(
             state,
             webSocketServer,
-            secret,
+            await secret.getParams(),
             locale,
             location
         );
@@ -73,7 +73,7 @@ export abstract class EmailProvider<C extends EmailProviderConfig> extends V2Col
     abstract authenticate(
         state: State,
         webSocketServer: WebSocketServer | undefined,
-        secret: Secret,
+        params: any,
         locale: string,
         location: Location | null
     ): Promise<void>;

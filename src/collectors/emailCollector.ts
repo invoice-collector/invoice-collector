@@ -53,7 +53,7 @@ export abstract class EmailCollector<C extends EmailCollectorConfig> extends V2C
                 webSocketServer?.sendState(State._2_LOGGING_IN);
 
                 // Authenticate to open the underlying mailbox connection
-                await emailProvider.authenticate(state, webSocketServer, providerSecret, locale, location);
+                await emailProvider.authenticate(state, webSocketServer, await providerSecret.getParams(), locale, location);
 
                 const filters: EmailInvoiceFilters = {
                     senderRegex: this.config.senderRegex,

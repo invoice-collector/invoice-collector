@@ -100,12 +100,10 @@ export class ImapCollector extends EmailProvider<ImapProviderConfig> {
     async authenticate(
         state: State,
         webSocketServer: WebSocketServer | undefined,
-        secret: Secret,
+        params: any,
         locale: string,
         location: Location | null
     ): Promise<void> {
-        const params = await secret.getParams();
-
         const host = params.host as string;
         const username = params.username as string;
         const password = params.password as string;
@@ -118,11 +116,11 @@ export class ImapCollector extends EmailProvider<ImapProviderConfig> {
 
         try {
             this.client = new ImapFlow({
-                host,
+                host: host.trim(),
                 port,
                 secure,
                 auth: {
-                    user: username,
+                    user: username.trim(),
                     pass: password
                 },
                 //disableCompression: true,
