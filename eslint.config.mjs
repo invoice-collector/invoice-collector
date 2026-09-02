@@ -21,6 +21,8 @@ export default [
           ],
         },
       ],
+      'jsdoc/require-param': 'error',
+      'jsdoc/require-returns': 'error',
     },
   },
 ];
