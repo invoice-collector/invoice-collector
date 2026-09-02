@@ -5,21 +5,23 @@ import { CompleteInvoice, CollectorState, CollectorType, Config } from './abstra
 import { V2Collector } from './v2Collector';
 import { WebSocketServer } from '../websocket/webSocketServer';
 import { Credential, ModelInvoice } from '../model/credential';
-import type { EmailInvoiceFilters, EmailProvider, EmailProviderConfig } from './emailProvider';
+import type { EmailInvoiceWildcards, EmailProvider } from './emailProvider';
 import { DisconnectedError } from '../error';
 import * as utils from '../utils';
 import { CollectorLoader } from './collectorLoader';
 
 export type EmailCollectorConfig = Config & {
-    senderRegex: string,
-    subjectRegex: string,
-    bodyRegex: string,
-    attachmentNameRegex: string
+    wildcards: {
+        sender: string,
+        subject: string,
+        body: string,
+        attachmentName: string
+    }
 }
 
-export abstract class EmailCollector<C extends EmailCollectorConfig> extends V2Collector<C> {
+export abstract class EmailCollector extends V2Collector<EmailCollectorConfig> {
 
-    constructor(config: C) {
+    constructor(config: EmailCollectorConfig) {
         super({
             ...config,
             type: config.type || CollectorType.EMAIL,
@@ -50,7 +52,7 @@ export abstract class EmailCollector<C extends EmailCollectorConfig> extends V2C
         // For each provider
         for (const provider of providers) {
             // Get email provider instance
-            let emailProvider = await CollectorLoader.get(provider.collector_id) as EmailProvider<EmailProviderConfig>;
+            let emailProvider = await CollectorLoader.get(provider.collector_id) as EmailProvider;
             try {
                 // Get provider secret
                 const providerSecret = provider.getSecret();
@@ -66,19 +68,19 @@ export abstract class EmailCollector<C extends EmailCollectorConfig> extends V2C
                     continue;
                 }
 
-                const filters: EmailInvoiceFilters = {
-                    senderRegex: this.config.senderRegex,
-                    subjectRegex: this.config.subjectRegex,
-                    bodyRegex: this.config.bodyRegex,
-                    attachmentNameRegex: this.config.attachmentNameRegex
+                const wildcards: EmailInvoiceWildcards = {
+                    sender: this.config.wildcards.sender,
+                    subject: this.config.wildcards.subject,
+                    body: this.config.wildcards.body,
+                    attachmentName: this.config.wildcards.attachmentName
                 };
 
                 // Set progress step to downloading
                 state.update(State._5_COLLECTING);
                 webSocketServer?.sendState(State._5_COLLECTING);
 
-                // Get emails matching the filters since download_from_timestamp
-                const invoices = await emailProvider.getInvoices(filters, download_from_timestamp);
+                // Get emails matching the wildcards since download_from_timestamp
+                const invoices = await emailProvider.getInvoices(wildcards, download_from_timestamp);
 
                 // Keep only the new invoices
                 const previousInvoiceIds = previousInvoices.map(invoice => invoice.id);

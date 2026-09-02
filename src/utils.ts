@@ -113,6 +113,11 @@ export function timestampFromString(date: string, formats: string | string[], lo
     throw new Error(`Unable to parse date: ${date} with formats: ${formats} and locale: ${locale}`);
 }
 
+export function wildcardToRegex(pattern: string): RegExp {
+    const escaped = pattern.replace(/[.+?^${}()|[\]\\]/g, '\\$&');
+    return new RegExp('^' + escaped.replace(/\*/g, '.*') + '$', 'i');
+}
+
 export function mimetypeFromBase64(base64: string | null): string {
     if(base64 == null) {
         return 'application/octet-stream';

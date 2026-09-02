@@ -1,7 +1,7 @@
 import { CollectorType } from '../../abstractCollector';
-import { EmailCollector, EmailCollectorConfig } from '../../emailCollector';
+import { EmailCollector } from '../../emailCollector';
 
-export class OxylabsCollector extends EmailCollector<EmailCollectorConfig> {
+export class OxylabsCollector extends EmailCollector {
 
     static CONFIG = {
         id: 'oxylabs',
@@ -12,10 +12,12 @@ export class OxylabsCollector extends EmailCollector<EmailCollectorConfig> {
         logo: 'https://www.google.com/s2/favicons?domain=oxylabs.io&sz=128',
         type: CollectorType.EMAIL,
         params: {},
-        senderRegex: 'notifications@oxylabs.io',
-        subjectRegex: 'Your Oxylabs Invoice',
-        bodyRegex: '*',
-        attachmentNameRegex: '*.pdf'
+        wildcards: {
+            sender: 'notifications@oxylabs.io',
+            subject: 'Your Oxylabs Invoice',
+            body: '*',
+            attachmentName: '*.pdf'
+        }
     }
 
     constructor() {

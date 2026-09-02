@@ -1,20 +1,20 @@
 import { Location } from '../proxy/abstractProxy';
 import { Secret } from '../model/secret';
 import { State } from '../model/state';
-import { CompleteInvoice, CollectorAuthenticationMethod, CollectorState, CollectorType, Config } from './abstractCollector';
+import { CompleteInvoice, CollectorState, CollectorType, Config } from './abstractCollector';
 import { V2Collector } from './v2Collector';
 import { WebSocketServer } from '../websocket/webSocketServer';
 import { Credential, ModelInvoice } from '../model/credential';
 
 export type EmailProviderConfig = Config & {
-    authenticationMethod?: CollectorAuthenticationMethod
+    // Add fields if needed
 }
 
-export type EmailInvoiceFilters = {
-    senderRegex: string,
-    subjectRegex: string,
-    bodyRegex: string,
-    attachmentNameRegex: string
+export type EmailInvoiceWildcards = {
+    sender: string,
+    subject: string,
+    body: string,
+    attachmentName: string
 }
 
 export type EmailInvoice = {
@@ -28,14 +28,13 @@ export type DownloadedEmailInvoice = EmailInvoice & {
     mimetype: string
 }
 
-export abstract class EmailProvider<C extends EmailProviderConfig> extends V2Collector<C> {
+export abstract class EmailProvider extends V2Collector<EmailProviderConfig> {
 
-    constructor(config: C) {
+    constructor(config: EmailProviderConfig) {
         super({
             ...config,
             type: CollectorType.PROVIDER,
-            state: config.state || CollectorState.ACTIVE,
-            authenticationMethod: config.authenticationMethod || CollectorAuthenticationMethod.SECRETS_ONLY
+            state: config.state || CollectorState.ACTIVE
         });
     }
 
@@ -66,8 +65,8 @@ export abstract class EmailProvider<C extends EmailProviderConfig> extends V2Col
 
     abstract authenticate(params: any): Promise<void>;
 
-    // Find emails matching the given filters, on the mailbox connection opened by authenticate()
-    abstract getInvoices(filters: EmailInvoiceFilters, download_from_timestamp: number): Promise<EmailInvoice[]>;
+    // Find emails matching the given wildcards, on the mailbox connection opened by authenticate()
+    abstract getInvoices(wildcards: EmailInvoiceWildcards, download_from_timestamp: number): Promise<EmailInvoice[]>;
 
     // Download the attachment referenced by the invoice returned by getInvoices()
     abstract downloadInvoice(invoice: EmailInvoice): Promise<DownloadedEmailInvoice>;

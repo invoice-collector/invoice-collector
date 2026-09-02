@@ -1,7 +1,7 @@
 import { ImapFlow, MessageStructureObject } from 'imapflow';
 import { AuthenticationError, LoggableError } from '../../../error';
 import { CollectorAuthenticationMethod, CollectorState, CollectorType } from '../../abstractCollector';
-import { DownloadedEmailInvoice, EmailInvoice, EmailInvoiceFilters, EmailProvider, EmailProviderConfig } from '../../emailProvider';
+import { DownloadedEmailInvoice, EmailInvoice, EmailInvoiceWildcards, EmailProvider, EmailProviderConfig } from '../../emailProvider';
 import * as utils from '../../../utils';
 
 const MAILBOX_TO_IGNORE = [
@@ -15,11 +15,7 @@ const MAILBOX_TO_IGNORE = [
     'junks'
 ]
 
-export type ImapProviderConfig = EmailProviderConfig & {
-    // Add fields if needed
-}
-
-export class ImapCollector extends EmailProvider<ImapProviderConfig> {
+export class ImapCollector extends EmailProvider {
 
     static CONFIG = {
         id: 'imap',
@@ -103,15 +99,15 @@ export class ImapCollector extends EmailProvider<ImapProviderConfig> {
         }
     }
 
-    async getInvoices(filters: EmailInvoiceFilters, download_from_timestamp: number): Promise<EmailInvoice[]> {
+    async getInvoices(wildcards: EmailInvoiceWildcards, download_from_timestamp: number): Promise<EmailInvoice[]> {
         if (!this.client) {
             throw new Error('IMAP client is not connected');
         }
 
-        const senderRegex = this.wildcardToRegex(filters.senderRegex);
-        const subjectRegex = this.wildcardToRegex(filters.subjectRegex);
-        const bodyRegex = this.wildcardToRegex(filters.bodyRegex);
-        const attachmentNameRegex = this.wildcardToRegex(filters.attachmentNameRegex);
+        const senderRegex = utils.wildcardToRegex(wildcards.sender);
+        const subjectRegex = utils.wildcardToRegex(wildcards.subject);
+        const bodyRegex = utils.wildcardToRegex(wildcards.body);
+        const attachmentNameRegex = utils.wildcardToRegex(wildcards.attachmentName);
 
         const since = new Date(download_from_timestamp);
         const invoices: EmailInvoice[] = [];
@@ -198,11 +194,6 @@ export class ImapCollector extends EmailProvider<ImapProviderConfig> {
         } finally {
             lock.release();
         }
-    }
-
-    private wildcardToRegex(pattern: string): RegExp {
-        const escaped = pattern.replace(/[.+?^${}()|[\]\\]/g, '\\$&');
-        return new RegExp('^' + escaped.replace(/\*/g, '.*') + '$', 'i');
     }
 
     private findAttachments(node?: MessageStructureObject): { part: string, type: string, filename: string }[] {
