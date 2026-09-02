@@ -176,7 +176,7 @@ export class TeslaCollector extends ApiCollector {
             data: body.toString(),
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         });
-        if (!data?.access_token && !data?.refresh_token) {
+        if (!data?.access_token || !data?.refresh_token) {
             throw new AuthenticationError('i18n.collectors.tesla.authentication_error', this);
         }
         // Update params with the new tokens for future use
