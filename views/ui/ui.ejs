@@ -194,7 +194,16 @@
                             </button>
                         </form>
                     </div>
-                    
+
+                    <!-- Oauth2 Button (shown when authentication must happen in a new tab) -->
+                    <div id="open-oauth2-container" hidden style="margin-top: 1.5rem;">
+                        <p class="ic-header-subtitle">
+                            <%= __('i18n.views.oauth2.instructions') %>
+                        </p>
+                        <button id="oauth2-open-button" type="button" class="ic-button ic-button--primary" style="width: 100%;">
+                            <%= __('i18n.views.oauth2.open') %>
+                        </button>
+                    </div>
                 </div>
                 
                 <!-- Success Response -->
@@ -297,6 +306,40 @@
     </div>
 
     <!-- ============================================
+         SECTION 4bis: OAUTH2 (Full Screen)
+         Displays a third-party OAuth2 authentication page embedded in an
+         iframe, when the provider allows framing. Otherwise, authentication
+         happens in a new tab, opened from the inline button above
+         ============================================ -->
+
+    <div id="oauth2-container" class="ic-canvas-fullscreen" hidden>
+        
+        <!-- Toolbar -->
+        <div class="ic-canvas-toolbar">
+            
+            <!-- Back Button -->
+            <button id="oauth2-cancel" class="ic-canvas-toolbar-back">
+                <img src="/views/icons/move-left.svg" alt="Back">
+            </button>
+            
+            <!-- Icon & Instructions -->
+            <span class="ic-canvas-toolbar-icon">
+                <img src="/views/icons/key-round.svg" alt="Key">
+            </span>
+            <span class="ic-canvas-toolbar-text">
+                <%= __('i18n.views.oauth2.instructions') %>
+            </span>
+            
+        </div>
+        
+        <!-- Iframe -->
+        <div class="ic-canvas-content">
+            <iframe id="oauth2-iframe" src="" allow="clipboard-read; clipboard-write"></iframe>
+        </div>
+        
+    </div>
+
+    <!-- ============================================
          SECTION 5: FEEDBACK FORM
          Request a new collector
          ============================================ -->
@@ -388,6 +431,9 @@
             letUsKnow: "<%= __('i18n.views.manage.let_us_know') %>",
             requestNew: "<%= __('i18n.views.manage.request_new') %>",
             
+            // Form
+            configure: "<%= __('i18n.views.manage.configure') %>",
+
             // Form validation
             fieldsRequired: "<%= __('i18n.views.manage.fields_required') %>",
             fieldRequired: "<%= __('i18n.views.manage.field_required') %>",

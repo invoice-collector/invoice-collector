@@ -8,8 +8,15 @@ import JSZip from 'jszip';
 import { fr, enGB, enUS } from 'date-fns/locale';
 import { CollectorState, CollectorType, CompleteInvoice, Config } from './collectors/abstractCollector';
 
-const FAKE_INVOICE_FILE = path.resolve(__dirname, '../data/fake_invoice.pdf');
+/* PUBLIC CONSTANTS */
 
+export const DEBUG_ENABLED = getEnvVar("ENV", "prod") === "debug";
+export const PORT = getEnvVar("PORT");
+export const BACKEND_URI = DEBUG_ENABLED ? `http://localhost:${PORT}` : "https://api.invoice-collector.com";
+
+/* PRIVATE CONSTANTS */
+
+const FAKE_INVOICE_FILE = path.resolve(__dirname, '../data/fake_invoice.pdf');
 const MIMETYPE_BASE64_SIGNATURE = {
     JVBERi0: "application/pdf",
     ACVQREY: "application/pdf",
@@ -18,11 +25,15 @@ const MIMETYPE_BASE64_SIGNATURE = {
     "UEsDB": "application/zip"
 };
 
+/* ENUMS */
+
 export enum BearerType {
     CUSTOMER_SESSION = "c_sess",
     USER_SESSION = "u_sess",
     API = "api"
 }
+
+/* FUNCTIONS */
 
 export function generate_bearer(type: BearerType, size=128): string {
     return `${type}_${crypto.randomBytes(size).toString('base64')}`;

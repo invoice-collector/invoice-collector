@@ -195,7 +195,7 @@ function getHashFromSecret(secret: Secret): string {
         });
 
         // Instanciate web socket server
-        webSocketServer = new WebSocketServer(httpServer, I18n.DEFAULT_LOCALE, collector);
+        webSocketServer = new WebSocketServer(httpServer, I18n.DEFAULT_LOCALE, collector, "mock");
         const webSocketPath = webSocketServer.start();
 
         // Connect to web socket server
@@ -223,6 +223,15 @@ function getHashFromSecret(secret: Secret): string {
                     }
                     const twofa_code = prompt(`${parsedData.state.message}: `).trim();
                     webSocketClient!.send(JSON.stringify({ type: 'twofa', twofa: twofa_code }));
+                }
+                else if(parsedData.type == "oauth2" && parsedData.url) {
+                    // Ask the user to open this URL in their browser
+                    console.log(`Please open the following URL in your browser: ${parsedData.url}`);
+                    const code = prompt('Then past the code here: ').trim();
+                    // Resolve collect promise and pass the code to the collector
+                    webSocketServer?.emit("oauth2_code", {
+                        code: code,
+                    });
                 }
             });
         });

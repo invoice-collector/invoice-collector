@@ -24,6 +24,11 @@ components:
       in: query
       name: token
       description: UI token obtained from POST /user
+    StateAuth:
+      type: apiKey
+      in: query
+      name: state
+      description: OAuth2 state parameter.
   schemas:
     email:
       type: string
@@ -100,6 +105,10 @@ components:
       description: Token to be used for password reset. You can get it using the POST
         /signup endpoint.
       example: <reset_token>
+    oauth2State:
+      type: string
+      description: OAuth2 state parameter.
+      example: <state>
     credentialId:
       type: string
       description: Id of the credential.
@@ -1676,6 +1685,39 @@ paths:
                 $ref: "#/components/schemas/error"
         "403":
           description: Credential does not belong to user
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/error"
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/error"
+  /oauth2:
+    get:
+      tags:
+        - General
+      summary: Oauth2 callback
+      description: Returns a UI page for the OAuth2 callback.
+      security:
+        - StateAuth: []
+      parameters:
+        - name: state
+          in: query
+          required: true
+          schema:
+            $ref: "#/components/schemas/oauth2State"
+      responses:
+        "200":
+          description: Success
+          content:
+            text/html:
+              schema:
+                type: string
+        "401":
+          description: Authentication error
           content:
             application/json:
               schema:

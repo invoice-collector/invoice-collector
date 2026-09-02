@@ -331,7 +331,7 @@
   "i18n.collectors.all.2fa.error": "2FA code is incorrect",
   "i18n.collectors.all.2fa.instruction": "Enter the 2FA code sent by email or SMS",
   "i18n.collectors.all.2fa.not_enabled": "You need to enable multi-factor authentication in your account settings to use this collector.",
-  "i18n.collectors.all.2fa.timeout": "No 2FA code provided within the alloteted time. Please try again.",
+  "i18n.collectors.all.2fa.timeout": "No 2FA code provided within the allotted time. Please try again.",
   "i18n.collectors.all.captcha": "Cannot continue because a captcha has been detected. Please reconnect the account.",
   "i18n.collectors.all.contract_access.error": "Unable to access the contract",
   "i18n.collectors.all.credentials.error": "Incorrect login credentials",
@@ -350,6 +350,7 @@
   "i18n.collectors.all.login.expired": "Your account has been disconnected. Please reconnect it to continue receiving your invoices automatically.",
   "i18n.collectors.all.login.timeout": "Login time expired. Please try again.",
   "i18n.collectors.all.missing_param": "A required parameter is missing. Please create a new collector and delete this one.",
+  "i18n.collectors.all.oauth2.timeout": "No OAuth2 code provided within the allotted time. Please try again.",
   "i18n.collectors.all.password": "Password",
   "i18n.collectors.all.password.error": "Incorrect password",
   "i18n.collectors.all.password.placeholder": "***********",
@@ -8010,6 +8011,7 @@
   "i18n.collectors.terralink_networks.description": "Terralink Networks provides reliable internet and telecommunication services in Germany.",
   "i18n.collectors.tesch_inkasso_finance.description": "A German debt collection service specializing in financial recovery solutions for businesses.",
   "i18n.collectors.tesco_broadband.description": "Affordable and reliable broadband services offered by Tesco, a leading UK retailer.",
+  "i18n.collectors.tesla.authentication_error": "Tesla rejected these credentials. Check the client ID, the refresh token, and that the \"Vehicle Charging Management\" scope is enabled.",
   "i18n.collectors.tesla.description": "Online service for managing Tesla vehicles, energy products, and account settings.",
   "i18n.collectors.tesla_business.description": "An innovative online platform offering Tesla's electric vehicles, energy solutions, and business services for sustainable mobility.",
   "i18n.collectors.tesla_handschuhfach.description": "Online service for accessing and managing Tesla vehicle glove compartment features.",
@@ -9218,6 +9220,7 @@
   "i18n.views.manage.cant_find_collector": "Can't find a collector?",
   "i18n.views.manage.close": "Close",
   "i18n.views.manage.collecting_data": "Collecting data...",
+  "i18n.views.manage.configure": "Configure",
   "i18n.views.manage.connect_account": "Connect your account to start collecting invoices",
   "i18n.views.manage.continue": "Continue",
   "i18n.views.manage.date_placeholder": "dd / mm / yyyy",
@@ -9267,5 +9270,8 @@
   "i18n.views.manage.search_placeholder": "Search for a collector...",
   "i18n.views.manage.select_collector": "Select a collector to start",
   "i18n.views.manage.submit_request": "Submit Request",
-  "i18n.views.manage.unknown": "Oops! Something went wrong... Lets try again later."
+  "i18n.views.manage.unknown": "Oops! Something went wrong... Lets try again later.",
+  "i18n.views.oauth2.close": "You can close this tab.",
+  "i18n.views.oauth2.instructions": "Complete the authentication bellow. This page will be automatically closed once done.",
+  "i18n.views.oauth2.open": "Open authentication page"
 }

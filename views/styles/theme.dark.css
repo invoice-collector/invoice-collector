@@ -14,7 +14,7 @@
   /* Background & Text */
   --bg: #ffffff;
   --text: #050505;
-  --text-secondary: #050505;
+  --text-secondary: #4a4a4a;
   --muted: #6c6c6c;
   --placeholder: #a0a0a0;
 
@@ -152,7 +152,14 @@ body {
 
 .ic-header {
   display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
   margin-bottom: 2rem;
+  width: 100%;
+  max-width: 56rem;
+  margin-left: auto;
+  margin-right: auto;
   padding-bottom: 20px;
   border-bottom: 1px solid rgba(0, 0, 0, .1);
 }
@@ -190,27 +197,9 @@ body {
   display: grid;
   gap: 1.5rem;
   max-width: 56rem;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
   margin-left: auto;
   margin-right: auto;
-}
-
-@media (min-width: 500px) {
-  .ic-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media (min-width: 750px) {
-  .ic-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-}
-
-@media (min-width: 1000px) {
-  .ic-grid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
 }
 
 /* ===================================
@@ -563,6 +552,52 @@ body {
   outline: none;
   border-color: var(--primary);
   box-shadow: 0 0 0 3px var(--primary-focus);
+}
+
+/* ===================================
+   FOCUS VISIBILITY & MOTION
+   =================================== */
+
+.ic-button:focus-visible,
+.ic-card:focus-visible,
+.ic-back-button:focus-visible,
+.ic-input:focus-visible,
+.ic-textarea:focus-visible,
+.ic-datepicker-input:focus-visible,
+.ic-datepicker-day:focus-visible,
+.ic-datepicker-nav-button:focus-visible,
+.ic-datepicker-footer-button:focus-visible,
+.ic-datepicker-month-year-select select:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.ic-button:focus:not(:focus-visible),
+.ic-card:focus:not(:focus-visible),
+.ic-back-button:focus:not(:focus-visible) {
+  outline: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ===================================
+   TOUCH TARGETS
+   =================================== */
+
+.ic-button,
+.ic-input,
+.ic-textarea,
+.ic-datepicker-input {
+  min-height: 2.75rem;
 }
 
 .ic-input::placeholder,
@@ -986,6 +1021,10 @@ body {
   margin-bottom: 0;
 }
 
+#open-oauth2-container .ic-header-subtitle {
+  margin-bottom: 1rem;
+}
+
 /* ===================================
    CANVAS FULLSCREEN MODE
    =================================== */
@@ -1108,6 +1147,13 @@ body {
   width: auto;
   height: auto;
   background:  var(--bg);
+}
+
+.ic-canvas-content iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: var(--bg);
 }
 
 /* ===================================
