@@ -41,7 +41,7 @@ async function checkUrl(url, mimetype){
 async function callLlm(website, messageToLlm) {
     const mistralApiKey = process.env.CUA_MISTRALAI_API_KEY;
     if (!mistralApiKey) {
-        throw new Error("Missing MISTRALAI_API_KEY environment variable.");
+        throw new Error("Missing CUA_MISTRALAI_API_KEY environment variable.");
     }
 
     const mistralApiUrl = "https://api.mistral.ai/v1/chat/completions";
