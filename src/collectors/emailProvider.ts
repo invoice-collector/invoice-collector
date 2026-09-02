@@ -54,13 +54,7 @@ export abstract class EmailProvider<C extends EmailProviderConfig> extends V2Col
         state.update(State._2_LOGGING_IN);
         webSocketServer?.sendState(State._2_LOGGING_IN);
     
-        await this.authenticate(
-            state,
-            webSocketServer,
-            await secret.getParams(),
-            locale,
-            location
-        );
+        await this.authenticate(await secret.getParams());
 
         // Set progress step to collecting
         state.update(State._5_COLLECTING);
@@ -70,13 +64,7 @@ export abstract class EmailProvider<C extends EmailProviderConfig> extends V2Col
         return [];
     }
 
-    abstract authenticate(
-        state: State,
-        webSocketServer: WebSocketServer | undefined,
-        params: any,
-        locale: string,
-        location: Location | null
-    ): Promise<void>;
+    abstract authenticate(params: any): Promise<void>;
 
     // Find emails matching the given filters, on the mailbox connection opened by authenticate()
     abstract getInvoices(filters: EmailInvoiceFilters, download_from_timestamp: number): Promise<EmailInvoice[]>;

@@ -97,13 +97,7 @@ export class ImapCollector extends EmailProvider<ImapProviderConfig> {
         return fallback;
     }
 
-    async authenticate(
-        state: State,
-        webSocketServer: WebSocketServer | undefined,
-        params: any,
-        locale: string,
-        location: Location | null
-    ): Promise<void> {
+    async authenticate(params: any): Promise<void> {
         const host = params.host as string;
         const username = params.username as string;
         const password = params.password as string;
