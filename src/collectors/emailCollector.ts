@@ -42,11 +42,9 @@ export abstract class EmailCollector<C extends EmailCollectorConfig> extends V2C
 
         // For each provider
         for (const provider of providers) {
-            let emailProvider;
+            // Get email provider instance
+            let emailProvider = await CollectorLoader.get(provider.collector_id) as EmailProvider<EmailProviderConfig>;
             try {
-                // Get email provider instance
-                emailProvider = await CollectorLoader.get(provider.collector_id) as EmailProvider<EmailProviderConfig>;
-
                 // Get provider secret
                 const providerSecret = provider.getSecret();
 
