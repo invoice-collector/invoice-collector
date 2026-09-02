@@ -3842,6 +3842,7 @@
   "i18n.collectors.imap.description": "Connectez votre boite mail via IMAP.",
   "i18n.collectors.imap.host": "Hote IMAP",
   "i18n.collectors.imap.invalid_port": "Port IMAP invalide. Veuillez fournir un nombre positif.",
+  "i18n.collectors.imap.login.error": "Une erreur est survenue lors de l'authentification. Veuillez vérifier vos paramètres IMAP et vos identifiants.",
   "i18n.collectors.imap.name": "Email IMAP",
   "i18n.collectors.imap.port": "Port IMAP",
   "i18n.collectors.imap.secure": "Utiliser TLS",
