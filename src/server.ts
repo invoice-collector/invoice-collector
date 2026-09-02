@@ -1218,6 +1218,138 @@ export class Server {
     }
 
     // TOKEN AUTHENTICATION
+    public async put_credential(
+        bearer: string | undefined,
+        user_id: string,
+        token: any,
+        id: string,
+        params: any | undefined,
+        download_from_timestamp: number | undefined
+    ): Promise<{
+        id: string,
+        user_id: string,
+        note: string,
+        create_timestamp: number,
+        download_from_timestamp: number,
+        last_collect_timestamp: number,
+        next_collect_timestamp: number,
+        invoices: any[],
+        state: State,
+        collector: Config,
+        wsPath: string
+    }> {
+        // Get user from bearer or token
+        const user = await this.getUserFromBearerOrToken(bearer, user_id, token);
+
+        // Get credential from id
+        const credential = await user.getCredential(id);
+
+        // Check if credential exists
+        if (!credential) {
+            throw new StatusError(`Credential with id "${id}" not found.`, 400);
+        }
+
+        // Check if credential belongs to user
+        if (credential.user_id != user.id) {
+            throw new StatusError(`Credential with id "${id}" does not belong to user.`, 403);
+        }
+
+        // Check if download_from_timestamp is valid
+        if(download_from_timestamp != undefined && (typeof download_from_timestamp !== "number" || download_from_timestamp < 0)) {
+            throw new StatusError(`The field "download_from_timestamp" must be a positive number.`, 400);
+        }
+
+        // A collect in progress holds its own copy of the secret and commits it when it
+        // ends, which would silently overwrite the update
+        if (CollectPool.getInstance().get(credential.id) != undefined) {
+            throw new StatusError(`A collect is already in progress for credential with id "${id}".`, 409);
+        }
+
+        // Get collector from id
+        const collector = await CollectorLoader.get(credential.collector_id);
+
+        // Get customer from user
+        const customer = await user.getCustomer();
+
+        // Update collector params based on customer settings
+        AbstractCollector.updateCollectorParams(customer.authenticationMethod, collector.config);
+
+        // Update params if provided
+        if (params != undefined) {
+            // Update credential note
+            if (params.note != undefined) {
+                credential.note = params.note;
+            }
+            delete params.note;
+
+            // Check if all mandatory params are present
+            const missing_params = Object.keys(collector.config.params)
+                .filter((param) => collector.config.params[param].mandatory && (!params.hasOwnProperty(param) || !params[param]));
+            if(missing_params.length > 0) {
+                throw new MissingParams(missing_params);
+            }
+
+            const secret = credential.getSecret();
+
+            // Load the stored secret before updating it, otherwise committing would drop
+            // the cookies and the local storage
+            await secret.getParams();
+            await secret.setParams(params);
+
+            // Update secret in Secure Storage
+            await secret.commit();
+        }
+
+        // Update download_from_timestamp if provided
+        if (download_from_timestamp != undefined) {
+            credential.download_from_timestamp = download_from_timestamp;
+        }
+
+        // Compute next collect
+        credential.computeNextCollect(customer.maxDelayBetweenCollect);
+
+        // Update credential in database
+        await credential.commit();
+
+        // Start web socket server and get token
+        const webSocketServer = new WebSocketServer(this.httpServer, user.locale, collector);
+        const wsPath = webSocketServer.start();
+
+        // Start collect
+        const collect = new Collect(credential.id, webSocketServer)
+
+        // Register collect in progress
+        CollectPool.getInstance().registerCollect(credential.id, collect);
+
+        // Do not wait for promise to resolve
+        collect.start().catch((err) => {
+            console.error(`Collect for credential ${credential.id} has failed`);
+            console.error(err);
+        })
+        .finally(() => {
+            // Unregister collect in progress
+            CollectPool.getInstance().unregisterCollect(credential.id);
+            // Close web socket server
+            webSocketServer.close();
+        });
+
+        // Return credential
+        return {
+            id: credential.id,
+            user_id: credential.user_id,
+            note: credential.note,
+            create_timestamp: credential.create_timestamp,
+            download_from_timestamp: credential.download_from_timestamp,
+            last_collect_timestamp: credential.last_collect_timestamp,
+            next_collect_timestamp: credential.next_collect_timestamp,
+            invoices: credential.invoices,
+            state: credential.state,
+            collector: collector.config,
+            wsPath: wsPath
+        };
+    }
+
+    // TOKEN AUTHENTICATION
     public async delete_credential(
         bearer: string | undefined,
         user_id: string,
