@@ -1,9 +1,5 @@
 import { ImapFlow, MessageStructureObject } from 'imapflow';
-import { Location } from '../../../proxy/abstractProxy';
-import { Secret } from '../../../model/secret';
-import { State } from '../../../model/state';
 import { AuthenticationError, LoggableError } from '../../../error';
-import { WebSocketServer } from '../../../websocket/webSocketServer';
 import { CollectorAuthenticationMethod, CollectorState, CollectorType } from '../../abstractCollector';
 import { DownloadedEmailInvoice, EmailInvoice, EmailInvoiceFilters, EmailProvider, EmailProviderConfig } from '../../emailProvider';
 import * as utils from '../../../utils';
@@ -81,27 +77,11 @@ export class ImapCollector extends EmailProvider<ImapProviderConfig> {
 
     private client: ImapFlow | null;
 
-    private parseBoolean(value: unknown, fallback: boolean): boolean {
-        if (typeof value === 'boolean') {
-            return value;
-        }
-        if (typeof value === 'string') {
-            const normalizedValue = value.trim().toLowerCase();
-            if (['true', '1', 'yes', 'on'].includes(normalizedValue)) {
-                return true;
-            }
-            if (['false', '0', 'no', 'off'].includes(normalizedValue)) {
-                return false;
-            }
-        }
-        return fallback;
-    }
-
     async authenticate(params: any): Promise<void> {
         const host = params.host as string;
         const username = params.username as string;
         const password = params.password as string;
-        const secure = this.parseBoolean(params.secure, true);
+        const secure = utils.parseBoolean(params.secure, true);
 
         const port = Number(params.port);
         if (!Number.isFinite(port) || port <= 0) {

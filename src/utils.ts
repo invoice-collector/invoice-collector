@@ -53,6 +53,22 @@ export function delay(ms) {
     });
 }
 
+export function parseBoolean(value: unknown, fallback: boolean): boolean {
+    if (typeof value === 'boolean') {
+        return value;
+    }
+    if (typeof value === 'string') {
+        const normalizedValue = value.trim().toLowerCase();
+        if (['true', '1', 'yes', 'on'].includes(normalizedValue)) {
+            return true;
+        }
+        if (['false', '0', 'no', 'off'].includes(normalizedValue)) {
+            return false;
+        }
+    }
+    return fallback;
+}
+
 export function randomDelay(min: number=200, max: number=400): Promise<void> {
     return new Promise(resolve => {
         const delay = Math.floor(Math.random() * (max - min + 1)) + min;
