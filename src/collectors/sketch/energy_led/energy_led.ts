@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class EnergyLedCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "energy_led",
-        name: "Energy Led",
-        description: "i18n.collectors.energy_led.description",
-        version: "0",
-        website: "https://www.energy-led.com/authentification?back=my-account",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/118701.jpg",
+        id: 'energy_led',
+        name: 'Energy Led',
+        description: 'i18n.collectors.energy_led.description',
+        version: '0',
+        website: 'https://www.energy-led.com/authentification?back=my-account',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/118701.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://www.energy-led.com/authentification?back=my-account",
+        loginUrl: 'https://www.energy-led.com/authentification?back=my-account',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(EnergyLedCollector.CONFIG);

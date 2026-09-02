@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class BlogmissionAdvertiserCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "blogmission_advertiser",
-        name: "blogmission - Advertiser",
-        description: "i18n.collectors.blogmission_advertiser.description",
-        version: "0",
-        website: "https://blogmission.com/advertiser/guthaben",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/102635.jpg",
+        id: 'blogmission_advertiser',
+        name: 'blogmission - Advertiser',
+        description: 'i18n.collectors.blogmission_advertiser.description',
+        version: '0',
+        website: 'https://blogmission.com/advertiser/guthaben',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/102635.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://blogmission.com/advertiser/guthaben",
+        loginUrl: 'https://blogmission.com/advertiser/guthaben',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(BlogmissionAdvertiserCollector.CONFIG);

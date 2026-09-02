@@ -97,7 +97,7 @@ export abstract class AbstractCollector<C extends Config> {
      */
     static resolveAuthenticationMethod(
         customerAuthenticationMethod: CustomerAuthenticationMethod,
-        config: Config
+        config: Config,
     ): ResolvedAuthenticationMethod | null {
         // Get collector authentication method (collectors without the field only support direct login)
         const collectorAuthenticationMethod = ('authenticationMethod' in config
@@ -168,7 +168,7 @@ export abstract class AbstractCollector<C extends Config> {
         const response = await axios.get(invoice.link, {
             responseType: 'arraybuffer',
         });
-        return response.data.toString("base64");
+        return response.data.toString('base64');
     }
 
     //NOT IMPLEMENTED

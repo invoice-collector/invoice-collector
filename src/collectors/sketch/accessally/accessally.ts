@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class AccessallyCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "accessally",
-        name: "Accessally",
-        description: "i18n.collectors.accessally.description",
-        version: "0",
-        website: "https://access.accessally.com/my-account/my-orders-and-subscriptions/",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/203076.jpg",
+        id: 'accessally',
+        name: 'Accessally',
+        description: 'i18n.collectors.accessally.description',
+        version: '0',
+        website: 'https://access.accessally.com/my-account/my-orders-and-subscriptions/',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/203076.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://access.accessally.com/my-account/my-orders-and-subscriptions/",
+        loginUrl: 'https://access.accessally.com/my-account/my-orders-and-subscriptions/',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(AccessallyCollector.CONFIG);

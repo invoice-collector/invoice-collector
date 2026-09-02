@@ -707,7 +707,7 @@ async function showProgress(credential_id, wsPath) {
                 return;
             }
             
-            if (previous_state == undefined || previous_state.index !== current_state.index) {
+            if (previous_state === undefined || previous_state.index !== current_state.index) {
                 progressBar.style.width = `${current_state.index / current_state.max * 100}%`;
                 progressText.textContent = current_state.title;
 

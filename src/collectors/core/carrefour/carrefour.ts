@@ -8,32 +8,32 @@ import { WebSocketServer } from '../../../websocket/webSocketServer';
 export class CarrefourCollector extends LinearWebCollector {
 
     static CONFIG = {
-        id: "carrefour",
-        name: "Carrefour",
-        description: "i18n.collectors.carrefour.description",
-        version: "16",
-        website: "https://www.carrefour.fr",
-        logo: "https://upload.wikimedia.org/wikipedia/fr/3/3b/Logo_Carrefour.svg",
+        id: 'carrefour',
+        name: 'Carrefour',
+        description: 'i18n.collectors.carrefour.description',
+        version: '16',
+        website: 'https://www.carrefour.fr',
+        logo: 'https://upload.wikimedia.org/wikipedia/fr/3/3b/Logo_Carrefour.svg',
         type: CollectorType.WEB,
         params: {
             id: {
-                type: "string",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'string',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
                 mandatory: true,
-            }
+            },
         },
-        loginUrl: "https://www.carrefour.fr/mon-compte/mes-achats/en-ligne",
-        entryUrl: "https://www.carrefour.fr/mon-compte/mes-achats/en-ligne",
+        loginUrl: 'https://www.carrefour.fr/mon-compte/mes-achats/en-ligne',
+        entryUrl: 'https://www.carrefour.fr/mon-compte/mes-achats/en-ligne',
         captcha: CollectorCaptcha.CLOUDFLARE,
-        authenticationMethod: CollectorAuthenticationMethod.ALL
-    }
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
+    };
 
     constructor() {
         super(CarrefourCollector.CONFIG);
@@ -41,13 +41,13 @@ export class CarrefourCollector extends LinearWebCollector {
 
     async needLogin(driver: Driver): Promise<boolean> {
         // Wait for captcha to be successful
-        await driver.waitForCloudflareTurnstile()
+        await driver.waitForCloudflareTurnstile();
         return await super.needLogin(driver);
     }
 
     async login(driver: Driver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
         // Wait for captcha to be successful
-        await driver.waitForCloudflareTurnstile()
+        await driver.waitForCloudflareTurnstile();
 
         // Input email and password
         await driver.inputText(CarrefourSelectors.FIELD_EMAIL, params.id, { delay: 500 });
@@ -57,9 +57,9 @@ export class CarrefourCollector extends LinearWebCollector {
         await driver.leftClick(CarrefourSelectors.BUTTON_SUBMIT);
 
         // Check if login alert exists
-        const login_alert = await driver.getElement(CarrefourSelectors.CONTAINER_LOGIN_ALERT, { raiseException: false, timeout: 2000 })
+        const login_alert = await driver.getElement(CarrefourSelectors.CONTAINER_LOGIN_ALERT, { raiseException: false, timeout: 2000 });
         if (login_alert) {
-            return await login_alert.textContent("i18n.collectors.all.password.error");
+            return await login_alert.textContent('i18n.collectors.all.password.error');
         }
     }
 
@@ -67,7 +67,7 @@ export class CarrefourCollector extends LinearWebCollector {
         // Check if 2FA is required
         const two_factor_auth = await driver.getElement(CarrefourSelectors.CONTAINER_2FA_INSTRUCTIONS, { raiseException: false, timeout: 2000 });
         if (two_factor_auth) {
-            return await two_factor_auth.textContent("i18n.collectors.all.2fa.instruction");
+            return await two_factor_auth.textContent('i18n.collectors.all.2fa.instruction');
         }
     }
 
@@ -75,7 +75,7 @@ export class CarrefourCollector extends LinearWebCollector {
         // Check if too much attempts
         const twofa_too_much = await driver.getElement(CarrefourSelectors.CONTAINER_2FA_ALERT, { raiseException: false, timeout: 1000 });
         if (twofa_too_much) {
-            return await twofa_too_much.textContent("i18n.collectors.all.2fa.error");
+            return await twofa_too_much.textContent('i18n.collectors.all.2fa.error');
         }
 
         // Wait for 2fa code from UI
@@ -83,7 +83,7 @@ export class CarrefourCollector extends LinearWebCollector {
 
         // Check if 2fa code is 6 digits
         if (twofa_code.length !== 6) {
-            return "i18n.collectors.all.2fa.error";
+            return 'i18n.collectors.all.2fa.error';
         }
 
         // Input 2fa code slowly to avoid focus out
@@ -97,7 +97,7 @@ export class CarrefourCollector extends LinearWebCollector {
         // Check if 2fa code is incorrect
         const twofa_alert = await driver.getElement(CarrefourSelectors.CONTAINER_2FA_ALERT, { raiseException: false, timeout: 1000 });
         if (twofa_alert) {
-            return await twofa_alert.textContent("i18n.collectors.all.2fa.error");
+            return await twofa_alert.textContent('i18n.collectors.all.2fa.error');
         }
     }
 
@@ -121,7 +121,7 @@ export class CarrefourCollector extends LinearWebCollector {
     }
 
     async isEmpty(driver: Driver): Promise<boolean>{
-        return await driver.getElement(CarrefourSelectors.CONTAINER_NO_ORDERS, { raiseException: false, timeout: 100 }) != null;
+        return await driver.getElement(CarrefourSelectors.CONTAINER_NO_ORDERS, { raiseException: false, timeout: 100 }) !== null;
     }
              
     async getInvoices(driver: Driver): Promise<Element[]> {
@@ -130,11 +130,11 @@ export class CarrefourCollector extends LinearWebCollector {
 
     async data(driver: Driver, element: Element): Promise<Invoice | null> {
         const downloadButton = await element.getElement(CarrefourSelectors.CONTAINER_LINK);
-        const order_link = await element.getAttribute(CarrefourSelectors.CONTAINER_LINK, "href");
-        const date = await element.getAttribute(CarrefourSelectors.CONTAINER_ORDER_DATE, "textContent");
-        const amount = await element.getAttribute(CarrefourSelectors.CONTAINER_ORDER_AMOUNT, "textContent");
+        const order_link = await element.getAttribute(CarrefourSelectors.CONTAINER_LINK, 'href');
+        const date = await element.getAttribute(CarrefourSelectors.CONTAINER_ORDER_DATE, 'textContent');
+        const amount = await element.getAttribute(CarrefourSelectors.CONTAINER_ORDER_AMOUNT, 'textContent');
 
-        const id = order_link.split("/").pop();
+        const id = order_link.split('/').pop();
         if (!id) {
             throw new Error(`Cannot extract id from ${order_link}`);
         }
@@ -151,7 +151,7 @@ export class CarrefourCollector extends LinearWebCollector {
             link,
             timestamp,
             amount,
-            downloadButton: downloadButton
+            downloadButton,
         };
     }
 

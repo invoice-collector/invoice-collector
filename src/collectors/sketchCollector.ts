@@ -1,8 +1,8 @@
-import { CollectorType, CollectorState, Invoice, CollectorAuthenticationMethod } from "./abstractCollector";
-import { WebConfig } from "./webCollector";
-import { Driver, Element } from "../driver/driver";
-import { WebSocketServer } from "../websocket/webSocketServer";
-import { LinearWebCollector } from "./linearWebCollector";
+import { CollectorType, CollectorState, Invoice, CollectorAuthenticationMethod } from './abstractCollector';
+import { WebConfig } from './webCollector';
+import { Driver, Element } from '../driver/driver';
+import { WebSocketServer } from '../websocket/webSocketServer';
+import { LinearWebCollector } from './linearWebCollector';
 
 export type SketchConfig = WebConfig & {
 }
@@ -14,7 +14,7 @@ export abstract class SketchCollector extends LinearWebCollector {
             ...config,
             type: CollectorType.SKETCH,
             state: CollectorState.PLANNED,
-            authenticationMethod: CollectorAuthenticationMethod.ALL
+            authenticationMethod: CollectorAuthenticationMethod.ALL,
         });
     }
 
@@ -31,10 +31,10 @@ export abstract class SketchCollector extends LinearWebCollector {
     }
 
     async data(driver: Driver, element: Element): Promise<Invoice | null> {
-        throw new Error("Method not implemented.");
+        throw new Error('Method not implemented.');
     }
 
     async download(driver: Driver, invoice: Invoice): Promise<string[]> {
-        throw new Error("Method not implemented.");
+        throw new Error('Method not implemented.');
     }
 }

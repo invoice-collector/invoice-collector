@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class MercavusCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "mercavus",
-        name: "mercavus",
-        description: "i18n.collectors.mercavus.description",
-        version: "0",
-        website: "https://www.mercavus.com/de?modal=retailer-signin",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/828293.jpg",
+        id: 'mercavus',
+        name: 'mercavus',
+        description: 'i18n.collectors.mercavus.description',
+        version: '0',
+        website: 'https://www.mercavus.com/de?modal=retailer-signin',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/828293.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://www.mercavus.com/de?modal=retailer-signin",
+        loginUrl: 'https://www.mercavus.com/de?modal=retailer-signin',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(MercavusCollector.CONFIG);

@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class BraveSearchApiCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "brave_search_api",
-        name: "Brave Search API",
-        description: "i18n.collectors.brave_search_api.description",
-        version: "0",
-        website: "https://api-dashboard.search.brave.com/app/invoicing",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4642570.jpg",
+        id: 'brave_search_api',
+        name: 'Brave Search API',
+        description: 'i18n.collectors.brave_search_api.description',
+        version: '0',
+        website: 'https://api-dashboard.search.brave.com/app/invoicing',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4642570.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://api-dashboard.search.brave.com/app/invoicing",
+        loginUrl: 'https://api-dashboard.search.brave.com/app/invoicing',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(BraveSearchApiCollector.CONFIG);

@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class BavariadirektCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "bavariadirekt",
-        name: "bavariadirekt",
-        description: "i18n.collectors.bavariadirekt.description",
-        version: "0",
-        website: "https://www.bavariadirekt.de/meinebavariadirekt/meine-vertraege-und-dokumente/",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/124622.jpg",
+        id: 'bavariadirekt',
+        name: 'bavariadirekt',
+        description: 'i18n.collectors.bavariadirekt.description',
+        version: '0',
+        website: 'https://www.bavariadirekt.de/meinebavariadirekt/meine-vertraege-und-dokumente/',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/124622.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://www.bavariadirekt.de/meinebavariadirekt/meine-vertraege-und-dokumente/",
+        loginUrl: 'https://www.bavariadirekt.de/meinebavariadirekt/meine-vertraege-und-dokumente/',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(BavariadirektCollector.CONFIG);

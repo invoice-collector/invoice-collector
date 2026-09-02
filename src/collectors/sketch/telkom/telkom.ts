@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class TelkomCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "telkom",
-        name: "Telkom",
-        description: "i18n.collectors.telkom.description",
-        version: "0",
-        website: "https://www.telkom.co.za/today/",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/398381.jpg",
+        id: 'telkom',
+        name: 'Telkom',
+        description: 'i18n.collectors.telkom.description',
+        version: '0',
+        website: 'https://www.telkom.co.za/today/',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/398381.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://www.telkom.co.za/today/",
+        loginUrl: 'https://www.telkom.co.za/today/',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(TelkomCollector.CONFIG);

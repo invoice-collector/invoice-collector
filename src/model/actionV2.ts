@@ -1,9 +1,9 @@
-import { Driver, Element } from "../driver/driver";
-import { AuthenticationError, DisconnectedError, NoInvoiceFoundError } from "../error";
-import * as utils from "../utils";
-import { Invoice } from "../collectors/abstractCollector";
-import { Secret } from "./secret";
-import { WebSocketServer } from "../websocket/webSocketServer";
+import { Driver, Element } from '../driver/driver';
+import { AuthenticationError, DisconnectedError, NoInvoiceFoundError } from '../error';
+import * as utils from '../utils';
+import { Invoice } from '../collectors/abstractCollector';
+import { Secret } from './secret';
+import { WebSocketServer } from '../websocket/webSocketServer';
 
 export enum ActionEnum  {
     NOOP = 'noop',
@@ -26,7 +26,7 @@ export abstract class ActionV2<InputContext, Args, OutputContext> {
 
     static fromObjectList(objs: any): ActionV2<any, any, any>[] {
         // If objs is null or undefined or not an array, return empty array
-        if (objs == null || objs == undefined || !Array.isArray(objs)) {
+        if (objs === null || objs === undefined || !Array.isArray(objs)) {
             return [];
         }
 
@@ -59,7 +59,7 @@ export abstract class ActionV2<InputContext, Args, OutputContext> {
             obj.objectiveId,
             obj.lastUsed,
             obj.args,
-            obj.destinationIds
+            obj.destinationIds,
         );
     }
 
@@ -90,7 +90,7 @@ export abstract class ActionV2<InputContext, Args, OutputContext> {
         objectiveId: string | null,
         lastUsed: string | null,
         args: Args,
-        destinationIds: string[] = []
+        destinationIds: string[] = [],
     ) {
         this.id = id || utils.hash_string(`${action}|${pageUrlRegex}|${objectiveId}|${JSON.stringify(args)}`, 'md5');
         this.action = action;
@@ -144,7 +144,7 @@ export class NoopAction extends ActionV2<NoopContext, NoopArgs, NoopContext> {
         objectiveId: string | null,
         lastUsed: string | null,
         args: NoopArgs,
-        destinationIds: string[] = []
+        destinationIds: string[] = [],
     ) {
         super(
             id,
@@ -154,7 +154,7 @@ export class NoopAction extends ActionV2<NoopContext, NoopArgs, NoopContext> {
             objectiveId,
             lastUsed,
             args,
-            destinationIds
+            destinationIds,
         );
     }
 
@@ -209,7 +209,7 @@ export class LeftClickAction extends ActionV2<LeftClickContext, LeftClickArgs, L
         objectiveId: string | null,
         lastUsed: string | null,
         args: LeftClickArgs,
-        destinationIds: string[] = []
+        destinationIds: string[] = [],
     ) {
         // args should have 'cssSelector' field
         if(!args.cssSelector) {
@@ -228,7 +228,7 @@ export class LeftClickAction extends ActionV2<LeftClickContext, LeftClickArgs, L
             objectiveId,
             lastUsed,
             args,
-            destinationIds
+            destinationIds,
         );
     }
 
@@ -243,7 +243,7 @@ export class LeftClickAction extends ActionV2<LeftClickContext, LeftClickArgs, L
             // Perform left click using driver and cssSelector
             await context.driver.leftClick({
                 selector: this.args.cssSelector,
-                info: this.description
+                info: this.description,
             }, this.args);
         }
         // Return context
@@ -290,7 +290,7 @@ export class InputTextAction extends ActionV2<InputTextContext, InputTextArgs, I
         objectiveId: string | null,
         lastUsed: string | null,
         args: InputTextArgs,
-        destinationIds: string[] = []
+        destinationIds: string[] = [],
     ) {
         // Check if cssSelector is provided
         if (!args.cssSelector) {
@@ -309,7 +309,7 @@ export class InputTextAction extends ActionV2<InputTextContext, InputTextArgs, I
             objectiveId,
             lastUsed,
             args,
-            destinationIds
+            destinationIds,
         );
     }
 
@@ -324,7 +324,7 @@ export class InputTextAction extends ActionV2<InputTextContext, InputTextArgs, I
         // Input text into the field
         await context.driver.inputText({
                 selector: this.args.cssSelector,
-                info: this.description
+                info: this.description,
             }, params[this.args.text], this.args);
         // Return same context
         return context;
@@ -362,7 +362,7 @@ export class ErrorDisplayedAction extends ActionV2<RaiseErrorContext, RaiseError
         objectiveId: string | null,
         lastUsed: string | null,
         args: RaiseErrorArgs,
-        destinationIds: string[] = []
+        destinationIds: string[] = [],
     ) {
         // Check if cssSelector is provided
         if (!args.cssSelector) {
@@ -380,7 +380,7 @@ export class ErrorDisplayedAction extends ActionV2<RaiseErrorContext, RaiseError
             objectiveId,
             lastUsed,
             args,
-            destinationIds
+            destinationIds,
         );
     }
 
@@ -388,10 +388,10 @@ export class ErrorDisplayedAction extends ActionV2<RaiseErrorContext, RaiseError
         // Get element from cssSelector
         const element = await context.driver.getElement({
             selector: this.args.cssSelector,
-            info: this.description
+            info: this.description,
         }, {
-            raiseException: false
-        })
+            raiseException: false,
+        });
         // If element not found, raise error
         if (!element) {
             throw new Error(`Element not found for action ${this.action}, this action should only be performed if the element is present`);
@@ -414,7 +414,7 @@ export class ErrorDisplayedAction extends ActionV2<RaiseErrorContext, RaiseError
         return previousAction !== ActionEnum.GET_INVOICES &&
             previousAction !== ActionEnum.EXTRACT_INVOICE_DATA &&
             previousAction !== ActionEnum.MIDDLE_CLICK &&
-            previousAction !== ActionEnum.INPUT_TEXT
+            previousAction !== ActionEnum.INPUT_TEXT;
     }
 }
 
@@ -444,7 +444,7 @@ export class InputTwofaAction extends ActionV2<InputTwofaContext, InputTwofaArgs
         objectiveId: string | null,
         lastUsed: string | null,
         args: InputTwofaArgs,
-        destinationIds: string[] = []
+        destinationIds: string[] = [],
     ) {
         if (!args.instructionsCssSelector) {
             throw new Error('InputTwofaAction requires args to have an "instructionsCssSelector" field');
@@ -460,7 +460,7 @@ export class InputTwofaAction extends ActionV2<InputTwofaContext, InputTwofaArgs
             objectiveId,
             lastUsed,
             args,
-            destinationIds
+            destinationIds,
         );
     }
 
@@ -472,30 +472,30 @@ export class InputTwofaAction extends ActionV2<InputTwofaContext, InputTwofaArgs
         // Get instructions element
         const instructionsElement = await context.driver.getElement({
             selector: this.args.instructionsCssSelector,
-            info: this.description
+            info: this.description,
         });
         // If no instructions element found, throw error
         if (!instructionsElement) {
             throw new Error(`Instructions element not found for selector ${this.args.instructionsCssSelector}`);
         }
         // Get instructions text
-        const instructionsText = await instructionsElement.textContent("i18n.collectors.all.2fa.instruction");
+        const instructionsText = await instructionsElement.textContent('i18n.collectors.all.2fa.instruction');
         // Get 2fa code from user
         const code = await Promise.race([
             context.webSocketServer.getTwofa(instructionsText),
-            context.webSocketServer.twofa_promise.code(instructionsText)
+            context.webSocketServer.twofa_promise.code(instructionsText),
         ]);
         // If it is not a push notification
         if(!this.args.push) {
             // Input code into the field
             await context.driver.inputText({
                 selector: this.args.inputCssSelector,
-                info: this.description
+                info: this.description,
             }, code, this.args);
         }
         else {
             await context.driver.waitForNavigation({
-                timeout: this.args.timeout
+                timeout: this.args.timeout,
             });
         }
         // Return same context
@@ -546,7 +546,7 @@ export class GetInvoicesAction extends ActionV2<GetInvoicesInputContext, GetInvo
         objectiveId: string | null,
         lastUsed: string | null,
         args: GetInvoicesArgs,
-        destinationIds: string[] = []
+        destinationIds: string[] = [],
     ) {
         if (!args.cssSelector) {
             throw new Error('GetInvoicesAction requires args to have a "cssSelector" field');
@@ -559,22 +559,22 @@ export class GetInvoicesAction extends ActionV2<GetInvoicesInputContext, GetInvo
             objectiveId,
             lastUsed,
             args,
-            destinationIds
+            destinationIds,
         );
     }
 
     async _perform(context: GetInvoicesInputContext): Promise<GetInvoicesOutputContext[]> {
         const elements = await context.driver.getElements({
             selector: this.args.cssSelector,
-            info: this.description
+            info: this.description,
         });
         // Return new context with elements
-        let outputContexts: GetInvoicesOutputContext[] = [];
+        const outputContexts: GetInvoicesOutputContext[] = [];
         for (const element of elements) {
             if (await element.isClickable()) {
                 outputContexts.push({
                     driver: context.driver,
-                    element: element
+                    element,
                 });
             }
         }
@@ -615,7 +615,7 @@ export class ErrorNoInvoicesAction extends ActionV2<ErrorNoInvoicesContext, Erro
         objectiveId: string | null,
         lastUsed: string | null,
         args: ErrorNoInvoicesArgs,
-        destinationIds: string[] = []
+        destinationIds: string[] = [],
     ) {
         // Check if cssSelector is provided
         if (!args.cssSelector) {
@@ -629,7 +629,7 @@ export class ErrorNoInvoicesAction extends ActionV2<ErrorNoInvoicesContext, Erro
             objectiveId,
             lastUsed,
             args,
-            destinationIds
+            destinationIds,
         );
     }
 
@@ -637,8 +637,8 @@ export class ErrorNoInvoicesAction extends ActionV2<ErrorNoInvoicesContext, Erro
         // Get element from cssSelector
         await context.driver.getElement({
             selector: this.args.cssSelector,
-            info: this.description
-        })
+            info: this.description,
+        });
         // Throw specific error to signal no invoices found
         throw new NoInvoiceFoundError(context.driver.collector);
     }
@@ -687,7 +687,7 @@ export class ExtractInvoiceDataAction extends ActionV2<ExtractInvoiceDataInputCo
         objectiveId: string | null,
         lastUsed: string | null,
         args: ExtractInvoiceDataArgs,
-        destinationIds: string[] = []
+        destinationIds: string[] = [],
     ) {
         if (!args.date) {
             throw new Error('ExtractInvoiceDataAction requires args to have a "date" field');
@@ -703,15 +703,15 @@ export class ExtractInvoiceDataAction extends ActionV2<ExtractInvoiceDataInputCo
             objectiveId,
             lastUsed,
             args,
-            destinationIds
+            destinationIds,
         );
     }
 
     async _perform(context: ExtractInvoiceDataInputContext): Promise<ExtractInvoiceDataOutputContext> {
         const link = context.driver.url();
-        const date = await context.element.getAttribute({selector: this.args.date.cssSelector, info: "date"}, this.args.date.attribute || "textContent");
+        const date = await context.element.getAttribute({selector: this.args.date.cssSelector, info: 'date'}, this.args.date.attribute || 'textContent');
         const timestamp = utils.timestampFromString(date, this.args.date.format, this.args.date.locale || 'en');
-        const downloadElement = await context.element.getElement({selector: this.args.download.cssSelector, info: "download button"});
+        const downloadElement = await context.element.getElement({selector: this.args.download.cssSelector, info: 'download button'});
 
         // Check if date value should exclude download
         let skipDownload = this.args.date.excludes?.includes(date) ?? false;
@@ -719,11 +719,11 @@ export class ExtractInvoiceDataAction extends ActionV2<ExtractInvoiceDataInputCo
         // Get amount if selector provided
         let amount: string | undefined;
         if(this.args.amount) {
-            amount = await context.element.getAttribute({selector: this.args.amount.cssSelector, info: "amount"}, this.args.amount.attribute || "textContent");
-            if (this.args.amount.excludes?.includes(amount)) skipDownload = true;
+            amount = await context.element.getAttribute({selector: this.args.amount.cssSelector, info: 'amount'}, this.args.amount.attribute || 'textContent');
+            if (this.args.amount.excludes?.includes(amount)) {skipDownload = true;}
             if(this.args.currency) {
-                const currency = await context.element.getAttribute({selector: this.args.currency.cssSelector, info: "currency"}, this.args.currency.attribute || "textContent");
-                if (this.args.currency.excludes?.includes(currency)) skipDownload = true;
+                const currency = await context.element.getAttribute({selector: this.args.currency.cssSelector, info: 'currency'}, this.args.currency.attribute || 'textContent');
+                if (this.args.currency.excludes?.includes(currency)) {skipDownload = true;}
                 amount = `${amount} ${currency}`;
             }
             utils.checkAmountContainsCurrencySymbol(amount);
@@ -732,8 +732,8 @@ export class ExtractInvoiceDataAction extends ActionV2<ExtractInvoiceDataInputCo
         // Get id if selector provided
         let id: string;
         if(this.args.id) {
-            id = await context.element.getAttribute({selector: this.args.id.cssSelector, info: "id"}, this.args.id.attribute || "textContent");
-            if (this.args.id.excludes?.includes(id)) skipDownload = true;
+            id = await context.element.getAttribute({selector: this.args.id.cssSelector, info: 'id'}, this.args.id.attribute || 'textContent');
+            if (this.args.id.excludes?.includes(id)) {skipDownload = true;}
         }
         else if (amount) {
             id = utils.hash_string(`${date}${amount}`);
@@ -747,13 +747,13 @@ export class ExtractInvoiceDataAction extends ActionV2<ExtractInvoiceDataInputCo
             invoice: {
                 id: id.trim().replace(/[/\\?%*:|"<>]/g, '-'),
                 link: link.trim(),
-                timestamp: timestamp,
+                timestamp,
                 amount: amount?.trim(),
                 downloadButton: downloadElement,
-                metadata: {}
+                metadata: {},
             },
-            element: skipDownload ? undefined : downloadElement
-        }
+            element: skipDownload ? undefined : downloadElement,
+        };
     }
 
     async canPerform(context: ExtractInvoiceDataInputContext): Promise<boolean> {
@@ -806,7 +806,7 @@ export class MiddleClickAction extends ActionV2<MiddleClickContext, MiddleClickA
         objectiveId: string | null,
         lastUsed: string | null,
         args: MiddleClickArgs,
-        destinationIds: string[] = []
+        destinationIds: string[] = [],
     ) {
         super(
             id,
@@ -816,17 +816,17 @@ export class MiddleClickAction extends ActionV2<MiddleClickContext, MiddleClickA
             objectiveId,
             lastUsed,
             args,
-            destinationIds
+            destinationIds,
         );
     }
 
     async _perform(context: MiddleClickContext): Promise<MiddleClickContext> {
-        let element: Element | null = context.element || null
+        let element: Element | null = context.element || null;
     
         if (!element) {
             element = await context.driver.getElement({
                 selector: this.args.cssSelector,
-                info: this.description
+                info: this.description,
             });
         }
 
@@ -862,7 +862,7 @@ export class MiddleClickAction extends ActionV2<MiddleClickContext, MiddleClickA
     }
 
     canFollow(actions: ActionEnum[], previousAction: ActionEnum | null, secondPreviousAction: ActionEnum | null): boolean {
-        return previousAction == ActionEnum.EXTRACT_INVOICE_DATA ||
+        return previousAction === ActionEnum.EXTRACT_INVOICE_DATA ||
         previousAction === ActionEnum.CUSTOM;
     }
 
@@ -888,7 +888,7 @@ export class CustomAction extends ActionV2<CustomContext, CustomArgs, CustomCont
         objectiveId: string | null,
         lastUsed: string | null,
         args: CustomArgs,
-        destinationIds: string[] = []
+        destinationIds: string[] = [],
     ) {
         super(
             id,
@@ -898,7 +898,7 @@ export class CustomAction extends ActionV2<CustomContext, CustomArgs, CustomCont
             objectiveId,
             lastUsed,
             args,
-            destinationIds
+            destinationIds,
         );
     }
 
@@ -932,7 +932,7 @@ export class ErrorLoginPageDisplayedAction extends ActionV2<ErrorLoginPageDispla
         objectiveId: string | null,
         lastUsed: string | null,
         args: ErrorLoginPageDisplayedArgs,
-        destinationIds: string[] = []
+        destinationIds: string[] = [],
     ) {
         if (!args.cssSelector) {
             throw new Error('ErrorLoginPageDisplayedAction requires a cssSelector to locate the input field');
@@ -945,7 +945,7 @@ export class ErrorLoginPageDisplayedAction extends ActionV2<ErrorLoginPageDispla
             objectiveId,
             lastUsed,
             args,
-            destinationIds
+            destinationIds,
         );
     }
 
@@ -986,7 +986,7 @@ export class WaitAction extends ActionV2<WaitContext, WaitArgs, WaitContext> {
         objectiveId: string | null,
         lastUsed: string | null,
         args: WaitArgs,
-        destinationIds: string[] = []
+        destinationIds: string[] = [],
     ) {
         if (args.delay === undefined || args.delay < 0) {
             throw new Error('WaitAction requires args to have a "delay" field with a non-negative value');
@@ -999,7 +999,7 @@ export class WaitAction extends ActionV2<WaitContext, WaitArgs, WaitContext> {
             objectiveId,
             lastUsed,
             args,
-            destinationIds
+            destinationIds,
         );
     }
 
@@ -1035,4 +1035,4 @@ export const ClassActionMap = {
     [ActionEnum.CUSTOM]: CustomAction,
     [ActionEnum.WAIT]: WaitAction,
     [ActionEnum.ERROR_LOGIN_PAGE_DISPLAYED]: ErrorLoginPageDisplayedAction,
-}
+};

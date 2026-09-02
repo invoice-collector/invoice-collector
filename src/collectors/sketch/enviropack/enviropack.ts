@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class EnviropackCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "enviropack",
-        name: "enviropack",
-        description: "i18n.collectors.enviropack.description",
-        version: "0",
-        website: "https://www.enviropack.org.uk/user?current=node",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/41782.jpg",
+        id: 'enviropack',
+        name: 'enviropack',
+        description: 'i18n.collectors.enviropack.description',
+        version: '0',
+        website: 'https://www.enviropack.org.uk/user?current=node',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/41782.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://www.enviropack.org.uk/user?current=node",
+        loginUrl: 'https://www.enviropack.org.uk/user?current=node',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(EnviropackCollector.CONFIG);

@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class RV24Collector extends SketchCollector {
 
     static CONFIG = {
-        id: "r_v24",
-        name: "R+V24",
-        description: "i18n.collectors.r_v24.description",
-        version: "0",
-        website: "https://www.rv24.de/vertragscenter",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/640442.jpg",
+        id: 'r_v24',
+        name: 'R+V24',
+        description: 'i18n.collectors.r_v24.description',
+        version: '0',
+        website: 'https://www.rv24.de/vertragscenter',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/640442.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://www.rv24.de/vertragscenter",
+        loginUrl: 'https://www.rv24.de/vertragscenter',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(RV24Collector.CONFIG);

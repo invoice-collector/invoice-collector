@@ -1,11 +1,11 @@
 import path from 'path';
 import fs from 'fs';
-import { LaunchedChrome } from "chrome-launcher";
-import { AbstractBrowser } from "./abstractBrowser";
+import { LaunchedChrome } from 'chrome-launcher';
+import { AbstractBrowser } from './abstractBrowser';
 
 export class LocalBrowser extends AbstractBrowser {
 
-    static LOCAL_IP: string = "127.0.0.1";
+    static LOCAL_IP: string = '127.0.0.1';
 
     private static getDownloadPath(): string {
         AbstractBrowser.instanceCounter += 1;
@@ -36,10 +36,10 @@ export class LocalBrowser extends AbstractBrowser {
             await this.chrome.kill();
             this.chrome = undefined;
             this.port = undefined;
-            console.log("Local Chrome closed");
+            console.log('Local Chrome closed');
         }
         else {
-            console.log("Local Chrome is not running");
+            console.log('Local Chrome is not running');
         }
     }
 
@@ -50,7 +50,7 @@ export class LocalBrowser extends AbstractBrowser {
             .map(file => {
                 return {
                     name: file,
-                    base64: fs.readFileSync(path.join(this.downloadPath, file), {encoding: 'base64'})
+                    base64: fs.readFileSync(path.join(this.downloadPath, file), {encoding: 'base64'}),
                 };
             })
             .filter(file => file.base64.length > 0);

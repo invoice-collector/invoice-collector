@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class EVapshopFrCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "e_vapshop_fr",
-        name: "E-vapshop.fr",
-        description: "i18n.collectors.e_vapshop_fr.description",
-        version: "0",
-        website: "https://www.e-vapshop.fr/authentification?back=my-account",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/118625.jpg",
+        id: 'e_vapshop_fr',
+        name: 'E-vapshop.fr',
+        description: 'i18n.collectors.e_vapshop_fr.description',
+        version: '0',
+        website: 'https://www.e-vapshop.fr/authentification?back=my-account',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/118625.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://www.e-vapshop.fr/authentification?back=my-account",
+        loginUrl: 'https://www.e-vapshop.fr/authentification?back=my-account',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(EVapshopFrCollector.CONFIG);

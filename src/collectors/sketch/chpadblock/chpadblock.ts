@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class ChpadblockCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "chpadblock",
-        name: "Chpadblock",
-        description: "i18n.collectors.chpadblock.description",
-        version: "0",
-        website: "https://chpadblock.com/account/orders/",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4334866.jpg",
+        id: 'chpadblock',
+        name: 'Chpadblock',
+        description: 'i18n.collectors.chpadblock.description',
+        version: '0',
+        website: 'https://chpadblock.com/account/orders/',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4334866.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://chpadblock.com/account/orders/",
+        loginUrl: 'https://chpadblock.com/account/orders/',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(ChpadblockCollector.CONFIG);

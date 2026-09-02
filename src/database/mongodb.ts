@@ -1,15 +1,15 @@
-import { MongoClient, Db, ObjectId } from "mongodb";
-import { AbstractDatabase } from "./abstractDatabase";
-import { Customer, CustomerStats } from "../model/customer";
-import { User } from "../model/user";
-import { Credential } from "../model/credential";
-import * as utils from "../utils";
-import { buildCustomerStatsPipeline } from "./mongodbConstants";
-import { State } from "../model/state";
-import { CollectorMemory } from "../model/collectorMemory";
-import { Actions } from "../model/actions";
-import { ActionV2 } from "../model/actionV2";
-import { Callback } from "../model/callback";
+import { MongoClient, Db, ObjectId } from 'mongodb';
+import { AbstractDatabase } from './abstractDatabase';
+import { Customer, CustomerStats } from '../model/customer';
+import { User } from '../model/user';
+import { Credential } from '../model/credential';
+import * as utils from '../utils';
+import { buildCustomerStatsPipeline } from './mongodbConstants';
+import { State } from '../model/state';
+import { CollectorMemory } from '../model/collectorMemory';
+import { Actions } from '../model/actions';
+import { ActionV2 } from '../model/actionV2';
+import { Callback } from '../model/callback';
 
 export class MongoDB extends AbstractDatabase {
 
@@ -26,14 +26,14 @@ export class MongoDB extends AbstractDatabase {
     constructor(uri) {
         super();
         this.client = new MongoClient(uri);
-        this.db_name = utils.getEnvVar("DATABASE_MONGODB_NAME");
+        this.db_name = utils.getEnvVar('DATABASE_MONGODB_NAME');
         this.db = null;
     }
 
     async connect(throwOnError: boolean = false): Promise<void> {
         try {
             await this.client.connect();
-            console.log("Connected successfully to MongoDB");
+            console.log('Connected successfully to MongoDB');
             this.db = this.client.db(this.db_name);
 
             // Create collection if not existing
@@ -46,15 +46,15 @@ export class MongoDB extends AbstractDatabase {
             // Create default customer if no customer found
             const nbCustomers = await this.countCustomers();
             if (nbCustomers === 0) {
-                console.log("No customer found in database, creating default customer.");
+                console.log('No customer found in database, creating default customer.');
                 const bearer = (await Customer.createDefault()).bearer;
                 console.log(`Default customer created. Bearer is "${bearer}". Keep it safe, it will not be displayed again.`);
             }
         } catch (err) {
             if (throwOnError) {
-                throw new Error("Connection to MongoDB failed", { cause: err });
+                throw new Error('Connection to MongoDB failed', { cause: err });
             }
-            console.error("Connection to MongoDB failed:", err);
+            console.error('Connection to MongoDB failed:', err);
         }
     }
 
@@ -68,9 +68,9 @@ export class MongoDB extends AbstractDatabase {
     async disconnect(): Promise<void> {
         try {
             await this.client.close();
-            console.log("Disconnected successfully from MongoDB");
+            console.log('Disconnected successfully from MongoDB');
         } catch (err) {
-            console.error("Disconnection from MongoDB failed", err);
+            console.error('Disconnection from MongoDB failed', err);
         }
     }
 
@@ -79,7 +79,7 @@ export class MongoDB extends AbstractDatabase {
         try {
             await db.admin().ping();
         } catch (err) {
-            throw new Error("Could not reach MongoDB server", { cause: err });
+            throw new Error('Could not reach MongoDB server', { cause: err });
         }
     }
 
@@ -107,7 +107,7 @@ export class MongoDB extends AbstractDatabase {
             authenticationMethod: customer.authenticationMethod,
             displaySketchCollectors: customer.displaySketchCollectors,
             maxDelayBetweenCollect: customer.maxDelayBetweenCollect,
-            plan: customer.plan
+            plan: customer.plan,
         });
         customer.id = document.insertedId.toString();
         return customer;
@@ -119,7 +119,7 @@ export class MongoDB extends AbstractDatabase {
         if (!document) {
             return null;
         }
-        let customer = new Customer(
+        const customer = new Customer(
             document.email,
             document.password,
             document.name,
@@ -134,7 +134,7 @@ export class MongoDB extends AbstractDatabase {
             document.authenticationMethod,
             document.displaySketchCollectors,
             document.maxDelayBetweenCollect,
-            document.plan
+            document.plan,
         );
         customer.id = document._id.toString();
         return customer;
@@ -177,8 +177,8 @@ export class MongoDB extends AbstractDatabase {
                 authenticationMethod: customer.authenticationMethod,
                 displaySketchCollectors: customer.displaySketchCollectors,
                 maxDelayBetweenCollect: customer.maxDelayBetweenCollect,
-                plan: customer.plan
-            }}
+                plan: customer.plan,
+            }},
         );
     }
 
@@ -249,7 +249,7 @@ export class MongoDB extends AbstractDatabase {
             credentials: totalCredentials,
             invoices: totalInvoices,
             byMonth: sortedByMonth,
-            collectors: collectors
+            collectors,
         };
 
         return stats;
@@ -260,10 +260,10 @@ export class MongoDB extends AbstractDatabase {
     async getUsers(customer_id: string): Promise<User[]> {
         const db = await this.ensureConnected();
         const documents = await db.collection(MongoDB.USER_COLLECTION).find({
-            customer_id: new ObjectId(customer_id)
+            customer_id: new ObjectId(customer_id),
         }).toArray();
         return documents.map(document => {
-            let user = new User(
+            const user = new User(
                 document.customer_id.toString(),
                 document.remote_id,
                 document.password,
@@ -271,7 +271,7 @@ export class MongoDB extends AbstractDatabase {
                 document.cid,
                 document.location,
                 document.locale,
-                document.createdAt
+                document.createdAt,
             );
             user.id = document._id.toString();
             return user;
@@ -284,7 +284,7 @@ export class MongoDB extends AbstractDatabase {
         if (!document) {
             return null;
         }
-        let user = new User(
+        const user = new User(
             document.customer_id.toString(),
             document.remote_id,
             document.password,
@@ -292,7 +292,7 @@ export class MongoDB extends AbstractDatabase {
             document.cid,
             document.location,
             document.locale,
-            document.createdAt
+            document.createdAt,
         );
         user.id = document._id.toString();
         return user;
@@ -309,21 +309,21 @@ export class MongoDB extends AbstractDatabase {
     async getUserFromRemoteIdAndPassword(remoteId: string, password: string): Promise<User|null> {
         return await this.getUserFromMatcher({
             remote_id: remoteId,
-            password: password
+            password,
         });
     }
 
     async getUserFromCustomerIdAndRemoteId(customer_id: string, remote_id: string): Promise<User|null> {
         return await this.getUserFromMatcher({
             customer_id: new ObjectId(customer_id),
-            remote_id
+            remote_id,
         });
     }
 
     async getUserBellongingToCustomer(user_id: string, customer_id: string): Promise<User|null> {
         return await this.getUserFromMatcher({
             _id: new ObjectId(user_id),
-            customer_id: new ObjectId(customer_id)
+            customer_id: new ObjectId(customer_id),
         });
     }
 
@@ -337,7 +337,7 @@ export class MongoDB extends AbstractDatabase {
             cid: user.cid,
             location: user.location,
             locale: user.locale,
-            createdAt: user.createdAt
+            createdAt: user.createdAt,
         });
         user.id = document.insertedId.toString();
         return user;
@@ -354,15 +354,15 @@ export class MongoDB extends AbstractDatabase {
                 name: user.name,
                 cid: user.cid,
                 location: user.location,
-                locale: user.locale
-            }}
+                locale: user.locale,
+            }},
         );
     }
 
     async deleteUser(user_id: string): Promise<void> {
         const db = await this.ensureConnected();
         await db.collection(MongoDB.USER_COLLECTION).deleteOne({
-            _id: new ObjectId(user_id)
+            _id: new ObjectId(user_id),
         });
     }
 
@@ -375,16 +375,16 @@ export class MongoDB extends AbstractDatabase {
             { last_collect_timestamp: NaN },
             {
                 $and: [
-                    { $expr: { $lt: [ "$last_collect_timestamp", "$next_collect_timestamp" ] } },
-                    { $expr: { $lt: [ "$next_collect_timestamp", Date.now() ] } },
-                    { "state.index": { $gte: 0 } }
-                ]
-            }
-            ]
+                    { $expr: { $lt: [ '$last_collect_timestamp', '$next_collect_timestamp' ] } },
+                    { $expr: { $lt: [ '$next_collect_timestamp', Date.now() ] } },
+                    { 'state.index': { $gte: 0 } },
+                ],
+            },
+            ],
         };
         const documents = await db.collection(MongoDB.CREDENTIAL_COLLECTION).aggregate([
             { $match: query },
-            { $project: { _id: 1 } }
+            { $project: { _id: 1 } },
         ]).toArray();
         return documents.map(document => document._id.toString());
     }
@@ -392,10 +392,10 @@ export class MongoDB extends AbstractDatabase {
     async getCredentials(user_id: string): Promise<Credential[]> {
         const db = await this.ensureConnected();
         const documents = await db.collection(MongoDB.CREDENTIAL_COLLECTION).find({
-            user_id: new ObjectId(user_id)
+            user_id: new ObjectId(user_id),
         }).toArray();
         return documents.map(document => {
-            let credential = new Credential(
+            const credential = new Credential(
                 document.user_id.toString(),
                 document.collector_id,
                 document.note,
@@ -405,7 +405,7 @@ export class MongoDB extends AbstractDatabase {
                 document.last_collect_timestamp,
                 document.next_collect_timestamp,
                 document.invoices,
-                State.fromObject(document.state)
+                State.fromObject(document.state),
             );
             credential.id = document._id.toString();
             return credential;
@@ -415,12 +415,12 @@ export class MongoDB extends AbstractDatabase {
     async getCredential(credential_id: string): Promise<Credential|null> {
         const db = await this.ensureConnected();
         const document = await db.collection(MongoDB.CREDENTIAL_COLLECTION).findOne({
-            _id: new ObjectId(credential_id)
+            _id: new ObjectId(credential_id),
         });
         if (!document) {
             return null;
         }
-        let credential = new Credential(
+        const credential = new Credential(
             document.user_id.toString(),
             document.collector_id,
             document.note,
@@ -430,7 +430,7 @@ export class MongoDB extends AbstractDatabase {
             document.last_collect_timestamp,
             document.next_collect_timestamp,
             document.invoices,
-            State.fromObject(document.state)
+            State.fromObject(document.state),
         );
         credential.id = document._id.toString();
         return credential;
@@ -448,7 +448,7 @@ export class MongoDB extends AbstractDatabase {
             last_collect_timestamp: credential.last_collect_timestamp,
             next_collect_timestamp: credential.next_collect_timestamp,
             invoices: credential.invoices,
-            state: credential.state
+            state: credential.state,
         });
         credential.id = document.insertedId.toString();
         return credential;
@@ -466,8 +466,8 @@ export class MongoDB extends AbstractDatabase {
                 last_collect_timestamp: credential.last_collect_timestamp,
                 next_collect_timestamp: credential.next_collect_timestamp,
                 invoices: credential.invoices,
-                state: credential.state
-            }}
+                state: credential.state,
+            }},
         );
     }
 
@@ -475,14 +475,14 @@ export class MongoDB extends AbstractDatabase {
         const db = await this.ensureConnected();
         await db.collection(MongoDB.CREDENTIAL_COLLECTION).deleteOne({
             _id: new ObjectId(credential_id),
-            user_id: new ObjectId(user_id)
+            user_id: new ObjectId(user_id),
         });
     }
 
     async deleteCredentials(user_id: string): Promise<void> {
         const db = await this.ensureConnected();
         await db.collection(MongoDB.CREDENTIAL_COLLECTION).deleteMany({
-            user_id: new ObjectId(user_id)
+            user_id: new ObjectId(user_id),
         });
     }
 
@@ -490,7 +490,7 @@ export class MongoDB extends AbstractDatabase {
 
     async getCollectorMemories(): Promise<CollectorMemory[]> {
         if (!this.db) {
-            throw new Error("Database is not connected");
+            throw new Error('Database is not connected');
         }
         const documents = await this.db.collection(MongoDB.COLLECTOR_MEMORY_COLLECTION).find({}).toArray();
         return documents.map(document => {
@@ -500,7 +500,7 @@ export class MongoDB extends AbstractDatabase {
                 ActionV2.fromObjectList(document.actionsV2),
                 document.customerAreaUrl,
                 document.entryUrl,
-                document.tips
+                document.tips,
             );
             collectorMemory.id = document._id.toString();
             return collectorMemory;
@@ -519,7 +519,7 @@ export class MongoDB extends AbstractDatabase {
             ActionV2.fromObjectList(document.actionsV2),
             document.customerAreaUrl,
             document.entryUrl,
-            document.tips
+            document.tips,
         );
         collectorMemory.id = document._id.toString();
         return collectorMemory;
@@ -533,7 +533,7 @@ export class MongoDB extends AbstractDatabase {
             actionsV2: collectorMemory.actionsV2,
             customerAreaUrl: collectorMemory.customerAreaUrl,
             entryUrl: collectorMemory.entryUrl,
-            tips: collectorMemory.tips
+            tips: collectorMemory.tips,
         });
         collectorMemory.id = document.insertedId.toString();
         return collectorMemory;
@@ -549,8 +549,8 @@ export class MongoDB extends AbstractDatabase {
                 actionsV2: collectorMemory.actionsV2,
                 customerAreaUrl: collectorMemory.customerAreaUrl,
                 entryUrl: collectorMemory.entryUrl,
-                tips: collectorMemory.tips
-            }}
+                tips: collectorMemory.tips,
+            }},
         );
     }
 
@@ -559,7 +559,7 @@ export class MongoDB extends AbstractDatabase {
     async getCallbacks(customer_user_id: string): Promise<Callback[]> {
         const db = await this.ensureConnected();
         const documents = await db.collection(MongoDB.CALLBACK_COLLECTION).find({
-            customer_user_id: new ObjectId(customer_user_id)
+            customer_user_id: new ObjectId(customer_user_id),
         }).toArray();
         return documents.map(document => {
             const callback = new Callback(
@@ -567,7 +567,7 @@ export class MongoDB extends AbstractDatabase {
                 document.integration_id,
                 document.secret_id,
                 document.createdAt,
-                document.automaticExport
+                document.automaticExport,
             );
             callback.id = document._id.toString();
             return callback;
@@ -577,7 +577,7 @@ export class MongoDB extends AbstractDatabase {
     async getCallback(callback_id: string): Promise<Callback | null> {
         const db = await this.ensureConnected();
         const document = await db.collection(MongoDB.CALLBACK_COLLECTION).findOne({
-            _id: new ObjectId(callback_id)
+            _id: new ObjectId(callback_id),
         });
         if (!document) {
             return null;
@@ -587,7 +587,7 @@ export class MongoDB extends AbstractDatabase {
             document.integration_id,
             document.secret_id,
             document.createdAt,
-            document.automaticExport
+            document.automaticExport,
         );
         callback.id = document._id.toString();
         return callback;
@@ -600,7 +600,7 @@ export class MongoDB extends AbstractDatabase {
             integration_id: callback.integration_id,
             secret_id: callback.secret_id,
             createdAt: callback.createdAt,
-            automaticExport: callback.automaticExport
+            automaticExport: callback.automaticExport,
         });
         callback.id = document.insertedId.toString();
         return callback;
@@ -611,8 +611,8 @@ export class MongoDB extends AbstractDatabase {
         await db.collection(MongoDB.CALLBACK_COLLECTION).updateOne(
             { _id: new ObjectId(callback.id) },
             { $set: {
-                automaticExport: callback.automaticExport
-            }}
+                automaticExport: callback.automaticExport,
+            }},
         );
     }
 
@@ -620,7 +620,7 @@ export class MongoDB extends AbstractDatabase {
     async deleteCallback(callback_id: string): Promise<void> {
         const db = await this.ensureConnected();
         await db.collection(MongoDB.CALLBACK_COLLECTION).deleteOne({
-            _id: new ObjectId(callback_id)
+            _id: new ObjectId(callback_id),
         });
     }
 }

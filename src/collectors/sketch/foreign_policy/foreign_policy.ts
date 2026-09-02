@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class ForeignPolicyCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "foreign_policy",
-        name: "Foreign Policy",
-        description: "i18n.collectors.foreign_policy.description",
-        version: "0",
-        website: "https://foreignpolicy.com/manage/",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4564458.jpg",
+        id: 'foreign_policy',
+        name: 'Foreign Policy',
+        description: 'i18n.collectors.foreign_policy.description',
+        version: '0',
+        website: 'https://foreignpolicy.com/manage/',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4564458.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://foreignpolicy.com/manage/",
+        loginUrl: 'https://foreignpolicy.com/manage/',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(ForeignPolicyCollector.CONFIG);

@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class CheapcargoComCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "cheapcargo_com",
-        name: "CheapCargo.com",
-        description: "i18n.collectors.cheapcargo_com.description",
-        version: "0",
-        website: "https://www.cheapcargo.com/Users/Login",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/32747.jpg",
+        id: 'cheapcargo_com',
+        name: 'CheapCargo.com',
+        description: 'i18n.collectors.cheapcargo_com.description',
+        version: '0',
+        website: 'https://www.cheapcargo.com/Users/Login',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/32747.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://www.cheapcargo.com/Users/Login",
+        loginUrl: 'https://www.cheapcargo.com/Users/Login',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(CheapcargoComCollector.CONFIG);

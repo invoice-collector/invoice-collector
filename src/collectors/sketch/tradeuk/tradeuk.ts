@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class TradeukCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "tradeuk",
-        name: "TradeUK",
-        description: "i18n.collectors.tradeuk.description",
-        version: "0",
-        website: "https://directory.trade.co.uk/Account/Login",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/426829.jpg",
+        id: 'tradeuk',
+        name: 'TradeUK',
+        description: 'i18n.collectors.tradeuk.description',
+        version: '0',
+        website: 'https://directory.trade.co.uk/Account/Login',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/426829.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://directory.trade.co.uk/Account/Login",
+        loginUrl: 'https://directory.trade.co.uk/Account/Login',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(TradeukCollector.CONFIG);

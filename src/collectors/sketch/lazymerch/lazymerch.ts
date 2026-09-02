@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class LazymerchCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "lazymerch",
-        name: "LazyMerch",
-        description: "i18n.collectors.lazymerch.description",
-        version: "0",
-        website: "https://www.lazymerch.com/my-account/",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/797157.jpg",
+        id: 'lazymerch',
+        name: 'LazyMerch',
+        description: 'i18n.collectors.lazymerch.description',
+        version: '0',
+        website: 'https://www.lazymerch.com/my-account/',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/797157.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://www.lazymerch.com/my-account/",
+        loginUrl: 'https://www.lazymerch.com/my-account/',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(LazymerchCollector.CONFIG);

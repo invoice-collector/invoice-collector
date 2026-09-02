@@ -8,33 +8,33 @@ import { WebSocketServer } from '../../../websocket/webSocketServer';
 export class UCollector extends LinearWebCollector {
 
     static CONFIG = {
-        id: "u",
-        name: "U Courses",
-        description: "i18n.collectors.u.description",
-        version: "8",
-        website: "https://www.coursesu.com",
-        logo: "https://upload.wikimedia.org/wikipedia/fr/1/13/U_commer%C3%A7ants_logo_2018.svg",
+        id: 'u',
+        name: 'U Courses',
+        description: 'i18n.collectors.u.description',
+        version: '8',
+        website: 'https://www.coursesu.com',
+        logo: 'https://upload.wikimedia.org/wikipedia/fr/1/13/U_commer%C3%A7ants_logo_2018.svg',
         type: CollectorType.WEB,
         params: {
             id: {
-                type: "string",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'string',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
                 mandatory: true,
-            }
+            },
         },
-        loginUrl: "https://www.coursesu.com/connexion",
-        entryUrl: "https://www.coursesu.com/mon-compte/mes-commandes",
+        loginUrl: 'https://www.coursesu.com/connexion',
+        entryUrl: 'https://www.coursesu.com/mon-compte/mes-commandes',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.DEVELOPMENT
-    }
+        state: CollectorState.DEVELOPMENT,
+    };
 
     constructor() {
         super(UCollector.CONFIG);
@@ -58,7 +58,7 @@ export class UCollector extends LinearWebCollector {
         // Check if email alert
         const email_alert = await driver.getElement(USelectors.CONTAINER_EMAIL_ALERT, { raiseException: false, timeout: 1000 });
         if (email_alert) {
-            return await email_alert.textContent("i18n.collectors.all.email.error");
+            return await email_alert.textContent('i18n.collectors.all.email.error');
         }
 
         // Submit
@@ -67,7 +67,7 @@ export class UCollector extends LinearWebCollector {
         // Check if password alert
         const password_alert = await driver.getElement(USelectors.CONTAINER_PASSWORD_ALERT, { raiseException: false, timeout: 2000 });
         if (password_alert) {
-            return await password_alert.textContent("i18n.collectors.all.password.error");
+            return await password_alert.textContent('i18n.collectors.all.password.error');
         }
     }
 

@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class Level3Collector extends SketchCollector {
 
     static CONFIG = {
-        id: "level_3",
-        name: "Level 3",
-        description: "i18n.collectors.level_3.description",
-        version: "0",
-        website: "https://account.level3.com/login?service=https%3A%2F%2Fmy.level3.com%2FportalWeb%2Fpartner%2Fcommon%2Flogin%2Fbegin.do",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/87698.jpg",
+        id: 'level_3',
+        name: 'Level 3',
+        description: 'i18n.collectors.level_3.description',
+        version: '0',
+        website: 'https://account.level3.com/login?service=https%3A%2F%2Fmy.level3.com%2FportalWeb%2Fpartner%2Fcommon%2Flogin%2Fbegin.do',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/87698.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://account.level3.com/login?service=https%3A%2F%2Fmy.level3.com%2FportalWeb%2Fpartner%2Fcommon%2Flogin%2Fbegin.do",
+        loginUrl: 'https://account.level3.com/login?service=https%3A%2F%2Fmy.level3.com%2FportalWeb%2Fpartner%2Fcommon%2Flogin%2Fbegin.do',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(Level3Collector.CONFIG);

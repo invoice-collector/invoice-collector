@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class StadtwerkeAugsburgCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "stadtwerke_augsburg",
-        name: "Stadtwerke Augsburg",
-        description: "i18n.collectors.stadtwerke_augsburg.description",
-        version: "0",
-        website: "https://onlineservice.sw-augsburg.de/powercommerce5/swa/fo/portal/professional",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/91233.jpg",
+        id: 'stadtwerke_augsburg',
+        name: 'Stadtwerke Augsburg',
+        description: 'i18n.collectors.stadtwerke_augsburg.description',
+        version: '0',
+        website: 'https://onlineservice.sw-augsburg.de/powercommerce5/swa/fo/portal/professional',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/91233.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://onlineservice.sw-augsburg.de/powercommerce5/swa/fo/portal/professional",
+        loginUrl: 'https://onlineservice.sw-augsburg.de/powercommerce5/swa/fo/portal/professional',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(StadtwerkeAugsburgCollector.CONFIG);

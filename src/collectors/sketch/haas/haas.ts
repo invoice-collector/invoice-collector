@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class HaasCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "haas",
-        name: "Haas",
-        description: "i18n.collectors.haas.description",
-        version: "0",
-        website: "https://seminare.haas-wir-steuern.de/Account/Login",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/240045.jpg",
+        id: 'haas',
+        name: 'Haas',
+        description: 'i18n.collectors.haas.description',
+        version: '0',
+        website: 'https://seminare.haas-wir-steuern.de/Account/Login',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/240045.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://seminare.haas-wir-steuern.de/Account/Login",
+        loginUrl: 'https://seminare.haas-wir-steuern.de/Account/Login',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(HaasCollector.CONFIG);

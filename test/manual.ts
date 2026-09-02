@@ -27,7 +27,7 @@ const LOCALE = "en";
 
 async function getCredentialFromId(credential_id: string): Promise<Credential> {
     const credential = await DatabaseFactory.getDatabase().getCredential(credential_id);
-    if(credential == null) {
+    if(credential === null) {
         throw new Error(`No credential with id "${credential_id}" found.`);
     }
     return credential;
@@ -38,7 +38,7 @@ async function getSecretFromCredential(credential: Credential): Promise<Secret> 
     await SecretManagerFactory.load();
     await SecretManagerFactory.getSecretManager().connect();
     secret.value = await SecretManagerFactory.getSecretManager().getValue(credential.secret_id);
-    if(secret == null) {
+    if(secret === null) {
         throw new Error(`No secret with id "${credential.secret_id}" found.`);
     }
     return secret;
@@ -119,7 +119,7 @@ function getHashFromSecret(secret: Secret): string {
 
         // If collector loaded, it means it is a credential
         let collector: AbstractCollector<Config>;
-        if(loadedCollectors.size == 0) {
+        if(loadedCollectors.size === 0) {
             console.log(`No collector found with id "${id}", trying to find credential...`);
             // Get credential
             credential = await getCredentialFromId(id);
@@ -218,7 +218,7 @@ function getHashFromSecret(secret: Secret): string {
                 }
                 else if(parsedData.type == "state" && parsedData.state.index == 3) {
                     // Wait until main thread is waiting for twofa code
-                    while (webSocketServer!.onTwofa == undefined) {
+                    while (webSocketServer!.onTwofa === undefined) {
                         await utils.delay(1000);
                     }
                     const twofa_code = prompt(`${parsedData.state.message}: `).trim();
@@ -342,7 +342,7 @@ function getHashFromSecret(secret: Secret): string {
 
         // ---------- PART 9 : CHECK INVOICES ----------
         console.log(`===== PART9: Checking ${newInvoicesPart8.length} invoices =====`);
-        assert(newInvoicesPart8.length == 0, `No new invoice should have been collected`);
+        assert(newInvoicesPart8.length === 0, `No new invoice should have been collected`);
         console.log(`All invoices are valid! No new invoice collected as expected!`);
         console.log(`===== DONE =====`);
     } catch (error) {

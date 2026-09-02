@@ -8,33 +8,33 @@ import { WebSocketServer } from '../../../websocket/webSocketServer';
 export class IntermarcheCollector extends LinearWebCollector {
 
     static CONFIG = {
-        id: "intermarche",
-        name: "Intermarché",
-        description: "i18n.collectors.intermarche.description",
-        version: "9",
-        website: "https://www.intermarche.com",
-        logo: "https://upload.wikimedia.org/wikipedia/commons/9/96/Intermarch%C3%A9_logo_2009_classic.svg",
+        id: 'intermarche',
+        name: 'Intermarché',
+        description: 'i18n.collectors.intermarche.description',
+        version: '9',
+        website: 'https://www.intermarche.com',
+        logo: 'https://upload.wikimedia.org/wikipedia/commons/9/96/Intermarch%C3%A9_logo_2009_classic.svg',
         type: CollectorType.WEB,
         params: {
             id: {
-                type: "string",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'string',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
                 mandatory: true,
-            }
+            },
         },
-        loginUrl: "https://www.intermarche.com/connexion/itm",
-        entryUrl: "https://www.intermarche.com/gestion-de-compte/mes-courses",
+        loginUrl: 'https://www.intermarche.com/connexion/itm',
+        entryUrl: 'https://www.intermarche.com/gestion-de-compte/mes-courses',
         captcha: CollectorCaptcha.DATADOME,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.DEVELOPMENT
-    }
+        state: CollectorState.DEVELOPMENT,
+    };
 
     constructor() {
         super(IntermarcheCollector.CONFIG);
@@ -59,27 +59,27 @@ export class IntermarcheCollector extends LinearWebCollector {
         await driver.inputText(IntermarcheSelectors.INPUT_PASSWORD, params.password);
 
         // Check if email error exists
-        const error_email = await driver.getElement(IntermarcheSelectors.CONTAINER_ERROR_EMAIL, { raiseException: false, timeout: 1000 })
+        const error_email = await driver.getElement(IntermarcheSelectors.CONTAINER_ERROR_EMAIL, { raiseException: false, timeout: 1000 });
         if (error_email) {
-            return await error_email.textContent("i18n.collectors.all.email.error");
+            return await error_email.textContent('i18n.collectors.all.email.error');
         }
 
         // Check if password error exists
-        const error_password = await driver.getElement(IntermarcheSelectors.CONTAINER_ERROR_PASSWORD, { raiseException: false, timeout: 1000 })
+        const error_password = await driver.getElement(IntermarcheSelectors.CONTAINER_ERROR_PASSWORD, { raiseException: false, timeout: 1000 });
         if (error_password) {
-            return await error_password.textContent("i18n.collectors.all.password.error");
+            return await error_password.textContent('i18n.collectors.all.password.error');
         }
 
         // Check if remember me checkbox exists
-        await driver.leftClick(IntermarcheSelectors.CHECKBOX_REMEMBER_ME, { raiseException: false, timeout: 100 })
+        await driver.leftClick(IntermarcheSelectors.CHECKBOX_REMEMBER_ME, { raiseException: false, timeout: 100 });
 
         // Submit form
         await driver.leftClick(IntermarcheSelectors.BUTTON_SUBMIT);
 
         // Check if login error exists
-        const error_login = await driver.getElement(IntermarcheSelectors.CONTAINER_ERROR_PASSWORD, { raiseException: false, timeout: 2000 })
+        const error_login = await driver.getElement(IntermarcheSelectors.CONTAINER_ERROR_PASSWORD, { raiseException: false, timeout: 2000 });
         if (error_login) {
-            return await error_login.textContent("i18n.collectors.all.password.error");
+            return await error_login.textContent('i18n.collectors.all.password.error');
         }
     }
 
@@ -92,7 +92,7 @@ export class IntermarcheCollector extends LinearWebCollector {
         // Wait for panel commandes to be loaded
         await driver.getElement(IntermarcheSelectors.CONTAINER_PANEL_COMMANDES);
         // Check if empty basket container exists
-        return await driver.getElement(IntermarcheSelectors.CONTAINER_EMPTY_BASKET, { raiseException: false, timeout: 100 }) != null;
+        return await driver.getElement(IntermarcheSelectors.CONTAINER_EMPTY_BASKET, { raiseException: false, timeout: 100 }) !== null;
     }
      
     async getInvoices(driver: Driver): Promise<Element[]> {

@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class ShippoCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "shippo",
-        name: "shippo",
-        description: "i18n.collectors.shippo.description",
-        version: "0",
-        website: "https://app.goshippo.com/billing",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/57041.jpg",
+        id: 'shippo',
+        name: 'shippo',
+        description: 'i18n.collectors.shippo.description',
+        version: '0',
+        website: 'https://app.goshippo.com/billing',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/57041.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://app.goshippo.com/billing",
+        loginUrl: 'https://app.goshippo.com/billing',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(ShippoCollector.CONFIG);

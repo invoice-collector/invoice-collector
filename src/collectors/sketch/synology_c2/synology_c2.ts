@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class SynologyC2Collector extends SketchCollector {
 
     static CONFIG = {
-        id: "synology_c2",
-        name: "Synology C2",
-        description: "i18n.collectors.synology_c2.description",
-        version: "0",
-        website: "https://eu.c2.synology.com/de-de/login",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/35259.jpg",
+        id: 'synology_c2',
+        name: 'Synology C2',
+        description: 'i18n.collectors.synology_c2.description',
+        version: '0',
+        website: 'https://eu.c2.synology.com/de-de/login',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/35259.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://eu.c2.synology.com/de-de/login",
+        loginUrl: 'https://eu.c2.synology.com/de-de/login',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(SynologyC2Collector.CONFIG);

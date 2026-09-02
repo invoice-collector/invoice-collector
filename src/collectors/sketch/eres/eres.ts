@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class EresCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "eres",
-        name: "Eres",
-        description: "i18n.collectors.eres.description",
-        version: "0",
-        website: "https://www.eresparis.com/eu/en/home",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/778809.jpg",
+        id: 'eres',
+        name: 'Eres',
+        description: 'i18n.collectors.eres.description',
+        version: '0',
+        website: 'https://www.eresparis.com/eu/en/home',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/778809.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://www.eresparis.com/eu/en/home",
+        loginUrl: 'https://www.eresparis.com/eu/en/home',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(EresCollector.CONFIG);

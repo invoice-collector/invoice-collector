@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class MeetyooConferencingCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "meetyoo_conferencing",
-        name: "meetyoo conferencing",
-        description: "i18n.collectors.meetyoo_conferencing.description",
-        version: "0",
-        website: "https://portal.meetyoo.de/",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/10776.jpg",
+        id: 'meetyoo_conferencing',
+        name: 'meetyoo conferencing',
+        description: 'i18n.collectors.meetyoo_conferencing.description',
+        version: '0',
+        website: 'https://portal.meetyoo.de/',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/10776.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://portal.meetyoo.de/",
+        loginUrl: 'https://portal.meetyoo.de/',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(MeetyooConferencingCollector.CONFIG);

@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class SaltChCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "salt_ch",
-        name: "Salt.ch",
-        description: "i18n.collectors.salt_ch.description",
-        version: "0",
-        website: "https://mba.salt.ch/financials/",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/737735.jpg",
+        id: 'salt_ch',
+        name: 'Salt.ch',
+        description: 'i18n.collectors.salt_ch.description',
+        version: '0',
+        website: 'https://mba.salt.ch/financials/',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/737735.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://mba.salt.ch/financials/",
+        loginUrl: 'https://mba.salt.ch/financials/',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(SaltChCollector.CONFIG);

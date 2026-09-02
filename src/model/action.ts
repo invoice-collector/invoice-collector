@@ -1,9 +1,9 @@
-import { Driver, Element } from "../driver/driver";
-import { TwofaPromise } from "../collect/twofaPromise";
+import { Driver, Element } from '../driver/driver';
+import { TwofaPromise } from '../collect/twofaPromise';
 import * as utils from '../utils';
-import { Invoice } from "../collectors/abstractCollector";
-import { AuthenticationError, DisconnectedError, ElementNotFoundError } from "../error";
-import { WebSocketServer } from "../websocket/webSocketServer";
+import { Invoice } from '../collectors/abstractCollector';
+import { AuthenticationError, DisconnectedError, ElementNotFoundError } from '../error';
+import { WebSocketServer } from '../websocket/webSocketServer';
 
 export enum ActionEnum  {
     GOAL_REACHED = 'goalReached',
@@ -76,8 +76,8 @@ export abstract class Action<Context, Result> {
             // Get element from cssSelector
             element = await driver.getElement({
                 selector: this.cssSelector,
-                info: this.description
-            })
+                info: this.description,
+            });
         }
         else {
             throw new Error('No way to locate element, no cssSelector provided');
@@ -136,7 +136,7 @@ export class LeftClickAction extends Action<LeftClickContext, void> {
             // Perform left click using driver and cssSelector
             await context.driver.leftClick({
                 selector: this.cssSelector,
-                info: this.description
+                info: this.description,
             }, this.args);
         }
     }
@@ -157,7 +157,7 @@ export class MiddleClickAction extends Action<MiddleClickContext, void> {
     }
 
     async _perform(context: MiddleClickContext): Promise<void> {
-        let element: Element = context.element || await this.getElement(context.driver);
+        const element: Element = context.element || await this.getElement(context.driver);
         
         try {
             // Perform middle click
@@ -201,7 +201,7 @@ export class InputTextAction extends Action<InputTextContext, void> {
 
         await context.driver.inputText({
                 selector: this.cssSelector,
-                info: this.description
+                info: this.description,
             }, context.params[this.args.text], this.args);
     }
 
@@ -229,7 +229,7 @@ export class GetTextContentAction extends Action<GetTextContentContext, string> 
     }
 
     async _perform(context: GetTextContentContext): Promise<string> {
-        let element: Element = await this.getElement(context.driver);
+        const element: Element = await this.getElement(context.driver);
         return await element.textContent(this.args.default);
     }
 
@@ -257,7 +257,7 @@ export class InputTwofaAction extends Action<InputTwofaContext, void> {
         // Get 2fa code
         const code = await Promise.race([context.twofaPromise.code(), context.webSocketServer.getTwofa()]);
 
-        let element: Element = await this.getElement(context.driver);
+        const element: Element = await this.getElement(context.driver);
         await element.inputText(code, this.args);
     }
 
@@ -286,7 +286,7 @@ export class GetTwofaInstructionsAction extends Action<GetTwofaInstructionsConte
 
     async _perform(context: GetTwofaInstructionsContext): Promise<string | void> {
         try {
-            let element: Element = await this.getElement(context.driver);
+            const element: Element = await this.getElement(context.driver);
             return await element.textContent(this.args.default);
         } catch (e) {
             if (e instanceof ElementNotFoundError) {
@@ -317,12 +317,12 @@ export class GetInvoicesAction extends Action<GetInvoicesContext, Element[]> {
     async _perform(context: GetInvoicesContext): Promise<Element[]> {
         return await context.driver.getElements({
             selector: this.cssSelector,
-            info: this.description
+            info: this.description,
         });
     }
 
     toString(): string {
-        return `Get invoices elements`;
+        return 'Get invoices elements';
     }
 }
 
@@ -351,21 +351,21 @@ export class ExtractInvoiceDataAction extends Action<ExtractInvoiceDataContext, 
 
     async _perform(context: ExtractInvoiceDataContext): Promise<Invoice> {
         const link = await context.driver.url();
-        const date = await context.element.getAttribute({selector: this.args.date.cssSelector, info: "date"}, this.args.date.attribute || "textContent");
+        const date = await context.element.getAttribute({selector: this.args.date.cssSelector, info: 'date'}, this.args.date.attribute || 'textContent');
         const timestamp = utils.timestampFromString(date, this.args.date.format, this.args.date.locale || 'en');
-        const downloadElement = await context.element.getElement({selector: this.args.download.cssSelector, info: "download button"});
+        const downloadElement = await context.element.getElement({selector: this.args.download.cssSelector, info: 'download button'});
 
         // Get amount if selector provided
         let amount: string | undefined;
         if(this.args.amount) {
-            amount = await context.element.getAttribute({selector: this.args.amount.cssSelector, info: "amount"}, this.args.amount.attribute || "textContent");
+            amount = await context.element.getAttribute({selector: this.args.amount.cssSelector, info: 'amount'}, this.args.amount.attribute || 'textContent');
             utils.checkAmountContainsCurrencySymbol(amount);
         }
 
         // Get id if selector provided
         let id: string;
         if(this.args.id) {
-            id = await context.element.getAttribute({selector: this.args.id.cssSelector, info: "id"}, this.args.id.attribute || "textContent");
+            id = await context.element.getAttribute({selector: this.args.id.cssSelector, info: 'id'}, this.args.id.attribute || 'textContent');
         }
         else if (amount) {
             id = utils.hash_string(`${date}${amount}`);
@@ -375,16 +375,16 @@ export class ExtractInvoiceDataAction extends Action<ExtractInvoiceDataContext, 
         }
 
         return {
-            id: id,
-            link: link,
-            timestamp: timestamp,
-            amount: amount,
-            downloadButton: downloadElement
-        }
+            id,
+            link,
+            timestamp,
+            amount,
+            downloadButton: downloadElement,
+        };
     }
 
     toString(): string {
-        return `Extract invoice data`;
+        return 'Extract invoice data';
     }
 }
 
@@ -409,11 +409,11 @@ export class RaiseErrorIfDisplayed extends Action<RaiseErrorContext, void> {
         // Get element from cssSelector
         const element = await context.driver.getElement({
             selector: this.cssSelector,
-            info: this.description
+            info: this.description,
         }, {
             raiseException: false,
-            ...this.args
-        })
+            ...this.args,
+        });
         // If element found, raise error
         if (element) {
             throw new AuthenticationError(await element.textContent(this.args.default), context.driver.collector);
@@ -421,6 +421,6 @@ export class RaiseErrorIfDisplayed extends Action<RaiseErrorContext, void> {
     }
 
     toString(): string {
-        return `Extract invoice data`;
+        return 'Extract invoice data';
     }
 }

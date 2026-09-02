@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class StadtwerkeDurenGmbhCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "stadtwerke_duren_gmbh",
-        name: "Stadtwerke Duren Gmbh",
-        description: "i18n.collectors.stadtwerke_duren_gmbh.description",
-        version: "0",
-        website: "https://portal.stadtwerke-dueren.de/postfach",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1799137.jpg",
+        id: 'stadtwerke_duren_gmbh',
+        name: 'Stadtwerke Duren Gmbh',
+        description: 'i18n.collectors.stadtwerke_duren_gmbh.description',
+        version: '0',
+        website: 'https://portal.stadtwerke-dueren.de/postfach',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1799137.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://portal.stadtwerke-dueren.de/postfach",
+        loginUrl: 'https://portal.stadtwerke-dueren.de/postfach',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(StadtwerkeDurenGmbhCollector.CONFIG);

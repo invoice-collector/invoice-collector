@@ -1,5 +1,5 @@
-import { AbstractCollector, Config } from "../collectors/abstractCollector";
-import { LoggableError } from "../error";
+import { AbstractCollector, Config } from '../collectors/abstractCollector';
+import { LoggableError } from '../error';
 import * as utils from '../utils';
 
 export type OTP = {
@@ -10,8 +10,8 @@ export type OTP = {
 
 export abstract class AbstractAnalytics {
 
-    static VERSION = "v1"
-    static FRONTEND = utils.getEnvVar("FRONTEND");
+    static VERSION = 'v1';
+    static FRONTEND = utils.getEnvVar('FRONTEND');
 
     abstract ping(): Promise<void>;
     abstract logSuccess(collector: AbstractCollector<Config>): void;

@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class MurfAiCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "murf_ai",
-        name: "Murf.ai",
-        description: "i18n.collectors.murf_ai.description",
-        version: "0",
-        website: "https://murf.ai/user/billing",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1416084.jpg",
+        id: 'murf_ai',
+        name: 'Murf.ai',
+        description: 'i18n.collectors.murf_ai.description',
+        version: '0',
+        website: 'https://murf.ai/user/billing',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1416084.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://murf.ai/user/billing",
+        loginUrl: 'https://murf.ai/user/billing',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(MurfAiCollector.CONFIG);

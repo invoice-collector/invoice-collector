@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class SteuerberatenDeCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "steuerberaten_de",
-        name: "Steuerberaten.de",
-        description: "i18n.collectors.steuerberaten_de.description",
-        version: "0",
-        website: "http://www.steuerberaten.de/",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/5057.jpg",
+        id: 'steuerberaten_de',
+        name: 'Steuerberaten.de',
+        description: 'i18n.collectors.steuerberaten_de.description',
+        version: '0',
+        website: 'http://www.steuerberaten.de/',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/5057.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "http://www.steuerberaten.de/",
+        loginUrl: 'http://www.steuerberaten.de/',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(SteuerberatenDeCollector.CONFIG);

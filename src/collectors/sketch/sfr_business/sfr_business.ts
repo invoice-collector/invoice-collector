@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class SfrBusinessCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "sfr_business",
-        name: "SFR Business",
-        description: "i18n.collectors.sfr_business.description",
-        version: "0",
-        website: "https://www.sfrbusiness.fr/espace-client/portail/#/factures",
-        logo: "https://static.s-sfr.fr/assets/logos/SFR_Business.svg",
+        id: 'sfr_business',
+        name: 'SFR Business',
+        description: 'i18n.collectors.sfr_business.description',
+        version: '0',
+        website: 'https://www.sfrbusiness.fr/espace-client/portail/#/factures',
+        logo: 'https://static.s-sfr.fr/assets/logos/SFR_Business.svg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://www.sfrbusiness.fr/espace-client/portail/#/factures",
+        loginUrl: 'https://www.sfrbusiness.fr/espace-client/portail/#/factures',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(SfrBusinessCollector.CONFIG);

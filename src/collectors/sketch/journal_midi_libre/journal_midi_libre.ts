@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class JournalMidiLibreCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "journal_midi_libre",
-        name: "Journal MIDI LIBRE",
-        description: "i18n.collectors.journal_midi_libre.description",
-        version: "0",
-        website: "https://abonnement.midilibre.fr/site/midilibrev2/default/fr/compte/factures.html",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1471230.jpg",
+        id: 'journal_midi_libre',
+        name: 'Journal MIDI LIBRE',
+        description: 'i18n.collectors.journal_midi_libre.description',
+        version: '0',
+        website: 'https://abonnement.midilibre.fr/site/midilibrev2/default/fr/compte/factures.html',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1471230.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://abonnement.midilibre.fr/site/midilibrev2/default/fr/compte/factures.html",
+        loginUrl: 'https://abonnement.midilibre.fr/site/midilibrev2/default/fr/compte/factures.html',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(JournalMidiLibreCollector.CONFIG);

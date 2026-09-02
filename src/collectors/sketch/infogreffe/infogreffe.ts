@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class InfogreffeCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "infogreffe",
-        name: "Infogreffe",
-        description: "i18n.collectors.infogreffe.description",
-        version: "0",
-        website: "https://www.infogreffe.fr",
-        logo: "https://mma.prnewswire.com/media/2658130/Infogreffe_Logo.jpg",
+        id: 'infogreffe',
+        name: 'Infogreffe',
+        description: 'i18n.collectors.infogreffe.description',
+        version: '0',
+        website: 'https://www.infogreffe.fr',
+        logo: 'https://mma.prnewswire.com/media/2658130/Infogreffe_Logo.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://www.infogreffe.fr",
+        loginUrl: 'https://www.infogreffe.fr',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(InfogreffeCollector.CONFIG);

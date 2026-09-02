@@ -7,32 +7,32 @@ import { WebSocketServer } from '../../../websocket/webSocketServer';
 export class FreeCollector extends LinearWebCollector {
 
     static CONFIG = {
-        id: "free",
-        name: "Free",
-        description: "i18n.collectors.free.description",
-        version: "11",
-        website: "https://www.free.fr",
-        logo: "https://upload.wikimedia.org/wikipedia/commons/5/52/Free_logo.svg",
+        id: 'free',
+        name: 'Free',
+        description: 'i18n.collectors.free.description',
+        version: '11',
+        website: 'https://www.free.fr',
+        logo: 'https://upload.wikimedia.org/wikipedia/commons/5/52/Free_logo.svg',
         type: CollectorType.WEB,
         params: {
             id: {
-                type: "string",
-                name: "i18n.collectors.all.identifier",
-                placeholder: "i18n.collectors.free.identifier.placeholder",
-                mandatory: true
+                type: 'string',
+                name: 'i18n.collectors.all.identifier',
+                placeholder: 'i18n.collectors.free.identifier.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
                 mandatory: true,
-            }
+            },
         },
-        loginUrl: "https://subscribe.free.fr/login/",
-        entryUrl: "https://adsl.free.fr/facture_liste.pl",
+        loginUrl: 'https://subscribe.free.fr/login/',
+        entryUrl: 'https://adsl.free.fr/facture_liste.pl',
         captcha: CollectorCaptcha.NONE,
-        authenticationMethod: CollectorAuthenticationMethod.SECRETS_ONLY
-    }
+        authenticationMethod: CollectorAuthenticationMethod.SECRETS_ONLY,
+    };
 
     constructor() {
         super(FreeCollector.CONFIG);
@@ -44,15 +44,15 @@ export class FreeCollector extends LinearWebCollector {
         await driver.leftClick(FreeSelectors.BUTTON_SUBMIT);
 
         // Check if login alert exists
-        const loginAlert = await driver.getElement(FreeSelectors.CONTAINER_LOGIN_ALERT, { raiseException: false, timeout: 2000 })
+        const loginAlert = await driver.getElement(FreeSelectors.CONTAINER_LOGIN_ALERT, { raiseException: false, timeout: 2000 });
         if (loginAlert) {
-            return await loginAlert.textContent("i18n.collectors.all.identifier.error");
+            return await loginAlert.textContent('i18n.collectors.all.identifier.error');
         }
 
         // If account transfered
         const transferedAccount = await driver.getElement(FreeSelectors.CONTAINER_TRANSFERED_ACCOUNT, { raiseException: false, timeout: 100 });
         if (transferedAccount) {
-            return await transferedAccount.textContent("i18n.collectors.all.identifier.error")
+            return await transferedAccount.textContent('i18n.collectors.all.identifier.error');
         }
     }
 
@@ -67,16 +67,16 @@ export class FreeCollector extends LinearWebCollector {
 
     async data(driver: Driver, element: Element): Promise<Invoice> {
         const downloadButton = await element.getElement(FreeSelectors.BUTTON_DOWNLOAD);
-        const link = await element.getAttribute(FreeSelectors.BUTTON_DOWNLOAD, "href");
-        const amount = await element.getAttribute(FreeSelectors.CONTAINER_AMOUNT, "textContent");
+        const link = await element.getAttribute(FreeSelectors.BUTTON_DOWNLOAD, 'href');
+        const amount = await element.getAttribute(FreeSelectors.CONTAINER_AMOUNT, 'textContent');
 
-        let search_params = new URLSearchParams(link);
-        const id = search_params.get("no_facture");
+        const search_params = new URLSearchParams(link);
+        const id = search_params.get('no_facture');
         if (!id) {
             throw new Error(`Field 'no_facture' is missing in the link ${link}`);
         }
 
-        const date_string = search_params.get("mois");
+        const date_string = search_params.get('mois');
         if (!date_string) {
             throw new Error(`Field 'mois' is missing in the link ${link}`);
         }
@@ -86,11 +86,11 @@ export class FreeCollector extends LinearWebCollector {
         const timestamp = Date.UTC(year, month);
 
         return {
-            id: id,
+            id,
             timestamp,
             link,
             amount,
-            downloadButton: downloadButton
+            downloadButton,
         };
     }
 

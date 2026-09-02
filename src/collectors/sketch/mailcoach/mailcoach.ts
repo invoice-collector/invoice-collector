@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class MailcoachCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "mailcoach",
-        name: "Mailcoach",
-        description: "i18n.collectors.mailcoach.description",
-        version: "0",
-        website: "https://mailcoach.app/download",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2519921.jpg",
+        id: 'mailcoach',
+        name: 'Mailcoach',
+        description: 'i18n.collectors.mailcoach.description',
+        version: '0',
+        website: 'https://mailcoach.app/download',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2519921.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://mailcoach.app/download",
+        loginUrl: 'https://mailcoach.app/download',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(MailcoachCollector.CONFIG);

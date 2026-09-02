@@ -89,7 +89,7 @@ export class WebSocketServer extends EventEmitter {
     constructor(httpServer: http.Server, locale: string, collector: AbstractCollector<Config>, oauth2State: string) {
         super();
         this.path = `${WebSocketServer.PATH}${utils.generate_token()}`;
-        this.locale = locale
+        this.locale = locale;
         this.collector = collector;
         this.oauth2State = oauth2State;
 
@@ -195,9 +195,9 @@ export class WebSocketServer extends EventEmitter {
     public sendScreenshot(screenshot: string, width: number, height: number) {
         const message: MessageScreenshot = {
             type: 'screenshot',
-            screenshot: screenshot,
-            width: width,
-            height: height
+            screenshot,
+            width,
+            height,
         };
         this.sendMessage(message, false);
     }
@@ -211,7 +211,7 @@ export class WebSocketServer extends EventEmitter {
 
         const message: MessageState = {
             type: 'state',
-            state: state
+            state,
         };
         this.sendMessage(message, true);
     }
@@ -220,7 +220,7 @@ export class WebSocketServer extends EventEmitter {
         const message: MessageInteractive = {
             type: 'interactive',
             reason: 'open',
-            instructions: I18n.get(instructions, this.locale)
+            instructions: I18n.get(instructions, this.locale),
         };
         this.sendMessage(message, true);
     }
@@ -228,15 +228,15 @@ export class WebSocketServer extends EventEmitter {
     public async sendOauth2(url: string, iframe: boolean): Promise<string> {
         const message: MessageOauth2 = {
             type: 'oauth2',
-            url: url,
-            iframe: iframe
+            url,
+            iframe,
         };
         this.sendMessage(message, true);
 
         // Wait for oauth2 code
         return await new Promise((resolve, reject) => {
-            setTimeout(() => reject(new DisconnectedError('i18n.collectors.all.oauth2.timeout', this.collector)), WebSocketServer.OAUTH2_TIMEOUT_MS)
-            this.once("oauth2_code", (event: { code: string }) => {
+            setTimeout(() => reject(new DisconnectedError('i18n.collectors.all.oauth2.timeout', this.collector)), WebSocketServer.OAUTH2_TIMEOUT_MS);
+            this.once('oauth2_code', (event: { code: string }) => {
                 resolve(event.code);
             });
         });
@@ -249,10 +249,10 @@ export class WebSocketServer extends EventEmitter {
         }
         // Return a promise that resolves when 2FA code is received or rejects on timeout
         return new Promise((resolve, reject) => {
-            setTimeout(() => reject(new DisconnectedError('i18n.collectors.all.2fa.timeout', this.collector)), WebSocketServer.TWOFA_TIMEOUT_MS)
+            setTimeout(() => reject(new DisconnectedError('i18n.collectors.all.2fa.timeout', this.collector)), WebSocketServer.TWOFA_TIMEOUT_MS);
             this.onTwofa = (event: MessageTwofa) => {
                 resolve(event.twofa);
-            }
+            };
         });
     }
 }

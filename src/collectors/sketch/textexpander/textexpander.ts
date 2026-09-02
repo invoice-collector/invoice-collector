@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class TextexpanderCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "textexpander",
-        name: "TextExpander",
-        description: "i18n.collectors.textexpander.description",
-        version: "0",
-        website: "https://app.textexpander.com/sign-in?_ga=2.163229436.17416616.1524109530-703412389.1524109530",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/38328.jpg",
+        id: 'textexpander',
+        name: 'TextExpander',
+        description: 'i18n.collectors.textexpander.description',
+        version: '0',
+        website: 'https://app.textexpander.com/sign-in?_ga=2.163229436.17416616.1524109530-703412389.1524109530',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/38328.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://app.textexpander.com/sign-in?_ga=2.163229436.17416616.1524109530-703412389.1524109530",
+        loginUrl: 'https://app.textexpander.com/sign-in?_ga=2.163229436.17416616.1524109530-703412389.1524109530',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(TextexpanderCollector.CONFIG);

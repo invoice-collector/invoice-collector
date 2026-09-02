@@ -76,7 +76,7 @@ async function createWebsocketClientAndServer(collector: AbstractCollector<Confi
             }
             else if(parsedData.type == "state" && parsedData.state.index == 3) {
                 // Wait until main thread is waiting for twofa code
-                while (webSocketServer.onTwofa == undefined) {
+                while (webSocketServer.onTwofa === undefined) {
                     await utils.delay(1000);
                 }
                 const twofa_code = prompt(`${parsedData.state.message}: `).trim();
@@ -211,7 +211,7 @@ for (const collectorConfig of await CollectorLoader.getAll()) {
 
             // Skip test if testSecret is not available = if previous test failed
             it('Login with correct credentials and with cookies and localStorage', async () => {
-                if (testSecret == undefined) {
+                if (testSecret === undefined) {
                     throw new Error(`Skipping test as previous test failed.`);
                 }
 

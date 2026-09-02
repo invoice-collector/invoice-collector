@@ -1,13 +1,13 @@
-import { IntegrationConfig } from "./abstractIntegration";
-import { SageIntegration } from "./sageIntegration";
-import { PennylaneIntegration } from "./pennylaneIntegration";
-import { AxonautIntegration } from "./axonautIntegration";
-import { TiimeIntegration } from "./tiimeIntegration";
-import { ChaintrustIntegration } from "./chaintrustIntegration";
-import { InqomIntegration } from "./inqomIntegration";
-import { MegIntegration } from "./megIntegration";
-import { HttpIntegration } from "./httpIntegration";
-import { FileSystemIntegration } from "./fileSystemIntegration";
+import { IntegrationConfig } from './abstractIntegration';
+import { SageIntegration } from './sageIntegration';
+import { PennylaneIntegration } from './pennylaneIntegration';
+import { AxonautIntegration } from './axonautIntegration';
+import { TiimeIntegration } from './tiimeIntegration';
+import { ChaintrustIntegration } from './chaintrustIntegration';
+import { InqomIntegration } from './inqomIntegration';
+import { MegIntegration } from './megIntegration';
+import { HttpIntegration } from './httpIntegration';
+import { FileSystemIntegration } from './fileSystemIntegration';
 
 const INTEGRATIONS: {
     [key: string]: IntegrationConfig
@@ -20,8 +20,8 @@ const INTEGRATIONS: {
     [InqomIntegration.CONFIG.id]: InqomIntegration.CONFIG,
     [MegIntegration.CONFIG.id]: MegIntegration.CONFIG,
     [HttpIntegration.CONFIG.id]:  HttpIntegration.CONFIG,
-    [FileSystemIntegration.CONFIG.id]: FileSystemIntegration.CONFIG
-}
+    [FileSystemIntegration.CONFIG.id]: FileSystemIntegration.CONFIG,
+};
 
 export class IntegrationLoader {
     public static getAll(): IntegrationConfig[] {

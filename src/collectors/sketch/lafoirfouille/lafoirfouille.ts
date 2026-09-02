@@ -4,32 +4,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class LaFoirFouilleCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "lafoirfouille",
+        id: 'lafoirfouille',
         name: "La foir'fouille",
-        description: "i18n.collectors.lafoirfouille.description",
-        version: "0",
-        website: "https://lafoirfouille.fr",
-        logo: "https://upload.wikimedia.org/wikipedia/commons/a/a8/Logo_La_Foir%27Fouille_2021.png",
+        description: 'i18n.collectors.lafoirfouille.description',
+        version: '0',
+        website: 'https://lafoirfouille.fr',
+        logo: 'https://upload.wikimedia.org/wikipedia/commons/a/a8/Logo_La_Foir%27Fouille_2021.png',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://www.lafoirfouille.fr/login",
+        loginUrl: 'https://www.lafoirfouille.fr/login',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(LaFoirFouilleCollector.CONFIG);

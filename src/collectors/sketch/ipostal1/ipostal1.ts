@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class Ipostal1Collector extends SketchCollector {
 
     static CONFIG = {
-        id: "ipostal1",
-        name: "Ipostal1",
-        description: "i18n.collectors.ipostal1.description",
-        version: "0",
-        website: "https://ipostal1.com/secure-store-login.php",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1061800.jpg",
+        id: 'ipostal1',
+        name: 'Ipostal1',
+        description: 'i18n.collectors.ipostal1.description',
+        version: '0',
+        website: 'https://ipostal1.com/secure-store-login.php',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1061800.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://ipostal1.com/secure-store-login.php",
+        loginUrl: 'https://ipostal1.com/secure-store-login.php',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(Ipostal1Collector.CONFIG);

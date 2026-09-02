@@ -1,11 +1,11 @@
-import { StatusError, AuthenticationBearerError } from "../error";
-import { DatabaseFactory } from "../database/databaseFactory";
-import * as utils from "../utils";
-import { User } from "./user";
-import { CollectorLoader } from "../collectors/collectorLoader";
-import { Server } from "../server";
-import { Plan } from "./plan";
-import { Callback } from "./callback";
+import { StatusError, AuthenticationBearerError } from '../error';
+import { DatabaseFactory } from '../database/databaseFactory';
+import * as utils from '../utils';
+import { User } from './user';
+import { CollectorLoader } from '../collectors/collectorLoader';
+import { Server } from '../server';
+import { Plan } from './plan';
+import { Callback } from './callback';
 
 export enum Theme {
     DEFAULT = 'default',
@@ -39,12 +39,12 @@ export interface CustomerStats {
 }
 export class Customer {
 
-    static DEFAULT_EMAIL = "";
-    static DEFAULT_PASSWORD = "";
-    static DEFAULT_NAME = "default";
-    static DEFAULT_CID = "";
-    static DEFAULT_REMOTE_ID = "";
-    static DEFAULT_BEARER = "";
+    static DEFAULT_EMAIL = '';
+    static DEFAULT_PASSWORD = '';
+    static DEFAULT_NAME = 'default';
+    static DEFAULT_CID = '';
+    static DEFAULT_REMOTE_ID = '';
+    static DEFAULT_BEARER = '';
     static DEFAULT_SUBSCRIBED_COLLECTORS: string[] = [];
     static DEFAULT_IS_SUBSCRIBED_TO_ALL = true;
     static DEFAULT_AUTHENTICATION_METHOD = CustomerAuthenticationMethod.INTERACTIVE_PREFERRED;
@@ -94,12 +94,12 @@ export class Customer {
             Customer.DEFAULT_REMOTE_ID,
             utils.hash_string(bearer),
             utils.convertNameToInviteId(Customer.DEFAULT_NAME),
-            Date.now()
+            Date.now(),
         );
         return {
             bearer,
-            customer: await DatabaseFactory.getDatabase().createCustomer(customer)
-        }
+            customer: await DatabaseFactory.getDatabase().createCustomer(customer),
+        };
     }
 
     id: string;
@@ -136,7 +136,7 @@ export class Customer {
         maxDelayBetweenCollect: number = Customer.DEFAULT_MAX_DELAY_BETWEEN_COLLECT,
         plan: Plan = Server.IS_SELF_HOSTED ? Plan.FREE : Plan.TRIAL,
     ) {
-        this.id = "";
+        this.id = '';
         this.email = email;
         this.password = password;
         this.name = name;
@@ -175,7 +175,7 @@ export class Customer {
 
         // Check if stats are null
         if (!stats) {
-            throw new StatusError("Unable to compute customer stats", 500);
+            throw new StatusError('Unable to compute customer stats', 500);
         }
 
         return stats;
@@ -184,7 +184,7 @@ export class Customer {
     setTheme(theme: string): void {
         //Check if theme is supported
         if(!Object.values(Theme).includes(theme as Theme)) {
-            throw new StatusError(`Theme "${theme}" not supported. Available themes are: ${Object.values(Theme).join(", ")}.`, 400);
+            throw new StatusError(`Theme "${theme}" not supported. Available themes are: ${Object.values(Theme).join(', ')}.`, 400);
         }
 
         this.theme = theme as Theme;
@@ -193,7 +193,7 @@ export class Customer {
     setAuthenticationMethod(authenticationMethod: string): void {
         // Check if authentication method is supported
         if(!Object.values(CustomerAuthenticationMethod).includes(authenticationMethod as CustomerAuthenticationMethod)) {
-            throw new StatusError(`Authentication method "${authenticationMethod}" not supported. Available methods are: ${Object.values(CustomerAuthenticationMethod).join(", ")}.`, 400);
+            throw new StatusError(`Authentication method "${authenticationMethod}" not supported. Available methods are: ${Object.values(CustomerAuthenticationMethod).join(', ')}.`, 400);
         }
 
         this.authenticationMethod = authenticationMethod as CustomerAuthenticationMethod;
@@ -205,7 +205,7 @@ export class Customer {
 
         // Check if collectors is an array
         if (!Array.isArray(collectors)) {
-            throw new StatusError(`Collectors must be an array.`, 400);
+            throw new StatusError('Collectors must be an array.', 400);
         }
 
         // Get existing collectors
@@ -237,7 +237,7 @@ export class Customer {
         // Get stats
         const stats = await this.getStats();
         // Check if user limit is reached
-        return this.plan.maxUsers === -1 || stats.users < this.plan.maxUsers
+        return this.plan.maxUsers === -1 || stats.users < this.plan.maxUsers;
     }
 
     async canAddCredential(): Promise<boolean> {

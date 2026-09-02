@@ -1,4 +1,4 @@
-import { OrangeHelperSelectors } from "../helper/selectors";
+import { OrangeHelperSelectors } from '../helper/selectors';
 
 export const OrangeSelectors = {
 
@@ -7,7 +7,7 @@ export const OrangeSelectors = {
     // SELECT CONTRACT PAGE
 
     CONTAINER_CONTRACT_ERROR: {
-        selector: ".alert .ob1-alert-title",
-        info: "contract error container"
-    }
-}
+        selector: '.alert .ob1-alert-title',
+        info: 'contract error container',
+    },
+};

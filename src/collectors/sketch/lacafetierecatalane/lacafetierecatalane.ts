@@ -4,32 +4,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class LaCafetiereCatalaneCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "lacafetierecatalane",
-        name: "La Cafetière Catalane",
-        description: "i18n.collectors.lacafetierecatalane.description",
-        version: "0",
-        website: "https://www.lacafetierecatalane.com",
-        logo: "https://www.lacafetierecatalane.com/img/m/1.jpg",
+        id: 'lacafetierecatalane',
+        name: 'La Cafetière Catalane',
+        description: 'i18n.collectors.lacafetierecatalane.description',
+        version: '0',
+        website: 'https://www.lacafetierecatalane.com',
+        logo: 'https://www.lacafetierecatalane.com/img/m/1.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://www.lacafetierecatalane.com/espace-client?back=my-account",
+        loginUrl: 'https://www.lacafetierecatalane.com/espace-client?back=my-account',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(LaCafetiereCatalaneCollector.CONFIG);

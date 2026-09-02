@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class EkoBLgariiaEadCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "eko_b_lgariia_ead",
+        id: 'eko_b_lgariia_ead',
         name: "Eko B'lgariia EAD",
-        description: "i18n.collectors.eko_b_lgariia_ead.description",
-        version: "0",
-        website: "https://invoice.eko.bg/#",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1252929.jpg",
+        description: 'i18n.collectors.eko_b_lgariia_ead.description',
+        version: '0',
+        website: 'https://invoice.eko.bg/#',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1252929.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://invoice.eko.bg/#",
+        loginUrl: 'https://invoice.eko.bg/#',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(EkoBLgariiaEadCollector.CONFIG);

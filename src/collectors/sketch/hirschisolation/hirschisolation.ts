@@ -4,32 +4,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class HirschIsolationCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "hirschisolation",
-        name: "Hirsch Isolation",
-        description: "i18n.collectors.hirschisolation.description",
-        version: "0",
-        website: "https://hirschisolation.fr",
-        logo: "https://hirschisolation.fr/wp-content/themes/placo/img/hirsch-france-logo-black.png",
+        id: 'hirschisolation',
+        name: 'Hirsch Isolation',
+        description: 'i18n.collectors.hirschisolation.description',
+        version: '0',
+        website: 'https://hirschisolation.fr',
+        logo: 'https://hirschisolation.fr/wp-content/themes/placo/img/hirsch-france-logo-black.png',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://hirschisolation.fr/connexion/",
+        loginUrl: 'https://hirschisolation.fr/connexion/',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(HirschIsolationCollector.CONFIG);

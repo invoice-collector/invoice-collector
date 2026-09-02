@@ -3,117 +3,117 @@ export const OrangeHelperSelectors = {
     // COOKIES
 
     BUTTON_REFUSE_COOKIES: {
-        selector: "span.didomi-continue-without-agreeing",
-        info: "refuse cookies button"
+        selector: 'span.didomi-continue-without-agreeing',
+        info: 'refuse cookies button',
     },
     BUTTON_ACCEPT_COOKIES: {
-        selector: "#didomi-notice-agree-button",
-        info: "accept cookies button"
+        selector: '#didomi-notice-agree-button',
+        info: 'accept cookies button',
     },
 
     // LOGIN PAGE
 
     FIELD_EMAIL: {
-        selector: "#login:not([aria-hidden])",
-        info: "email input"
+        selector: '#login:not([aria-hidden])',
+        info: 'email input',
     },
     BUTTON_CONTINUE: {
-        selector: "#btnSubmit",
-        info: "continue button"
+        selector: '#btnSubmit',
+        info: 'continue button',
     },
     CONTAINER_LOGIN_ALERT: {
-        selector: "#login-invalid-feedback, #login-error",
-        info: "login alert container"
+        selector: '#login-invalid-feedback, #login-error',
+        info: 'login alert container',
     },
     BUTTON_PASSWORD_OPTION: {
         selector: "button[data-oevent-label='sidentifier_sans_mc']",
-        info: "password authentication option button"
+        info: 'password authentication option button',
     },
     FIELD_PASSWORD: {
-        selector: "#password",
-        info: "password input"
+        selector: '#password',
+        info: 'password input',
     },
     BUTTON_SUBMIT: {
-        selector: "#btnSubmit",
-        info: "submit button"
+        selector: '#btnSubmit',
+        info: 'submit button',
     },
     CONTAINER_PASSWORD_ALERT: {
-        selector: "#password-invalid-feedback, #password-error",
-        info: "password alert container"
+        selector: '#password-invalid-feedback, #password-error',
+        info: 'password alert container',
     },
     BUTTON_SKIP_2FA: {
         selector: "button[data-testid='link-aba-later']",
-        info: "skip 2FA button"
+        info: 'skip 2FA button',
     },
 
     // NEED2FA
 
     BUTTON_AUTHENTICATE_MOBILE_CONNECT: {
         selector: "#btnSubmit[data-testid='submit-mc']",
-        info: "mobile connect button"
+        info: 'mobile connect button',
     },
     CONTAINER_MOBILE_CONNECT_INSTRUCTION: {
-        selector: ".text-start",
-        info: "mobile connect instruction container"
+        selector: '.text-start',
+        info: 'mobile connect instruction container',
     },
     BUTTON_SEND_REQUEST_ON_MOBILE: {
         selector: "#btnSubmit[data-testid='authent-om']",
-        info: "send request on mobile button"
+        info: 'send request on mobile button',
     },
     BUTTON_REQUEST_ON_MOBILE_INSTRUCTION: {
-        selector: ".text-start",
-        info: "send request on mobile instruction container"
+        selector: '.text-start',
+        info: 'send request on mobile instruction container',
     },
 
     // FOR EACH PAGE
 
     CONTAINER_OFFERS: {
-        selector: "ecm-selector-contract > div > div > div > div:nth-of-type(1) > ul > li > ecm-mat-item-list",
-        info: "container offers"
+        selector: 'ecm-selector-contract > div > div > div > div:nth-of-type(1) > ul > li > ecm-mat-item-list',
+        info: 'container offers',
     },
     CONTAINER_OFFERS_LINK: {
-        selector: "a[data-e2e]",
-        info: "container offers link"
+        selector: 'a[data-e2e]',
+        info: 'container offers link',
     },
 
     // IS EMPTY
 
     CONTAINER_NO_INVOICE: {
-        selector: "ecm-mat-feedback > div > div > div > div span.alert-icon.alert-icon",
-        info: "no invoice container"
+        selector: 'ecm-mat-feedback > div > div > div > div span.alert-icon.alert-icon',
+        info: 'no invoice container',
     },
 
     // GET INVOICES
 
     CONTAINER_INVOICE: {
-        selector: "bills-history-table tbody tr",
-        info: "invoice container"
+        selector: 'bills-history-table tbody tr',
+        info: 'invoice container',
     },
 
     // DATA
 
     
     BUTTON_PDF: {
-        selector: "a.bp-downloadIcon",
-        info: "invoice PDF download button"
+        selector: 'a.bp-downloadIcon',
+        info: 'invoice PDF download button',
     },
     CONTAINER_DATE: {
-        selector: ".bp-dateColumn span",
-        info: "invoice date container"
+        selector: '.bp-dateColumn span',
+        info: 'invoice date container',
     },
     CONTAINER_AMOUNT: {
-        selector: ".bp-amountColumn span",
-        info: "invoice amount container"
+        selector: '.bp-amountColumn span',
+        info: 'invoice amount container',
     },
 
     // DOWNLOAD PAGE
 
     CONTAINER_VPN_ERROR: {
-        selector: "ecm-layout-container .feedback .feedback-text:nth-of-type(1)",
-        info: "VPN error container"
+        selector: 'ecm-layout-container .feedback .feedback-text:nth-of-type(1)',
+        info: 'VPN error container',
     },
     BUTTON_DOWNLOAD_INVOICE: {
         selector: "button[data-e2e='download-link']",
-        info: "download invoice button"
-    }
-}
+        info: 'download invoice button',
+    },
+};

@@ -3,44 +3,44 @@ export const FreeSelectors = {
 
     FIELD_USERNAME: {
         selector: "input[name='login']",
-        info: "login input field"
+        info: 'login input field',
     },
     FIELD_PASSWORD: {
         selector: "input[name='pass']",
-        info: "password input field"
+        info: 'password input field',
     },
     BUTTON_SUBMIT: {
-        selector: "#ok",
-        info: "submit form button"
+        selector: '#ok',
+        info: 'submit form button',
     },
     CONTAINER_LOGIN_ALERT: {
         selector: "div[class='loginalert']",
-        info: "login alert container"
+        info: 'login alert container',
     },
     
     //INDEX PAGE
 
     BUTTON_INVOICES: {
-        selector: ".more a:first-child",
-        info: "all my invoices button"
+        selector: '.more a:first-child',
+        info: 'all my invoices button',
     },
 
     //INVOICES PAGE
     
     CONTAINER_TRANSFERED_ACCOUNT: {
-        selector: ".impayes p",
-        info: "transfered account alert"
+        selector: '.impayes p',
+        info: 'transfered account alert',
     },
     CONTAINER_INVOICE: {
-        selector: ".accordion li",
-        info: "invoice container"
+        selector: '.accordion li',
+        info: 'invoice container',
     },
     BUTTON_DOWNLOAD: {
-        selector: ".btn_download",
-        info: "download invoice button"
+        selector: '.btn_download',
+        info: 'download invoice button',
     },
     CONTAINER_AMOUNT: {
-        selector: "span:last-of-type",
-        info: "amount button"
-    }
-}
+        selector: 'span:last-of-type',
+        info: 'amount button',
+    },
+};

@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class WeworkCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "wework",
-        name: "WeWork",
-        description: "i18n.collectors.wework.description",
-        version: "0",
-        website: "https://members.wework.com/account",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/8551.jpg",
+        id: 'wework',
+        name: 'WeWork',
+        description: 'i18n.collectors.wework.description',
+        version: '0',
+        website: 'https://members.wework.com/account',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/8551.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://members.wework.com/account",
+        loginUrl: 'https://members.wework.com/account',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(WeworkCollector.CONFIG);

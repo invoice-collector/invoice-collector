@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class LinkMobilityCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "link_mobility",
-        name: "Link Mobility",
-        description: "i18n.collectors.link_mobility.description",
-        version: "0",
-        website: "https://app.linkmobility.eu/de-AT/#/settings/profile",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4095679.jpg",
+        id: 'link_mobility',
+        name: 'Link Mobility',
+        description: 'i18n.collectors.link_mobility.description',
+        version: '0',
+        website: 'https://app.linkmobility.eu/de-AT/#/settings/profile',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4095679.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://app.linkmobility.eu/de-AT/#/settings/profile",
+        loginUrl: 'https://app.linkmobility.eu/de-AT/#/settings/profile',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(LinkMobilityCollector.CONFIG);

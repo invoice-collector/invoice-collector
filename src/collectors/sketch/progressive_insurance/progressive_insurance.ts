@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class ProgressiveInsuranceCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "progressive_insurance",
-        name: "Progressive Insurance",
-        description: "i18n.collectors.progressive_insurance.description",
-        version: "0",
-        website: "https://servicing5.progressive.com/xps.web/s4/scripts/DisplayPage.aspx?Page=Documents&TransactionName=ProofOfInsurance&Zone=LocalNav_Zone&Filter=Forms&Location=BunkerWest&Userid=f51eb364-f97c-41c3-be65-8bae5d6c463c&OfferingId=CAAAAAAG201804&transNum=&Act=",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/161952.jpg",
+        id: 'progressive_insurance',
+        name: 'Progressive Insurance',
+        description: 'i18n.collectors.progressive_insurance.description',
+        version: '0',
+        website: 'https://servicing5.progressive.com/xps.web/s4/scripts/DisplayPage.aspx?Page=Documents&TransactionName=ProofOfInsurance&Zone=LocalNav_Zone&Filter=Forms&Location=BunkerWest&Userid=f51eb364-f97c-41c3-be65-8bae5d6c463c&OfferingId=CAAAAAAG201804&transNum=&Act=',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/161952.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://servicing5.progressive.com/xps.web/s4/scripts/DisplayPage.aspx?Page=Documents&TransactionName=ProofOfInsurance&Zone=LocalNav_Zone&Filter=Forms&Location=BunkerWest&Userid=f51eb364-f97c-41c3-be65-8bae5d6c463c&OfferingId=CAAAAAAG201804&transNum=&Act=",
+        loginUrl: 'https://servicing5.progressive.com/xps.web/s4/scripts/DisplayPage.aspx?Page=Documents&TransactionName=ProofOfInsurance&Zone=LocalNav_Zone&Filter=Forms&Location=BunkerWest&Userid=f51eb364-f97c-41c3-be65-8bae5d6c463c&OfferingId=CAAAAAAG201804&transNum=&Act=',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(ProgressiveInsuranceCollector.CONFIG);

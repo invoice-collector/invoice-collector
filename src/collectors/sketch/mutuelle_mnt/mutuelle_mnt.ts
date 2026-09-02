@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class MutuelleMntCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "mutuelle_mnt",
-        name: "Mutuelle MNT",
-        description: "i18n.collectors.mutuelle_mnt.description",
-        version: "0",
-        website: "https://adherents.mnt.fr/sign/connectAndRegister",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/129821.jpg",
+        id: 'mutuelle_mnt',
+        name: 'Mutuelle MNT',
+        description: 'i18n.collectors.mutuelle_mnt.description',
+        version: '0',
+        website: 'https://adherents.mnt.fr/sign/connectAndRegister',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/129821.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://adherents.mnt.fr/sign/connectAndRegister",
+        loginUrl: 'https://adherents.mnt.fr/sign/connectAndRegister',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(MutuelleMntCollector.CONFIG);

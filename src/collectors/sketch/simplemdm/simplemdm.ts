@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class SimplemdmCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "simplemdm",
-        name: "SimpleMDM",
-        description: "i18n.collectors.simplemdm.description",
-        version: "0",
-        website: "https://a.simplemdm.com/admin/auth/sign_in",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/78251.jpg",
+        id: 'simplemdm',
+        name: 'SimpleMDM',
+        description: 'i18n.collectors.simplemdm.description',
+        version: '0',
+        website: 'https://a.simplemdm.com/admin/auth/sign_in',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/78251.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://a.simplemdm.com/admin/auth/sign_in",
+        loginUrl: 'https://a.simplemdm.com/admin/auth/sign_in',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(SimplemdmCollector.CONFIG);

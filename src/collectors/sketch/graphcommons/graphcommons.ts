@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class GraphcommonsCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "graphcommons",
-        name: "GraphCommons",
-        description: "i18n.collectors.graphcommons.description",
-        version: "0",
-        website: "https://billing.stripe.com/p/session/live_YWNjdF8xNlZoOHFIMU9WMlJDaWdxLF9QamdvNmExeEt0SVFNQzdPUjI3WUxseWZKdUJYMWRs0100WpT2BNvK",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2732657.jpg",
+        id: 'graphcommons',
+        name: 'GraphCommons',
+        description: 'i18n.collectors.graphcommons.description',
+        version: '0',
+        website: 'https://billing.stripe.com/p/session/live_YWNjdF8xNlZoOHFIMU9WMlJDaWdxLF9QamdvNmExeEt0SVFNQzdPUjI3WUxseWZKdUJYMWRs0100WpT2BNvK',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2732657.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://billing.stripe.com/p/session/live_YWNjdF8xNlZoOHFIMU9WMlJDaWdxLF9QamdvNmExeEt0SVFNQzdPUjI3WUxseWZKdUJYMWRs0100WpT2BNvK",
+        loginUrl: 'https://billing.stripe.com/p/session/live_YWNjdF8xNlZoOHFIMU9WMlJDaWdxLF9QamdvNmExeEt0SVFNQzdPUjI3WUxseWZKdUJYMWRs0100WpT2BNvK',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(GraphcommonsCollector.CONFIG);

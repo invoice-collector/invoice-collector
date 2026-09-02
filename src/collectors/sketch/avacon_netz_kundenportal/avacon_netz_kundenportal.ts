@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class AvaconNetzKundenportalCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "avacon_netz_kundenportal",
-        name: "Avacon Netz - Kundenportal",
-        description: "i18n.collectors.avacon_netz_kundenportal.description",
-        version: "0",
-        website: "https://www.avacon-netz.de/de/service/public/kundenportal.html",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/62229.jpg",
+        id: 'avacon_netz_kundenportal',
+        name: 'Avacon Netz - Kundenportal',
+        description: 'i18n.collectors.avacon_netz_kundenportal.description',
+        version: '0',
+        website: 'https://www.avacon-netz.de/de/service/public/kundenportal.html',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/62229.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://www.avacon-netz.de/de/service/public/kundenportal.html",
+        loginUrl: 'https://www.avacon-netz.de/de/service/public/kundenportal.html',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(AvaconNetzKundenportalCollector.CONFIG);

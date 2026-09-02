@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class MaisonsDuMondeCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "maisons_du_monde",
-        name: "Maisons du Monde",
-        description: "i18n.collectors.maisons_du_monde.description",
-        version: "0",
-        website: "https://www.maisonsdumonde.com/DE/de/account/signin",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/104670.jpg",
+        id: 'maisons_du_monde',
+        name: 'Maisons du Monde',
+        description: 'i18n.collectors.maisons_du_monde.description',
+        version: '0',
+        website: 'https://www.maisonsdumonde.com/DE/de/account/signin',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/104670.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://www.maisonsdumonde.com/DE/de/account/signin",
+        loginUrl: 'https://www.maisonsdumonde.com/DE/de/account/signin',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(MaisonsDuMondeCollector.CONFIG);

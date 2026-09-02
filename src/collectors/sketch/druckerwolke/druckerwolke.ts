@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class DruckerwolkeCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "druckerwolke",
-        name: "DRUCKERWOLKE",
-        description: "i18n.collectors.druckerwolke.description",
-        version: "0",
-        website: "https://app.druckerwolke.de/app/account/login",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/946195.jpg",
+        id: 'druckerwolke',
+        name: 'DRUCKERWOLKE',
+        description: 'i18n.collectors.druckerwolke.description',
+        version: '0',
+        website: 'https://app.druckerwolke.de/app/account/login',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/946195.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://app.druckerwolke.de/app/account/login",
+        loginUrl: 'https://app.druckerwolke.de/app/account/login',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(DruckerwolkeCollector.CONFIG);

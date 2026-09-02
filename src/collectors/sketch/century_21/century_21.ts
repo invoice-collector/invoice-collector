@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class Century21Collector extends SketchCollector {
 
     static CONFIG = {
-        id: "century_21",
-        name: "Century 21",
-        description: "i18n.collectors.century_21.description",
-        version: "0",
-        website: "https://www.orchestrav2.egiweb.net/Works/Docnew.php",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2012130.jpg",
+        id: 'century_21',
+        name: 'Century 21',
+        description: 'i18n.collectors.century_21.description',
+        version: '0',
+        website: 'https://www.orchestrav2.egiweb.net/Works/Docnew.php',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2012130.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://www.orchestrav2.egiweb.net/Works/Docnew.php",
+        loginUrl: 'https://www.orchestrav2.egiweb.net/Works/Docnew.php',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(Century21Collector.CONFIG);

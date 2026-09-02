@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class ScholarAiCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "scholar_ai",
-        name: "Scholar AI",
-        description: "i18n.collectors.scholar_ai.description",
-        version: "0",
-        website: "https://scholarai.io/",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2513853.jpg",
+        id: 'scholar_ai',
+        name: 'Scholar AI',
+        description: 'i18n.collectors.scholar_ai.description',
+        version: '0',
+        website: 'https://scholarai.io/',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2513853.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://scholarai.io/",
+        loginUrl: 'https://scholarai.io/',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(ScholarAiCollector.CONFIG);

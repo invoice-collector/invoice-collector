@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class _2checkoutCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "2checkout",
-        name: "2CHECKOUT",
-        description: "i18n.collectors.2checkout.description",
-        version: "0",
-        website: "https://secure.2co.com/myaccount/view_order/",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/10098.jpg",
+        id: '2checkout',
+        name: '2CHECKOUT',
+        description: 'i18n.collectors.2checkout.description',
+        version: '0',
+        website: 'https://secure.2co.com/myaccount/view_order/',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/10098.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://secure.2co.com/myaccount/view_order/",
+        loginUrl: 'https://secure.2co.com/myaccount/view_order/',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(_2checkoutCollector.CONFIG);

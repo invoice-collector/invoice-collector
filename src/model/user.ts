@@ -1,17 +1,17 @@
-import { DatabaseFactory } from "../database/databaseFactory";
-import { StatusError } from "../error";
-import { Location } from "../proxy/abstractProxy";
-import { SecretManagerFactory } from "../secret_manager/secretManagerFactory";
-import { Credential } from "./credential";
-import { Customer } from "./customer";
-import { Callback } from "./callback";
-import { CollectorLoader } from "../collectors/collectorLoader";
-import { CollectorType } from "../collectors/abstractCollector";
+import { DatabaseFactory } from '../database/databaseFactory';
+import { StatusError } from '../error';
+import { Location } from '../proxy/abstractProxy';
+import { SecretManagerFactory } from '../secret_manager/secretManagerFactory';
+import { Credential } from './credential';
+import { Customer } from './customer';
+import { Callback } from './callback';
+import { CollectorLoader } from '../collectors/collectorLoader';
+import { CollectorType } from '../collectors/abstractCollector';
 
 export enum UserStatus {
-    ACTIVE = "active",
-    PENDING = "pending",
-    ERROR = "error"
+    ACTIVE = 'active',
+    PENDING = 'pending',
+    ERROR = 'error'
 }
 
 export interface UserStats {
@@ -22,9 +22,9 @@ export interface UserStats {
 
 export class User {
 
-    static DEFAULT_PASSWORD = "";
-    static DEFAULT_NAME = "";
-    static DEFAULT_CID = "";
+    static DEFAULT_PASSWORD = '';
+    static DEFAULT_NAME = '';
+    static DEFAULT_CID = '';
 
     static async fromId(id: string): Promise<User|null> {
         // Get user from id
@@ -61,7 +61,7 @@ export class User {
         locale: string,
         createdAt: number,
     ) {
-        this.id = "";
+        this.id = '';
         this.customer_id = customer_id;
         this.remote_id = remote_id;
         this.password = password;
@@ -162,8 +162,8 @@ export class User {
         // Return stats
         return {
             credentials: credentials.length,
-            invoices: invoices,
-            status: status
+            invoices,
+            status,
         };
     }
 }

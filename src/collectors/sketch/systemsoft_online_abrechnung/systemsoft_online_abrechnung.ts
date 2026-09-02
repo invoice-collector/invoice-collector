@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class SystemsoftOnlineAbrechnungCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "systemsoft_online_abrechnung",
-        name: "Systemsoft Online Abrechnung",
-        description: "i18n.collectors.systemsoft_online_abrechnung.description",
-        version: "0",
-        website: "https://www.systemsoft-gmbh.de/online-invoice/index.php",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/534316.jpg",
+        id: 'systemsoft_online_abrechnung',
+        name: 'Systemsoft Online Abrechnung',
+        description: 'i18n.collectors.systemsoft_online_abrechnung.description',
+        version: '0',
+        website: 'https://www.systemsoft-gmbh.de/online-invoice/index.php',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/534316.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://www.systemsoft-gmbh.de/online-invoice/index.php",
+        loginUrl: 'https://www.systemsoft-gmbh.de/online-invoice/index.php',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(SystemsoftOnlineAbrechnungCollector.CONFIG);

@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class MrsSportyCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "mrs_sporty",
-        name: "Mrs. Sporty",
-        description: "i18n.collectors.mrs_sporty.description",
-        version: "0",
-        website: "https://portal.mrssporty.com/ControlPanel/Bwa",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2742736.jpg",
+        id: 'mrs_sporty',
+        name: 'Mrs. Sporty',
+        description: 'i18n.collectors.mrs_sporty.description',
+        version: '0',
+        website: 'https://portal.mrssporty.com/ControlPanel/Bwa',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2742736.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://portal.mrssporty.com/ControlPanel/Bwa",
+        loginUrl: 'https://portal.mrssporty.com/ControlPanel/Bwa',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(MrsSportyCollector.CONFIG);

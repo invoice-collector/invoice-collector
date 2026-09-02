@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class One4allCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "one4all",
-        name: "One4All",
-        description: "i18n.collectors.one4all.description",
-        version: "0",
-        website: "https://www.one4all.ie/customer/account/login/",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/408103.jpg",
+        id: 'one4all',
+        name: 'One4All',
+        description: 'i18n.collectors.one4all.description',
+        version: '0',
+        website: 'https://www.one4all.ie/customer/account/login/',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/408103.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://www.one4all.ie/customer/account/login/",
+        loginUrl: 'https://www.one4all.ie/customer/account/login/',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(One4allCollector.CONFIG);

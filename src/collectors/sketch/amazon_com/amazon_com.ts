@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class AmazonComCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "amazon_com",
-        name: "Amazon (.com)",
-        description: "i18n.collectors.amazon_com.description",
-        version: "0",
-        website: "https://www.amazon.com/gp/css/order-history/ref=nav_youraccount_orders",
-        logo: "https://upload.wikimedia.org/wikipedia/commons/4/4a/Amazon_icon.svg",
+        id: 'amazon_com',
+        name: 'Amazon (.com)',
+        description: 'i18n.collectors.amazon_com.description',
+        version: '0',
+        website: 'https://www.amazon.com/gp/css/order-history/ref=nav_youraccount_orders',
+        logo: 'https://upload.wikimedia.org/wikipedia/commons/4/4a/Amazon_icon.svg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://www.amazon.com/gp/css/order-history/ref=nav_youraccount_orders",
+        loginUrl: 'https://www.amazon.com/gp/css/order-history/ref=nav_youraccount_orders',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(AmazonComCollector.CONFIG);

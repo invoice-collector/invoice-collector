@@ -1,8 +1,8 @@
-import { AxiosInstance } from "axios";
+import { AxiosInstance } from 'axios';
 import { ApiCollector } from '../../apiCollector';
 import { CollectorType, DownloadedInvoice } from '../../abstractCollector';
 import { AuthenticationError } from '../../../error';
-import { WebSocketServer } from "../../../websocket/webSocketServer";
+import { WebSocketServer } from '../../../websocket/webSocketServer';
 import * as utils from '../../../utils';
 
 /**
@@ -15,39 +15,39 @@ import * as utils from '../../../utils';
 export class TeslaCollector extends ApiCollector {
 
     static CONFIG = {
-        id: "tesla",
-        name: "Tesla",
-        description: "i18n.collectors.tesla.description",
-        version: "1",
-        website: "https://www.tesla.com",
-        logo: "https://upload.wikimedia.org/wikipedia/commons/e/e8/Tesla_logo.png",
+        id: 'tesla',
+        name: 'Tesla',
+        description: 'i18n.collectors.tesla.description',
+        version: '1',
+        website: 'https://www.tesla.com',
+        logo: 'https://upload.wikimedia.org/wikipedia/commons/e/e8/Tesla_logo.png',
         type: CollectorType.API,
         params: {},
-        baseUrl: "https://fleet-api.prd.eu.vn.cloud.tesla.com"
-    }
+        baseUrl: 'https://fleet-api.prd.eu.vn.cloud.tesla.com',
+    };
 
     constructor() {
         super(TeslaCollector.CONFIG);
     }
 
     static REDIRECT_URI = `${utils.BACKEND_URI}/api/v1/oauth2`;
-    static CLIENT_ID = "86f1cbbc-3023-4e1c-98ea-dd4bb2171f3e";
-    static CLIENT_SECRET = utils.getEnvVar("OAUTH2_TESLA_CLIENT_SECRET");
+    static CLIENT_ID = '86f1cbbc-3023-4e1c-98ea-dd4bb2171f3e';
+    static CLIENT_SECRET = utils.getEnvVar('OAUTH2_TESLA_CLIENT_SECRET');
     static OAUTH2_URL = `https://auth.tesla.com/oauth2/v3/authorize?client_id=${TeslaCollector.CLIENT_ID}&locale=en-US&prompt=login&prompt_missing_scopes=true&redirect_uri=${encodeURIComponent(TeslaCollector.REDIRECT_URI)}&response_type=code&scope=openid%20vehicle_charging_cmds%20offline_access&state={state}`;
-    static TOKEN_URL = "https://fleet-auth.prd.vn.cloud.tesla.com/oauth2/v3/token";
+    static TOKEN_URL = 'https://fleet-auth.prd.vn.cloud.tesla.com/oauth2/v3/token';
     static PAGE_SIZE = 25;
     static MAX_PAGES = 40;
 
     // Regional servers of the account. Tesla exposes three of them and a token is only valid on its own.
     static REGIONS = {
-        EU: "https://fleet-api.prd.eu.vn.cloud.tesla.com",
-        NA: "https://fleet-api.prd.na.vn.cloud.tesla.com",
-        CN: "https://fleet-api.prd.cn.vn.cloud.tesla.cn",
+        EU: 'https://fleet-api.prd.eu.vn.cloud.tesla.com',
+        NA: 'https://fleet-api.prd.na.vn.cloud.tesla.com',
+        CN: 'https://fleet-api.prd.cn.vn.cloud.tesla.cn',
     };
 
     async collect(instance: AxiosInstance, webSocketServer: WebSocketServer | undefined, params: any): Promise<any[]> {
         // If param does not contain a refresh token nor an access token, the user has not authenticated yet.
-        if (!params.refresh_token && !params.access_token && webSocketServer != undefined) {
+        if (!params.refresh_token && !params.access_token && webSocketServer !== undefined) {
             // Build the Oauth2 URL with the state
             const oauth2Url = TeslaCollector.OAUTH2_URL.replace('{state}', webSocketServer.oauth2State);
             // Send oauth2 url and wait for code
@@ -90,8 +90,8 @@ export class TeslaCollector extends ApiCollector {
 
                 invoices.push({
                     id: invoice.contentId,
-                    timestamp: timestamp,
-                    amount: amount,
+                    timestamp,
+                    amount,
                     link: `/api/1/dx/charging/invoice/${invoice.contentId}`,
                     metadata: {
                         site: session.siteLocationName,
@@ -143,7 +143,7 @@ export class TeslaCollector extends ApiCollector {
             grant_type: 'authorization_code',
             client_id: TeslaCollector.CLIENT_ID,
             client_secret: TeslaCollector.CLIENT_SECRET,
-            code: code,
+            code,
             audience: baseUrl,
             redirect_uri: TeslaCollector.REDIRECT_URI,
         });
@@ -226,7 +226,7 @@ export class TeslaCollector extends ApiCollector {
             validateStatus: () => true,
             ...options,
         });
-        if(response.status == 401 || response.status == 403) {
+        if(response.status === 401 || response.status === 403) {
             throw new AuthenticationError('i18n.collectors.tesla.authentication_error', this);
         }
         else if(response.status !== 200) {

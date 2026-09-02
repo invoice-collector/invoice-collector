@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class HostingdiscounterNlCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "hostingdiscounter_nl",
-        name: "HostingDiscounter.nl",
-        description: "i18n.collectors.hostingdiscounter_nl.description",
-        version: "0",
-        website: "https://customer.hostingdiscounter.nl/login.aspx",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/32627.jpg",
+        id: 'hostingdiscounter_nl',
+        name: 'HostingDiscounter.nl',
+        description: 'i18n.collectors.hostingdiscounter_nl.description',
+        version: '0',
+        website: 'https://customer.hostingdiscounter.nl/login.aspx',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/32627.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://customer.hostingdiscounter.nl/login.aspx",
+        loginUrl: 'https://customer.hostingdiscounter.nl/login.aspx',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(HostingdiscounterNlCollector.CONFIG);

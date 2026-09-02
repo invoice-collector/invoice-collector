@@ -1,10 +1,10 @@
-import { CompleteInvoice } from "../collectors/abstractCollector";
-import { DatabaseFactory } from "../database/databaseFactory";
-import { StatusError } from "../error";
-import { SecretManagerFactory } from "../secret_manager/secretManagerFactory";
-import { Secret } from "./secret";
-import { State } from "./state";
-import { User } from "./user";
+import { CompleteInvoice } from '../collectors/abstractCollector';
+import { DatabaseFactory } from '../database/databaseFactory';
+import { StatusError } from '../error';
+import { SecretManagerFactory } from '../secret_manager/secretManagerFactory';
+import { Secret } from './secret';
+import { State } from './state';
+import { User } from './user';
 
 export type ModelInvoice = {
     id: string,
@@ -49,9 +49,9 @@ export class Credential {
         last_collect_timestamp: number = Number.NaN,
         next_collect_timestamp: number = Number.NaN,
         invoices: ModelInvoice[] = [],
-        state: State = State.DEFAULT_STATE
+        state: State = State.DEFAULT_STATE,
     ) {
-        this.id = "";
+        this.id = '';
         this.user_id = user_id;
         this.collector_id = collector_id;
         this.note = note;
@@ -75,7 +75,7 @@ export class Credential {
     }
 
     getSecret(): Secret {
-        let secret = new Secret(`${this.id}_${this.user_id}_${this.collector_id}`);
+        const secret = new Secret(`${this.id}_${this.user_id}_${this.collector_id}`);
         secret.id = this.secret_id;
         return secret;
     }
@@ -111,7 +111,7 @@ export class Credential {
                 let theoretical_next_collect_timestamp;
 
                 // Compute maximum next collect timestamp from now
-                let max_next_collect_timestamp = this.last_collect_timestamp + maxDelayBetweenCollect;
+                const max_next_collect_timestamp = this.last_collect_timestamp + maxDelayBetweenCollect;
 
                 // If has less than 2 invoices, average time between invoices cannot be computed
                 if (this.invoices.length < 2) {
@@ -120,14 +120,14 @@ export class Credential {
                 }
                 else { // If has more than 2 invoices
                     // Take the last 10 invoices
-                    let invoices = this.invoices.slice(-10);
+                    const invoices = this.invoices.slice(-10);
 
                     // Compute the average time between invoices
                     let sum = 0;
                     for (let i = 1; i < invoices.length; i++) {
                         sum += invoices[i].timestamp - invoices[i-1].timestamp;
                     }
-                    let avg = sum / (invoices.length - 1);
+                    const avg = sum / (invoices.length - 1);
 
                     // Compute theoretical next collect timestamp
                     theoretical_next_collect_timestamp = invoices[invoices.length - 1].timestamp + avg;
@@ -153,7 +153,7 @@ export class Credential {
             id: invoice.id,
             timestamp: invoice.timestamp,
             collected_timestamp: invoice.collected_timestamp,
-            hash: invoice.hash
+            hash: invoice.hash,
         });
     }
 

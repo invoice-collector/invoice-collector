@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class OfficeDepotOfficemaxCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "office_depot_officemax",
-        name: "Office Depot OfficeMax",
-        description: "i18n.collectors.office_depot_officemax.description",
-        version: "0",
-        website: "https://www.officedepot.com/",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/747828.jpg",
+        id: 'office_depot_officemax',
+        name: 'Office Depot OfficeMax',
+        description: 'i18n.collectors.office_depot_officemax.description',
+        version: '0',
+        website: 'https://www.officedepot.com/',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/747828.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://www.officedepot.com/",
+        loginUrl: 'https://www.officedepot.com/',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(OfficeDepotOfficemaxCollector.CONFIG);

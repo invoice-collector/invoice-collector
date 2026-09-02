@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class MifidRecorderCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "mifid_recorder",
-        name: "MiFID-Recorder",
-        description: "i18n.collectors.mifid_recorder.description",
-        version: "0",
-        website: "https://login.mifid-recorder.com",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2693311.jpg",
+        id: 'mifid_recorder',
+        name: 'MiFID-Recorder',
+        description: 'i18n.collectors.mifid_recorder.description',
+        version: '0',
+        website: 'https://login.mifid-recorder.com',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2693311.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://login.mifid-recorder.com",
+        loginUrl: 'https://login.mifid-recorder.com',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(MifidRecorderCollector.CONFIG);

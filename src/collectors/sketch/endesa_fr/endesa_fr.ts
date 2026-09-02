@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class EndesaFrCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "endesa_fr",
-        name: "endesa.fr",
-        description: "i18n.collectors.endesa_fr.description",
-        version: "0",
-        website: "https://www.portail-endesa.fr/factures/",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4073731.jpg",
+        id: 'endesa_fr',
+        name: 'endesa.fr',
+        description: 'i18n.collectors.endesa_fr.description',
+        version: '0',
+        website: 'https://www.portail-endesa.fr/factures/',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4073731.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://www.portail-endesa.fr/factures/",
+        loginUrl: 'https://www.portail-endesa.fr/factures/',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(EndesaFrCollector.CONFIG);

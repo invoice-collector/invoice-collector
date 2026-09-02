@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class BSCardServicePortalCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "b_s_card_service_portal",
-        name: "B+S Card Service Portal",
-        description: "i18n.collectors.b_s_card_service_portal.description",
-        version: "0",
-        website: "https://login.pay1.de/auth/realms/financegate/protocol/openid-connect/auth?response_type=code&client_id=pmi&redirect_uri=https://pmi.pay1.de/merchants/",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/22489.jpg",
+        id: 'b_s_card_service_portal',
+        name: 'B+S Card Service Portal',
+        description: 'i18n.collectors.b_s_card_service_portal.description',
+        version: '0',
+        website: 'https://login.pay1.de/auth/realms/financegate/protocol/openid-connect/auth?response_type=code&client_id=pmi&redirect_uri=https://pmi.pay1.de/merchants/',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/22489.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://login.pay1.de/auth/realms/financegate/protocol/openid-connect/auth?response_type=code&client_id=pmi&redirect_uri=https://pmi.pay1.de/merchants/",
+        loginUrl: 'https://login.pay1.de/auth/realms/financegate/protocol/openid-connect/auth?response_type=code&client_id=pmi&redirect_uri=https://pmi.pay1.de/merchants/',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(BSCardServicePortalCollector.CONFIG);
