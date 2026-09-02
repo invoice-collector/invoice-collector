@@ -3842,7 +3842,7 @@
   "i18n.collectors.imap.description": "Connect your mailbox through IMAP.",
   "i18n.collectors.imap.host": "IMAP host",
   "i18n.collectors.imap.invalid_port": "Invalid IMAP port. Please provide a positive number.",
-  "i18n.collectors.imap.name": "IMAP",
+  "i18n.collectors.imap.name": "Email IMAP",
   "i18n.collectors.imap.port": "IMAP port",
   "i18n.collectors.imap.secure": "Use TLS",
   "i18n.collectors.imdb_pro.description": "IMDb Pro is a subscription service offering entertainment industry professionals access to detailed film and TV industry data.",

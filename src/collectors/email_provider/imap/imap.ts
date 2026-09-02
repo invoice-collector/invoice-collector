@@ -49,7 +49,7 @@ export class ImapCollector extends EmailProvider<ImapProviderConfig> {
                 type: 'number',
                 name: "i18n.collectors.imap.port",
                 placeholder: '993',
-                mandatory: false
+                mandatory: true
             },
             username: {
                 type: 'text',
