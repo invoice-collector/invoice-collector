@@ -133,16 +133,11 @@ body {
 }
 
 .ic-header {
-  /* Le bouton retour etait pose a cote du titre par un flex en ligne, ce qui
-     le laissait flotter dans la marge sans alignement avec le contenu. Il est
-     desormais empile au-dessus. */
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 0.5rem;
   margin-bottom: 2rem;
-  /* Meme colonne que .ic-search-bar et .ic-grid : sans cela le titre est cale
-     sur le bord du conteneur tandis que le contenu est centre. */
   width: 100%;
   max-width: 56rem;
   margin-left: auto;
@@ -181,9 +176,6 @@ body {
   display: grid;
   gap: 1.5rem;
   max-width: 56rem;
-  /* Les colonnes suivent la largeur reelle plutot que des paliers fixes : le
-     widget est souvent embarque dans une iframe etroite, dont la largeur n'a
-     aucun rapport avec celle de la fenetre interrogee par une media query. */
   grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
   margin-left: auto;
   margin-right: auto;
@@ -518,9 +510,6 @@ body {
    FOCUS VISIBILITY & MOTION
    =================================== */
 
-/* Tout element atteignable au clavier doit montrer ou se trouve le focus.
-   L'anneau est dessine avec outline plutot qu'avec box-shadow pour rester
-   visible dans les modes de contraste forces. */
 .ic-button:focus-visible,
 .ic-card:focus-visible,
 .ic-back-button:focus-visible,
@@ -535,7 +524,6 @@ body {
   outline-offset: 2px;
 }
 
-/* La souris ne doit pas declencher l'anneau. */
 .ic-button:focus:not(:focus-visible),
 .ic-card:focus:not(:focus-visible),
 .ic-back-button:focus:not(:focus-visible) {
