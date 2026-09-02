@@ -341,7 +341,6 @@
   "i18n.collectors.all.email_or_number": "Email or phone number",
   "i18n.collectors.all.email_or_number.error": "Incorrect email or phone number",
   "i18n.collectors.all.email_or_number.placeholder": "Email or phone number of the account",
-  "i18n.collectors.all.email_provider_not_found": "No email provider matching this email address was found. Please add and authenticate an email provider first.",
   "i18n.collectors.all.identifier": "Identifier",
   "i18n.collectors.all.identifier.error": "Incorrect identifier",
   "i18n.collectors.all.identifier.placeholder": "Login identifier",

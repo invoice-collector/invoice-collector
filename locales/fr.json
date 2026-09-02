@@ -341,7 +341,6 @@
   "i18n.collectors.all.email_or_number": "Email ou numéro de téléphone",
   "i18n.collectors.all.email_or_number.error": "Email ou numéro de téléphone incorrect",
   "i18n.collectors.all.email_or_number.placeholder": "Email ou numéro de téléphone du compte",
-  "i18n.collectors.all.email_provider_not_found": "Aucun fournisseur de messagerie correspondant a cette adresse email n a ete trouve. Veuillez d abord ajouter et authentifier un fournisseur de messagerie.",
   "i18n.collectors.all.identifier": "Identifiant",
   "i18n.collectors.all.identifier.error": "Identifiant incorrect",
   "i18n.collectors.all.identifier.placeholder": "Identifiant de connexion",
