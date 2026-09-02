@@ -9211,6 +9211,7 @@
   "i18n.views.manage.cant_find_collector": "Collecteur introuvable ?",
   "i18n.views.manage.close": "Fermer",
   "i18n.views.manage.collecting_data": "Collecte des données...",
+  "i18n.views.manage.configure": "Configurer",
   "i18n.views.manage.connect_account": "Connectez votre compte pour commencer à collecter les factures",
   "i18n.views.manage.continue": "Continuer",
   "i18n.views.manage.date_placeholder": "jj / mm / aaaa",
