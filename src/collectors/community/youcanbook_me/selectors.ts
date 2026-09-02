@@ -2,11 +2,14 @@
  * Selectors for YouCanBookMe and for the Stripe customer portal it delegates
  * its billing to.
  *
- * No class is usable here. YouCanBookMe ships hashed CSS modules
+ * No class is usable here: YouCanBookMe ships hashed CSS modules
  * (`_baseInput_1x4wk_21`, `_buttonBase_qak1v_1`) and the Stripe portal
- * obfuscates its own (`rs-3`, `as-h`). Only the `name`, `type` and `href`
- * attributes are stable, and the two buttons without one are matched on their
- * label instead, in both locales the app serves.
+ * obfuscates its own (`rs-3`, `as-h`). What is stable is the `name`, `type` and
+ * `href` attributes, and the position of the elements in the tree.
+ *
+ * TODO: the selectors below marked `TODO` have to be captured from a live
+ * session as direct child chains (`tag:nth-of-type(n) > tag:nth-of-type(n)`).
+ * They are left failing on purpose rather than guessed.
  */
 
 export const YoucanbookMeSelectors = {
@@ -25,52 +28,49 @@ export const YoucanbookMeSelectors = {
         selector: "form button[type='submit']",
         info: "submit form button"
     },
+    // Only rendered after a failed attempt
+    CONTAINER_LOGIN_ERROR: {
+        selector: "TODO",
+        info: "login error message"
+    },
 
     //PLAN AND BILLING PAGE
 
-    // Opens the Stripe portal in the same tab. Narrowed down by label.
+    // Opens the Stripe portal in the same tab
     BUTTON_BILLING: {
-        selector: "button",
+        selector: "TODO",
         info: "billing details button"
     },
 
     //STRIPE CUSTOMER PORTAL
 
-    // One row of the billing history. The link text already carries the date,
-    // the amount, the status and the subscription label.
+    // One row of the billing history
     LINK_INVOICE: {
         selector: "a[href*='invoice.stripe.com']",
         info: "invoice link"
+    },
+    CONTAINER_INVOICE_DATE: {
+        selector: "TODO",
+        info: "invoice date"
+    },
+    CONTAINER_INVOICE_AMOUNT: {
+        selector: "TODO",
+        info: "invoice amount"
     },
 
     //HOSTED INVOICE PAGE
 
     // Downloading is triggered in JavaScript, there is no PDF URL to follow.
-    // Beware of the neighbouring "download receipt" button. Narrowed down by label.
+    // Beware of the neighbouring "download receipt" button.
     BUTTON_DOWNLOAD: {
-        selector: "button",
+        selector: "TODO",
         info: "download invoice button"
     }
 }
 
 /**
- * French and English months, spelled out and abbreviated, since Stripe renders
- * the portal in the browser locale and the app serves `en` and `fr`.
- *
- * Keys are lowercase and accent free. Four letter keys are looked up first,
- * "juin" and "juil" sharing the "jui" prefix.
+ * Date layouts the Stripe portal renders, since it follows the browser locale
+ * and the app serves `en` and `fr`: "18 août 2026", "18 juil. 2026",
+ * "August 18, 2026" and "Aug 18, 2026".
  */
-export const MONTHS: { [key: string]: number } = {
-    jan: 0, janv: 0, janu: 0,
-    fev: 1, fevr: 1, feb: 1, febr: 1,
-    mar: 2, mars: 2, marc: 2,
-    avr: 3, avri: 3, apr: 3, apri: 3,
-    mai: 4, may: 4,
-    juin: 5, jun: 5, june: 5,
-    juil: 6, jul: 6, july: 6,
-    aou: 7, aout: 7, aug: 7, augu: 7,
-    sep: 8, sept: 8,
-    oct: 9, octo: 9,
-    nov: 10, nove: 10,
-    dec: 11, dece: 11
-};
+export const DATE_FORMATS = ["d MMMM yyyy", "d MMM yyyy", "MMMM d',' yyyy", "MMM d',' yyyy"];
