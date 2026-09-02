@@ -16,12 +16,7 @@ const MAILBOX_TO_IGNORE = [
 ]
 
 export type ImapProviderConfig = EmailProviderConfig & {
-    host?: string,
-    port?: number,
-    secure?: boolean,
-    connectionTimeoutMs?: number,
-    greetingTimeoutMs?: number,
-    socketTimeoutMs?: number
+    // Add fields if needed
 }
 
 export class ImapCollector extends EmailProvider<ImapProviderConfig> {
@@ -47,6 +42,12 @@ export class ImapCollector extends EmailProvider<ImapProviderConfig> {
                 placeholder: '993',
                 mandatory: true
             },
+            secure: {
+                type: 'boolean',
+                name: 'i18n.collectors.imap.secure',
+                placeholder: 'true',
+                mandatory: false
+            },
             username: {
                 type: 'text',
                 name: "i18n.collectors.all.email",
@@ -58,12 +59,6 @@ export class ImapCollector extends EmailProvider<ImapProviderConfig> {
                 name: "i18n.collectors.all.password",
                 placeholder: 'i18n.collectors.all.password.placeholder',
                 mandatory: true
-            },
-            secure: {
-                type: 'boolean',
-                name: 'i18n.collectors.imap.secure',
-                placeholder: 'true',
-                mandatory: false
             }
         },
         state: CollectorState.ACTIVE,
