@@ -1,9 +1,9 @@
-import { Secret } from "../model/secret";
+import { Secret } from '../model/secret';
 
 export abstract class AbstractSecretManager {
     constructor() {
         if (new.target === AbstractSecretManager) {
-            throw new TypeError("Cannot construct AbstractSecretManager instances directly");
+            throw new TypeError('Cannot construct AbstractSecretManager instances directly');
         }
     }
 

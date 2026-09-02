@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class NordischNetCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "nordisch_net",
-        name: "Nordisch net",
-        description: "i18n.collectors.nordisch_net.description",
-        version: "0",
-        website: "https://portal.gvg-glasfaser.de/path/portal/",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/210564.jpg",
+        id: 'nordisch_net',
+        name: 'Nordisch net',
+        description: 'i18n.collectors.nordisch_net.description',
+        version: '0',
+        website: 'https://portal.gvg-glasfaser.de/path/portal/',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/210564.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://portal.gvg-glasfaser.de/path/portal/",
+        loginUrl: 'https://portal.gvg-glasfaser.de/path/portal/',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(NordischNetCollector.CONFIG);

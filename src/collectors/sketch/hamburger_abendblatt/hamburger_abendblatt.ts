@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class HamburgerAbendblattCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "hamburger_abendblatt",
-        name: "Hamburger Abendblatt",
-        description: "i18n.collectors.hamburger_abendblatt.description",
-        version: "0",
-        website: "http://www.abo.abendblatt.de",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/36012.jpg",
+        id: 'hamburger_abendblatt',
+        name: 'Hamburger Abendblatt',
+        description: 'i18n.collectors.hamburger_abendblatt.description',
+        version: '0',
+        website: 'http://www.abo.abendblatt.de',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/36012.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "http://www.abo.abendblatt.de",
+        loginUrl: 'http://www.abo.abendblatt.de',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(HamburgerAbendblattCollector.CONFIG);

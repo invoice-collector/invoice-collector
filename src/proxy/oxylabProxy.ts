@@ -1,29 +1,29 @@
-import { AbstractProxy, Proxy, Location } from "./abstractProxy";
-import * as utils from "../utils";
-import axios from "axios";
+import { AbstractProxy, Proxy, Location } from './abstractProxy';
+import * as utils from '../utils';
+import axios from 'axios';
 import { HttpsProxyAgent } from 'https-proxy-agent';
 
 export class OxylabProxy extends AbstractProxy {
 
-    static OXYLAB_HOST = "pr.oxylabs.io";
+    static OXYLAB_HOST = 'pr.oxylabs.io';
     static OXYLAB_PORT = 7777;
 
     static RADIUS_ACCURACIES = [10, 100, 500, 1000, 2000]; // in miles
-    static LOCATION_URL = "https://ip.oxylabs.io/location";
+    static LOCATION_URL = 'https://ip.oxylabs.io/location';
 
     username: string;
     password: string;
 
     constructor() {
         super();
-        this.username = utils.getEnvVar("PROXY_OXYLAB_USERNAME");
-        this.password = utils.getEnvVar("PROXY_OXYLAB_PASSWORD");
+        this.username = utils.getEnvVar('PROXY_OXYLAB_USERNAME');
+        this.password = utils.getEnvVar('PROXY_OXYLAB_PASSWORD');
     }
 
     async get(location: Location | null): Promise<Proxy | null> {
-        if(location == null) {
-            console.log("Location is unknown, using default location");
-            location = AbstractProxy.DEFAULT_LOCATION
+        if(location === null) {
+            console.log('Location is unknown, using default location');
+            location = AbstractProxy.DEFAULT_LOCATION;
         }
 
         const sessid = new Date().getTime().toString();
@@ -32,7 +32,7 @@ export class OxylabProxy extends AbstractProxy {
             host: OxylabProxy.OXYLAB_HOST,
             port: OxylabProxy.OXYLAB_PORT,
             username: `customer-${this.username}-cc-${location.country}-sessid-${sessid}`,
-            password: this.password
+            password: this.password,
         };
         await this.geoConstrain(proxy, location);
         return proxy;
@@ -52,9 +52,9 @@ export class OxylabProxy extends AbstractProxy {
                     httpsAgent: new HttpsProxyAgent({
                         path: proxy.uri,
                         headers: {
-                            "X-Oxylabs-Geolocation": `${location.lat}:${location.lon};${radius}`
-                        }
-                    })
+                            'X-Oxylabs-Geolocation': `${location.lat}:${location.lon};${radius}`,
+                        },
+                    }),
                 });
                 return;
             } catch (error) {
@@ -62,6 +62,6 @@ export class OxylabProxy extends AbstractProxy {
             }
         }
         // If we reach here, it means that all radius attempts failed
-         console.warn("Cannot geo-constrain proxy");
+         console.warn('Cannot geo-constrain proxy');
     }
 }

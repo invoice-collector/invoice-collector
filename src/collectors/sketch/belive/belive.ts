@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class BeliveCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "belive",
-        name: "BeLive",
-        description: "i18n.collectors.belive.description",
-        version: "0",
-        website: "http://www.belive.tv",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/46113.jpg",
+        id: 'belive',
+        name: 'BeLive',
+        description: 'i18n.collectors.belive.description',
+        version: '0',
+        website: 'http://www.belive.tv',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/46113.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "http://www.belive.tv",
+        loginUrl: 'http://www.belive.tv',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(BeliveCollector.CONFIG);

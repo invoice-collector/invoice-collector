@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class OttoOfficeCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "otto_office",
-        name: "Otto Office",
-        description: "i18n.collectors.otto_office.description",
-        version: "0",
-        website: "https://www.otto-office.com/de/app/account/statement/main",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/417.jpg",
+        id: 'otto_office',
+        name: 'Otto Office',
+        description: 'i18n.collectors.otto_office.description',
+        version: '0',
+        website: 'https://www.otto-office.com/de/app/account/statement/main',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/417.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://www.otto-office.com/de/app/account/statement/main",
+        loginUrl: 'https://www.otto-office.com/de/app/account/statement/main',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(OttoOfficeCollector.CONFIG);

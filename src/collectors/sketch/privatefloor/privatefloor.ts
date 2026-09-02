@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class PrivatefloorCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "privatefloor",
-        name: "PRIVATEfloor",
-        description: "i18n.collectors.privatefloor.description",
-        version: "0",
-        website: "https://es.privatefloor.com/cuenta/pedidos/",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/116248.jpg",
+        id: 'privatefloor',
+        name: 'PRIVATEfloor',
+        description: 'i18n.collectors.privatefloor.description',
+        version: '0',
+        website: 'https://es.privatefloor.com/cuenta/pedidos/',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/116248.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://es.privatefloor.com/cuenta/pedidos/",
+        loginUrl: 'https://es.privatefloor.com/cuenta/pedidos/',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(PrivatefloorCollector.CONFIG);

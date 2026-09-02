@@ -7,18 +7,18 @@ import { Secret } from '../model/secret';
 export class HttpIntegration extends AbstractIntegration { 
 
     static CONFIG: IntegrationConfig = {
-        id: "http",
-        name: "Webhook / API",
-        description: "i18n.integrations.http.description",
+        id: 'http',
+        name: 'Webhook / API',
+        description: 'i18n.integrations.http.description',
         state: 'active',
         params: {
             url: {
-                type: "url",
-                name: "URL",
-                placeholder: "The URL to send the invoice data.",
-                mandatory: true
-            }
-        }
+                type: 'url',
+                name: 'URL',
+                placeholder: 'The URL to send the invoice data.',
+                mandatory: true,
+            },
+        },
     };
     static DEFAULT_RETRIES: number = 3;
     static DEFAULT_DELAY_BETWEEN_RETRIES: number = 10000; // 10 seconds
@@ -30,7 +30,7 @@ export class HttpIntegration extends AbstractIntegration {
     private async sendRequest(
         url: string,
         data: object,
-        maxRetries: number = HttpIntegration.DEFAULT_RETRIES
+        maxRetries: number = HttpIntegration.DEFAULT_RETRIES,
     ): Promise<void> {
         let lastError: Error | null = null;
         
@@ -72,9 +72,9 @@ export class HttpIntegration extends AbstractIntegration {
         await this.sendRequest(
             secretParams.url,
             {
-                type: "invoice",
-                collector: collector,
-                remote_id: remote_id,
+                type: 'invoice',
+                collector,
+                remote_id,
                 invoice: {
                     id: invoice.id,
                     timestamp: invoice.timestamp,
@@ -83,9 +83,9 @@ export class HttpIntegration extends AbstractIntegration {
                     amount: invoice.amount,
                     mimetype: invoice.mimetype,
                     metadata: invoice.metadata,
-                    data: invoice.data
-                }
-            }
+                    data: invoice.data,
+                },
+            },
         );
         console.log(`Callback ${secretParams.url} successfully reached, invoice sent`);
     }
@@ -101,12 +101,12 @@ export class HttpIntegration extends AbstractIntegration {
         await this.sendRequest(
             secretParams.url,
             {
-                type: "notification_disconnected",
-                collector: collector,
-                credential_id: credential_id,
-                user_id: user_id,
-                remote_id: remote_id
-            }
+                type: 'notification_disconnected',
+                collector,
+                credential_id,
+                user_id,
+                remote_id,
+            },
         );
         console.log(`Callback ${secretParams.url} successfully reached, disconnected notification sent`);
 

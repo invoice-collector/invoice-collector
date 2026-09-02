@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class SharefileCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "sharefile",
-        name: "ShareFile",
-        description: "i18n.collectors.sharefile.description",
-        version: "0",
-        website: "https://secure.sharefile.com/Authentication/Login",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/6483.jpg",
+        id: 'sharefile',
+        name: 'ShareFile',
+        description: 'i18n.collectors.sharefile.description',
+        version: '0',
+        website: 'https://secure.sharefile.com/Authentication/Login',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/6483.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://secure.sharefile.com/Authentication/Login",
+        loginUrl: 'https://secure.sharefile.com/Authentication/Login',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(SharefileCollector.CONFIG);

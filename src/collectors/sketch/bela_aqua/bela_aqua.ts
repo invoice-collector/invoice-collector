@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class BelaAquaCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "bela_aqua",
-        name: "BELA AQUA",
-        description: "i18n.collectors.bela_aqua.description",
-        version: "0",
-        website: "https://www.bela-aqua.de/web/login",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1035281.jpg",
+        id: 'bela_aqua',
+        name: 'BELA AQUA',
+        description: 'i18n.collectors.bela_aqua.description',
+        version: '0',
+        website: 'https://www.bela-aqua.de/web/login',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1035281.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://www.bela-aqua.de/web/login",
+        loginUrl: 'https://www.bela-aqua.de/web/login',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(BelaAquaCollector.CONFIG);

@@ -5,13 +5,13 @@ import { Secret } from '../model/secret';
 export class TiimeIntegration extends AbstractIntegration { 
 
     static CONFIG: IntegrationConfig = {
-        id: "tiime",
-        name: "Tiime",
-        description: "i18n.integrations.tiime.description",
+        id: 'tiime',
+        name: 'Tiime',
+        description: 'i18n.integrations.tiime.description',
         state: 'planned',
         params: {
             //TODO: add specific params here
-        }
+        },
     };
     
     constructor(secret: Secret) {

@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class ProaProFrCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "proapro_fr",
-        name: "Pro à Pro",
-        description: "i18n.collectors.proapro_fr.description",
-        version: "0",
-        website: "https://www.proapro.fr/catalogue",
-        logo: "https://www.proapro.fr/media/images/logo-pap-black.svg",
+        id: 'proapro_fr',
+        name: 'Pro à Pro',
+        description: 'i18n.collectors.proapro_fr.description',
+        version: '0',
+        website: 'https://www.proapro.fr/catalogue',
+        logo: 'https://www.proapro.fr/media/images/logo-pap-black.svg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://www.proapro.fr/catalogue",
+        loginUrl: 'https://www.proapro.fr/catalogue',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(ProaProFrCollector.CONFIG);

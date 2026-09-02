@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class SlemmaCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "slemma",
-        name: "Slemma",
-        description: "i18n.collectors.slemma.description",
-        version: "0",
-        website: "https://slemma.com/auth",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/25867.jpg",
+        id: 'slemma',
+        name: 'Slemma',
+        description: 'i18n.collectors.slemma.description',
+        version: '0',
+        website: 'https://slemma.com/auth',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/25867.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://slemma.com/auth",
+        loginUrl: 'https://slemma.com/auth',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(SlemmaCollector.CONFIG);

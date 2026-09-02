@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class CityOfTallahassyCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "city_of_tallahassy",
-        name: "City of Tallahassy",
-        description: "i18n.collectors.city_of_tallahassy.description",
-        version: "0",
-        website: "https://selfservice.talgov.com/billing/AP0036948/100148649",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2724309.jpg",
+        id: 'city_of_tallahassy',
+        name: 'City of Tallahassy',
+        description: 'i18n.collectors.city_of_tallahassy.description',
+        version: '0',
+        website: 'https://selfservice.talgov.com/billing/AP0036948/100148649',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2724309.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://selfservice.talgov.com/billing/AP0036948/100148649",
+        loginUrl: 'https://selfservice.talgov.com/billing/AP0036948/100148649',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(CityOfTallahassyCollector.CONFIG);

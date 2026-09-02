@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class DewesoftCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "dewesoft",
-        name: "DEWESoft",
-        description: "i18n.collectors.dewesoft.description",
-        version: "0",
-        website: "https://account.dewesoft.com/invoices",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/517020.jpg",
+        id: 'dewesoft',
+        name: 'DEWESoft',
+        description: 'i18n.collectors.dewesoft.description',
+        version: '0',
+        website: 'https://account.dewesoft.com/invoices',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/517020.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://account.dewesoft.com/invoices",
+        loginUrl: 'https://account.dewesoft.com/invoices',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(DewesoftCollector.CONFIG);

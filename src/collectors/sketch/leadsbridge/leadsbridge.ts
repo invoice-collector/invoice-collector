@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class LeadsbridgeCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "leadsbridge",
-        name: "LeadsBridge",
-        description: "i18n.collectors.leadsbridge.description",
-        version: "0",
-        website: "https://leadsbridge.com/app/login",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/10090.jpg",
+        id: 'leadsbridge',
+        name: 'LeadsBridge',
+        description: 'i18n.collectors.leadsbridge.description',
+        version: '0',
+        website: 'https://leadsbridge.com/app/login',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/10090.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://leadsbridge.com/app/login",
+        loginUrl: 'https://leadsbridge.com/app/login',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(LeadsbridgeCollector.CONFIG);

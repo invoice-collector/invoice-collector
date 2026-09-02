@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class ScreenshotscloudCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "screenshotscloud",
-        name: "ScreenshotsCloud",
-        description: "i18n.collectors.screenshotscloud.description",
-        version: "0",
-        website: "https://screenshots.cloud/dashboard",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/203077.jpg",
+        id: 'screenshotscloud',
+        name: 'ScreenshotsCloud',
+        description: 'i18n.collectors.screenshotscloud.description',
+        version: '0',
+        website: 'https://screenshots.cloud/dashboard',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/203077.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://screenshots.cloud/dashboard",
+        loginUrl: 'https://screenshots.cloud/dashboard',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(ScreenshotscloudCollector.CONFIG);

@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class SfrReCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "sfr_re",
-        name: "SFR (.re)",
-        description: "i18n.collectors.sfr_re.description",
-        version: "0",
-        website: "https://sso.sfr.re/login?service=https://www.sfr.re/boutique-mobile/api/secure/validate",
-        logo: "https://upload.wikimedia.org/wikipedia/commons/9/97/SFR-2022-logo.svg",
+        id: 'sfr_re',
+        name: 'SFR (.re)',
+        description: 'i18n.collectors.sfr_re.description',
+        version: '0',
+        website: 'https://sso.sfr.re/login?service=https://www.sfr.re/boutique-mobile/api/secure/validate',
+        logo: 'https://upload.wikimedia.org/wikipedia/commons/9/97/SFR-2022-logo.svg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://sso.sfr.re/login?service=https://www.sfr.re/boutique-mobile/api/secure/validate",
+        loginUrl: 'https://sso.sfr.re/login?service=https://www.sfr.re/boutique-mobile/api/secure/validate',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(SfrReCollector.CONFIG);

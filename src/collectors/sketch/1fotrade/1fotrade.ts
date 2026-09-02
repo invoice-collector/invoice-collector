@@ -4,32 +4,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class UnFotradeCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "1fotrade",
-        name: "1Fotrade",
-        description: "i18n.collectors.1fotrade.description",
-        version: "0",
-        website: "https://www.1fotrade.com",
-        logo: "https://www.1fotrade.com/ressources/infotrade/img/logo__700.webp",
+        id: '1fotrade',
+        name: '1Fotrade',
+        description: 'i18n.collectors.1fotrade.description',
+        version: '0',
+        website: 'https://www.1fotrade.com',
+        logo: 'https://www.1fotrade.com/ressources/infotrade/img/logo__700.webp',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://www.1fotrade.com",
+        loginUrl: 'https://www.1fotrade.com',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(UnFotradeCollector.CONFIG);

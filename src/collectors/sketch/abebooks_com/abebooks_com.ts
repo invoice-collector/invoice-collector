@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class AbebooksComCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "abebooks_com",
-        name: "Abebooks.com",
-        description: "i18n.collectors.abebooks_com.description",
-        version: "0",
-        website: "https://www.abebooks.com/my-account/payments/tax-invoices/",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1669253.jpg",
+        id: 'abebooks_com',
+        name: 'Abebooks.com',
+        description: 'i18n.collectors.abebooks_com.description',
+        version: '0',
+        website: 'https://www.abebooks.com/my-account/payments/tax-invoices/',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1669253.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://www.abebooks.com/my-account/payments/tax-invoices/",
+        loginUrl: 'https://www.abebooks.com/my-account/payments/tax-invoices/',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(AbebooksComCollector.CONFIG);

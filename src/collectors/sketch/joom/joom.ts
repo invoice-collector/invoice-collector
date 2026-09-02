@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class JoomCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "joom",
-        name: "Joom",
-        description: "i18n.collectors.joom.description",
-        version: "0",
-        website: "https://www.joom.com/de/orders/",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2445707.jpg",
+        id: 'joom',
+        name: 'Joom',
+        description: 'i18n.collectors.joom.description',
+        version: '0',
+        website: 'https://www.joom.com/de/orders/',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2445707.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://www.joom.com/de/orders/",
+        loginUrl: 'https://www.joom.com/de/orders/',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(JoomCollector.CONFIG);

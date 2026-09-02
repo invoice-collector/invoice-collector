@@ -7,32 +7,32 @@ import * as utils from '../../../../utils';
 export class OpenaiChatgptCollector extends OpenaiCommonCollector {
 
     static CONFIG = {
-        id: "openai_chatgpt",
-        name: "OpenAI (ChatGPT Plus)",
-        description: "i18n.collectors.openai_chatgpt.description",
-        version: "11",
-        website: "https://chatgpt.com",
-        logo: "https://upload.wikimedia.org/wikipedia/commons/6/66/OpenAI_logo_2025_(symbol).svg",
+        id: 'openai_chatgpt',
+        name: 'OpenAI (ChatGPT Plus)',
+        description: 'i18n.collectors.openai_chatgpt.description',
+        version: '11',
+        website: 'https://chatgpt.com',
+        logo: 'https://upload.wikimedia.org/wikipedia/commons/6/66/OpenAI_logo_2025_(symbol).svg',
         type: CollectorType.WEB,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://chatgpt.com/#settings/Account",
-        entryUrl: "https://chatgpt.com/#settings/Account",
+        loginUrl: 'https://chatgpt.com/#settings/Account',
+        entryUrl: 'https://chatgpt.com/#settings/Account',
         captcha: CollectorCaptcha.NONE,
-        authenticationMethod: CollectorAuthenticationMethod.ALL
-    }
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
+    };
 
     constructor() {
         super(OpenaiChatgptCollector.CONFIG);
@@ -40,7 +40,7 @@ export class OpenaiChatgptCollector extends OpenaiCommonCollector {
 
     async needLogin(driver: Driver ): Promise<boolean> {
         await utils.delay(2000);
-        return driver.url().includes("auth.openai.com");
+        return driver.url().includes('auth.openai.com');
     }
     
     async navigate(driver: Driver): Promise<void> {
@@ -62,7 +62,7 @@ export class OpenaiChatgptCollector extends OpenaiCommonCollector {
     }
     
     async isEmpty(driver: Driver): Promise<boolean>{
-        return await driver.getElement(OpenaiSelectors.CONTAINER_NO_ORDERS, { raiseException: false, timeout: 100 }) != null;
+        return await driver.getElement(OpenaiSelectors.CONTAINER_NO_ORDERS, { raiseException: false, timeout: 100 }) !== null;
     }
 
     async getInvoices(driver: Driver): Promise<Element[]> {
@@ -74,24 +74,24 @@ export class OpenaiChatgptCollector extends OpenaiCommonCollector {
         const link = driver.url();
 
         // Compute timestamp
-        const dateTime = await element.getAttribute(OpenaiSelectors.CONTAINER_DATE, "textContent");
+        const dateTime = await element.getAttribute(OpenaiSelectors.CONTAINER_DATE, 'textContent');
         let timestamp: number;
         try {
-            timestamp = utils.timestampFromString(dateTime, "d MMM yyyy", 'fr');
+            timestamp = utils.timestampFromString(dateTime, 'd MMM yyyy', 'fr');
         } catch (error) {
             timestamp = utils.timestampFromString(dateTime, "MMM d',' yyyy", 'en');
         }
 
         // Get amount
-        const amount = await element.getAttribute(OpenaiSelectors.CONTAINER_AMOUNT, "textContent");
+        const amount = await element.getAttribute(OpenaiSelectors.CONTAINER_AMOUNT, 'textContent');
 
         // Return invoice
         return {
             id: utils.hash_string(`${timestamp}${amount}`),
-            timestamp: timestamp,
-            link: link,
-            amount: amount,
-            downloadButton: element
+            timestamp,
+            link,
+            amount,
+            downloadButton: element,
         };
     }
 }

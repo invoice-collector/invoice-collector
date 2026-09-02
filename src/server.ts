@@ -23,10 +23,10 @@ import { IntegrationConfig } from './integration/abstractIntegration';
 
 export class Server {
 
-    static OAUTH_TOKEN_VALIDITY_DURATION_MS = Number(utils.getEnvVar("OAUTH_TOKEN_VALIDITY_DURATION_MS", "1800000"));                   // 30 minutes in milliseconds
-    static RESET_PASSWORD_TOKEN_VALIDITY_DURATION_MS = Number(utils.getEnvVar("RESET_PASSWORD_TOKEN_VALIDITY_DURATION_MS", "3600000")); // 1 hour in milliseconds
-    static UI_BEARER_VALIDITY_DURATION_MS = Number(utils.getEnvVar("UI_BEARER_VALIDITY_DURATION_MS", "3600000"));                       // 1 hour in milliseconds
-    static IS_SELF_HOSTED: boolean = utils.getEnvVar("IS_SELF_HOSTED", "true").toLowerCase() === "true";
+    static OAUTH_TOKEN_VALIDITY_DURATION_MS = Number(utils.getEnvVar('OAUTH_TOKEN_VALIDITY_DURATION_MS', '1800000'));                   // 30 minutes in milliseconds
+    static RESET_PASSWORD_TOKEN_VALIDITY_DURATION_MS = Number(utils.getEnvVar('RESET_PASSWORD_TOKEN_VALIDITY_DURATION_MS', '3600000')); // 1 hour in milliseconds
+    static UI_BEARER_VALIDITY_DURATION_MS = Number(utils.getEnvVar('UI_BEARER_VALIDITY_DURATION_MS', '3600000'));                       // 1 hour in milliseconds
+    static IS_SELF_HOSTED: boolean = utils.getEnvVar('IS_SELF_HOSTED', 'true').toLowerCase() === 'true';
 
     customerUiBearers: { [key: string]: string };
     customerResetTokens: { [key: string]: string };
@@ -62,7 +62,7 @@ export class Server {
         // Check if analytics server is reachable
         AnalyticsFactory.getInstance().ping()
             .then(() => {
-                console.log("Pong! Analytics server successfully reached");
+                console.log('Pong! Analytics server successfully reached');
             })
             .catch(() => {
                 console.error('Could not reach analytics server. You are still able to use the product but some features may not work as expected.');
@@ -104,7 +104,7 @@ export class Server {
                 .catch((error) => {
                     console.error(error);
                     return false;
-                })
+                }),
         ]);
         return { analytics, database, secretManager };
     }
@@ -125,14 +125,14 @@ export class Server {
         const collectors = await this.get_collectors(
             undefined,
             token,
-            user.locale
+            user.locale,
         );
 
         // Return collectors, locale and theme
         return {
-            collectors: collectors,
+            collectors,
             locale: user.locale,
-            theme: customer.theme
+            theme: customer.theme,
         };
     }
 
@@ -141,16 +141,16 @@ export class Server {
         bearer: string | undefined,
         token: any,
         type: string | undefined,
-        message: string | undefined
+        message: string | undefined,
     ): Promise<void> {
         // Check if type field is missing
         if(!type) {
-            throw new MissingField("type");
+            throw new MissingField('type');
         }
 
         // Check if message field is missing
         if(!message) {
-            throw new MissingField("message");
+            throw new MissingField('message');
         }
 
         // Get customer from bearer or token
@@ -161,7 +161,7 @@ export class Server {
             type,
             message,
             customer.email,
-            ""
+            '',
         );
     }
 
@@ -170,19 +170,19 @@ export class Server {
     // NO AUTHENTICATION
     public async post_login(
         email: string | undefined,
-        password: string | undefined
+        password: string | undefined,
     ): Promise<{
         bearer: string,
         type: string
     }> {
         // Check if email field is missing
         if(!email) {
-            throw new MissingField("email");
+            throw new MissingField('email');
         }
 
         // Check if password field is missing
         if(!password) {
-            throw new MissingField("password");
+            throw new MissingField('password');
         }
 
         // Get customer from email
@@ -207,7 +207,7 @@ export class Server {
             // Return bearer token
             return {
                 bearer: customerUiBearer,
-                type: "customer"
+                type: 'customer',
             };
         }
         else {
@@ -216,7 +216,7 @@ export class Server {
             
             // Check if user exists
             if(!user) {
-                throw new StatusError("Invalid credentials", 401);
+                throw new StatusError('Invalid credentials', 401);
             }
 
             // Generate session bearer token
@@ -236,7 +236,7 @@ export class Server {
             // Return bearer token
             return {
                 bearer: userUiBearer,
-                type: "user"
+                type: 'user',
             };
         }
     }
@@ -247,23 +247,23 @@ export class Server {
         name: string | undefined,
         cid: string | undefined,
         locale: string | undefined,
-        inviteId: string | undefined
+        inviteId: string | undefined,
     ): Promise<{
         resetToken: string
     }> {
         // Check if email field is missing
         if(!email) {
-            throw new MissingField("email");
+            throw new MissingField('email');
         }
 
         // Check if name field is missing
         if(!name) {
-            throw new MissingField("name");
+            throw new MissingField('name');
         }
 
         // Check if cid field is missing
         if(!cid) {
-            throw new MissingField("cid");
+            throw new MissingField('cid');
         }
 
         // Check if email is valid
@@ -272,7 +272,7 @@ export class Server {
         }
 
         // Check if email contains alias
-        if(email.includes("+")) {
+        if(email.includes('+')) {
             throw new StatusError(`Email "${email}" is not valid. Aliases are not allowed.`, 400);
         }
 
@@ -306,7 +306,7 @@ export class Server {
                 cid,
                 null,
                 locale || I18n.DEFAULT_LOCALE,
-                Date.now()
+                Date.now(),
             );
 
             // Commit changes in database
@@ -319,7 +319,7 @@ export class Server {
             const resetToken = await this.handleUserResetPassword(user);
 
             // Return reset token
-            return { resetToken: resetToken };
+            return { resetToken };
         }
         else {
             // Create new customer
@@ -331,7 +331,7 @@ export class Server {
                 Customer.DEFAULT_REMOTE_ID,
                 Customer.DEFAULT_BEARER,
                 utils.convertNameToInviteId(name),
-                Date.now()
+                Date.now(),
             );
 
             // Commit changes in database
@@ -344,23 +344,23 @@ export class Server {
             const resetToken = await this.handleCustomerResetPassword(customer);
 
             // Return reset token
-            return { resetToken: resetToken };
+            return { resetToken };
         }
     }
 
     // NO AUTHENTICATION
     public async post_forgot(
-        email: string | undefined
+        email: string | undefined,
     ): Promise<{
         resetToken: string
     }> {
         // Check if email field is missing
         if(!email) {
-            throw new MissingField("email");
+            throw new MissingField('email');
         }
 
         // Get customer from email
-        let customer = await Customer.fromEmail(email);
+        const customer = await Customer.fromEmail(email);
 
         // If customer exists
         if(customer) {
@@ -368,11 +368,11 @@ export class Server {
             const resetToken = await this.handleCustomerResetPassword(customer);
 
             // Return reset token
-            return { resetToken: resetToken };
+            return { resetToken };
         }
 
         // Check if customer already exists
-        let user = await User.fromRemoteId(email);
+        const user = await User.fromRemoteId(email);
 
         // If user exists
         if(user) {
@@ -380,7 +380,7 @@ export class Server {
             const resetToken = await this.handleUserResetPassword(user);
 
             // Return reset token
-            return { resetToken: resetToken };
+            return { resetToken };
         }
 
         // If not customer or user found, raise error
@@ -390,17 +390,17 @@ export class Server {
     // RESET TOKEN AUTHENTICATION
     public async post_reset(
         resetToken: any,
-        password: string
+        password: string,
     ): Promise<void> {
 
         // Check if reset token exists and is a string
         if (!resetToken ||typeof resetToken !== 'string') {
-            throw new MissingField("token");
+            throw new MissingField('token');
         }
 
         // Check if password exists and is a string
         if (!password || typeof password !== 'string') {
-            throw new MissingField("password");
+            throw new MissingField('password');
         }
 
         // If reset token belongs to a customer
@@ -442,7 +442,7 @@ export class Server {
             delete this.userResetTokens[resetToken];
         }
         else {
-            throw new StatusError("Invalid reset token. Your reset link probably expired.", 401);
+            throw new StatusError('Invalid reset token. Your reset link probably expired.', 401);
         }
     }
 
@@ -483,7 +483,7 @@ export class Server {
             authenticationMethod: customer.authenticationMethod,
             displaySketchCollectors: customer.displaySketchCollectors,
             maxDelayBetweenCollect: customer.maxDelayBetweenCollect,
-            plan: customer.plan
+            plan: customer.plan,
         };
     }
 
@@ -497,7 +497,7 @@ export class Server {
         subscribedCollectors: string[] | undefined,
         isSubscribedToAll: boolean | undefined,
         authenticationMethod: string | undefined,
-        displaySketchCollectors: boolean | undefined
+        displaySketchCollectors: boolean | undefined,
     ): Promise<{
         id: string,
         email: string,
@@ -571,7 +571,7 @@ export class Server {
             authenticationMethod: customer.authenticationMethod,
             displaySketchCollectors: customer.displaySketchCollectors,
             maxDelayBetweenCollect: customer.maxDelayBetweenCollect,
-            plan: customer.plan
+            plan: customer.plan,
         };
     }
 
@@ -646,9 +646,9 @@ export class Server {
                 createdAt: user.createdAt,
                 customer: {
                     name: customer.name,
-                    cid: customer.cid
+                    cid: customer.cid,
                 },
-                stats: stats
+                stats,
             };
         }));
     }
@@ -658,7 +658,7 @@ export class Server {
         bearer: string | undefined,
         remote_id: string | undefined,
         locale: string | undefined,
-        ip: string | undefined
+        ip: string | undefined,
     ): Promise<{
         id: string,
         customer_id: string,
@@ -679,28 +679,28 @@ export class Server {
 
         // Check if remote_id field is missing
         if(!remote_id) {
-            throw new MissingField("remote_id");
+            throw new MissingField('remote_id');
         }
 
         // Check if locale field is missing
         if(!locale) {
-            throw new MissingField("locale");
+            throw new MissingField('locale');
         }
 
         // Check if remote_id contains space
-        if(remote_id.includes(" ")) {
+        if(remote_id.includes(' ')) {
             throw new StatusError(`Remote ID "${remote_id}" cannot contain spaces.`, 400);
         }
 
         // Check if locale is supported
         if(locale && !I18n.LOCALES.includes(locale)) {
-            throw new StatusError(`Locale "${locale}" not supported. Available locales are: ${I18n.LOCALES.join(", ")}.`, 400);
+            throw new StatusError(`Locale "${locale}" not supported. Available locales are: ${I18n.LOCALES.join(', ')}.`, 400);
         }
 
         // Check if customer with this remote_id/email already exists
         const existingCustomer = await Customer.fromEmail(remote_id);
         if (existingCustomer) {
-            throw new StatusError(`A customer with this email already exists.`, 400);
+            throw new StatusError('A customer with this email already exists.', 400);
         }
 
         // Get user from remote_id
@@ -727,7 +727,7 @@ export class Server {
                 User.DEFAULT_CID,
                 location,
                 locale,
-                Date.now()
+                Date.now(),
             );
         }
         else {
@@ -738,7 +738,7 @@ export class Server {
             if (user.location === null) {
                 // Update user with location
                 user.location = await ProxyFactory.getProxy().locate(ip);
-                if (user.location != null) {
+                if (user.location !== null) {
                     await user.commit();
                 }
             }
@@ -764,10 +764,10 @@ export class Server {
             token: uiToken,
             customer: {
                 name: customer.name,
-                cid: customer.cid
+                cid: customer.cid,
             },
-            stats: stats
-        }
+            stats,
+        };
     }
 
     // BEARER AUTHENTICATION
@@ -810,9 +810,9 @@ export class Server {
             token: uiToken,
             customer: {
                 name: customer.name,
-                cid: customer.cid
+                cid: customer.cid,
             },
-            stats: stats
+            stats,
         };
     }
 
@@ -823,7 +823,7 @@ export class Server {
         remote_id: string | undefined,
         name: string | undefined,
         cid: string | undefined,
-        locale: string | undefined
+        locale: string | undefined,
     ): Promise<{
         id: string,
         customer_id: string,
@@ -847,13 +847,13 @@ export class Server {
         // Check if remote_id field is present
         if(remote_id) {
             // Check if remote_id contains space
-            if(remote_id.includes(" ")) {
+            if(remote_id.includes(' ')) {
                 throw new StatusError(`Remote ID "${remote_id}" cannot contain spaces.`, 400);
             }
             // Check if a customer with this remote_id/email already exists
             const existingCustomer = await Customer.fromEmail(remote_id);
             if (existingCustomer) {
-                throw new StatusError(`A customer with this email already exists.`, 400);
+                throw new StatusError('A customer with this email already exists.', 400);
             }
             // Check if remote_id is already used by another user of the same customer
             const userFromRemoteId = await customer.getUserFromRemoteId(remote_id);
@@ -877,7 +877,7 @@ export class Server {
         if(locale) {
             // Check if locale is supported
             if(locale && !I18n.LOCALES.includes(locale)) {
-                throw new StatusError(`Locale "${locale}" not supported. Available locales are: ${I18n.LOCALES.join(", ")}.`, 400);
+                throw new StatusError(`Locale "${locale}" not supported. Available locales are: ${I18n.LOCALES.join(', ')}.`, 400);
             }
             user.locale = locale;
         }
@@ -899,9 +899,9 @@ export class Server {
             createdAt: user.createdAt,
             customer: {
                 name: customer.name,
-                cid: customer.cid
+                cid: customer.cid,
             },
-            stats: stats
+            stats,
         };
     }
 
@@ -913,7 +913,7 @@ export class Server {
 
         // Check if user_id field is missing
         if(!user_id) {
-            throw new MissingField("user_id");
+            throw new MissingField('user_id');
         }
 
         // Get user from user_id
@@ -928,7 +928,7 @@ export class Server {
         await user.delete();
 
         // Delete user from ui token mapping
-        for (let uiToken in this.userUiTokens) {
+        for (const uiToken in this.userUiTokens) {
             if (this.userUiTokens[uiToken].id === user.id) {
                 delete this.userUiTokens[uiToken];
             }
@@ -941,7 +941,7 @@ export class Server {
     public async get_credentials(
         bearer: string | undefined,
         user_id: string,
-        token: any
+        token: any,
     ): Promise<{
         id: string,
         user_id: string,
@@ -959,7 +959,7 @@ export class Server {
          const user = await this.getUserFromBearerOrToken(bearer, user_id, token);
 
         // Get credentials from user
-        let credentials = await user.getCredentials();
+        const credentials = await user.getCredentials();
 
         // Build response 
         return await Promise.all(credentials.map(async credential => {
@@ -995,8 +995,8 @@ export class Server {
                 invoices: credential.invoices,
                 state: I18n.translateState(credential.state, user.locale),
                 collector: I18n.translateCollector(collector.config, user.locale),
-                wsPath: wsPath
-            }
+                wsPath,
+            };
         }));
     }
 
@@ -1007,7 +1007,7 @@ export class Server {
         token: any,
         collector_id: string | undefined,
         params: any | undefined,
-        download_from_timestamp: number | undefined
+        download_from_timestamp: number | undefined,
     ): Promise<{
         id: string,
         user_id: string,
@@ -1026,17 +1026,17 @@ export class Server {
 
         // Check if id field is missing
         if(!collector_id) {
-            throw new MissingField("collector");
+            throw new MissingField('collector');
         }
  
         // Check if params field is missing
         if(!params) {
-            throw new MissingField("params");
+            throw new MissingField('params');
         }
 
         // Check if download_from_timestamp is valid
-        if(download_from_timestamp != undefined && (typeof download_from_timestamp !== "number" || download_from_timestamp < 0)) {
-            throw new StatusError(`The field "download_from_timestamp" must be a positive number.`, 400);
+        if(download_from_timestamp !== undefined && (typeof download_from_timestamp !== 'number' || download_from_timestamp < 0)) {
+            throw new StatusError('The field "download_from_timestamp" must be a positive number.', 400);
         }
 
         // Get collector from id
@@ -1050,11 +1050,11 @@ export class Server {
 
         // Check if customer has subscribed to the collector
         if (!customer.isSubscribedToAll && !customer.subscribedCollectors.includes(collector.config.id)) {
-            throw new StatusError(`Customer has not subscribed to collector "${collector.config.id}". Available collectors are: ${customer.subscribedCollectors.join(", ")}.`, 400);
+            throw new StatusError(`Customer has not subscribed to collector "${collector.config.id}". Available collectors are: ${customer.subscribedCollectors.join(', ')}.`, 400);
         }
 
         // Get credential note
-        let note = params.note;
+        const note = params.note;
         delete params.note;
 
         // Check if all mandatory params are present
@@ -1065,12 +1065,12 @@ export class Server {
         }
 
         // Check if collector is sketch
-        if(collector.config.type == CollectorType.SKETCH) {
+        if(collector.config.type === CollectorType.SKETCH) {
             await AnalyticsFactory.getInstance().feedback(
-                "sketch",
+                'sketch',
                 `User ${user.id} from customer ${customer.id} (${customer.name}) needs collector ${collector.config.id} to be implemented.`,
                 customer.email,
-                user.id
+                user.id,
             );
         }
 
@@ -1086,7 +1086,7 @@ export class Server {
         const secret = new Secret(`${user.id}_${collector.config.id}`, {
             params,
             cookies: null,
-            localStorage: null
+            localStorage: null,
         });
 
         // Create secret in Secure Storage
@@ -1094,13 +1094,13 @@ export class Server {
 
         // Create credential
         const now = Date.now();
-        let credential = new Credential(
+        const credential = new Credential(
             user.id,
             collector.config.id,
             note,
             secret.id,
             now,
-            download_from_timestamp ?? now
+            download_from_timestamp ?? now,
         );
 
         // Compute next collect
@@ -1117,7 +1117,7 @@ export class Server {
         const wsPath = webSocketServer.start();
 
         // Start collect
-        const collect = new Collect(credential.id, webSocketServer)
+        const collect = new Collect(credential.id, webSocketServer);
 
         // Register collect in progress
         CollectPool.getInstance().registerCollect(credential.id, collect);
@@ -1146,7 +1146,7 @@ export class Server {
             invoices: credential.invoices,
             state: credential.state,
             collector: collector.config,
-            wsPath: wsPath
+            wsPath,
         };
     }
 
@@ -1155,7 +1155,7 @@ export class Server {
         bearer: string | undefined,
         user_id: string,
         token: any,
-        id: string
+        id: string,
     ): Promise<{
         id: string,
         user_id: string,
@@ -1181,7 +1181,7 @@ export class Server {
         }
 
         // Check if credential belongs to user
-        if (credential.user_id != user.id) {
+        if (credential.user_id !== user.id) {
             throw new StatusError(`Credential with id "${id}" does not belong to user.`, 403);
         }
 
@@ -1218,7 +1218,7 @@ export class Server {
             invoices: credential.invoices,
             state: I18n.translateState(credential.state, user.locale),
             collector: I18n.translateCollector(collector.config, user.locale),
-            wsPath: wsPath
+            wsPath,
         };
     }
 
@@ -1227,7 +1227,7 @@ export class Server {
         bearer: string | undefined,
         user_id: string,
         token: any,
-        id: string
+        id: string,
     ): Promise<void> {
         // Get user from bearer or token
         const user = await this.getUserFromBearerOrToken(bearer, user_id, token);
@@ -1241,7 +1241,7 @@ export class Server {
         }
 
         // Check if credential belongs to user
-        if (credential.user_id != user.id) {
+        if (credential.user_id !== user.id) {
             throw new StatusError(`Credential with id "${id}" does not belong to user.`, 403);
         }
 
@@ -1261,18 +1261,18 @@ export class Server {
         user_id: string,
         token: any,
         credential_id: string,
-        code: string | undefined
+        code: string | undefined,
     ): Promise<void> {
         // Get user from bearer or token
         const user = await this.getUserFromBearerOrToken(bearer, user_id, token);
 
          // Check code id field is missing
          if(!code) {
-            throw new MissingField("code");
+            throw new MissingField('code');
         }
 
         // Get credential from id
-        const credential = await user.getCredential(credential_id)
+        const credential = await user.getCredential(credential_id);
 
         // Check if credential exists
         if (!credential) {
@@ -1280,7 +1280,7 @@ export class Server {
         }
 
         // Check if credential belongs to user
-        if (credential.user_id != user.id) {
+        if (credential.user_id !== user.id) {
             throw new StatusError(`Credential with id "${credential_id}" does not belong to user.`, 403);
         }
 
@@ -1303,7 +1303,7 @@ export class Server {
     // TOKEN AUTHENTICATION
     public async get_credential_oauth2(
         oauth2State: any,
-        code: any
+        code: any,
     ): Promise<{
         locale: string,
         theme: string
@@ -1326,13 +1326,13 @@ export class Server {
         }
 
         // Resolve collect promise and pass the code to the collector
-        collect.webSocketServer?.emit("oauth2_code", {
-            code: code,
+        collect.webSocketServer?.emit('oauth2_code', {
+            code,
         });
 
         return {
             locale: user.locale,
-            theme: customer.theme
+            theme: customer.theme,
         };
     }
 
@@ -1341,7 +1341,7 @@ export class Server {
         bearer: string | undefined,
         user_id: string,
         token: any,
-        credential_id: string
+        credential_id: string,
     ): Promise<{
         wsPath: string | null
     }> {
@@ -1349,7 +1349,7 @@ export class Server {
         const user = await this.getUserFromBearerOrToken(bearer, user_id, token);
 
         // Get credential from id
-        const credential = await user.getCredential(credential_id)
+        const credential = await user.getCredential(credential_id);
 
         // Check if credential exists
         if (!credential) {
@@ -1357,7 +1357,7 @@ export class Server {
         }
 
         // Check if credential belongs to user
-        if (credential.user_id != user.id) {
+        if (credential.user_id !== user.id) {
             throw new StatusError(`Credential with id "${credential_id}" does not belong to user.`, 403);
         }
 
@@ -1365,7 +1365,7 @@ export class Server {
         let wsPath: string | null;
 
         // If no collect in progress, start a new one
-        if (collect == undefined) {
+        if (collect === undefined) {
             // Get collector from id
             const collector = await CollectorLoader.get(credential.collector_id);
 
@@ -1383,7 +1383,7 @@ export class Server {
             wsPath = webSocketServer.start();
 
             // Start collect
-            collect = new Collect(credential.id, webSocketServer)
+            collect = new Collect(credential.id, webSocketServer);
 
             // Register collect in progress
             CollectPool.getInstance().registerCollect(credential.id, collect);
@@ -1406,7 +1406,7 @@ export class Server {
         }
 
         return {
-            wsPath: wsPath
+            wsPath,
         };
     }
 
@@ -1416,7 +1416,7 @@ export class Server {
     public async get_collectors(
         bearer: string | undefined,
         token: any,
-        locale: any
+        locale: any,
     ): Promise<Config[]> {
         // Check if token is missing or incorrect
         let subscribedCollectors: string[] = Customer.DEFAULT_SUBSCRIBED_COLLECTORS;
@@ -1440,7 +1440,7 @@ export class Server {
 
         // Check if locale is supported
         if(locale && !I18n.LOCALES.includes(locale)) {
-            throw new StatusError(`Locale "${locale}" not supported. Available locales are: ${I18n.LOCALES.join(", ")}.`, 400);
+            throw new StatusError(`Locale "${locale}" not supported. Available locales are: ${I18n.LOCALES.join(', ')}.`, 400);
         }
 
         return (await CollectorLoader.getAll())
@@ -1461,7 +1461,7 @@ export class Server {
 
     // BEARER AUTHENTICATION
     public async get_callbacks(
-        bearer: string | undefined
+        bearer: string | undefined,
     ): Promise<{
         id: string,
         customer_user_id: string,
@@ -1485,8 +1485,8 @@ export class Server {
                 customer_user_id: callback.customer_user_id,
                 integration: I18n.translateIntegration(integration, 'en'),  // TODO: use customer.locale
                 createdAt: callback.createdAt,
-                automaticExport: callback.automaticExport
-            }
+                automaticExport: callback.automaticExport,
+            };
         });
     }
 
@@ -1494,7 +1494,7 @@ export class Server {
     public async post_callback(
         bearer: string | undefined,
         integration_id: string | undefined,
-        params: any | undefined
+        params: any | undefined,
     ): Promise<{
         id: string,
         customer_user_id: string,
@@ -1507,12 +1507,12 @@ export class Server {
  
         // Check if integration_id field is missing
         if(!integration_id) {
-            throw new MissingField("integration_id");
+            throw new MissingField('integration_id');
         }
  
         // Check if params field is missing
         if(!params) {
-            throw new MissingField("params");
+            throw new MissingField('params');
         }
 
         // Get integration configs
@@ -1538,7 +1538,7 @@ export class Server {
         const secret = new Secret(`${customer.id}_${integration_id}`, {
             params,
             cookies: null,
-            localStorage: null
+            localStorage: null,
         });
 
         // Create secret in Secure Storage
@@ -1550,7 +1550,7 @@ export class Server {
             integration_id,
             secret.id,
             Date.now(),
-            Callback.DEFAULT_AUTOMATIC_EXPORT
+            Callback.DEFAULT_AUTOMATIC_EXPORT,
         );
 
         // Commit integration to database
@@ -1569,7 +1569,7 @@ export class Server {
             customer_user_id: callback.customer_user_id,
             integration: I18n.translateIntegration(integrationConfig, 'en'), // TODO: use customer.locale
             createdAt: callback.createdAt,
-            automaticExport: callback.automaticExport
+            automaticExport: callback.automaticExport,
         };
     }
 
@@ -1577,7 +1577,7 @@ export class Server {
     public async put_callback(
         bearer: string | undefined,
         callback_id: string,
-        automaticExport: boolean | undefined
+        automaticExport: boolean | undefined,
     ): Promise<{
         id: string,
         customer_user_id: string,
@@ -1606,7 +1606,7 @@ export class Server {
         await callbackToUpdate.commit();
 
         // Remove automaticExport for other callbacks if automaticExport is true for the new callback
-        if (automaticExport == true) {
+        if (automaticExport === true) {
             // Get other callbacks with automaticExport true
             const otherCallbacks = callbacks.filter(callback => callback.id !== callbackToUpdate.id && callback.automaticExport);
             for (const otherCallback of otherCallbacks) {
@@ -1627,14 +1627,14 @@ export class Server {
             customer_user_id: callbackToUpdate.customer_user_id,
             integration: I18n.translateIntegration(integration, 'en'), // TODO: use customer.locale
             createdAt: callbackToUpdate.createdAt,
-            automaticExport: callbackToUpdate.automaticExport
+            automaticExport: callbackToUpdate.automaticExport,
         };
     }
 
     // BEARER AUTHENTICATION
     public async delete_callback(
         bearer: string | undefined,
-        callback_id: string
+        callback_id: string,
     ): Promise<void> {
         // Get customer from bearer
         const customer = await this.getCustomerFromBearer(bearer);
@@ -1656,14 +1656,14 @@ export class Server {
     public async get_callback_test(
         bearer: string | undefined,
         callbackId: string,
-        type: string
+        type: string,
     ): Promise<void> {
         // Get customer from bearer
         const customer = await this.getCustomerFromBearer(bearer);
 
         // Check if type field is missing
         if(!type) {
-            throw new MissingField("type");
+            throw new MissingField('type');
         }
 
         // Get customer callbacks
@@ -1678,16 +1678,16 @@ export class Server {
         }
 
         // If type is "invoice", send a fake invoice
-        if(type === "invoice") {
+        if(type === 'invoice') {
             // Get fake invoice datas
-            let {collector, remote_id, invoice} = utils.createFakeInvoice();
+            const {collector, remote_id, invoice} = utils.createFakeInvoice();
 
             // Send fake invoice to callback
             await callback.sendInvoice(collector, remote_id, invoice);
         }
-        else if(type === "notification_disconnected") {
+        else if(type === 'notification_disconnected') {
             // Get fake notification disconnected
-            let {collector, credential_id, user_id, remote_id } = utils.createFakeNotificationDisconnected();
+            const {collector, credential_id, user_id, remote_id } = utils.createFakeNotificationDisconnected();
             // Send notification disconnected
             await callback.sendNotificationDisconnected(collector, credential_id, user_id, remote_id);
         }
@@ -1708,7 +1708,7 @@ export class Server {
 
         // Check if locale is supported
         if(locale && !I18n.LOCALES.includes(locale)) {
-            throw new StatusError(`Locale "${locale}" not supported. Available locales are: ${I18n.LOCALES.join(", ")}.`, 400);
+            throw new StatusError(`Locale "${locale}" not supported. Available locales are: ${I18n.LOCALES.join(', ')}.`, 400);
         }
 
         // Get integration configs
@@ -1787,7 +1787,7 @@ export class Server {
             }
         }
         else {
-            throw new StatusError(`Provide a Bearer token or a "token" field in the query.`, 400);
+            throw new StatusError('Provide a Bearer token or a "token" field in the query.', 400);
         }
     }
 
@@ -1798,7 +1798,7 @@ export class Server {
             return this.getUserFromUiToken(token);
         }
         // If only bearer provided, get user from bearer
-        else if (bearer && user_id == "me") {
+        else if (bearer && user_id === 'me') {
             // Get user from bearer
             return await this.getUserFromBearer(bearer);
         }
@@ -1806,7 +1806,7 @@ export class Server {
         else if (bearer && user_id) {
             // Check if user_id is provided
             if (!user_id) {
-                throw new MissingField("user_id");
+                throw new MissingField('user_id');
             }
             // Get customer from bearer
             const customer = await this.getCustomerFromBearer(bearer);
@@ -1821,14 +1821,14 @@ export class Server {
             return user;
         }
         else {
-            throw new StatusError(`Provide a Bearer token or a "token" field in the query.`, 400);
+            throw new StatusError('Provide a Bearer token or a "token" field in the query.', 400);
         }
     }
 
     private async getCustomerFromBearer(bearer: string | undefined): Promise<Customer> {
         // Check if bearer is missing
-        if (!bearer || !bearer.startsWith("Bearer ")) {
-            throw new AuthenticationBearerError()
+        if (!bearer || !bearer.startsWith('Bearer ')) {
+            throw new AuthenticationBearerError();
         }
 
         // Get hashed bearer
@@ -1858,8 +1858,8 @@ export class Server {
 
     private async getUserFromBearer(bearer: string | undefined): Promise<User> {
         // Check if bearer is missing
-        if (!bearer || !bearer.startsWith("Bearer ")) {
-            throw new AuthenticationBearerError()
+        if (!bearer || !bearer.startsWith('Bearer ')) {
+            throw new AuthenticationBearerError();
         }
 
         // Get hashed bearer
@@ -1867,7 +1867,7 @@ export class Server {
 
         // If the bearer is not in userUiBearers
         if(!this.userUiBearers.hasOwnProperty(hashed_bearer)) {
-            throw new AuthenticationBearerError()
+            throw new AuthenticationBearerError();
         }
 
         // Get user id from uiBearers

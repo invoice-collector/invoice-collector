@@ -1,12 +1,12 @@
-import axios, { AxiosInstance } from "axios";
-import { Invoice, DownloadedInvoice, CompleteInvoice, CollectorType, CollectorState, Config } from "./abstractCollector";
-import { V1Collector } from "./v1Collector";
+import axios, { AxiosInstance } from 'axios';
+import { Invoice, DownloadedInvoice, CompleteInvoice, CollectorType, CollectorState, Config } from './abstractCollector';
+import { V1Collector } from './v1Collector';
 import { CollectorError, LoggableError, UnfinishedCollectorError } from '../error';
-import { Location } from "../proxy/abstractProxy";
-import { Secret } from "../model/secret";
-import { State } from "../model/state";
+import { Location } from '../proxy/abstractProxy';
+import { Secret } from '../model/secret';
+import { State } from '../model/state';
 import * as utils from '../utils';
-import { WebSocketServer } from "../websocket/webSocketServer";
+import { WebSocketServer } from '../websocket/webSocketServer';
 
 
 export type ApiConfig = Config & {
@@ -22,18 +22,18 @@ export abstract class ApiCollector extends V1Collector<ApiConfig> {
         super({
             ...config,
             type: CollectorType.API,
-            state: config.state || CollectorState.ACTIVE
+            state: config.state || CollectorState.ACTIVE,
     });
         this.instance = null;
     }
 
     async _collect(state: State, webSocketServer: WebSocketServer | undefined, secret: Secret, location: Location | null): Promise<Invoice[]> {
-        console.log(`API Collector, do not use proxy`);
+        console.log('API Collector, do not use proxy');
 
         // Initialise axios instance
         this.instance = axios.create({
             baseURL: this.config.baseUrl,
-            timeout: 10000
+            timeout: 10000,
         });
 
         try {
@@ -62,10 +62,10 @@ export abstract class ApiCollector extends V1Collector<ApiConfig> {
             }
 
             // For unexpected error happening during the collection, log the error
-            let loggableError = new LoggableError(
-                "An error occured while collecting invoice from API",
+            const loggableError = new LoggableError(
+                'An error occured while collecting invoice from API',
                 this,
-                { cause: error }
+                { cause: error },
             );
             loggableError.url = url;
             throw loggableError;
@@ -78,7 +78,7 @@ export abstract class ApiCollector extends V1Collector<ApiConfig> {
         }
 
         try {
-            let downloadedInvoice = await this.download(this.instance, invoice);
+            const downloadedInvoice = await this.download(this.instance, invoice);
 
             // If data field is missing, collector is unfinished
             if (!downloadedInvoice) {
@@ -87,7 +87,7 @@ export abstract class ApiCollector extends V1Collector<ApiConfig> {
 
             // If documents field is empty
             if (downloadedInvoice.documents.length === 0) {
-                throw new LoggableError(`No documents downloaded`, this);
+                throw new LoggableError('No documents downloaded', this);
             }
 
             let data;
@@ -103,9 +103,9 @@ export abstract class ApiCollector extends V1Collector<ApiConfig> {
                 ...downloadedInvoice,
                 data,
                 mimetype: utils.mimetypeFromBase64(data),
-                hash: utils.hash_string(data, "md5"),
+                hash: utils.hash_string(data, 'md5'),
                 collected_timestamp: Date.now(),
-                metadata: downloadedInvoice.metadata || {}
+                metadata: downloadedInvoice.metadata || {},
             };
         } catch (error) {
             // Get url
@@ -119,10 +119,10 @@ export abstract class ApiCollector extends V1Collector<ApiConfig> {
             }
 
             // For unexpected error happening during the download, log the error
-            let loggableError = new LoggableError(
-                "An error occured while downloading invoice from API",
+            const loggableError = new LoggableError(
+                'An error occured while downloading invoice from API',
                 this,
-                { cause: error }
+                { cause: error },
             );
             loggableError.url = url;
             throw loggableError;

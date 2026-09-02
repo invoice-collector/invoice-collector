@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class MutuelleGroupeUneoCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "mutuelle_groupe_uneo",
-        name: "Mutuelle Groupe Uneo",
-        description: "i18n.collectors.mutuelle_groupe_uneo.description",
-        version: "0",
-        website: "https://www.groupe-uneo.fr/connexion/connexion",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/129094.jpg",
+        id: 'mutuelle_groupe_uneo',
+        name: 'Mutuelle Groupe Uneo',
+        description: 'i18n.collectors.mutuelle_groupe_uneo.description',
+        version: '0',
+        website: 'https://www.groupe-uneo.fr/connexion/connexion',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/129094.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://www.groupe-uneo.fr/connexion/connexion",
+        loginUrl: 'https://www.groupe-uneo.fr/connexion/connexion',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(MutuelleGroupeUneoCollector.CONFIG);

@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class ChequesUpcadhocCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "cheques_upcadhoc",
-        name: "Cheques UpCadhoc",
-        description: "i18n.collectors.cheques_upcadhoc.description",
-        version: "0",
-        website: "https://docup.up-group.coop/",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1493868.jpg",
+        id: 'cheques_upcadhoc',
+        name: 'Cheques UpCadhoc',
+        description: 'i18n.collectors.cheques_upcadhoc.description',
+        version: '0',
+        website: 'https://docup.up-group.coop/',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1493868.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://docup.up-group.coop/",
+        loginUrl: 'https://docup.up-group.coop/',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(ChequesUpcadhocCollector.CONFIG);

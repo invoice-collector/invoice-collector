@@ -1,13 +1,12 @@
-import { Config } from "./collectors/abstractCollector";
-import { AbstractCollector } from "./collectors/abstractCollector";
-import { Screenshot } from "./driver/driver";
+import { Config, AbstractCollector } from './collectors/abstractCollector';
+import { Screenshot } from './driver/driver';
 
 export function fullStackTrace(error: Error): string {
-    let output = error.stack || "";
+    let output = error.stack || '';
     if (error.cause instanceof Error) {
-        output += "\nCaused by: " + (fullStackTrace(error.cause) || error.cause.toString());
+        output += `\nCaused by: ${  fullStackTrace(error.cause) || error.cause.toString()}`;
         if ((error.cause as any).cause) {
-            output += "\n" + (error.cause as any).fullStackTrace;
+            output += `\n${  (error.cause as any).fullStackTrace}`;
         }
     }
     return output;
@@ -27,14 +26,14 @@ export class StatusError extends Error {
 
 export class AuthenticationBearerError extends StatusError {
     constructor(opts = {}) {
-        super("Invalid Bearer token", 401, opts);
+        super('Invalid Bearer token', 401, opts);
         this.name = this.constructor.name;
     }
 }
 
 export class OauthError extends StatusError {
     constructor(opts = {}) {
-        super("Invalid Oauth token", 401, opts);
+        super('Invalid Oauth token', 401, opts);
         this.name = this.constructor.name;
     }
 }
@@ -79,9 +78,9 @@ export class CollectorError extends Error {
 export class MaintenanceError extends CollectorError {
     constructor(collector: AbstractCollector<Config>, opts = {}) {
         super(
-            `The website is in maintenance. Wait a moment and try again.`,
+            'The website is in maintenance. Wait a moment and try again.',
             collector,
-            opts
+            opts,
         );
         this.name = this.constructor.name;
     }
@@ -92,7 +91,7 @@ export class AuthenticationError extends CollectorError {
         super(
             message.trim(),
             collector,
-            opts
+            opts,
         );
         this.name = this.constructor.name;
     }
@@ -100,9 +99,9 @@ export class AuthenticationError extends CollectorError {
 export class RemoveError extends CollectorError {
     constructor(collector: AbstractCollector<Config>, opts = {}) {
         super(
-            "i18n.collectors.all.login.cancel",
+            'i18n.collectors.all.login.cancel',
             collector,
-            opts
+            opts,
         );
         this.name = this.constructor.name;
     }
@@ -113,7 +112,7 @@ export class DisconnectedError extends CollectorError {
         super(
             message.trim(),
             collector,
-            opts
+            opts,
         );
         this.name = this.constructor.name;
     }
@@ -128,12 +127,12 @@ export class LoggableError extends CollectorError {
         super(
             message,
             collector,
-            opts
+            opts,
         );
         this.name = this.constructor.name;
-        this.url = "";
-        this.source_code = "";
-        this.screenshot = { data: "", width: 0, height: 0 };
+        this.url = '';
+        this.source_code = '';
+        this.screenshot = { data: '', width: 0, height: 0 };
     }
 }
 
@@ -144,7 +143,7 @@ export class ElementNotFoundError extends LoggableError {
         super(
             `Could not find selector '${selector.selector}' corresponding to the "${selector.info}" on the page. See the source code and the screenshot to find the issue.`,
             collector,
-            opts
+            opts,
     );
         this.name = this.constructor.name;
         this.selector = selector;
@@ -154,9 +153,9 @@ export class ElementNotFoundError extends LoggableError {
 export class UnfinishedCollectorError extends LoggableError {
     constructor(collector: AbstractCollector<Config>, opts = {}) {
         super(
-            `The collector is not finished`,
+            'The collector is not finished',
             collector,
-            opts
+            opts,
         );
         this.name = this.constructor.name;
     }
@@ -165,9 +164,9 @@ export class UnfinishedCollectorError extends LoggableError {
 export class NoInvoiceFoundError extends LoggableError {
     constructor(collector: AbstractCollector<Config>, opts = {}) {
         super(
-            `No invoice found, collector may be broken`,
+            'No invoice found, collector may be broken',
             collector,
-            opts
+            opts,
         );
         this.name = this.constructor.name;
     }
@@ -178,7 +177,7 @@ export class DesynchronizationError extends AuthenticationError {
         super(
             `Desynchronization Error - We are sorry but something went wrong with the collector. Please remove it and add it again. (${credential_id})`,
             collector,
-            opts
+            opts,
         );
         this.name = this.constructor.name;
     }

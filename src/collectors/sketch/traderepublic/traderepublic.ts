@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class TraderepublicCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "traderepublic",
-        name: "traderepublic",
-        description: "i18n.collectors.traderepublic.description",
-        version: "0",
-        website: "https://traderepublic-data-production.s3.eu-central-1.amazonaws.com/timeline/postbox/2023...",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2077769.jpg",
+        id: 'traderepublic',
+        name: 'traderepublic',
+        description: 'i18n.collectors.traderepublic.description',
+        version: '0',
+        website: 'https://traderepublic-data-production.s3.eu-central-1.amazonaws.com/timeline/postbox/2023...',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2077769.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://traderepublic-data-production.s3.eu-central-1.amazonaws.com/timeline/postbox/2023...",
+        loginUrl: 'https://traderepublic-data-production.s3.eu-central-1.amazonaws.com/timeline/postbox/2023...',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(TraderepublicCollector.CONFIG);

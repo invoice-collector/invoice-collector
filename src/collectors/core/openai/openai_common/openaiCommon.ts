@@ -20,7 +20,7 @@ export abstract class OpenaiCommonCollector extends LinearWebCollector {
         // Check if email error is displayed
         const emailError = await driver.getElement(OpenaiSelectors.CONTAINER_EMAIL_ERROR, { raiseException: false, timeout: 2000 });
         if (emailError) {
-            return await emailError.textContent("i18n.collectors.all.email.error");
+            return await emailError.textContent('i18n.collectors.all.email.error');
         }
 
         // Perform google oauth2 if needed
@@ -42,7 +42,7 @@ export abstract class OpenaiCommonCollector extends LinearWebCollector {
             // Check if password error is displayed
             const passwordError = await driver.getElement(OpenaiSelectors.CONTAINER_PASSWORD_ERROR, { raiseException: false, timeout: 5000 });
             if (passwordError) {
-                return await passwordError.textContent("i18n.collectors.all.password.error");
+                return await passwordError.textContent('i18n.collectors.all.password.error');
             }
         }
     }
@@ -58,13 +58,13 @@ export abstract class OpenaiCommonCollector extends LinearWebCollector {
         }
 
         // If URL contains 2FA verification
-        if(driver.url().includes("email-verification") ||
-            driver.url().includes("mfa-challenge") ||
-            driver.url().includes("push-auth-verification")) {
+        if(driver.url().includes('email-verification') ||
+            driver.url().includes('mfa-challenge') ||
+            driver.url().includes('push-auth-verification')) {
             // Check if 2FA instructions container is displayed
             const twofaInstructions = await driver.getElement(OpenaiSelectors.CONTAINER_2FA_INSTRUCTIONS, { raiseException: false, timeout: 2000 });
             if (twofaInstructions) {
-                return await twofaInstructions.textContent("i18n.collectors.all.2fa.error");
+                return await twofaInstructions.textContent('i18n.collectors.all.2fa.error');
             }
         }
     }
@@ -80,7 +80,7 @@ export abstract class OpenaiCommonCollector extends LinearWebCollector {
         }
 
         // Check if is email verification
-        const isEmailVerification = driver.url().includes("auth.openai.com/email-verification");
+        const isEmailVerification = driver.url().includes('auth.openai.com/email-verification');
 
         // Get code from UI
         const code = await Promise.race([twofa_promise.code(), webSocketServer.getTwofa()]);
@@ -94,7 +94,7 @@ export abstract class OpenaiCommonCollector extends LinearWebCollector {
             // Check if 2FA error is displayed
             const twofaError = await driver.getElement(OpenaiSelectors.CONTAINER_2FA_ERROR, { raiseException: false, timeout: 2000 });
             if (twofaError) {
-                return await twofaError.textContent("i18n.collectors.all.2fa.error");
+                return await twofaError.textContent('i18n.collectors.all.2fa.error');
             }
         }
     }

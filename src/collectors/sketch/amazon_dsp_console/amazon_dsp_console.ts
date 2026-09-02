@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class AmazonDspConsoleCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "amazon_dsp_console",
-        name: "Amazon DSP Console",
-        description: "i18n.collectors.amazon_dsp_console.description",
-        version: "0",
-        website: "https://advertising.amazon.com/de-de/sign-in?ref_=a20m_us_hnav_sgn&countrycode=de",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/792401.jpg",
+        id: 'amazon_dsp_console',
+        name: 'Amazon DSP Console',
+        description: 'i18n.collectors.amazon_dsp_console.description',
+        version: '0',
+        website: 'https://advertising.amazon.com/de-de/sign-in?ref_=a20m_us_hnav_sgn&countrycode=de',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/792401.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://advertising.amazon.com/de-de/sign-in?ref_=a20m_us_hnav_sgn&countrycode=de",
+        loginUrl: 'https://advertising.amazon.com/de-de/sign-in?ref_=a20m_us_hnav_sgn&countrycode=de',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(AmazonDspConsoleCollector.CONFIG);

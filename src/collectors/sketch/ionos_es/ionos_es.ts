@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class IonosEsCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "ionos_es",
-        name: "Ionos (.es)",
-        description: "i18n.collectors.ionos_es.description",
-        version: "0",
-        website: "https://login.ionos.es/?__lf=Static",
-        logo: "https://upload.wikimedia.org/wikipedia/commons/4/4e/Ionos_Logo_2022.svg",
+        id: 'ionos_es',
+        name: 'Ionos (.es)',
+        description: 'i18n.collectors.ionos_es.description',
+        version: '0',
+        website: 'https://login.ionos.es/?__lf=Static',
+        logo: 'https://upload.wikimedia.org/wikipedia/commons/4/4e/Ionos_Logo_2022.svg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://login.ionos.es/?__lf=Static",
+        loginUrl: 'https://login.ionos.es/?__lf=Static',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(IonosEsCollector.CONFIG);

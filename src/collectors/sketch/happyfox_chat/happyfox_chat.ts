@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class HappyfoxChatCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "happyfox_chat",
-        name: "HappyFox Chat",
-        description: "i18n.collectors.happyfox_chat.description",
-        version: "0",
-        website: "https://happyfoxchat.com/a/login",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/18245.jpg",
+        id: 'happyfox_chat',
+        name: 'HappyFox Chat',
+        description: 'i18n.collectors.happyfox_chat.description',
+        version: '0',
+        website: 'https://happyfoxchat.com/a/login',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/18245.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://happyfoxchat.com/a/login",
+        loginUrl: 'https://happyfoxchat.com/a/login',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(HappyfoxChatCollector.CONFIG);

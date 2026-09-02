@@ -1,4 +1,4 @@
-import { Collect } from "./collect";
+import { Collect } from './collect';
 
 export class CollectPool {
 

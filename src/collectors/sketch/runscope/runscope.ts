@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class RunscopeCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "runscope",
-        name: "Runscope",
-        description: "i18n.collectors.runscope.description",
-        version: "0",
-        website: "https://www.runscope.com/signin",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/6973.jpg",
+        id: 'runscope',
+        name: 'Runscope',
+        description: 'i18n.collectors.runscope.description',
+        version: '0',
+        website: 'https://www.runscope.com/signin',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/6973.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://www.runscope.com/signin",
+        loginUrl: 'https://www.runscope.com/signin',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(RunscopeCollector.CONFIG);

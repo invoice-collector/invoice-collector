@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class ToptexCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "toptex",
-        name: "Toptex",
-        description: "i18n.collectors.toptex.description",
-        version: "0",
-        website: "https://www.toptex.com/customer/account/login/",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1040984.jpg",
+        id: 'toptex',
+        name: 'Toptex',
+        description: 'i18n.collectors.toptex.description',
+        version: '0',
+        website: 'https://www.toptex.com/customer/account/login/',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1040984.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://www.toptex.com/customer/account/login/",
+        loginUrl: 'https://www.toptex.com/customer/account/login/',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(ToptexCollector.CONFIG);

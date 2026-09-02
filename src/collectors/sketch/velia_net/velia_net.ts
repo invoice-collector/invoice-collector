@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class VeliaNetCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "velia_net",
-        name: "velia.net",
-        description: "i18n.collectors.velia_net.description",
-        version: "0",
-        website: "https://www.velia.net/account/invoice",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2110707.jpg",
+        id: 'velia_net',
+        name: 'velia.net',
+        description: 'i18n.collectors.velia_net.description',
+        version: '0',
+        website: 'https://www.velia.net/account/invoice',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2110707.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://www.velia.net/account/invoice",
+        loginUrl: 'https://www.velia.net/account/invoice',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(VeliaNetCollector.CONFIG);

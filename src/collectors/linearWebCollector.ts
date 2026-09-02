@@ -1,21 +1,20 @@
-import { Invoice, CompleteInvoice } from "./abstractCollector";
+import { Invoice, CompleteInvoice } from './abstractCollector';
 import { Driver, Element } from '../driver/driver';
 import { AuthenticationError, CollectorError, DisconnectedError, LoggableError, NoInvoiceFoundError } from '../error';
 import { ProxyFactory } from '../proxy/proxyFactory';
-import { Location } from "../proxy/abstractProxy";
-import { Secret } from "../model/secret";
-import { TwofaPromise } from "../collect/twofaPromise";
-import { State } from "../model/state";
+import { Location, Proxy } from '../proxy/abstractProxy';
+import { Secret } from '../model/secret';
+import { TwofaPromise } from '../collect/twofaPromise';
+import { State } from '../model/state';
 import * as utils from '../utils';
-import { WebSocketServer } from "../websocket/webSocketServer";
-import { CollectorMemory } from "../model/collectorMemory";
-import { WebCollector } from "./webCollector";
-import { Proxy } from '../proxy/abstractProxy';
-import { Credential } from "../model/credential";
+import { WebSocketServer } from '../websocket/webSocketServer';
+import { CollectorMemory } from '../model/collectorMemory';
+import { WebCollector } from './webCollector';
+import { Credential } from '../model/credential';
 
 export enum DocumentStrategy {
-    SPLIT = "split",
-    MERGE = "merge"
+    SPLIT = 'split',
+    MERGE = 'merge'
 }
 
 export abstract class LinearWebCollector extends WebCollector {
@@ -31,7 +30,7 @@ export abstract class LinearWebCollector extends WebCollector {
         locale: string,
         location: Location | null,
         useInteractiveLogin: boolean,
-        providers: Credential[]
+        providers: Credential[],
     ): Promise<CompleteInvoice[]> {
         // Get proxy
         let proxy: Proxy | null = null;
@@ -60,7 +59,7 @@ export abstract class LinearWebCollector extends WebCollector {
                 await driver.goto(this.config.entryUrl || this.config.loginUrl);
 
                 // Check if user needs to login
-                const needLogin = await this.needLogin(driver)
+                const needLogin = await this.needLogin(driver);
 
                 // If user need to login
                 if (needLogin) {
@@ -86,7 +85,7 @@ export abstract class LinearWebCollector extends WebCollector {
                         this.driver = driver;
                     }
 
-                    console.log("User is not logged in, logging in...");
+                    console.log('User is not logged in, logging in...');
 
                     // Login with stored credentials
                     const login_error = await this.login(driver, await secret.getParams(), webSocketServer);
@@ -97,7 +96,7 @@ export abstract class LinearWebCollector extends WebCollector {
                     }
                 }
                 else {
-                    console.log("Successfully used cookies and local storage");
+                    console.log('Successfully used cookies and local storage');
                 }
 
                 // Check if 2fa is required
@@ -138,7 +137,7 @@ export abstract class LinearWebCollector extends WebCollector {
                 // If first collect
                 if(webSocketServer) {
                     // If web socket server exists, enable images
-                    let loadImagesPreviousValue = this.config.loadImages;
+                    const loadImagesPreviousValue = this.config.loadImages;
                     if(webSocketServer) {
                         this.config.loadImages = true;
                     }
@@ -214,11 +213,11 @@ export abstract class LinearWebCollector extends WebCollector {
 
                 // If no webSocketServer, it means that we are in auto login mode
                 if(!webSocketServer) {
-                    console.log("Successfully used cookies and local storage");
+                    console.log('Successfully used cookies and local storage');
                 }
             }
 
-            console.log("User is successfully logged in");
+            console.log('User is successfully logged in');
 
             // Update secret.cookies
             await secret.setCookies(await driver.getCookies(this.config.autoLogin?.cookieNames));
@@ -232,7 +231,7 @@ export abstract class LinearWebCollector extends WebCollector {
             const previousInvoiceIds = previousInvoices.map((inv) => inv.id);
 
             // For each page
-            let invoices: CompleteInvoice[] = [];
+            const invoices: CompleteInvoice[] = [];
             let firstDownload = true;
             await this.forEachPage(driver, async () => {
                 // Check if no invoices are present on the page
@@ -265,8 +264,8 @@ export abstract class LinearWebCollector extends WebCollector {
                             amount: invoice.amount?.trim(),
                             link: invoice.link?.trim(),
                             metadata: invoice.metadata || {},
-                            downloadButton: invoice.downloadButton || {}
-                        }
+                            downloadButton: invoice.downloadButton || {},
+                        };
 
                         // If id is not in previous ids
                         if (!previousInvoiceIds.includes(invoice.id)) {
@@ -295,7 +294,7 @@ export abstract class LinearWebCollector extends WebCollector {
                                 }
 
                                 // If one document downloaded
-                                if (LinearWebCollector.DEFAULT_DOCUMENT_STRATEGY == DocumentStrategy.MERGE && documents.length > 1) {
+                                if (LinearWebCollector.DEFAULT_DOCUMENT_STRATEGY === DocumentStrategy.MERGE && documents.length > 1) {
                                     documents = [await utils.mergePdfDocuments(documents)];
                                 }
                                 console.log(`Invoice ${invoice.id} successfully downloaded, ${documents.length} document(s) found.`);
@@ -305,9 +304,9 @@ export abstract class LinearWebCollector extends WebCollector {
                                         ...invoice,
                                         data: document,
                                         mimetype: utils.mimetypeFromBase64(document),
-                                        hash: utils.hash_string(document, "md5"),
+                                        hash: utils.hash_string(document, 'md5'),
                                         collected_timestamp: Date.now(),
-                                        metadata: invoice.metadata || {}
+                                        metadata: invoice.metadata || {},
                                     });
                                 }
                             }
@@ -331,19 +330,19 @@ export abstract class LinearWebCollector extends WebCollector {
             return invoices;
         } catch (error) {
             if (error instanceof LoggableError) {
-                if (!error.url) error.url = driver.url();
-                if (!error.source_code) error.source_code = await driver.sourceCode(true, true);
-                if (!error.screenshot) error.screenshot = await driver.screenshot();
+                if (!error.url) {error.url = driver.url();}
+                if (!error.source_code) {error.source_code = await driver.sourceCode(true, true);}
+                if (!error.screenshot) {error.screenshot = await driver.screenshot();}
             }
             if (error instanceof CollectorError) {
                 throw error;
             }
 
             // For unexpected error happening during the collection, log the error
-            let loggableError = new LoggableError(
-                "An error occured while collecting invoice from web",
+            const loggableError = new LoggableError(
+                'An error occured while collecting invoice from web',
                 this,
-                { cause: error }
+                { cause: error },
             );
             loggableError.url = driver.url();
             loggableError.source_code = await driver.sourceCode(true, true);
@@ -361,7 +360,7 @@ export abstract class LinearWebCollector extends WebCollector {
         // User is not logged in if:
         // - entryUrl is not defined = always need go through login process
         // - current URL does not contain entryUrl
-        return this.config.entryUrl == undefined || !driver.url().includes(this.config.entryUrl);
+        return this.config.entryUrl === undefined || !driver.url().includes(this.config.entryUrl);
     }
 
     abstract login(driver: Driver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string |void>;

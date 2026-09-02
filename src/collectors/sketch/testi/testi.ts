@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class TestiCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "testi",
-        name: "testi",
-        description: "i18n.collectors.testi.description",
-        version: "0",
-        website: "https://testi.at/invoice",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1985677.jpg",
+        id: 'testi',
+        name: 'testi',
+        description: 'i18n.collectors.testi.description',
+        version: '0',
+        website: 'https://testi.at/invoice',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1985677.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://testi.at/invoice",
+        loginUrl: 'https://testi.at/invoice',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(TestiCollector.CONFIG);

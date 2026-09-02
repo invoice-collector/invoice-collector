@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class MerchantOnlinePortalTelecashDeCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "merchant_online_portal_telecash_de",
-        name: "Merchant Online Portal(telecash.de)",
-        description: "i18n.collectors.merchant_online_portal_telecash_de.description",
-        version: "0",
-        website: "https://mop.telecash.de/mop/faces/pages/main/tc/main.xhtml?acquirer=tc&language=de&styleFor=tc#",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/203808.jpg",
+        id: 'merchant_online_portal_telecash_de',
+        name: 'Merchant Online Portal(telecash.de)',
+        description: 'i18n.collectors.merchant_online_portal_telecash_de.description',
+        version: '0',
+        website: 'https://mop.telecash.de/mop/faces/pages/main/tc/main.xhtml?acquirer=tc&language=de&styleFor=tc#',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/203808.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://mop.telecash.de/mop/faces/pages/main/tc/main.xhtml?acquirer=tc&language=de&styleFor=tc#",
+        loginUrl: 'https://mop.telecash.de/mop/faces/pages/main/tc/main.xhtml?acquirer=tc&language=de&styleFor=tc#',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(MerchantOnlinePortalTelecashDeCollector.CONFIG);

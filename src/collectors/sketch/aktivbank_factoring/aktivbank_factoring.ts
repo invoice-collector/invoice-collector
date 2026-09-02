@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class AktivbankFactoringCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "aktivbank_factoring",
-        name: "Aktivbank Factoring",
-        description: "i18n.collectors.aktivbank_factoring.description",
-        version: "0",
-        website: "https://online.aktivbank-factoring.de/",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/397961.jpg",
+        id: 'aktivbank_factoring',
+        name: 'Aktivbank Factoring',
+        description: 'i18n.collectors.aktivbank_factoring.description',
+        version: '0',
+        website: 'https://online.aktivbank-factoring.de/',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/397961.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://online.aktivbank-factoring.de/",
+        loginUrl: 'https://online.aktivbank-factoring.de/',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(AktivbankFactoringCollector.CONFIG);

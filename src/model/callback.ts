@@ -1,9 +1,9 @@
-import { CompleteInvoice, Config } from "../collectors/abstractCollector";
-import { DatabaseFactory } from "../database/databaseFactory";
-import { AbstractIntegration } from "../integration/abstractIntegration";
-import { IntegrationFactory } from "../integration/integrationFactory";
-import { Secret } from "../model/secret";
-import { SecretManagerFactory } from "../secret_manager/secretManagerFactory";
+import { CompleteInvoice, Config } from '../collectors/abstractCollector';
+import { DatabaseFactory } from '../database/databaseFactory';
+import { AbstractIntegration } from '../integration/abstractIntegration';
+import { IntegrationFactory } from '../integration/integrationFactory';
+import { Secret } from '../model/secret';
+import { SecretManagerFactory } from '../secret_manager/secretManagerFactory';
 
 export class Callback {
 
@@ -21,9 +21,9 @@ export class Callback {
         integration_id: string,
         secret_id: string,
         createdAt: number,
-        automaticExport: boolean
+        automaticExport: boolean,
     ) {
-        this.id = "";
+        this.id = '';
         this.customer_user_id = customer_user_id;
         this.integration_id = integration_id;
         this.secret_id = secret_id;
@@ -32,7 +32,7 @@ export class Callback {
     }
 
     private getSecret(): Secret {
-        let secret = new Secret(`${this.id}_${this.customer_user_id}_${this.integration_id}`);
+        const secret = new Secret(`${this.id}_${this.customer_user_id}_${this.integration_id}`);
         secret.id = this.secret_id;
         return secret;
     }

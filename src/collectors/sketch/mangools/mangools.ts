@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class MangoolsCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "mangools",
-        name: "Mangools",
-        description: "i18n.collectors.mangools.description",
-        version: "0",
-        website: "https://mangools.com/users/sign_in?ref=header-mngls",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/14251.jpg",
+        id: 'mangools',
+        name: 'Mangools',
+        description: 'i18n.collectors.mangools.description',
+        version: '0',
+        website: 'https://mangools.com/users/sign_in?ref=header-mngls',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/14251.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://mangools.com/users/sign_in?ref=header-mngls",
+        loginUrl: 'https://mangools.com/users/sign_in?ref=header-mngls',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(MangoolsCollector.CONFIG);

@@ -21,7 +21,7 @@ export abstract class V1Collector<C extends Config> extends AbstractCollector<C>
         locale: string,
         location: Location | null,
         customerAuthenticationMethod: CustomerAuthenticationMethod,
-        providers: Credential[]
+        providers: Credential[],
     ): Promise<CompleteInvoice[]> {
         // Check if a mandatory field is missing
         const secretParams = await secret.getParams();
@@ -33,11 +33,11 @@ export abstract class V1Collector<C extends Config> extends AbstractCollector<C>
 
         try {
             // Get invoices
-            const invoices = (await this._collect(state, webSocketServer, secret, location))
+            const invoices = (await this._collect(state, webSocketServer, secret, location));
 
             // Remove duplicates
             const uniqueInvoices = invoices.filter((inv, index, self) =>
-                index === self.findIndex((i) => i.id === inv.id)
+                index === self.findIndex((i) => i.id === inv.id),
             );
 
             // Get previous invoice ids
@@ -49,7 +49,7 @@ export abstract class V1Collector<C extends Config> extends AbstractCollector<C>
             // Count number of invoices to download only
             const invoicesToDownload = uniqueInvoices.filter((inv) => inv.timestamp >= download_from_timestamp).length;
 
-            let completeInvoices: CompleteInvoice[] = [];
+            const completeInvoices: CompleteInvoice[] = [];
 
             if(newInvoices.length > 0) {
                 console.log(`Found ${uniqueInvoices.length} invoices, ${newInvoices.length} are new, ${invoicesToDownload} are to download`);
@@ -60,7 +60,7 @@ export abstract class V1Collector<C extends Config> extends AbstractCollector<C>
                 webSocketServer?.sendState(State._6_DOWNLOADING);
 
                 // For each new invoice
-                for(let newInvoice of newInvoices) {
+                for(const newInvoice of newInvoices) {
                     // If invoice is more recent than the download_from_timestamp
                     if (download_from_timestamp <= newInvoice.timestamp) {
                         const completeInvoice = await this._download(newInvoice);
@@ -76,7 +76,7 @@ export abstract class V1Collector<C extends Config> extends AbstractCollector<C>
                             mimetype: null,
                             hash: null,
                             collected_timestamp: null,
-                            metadata: {}
+                            metadata: {},
                         });
                     }
                 }

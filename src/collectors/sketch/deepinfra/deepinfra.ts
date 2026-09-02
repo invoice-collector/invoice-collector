@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class DeepinfraCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "deepinfra",
-        name: "Deepinfra",
-        description: "i18n.collectors.deepinfra.description",
-        version: "0",
-        website: "https://deepinfra.com",
-        logo: "https://registry.npmmirror.com/@lobehub/icons-static-png/1.70.0/files/light/deepinfra-color.png",
+        id: 'deepinfra',
+        name: 'Deepinfra',
+        description: 'i18n.collectors.deepinfra.description',
+        version: '0',
+        website: 'https://deepinfra.com',
+        logo: 'https://registry.npmmirror.com/@lobehub/icons-static-png/1.70.0/files/light/deepinfra-color.png',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://deepinfra.com/login?from=%2Fdash",
+        loginUrl: 'https://deepinfra.com/login?from=%2Fdash',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(DeepinfraCollector.CONFIG);

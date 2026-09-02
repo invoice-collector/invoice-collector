@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class HelinetPrivatkundenCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "helinet_privatkunden",
-        name: "Helinet - Privatkunden",
-        description: "i18n.collectors.helinet_privatkunden.description",
-        version: "0",
-        website: "https://mein.helinet.de/kundenportal.html",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4385305.jpg",
+        id: 'helinet_privatkunden',
+        name: 'Helinet - Privatkunden',
+        description: 'i18n.collectors.helinet_privatkunden.description',
+        version: '0',
+        website: 'https://mein.helinet.de/kundenportal.html',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4385305.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://mein.helinet.de/kundenportal.html",
+        loginUrl: 'https://mein.helinet.de/kundenportal.html',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(HelinetPrivatkundenCollector.CONFIG);

@@ -25,7 +25,7 @@ export abstract class EmailCollector extends V2Collector<EmailCollectorConfig> {
         super({
             ...config,
             type: config.type || CollectorType.EMAIL,
-            state: config.state || CollectorState.ACTIVE
+            state: config.state || CollectorState.ACTIVE,
         });
     }
 
@@ -38,7 +38,7 @@ export abstract class EmailCollector extends V2Collector<EmailCollectorConfig> {
         locale: string,
         location: Location | null,
         useInteractiveLogin: boolean,
-        providers: Credential[]
+        providers: Credential[],
     ): Promise<CompleteInvoice[]> {
         const completeInvoices: CompleteInvoice[] = [];
 
@@ -52,7 +52,7 @@ export abstract class EmailCollector extends V2Collector<EmailCollectorConfig> {
         // For each provider
         for (const provider of providers) {
             // Get email provider instance
-            let emailProvider = await CollectorLoader.get(provider.collector_id) as EmailProvider;
+            const emailProvider = await CollectorLoader.get(provider.collector_id) as EmailProvider;
             try {
                 // Get provider secret
                 const providerSecret = provider.getSecret();
@@ -72,7 +72,7 @@ export abstract class EmailCollector extends V2Collector<EmailCollectorConfig> {
                     sender: this.config.wildcards.sender,
                     subject: this.config.wildcards.subject,
                     body: this.config.wildcards.body,
-                    attachmentName: this.config.wildcards.attachmentName
+                    attachmentName: this.config.wildcards.attachmentName,
                 };
 
                 // Set progress step to downloading
@@ -105,7 +105,7 @@ export abstract class EmailCollector extends V2Collector<EmailCollectorConfig> {
                             mimetype: downloadedInvoice.mimetype,
                             hash: utils.hash_string(downloadedInvoice.data, 'md5'),
                             collected_timestamp: Date.now(),
-                            metadata: downloadedInvoice.metadata
+                            metadata: downloadedInvoice.metadata,
                         });
                     }
                     else {
@@ -119,7 +119,7 @@ export abstract class EmailCollector extends V2Collector<EmailCollectorConfig> {
                             mimetype: null,
                             hash: null,
                             collected_timestamp: null,
-                            metadata: invoice.metadata
+                            metadata: invoice.metadata,
                         });
                     }
                 }

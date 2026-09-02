@@ -1,4 +1,4 @@
-import { SecretManagerFactory } from "../secret_manager/secretManagerFactory";
+import { SecretManagerFactory } from '../secret_manager/secretManagerFactory';
 
 export class Secret {
     
@@ -9,40 +9,40 @@ export class Secret {
     value: any;
 
     constructor(key: string, value: any = Secret.DEFAULT_VALUE) {
-        this.id = "";
+        this.id = '';
         this.key = key;
         this.value = value;
     }
 
     private async getValue(key: string): Promise<any> {
-        if (Object.keys(this.value).length == 0) {
+        if (Object.keys(this.value).length === 0) {
             this.value = await SecretManagerFactory.getSecretManager().getValue(this.id);
         }
         return this.value[key];
     }
 
     async getParams(): Promise<any> {
-        return this.getValue("params");
+        return this.getValue('params');
     }
 
     async setParams(value: any) {
-        this.value["params"] = value;
+        this.value['params'] = value;
     }
 
     async getCookies(): Promise<any> {
-        return this.getValue("cookies");
+        return this.getValue('cookies');
     }
 
     async setCookies(value: any) {
-        this.value["cookies"] = value;
+        this.value['cookies'] = value;
     }
 
     async getLocalStorage(): Promise<any> {
-        return this.getValue("localStorage");
+        return this.getValue('localStorage');
     }
 
     async setLocalStorage(value: any) {
-        this.value["localStorage"] = value;
+        this.value['localStorage'] = value;
     }
 
     async commit(): Promise<void> {

@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class GroupeAprilContratsEtCourriersEntrepriseCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "groupe_april_contrats_et_courriers_entreprise",
-        name: "Groupe April (contrats et courriers) - Entreprise",
-        description: "i18n.collectors.groupe_april_contrats_et_courriers_entreprise.description",
-        version: "0",
-        website: "https://espace-entreprises-collectives.april-sante-prevoyance.fr/Authentification/tabid/62/Default.aspx?returnurl=%2fDefault.aspx",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/106872.jpg",
+        id: 'groupe_april_contrats_et_courriers_entreprise',
+        name: 'Groupe April (contrats et courriers) - Entreprise',
+        description: 'i18n.collectors.groupe_april_contrats_et_courriers_entreprise.description',
+        version: '0',
+        website: 'https://espace-entreprises-collectives.april-sante-prevoyance.fr/Authentification/tabid/62/Default.aspx?returnurl=%2fDefault.aspx',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/106872.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://espace-entreprises-collectives.april-sante-prevoyance.fr/Authentification/tabid/62/Default.aspx?returnurl=%2fDefault.aspx",
+        loginUrl: 'https://espace-entreprises-collectives.april-sante-prevoyance.fr/Authentification/tabid/62/Default.aspx?returnurl=%2fDefault.aspx',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(GroupeAprilContratsEtCourriersEntrepriseCollector.CONFIG);

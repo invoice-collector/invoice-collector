@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class RealpageResidentsCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "realpage_residents",
-        name: "Realpage Residents",
-        description: "i18n.collectors.realpage_residents.description",
-        version: "0",
-        website: "https://umresident.realpage.com/",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2385165.jpg",
+        id: 'realpage_residents',
+        name: 'Realpage Residents',
+        description: 'i18n.collectors.realpage_residents.description',
+        version: '0',
+        website: 'https://umresident.realpage.com/',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2385165.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://umresident.realpage.com/",
+        loginUrl: 'https://umresident.realpage.com/',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(RealpageResidentsCollector.CONFIG);

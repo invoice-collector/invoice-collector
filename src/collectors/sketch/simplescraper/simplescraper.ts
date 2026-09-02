@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class SimplescraperCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "simplescraper",
-        name: "Simplescraper",
-        description: "i18n.collectors.simplescraper.description",
-        version: "0",
-        website: "https://simplescraper.io/dashboard",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/776394.jpg",
+        id: 'simplescraper',
+        name: 'Simplescraper',
+        description: 'i18n.collectors.simplescraper.description',
+        version: '0',
+        website: 'https://simplescraper.io/dashboard',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/776394.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://simplescraper.io/dashboard",
+        loginUrl: 'https://simplescraper.io/dashboard',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(SimplescraperCollector.CONFIG);

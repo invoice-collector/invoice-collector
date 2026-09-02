@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class VoximplantCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "voximplant",
-        name: "VoxImplant",
-        description: "i18n.collectors.voximplant.description",
-        version: "0",
-        website: "https://manage.voximplant.com/auth?",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1119550.jpg",
+        id: 'voximplant',
+        name: 'VoxImplant',
+        description: 'i18n.collectors.voximplant.description',
+        version: '0',
+        website: 'https://manage.voximplant.com/auth?',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1119550.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://manage.voximplant.com/auth?",
+        loginUrl: 'https://manage.voximplant.com/auth?',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(VoximplantCollector.CONFIG);

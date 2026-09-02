@@ -5,13 +5,13 @@ import { Secret } from '../model/secret';
 export class FileSystemIntegration extends AbstractIntegration { 
 
     static CONFIG: IntegrationConfig = {
-        id: "fileSystem",
-        name: "File System",
-        description: "i18n.integrations.fileSystem.description",
+        id: 'fileSystem',
+        name: 'File System',
+        description: 'i18n.integrations.fileSystem.description',
         state: 'planned',
         params: {
             //TODO: add specific params here
-        }
+        },
     };
     
     constructor(secret: Secret) {

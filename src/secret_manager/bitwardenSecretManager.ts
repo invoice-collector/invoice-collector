@@ -1,11 +1,11 @@
-import { BitwardenClient, ClientSettings, DeviceType } from "@bitwarden/sdk-napi";
-import { AbstractSecretManager } from "./abstractSecretManager";
-import * as utils from "../utils";
-import { Secret } from "../model/secret";
+import { BitwardenClient, ClientSettings, DeviceType } from '@bitwarden/sdk-napi';
+import { AbstractSecretManager } from './abstractSecretManager';
+import * as utils from '../utils';
+import { Secret } from '../model/secret';
 
 export class BitwardenSecretManager extends AbstractSecretManager {
 
-    static stateFile: string = "./bitwarden/state";
+    static stateFile: string = './bitwarden/state';
 
     accessToken: string;
     organizationId: string;
@@ -14,13 +14,13 @@ export class BitwardenSecretManager extends AbstractSecretManager {
 
     constructor() {
         super();
-        this.accessToken = utils.getEnvVar("SECRET_MANAGER_BITWARDEN_ACCESS_TOKEN");
-        this.organizationId = utils.getEnvVar("SECRET_MANAGER_BITWARDEN_ORGANIZATION_ID");
-        this.projectId = utils.getEnvVar("SECRET_MANAGER_BITWARDEN_PROJECT_ID");
+        this.accessToken = utils.getEnvVar('SECRET_MANAGER_BITWARDEN_ACCESS_TOKEN');
+        this.organizationId = utils.getEnvVar('SECRET_MANAGER_BITWARDEN_ORGANIZATION_ID');
+        this.projectId = utils.getEnvVar('SECRET_MANAGER_BITWARDEN_PROJECT_ID');
         const settings: ClientSettings = {
-            apiUrl: utils.getEnvVar("SECRET_MANAGER_BITWARDEN_API_URI"),
-            identityUrl: utils.getEnvVar("SECRET_MANAGER_BITWARDEN_IDENTITY_URI"),
-            userAgent: "Bitwarden SDK",
+            apiUrl: utils.getEnvVar('SECRET_MANAGER_BITWARDEN_API_URI'),
+            identityUrl: utils.getEnvVar('SECRET_MANAGER_BITWARDEN_IDENTITY_URI'),
+            userAgent: 'Bitwarden SDK',
             deviceType: DeviceType.SDK,
         };
         this.client = new BitwardenClient(settings, 2);
@@ -29,10 +29,10 @@ export class BitwardenSecretManager extends AbstractSecretManager {
     async connect(): Promise<void> {
         try {
             await this.client.auth().loginAccessToken(this.accessToken, BitwardenSecretManager.stateFile);
-            console.log("Connected successfully to Bitwarden");
+            console.log('Connected successfully to Bitwarden');
         }
         catch (err) {
-            console.error("Connection to Bitwarden failed", err);
+            console.error('Connection to Bitwarden failed', err);
         }
     }
 
@@ -44,7 +44,7 @@ export class BitwardenSecretManager extends AbstractSecretManager {
         try {
             await this.client.projects().list(this.organizationId);
         } catch (err) {
-            throw new Error("Could not reach Bitwarden server", { cause: err });
+            throw new Error('Could not reach Bitwarden server', { cause: err });
         }
     }
 
@@ -65,7 +65,7 @@ export class BitwardenSecretManager extends AbstractSecretManager {
         try {
             // JSON secret before sending
             const secretValue: string = JSON.stringify(secret.value);
-            secret.id = (await this.client.secrets().create(this.organizationId, secret.key, secretValue, "", [this.projectId])).id;
+            secret.id = (await this.client.secrets().create(this.organizationId, secret.key, secretValue, '', [this.projectId])).id;
             return secret;
         }
         catch (err) {
@@ -77,7 +77,7 @@ export class BitwardenSecretManager extends AbstractSecretManager {
         try {
             // JSON secret before sending
             const secretValue: string = JSON.stringify(secret.value);
-            await this.client.secrets().update(this.organizationId, secret.id, secret.key, secretValue, "", [this.projectId]);
+            await this.client.secrets().update(this.organizationId, secret.id, secret.key, secretValue, '', [this.projectId]);
         }
         catch (err) {
             throw new Error(`Failed to update secret ${secret.id}`, { cause: err });

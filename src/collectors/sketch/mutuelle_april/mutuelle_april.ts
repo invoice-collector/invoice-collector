@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class MutuelleAprilCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "mutuelle_april",
-        name: "Mutuelle April",
-        description: "i18n.collectors.mutuelle_april.description",
-        version: "0",
-        website: "https://monespace.april.fr/#/login",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/127322.jpg",
+        id: 'mutuelle_april',
+        name: 'Mutuelle April',
+        description: 'i18n.collectors.mutuelle_april.description',
+        version: '0',
+        website: 'https://monespace.april.fr/#/login',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/127322.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://monespace.april.fr/#/login",
+        loginUrl: 'https://monespace.april.fr/#/login',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(MutuelleAprilCollector.CONFIG);

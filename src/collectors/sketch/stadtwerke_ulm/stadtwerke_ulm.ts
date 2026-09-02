@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class StadtwerkeUlmCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "stadtwerke_ulm",
-        name: "Stadtwerke Ulm",
-        description: "i18n.collectors.stadtwerke_ulm.description",
-        version: "0",
-        website: "https://www.swu.de/privatkunden/service/meine-swu/",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/9163.jpg",
+        id: 'stadtwerke_ulm',
+        name: 'Stadtwerke Ulm',
+        description: 'i18n.collectors.stadtwerke_ulm.description',
+        version: '0',
+        website: 'https://www.swu.de/privatkunden/service/meine-swu/',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/9163.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://www.swu.de/privatkunden/service/meine-swu/",
+        loginUrl: 'https://www.swu.de/privatkunden/service/meine-swu/',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(StadtwerkeUlmCollector.CONFIG);

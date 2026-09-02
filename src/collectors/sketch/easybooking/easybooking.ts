@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class EasybookingCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "easybooking",
-        name: "easybooking",
-        description: "i18n.collectors.easybooking.description",
-        version: "0",
-        website: "https://web-eb-de-3.easy-booking.at/julia/?customer=2647",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1577618.jpg",
+        id: 'easybooking',
+        name: 'easybooking',
+        description: 'i18n.collectors.easybooking.description',
+        version: '0',
+        website: 'https://web-eb-de-3.easy-booking.at/julia/?customer=2647',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1577618.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://web-eb-de-3.easy-booking.at/julia/?customer=2647",
+        loginUrl: 'https://web-eb-de-3.easy-booking.at/julia/?customer=2647',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(EasybookingCollector.CONFIG);

@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class JonnyFreshCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "jonny_fresh",
-        name: "Jonny Fresh",
-        description: "i18n.collectors.jonny_fresh.description",
-        version: "0",
-        website: "https://shop.jonnyfresh.com/account/my-orders/",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/777840.jpg",
+        id: 'jonny_fresh',
+        name: 'Jonny Fresh',
+        description: 'i18n.collectors.jonny_fresh.description',
+        version: '0',
+        website: 'https://shop.jonnyfresh.com/account/my-orders/',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/777840.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://shop.jonnyfresh.com/account/my-orders/",
+        loginUrl: 'https://shop.jonnyfresh.com/account/my-orders/',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(JonnyFreshCollector.CONFIG);

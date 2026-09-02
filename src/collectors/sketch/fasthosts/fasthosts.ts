@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class FasthostsCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "fasthosts",
-        name: "fasthosts",
-        description: "i18n.collectors.fasthosts.description",
-        version: "0",
-        website: "https://admin.fasthosts.co.uk/Auth/Login",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/8777.jpg",
+        id: 'fasthosts',
+        name: 'fasthosts',
+        description: 'i18n.collectors.fasthosts.description',
+        version: '0',
+        website: 'https://admin.fasthosts.co.uk/Auth/Login',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/8777.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://admin.fasthosts.co.uk/Auth/Login",
+        loginUrl: 'https://admin.fasthosts.co.uk/Auth/Login',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(FasthostsCollector.CONFIG);

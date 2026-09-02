@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class SouthwestGasCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "southwest_gas",
-        name: "Southwest Gas",
-        description: "i18n.collectors.southwest_gas.description",
-        version: "0",
-        website: "https://myaccount.swgas.com/",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/8642.jpg",
+        id: 'southwest_gas',
+        name: 'Southwest Gas',
+        description: 'i18n.collectors.southwest_gas.description',
+        version: '0',
+        website: 'https://myaccount.swgas.com/',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/8642.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://myaccount.swgas.com/",
+        loginUrl: 'https://myaccount.swgas.com/',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(SouthwestGasCollector.CONFIG);

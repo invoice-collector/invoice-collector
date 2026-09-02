@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class BaseCrmCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "base_crm",
-        name: "Base CRM",
-        description: "i18n.collectors.base_crm.description",
-        version: "0",
-        website: "https://core.futuresimple.com/sales/users/login?__hstc=102910175.3dc3dad61841786b8d73a5a4670b1527.1516721944299.1516721944299.1516721944299.1&__hssc=102910175.1.1516721944299&__hsfp=26496145",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/8557.jpg",
+        id: 'base_crm',
+        name: 'Base CRM',
+        description: 'i18n.collectors.base_crm.description',
+        version: '0',
+        website: 'https://core.futuresimple.com/sales/users/login?__hstc=102910175.3dc3dad61841786b8d73a5a4670b1527.1516721944299.1516721944299.1516721944299.1&__hssc=102910175.1.1516721944299&__hsfp=26496145',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/8557.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://core.futuresimple.com/sales/users/login?__hstc=102910175.3dc3dad61841786b8d73a5a4670b1527.1516721944299.1516721944299.1516721944299.1&__hssc=102910175.1.1516721944299&__hsfp=26496145",
+        loginUrl: 'https://core.futuresimple.com/sales/users/login?__hstc=102910175.3dc3dad61841786b8d73a5a4670b1527.1516721944299.1516721944299.1516721944299.1&__hssc=102910175.1.1516721944299&__hsfp=26496145',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(BaseCrmCollector.CONFIG);

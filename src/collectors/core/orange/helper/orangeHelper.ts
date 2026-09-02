@@ -1,5 +1,5 @@
 import { OrangeHelperSelectors } from './selectors';
-import { Driver, Element, } from '../../../../driver/driver';
+import { Driver, Element } from '../../../../driver/driver';
 import { WebSocketServer } from '../../../../websocket/webSocketServer';
 import { TwofaPromise } from '../../../../collect/twofaPromise';
 import * as utils from '../../../../utils';
@@ -10,7 +10,7 @@ import { WebCollector } from '../../../webCollector';
 export class OrangeHelper {
 
     static async needLogin(driver: Driver): Promise<boolean> {
-        return driver.url().includes("login.orange");
+        return driver.url().includes('login.orange');
     }
 
     static async login(driver: Driver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
@@ -27,12 +27,12 @@ export class OrangeHelper {
             // Check if email is incorrect
             const email_alert = await driver.getElement(OrangeHelperSelectors.CONTAINER_LOGIN_ALERT, { raiseException: false, timeout: 2000 });
             if (email_alert) {
-                return await email_alert.textContent("i18n.collectors.all.email_or_number.error");
+                return await email_alert.textContent('i18n.collectors.all.email_or_number.error');
             }
 
             // If id exists but no account associated
-            if (driver.url().includes("mdp/choice/default") || driver.url().includes("promo/custom-login")) {
-                return "i18n.collectors.all.signup.error";
+            if (driver.url().includes('mdp/choice/default') || driver.url().includes('promo/custom-login')) {
+                return 'i18n.collectors.all.signup.error';
             }
         }
 
@@ -49,7 +49,7 @@ export class OrangeHelper {
             // Check if password is incorrect
             const password_alert = await driver.getElement(OrangeHelperSelectors.CONTAINER_PASSWORD_ALERT, { raiseException: false, timeout: 2000 });
             if (password_alert) {
-                return await password_alert.textContent("i18n.collectors.all.password.error");
+                return await password_alert.textContent('i18n.collectors.all.password.error');
             }
         }
 
@@ -58,17 +58,17 @@ export class OrangeHelper {
     }
 
     static async needTwofa(driver: Driver): Promise<string | void>{
-        if(driver.url().includes("mobile-connect")){
+        if(driver.url().includes('mobile-connect')){
             // Click on "Authenticate with Mobile Connect" button
             await driver.leftClick(OrangeHelperSelectors.BUTTON_AUTHENTICATE_MOBILE_CONNECT);
             // Return instruction text
-            return driver.getAttribute(OrangeHelperSelectors.CONTAINER_MOBILE_CONNECT_INSTRUCTION, "textContent");
+            return driver.getAttribute(OrangeHelperSelectors.CONTAINER_MOBILE_CONNECT_INSTRUCTION, 'textContent');
         }
-        else if(driver.url().includes("orange-et-moi")) {
+        else if(driver.url().includes('orange-et-moi')) {
             // Click on "Send the request" on mobile
             await driver.leftClick(OrangeHelperSelectors.BUTTON_SEND_REQUEST_ON_MOBILE);
             // Return instruction text
-            return driver.getAttribute(OrangeHelperSelectors.BUTTON_REQUEST_ON_MOBILE_INSTRUCTION, "textContent");
+            return driver.getAttribute(OrangeHelperSelectors.BUTTON_REQUEST_ON_MOBILE_INSTRUCTION, 'textContent');
         }
     }
 
@@ -79,7 +79,7 @@ export class OrangeHelper {
 
     static async forEachPage(driver: Driver, next: () => Promise<void>): Promise<void> {
         // If need to select offer
-        const needOfferSelection = driver.url().includes("selectionner-un-contrat");
+        const needOfferSelection = driver.url().includes('selectionner-un-contrat');
         if (needOfferSelection) {
             // Get offers on page
             const offers = await driver.getElements(OrangeHelperSelectors.CONTAINER_OFFERS);
@@ -90,7 +90,7 @@ export class OrangeHelper {
             for (const offer of offers) {
                 console.log(`OrangeHelper: Processing offer number ${offers.indexOf(offer) + 1}`);
                 // Get href from link
-                const offerInvoicesLink = driver.origin() + await offer.getAttribute(OrangeHelperSelectors.CONTAINER_OFFERS_LINK, "href");
+                const offerInvoicesLink = driver.origin() + await offer.getAttribute(OrangeHelperSelectors.CONTAINER_OFFERS_LINK, 'href');
                 console.log(`OrangeHelper: Offer link is ${offerInvoicesLink}`);
                 // Open offer in new page
                 await driver.newPage(offerInvoicesLink);
@@ -106,7 +106,7 @@ export class OrangeHelper {
     }
 
     static async isEmpty(driver: Driver): Promise<boolean> {
-        return await driver.getElement(OrangeHelperSelectors.CONTAINER_NO_INVOICE, { raiseException: false, timeout: 2000 }) != null;
+        return await driver.getElement(OrangeHelperSelectors.CONTAINER_NO_INVOICE, { raiseException: false, timeout: 2000 }) !== null;
     }
                  
     static async getInvoices(driver: Driver): Promise<Element[]> {
@@ -120,18 +120,18 @@ export class OrangeHelper {
 
         // Return invoice
         const pdfElement = await element.getElement(OrangeHelperSelectors.BUTTON_PDF);
-        const stringDate = await element.getAttribute(OrangeHelperSelectors.CONTAINER_DATE, "textContent");
-        const amount = await element.getAttribute(OrangeHelperSelectors.CONTAINER_AMOUNT, "textContent");
-        const timestamp = utils.timestampFromString(stringDate, "dd MMMM yyyy", 'fr');
+        const stringDate = await element.getAttribute(OrangeHelperSelectors.CONTAINER_DATE, 'textContent');
+        const amount = await element.getAttribute(OrangeHelperSelectors.CONTAINER_AMOUNT, 'textContent');
+        const timestamp = utils.timestampFromString(stringDate, 'dd MMMM yyyy', 'fr');
         const date = new Date(timestamp);
         const id = `${contractId}-${date.getFullYear()}-${date.getMonth() + 1}`;
 
         return {
             id,
             timestamp,
-            link: link,
+            link,
             amount,
-            downloadButton: pdfElement
+            downloadButton: pdfElement,
         };
     }
 
@@ -142,7 +142,7 @@ export class OrangeHelper {
         // Raise error if VPN issue displayed
         const vpnError = await driver.getElement(OrangeHelperSelectors.CONTAINER_VPN_ERROR, { raiseException: false, timeout: 2000 });
         if (vpnError) {
-            throw new AuthenticationError("i18n.collectors.all.2fa.not_enabled", collector);
+            throw new AuthenticationError('i18n.collectors.all.2fa.not_enabled', collector);
         }
 
         // Click on download button if displayed

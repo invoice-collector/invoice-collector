@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class EniComCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "eni_com",
-        name: "eni.com",
-        description: "i18n.collectors.eni_com.description",
-        version: "0",
-        website: "http://www.eni.com",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/8904.jpg",
+        id: 'eni_com',
+        name: 'eni.com',
+        description: 'i18n.collectors.eni_com.description',
+        version: '0',
+        website: 'http://www.eni.com',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/8904.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "http://www.eni.com",
+        loginUrl: 'http://www.eni.com',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(EniComCollector.CONFIG);

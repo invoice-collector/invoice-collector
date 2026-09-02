@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class HkrWeltCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "hkr_welt",
-        name: "HKR WELT",
-        description: "i18n.collectors.hkr_welt.description",
-        version: "0",
-        website: "https://hkr-welt.de/Mein-Konto-HKR-Welt",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/830227.jpg",
+        id: 'hkr_welt',
+        name: 'HKR WELT',
+        description: 'i18n.collectors.hkr_welt.description',
+        version: '0',
+        website: 'https://hkr-welt.de/Mein-Konto-HKR-Welt',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/830227.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://hkr-welt.de/Mein-Konto-HKR-Welt",
+        loginUrl: 'https://hkr-welt.de/Mein-Konto-HKR-Welt',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(HkrWeltCollector.CONFIG);

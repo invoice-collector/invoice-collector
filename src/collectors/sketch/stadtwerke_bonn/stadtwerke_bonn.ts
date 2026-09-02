@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class StadtwerkeBonnCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "stadtwerke_bonn",
-        name: "Stadtwerke Bonn",
-        description: "i18n.collectors.stadtwerke_bonn.description",
-        version: "0",
-        website: "https://css.stadtwerke-bonn.de/portal",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1919258.jpg",
+        id: 'stadtwerke_bonn',
+        name: 'Stadtwerke Bonn',
+        description: 'i18n.collectors.stadtwerke_bonn.description',
+        version: '0',
+        website: 'https://css.stadtwerke-bonn.de/portal',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1919258.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://css.stadtwerke-bonn.de/portal",
+        loginUrl: 'https://css.stadtwerke-bonn.de/portal',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(StadtwerkeBonnCollector.CONFIG);

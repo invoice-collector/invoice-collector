@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class VismaOnlineCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "visma_online",
-        name: "Visma Online",
-        description: "i18n.collectors.visma_online.description",
-        version: "0",
-        website: "https://www.vismaonline.com/invoices",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/3273830.jpg",
+        id: 'visma_online',
+        name: 'Visma Online',
+        description: 'i18n.collectors.visma_online.description',
+        version: '0',
+        website: 'https://www.vismaonline.com/invoices',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/3273830.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://www.vismaonline.com/invoices",
+        loginUrl: 'https://www.vismaonline.com/invoices',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(VismaOnlineCollector.CONFIG);

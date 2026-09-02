@@ -5,13 +5,13 @@ import { Secret } from '../model/secret';
 export class ChaintrustIntegration extends AbstractIntegration { 
 
     static CONFIG: IntegrationConfig = {
-        id: "chaintrust",
-        name: "Chaintrust",
-        description: "i18n.integrations.chaintrust.description",
+        id: 'chaintrust',
+        name: 'Chaintrust',
+        description: 'i18n.integrations.chaintrust.description',
         state: 'planned',
         params: {
             //TODO: add specific params here
-        }
+        },
     };
     
     constructor(secret: Secret) {

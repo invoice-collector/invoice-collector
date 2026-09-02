@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class EnbwSmartMobilityCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "enbw_smart_mobility",
-        name: "EnBW Smart Mobility",
-        description: "i18n.collectors.enbw_smart_mobility.description",
-        version: "0",
-        website: "https://www.enbw.com/",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1333277.jpg",
+        id: 'enbw_smart_mobility',
+        name: 'EnBW Smart Mobility',
+        description: 'i18n.collectors.enbw_smart_mobility.description',
+        version: '0',
+        website: 'https://www.enbw.com/',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1333277.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://www.enbw.com/",
+        loginUrl: 'https://www.enbw.com/',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(EnbwSmartMobilityCollector.CONFIG);

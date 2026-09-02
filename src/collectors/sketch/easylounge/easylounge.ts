@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class EasyloungeCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "easylounge",
-        name: "EasyLounge",
-        description: "i18n.collectors.easylounge.description",
-        version: "0",
-        website: "https://www.easylounge.com/",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/118612.jpg",
+        id: 'easylounge',
+        name: 'EasyLounge',
+        description: 'i18n.collectors.easylounge.description',
+        version: '0',
+        website: 'https://www.easylounge.com/',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/118612.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://www.easylounge.com/",
+        loginUrl: 'https://www.easylounge.com/',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(EasyloungeCollector.CONFIG);

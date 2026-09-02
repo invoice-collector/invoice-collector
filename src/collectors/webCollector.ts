@@ -1,10 +1,10 @@
-import { CollectorType, CollectorCaptcha, CollectorState, Config, CollectorAuthenticationMethod } from "./abstractCollector";
+import { CollectorType, CollectorCaptcha, CollectorState, Config, CollectorAuthenticationMethod } from './abstractCollector';
 import { Driver } from '../driver/driver';
-import { V2Collector } from "./v2Collector";
-import { WebSocketServer } from "../websocket/webSocketServer";
-import { AuthenticationError, DisconnectedError, LoggableError, RemoveError } from "../error";
-import { MessageClick, MessageKeydown, MessageText } from "../websocket/message";
-import { KeyInput } from "rebrowser-puppeteer-core";
+import { V2Collector } from './v2Collector';
+import { WebSocketServer } from '../websocket/webSocketServer';
+import { AuthenticationError, DisconnectedError, LoggableError, RemoveError } from '../error';
+import { MessageClick, MessageKeydown, MessageText } from '../websocket/message';
+import { KeyInput } from 'rebrowser-puppeteer-core';
 
 export type WebConfig = Config & {
     loginUrl: string,
@@ -32,21 +32,21 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
             ...config,
             type: config.type || CollectorType.WEB,
             useProxyForLogin: config.useProxy === undefined ? config.captcha !== CollectorCaptcha.NONE : config.useProxy,
-            useProxy: config.useProxy === undefined ? config.captcha == CollectorCaptcha.DATADOME : config.useProxy,
-            remoteBrowser: config.remoteBrowser === undefined ? config.captcha == CollectorCaptcha.DATADOME : config.remoteBrowser,
+            useProxy: config.useProxy === undefined ? config.captcha === CollectorCaptcha.DATADOME : config.useProxy,
+            remoteBrowser: config.remoteBrowser === undefined ? config.captcha === CollectorCaptcha.DATADOME : config.remoteBrowser,
             state: config.state || CollectorState.ACTIVE,
             loadImages: config.loadImages === undefined ? false : config.loadImages,
             autoLogin: config.autoLogin || {
                 cookieNames: [],                // Take all cookies by default
-                localStorageKeys: undefined     // Take no localStorage by default
+                localStorageKeys: undefined,     // Take no localStorage by default
             },
-            authenticationMethod: config.authenticationMethod || CollectorAuthenticationMethod.ALL
+            authenticationMethod: config.authenticationMethod || CollectorAuthenticationMethod.ALL,
         });
         this.driver = null;
     }
 
     async _close(): Promise<void> {
-        if (this.driver != null) {
+        if (this.driver !== null) {
             // Close the browser
             await this.driver.close();
         }
@@ -79,7 +79,7 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
     protected async interactive(
         driver: Driver,
         webSocketServer: WebSocketServer | undefined,
-        instructions: string
+        instructions: string,
     ): Promise<string |void> {
         // If called with a WebSocketServer to undefined, it means that the session has expired
         if (!webSocketServer) {
@@ -92,8 +92,8 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
         const interactiveEndPromise = new Promise<void>((resolve, reject) => {
             // Define timeout
             setTimeout(() => {
-                reject(new AuthenticationError('i18n.collectors.all.login.timeout', this))
-            }, WebCollector.LOGIN_TIMEOUT_MS)
+                reject(new AuthenticationError('i18n.collectors.all.login.timeout', this));
+            }, WebCollector.LOGIN_TIMEOUT_MS);
 
             // Reject if the screencast could not be started (e.g. the target was destroyed)
             onScreencastError = () => {
@@ -135,7 +135,7 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
                         reject(new RemoveError(this));
                         break;
                     case 'report':
-                        reject(new LoggableError("A user reported an issue on this collector", this));
+                        reject(new LoggableError('A user reported an issue on this collector', this));
                         break;
                     default:
                         console.error('Unknown close reason:', event.reason);

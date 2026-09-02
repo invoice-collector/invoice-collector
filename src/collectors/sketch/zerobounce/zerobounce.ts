@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class ZerobounceCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "zerobounce",
-        name: "Zerobounce",
-        description: "i18n.collectors.zerobounce.description",
-        version: "0",
-        website: "https://www.zerobounce.net/members/customerinvoices/",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1324760.jpg",
+        id: 'zerobounce',
+        name: 'Zerobounce',
+        description: 'i18n.collectors.zerobounce.description',
+        version: '0',
+        website: 'https://www.zerobounce.net/members/customerinvoices/',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1324760.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://www.zerobounce.net/members/customerinvoices/",
+        loginUrl: 'https://www.zerobounce.net/members/customerinvoices/',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(ZerobounceCollector.CONFIG);

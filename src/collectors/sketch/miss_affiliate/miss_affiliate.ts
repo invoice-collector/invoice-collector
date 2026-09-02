@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class MissAffiliateCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "miss_affiliate",
-        name: "Miss Affiliate",
-        description: "i18n.collectors.miss_affiliate.description",
-        version: "0",
-        website: "https://aff-missaffiliate.pay.tune.com/payment-orders",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2284747.jpg",
+        id: 'miss_affiliate',
+        name: 'Miss Affiliate',
+        description: 'i18n.collectors.miss_affiliate.description',
+        version: '0',
+        website: 'https://aff-missaffiliate.pay.tune.com/payment-orders',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2284747.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://aff-missaffiliate.pay.tune.com/payment-orders",
+        loginUrl: 'https://aff-missaffiliate.pay.tune.com/payment-orders',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(MissAffiliateCollector.CONFIG);

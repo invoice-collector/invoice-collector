@@ -1,4 +1,4 @@
-import { CDPSession, ElementHandle, Frame, KeyInput, Page } from "rebrowser-puppeteer-core";
+import { CDPSession, ElementHandle, Frame, KeyInput, Page } from 'rebrowser-puppeteer-core';
 import { EventEmitter } from 'events';
 import { ElementNotFoundError, LoggableError } from '../error';
 import { Proxy } from '../proxy/abstractProxy';
@@ -27,25 +27,25 @@ export class Driver extends EventEmitter {
 
     public static getCommonCssSelector(selector1: string, selector2: string): string {
         // Extract the common parent element from the two css selectors
-        const parts1 = selector1.split(" > ");
-        const parts2 = selector2.split(" > ");
+        const parts1 = selector1.split(' > ');
+        const parts2 = selector2.split(' > ');
         const minLength = Math.min(parts1.length, parts2.length);
-        let commonParts: string[] = [];
+        const commonParts: string[] = [];
         let i: number;
-        let lastPart = "*";
+        let lastPart = '*';
         for (i = 0; i < minLength; i++) {
             if (parts1[i] === parts2[i]) {
                 commonParts.push(parts1[i]);
             } else {
-                const tag1 = parts1[i].split(":")[0];
-                const tag2 = parts2[i].split(":")[0];
+                const tag1 = parts1[i].split(':')[0];
+                const tag2 = parts2[i].split(':')[0];
                 if (tag1 === tag2) {
                     lastPart = tag1;
                 }
                 break;
             }
         }
-        return `${commonParts.join(" > ")} > ${lastPart}`;
+        return `${commonParts.join(' > ')} > ${lastPart}`;
     }
 
     collector: WebCollector;
@@ -76,9 +76,9 @@ export class Driver extends EventEmitter {
         // If must block images
         if (this.collector.config.loadImages === false) {
             await this.page.setRequestInterception(true);
-            this.page.on("request", (request) => {
+            this.page.on('request', (request) => {
                 if (!request.isInterceptResolutionHandled()) {
-                    if (request.resourceType() === "image" && this.collector.config.loadImages === false && !request.url().includes("cloudflare.com")) {
+                    if (request.resourceType() === 'image' && this.collector.config.loadImages === false && !request.url().includes('cloudflare.com')) {
                         request.abort('aborted', 0);
                     } else {
                         request.continue(request.continueRequestOverrides(), 0);
@@ -158,7 +158,7 @@ export class Driver extends EventEmitter {
                 quality: 100,           // 0–100
                 maxWidth: Driver.VIEWPORT_WIDTH,
                 maxHeight: Driver.VIEWPORT_HEIGHT,
-                everyNthFrame: 1        // increase to reduce FPS
+                everyNthFrame: 1,        // increase to reduce FPS
             });
 
             this.screencastCdp = cdp;
@@ -227,7 +227,7 @@ export class Driver extends EventEmitter {
 
     async closeExtraPages(): Promise<void> {
         // Get all pages
-        let pages = await this.pages();
+        const pages = await this.pages();
         // Remove the first page
         pages.shift();
         // Close all other pages
@@ -244,7 +244,7 @@ export class Driver extends EventEmitter {
             // Navigate to previous page
             await this.page.goBack({ waitUntil: 'networkidle0', timeout: Driver.DEFAULT_NAVIGATION_TIMEOUT });
         } catch (error) {
-            console.warn(`Failed to navigate to previous page, navigation timeout`);
+            console.warn('Failed to navigate to previous page, navigation timeout');
         }
     }
 
@@ -252,7 +252,7 @@ export class Driver extends EventEmitter {
 
     async goto(url: string | undefined, {
         timeout = Driver.DEFAULT_NAVIGATION_TIMEOUT,
-        navigation = true
+        navigation = true,
     } = {}): Promise<void> {
         if(url === undefined) {
             throw new Error('URL is undefined.');
@@ -264,10 +264,10 @@ export class Driver extends EventEmitter {
         try {
             if(navigation) {
                 // Navigate to the page and wait for navigation
-                await this.page.goto(url, {waitUntil: 'networkidle0', timeout: timeout});
+                await this.page.goto(url, {waitUntil: 'networkidle0', timeout});
             } else {
                 // Navigate to the page without waiting for navigation
-                await this.page.goto(url, {waitUntil: 'domcontentloaded', timeout: timeout});
+                await this.page.goto(url, {waitUntil: 'domcontentloaded', timeout});
             }
         } catch (error) {
             console.warn(`Failed to navigate to ${url}, navigation timeout`);
@@ -289,7 +289,7 @@ export class Driver extends EventEmitter {
             throw new Error('Page is not initialized.');
         }
         await this.page.goto(url, { waitUntil: 'networkidle0', timeout: Driver.DEFAULT_NAVIGATION_TIMEOUT });
-        const data = await this.page.$eval("body", (element) => {
+        const data = await this.page.$eval('body', (element) => {
             try {
                 return JSON.parse(element.innerText);
             } catch {
@@ -316,12 +316,12 @@ export class Driver extends EventEmitter {
         error_message: string,
         raiseException: boolean = true,
         timeout: number = Driver.DEFAULT_TIMEOUT,
-        polling: number = Driver.DEFAULT_POLLING
+        polling: number = Driver.DEFAULT_POLLING,
     ): Promise<any> {
-        let startDate = Date.now()
+        const startDate = Date.now();
         while ((Date.now() - startDate) < timeout) {
             const result = await check_condition(this);
-            if (result != null) {
+            if (result !== null) {
                 return result;
             }
             await utils.delay(polling);
@@ -353,7 +353,7 @@ export class Driver extends EventEmitter {
 
     async getElement(selector, {
         raiseException = true,
-        timeout = Driver.DEFAULT_TIMEOUT
+        timeout = Driver.DEFAULT_TIMEOUT,
     } = {}): Promise<Element | null> {
         if (this.page === null) {
             throw new Error('Page is not initialized.');
@@ -361,14 +361,14 @@ export class Driver extends EventEmitter {
         // Wait for first element matching selector in any frame, null if all timed out
         const element = await Promise.any(
             this.page.frames().map(frame =>
-                frame.waitForSelector(selector.selector, { timeout })
-            )
+                frame.waitForSelector(selector.selector, { timeout }),
+            ),
         ).catch(() => null);
 
-        if (element == null && raiseException) {
+        if (element === null && raiseException) {
             const error = new ElementNotFoundError(this.collector, selector, {
-                cause: `No element matching selector "${selector.selector}"`
-            })
+                cause: `No element matching selector "${selector.selector}"`,
+            });
             error.url = this.url();
             error.source_code = await this.sourceCode(true, true);
             error.screenshot = await this.screenshot();
@@ -379,7 +379,7 @@ export class Driver extends EventEmitter {
     }
 
     async getElementCoordinates(x: number, y: number, context: Page | Frame | null = null): Promise<Element | null> {
-        if (context == null) {
+        if (context === null) {
             if (this.page === null) {
                 throw new Error('Page is not initialized.');
             }
@@ -418,7 +418,7 @@ export class Driver extends EventEmitter {
 
                 // If bounding box x and y are not defined
                 if (!frameBoundingBox?.x || !frameBoundingBox?.y) {
-                    throw new Error("Iframe bounding box x or y is not defined");
+                    throw new Error('Iframe bounding box x or y is not defined');
                 }
 
                 // Recursively call the function inside the iframe and remove iframe coordinates
@@ -432,7 +432,7 @@ export class Driver extends EventEmitter {
 
     async getElements(selector, {
         raiseException = true,
-        timeout = Driver.DEFAULT_TIMEOUT
+        timeout = Driver.DEFAULT_TIMEOUT,
     } = {}): Promise<Element[]> {
         if (this.page === null) {
             throw new Error('Page is not initialized.');
@@ -443,13 +443,13 @@ export class Driver extends EventEmitter {
 
     async getAttribute(selector, attributeName, {
         raiseException = true,
-        timeout = Driver.DEFAULT_TIMEOUT
+        timeout = Driver.DEFAULT_TIMEOUT,
     } = {}): Promise<string> {
         if (this.page === null) {
             throw new Error('Page is not initialized.');
         }
         const element = await this.getElement(selector, { raiseException, timeout });
-        if (element == null) {
+        if (element === null) {
             if (raiseException) {
                 const error = new ElementNotFoundError(this.collector, selector);
                 error.url = this.url();
@@ -464,7 +464,7 @@ export class Driver extends EventEmitter {
 
     async getAttributes(selector, attributeName, {
         raiseException = true,
-        timeout = Driver.DEFAULT_TIMEOUT
+        timeout = Driver.DEFAULT_TIMEOUT,
     } = {}) {
         if (this.page === null) {
             throw new Error('Page is not initialized.');
@@ -480,13 +480,13 @@ export class Driver extends EventEmitter {
         timeout = Driver.DEFAULT_TIMEOUT,
         delay = Driver.DEFAULT_DELAY,
         navigation = true,
-        mouseHover = false
+        mouseHover = false,
     } = {}): Promise<Element | null> {
         if (this.page === null) {
             throw new Error('Page is not initialized.');
         }
-        let element = await this.getElement(selector, { raiseException, timeout });
-        if(element != null) {
+        const element = await this.getElement(selector, { raiseException, timeout });
+        if(element !== null) {
             await element.leftClick({ timeout, delay, navigation, mouseHover });
             return element;
         }
@@ -499,10 +499,10 @@ export class Driver extends EventEmitter {
         delay = Driver.DEFAULT_DELAY,
         tries = 5,
         navigation = false,
-        mouseHover = false
+        mouseHover = false,
     } = {}): Promise<Element | null> {
-        let element = await this.getElement(selector, { raiseException, timeout });
-        if(element != null) {
+        const element = await this.getElement(selector, { raiseException, timeout });
+        if(element !== null) {
             await element.inputText(text, { tries, timeout, delay, navigation, mouseHover });
             return element;
         }
@@ -513,7 +513,7 @@ export class Driver extends EventEmitter {
         raiseException = true,
         timeout = Driver.DEFAULT_TIMEOUT,
         delay = Driver.DEFAULT_DELAY,
-        mouseHover = false
+        mouseHover = false,
     } = {}): Promise<Element | null> {
         const element = await this.getElement(selector, { raiseException, timeout });
         if (element) {
@@ -531,7 +531,7 @@ export class Driver extends EventEmitter {
     }
 
     async type(text: string, {
-        delay = Driver.DEFAULT_DELAY
+        delay = Driver.DEFAULT_DELAY,
     } = {}): Promise<void> {
         await this.page?.keyboard.type(text);
         await utils.delay(delay);
@@ -578,7 +578,7 @@ export class Driver extends EventEmitter {
         const framesSourceCode = await Promise.all(
             frames.map(async frame => {
                 try {
-                    const sourceCode = (await frame.content())
+                    const sourceCode = (await frame.content());
                     return sourceCode
                         .replace(/<script\b[^>]*>([\s\S]*?)<\/script>/gi, '')
                         .replace(/<svg\b[^>]*>([\s\S]*?)<\/svg>/gi, '')
@@ -588,7 +588,7 @@ export class Driver extends EventEmitter {
                 } catch (error) {
                     return `<!-- Unable to retrieve frame content. Error: ${error} -->`;
                 }
-            })
+            }),
         );
 
         const fullSourceCode = framesSourceCode.join('\n<!-- ========== FRAME SEPARATOR ========== -->\n');
@@ -656,9 +656,9 @@ export class Driver extends EventEmitter {
         // Wait for Cloudflare turnstile value to be present
         await this.getElement({
             selector: "input[name='cf-turnstile-response'][value]",
-            info: "Cloudflare turnstile response input with value"
+            info: 'Cloudflare turnstile response input with value',
         }, {
-            raiseException: false
+            raiseException: false,
         });
     }
 
@@ -668,9 +668,9 @@ export class Driver extends EventEmitter {
         }
         await this.waitFor(async (driver) => {
             const iframe = await driver.page.$("iframe[title='DataDome Device Check']").catch(() => null);
-            return iframe ? null : "Navigation succeeded";
+            return iframe ? null : 'Navigation succeeded';
         },
-        "Datadome captcha did not succeed", true, 15000);
+        'Datadome captcha did not succeed', true, 15000);
     }
 
     // COOKIES
@@ -754,13 +754,13 @@ export class Element {
     async getElement(selector: any, options?: { raiseException?: true }): Promise<Element>;
     async getElement(selector: any, options: { raiseException: false }): Promise<Element | null>;
     async getElement(selector: any, {
-        raiseException = true
+        raiseException = true,
     } = {}): Promise<Element | null> {
         const elementHandle = await this.element.$(selector.selector);
         // If element not found and must raise exception
         if (!elementHandle && raiseException) {
             const error = new ElementNotFoundError(this.driver.collector, selector, {
-                cause: `No element matching selector "${selector.selector}"`
+                cause: `No element matching selector "${selector.selector}"`,
             });
             error.url = this.driver.url();
             error.source_code = await this.driver.sourceCode(true, true);
@@ -784,7 +784,7 @@ export class Element {
         timeout = Driver.DEFAULT_TIMEOUT,
         delay = Driver.DEFAULT_DELAY,
         navigation = true,
-        mouseHover = false
+        mouseHover = false,
     } = {}): Promise<void> {
         if (mouseHover) {
             await this.element.hover();
@@ -799,7 +799,7 @@ export class Element {
 
     async middleClick({
         useFallbackMethod = false,
-        timeout = Driver.DEFAULT_TIMEOUT
+        timeout = Driver.DEFAULT_TIMEOUT,
     } = {}): Promise<void> {
         // If does not open in a new page by default
         if(!useFallbackMethod) {
@@ -816,7 +816,7 @@ export class Element {
             // Get number of downloaded files after middle click
             const numberOfFilesAfter = (await this.driver.browser?.getDownloadedFiles(false))?.length || 0;
             // If no new page opened and no new file downloaded, set useFallbackMethod to true
-            useFallbackMethod = numberOfPagesAfter.length == numberOfPagesBefore && numberOfFilesAfter == numberOfFilesBefore;
+            useFallbackMethod = numberOfPagesAfter.length === numberOfPagesBefore && numberOfFilesAfter === numberOfFilesBefore;
         }
         // If need to open in a new page
         if (useFallbackMethod) {
@@ -827,9 +827,9 @@ export class Element {
             // Click on the element again
             await this.driver.leftClick({
                 selector: await this.cssSelector(),
-                info: "middle click"
+                info: 'middle click',
             }, {
-                timeout: timeout,
+                timeout,
             });
         }
     }
@@ -839,7 +839,7 @@ export class Element {
         timeout = Driver.DEFAULT_TIMEOUT,
         delay = Driver.DEFAULT_DELAY,
         navigation = false,
-        mouseHover = false
+        mouseHover = false,
     } = {}): Promise<void> {
         if (mouseHover) {
             await this.element.hover();
@@ -867,7 +867,7 @@ export class Element {
 
     async dropdownSelect(value: string, {
         delay = Driver.DEFAULT_DELAY,
-        mouseHover = false
+        mouseHover = false,
     } = {}): Promise<void> {
         if (mouseHover) {
             await this.element.hover();
@@ -901,16 +901,16 @@ export class Element {
                 let sibling = element;
                 let nth = 1;
                 while ((sibling = sibling.previousElementSibling)) {
-                    if (sibling.tagName === element.tagName) nth++;
+                    if (sibling.tagName === element.tagName) {nth++;}
                 }
                 selector += `:nth-of-type(${nth})`;
 
                 // If parent is null and root node is not document, it means we are in a shadow DOM and we need to get the selector of the parent element in the main DOM
                 if (element.parentElement! === null && element.getRootNode() !== document) {
-                    console.log("We are in a shadow DOM");
-                    return getCssSelector(element.getRootNode().host) + ' >>>> ' + selector;
+                    console.log('We are in a shadow DOM');
+                    return `${getCssSelector(element.getRootNode().host)  } >>>> ${  selector}`;
                 }
-                return getCssSelector(element.parentElement!) + ' > ' + selector;
+                return `${getCssSelector(element.parentElement!)  } > ${  selector}`;
             }
             return getCssSelector(element);
         });

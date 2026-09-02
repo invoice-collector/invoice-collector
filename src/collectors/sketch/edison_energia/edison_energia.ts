@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class EdisonEnergiaCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "edison_energia",
-        name: "edison energia",
-        description: "i18n.collectors.edison_energia.description",
-        version: "0",
-        website: "http://www.edisonenergia.it",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/9082.jpg",
+        id: 'edison_energia',
+        name: 'edison energia',
+        description: 'i18n.collectors.edison_energia.description',
+        version: '0',
+        website: 'http://www.edisonenergia.it',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/9082.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "http://www.edisonenergia.it",
+        loginUrl: 'http://www.edisonenergia.it',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(EdisonEnergiaCollector.CONFIG);

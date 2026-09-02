@@ -4,32 +4,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class EngieBeCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "engie_be",
-        name: "Engie Particuliers (.be)",
-        description: "i18n.collectors.engie.description",
-        version: "0",
-        website: "https://engie.be",
-        logo: "https://upload.wikimedia.org/wikipedia/fr/5/5c/Engie_logo.svg",
+        id: 'engie_be',
+        name: 'Engie Particuliers (.be)',
+        description: 'i18n.collectors.engie.description',
+        version: '0',
+        website: 'https://engie.be',
+        logo: 'https://upload.wikimedia.org/wikipedia/fr/5/5c/Engie_logo.svg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://account.engie.be/u/login",
+        loginUrl: 'https://account.engie.be/u/login',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(EngieBeCollector.CONFIG);

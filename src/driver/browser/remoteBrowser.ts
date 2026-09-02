@@ -1,6 +1,6 @@
-import * as utils from "../../utils";
-import { AbstractBrowser } from "./abstractBrowser";
-import path from "path";
+import * as utils from '../../utils';
+import { AbstractBrowser } from './abstractBrowser';
+import path from 'path';
 
 export class RemoteBrowser extends AbstractBrowser {
 
@@ -12,8 +12,8 @@ export class RemoteBrowser extends AbstractBrowser {
     server_port: number;
 
     constructor() {
-        super(utils.getEnvVar("REMOTE_CHROME_IP"), RemoteBrowser.getDownloadPath());
-        this.server_port = parseInt(utils.getEnvVar("REMOTE_CHROME_PORT"));
+        super(utils.getEnvVar('REMOTE_CHROME_IP'), RemoteBrowser.getDownloadPath());
+        this.server_port = parseInt(utils.getEnvVar('REMOTE_CHROME_PORT'));
     }
 
     async launch(options: any): Promise<string> {
@@ -29,9 +29,9 @@ export class RemoteBrowser extends AbstractBrowser {
             response = await fetch(endpoint, {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(options)
+                body: JSON.stringify(options),
             });
         }
         catch (e) {
@@ -54,7 +54,7 @@ export class RemoteBrowser extends AbstractBrowser {
         this.puppeteerBrowser.close();
         this.port = undefined;
         this.wsid = undefined;
-        console.log("Remote Chrome closed");
+        console.log('Remote Chrome closed');
     }
     
     async getDownloadedFiles(clean: boolean): Promise<string[]> {
@@ -64,8 +64,8 @@ export class RemoteBrowser extends AbstractBrowser {
             response = await fetch(endpoint, {
                 method: 'GET',
                 headers: {
-                    'Content-Type': 'application/json'
-                }
+                    'Content-Type': 'application/json',
+                },
             });
         }
         catch (e) {

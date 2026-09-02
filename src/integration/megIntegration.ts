@@ -5,13 +5,13 @@ import { Secret } from '../model/secret';
 export class MegIntegration extends AbstractIntegration { 
 
     static CONFIG: IntegrationConfig = {
-        id: "meg",
-        name: "MEG",
-        description: "i18n.integrations.meg.description",
+        id: 'meg',
+        name: 'MEG',
+        description: 'i18n.integrations.meg.description',
         state: 'planned',
         params: {
             //TODO: add specific params here
-        }
+        },
     };
     
     constructor(secret: Secret) {

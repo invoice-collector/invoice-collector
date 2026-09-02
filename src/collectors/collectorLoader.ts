@@ -1,27 +1,26 @@
 import path from 'path';
 import { glob } from 'glob';
 import fs from 'fs';
-import { AbstractCollector, CollectorAuthenticationMethod, CollectorCaptcha, CollectorType, Config } from './abstractCollector';
+import { AbstractCollector, CollectorAuthenticationMethod, CollectorCaptcha, CollectorType, CollectorState, Config } from './abstractCollector';
 import { StatusError } from '../error';
-import { CollectorState } from './abstractCollector';
 
 export class CollectorLoader {
     private static collectors: Map<string, {config: Config, file: string}> = new Map();
 
     static async load(filter: string | null = null): Promise<Map<string, {config: Config, file: string}>> {
-        await this.loadFolders("sketch", "sketch", filter)
-        await this.loadFolders("community", "community", filter)
-        await this.loadFolders("core", "core", filter)
-        await this.loadFolders("email_provider", "email_provider", filter)
-        await this.loadFolders("premium", "../premium/collectors/premium", filter)
-        await this.loadFolders("graph", "../premium/collectors/graph", filter)
+        await this.loadFolders('sketch', 'sketch', filter);
+        await this.loadFolders('community', 'community', filter);
+        await this.loadFolders('core', 'core', filter);
+        await this.loadFolders('email_provider', 'email_provider', filter);
+        await this.loadFolders('premium', '../premium/collectors/premium', filter);
+        await this.loadFolders('graph', '../premium/collectors/graph', filter);
 
         //Order collectors by id
         CollectorLoader.collectors = new Map([...CollectorLoader.collectors.entries()]
             .sort((a, b) => a[0].localeCompare(b[0])));
 
         // Return loaded collectors
-        return CollectorLoader.collectors
+        return CollectorLoader.collectors;
     }
 
     private static async loadFolders(name: string, folder: string, filter: string | null) {
@@ -47,7 +46,7 @@ export class CollectorLoader {
                     const configMatch = content.match(/CONFIG\s*=\s*({[\s\S]*?})\s*constructor/);
                     if (configMatch) {
                         try {
-                            let configStr = configMatch[1]
+                            let configStr = configMatch[1];
 
                             // Replace all occurrences of CollectorState enum values
                             for (const [key, value] of Object.entries(CollectorState)) {
@@ -70,7 +69,7 @@ export class CollectorLoader {
                             }
 
                             // Evaluate the config object
-                            const config = eval('(' + configStr + ')');
+                            const config = eval(`(${  configStr  })`);
 
                             // Set config.state to default if not set
                             if (!config.state) {
@@ -101,7 +100,7 @@ export class CollectorLoader {
 
     public static async getAll(): Promise<Config[]> {
         //Check if collectors are loaded
-        if (CollectorLoader.collectors.size == 0) {
+        if (CollectorLoader.collectors.size === 0) {
             await CollectorLoader.load();
         }
         // Return all collectors
@@ -110,7 +109,7 @@ export class CollectorLoader {
 
     public static async getConfig(id: string): Promise<Config> {
         //Check if collectors are loaded
-        if (CollectorLoader.collectors.size == 0) {
+        if (CollectorLoader.collectors.size === 0) {
             await CollectorLoader.load();
         }
         const collector = CollectorLoader.collectors.get(id.toLowerCase());
@@ -122,11 +121,11 @@ export class CollectorLoader {
 
     public static async get(id: string): Promise<AbstractCollector<Config>> {
         //Check if collectors are loaded
-        if (CollectorLoader.collectors.size == 0) {
+        if (CollectorLoader.collectors.size === 0) {
             await CollectorLoader.load();
         }
         // Find the collector with the id
-        const collector = CollectorLoader.collectors.get(id.toLowerCase())
+        const collector = CollectorLoader.collectors.get(id.toLowerCase());
 
         if(collector === undefined) {
             throw new StatusError(`No collector with id "${id}" found.`, 400);
@@ -139,7 +138,7 @@ export class CollectorLoader {
             // Check if the class is a collector
             if (typeof collectorModule[classKey] === 'function' && classKey.endsWith('Collector')) {
                 // Instanciate the collector
-                let collector = collectorModule[classKey];
+                const collector = collectorModule[classKey];
                 // Set the id of the collector to the folder name
                 return new collector();
             }
