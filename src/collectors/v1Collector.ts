@@ -3,7 +3,7 @@ import { Secret } from '../model/secret';
 import { State } from '../model/state';
 import { AbstractCollector, CompleteInvoice, Config, Invoice } from './abstractCollector';
 import { WebSocketServer } from '../websocket/webSocketServer';
-import { ModelInvoice } from '../model/credential';
+import { Credential, ModelInvoice } from '../model/credential';
 import { CustomerAuthenticationMethod } from '../model/customer';
 
 export abstract class V1Collector<C extends Config> extends AbstractCollector<C> {
@@ -20,12 +20,13 @@ export abstract class V1Collector<C extends Config> extends AbstractCollector<C>
         previousInvoices: ModelInvoice[],
         locale: string,
         location: Location | null,
-        customerAuthenticationMethod: CustomerAuthenticationMethod
+        customerAuthenticationMethod: CustomerAuthenticationMethod,
+        providers: Credential[]
     ): Promise<CompleteInvoice[]> {
         // Check if a mandatory field is missing
+        const secretParams = await secret.getParams();
         for (const [key, value] of Object.entries(this.config.params)) {
-            const secretParams = await secret.getParams();
-            if (value.mandatory && !secretParams[key]) {
+            if (value.mandatory && !secretParams.hasOwnProperty(key)) {
                 throw new Error(`Field "${key}" is missing.`);
             }
         }

@@ -4,7 +4,6 @@ import { V1Collector } from "./v1Collector";
 import { CollectorError, LoggableError, UnfinishedCollectorError } from '../error';
 import { Location } from "../proxy/abstractProxy";
 import { Secret } from "../model/secret";
-import { TwofaPromise } from "../collect/twofaPromise";
 import { State } from "../model/state";
 import * as utils from '../utils';
 import { WebSocketServer } from "../websocket/webSocketServer";

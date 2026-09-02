@@ -18,7 +18,7 @@ export type WebConfig = Config & {
         cookieNames?: string[],
         localStorageKeys?: string[]
     },
-    authenticationMethod?: CollectorAuthenticationMethod
+    authenticationMethod: CollectorAuthenticationMethod
 }
 
 export abstract class WebCollector extends V2Collector<WebConfig> {

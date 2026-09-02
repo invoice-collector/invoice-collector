@@ -11,6 +11,7 @@ import { WebSocketServer } from "../websocket/webSocketServer";
 import { CollectorMemory } from "../model/collectorMemory";
 import { WebCollector } from "./webCollector";
 import { Proxy } from '../proxy/abstractProxy';
+import { Credential } from "../model/credential";
 
 export enum DocumentStrategy {
     SPLIT = "split",
@@ -29,7 +30,8 @@ export abstract class LinearWebCollector extends WebCollector {
         previousInvoices: any[],
         locale: string,
         location: Location | null,
-        useInteractiveLogin: boolean
+        useInteractiveLogin: boolean,
+        providers: Credential[]
     ): Promise<CompleteInvoice[]> {
         // Get proxy
         let proxy: Proxy | null = null;

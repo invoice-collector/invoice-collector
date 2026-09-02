@@ -4,7 +4,7 @@ import { Secret } from '../model/secret';
 import { State } from '../model/state';
 import { WebSocketServer } from '../websocket/webSocketServer';
 import { Element } from '../driver/driver';
-import { ModelInvoice } from '../model/credential';
+import { Credential, ModelInvoice } from '../model/credential';
 import { CustomerAuthenticationMethod } from '../model/customer';
 
 export enum CollectorState {
@@ -18,6 +18,7 @@ export enum CollectorType {
     AGENT = 'agent',
     API = 'api',
     EMAIL = 'email',
+    PROVIDER = 'provider',
     SKETCH = 'sketch'
 }
 
@@ -180,6 +181,7 @@ export abstract class AbstractCollector<C extends Config> {
         previousInvoices: ModelInvoice[],
         locale: string,
         location: Location | null,
-        customerAuthenticationMethod: CustomerAuthenticationMethod
+        customerAuthenticationMethod: CustomerAuthenticationMethod,
+        providers: Credential[]
     ): Promise<CompleteInvoice[]>;
 }

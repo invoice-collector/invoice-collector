@@ -564,6 +564,12 @@ body {
   opacity: 0.6;
 }
 
+.ic-input[type="checkbox"] {
+  width: auto;
+  min-height: auto;
+  padding: 0;
+}
+
 .ic-textarea {
   min-height: 100px;
   resize: vertical;
