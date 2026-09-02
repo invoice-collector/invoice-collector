@@ -23,8 +23,6 @@ export abstract class V1Collector<C extends Config> extends AbstractCollector<C>
         customerAuthenticationMethod: CustomerAuthenticationMethod,
         providers: Credential[]
     ): Promise<CompleteInvoice[]> {
-        void providers; // V1 collectors do not use email providers
-
         // Check if a mandatory field is missing
         const secretParams = await secret.getParams();
         for (const [key, value] of Object.entries(this.config.params)) {
