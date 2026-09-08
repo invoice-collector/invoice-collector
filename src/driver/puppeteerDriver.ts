@@ -441,7 +441,7 @@ export class PuppeteerDriver extends AbstractDriver {
     async getAttributes(selector, attributeName, {
         raiseException = true,
         timeout = AbstractDriver.DEFAULT_TIMEOUT,
-    } = {}) {
+    } = {}): Promise<string[]> {
         if (this.page === null) {
             throw new Error('Page is not initialized.');
         }
