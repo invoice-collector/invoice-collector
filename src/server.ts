@@ -27,12 +27,12 @@ export class Server {
     static IS_SELF_HOSTED: boolean = utils.getEnvVar('IS_SELF_HOSTED', 'true').toLowerCase() === 'true';
 
     tokenManager: TokenManager;
-    collect_task: CollectTask;
+    collectTask: CollectTask;
     httpServer: any;
 
     constructor() {
         this.tokenManager = new TokenManager();
-        this.collect_task = new CollectTask();
+        this.collectTask = new CollectTask();
 	}
 
     async start(){
@@ -56,7 +56,7 @@ export class Server {
             });
 
         // Start cron job for invoice collection
-        this.collect_task.start();
+        this.collectTask.start();
     }
 
     // ---------- GENERAL ENDPOINTS ----------
