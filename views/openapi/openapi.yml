@@ -102,8 +102,8 @@ components:
       example: <token>
     resetToken:
       type: string
-      description: Token to be used for password reset. You can get it using the POST
-        /signup endpoint.
+      description: Token to be used for password reset. Sent by email via the POST
+        /forgot or POST /signup endpoints.
       example: <reset_token>
     oauth2State:
       type: string
@@ -984,16 +984,8 @@ paths:
                   $ref: "#/components/schemas/inviteId"
       responses:
         "200":
-          description: Success
-          content:
-            application/json:
-              schema:
-                type: object
-                required:
-                  - resetToken
-                properties:
-                  resetToken:
-                    $ref: "#/components/schemas/resetToken"
+          description: Success. A password reset email has been sent to the provided
+            address.
         "400":
           description: Bad request
           content:
@@ -1025,16 +1017,9 @@ paths:
                   $ref: "#/components/schemas/email"
       responses:
         "200":
-          description: Success
-          content:
-            application/json:
-              schema:
-                type: object
-                required:
-                  - resetToken
-                properties:
-                  resetToken:
-                    $ref: "#/components/schemas/resetToken"
+          description: Success. If an account exists for this email, a password reset
+            email has been sent. The response is intentionally identical whether
+            or not an account exists.
         "400":
           description: Bad request
           content:
@@ -1057,8 +1042,8 @@ paths:
         - name: token
           in: query
           required: true
-          description: Token to be used for password reset. _You can get it using the
-            `POST /signup` endpoint._
+          description: Token to be used for password reset. _Sent by email via the `POST
+            /forgot` or `POST /signup` endpoints._
           schema:
             $ref: "#/components/schemas/resetToken"
       requestBody:

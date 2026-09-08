@@ -1,5 +1,7 @@
 import path from 'path';
 import express from 'express';
+import helmet from 'helmet';
+import { rateLimit } from 'express-rate-limit';
 import { StatusError } from './error';
 import { Server } from './server';
 import * as utils from './utils';
@@ -7,11 +9,30 @@ import { I18n } from './i18n';
 
 // Configure express
 const app = express();
-app.use(express.json());
+// CSP is disabled because the EJS views (ui/ui.ejs, ui/oauth2.ejs) rely on inline scripts and
+// inline event handlers; enabling it as-is would break those pages. Other helmet protections
+// (X-Content-Type-Options, HSTS, Referrer-Policy, X-Frame-Options, ...) remain active.
+app.use(helmet({ contentSecurityPolicy: false }));
+app.use(express.json({ limit: '100kb' }));
 app.use(I18n.i18n.init);
 app.use('/views', express.static(path.join(__dirname, '..', 'views')));
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '..', 'views'));
+
+// Throttle unauthenticated auth endpoints to slow down brute-force/credential-stuffing attempts
+const authRateLimiter = rateLimit({
+    windowMs: 15 * 60 * 1000, // 15 minutes
+    limit: 20,
+    standardHeaders: true,
+    legacyHeaders: false,
+    message: { type: 'error', message: 'Too many requests, please try again later.' },
+});
+
+// Flags a route as deprecated (RFC 8594) so API consumers/tooling can detect legacy endpoint usage
+function markDeprecated(res: express.Response): void {
+    res.setHeader('Deprecation', 'true');
+}
+
 declare global {
     namespace Express {
         interface Request {
@@ -263,7 +284,7 @@ app.post('/api/v1/feedback', async (req, res) => {
  *               $ref: '#/components/schemas/error'
  */
 // NO AUTHENTICATION
-app.post('/api/v1/login', async (req, res) => {
+app.post('/api/v1/login', authRateLimiter, async (req, res) => {
     try {
         // Perform login
         console.log('POST /login');
@@ -307,15 +328,7 @@ app.post('/api/v1/login', async (req, res) => {
  *                 $ref: '#/components/schemas/inviteId'
  *     responses:
  *       200:
- *         description: Success
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               required: [resetToken]
- *               properties:
- *                 resetToken:
- *                   $ref: '#/components/schemas/resetToken'
+ *         description: Success. A password reset email has been sent to the provided address.
  *       400:
  *         description: Bad request
  *         content:
@@ -330,11 +343,11 @@ app.post('/api/v1/login', async (req, res) => {
  *               $ref: '#/components/schemas/error'
  */
 // NO AUTHENTICATION
-app.post('/api/v1/signup', async (req, res) => {
+app.post('/api/v1/signup', authRateLimiter, async (req, res) => {
     try {
         // Perform signup
         console.log('POST /signup');
-        const response = await server.post_signup(
+        await server.post_signup(
             req.body.email,
             req.body.name,
             req.body.cid,
@@ -343,8 +356,7 @@ app.post('/api/v1/signup', async (req, res) => {
         );
 
         // Build response
-        res.setHeader('Content-Type', 'application/json');
-        res.end(JSON.stringify(response));
+        res.end();
     } catch (e) {
         handle_error(e, req, res);
     }
@@ -369,15 +381,7 @@ app.post('/api/v1/signup', async (req, res) => {
  *                 $ref: '#/components/schemas/email'
  *     responses:
  *       200:
- *         description: Success
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               required: [resetToken]
- *               properties:
- *                 resetToken:
- *                   $ref: '#/components/schemas/resetToken'
+ *         description: Success. If an account exists for this email, a password reset email has been sent. The response is intentionally identical whether or not an account exists.
  *       400:
  *         description: Bad request
  *         content:
@@ -392,17 +396,16 @@ app.post('/api/v1/signup', async (req, res) => {
  *               $ref: '#/components/schemas/error'
  */
 // NO AUTHENTICATION
-app.post('/api/v1/forgot', async (req, res) => {
+app.post('/api/v1/forgot', authRateLimiter, async (req, res) => {
     try {
         // Perform forgot password
         console.log('POST /forgot');
-        const response = await server.post_forgot(
+        await server.post_forgot(
             req.body.email,
         );
 
         // Build response
-        res.setHeader('Content-Type', 'application/json');
-        res.end(JSON.stringify(response));
+        res.end();
     } catch (e) {
         handle_error(e, req, res);
     }
@@ -419,7 +422,7 @@ app.post('/api/v1/forgot', async (req, res) => {
  *       - name: token
  *         in: query
  *         required: true
- *         description: Token to be used for password reset. _You can get it using the `POST /signup` endpoint._
+ *         description: Token to be used for password reset. _Sent by email via the `POST /forgot` or `POST /signup` endpoints._
  *         schema:
  *           $ref: '#/components/schemas/resetToken'
  *     requestBody:
@@ -455,7 +458,7 @@ app.post('/api/v1/forgot', async (req, res) => {
  *               $ref: '#/components/schemas/error'
  */
 // NO AUTHENTICATION
-app.post('/api/v1/reset', async (req, res) => {
+app.post('/api/v1/reset', authRateLimiter, async (req, res) => {
     try {
         // Perform reset password
         console.log('POST /reset');
@@ -875,6 +878,7 @@ app.get('/api/v1/user/:user_id', async (req, res) => {
 // BEARER AUTHENTICATION
 app.get('/api/v1/user', async (req, res) => {
     try {
+        markDeprecated(res);
         // Get user
         console.warn('GET /user (DEPRECATED, use GET /user/{userId} with userId "me" instead)');
         const response = await server.get_user(
@@ -1084,6 +1088,7 @@ app.get('/api/v1/user/:user_id/credentials', async (req, res) => {
 // TOKEN AUTHENTICATION
 app.get('/api/v1/credentials', async (req, res) => {
     try {
+        markDeprecated(res);
         // Get credentials
         console.warn('GET /credentials (DEPRECATED, use GET /user/{userId}/credentials with userId "me" instead)');
         const credentials = await server.get_credentials(
@@ -1190,6 +1195,7 @@ app.post('/api/v1/user/:user_id/credential', async (req, res) => {
 // TOKEN AUTHENTICATION
 app.post('/api/v1/credential', async (req, res) => {
     try {
+        markDeprecated(res);
         // Save credential
         console.warn('POST /credential (DEPRECATED, use POST /user/{userId}/credential with userId "me" instead)');
         const response = await server.post_credential(
@@ -1286,6 +1292,7 @@ app.get('/api/v1/user/:user_id/credential/:credential_id', async (req, res) => {
 // TOKEN AUTHENTICATION
 app.get('/api/v1/credential/:credential_id', async (req, res) => {
     try {
+        markDeprecated(res);
         console.warn('GET credential (DEPRECATED, use GET /user/{userId}/credential/{credentialId} with userId "me" instead)');
         // Get credential status
         const response = await server.get_credential(
@@ -1375,6 +1382,7 @@ app.delete('/api/v1/user/:user_id/credential/:credential_id', async (req, res) =
 // TOKEN AUTHENTICATION
 app.delete('/api/v1/credential/:credential_id', async (req, res) => {
     try {
+        markDeprecated(res);
         // Delete credential
         console.warn(`DELETE /credential/${req.params.credential_id} (DEPRECATED, use DELETE /user/{userId}/credential/{credentialId} with userId "me" instead)`);
         await server.delete_credential(
@@ -1455,6 +1463,7 @@ app.delete('/api/v1/credential/:credential_id', async (req, res) => {
 // BEARER AUTHENTICATION
 app.post('/api/v1/user/:user_id/credential/:credential_id/2fa', async (req, res) => {
     try {
+        markDeprecated(res);
         // Post 2fa
         console.warn(`POST /user/${req.params.user_id}/credential/${req.params.credential_id}/2fa (DEPRECATED, use websockets instead)`);
         await server.post_credential_2fa(
@@ -1475,6 +1484,7 @@ app.post('/api/v1/user/:user_id/credential/:credential_id/2fa', async (req, res)
 // TOKEN AUTHENTICATION
 app.post('/api/v1/credential/:credential_id/2fa', async (req, res) => {
     try {
+        markDeprecated(res);
         // Post 2fa
         console.warn(`POST /credential/${req.params.credential_id}/2fa (DEPRECATED, use websockets instead)`);
         await server.post_credential_2fa(
@@ -1624,6 +1634,7 @@ app.post('/api/v1/user/:user_id/credential/:credential_id/collect', async (req, 
 // TOKEN AUTHENTICATION
 app.post('/api/v1/credential/:credential_id/collect', async (req, res) => {
     try {
+        markDeprecated(res);
         // Post collect
         console.warn(`POST /credential/${req.params.credential_id}/collect (DEPRECATED, use websockets instead)`);
         const response = await server.post_credential_collect(

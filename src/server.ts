@@ -24,8 +24,6 @@ import { TokenManager } from './tokenManager';
 
 export class Server {
 
-    static IS_SELF_HOSTED: boolean = utils.getEnvVar('IS_SELF_HOSTED', 'true').toLowerCase() === 'true';
-
     tokenManager: TokenManager;
     collectTask: CollectTask;
     httpServer: any;
@@ -172,8 +170,8 @@ export class Server {
             throw new MissingField('password');
         }
 
-        // Get customer from email
-        const customer = await Customer.fromEmailAndPassword(email, utils.hash_string(password));
+        // Get customer from email (password verified against its salted hash in the database layer)
+        const customer = await Customer.fromEmailAndPassword(email, password);
 
         // If customer exists
         if(customer) {
@@ -188,7 +186,7 @@ export class Server {
         }
         else {
             // Get user from remote_id and password
-            const user = await User.fromRemoteIdAndPassword(email, utils.hash_string(password));
+            const user = await User.fromRemoteIdAndPassword(email, password);
             
             // Check if user exists
             if(!user) {
@@ -213,9 +211,7 @@ export class Server {
         cid: string | undefined,
         locale: string | undefined,
         inviteId: string | undefined,
-    ): Promise<{
-        resetToken: string
-    }> {
+    ): Promise<void> {
         // Check if email field is missing
         if(!email) {
             throw new MissingField('email');
@@ -281,10 +277,8 @@ export class Server {
             await AnalyticsFactory.getInstance().sendWelcomeEmail(email, user.locale);
 
             // Handle password reset for user
-            const resetToken = await this.handleUserResetPassword(user);
-
-            // Return reset token
-            return { resetToken };
+            await this.handleUserResetPassword(user);
+            return;
         }
         else {
             // Create new customer
@@ -306,22 +300,22 @@ export class Server {
             await AnalyticsFactory.getInstance().sendWelcomeEmail(email, locale || I18n.DEFAULT_LOCALE);
 
             // Handle password reset for customer
-            const resetToken = await this.handleCustomerResetPassword(customer);
-
-            // Return reset token
-            return { resetToken };
+            await this.handleCustomerResetPassword(customer);
         }
     }
 
     // NO AUTHENTICATION
     public async post_forgot(
         email: string | undefined,
-    ): Promise<{
-        resetToken: string
-    }> {
+    ): Promise<void> {
         // Check if email field is missing
         if(!email) {
             throw new MissingField('email');
+        }
+
+        // Check if email is a string to prevent NoSQL operator injection
+        if(typeof email !== 'string') {
+            throw new StatusError('The field "email" must be a string.', 400);
         }
 
         // Get customer from email
@@ -329,27 +323,19 @@ export class Server {
 
         // If customer exists
         if(customer) {
-            // Generate reset token
-            const resetToken = await this.handleCustomerResetPassword(customer);
-
-            // Return reset token
-            return { resetToken };
+            // Handle password reset for customer
+            await this.handleCustomerResetPassword(customer);
         }
+        else {
+            // Check if a user exists instead
+            const user = await User.fromRemoteId(email);
 
-        // Check if customer already exists
-        const user = await User.fromRemoteId(email);
-
-        // If user exists
-        if(user) {
-            // Generate reset token and return it
-            const resetToken = await this.handleUserResetPassword(user);
-
-            // Return reset token
-            return { resetToken };
+            // If user exists
+            if(user) {
+                // Handle password reset for user
+                await this.handleUserResetPassword(user);
+            }
         }
-
-        // If not customer or user found, raise error
-        throw new StatusError(`No account found for email "${email}".`, 400);
     }
 
     // RESET TOKEN AUTHENTICATION
@@ -382,7 +368,7 @@ export class Server {
             }
 
             // Set new password
-            customer.password = utils.hash_string(password);
+            customer.password = utils.hashPassword(password);
 
             // Commit changes in database
             await customer.commit();
@@ -406,7 +392,7 @@ export class Server {
                 }
 
                 // Set new password
-                user.password = utils.hash_string(password);
+                user.password = utils.hashPassword(password);
 
                 // Commit changes in database
                 await user.commit();
@@ -1499,6 +1485,18 @@ export class Server {
             .filter((param) => integrationConfig.params[param].mandatory && (!params.hasOwnProperty(param) || !params[param]));
         if(missing_params.length > 0) {
             throw new MissingParams(missing_params);
+        }
+
+        // Reject URL params pointing to internal/private/cloud-metadata addresses (SSRF)
+        for (const [param, paramConfig] of Object.entries(integrationConfig.params)) {
+            if (paramConfig.type === 'url' && params[param]) {
+                try {
+                    await utils.assertPublicHttpsUrl(params[param]);
+                } catch (e) {
+                    const message = e instanceof Error ? e.message : String(e);
+                    throw new StatusError(`Invalid "${param}": ${message}`, 400);
+                }
+            }
         }
 
         // Get callbacks from customer

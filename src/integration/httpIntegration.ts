@@ -32,11 +32,14 @@ export class HttpIntegration extends AbstractIntegration {
         data: object,
         maxRetries: number = HttpIntegration.DEFAULT_RETRIES,
     ): Promise<void> {
+        // Block requests to internal/private/cloud-metadata addresses (SSRF)
+        await utils.assertPublicHttpsUrl(url);
+
         let lastError: Error | null = null;
         
         for (let attempt = 1; attempt <= maxRetries; attempt++) {
             try {
-                const response = await axios.post(url, data);
+                const response = await axios.post(url, data, { maxRedirects: 0 });
                 
                 // Check if response is successful
                 if (response.status !== 200) {
