@@ -1,7 +1,7 @@
 import axios, { AxiosInstance } from 'axios';
 import { fullStackTrace, LoggableError } from '../error';
 import * as utils from '../utils';
-import { TokenManager } from '../model/tokenManager';
+import { TokenManager } from '../tokenManager';
 import { AbstractCollector, Config } from '../collectors/abstractCollector';
 import { AbstractAnalytics, OTP } from './abstractAnalytics';
 
