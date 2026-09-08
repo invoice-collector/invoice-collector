@@ -102,21 +102,21 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
 
             // Define what to do on click event
             webSocketServer.onClick = async (event: MessageClick) => {
-                await driver.click(event.x, event.y);
+                await driver.click(event.x, event.y, { delay: 0 });
             };
             // Define what to do on keydown event
             webSocketServer.onKeydown = async (event: MessageKeydown) => {
                 // If key is a single character, type it, else press the key
                 if (event.key.length === 1){
-                    await driver.type(event.key);
+                    await driver.type(event.key, { delay: 0 });
                 }
                 else {
-                    await driver.press(event.key);
+                    await driver.press(event.key, { delay: 0 });
                 }
             };
             // Define what to do on text event
             webSocketServer.onText = async (event: MessageText) => {
-                await driver.type(event.text);
+                await driver.type(event.text, { delay: 0 });
             };
             // Define what to do on interactive event
             webSocketServer.onInteractive = async (event) => {

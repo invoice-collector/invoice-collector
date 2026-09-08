@@ -47,10 +47,12 @@ export function hash_string(input: string, algorithm: string = 'sha3-512'): stri
     return crypto.createHash(algorithm).update(input).digest('hex');
 }
 
-export function delay(ms) {
-    return new Promise(function(resolve) {
-        setTimeout(resolve, ms);
-    });
+export async function delay(ms): Promise<void> {
+    if (ms !== 0) {
+        await new Promise(function(resolve) {
+            setTimeout(resolve, ms);
+        });
+    }
 }
 
 export function parseBoolean(value: unknown, fallback: boolean): boolean {
