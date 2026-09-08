@@ -1,5 +1,5 @@
 import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
-import { Driver } from '../../../driver/driver';
+import { AbstractDriver } from '../../../driver/abstractDriver';
 import { SketchCollector } from '../../sketchCollector';
 
 export class AirbnbHostCollector extends SketchCollector {
@@ -37,7 +37,7 @@ export class AirbnbHostCollector extends SketchCollector {
         super(AirbnbHostCollector.CONFIG);
     }
     
-    async needLogin(driver: Driver): Promise<boolean> {
+    async needLogin(driver: AbstractDriver): Promise<boolean> {
         return this.config.entryUrl === undefined || driver.url().includes('/login');
     }
 }

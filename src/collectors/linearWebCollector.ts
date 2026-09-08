@@ -1,8 +1,7 @@
 import { Invoice, CompleteInvoice } from './abstractCollector';
 import { AbstractDriver } from '../driver/abstractDriver';
+import { DriverFactory } from '../driver/driverFactory';
 import { Element } from '../driver/element';
-import { DriverFactory } from '../Factory';
-import { AbstractDriver } from '../../../../driver/abstractDriver';
 import { AuthenticationError, CollectorError, DisconnectedError, LoggableError, NoInvoiceFoundError } from '../error';
 import { ProxyFactory } from '../proxy/proxyFactory';
 import { Location, Proxy } from '../proxy/abstractProxy';

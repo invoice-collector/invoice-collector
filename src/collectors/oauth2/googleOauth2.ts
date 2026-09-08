@@ -1,5 +1,5 @@
 import { TwofaPromise } from '../../collect/twofaPromise';
-import { AbstractDriver } from '../../../../driver/abstractDriver';
+import { AbstractDriver } from '../../driver/abstractDriver';
 import { WebSocketServer } from '../../websocket/webSocketServer';
 
 export const GoogleOauth2Selectors = {

@@ -1,6 +1,5 @@
 import { TwofaPromise } from '../../collect/twofaPromise';
-import { Driver } from '../../driver/driver';
-import { AbstractDriver } from '../../../../driver/abstractDriver';
+import { AbstractDriver } from '../../driver/abstractDriver';
 import { WebSocketServer } from '../../websocket/webSocketServer';
 
 export const MicrosoftOauth2Selectors = {
