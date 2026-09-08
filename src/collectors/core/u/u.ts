@@ -41,7 +41,7 @@ export class UCollector extends LinearWebCollector {
         super(UCollector.CONFIG);
     }
 
-    async needLogin(driver: AbstractDriver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
+    async login(driver: AbstractDriver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
         // Refuse cookies
         await driver.leftClick(USelectors.BUTTON_REFUSE_COOKIES, { raiseException: false, timeout: 5000});
 

@@ -9,7 +9,7 @@ import { MicrosoftOauth2 } from '../../../oauth2/microsoftOauth2';
 
 export abstract class OpenaiCommonCollector extends LinearWebCollector {
 
-    async needLogin(driver: AbstractDriver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
+    async login(driver: AbstractDriver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
         // Go to login page
         await driver.goto(this.config.loginUrl);
 

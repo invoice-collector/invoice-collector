@@ -48,7 +48,7 @@ export class OrangeCollector extends LinearWebCollector {
         return await OrangeHelper.needLogin(driver);
     }
 
-    async needLogin(driver: AbstractDriver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
+    async login(driver: AbstractDriver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
         return await OrangeHelper.login(driver, params, webSocketServer);
     }
 

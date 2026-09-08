@@ -39,7 +39,7 @@ export class FreeCollector extends LinearWebCollector {
         super(FreeCollector.CONFIG);
     }
 
-    async needLogin(driver: AbstractDriver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
+    async login(driver: AbstractDriver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
         await driver.inputText(FreeSelectors.FIELD_USERNAME, params.id);
         await driver.inputText(FreeSelectors.FIELD_PASSWORD, params.password);
         await driver.leftClick(FreeSelectors.BUTTON_SUBMIT);

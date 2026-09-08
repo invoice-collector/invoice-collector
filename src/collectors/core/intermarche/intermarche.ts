@@ -41,7 +41,7 @@ export class IntermarcheCollector extends LinearWebCollector {
         super(IntermarcheCollector.CONFIG);
     }
 
-    async needLogin(driver: AbstractDriver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
+    async login(driver: AbstractDriver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
         // Wait for Datadome captcha
         await driver.waitForDatadomeCaptcha();
 

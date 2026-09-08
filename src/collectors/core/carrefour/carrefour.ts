@@ -46,7 +46,7 @@ export class CarrefourCollector extends LinearWebCollector {
         return await super.needLogin(driver);
     }
 
-    async needLogin(driver: AbstractDriver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
+    async login(driver: AbstractDriver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
         // Wait for captcha to be successful
         await driver.waitForCloudflareTurnstile();
 

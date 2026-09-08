@@ -45,7 +45,7 @@ export class FreeMobileCollector extends LinearWebCollector {
         return driver.url().includes('login') || driver.url().includes('otp');
     }
 
-    async needLogin(driver: AbstractDriver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
+    async login(driver: AbstractDriver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
         // Input id and password
         await driver.inputText(FreeMobileSelectors.FIELD_IDENTIFIER, params.id);
         await driver.inputText(FreeMobileSelectors.FIELD_PASSWORD, params.password);

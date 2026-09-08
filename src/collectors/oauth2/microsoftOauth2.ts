@@ -61,7 +61,7 @@ export class MicrosoftOauth2 {
         return driver.url().includes('login.live.com/oauth2');
     }
 
-    static async needLogin(driver: AbstractDriver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
+    static async login(driver: AbstractDriver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
         if(MicrosoftOauth2.check(driver)) {
             // Display other authentication methods if the button is displayed
             await driver.leftClick(MicrosoftOauth2Selectors.BUTTON_OTHER_AUTHENTICATION_METHODS, { timeout: 1000, raiseException: false });

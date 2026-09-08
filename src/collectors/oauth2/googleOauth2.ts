@@ -65,7 +65,7 @@ export class GoogleOauth2 {
         return driver.url().includes('accounts.google.com') && driver.url().includes('/signin/');
     }
 
-    static async needLogin(driver: AbstractDriver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
+    static async login(driver: AbstractDriver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
         if(GoogleOauth2.check(driver) && driver.url().includes('signin/accountchooser')) {
             // If account chooser is displayed, click on use another account
             await driver.leftClick(GoogleOauth2Selectors.BUTTON_USE_ANOTHER_ACCOUNT, { delay: 3000 });

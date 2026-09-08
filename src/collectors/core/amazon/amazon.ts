@@ -81,7 +81,7 @@ export class AmazonCollector extends LinearWebCollector {
         return driver.url() !== this.config.entryUrl;
     }
 
-    async needLogin(driver: AbstractDriver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
+    async login(driver: AbstractDriver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
         // Go to login page
         await driver.goto(this.config.loginUrl);
 
