@@ -147,15 +147,18 @@ export class TokenManager {
         if (!uiToken || typeof uiToken !== 'string' || !this.userUiTokens.hasOwnProperty(uiToken)) {
             throw new OauthError();
         }
+
         // Get user id from token
         const userId = this.userUiTokens[uiToken];
+
         // Get user from id
         const user = await User.fromId(userId);
+
         // Check if user exists
         if (!user) {
             throw new OauthError();
         }
-        // Return user
+
         return user;
     }
 
@@ -190,15 +193,18 @@ export class TokenManager {
         if (!oauth2State || typeof oauth2State !== 'string' || !this.credentialOauth2States.hasOwnProperty(oauth2State)) {
             throw new OauthError();
         }
+
         // Get credential id from state
         const credentialId = this.credentialOauth2States[oauth2State];
+
         // Get credential from id
         const credential = await Credential.fromId(credentialId);
+
         // If the credential does not exist, throw an error
         if (!credential) {
             throw new OauthError();
         }
-        // Return credential
+
         return credential;
     }
 
