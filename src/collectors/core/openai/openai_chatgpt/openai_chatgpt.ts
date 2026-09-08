@@ -39,7 +39,7 @@ export class OpenaiChatgptCollector extends OpenaiCommonCollector {
         super(OpenaiChatgptCollector.CONFIG);
     }
 
-    async needneedLogin(driver: AbstractDriver ): Promise<boolean> {
+    async needLogin(driver: AbstractDriver ): Promise<boolean> {
         await utils.delay(2000);
         return driver.url().includes('auth.openai.com');
     }
