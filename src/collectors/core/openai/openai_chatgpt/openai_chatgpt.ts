@@ -1,4 +1,5 @@
-import { Driver, Element } from '../../../../driver/driver';
+import { AbstractDriver } from '../../../../driver/abstractDriver';
+import { Element } from '../../../../driver/element';
 import { CollectorCaptcha, CollectorType, Invoice, CollectorAuthenticationMethod } from '../../../abstractCollector';
 import { OpenaiCommonCollector } from '../openai_common/openaiCommon';
 import { OpenaiSelectors } from './selectors';
@@ -38,12 +39,12 @@ export class OpenaiChatgptCollector extends OpenaiCommonCollector {
         super(OpenaiChatgptCollector.CONFIG);
     }
 
-    async needLogin(driver: Driver ): Promise<boolean> {
+    async needneedLogin(driver: AbstractDriver ): Promise<boolean> {
         await utils.delay(2000);
         return driver.url().includes('auth.openai.com');
     }
     
-    async navigate(driver: Driver): Promise<void> {
+    async navigate(driver: AbstractDriver): Promise<void> {
         // Wait for billing button
         await driver.getElement(OpenaiSelectors.BUTTON_ACCOUNT, { timeout: 5000 });
         // Click manage payments button
@@ -52,7 +53,7 @@ export class OpenaiChatgptCollector extends OpenaiCommonCollector {
         await driver.getElement(OpenaiSelectors.BUTTON_SEARCH_INVOICES);
     }
     
-    async forEachPage(driver: Driver, next: () => Promise<void>): Promise<void> {
+    async forEachPage(driver: AbstractDriver, next: () => Promise<void>): Promise<void> {
         // Show more invoices while possible
         await driver.leftClick(OpenaiSelectors.BUTTON_MORE_INVOICES, { raiseException: false, timeout: 1000, navigation: false });
         await driver.leftClick(OpenaiSelectors.BUTTON_MORE_INVOICES, { raiseException: false, timeout: 1000, navigation: false });
@@ -61,15 +62,15 @@ export class OpenaiChatgptCollector extends OpenaiCommonCollector {
         await next();
     }
     
-    async isEmpty(driver: Driver): Promise<boolean>{
+    async isEmpty(driver: AbstractDriver): Promise<boolean>{
         return await driver.getElement(OpenaiSelectors.CONTAINER_NO_ORDERS, { raiseException: false, timeout: 100 }) !== null;
     }
 
-    async getInvoices(driver: Driver): Promise<Element[]> {
+    async getInvoices(driver: AbstractDriver): Promise<Element[]> {
         return await driver.getElements(OpenaiSelectors.CONTAINER_INVOICES);
     }
 
-    async data(driver: Driver, element: Element): Promise<Invoice | null> {
+    async data(driver: AbstractDriver, element: Element): Promise<Invoice | null> {
         // Get url before map
         const link = driver.url();
 

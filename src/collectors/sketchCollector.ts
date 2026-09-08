@@ -1,6 +1,7 @@
 import { CollectorType, CollectorState, Invoice, CollectorAuthenticationMethod } from './abstractCollector';
 import { WebConfig } from './webCollector';
-import { Driver, Element } from '../driver/driver';
+import { AbstractDriver } from '../driver/abstractDriver';
+import { Element } from '../driver/element';
 import { WebSocketServer } from '../websocket/webSocketServer';
 import { LinearWebCollector } from './linearWebCollector';
 
@@ -18,23 +19,23 @@ export abstract class SketchCollector extends LinearWebCollector {
         });
     }
 
-    async login(driver: Driver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
+    async login(driver: AbstractDriver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
         return;
     }
 
-    async isEmpty(driver: Driver): Promise<boolean> {
+    async isEmpty(driver: AbstractDriver): Promise<boolean> {
         return true;
     }
 
-    async getInvoices(driver: Driver): Promise<Element[]> {
+    async getInvoices(driver: AbstractDriver): Promise<Element[]> {
         return [];
     }
 
-    async data(driver: Driver, element: Element): Promise<Invoice | null> {
+    async data(driver: AbstractDriver, element: Element): Promise<Invoice | null> {
         throw new Error('Method not implemented.');
     }
 
-    async download(driver: Driver, invoice: Invoice): Promise<string[]> {
+    async download(driver: AbstractDriver, invoice: Invoice): Promise<string[]> {
         throw new Error('Method not implemented.');
     }
 }

@@ -1,6 +1,7 @@
 import { LinearWebCollector } from '../../linearWebCollector';
 import { LeroyMerlinSelectors } from './selectors';
-import { Driver, Element } from '../../../driver/driver';
+import { AbstractDriver } from '../../../driver/abstractDriver';
+import { Element } from '../../../driver/element';
 import { Invoice, CollectorCaptcha, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 import * as utils from '../../../utils';
 import { TwofaPromise } from '../../../collect/twofaPromise';
@@ -40,14 +41,14 @@ export class LeroyMerlinCollector extends LinearWebCollector {
         super(LeroyMerlinCollector.CONFIG);
     }
 
-    async needLogin(driver: Driver): Promise<boolean>{
+    async needLogin(driver: AbstractDriver): Promise<boolean>{
         // Wait for Datadome captcha
         await driver.waitForDatadomeCaptcha();
         // If login is needed, the url contains /login.html
         return driver.url().includes(this.config.loginUrl);
     }
 
-    async login(driver: Driver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
+    async login(driver: AbstractDriver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
         // Refuse cookies
         await driver.leftClick(LeroyMerlinSelectors.BUTTON_REFUSE_COOKIES, { raiseException: false, navigation: false });
 
@@ -76,7 +77,7 @@ export class LeroyMerlinCollector extends LinearWebCollector {
         }
     }
 
-    async needTwofa(driver: Driver): Promise<string | void>{
+    async needTwofa(driver: AbstractDriver): Promise<string | void>{
         // Check if 2FA is required
         const two_factor_auth = await driver.getElement(LeroyMerlinSelectors.CONTAINER_2FA_INSTRUCTIONS, { raiseException: false, timeout: 2000 });
         if (two_factor_auth) {
@@ -84,7 +85,7 @@ export class LeroyMerlinCollector extends LinearWebCollector {
         }
     }
 
-    async twofa(driver: Driver, params: any, twofa_promise: TwofaPromise, webSocketServer: WebSocketServer): Promise<string | void> {
+    async twofa(driver: AbstractDriver, params: any, twofa_promise: TwofaPromise, webSocketServer: WebSocketServer): Promise<string | void> {
         // Wait for 2fa code from UI
         const twofa_code = await Promise.race([twofa_promise.code(), webSocketServer.getTwofa()]);
 
@@ -108,16 +109,16 @@ export class LeroyMerlinCollector extends LinearWebCollector {
         }
     }
 
-    async navigate(driver: Driver): Promise<void> {
+    async navigate(driver: AbstractDriver): Promise<void> {
         // Refuse cookies
         await driver.leftClick(LeroyMerlinSelectors.BUTTON_REFUSE_COOKIES, { raiseException: false, navigation: false });
     }
 
-    async getInvoices(driver: Driver): Promise<Element[]> {
+    async getInvoices(driver: AbstractDriver): Promise<Element[]> {
         return await driver.getElements(LeroyMerlinSelectors.CONTAINER_ORDER);
     }
 
-    async data(driver: Driver, element: Element): Promise<Invoice | null> {
+    async data(driver: AbstractDriver, element: Element): Promise<Invoice | null> {
         // Get url before map
         const link = driver.url();
 
@@ -141,7 +142,7 @@ export class LeroyMerlinCollector extends LinearWebCollector {
     }
 
     // Define custom method to download invoice
-    async download(driver: Driver, invoice: Invoice): Promise<string[]> {
+    async download(driver: AbstractDriver, invoice: Invoice): Promise<string[]> {
         // Open details in a new page
         await invoice.downloadButton.middleClick();
 

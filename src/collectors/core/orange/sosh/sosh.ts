@@ -2,7 +2,8 @@ import { TwofaPromise } from '../../../../collect/twofaPromise';
 import { CollectorCaptcha, CollectorType, Invoice, CollectorAuthenticationMethod } from '../../../abstractCollector';
 import { OrangeHelper } from '../helper/orangeHelper';
 import { LinearWebCollector } from '../../../linearWebCollector';
-import { Driver, Element } from '../../../../driver/driver';
+import { AbstractDriver } from '../../../../driver/abstractDriver';
+import { Element } from '../../../../driver/element';
 import { WebSocketServer } from '../../../../websocket/webSocketServer';
 import { SoshSelectors } from './selectors';
 
@@ -42,44 +43,44 @@ export class SoshCollector extends LinearWebCollector {
         super(SoshCollector.CONFIG);
     }
 
-    async needLogin(driver: Driver): Promise<boolean> {
+    async needLogin(driver: AbstractDriver): Promise<boolean> {
         return await OrangeHelper.needLogin(driver);
     }
 
-    async login(driver: Driver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
+    async needLogin(driver: AbstractDriver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
         return await OrangeHelper.login(driver, params, webSocketServer);
     }
 
-    async needTwofa(driver: Driver): Promise<string | void>{
+    async needTwofa(driver: AbstractDriver): Promise<string | void>{
         return await OrangeHelper.needTwofa(driver);
     }
 
-    async twofa(driver: Driver, params: any, twofa_promise: TwofaPromise, webSocketServer: WebSocketServer): Promise<string | void> {
+    async twofa(driver: AbstractDriver, params: any, twofa_promise: TwofaPromise, webSocketServer: WebSocketServer): Promise<string | void> {
         return await OrangeHelper.twofa(driver, params, twofa_promise, webSocketServer);
     }
 
-    async navigate(driver: Driver): Promise<void> {
+    async navigate(driver: AbstractDriver): Promise<void> {
         // Refuse cookies
         await driver.leftClick(SoshSelectors.BUTTON_REFUSE_COOKIES, { raiseException: false, timeout: 2000});
     }
 
-    async forEachPage(driver: Driver, next: () => Promise<void>): Promise<void> {
+    async forEachPage(driver: AbstractDriver, next: () => Promise<void>): Promise<void> {
         return await OrangeHelper.forEachPage(driver, next);
     }
 
-    async isEmpty(driver: Driver): Promise<boolean> {
+    async isEmpty(driver: AbstractDriver): Promise<boolean> {
         return await OrangeHelper.isEmpty(driver);
     }
     
-    async getInvoices(driver: Driver): Promise<Element[]> {
+    async getInvoices(driver: AbstractDriver): Promise<Element[]> {
         return await OrangeHelper.getInvoices(driver);
     }
 
-    async data(driver: Driver, element: Element): Promise<Invoice | null> {
+    async data(driver: AbstractDriver, element: Element): Promise<Invoice | null> {
         return await OrangeHelper.data(driver, element);
     }
     
-    async download(driver: Driver, invoice: Invoice): Promise<string[]> {
+    async download(driver: AbstractDriver, invoice: Invoice): Promise<string[]> {
         return await OrangeHelper.download(driver, invoice, this);
     }
 }

@@ -1,6 +1,7 @@
 import { LinearWebCollector } from '../../linearWebCollector';
 import { BureauValleeSelectors } from './selectors';
-import { Driver, Element } from '../../../driver/driver';
+import { AbstractDriver } from '../../../driver/abstractDriver';
+import { Element } from '../../../driver/element';
 import { CollectorCaptcha, CollectorType, Invoice, CollectorAuthenticationMethod } from '../../abstractCollector';
 import { WebSocketServer } from '../../../websocket/webSocketServer';
 import * as utils from '../../../utils';
@@ -39,7 +40,7 @@ export class BureauValleeCollector extends LinearWebCollector {
         super(BureauValleeCollector.CONFIG);
     }
 
-    async login(driver: Driver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
+    async needLogin(driver: AbstractDriver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
         // Refuse cookies
         await driver.leftClick(BureauValleeSelectors.BUTTON_REFUSE_COOKIES, { raiseException: false, timeout: 5000});
 
@@ -70,22 +71,22 @@ export class BureauValleeCollector extends LinearWebCollector {
         }
     }
 
-    async navigate(driver: Driver): Promise<void> {
+    async navigate(driver: AbstractDriver): Promise<void> {
         // Wait for profile container
         await driver.getElement(BureauValleeSelectors.CONTAINER_PROFIL);
         // Go to invoices page
         await driver.goto(this.config.entryUrl);
     }
 
-    async isEmpty(driver: Driver): Promise<boolean> {
+    async isEmpty(driver: AbstractDriver): Promise<boolean> {
         return await driver.getElement(BureauValleeSelectors.CONTAINER_NO_INVOICE, { raiseException: false, timeout: 5000 }) !== null;
     }
  
-    async getInvoices(driver: Driver): Promise<Element[]> {
+    async getInvoices(driver: AbstractDriver): Promise<Element[]> {
         return await driver.getElements(BureauValleeSelectors.CONTAINER_INVOICE);
     }
 
-    async data(driver: Driver, element: Element): Promise<Invoice | null> {
+    async data(driver: AbstractDriver, element: Element): Promise<Invoice | null> {
         // Get data
         const date = await element.getAttribute(BureauValleeSelectors.CONTAINER_INVOICE_DATE, 'textContent');
         const timestamp = utils.timestampFromString(date, "'Facture du 'dd MMMM yyyy", 'fr');
@@ -102,7 +103,7 @@ export class BureauValleeCollector extends LinearWebCollector {
         };
     }
 
-    async download(driver: Driver, invoice: Invoice): Promise<string[]> {
+    async download(driver: AbstractDriver, invoice: Invoice): Promise<string[]> {
         // Click on element
         await invoice.downloadButton.leftClick();
         // Wait for the invoice to be downloaded

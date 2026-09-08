@@ -3,7 +3,7 @@ import { Location } from '../proxy/abstractProxy';
 import { Secret } from '../model/secret';
 import { State } from '../model/state';
 import { WebSocketServer } from '../websocket/webSocketServer';
-import { Element } from '../driver/driver';
+import { Element } from '../driver/element';
 import { Credential, ModelInvoice } from '../model/credential';
 import { CustomerAuthenticationMethod } from '../model/customer';
 

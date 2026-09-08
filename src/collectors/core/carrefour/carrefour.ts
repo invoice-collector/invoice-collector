@@ -1,6 +1,7 @@
 import { LinearWebCollector } from '../../linearWebCollector';
 import { CarrefourSelectors } from './selectors';
-import { Driver, Element } from '../../../driver/driver';
+import { AbstractDriver } from '../../../driver/abstractDriver';
+import { Element } from '../../../driver/element';
 import { CollectorCaptcha, CollectorType, Invoice, CollectorAuthenticationMethod } from '../../abstractCollector';
 import { TwofaPromise } from '../../../collect/twofaPromise';
 import { WebSocketServer } from '../../../websocket/webSocketServer';
@@ -39,13 +40,13 @@ export class CarrefourCollector extends LinearWebCollector {
         super(CarrefourCollector.CONFIG);
     }
 
-    async needLogin(driver: Driver): Promise<boolean> {
+    async needLogin(driver: AbstractDriver): Promise<boolean> {
         // Wait for captcha to be successful
         await driver.waitForCloudflareTurnstile();
         return await super.needLogin(driver);
     }
 
-    async login(driver: Driver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
+    async needLogin(driver: AbstractDriver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
         // Wait for captcha to be successful
         await driver.waitForCloudflareTurnstile();
 
@@ -63,7 +64,7 @@ export class CarrefourCollector extends LinearWebCollector {
         }
     }
 
-    async needTwofa(driver: Driver): Promise<string | void> {
+    async needTwofa(driver: AbstractDriver): Promise<string | void> {
         // Check if 2FA is required
         const two_factor_auth = await driver.getElement(CarrefourSelectors.CONTAINER_2FA_INSTRUCTIONS, { raiseException: false, timeout: 2000 });
         if (two_factor_auth) {
@@ -71,7 +72,7 @@ export class CarrefourCollector extends LinearWebCollector {
         }
     }
 
-    async twofa(driver: Driver, params: any, twofa_promise: TwofaPromise, webSocketServer: WebSocketServer): Promise<string | void> {
+    async twofa(driver: AbstractDriver, params: any, twofa_promise: TwofaPromise, webSocketServer: WebSocketServer): Promise<string | void> {
         // Check if too much attempts
         const twofa_too_much = await driver.getElement(CarrefourSelectors.CONTAINER_2FA_ALERT, { raiseException: false, timeout: 1000 });
         if (twofa_too_much) {
@@ -101,12 +102,12 @@ export class CarrefourCollector extends LinearWebCollector {
         }
     }
 
-    async navigate(driver: Driver): Promise<void> {
+    async navigate(driver: AbstractDriver): Promise<void> {
         // Refuse cookies
         await driver.leftClick(CarrefourSelectors.BUTTON_REFUSE_COOKIES, { raiseException: false, timeout: 10000});
     }
 
-    async forEachPage(driver: Driver, next: () => void): Promise<void> {
+    async forEachPage(driver: AbstractDriver, next: () => void): Promise<void> {
         // Get years elements
         const numberOfYears = (await driver.getElements(CarrefourSelectors.OPTION_YEARS)).length;
         // For each year
@@ -120,15 +121,15 @@ export class CarrefourCollector extends LinearWebCollector {
         }
     }
 
-    async isEmpty(driver: Driver): Promise<boolean>{
+    async isEmpty(driver: AbstractDriver): Promise<boolean>{
         return await driver.getElement(CarrefourSelectors.CONTAINER_NO_ORDERS, { raiseException: false, timeout: 100 }) !== null;
     }
              
-    async getInvoices(driver: Driver): Promise<Element[]> {
+    async getInvoices(driver: AbstractDriver): Promise<Element[]> {
         return await driver.getElements(CarrefourSelectors.CONTAINER_ORDER);
     }
 
-    async data(driver: Driver, element: Element): Promise<Invoice | null> {
+    async data(driver: AbstractDriver, element: Element): Promise<Invoice | null> {
         const downloadButton = await element.getElement(CarrefourSelectors.CONTAINER_LINK);
         const order_link = await element.getAttribute(CarrefourSelectors.CONTAINER_LINK, 'href');
         const date = await element.getAttribute(CarrefourSelectors.CONTAINER_ORDER_DATE, 'textContent');
@@ -155,7 +156,7 @@ export class CarrefourCollector extends LinearWebCollector {
         };
     }
 
-    async download(driver: Driver, invoice: Invoice): Promise<string[]> {
+    async download(driver: AbstractDriver, invoice: Invoice): Promise<string[]> {
         return [await this.download_link(driver, invoice.link)];
     }
 }

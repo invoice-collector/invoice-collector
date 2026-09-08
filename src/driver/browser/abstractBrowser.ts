@@ -3,7 +3,7 @@ import puppeteer, { Browser, ConnectOptions, DownloadPolicy } from 'rebrowser-pu
 import * as ChromeLauncher from 'chrome-launcher';
 import { pageController, PageWithCursor } from '../puppeteer/pageController';
 import { Proxy } from '../../proxy/abstractProxy';
-import { Driver } from '../driver';
+import { AbstractDriver } from '../abstractDriver';
 
 let Xvfb;
 try {
@@ -49,8 +49,8 @@ export abstract class AbstractBrowser {
           },
           connectOption: {
               defaultViewport: {
-                  width: Driver.VIEWPORT_WIDTH,
-                  height: Driver.VIEWPORT_HEIGHT,
+                  width: AbstractDriver.VIEWPORT_WIDTH,
+                  height: AbstractDriver.VIEWPORT_HEIGHT,
               },
           },
           disableXvfb: false,

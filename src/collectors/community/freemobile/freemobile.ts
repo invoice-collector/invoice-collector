@@ -1,6 +1,7 @@
 import { LinearWebCollector } from '../../linearWebCollector';
 import { FreeMobileSelectors } from './selectors';
-import { Driver, Element } from '../../../driver/driver';
+import { AbstractDriver } from '../../../driver/abstractDriver';
+import { Element } from '../../../driver/element';
 import { CollectorCaptcha, CollectorType, Invoice, CollectorAuthenticationMethod } from '../../abstractCollector';
 import { TwofaPromise } from '../../../collect/twofaPromise';
 import * as utils from '../../../utils';
@@ -40,11 +41,11 @@ export class FreeMobileCollector extends LinearWebCollector {
         super(FreeMobileCollector.CONFIG);
     }
 
-    async needLogin(driver: Driver): Promise<boolean> {
+    async needLogin(driver: AbstractDriver): Promise<boolean> {
         return driver.url().includes('login') || driver.url().includes('otp');
     }
 
-    async login(driver: Driver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
+    async needLogin(driver: AbstractDriver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
         // Input id and password
         await driver.inputText(FreeMobileSelectors.FIELD_IDENTIFIER, params.id);
         await driver.inputText(FreeMobileSelectors.FIELD_PASSWORD, params.password);
@@ -59,7 +60,7 @@ export class FreeMobileCollector extends LinearWebCollector {
         }
     }
 
-    async needTwofa(driver: Driver): Promise<string | void> {
+    async needTwofa(driver: AbstractDriver): Promise<string | void> {
         // Check if 2FA is required
         const twofaInstructions = await driver.getElement(FreeMobileSelectors.CONTAINER_2FA_INSTRUCTIONS, { raiseException: false, timeout: 2000 });
         if (twofaInstructions) {
@@ -67,7 +68,7 @@ export class FreeMobileCollector extends LinearWebCollector {
         }
     }
 
-    async twofa(driver: Driver, params: any, twofa_promise: TwofaPromise, webSocketServer: WebSocketServer): Promise<string | void> {
+    async twofa(driver: AbstractDriver, params: any, twofa_promise: TwofaPromise, webSocketServer: WebSocketServer): Promise<string | void> {
         // Check if too much attempts
         const twofa_too_much = await driver.getElement(FreeMobileSelectors.CONTAINER_2FA_ALERT, { raiseException: false, timeout: 1000 });
         if (twofa_too_much) {
@@ -98,12 +99,12 @@ export class FreeMobileCollector extends LinearWebCollector {
         }
     }
 
-    async navigate(driver: Driver): Promise<void>{
+    async navigate(driver: AbstractDriver): Promise<void>{
         // Show invoices
         await driver.leftClick(FreeMobileSelectors.BUTTON_SHOW_INVOICES, { navigation: false });
     }
 
-    async forEachPage(driver: Driver, next: () => Promise<void>): Promise<void> {
+    async forEachPage(driver: AbstractDriver, next: () => Promise<void>): Promise<void> {
         // Show more invoices while possible
         await driver.leftClick(FreeMobileSelectors.BUTTON_MORE_INVOICES, { raiseException: false, timeout: 1000, navigation: false });
         await driver.leftClick(FreeMobileSelectors.BUTTON_MORE_INVOICES, { raiseException: false, timeout: 1000, navigation: false });
@@ -112,11 +113,11 @@ export class FreeMobileCollector extends LinearWebCollector {
         await next();
     }
     
-    async getInvoices(driver: Driver): Promise<Element[]> {
+    async getInvoices(driver: AbstractDriver): Promise<Element[]> {
         return await driver.getElements(FreeMobileSelectors.CONTAINER_INVOICES);
     }
 
-    async data(driver: Driver, element: Element): Promise<Invoice | null>{
+    async data(driver: AbstractDriver, element: Element): Promise<Invoice | null>{
         const downloadButton = await element.getElement(FreeMobileSelectors.CONTAINER_INVOICE_LINK);
         const link = await element.getAttribute(FreeMobileSelectors.CONTAINER_INVOICE_LINK, 'href');
         const stringDate = await element.getAttribute(FreeMobileSelectors.CONTAINER_INVOICE_DATE, 'textContent');
@@ -138,7 +139,7 @@ export class FreeMobileCollector extends LinearWebCollector {
         };
     }
 
-    async download(driver: Driver, invoice: Invoice): Promise<string[]> {
+    async download(driver: AbstractDriver, invoice: Invoice): Promise<string[]> {
         return [await this.download_link(driver, invoice.link)];
     }
 }

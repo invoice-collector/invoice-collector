@@ -1,5 +1,5 @@
 import { OpenaiSelectors } from './selectors';
-import { Driver } from '../../../../driver/driver';
+import { AbstractDriver } from '../../../../driver/abstractDriver';
 import { TwofaPromise } from '../../../../collect/twofaPromise';
 import { WebSocketServer } from '../../../../websocket/webSocketServer';
 import { LinearWebCollector } from '../../../linearWebCollector';
@@ -9,7 +9,7 @@ import { MicrosoftOauth2 } from '../../../oauth2/microsoftOauth2';
 
 export abstract class OpenaiCommonCollector extends LinearWebCollector {
 
-    async login(driver: Driver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
+    async needLogin(driver: AbstractDriver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
         // Go to login page
         await driver.goto(this.config.loginUrl);
 
@@ -47,7 +47,7 @@ export abstract class OpenaiCommonCollector extends LinearWebCollector {
         }
     }
 
-    async needTwofa(driver: Driver): Promise<string | void> {
+    async needTwofa(driver: AbstractDriver): Promise<string | void> {
         // Perform google oauth2 if needed
         if(GoogleOauth2.check(driver)) {
             return await GoogleOauth2.needTwofa(driver);
@@ -69,7 +69,7 @@ export abstract class OpenaiCommonCollector extends LinearWebCollector {
         }
     }
 
-    async twofa(driver: Driver, params: any, twofa_promise: TwofaPromise, webSocketServer: WebSocketServer): Promise<string | void> {
+    async twofa(driver: AbstractDriver, params: any, twofa_promise: TwofaPromise, webSocketServer: WebSocketServer): Promise<string | void> {
         // Perform google oauth2 if needed
         if(GoogleOauth2.check(driver)) {
             return await GoogleOauth2.twofa(driver, params, twofa_promise, webSocketServer);
@@ -99,7 +99,7 @@ export abstract class OpenaiCommonCollector extends LinearWebCollector {
         }
     }
 
-    async download(driver: Driver, invoice: Invoice): Promise<string[]> {
+    async download(driver: AbstractDriver, invoice: Invoice): Promise<string[]> {
         // Open invoice in new tab
         await invoice.downloadButton.middleClick();
         // Download PDF

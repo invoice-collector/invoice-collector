@@ -1,4 +1,5 @@
-import { Driver, Element } from '../driver/driver';
+import { AbstractDriver } from '../driver/abstractDriver';
+import { Element } from '../driver/element';
 import { AuthenticationError, DisconnectedError, NoInvoiceFoundError } from '../error';
 import * as utils from '../utils';
 import { Invoice } from '../collectors/abstractCollector';
@@ -128,7 +129,7 @@ export abstract class ActionV2<InputContext, Args, OutputContext> {
 }
 
 export type NoopContext = {
-    driver: Driver;
+    driver: AbstractDriver;
 }
 
 export type NoopArgs = {
@@ -187,7 +188,7 @@ export class NoopAction extends ActionV2<NoopContext, NoopArgs, NoopContext> {
 }
 
 export type LeftClickContext = {
-    driver: Driver;
+    driver: AbstractDriver;
     element?: Element;
 }
 
@@ -267,7 +268,7 @@ export class LeftClickAction extends ActionV2<LeftClickContext, LeftClickArgs, L
 }
 
 export type InputTextContext = {
-    driver: Driver;
+    driver: AbstractDriver;
     secret: Secret;
 }
 
@@ -345,7 +346,7 @@ export class InputTextAction extends ActionV2<InputTextContext, InputTextArgs, I
 }
 
 export type RaiseErrorContext = {
-    driver: Driver;
+    driver: AbstractDriver;
 }
 
 export type RaiseErrorArgs = {
@@ -419,7 +420,7 @@ export class ErrorDisplayedAction extends ActionV2<RaiseErrorContext, RaiseError
 }
 
 export type InputTwofaContext = {
-    driver: Driver;
+    driver: AbstractDriver;
     webSocketServer: WebSocketServer | undefined;
 }
 
@@ -525,11 +526,11 @@ export class InputTwofaAction extends ActionV2<InputTwofaContext, InputTwofaArgs
 }
 
 export type GetInvoicesInputContext = {
-    driver: Driver;
+    driver: AbstractDriver;
 }
 
 export type GetInvoicesOutputContext = {
-    driver: Driver;
+    driver: AbstractDriver;
     element: Element;
 }
 
@@ -599,7 +600,7 @@ export class GetInvoicesAction extends ActionV2<GetInvoicesInputContext, GetInvo
 }
 
 export type ErrorNoInvoicesContext = {
-    driver: Driver;
+    driver: AbstractDriver;
 }
 
 export type ErrorNoInvoicesArgs = {
@@ -660,12 +661,12 @@ export class ErrorNoInvoicesAction extends ActionV2<ErrorNoInvoicesContext, Erro
 }
 
 export type ExtractInvoiceDataInputContext = {
-    driver: Driver;
+    driver: AbstractDriver;
     element: Element;
 }
 
 export type ExtractInvoiceDataOutputContext = {
-    driver: Driver;
+    driver: AbstractDriver;
     invoice: Invoice;
     element?: Element;
 }
@@ -786,7 +787,7 @@ export class ExtractInvoiceDataAction extends ActionV2<ExtractInvoiceDataInputCo
 }
 
 export type MiddleClickContext = {
-    driver: Driver;
+    driver: AbstractDriver;
     element?: Element;
 }
 
@@ -872,7 +873,7 @@ export class MiddleClickAction extends ActionV2<MiddleClickContext, MiddleClickA
 }
 
 export type CustomContext = {
-    driver: Driver;
+    driver: AbstractDriver;
 }
 
 export type CustomArgs = {
@@ -916,7 +917,7 @@ export class CustomAction extends ActionV2<CustomContext, CustomArgs, CustomCont
 }
 
 export type ErrorLoginPageDisplayedContext = {
-    driver: Driver;
+    driver: AbstractDriver;
 }
 
 export type ErrorLoginPageDisplayedArgs = {
@@ -970,7 +971,7 @@ export class ErrorLoginPageDisplayedAction extends ActionV2<ErrorLoginPageDispla
 }
 
 export type WaitContext = {
-    driver: Driver;
+    driver: AbstractDriver;
 }
 
 export type WaitArgs = {

@@ -1,6 +1,7 @@
 import { LinearWebCollector } from '../../linearWebCollector';
 import { IntermarcheSelectors } from './selectors';
-import { Driver, Element } from '../../../driver/driver';
+import { AbstractDriver } from '../../../driver/abstractDriver';
+import { Element } from '../../../driver/element';
 import { CollectorCaptcha, CollectorState, CollectorType, Invoice, CollectorAuthenticationMethod } from '../../abstractCollector';
 import { UnfinishedCollectorError } from '../../../error';
 import { WebSocketServer } from '../../../websocket/webSocketServer';
@@ -40,7 +41,7 @@ export class IntermarcheCollector extends LinearWebCollector {
         super(IntermarcheCollector.CONFIG);
     }
 
-    async login(driver: Driver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
+    async needLogin(driver: AbstractDriver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
         // Wait for Datadome captcha
         await driver.waitForDatadomeCaptcha();
 
@@ -83,27 +84,27 @@ export class IntermarcheCollector extends LinearWebCollector {
         }
     }
 
-    async navigate(driver: Driver): Promise<void> {
+    async navigate(driver: AbstractDriver): Promise<void> {
         // Close cookies banner if exists
         await driver.leftClick(IntermarcheSelectors.BUTTON_REFUSE_COOKIES, { raiseException: false, timeout: 5000});
     }
 
-    async isEmpty(driver: Driver): Promise<boolean> {
+    async isEmpty(driver: AbstractDriver): Promise<boolean> {
         // Wait for panel commandes to be loaded
         await driver.getElement(IntermarcheSelectors.CONTAINER_PANEL_COMMANDES);
         // Check if empty basket container exists
         return await driver.getElement(IntermarcheSelectors.CONTAINER_EMPTY_BASKET, { raiseException: false, timeout: 100 }) !== null;
     }
      
-    async getInvoices(driver: Driver): Promise<Element[]> {
+    async getInvoices(driver: AbstractDriver): Promise<Element[]> {
         throw new UnfinishedCollectorError(this);
     }
 
-    async data(driver: Driver, element: Element): Promise<Invoice | null> {
+    async data(driver: AbstractDriver, element: Element): Promise<Invoice | null> {
         throw new UnfinishedCollectorError(this);
     }
 
-    async download(driver: Driver, invoice: Invoice): Promise<string[]> {
+    async download(driver: AbstractDriver, invoice: Invoice): Promise<string[]> {
         throw new UnfinishedCollectorError(this);
     }
 }

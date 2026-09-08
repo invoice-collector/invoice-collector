@@ -1,5 +1,5 @@
 import { Config, AbstractCollector } from './collectors/abstractCollector';
-import { Screenshot } from './driver/driver';
+import { AbstractDriver, Screenshot } from './driver/abstractDriver';
 
 export function fullStackTrace(error: Error): string {
     let output = error.stack || '';
