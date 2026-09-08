@@ -1,7 +1,7 @@
 import { DatabaseFactory } from './database/databaseFactory';
 import { Secret } from './model/secret';
 import { SecretManagerFactory } from './secret_manager/secretManagerFactory';
-import { OauthError, MissingField, MissingParams, StatusError, AuthenticationBearerError } from './error';
+import { MissingField, MissingParams, StatusError } from './error';
 import { CollectorLoader } from './collectors/collectorLoader';
 import { User, UserStats } from './model/user';
 import { Customer, CustomerAuthenticationMethod, CustomerStats } from './model/customer';
@@ -20,32 +20,19 @@ import { WebSocketServer } from './websocket/webSocketServer';
 import { IntegrationLoader } from './integration/integrationLoader';
 import { Callback } from './model/callback';
 import { IntegrationConfig } from './integration/abstractIntegration';
+import { TokenManager } from './tokenManager';
 
 export class Server {
 
-    static OAUTH_TOKEN_VALIDITY_DURATION_MS = Number(utils.getEnvVar('OAUTH_TOKEN_VALIDITY_DURATION_MS', '1800000'));                   // 30 minutes in milliseconds
-    static RESET_PASSWORD_TOKEN_VALIDITY_DURATION_MS = Number(utils.getEnvVar('RESET_PASSWORD_TOKEN_VALIDITY_DURATION_MS', '3600000')); // 1 hour in milliseconds
-    static UI_BEARER_VALIDITY_DURATION_MS = Number(utils.getEnvVar('UI_BEARER_VALIDITY_DURATION_MS', '3600000'));                       // 1 hour in milliseconds
     static IS_SELF_HOSTED: boolean = utils.getEnvVar('IS_SELF_HOSTED', 'true').toLowerCase() === 'true';
 
-    customerUiBearers: { [key: string]: string };
-    customerResetTokens: { [key: string]: string };
-    userUiBearers: { [key: string]: string };
-    userUiTokens: { [key: string]: User };
-    credentialOauth2States: { [key: string]: Credential };
-    userResetTokens: { [key: string]: string };
-
-    collect_task: CollectTask;
+    tokenManager: TokenManager;
+    collectTask: CollectTask;
     httpServer: any;
 
     constructor() {
-        this.customerUiBearers = {};
-        this.customerResetTokens = {};
-        this.userUiBearers = {};
-        this.userUiTokens = {};
-        this.credentialOauth2States = {};
-        this.userResetTokens = {};
-        this.collect_task = new CollectTask();
+        this.tokenManager = new TokenManager();
+        this.collectTask = new CollectTask();
 	}
 
     async start(){
@@ -69,7 +56,7 @@ export class Server {
             });
 
         // Start cron job for invoice collection
-        this.collect_task.start();
+        this.collectTask.start();
     }
 
     // ---------- GENERAL ENDPOINTS ----------
@@ -83,7 +70,7 @@ export class Server {
         secretManager: boolean
     }> {
         // Get user from bearer or token
-        await this.getCustomerFromBearer(bearer);
+        await this.tokenManager.getCustomerFromBearer(bearer);
 
         // Ping analytics server, database and secret manager in parallel
         const [analytics, database, secretManager] = await Promise.all([
@@ -116,7 +103,7 @@ export class Server {
         theme: string
     }> {
         // Get user from token
-        const user = this.getUserFromUiToken(token);
+        const user = await this.tokenManager.getUserFromUiToken(token);
 
         // Get customer from user
         const customer = await user.getCustomer();
@@ -154,7 +141,7 @@ export class Server {
         }
 
         // Get customer from bearer or token
-        const customer = await this.getCustomerFromBearerOrToken(bearer, token);
+        const customer = await this.tokenManager.getCustomerFromBearerOrToken(bearer, token);
 
         // Send feedback to analytics server
         await AnalyticsFactory.getInstance().feedback(
@@ -191,18 +178,7 @@ export class Server {
         // If customer exists
         if(customer) {
             // Generate session bearer token
-            const customerUiBearer = utils.generate_bearer(utils.BearerType.CUSTOMER_SESSION);
-
-            // Compute hashed bearer
-            const hashedCustomerUiBearer = utils.hash_string(customerUiBearer);
-
-            // Map bearer token with customer
-            this.customerUiBearers[hashedCustomerUiBearer] = customer.id;
-
-            // Schedule token delete after validity duration
-            setTimeout(() => {
-                delete this.customerUiBearers[hashedCustomerUiBearer];
-            }, Server.UI_BEARER_VALIDITY_DURATION_MS);
+            const customerUiBearer = this.tokenManager.createCustomerUiBearer(customer.id);
 
             // Return bearer token
             return {
@@ -220,18 +196,7 @@ export class Server {
             }
 
             // Generate session bearer token
-            const userUiBearer = utils.generate_bearer(utils.BearerType.USER_SESSION);
-
-            // Compute hashed bearer
-            const hashedUserUiBearer = utils.hash_string(userUiBearer);
-
-            // Map bearer token with user
-            this.userUiBearers[hashedUserUiBearer] = user.id;
-
-            // Schedule token delete after validity duration
-            setTimeout(() => {
-                delete this.userUiBearers[hashedUserUiBearer];
-            }, Server.UI_BEARER_VALIDITY_DURATION_MS);
+            const userUiBearer = this.tokenManager.createUserUiBearer(user.id);
 
             // Return bearer token
             return {
@@ -403,14 +368,17 @@ export class Server {
             throw new MissingField('password');
         }
 
+        // Get customer id from reset token
+        const customerId = this.tokenManager.getCustomerIdFromResetToken(resetToken);
+
         // If reset token belongs to a customer
-        if(this.customerResetTokens.hasOwnProperty(resetToken)) {
+        if(customerId !== undefined) {
             // Get customer from id
-            const customer = await Customer.fromId(this.customerResetTokens[resetToken]);
+            const customer = await Customer.fromId(customerId);
 
             // Check if customer exists
             if(!customer) {
-                throw new StatusError(`Customer with id "${this.customerResetTokens[resetToken]}" not found.`, 400);
+                throw new StatusError(`Customer with id "${customerId}" not found.`, 400);
             }
 
             // Set new password
@@ -420,29 +388,35 @@ export class Server {
             await customer.commit();
 
             // Delete customer reset token
-            delete this.customerResetTokens[resetToken];
+            this.tokenManager.deleteCustomerResetToken(resetToken);
         }
         // If reset token belongs to a user
-        else if(this.userResetTokens.hasOwnProperty(resetToken)) {
-            // Get user from id
-            const user = await User.fromId(this.userResetTokens[resetToken]);
-
-            // Check if user exists
-            if(!user) {
-                throw new StatusError(`User with id "${this.userResetTokens[resetToken]}" not found.`, 400);
-            }
-
-            // Set new password
-            user.password = utils.hash_string(password);
-
-            // Commit changes in database
-            await user.commit();
-
-            // Delete user reset token
-            delete this.userResetTokens[resetToken];
-        }
         else {
-            throw new StatusError('Invalid reset token. Your reset link probably expired.', 401);
+            // Get user id from reset token
+            const userId = this.tokenManager.getUserIdFromResetToken(resetToken);
+
+            // If reset token belongs to a user
+            if(userId !== undefined) {
+                // Get user from id
+                const user = await User.fromId(userId);
+
+                // Check if user exists
+                if(!user) {
+                    throw new StatusError(`User with id "${userId}" not found.`, 400);
+                }
+
+                // Set new password
+                user.password = utils.hash_string(password);
+
+                // Commit changes in database
+                await user.commit();
+
+                // Delete user reset token
+                this.tokenManager.deleteUserResetToken(resetToken);
+            }
+            else {
+                throw new StatusError('Invalid reset token. Your reset link probably expired.', 401);
+            }
         }
     }
 
@@ -466,7 +440,7 @@ export class Server {
         plan: Plan
     }> {
         // Get customer from bearer
-        const customer = await this.getCustomerFromBearer(bearer);
+        const customer = await this.tokenManager.getCustomerFromBearer(bearer);
 
         // Return customer
         return {
@@ -515,7 +489,7 @@ export class Server {
         plan: Plan
     }> {
         // Get customer from bearer
-        const customer = await this.getCustomerFromBearer(bearer);
+        const customer = await this.tokenManager.getCustomerFromBearer(bearer);
 
         // Check if name field is present
         if(name) {
@@ -580,7 +554,7 @@ export class Server {
         bearer: string
     }> {
         // Get customer from bearer
-        const customer = await this.getCustomerFromBearer(bearer);
+        const customer = await this.tokenManager.getCustomerFromBearer(bearer);
 
         // Generate api bearer
         const newBearer = utils.generate_bearer(utils.BearerType.API);
@@ -600,7 +574,7 @@ export class Server {
 
     public async getCustomerStats(bearer: string | undefined): Promise<CustomerStats>{
         // Get customer from bearer
-        const customer = await this.getCustomerFromBearer(bearer);
+        const customer = await this.tokenManager.getCustomerFromBearer(bearer);
 
         // Get customer stats
         return await customer.getStats();
@@ -625,7 +599,7 @@ export class Server {
         stats: UserStats
     }[]> {
         // Get customer from bearer
-        const customer = await this.getCustomerFromBearer(bearer);
+        const customer = await this.tokenManager.getCustomerFromBearer(bearer);
 
         // Get users from customer
         const users = await customer.getUsers();
@@ -675,7 +649,7 @@ export class Server {
         stats: UserStats
     }> {
         // Get customer from bearer
-        const customer = await this.getCustomerFromBearer(bearer);
+        const customer = await this.tokenManager.getCustomerFromBearer(bearer);
 
         // Check if remote_id field is missing
         if(!remote_id) {
@@ -748,7 +722,7 @@ export class Server {
         await user.commit();
 
         // Generate UI token
-        const uiToken = this.generateUiToken(user);
+        const uiToken = this.tokenManager.createUserUiToken(user.id);
 
         // Get user stats
         const stats = await user.getStats();
@@ -787,13 +761,13 @@ export class Server {
         stats: UserStats
     }> {
         // Get user from bearer
-        const user = await this.getUserFromBearerOrToken(bearer, user_id, null);
+        const user = await this.tokenManager.getUserFromBearerOrToken(bearer, user_id, null);
 
         // Get customer from user
         const customer = await user.getCustomer();
 
         // Generate UI token
-        const uiToken = this.generateUiToken(user);
+        const uiToken = this.tokenManager.createUserUiToken(user.id);
 
         // Get user stats
         const stats = await user.getStats();
@@ -839,7 +813,7 @@ export class Server {
         stats: UserStats
     }> {
         // Get user from bearer
-        const user = await this.getUserFromBearerOrToken(bearer, user_id, null);
+        const user = await this.tokenManager.getUserFromBearerOrToken(bearer, user_id, null);
 
         // Get customer from user
         const customer = await user.getCustomer();
@@ -909,7 +883,7 @@ export class Server {
     // BEARER AUTHENTICATION
     public async delete_user(bearer: string | undefined, user_id: string) {
         // Get customer from bearer
-        const customer = await this.getCustomerFromBearer(bearer);
+        const customer = await this.tokenManager.getCustomerFromBearer(bearer);
 
         // Check if user_id field is missing
         if(!user_id) {
@@ -928,11 +902,7 @@ export class Server {
         await user.delete();
 
         // Delete user from ui token mapping
-        for (const uiToken in this.userUiTokens) {
-            if (this.userUiTokens[uiToken].id === user.id) {
-                delete this.userUiTokens[uiToken];
-            }
-        }
+        this.tokenManager.deleteUserUiTokensForUser(user.id);
     }
 
     // ---------- CREDENTIAL ENDPOINTS ----------
@@ -956,7 +926,7 @@ export class Server {
         wsPath: string | null
     }[]> {
         // Get user from bearer or token
-         const user = await this.getUserFromBearerOrToken(bearer, user_id, token);
+         const user = await this.tokenManager.getUserFromBearerOrToken(bearer, user_id, token);
 
         // Get credentials from user
         const credentials = await user.getCredentials();
@@ -1022,7 +992,7 @@ export class Server {
         wsPath: string
     }> {
         // Get user from bearer or token
-        const user = await this.getUserFromBearerOrToken(bearer, user_id, token);
+        const user = await this.tokenManager.getUserFromBearerOrToken(bearer, user_id, token);
 
         // Check if id field is missing
         if(!collector_id) {
@@ -1110,7 +1080,7 @@ export class Server {
         await credential.commit();
 
         // Generate oauth2 state from credential
-        const oauth2State = this.generateOauth2State(credential);
+        const oauth2State = this.tokenManager.createCredentialOauth2State(credential.id);
 
         // Start web socket server and get token
         const webSocketServer = new WebSocketServer(this.httpServer, user.locale, collector, oauth2State);
@@ -1170,7 +1140,7 @@ export class Server {
         wsPath: string | null
     }> {
         // Get user from bearer or token
-        const user = await this.getUserFromBearerOrToken(bearer, user_id, token);
+        const user = await this.tokenManager.getUserFromBearerOrToken(bearer, user_id, token);
 
         // Get credential from id
         const credential = await user.getCredential(id);
@@ -1230,7 +1200,7 @@ export class Server {
         id: string,
     ): Promise<void> {
         // Get user from bearer or token
-        const user = await this.getUserFromBearerOrToken(bearer, user_id, token);
+        const user = await this.tokenManager.getUserFromBearerOrToken(bearer, user_id, token);
 
         // Get credential from id
         const credential = await user.getCredential(id);
@@ -1264,7 +1234,7 @@ export class Server {
         code: string | undefined,
     ): Promise<void> {
         // Get user from bearer or token
-        const user = await this.getUserFromBearerOrToken(bearer, user_id, token);
+        const user = await this.tokenManager.getUserFromBearerOrToken(bearer, user_id, token);
 
          // Check code id field is missing
          if(!code) {
@@ -1309,7 +1279,7 @@ export class Server {
         theme: string
     }> {
         // Get credential from oauth2 state
-        const credential = await this.getCredentialFromOauth2State(oauth2State);
+        const credential = await this.tokenManager.getCredentialFromOauth2State(oauth2State);
 
         // Get user from credential
         const user = await credential.getUser();
@@ -1346,7 +1316,7 @@ export class Server {
         wsPath: string | null
     }> {
         // Get user from bearer or token
-        const user = await this.getUserFromBearerOrToken(bearer, user_id, token);
+        const user = await this.tokenManager.getUserFromBearerOrToken(bearer, user_id, token);
 
         // Get credential from id
         const credential = await user.getCredential(credential_id);
@@ -1376,7 +1346,7 @@ export class Server {
             AbstractCollector.updateCollectorParams(customer.authenticationMethod, collector.config);
 
             // Generate oauth2 state from credential
-            const oauth2State = this.generateOauth2State(credential); 
+            const oauth2State = this.tokenManager.createCredentialOauth2State(credential.id);
 
             // Start web socket server and get token
             const webSocketServer = new WebSocketServer(this.httpServer, user.locale, collector, oauth2State);
@@ -1425,7 +1395,7 @@ export class Server {
         let displaySketchCollectors: boolean = Customer.DEFAULT_DISPLAY_SKETCH_COLLECTORS;
         if(token || bearer) {
             // Get customer from bearer or token
-            const customer = await this.getCustomerFromBearerOrToken(bearer, token);
+            const customer = await this.tokenManager.getCustomerFromBearerOrToken(bearer, token);
             subscribedCollectors = customer.subscribedCollectors;
             isSubscribedToAll = customer.isSubscribedToAll;
             authenticationMethod = customer.authenticationMethod;
@@ -1470,7 +1440,7 @@ export class Server {
         automaticExport: boolean
     }[]> {
         // Get customer from bearer
-        const customer = await this.getCustomerFromBearer(bearer);
+        const customer = await this.tokenManager.getCustomerFromBearer(bearer);
 
         // Get callbacks from customer
         const callbacks = await customer.getCallbacks();
@@ -1503,7 +1473,7 @@ export class Server {
         automaticExport: boolean | undefined
     }> {
         // Get customer from bearer
-        const customer = await this.getCustomerFromBearer(bearer);
+        const customer = await this.tokenManager.getCustomerFromBearer(bearer);
  
         // Check if integration_id field is missing
         if(!integration_id) {
@@ -1586,7 +1556,7 @@ export class Server {
         automaticExport: boolean | undefined
     }> {
         // Get customer from bearer
-        const customer = await this.getCustomerFromBearer(bearer);
+        const customer = await this.tokenManager.getCustomerFromBearer(bearer);
 
         // Get callbacks from customer
         const callbacks = await customer.getCallbacks();
@@ -1637,7 +1607,7 @@ export class Server {
         callback_id: string,
     ): Promise<void> {
         // Get customer from bearer
-        const customer = await this.getCustomerFromBearer(bearer);
+        const customer = await this.tokenManager.getCustomerFromBearer(bearer);
 
         // Get callbacks from customer
         const callbacks = await customer.getCallbacks();
@@ -1659,7 +1629,7 @@ export class Server {
         type: string,
     ): Promise<void> {
         // Get customer from bearer
-        const customer = await this.getCustomerFromBearer(bearer);
+        const customer = await this.tokenManager.getCustomerFromBearer(bearer);
 
         // Check if type field is missing
         if(!type) {
@@ -1718,183 +1688,9 @@ export class Server {
 
     // ---------- PRIVATE METHODS ----------
 
-    private generateUiToken(user: User): string {
-        // Generate oauth token
-        const uiToken = utils.generate_token();
-
-        // Map token with user
-        this.userUiTokens[uiToken] = user;
-
-        // Schedule token delete after validity duration
-        setTimeout(() => {
-            delete this.userUiTokens[uiToken];
-        }, Server.OAUTH_TOKEN_VALIDITY_DURATION_MS);
-
-        // Return token
-        return uiToken;
-    }
-
-    private getUserFromUiToken(uiToken: any): User {
-        // Check if token is missing or incorrect
-        if(!uiToken || typeof uiToken !== 'string' || !this.userUiTokens.hasOwnProperty(uiToken)) {
-            throw new OauthError();
-        }
-        return this.userUiTokens[uiToken];
-    }
-
-    private generateOauth2State(credential: Credential): string {
-        // Generate oauth token
-        const oauth2State = utils.generate_token();
-
-        // Map state with credential
-        this.credentialOauth2States[oauth2State] = credential;
-
-        // Schedule state delete after validity duration
-        setTimeout(() => {
-            delete this.credentialOauth2States[oauth2State];
-        }, Server.OAUTH_TOKEN_VALIDITY_DURATION_MS);
-
-        // Return state
-        return oauth2State;
-    }
-
-    private getCredentialFromOauth2State(oauth2State: any): Credential {
-        // Check if state is missing or incorrect
-        if(!oauth2State || typeof oauth2State !== 'string' || !this.credentialOauth2States.hasOwnProperty(oauth2State)) {
-            throw new OauthError();
-        }
-        return this.credentialOauth2States[oauth2State];
-    }
-
-    private async getCustomerFromBearerOrToken(bearer: string | undefined, token: any): Promise<Customer> {
-        if (token) {
-            // Get user from token
-            const user = this.getUserFromUiToken(token);
-            // Get customer from user
-            return await user.getCustomer();
-        }
-        else if (bearer) {
-            // If is a user bearer, get user from bearer
-            if(bearer.startsWith(`Bearer ${utils.BearerType.USER_SESSION}`)) {
-                // Get user from bearer
-                const user = await this.getUserFromBearer(bearer);
-                // Get customer from user
-                return await user.getCustomer();
-            }
-            else {
-                // Get customer from bearer
-                return await this.getCustomerFromBearer(bearer);
-            }
-        }
-        else {
-            throw new StatusError('Provide a Bearer token or a "token" field in the query.', 400);
-        }
-    }
-
-    private async getUserFromBearerOrToken(bearer: string | undefined, user_id: string, token: any): Promise<User> {
-        // If token provided, get user from token
-        if (token) {
-            // Get user from token
-            return this.getUserFromUiToken(token);
-        }
-        // If only bearer provided, get user from bearer
-        else if (bearer && user_id === 'me') {
-            // Get user from bearer
-            return await this.getUserFromBearer(bearer);
-        }
-        // If bearer and user_id provided, get user from customer bearer
-        else if (bearer && user_id) {
-            // Check if user_id is provided
-            if (!user_id) {
-                throw new MissingField('user_id');
-            }
-            // Get customer from bearer
-            const customer = await this.getCustomerFromBearer(bearer);
-            // Get user from customer
-            const user = await customer.getUser(user_id);
-
-            // Check if user exists
-            if (!user) {
-                throw new StatusError(`User with id "${user_id}" not found.`, 400);
-            }
-
-            return user;
-        }
-        else {
-            throw new StatusError('Provide a Bearer token or a "token" field in the query.', 400);
-        }
-    }
-
-    private async getCustomerFromBearer(bearer: string | undefined): Promise<Customer> {
-        // Check if bearer is missing
-        if (!bearer || !bearer.startsWith('Bearer ')) {
-            throw new AuthenticationBearerError();
-        }
-
-        // Get hashed bearer
-        const hashed_bearer = utils.hash_string(bearer.split(' ')[1]);
-
-        let customer: Customer | null;
-        // Check if customerUiBearers contains the hashed bearer
-        if (this.customerUiBearers.hasOwnProperty(hashed_bearer)) {
-            // Get customer id from uiBearers
-            const customer_id = this.customerUiBearers[hashed_bearer];
-
-            // Get customer from id
-            customer = await Customer.fromId(customer_id);
-        }
-        else {
-            // Get customer from bearer
-            customer = await Customer.fromBearer(hashed_bearer);
-        }
-
-        // Check if customer exists
-        if (!customer) {
-            throw new AuthenticationBearerError();
-        }
-
-        return customer;
-    }
-
-    private async getUserFromBearer(bearer: string | undefined): Promise<User> {
-        // Check if bearer is missing
-        if (!bearer || !bearer.startsWith('Bearer ')) {
-            throw new AuthenticationBearerError();
-        }
-
-        // Get hashed bearer
-        const hashed_bearer = utils.hash_string(bearer.split(' ')[1]);
-
-        // If the bearer is not in userUiBearers
-        if(!this.userUiBearers.hasOwnProperty(hashed_bearer)) {
-            throw new AuthenticationBearerError();
-        }
-
-        // Get user id from uiBearers
-        const user_id = this.userUiBearers[hashed_bearer];
-
-        // Get user from id
-        const user = await User.fromId(user_id);
-
-        // Check if user exists
-        if (!user) {
-            throw new AuthenticationBearerError();
-        }
-
-        return user;
-    }
-
     private async handleUserResetPassword(user: User): Promise<string> {
         // Generate reset token
-        const resetToken = utils.generate_token();
-
-        // Map reset token with user
-        this.userResetTokens[resetToken] = user.id;
-
-        // Schedule token delete after validity duration
-        setTimeout(() => {
-            delete this.userResetTokens[resetToken];
-        }, Server.RESET_PASSWORD_TOKEN_VALIDITY_DURATION_MS);
+        const resetToken = this.tokenManager.createUserResetToken(user.id);
 
         // Send reset password email
         await AnalyticsFactory.getInstance().sendResetPasswordEmail(user.remote_id, resetToken);
@@ -1905,15 +1701,7 @@ export class Server {
 
     private async handleCustomerResetPassword(customer: Customer): Promise<string> {
         // Generate reset token
-        const resetToken = utils.generate_token();
-
-        // Map reset token with customer
-        this.customerResetTokens[resetToken] = customer.id;
-
-        // Schedule token delete after validity duration
-        setTimeout(() => {
-            delete this.customerResetTokens[resetToken];
-        }, Server.RESET_PASSWORD_TOKEN_VALIDITY_DURATION_MS);
+        const resetToken = this.tokenManager.createCustomerResetToken(customer.id);
 
         // Send reset password email
         await AnalyticsFactory.getInstance().sendResetPasswordEmail(customer.email, resetToken);

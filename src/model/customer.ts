@@ -51,7 +51,10 @@ export class Customer {
     static DEFAULT_DISPLAY_SKETCH_COLLECTORS = true;
     static DEFAULT_MAX_DELAY_BETWEEN_COLLECT = 2592000000; // 30 days in milliseconds
 
-    static async fromBearer(hashed_bearer: string): Promise<Customer> {
+    static async fromBearer(raw_bearer: string): Promise<Customer> {
+        // Get hashed bearer
+        const hashed_bearer = utils.hash_string(raw_bearer);
+
         // Get customer from bearer
         const customer = await DatabaseFactory.getDatabase().getCustomerFromBearer(hashed_bearer);
 

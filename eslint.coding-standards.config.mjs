@@ -7,6 +7,7 @@ export default [
       parser: tsParser,
     },
     rules: {
+      'camelcase': ['error', { properties: 'always' }],
       'comma-dangle': ['error', 'always-multiline'],
       'curly': ['error', 'all'],
       'eqeqeq': ['error', 'always'],

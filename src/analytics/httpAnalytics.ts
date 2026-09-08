@@ -1,7 +1,7 @@
 import axios, { AxiosInstance } from 'axios';
 import { fullStackTrace, LoggableError } from '../error';
 import * as utils from '../utils';
-import { Server } from '../server';
+import { TokenManager } from '../tokenManager';
 import { AbstractCollector, Config } from '../collectors/abstractCollector';
 import { AbstractAnalytics, OTP } from './abstractAnalytics';
 
@@ -134,7 +134,7 @@ export class HttpAnalytics extends AbstractAnalytics {
                 { text: 'Hello', bold: false, center: false, italic: false },
                 { text: 'You requested to change your password. Please use the following link:', bold: false, center: false, italic: false },
                 { text: `<a href="${resetLink}" rel="nofollow noopener noreferrer">Define a new password</a>`, bold: true, center: true, italic: false },
-                { text: `This link is valid for ${Math.round(Server.RESET_PASSWORD_TOKEN_VALIDITY_DURATION_MS / 60000)} minutes.`, bold: false, center: false, italic: false },
+                { text: `This link is valid for ${Math.round(TokenManager.RESET_PASSWORD_TOKEN_VALIDITY_DURATION_MS / 60000)} minutes.`, bold: false, center: false, italic: false },
                 { text: null, bold: false, center: false, italic: false },
                 { text: 'You are not the requestor? Kindly ignore this message.', bold: false, center: false, italic: true },
             ],
