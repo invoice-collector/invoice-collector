@@ -47,7 +47,11 @@ export function hash_string(input: string, algorithm: string = 'sha3-512'): stri
     return crypto.createHash(algorithm).update(input).digest('hex');
 }
 
-export async function delay(ms): Promise<void> {
+/**
+ * Wait for a specified number of milliseconds.
+ * @param ms The number of milliseconds to wait. Does not wait if ms is 0.
+ */
+export async function delay(ms: number): Promise<void> {
     if (ms !== 0) {
         await new Promise(function(resolve) {
             setTimeout(resolve, ms);
