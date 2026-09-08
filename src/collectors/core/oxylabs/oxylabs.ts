@@ -16,9 +16,9 @@ export class OxylabsCollector extends EmailCollector {
             sender: 'notifications@oxylabs.io',
             subject: 'Your Oxylabs Invoice',
             body: '*',
-            attachmentName: '*.pdf'
-        }
-    }
+            attachmentName: '*.pdf',
+        },
+    };
 
     constructor() {
         super(OxylabsCollector.CONFIG);

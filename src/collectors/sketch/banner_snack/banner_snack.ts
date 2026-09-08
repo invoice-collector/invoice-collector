@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class BannerSnackCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "banner_snack",
-        name: "Banner Snack",
-        description: "i18n.collectors.banner_snack.description",
-        version: "0",
-        website: "https://app.bannersnack.com/auth/login",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/71329.jpg",
+        id: 'banner_snack',
+        name: 'Banner Snack',
+        description: 'i18n.collectors.banner_snack.description',
+        version: '0',
+        website: 'https://app.bannersnack.com/auth/login',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/71329.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://app.bannersnack.com/auth/login",
+        loginUrl: 'https://app.bannersnack.com/auth/login',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(BannerSnackCollector.CONFIG);

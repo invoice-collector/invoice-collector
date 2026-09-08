@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class TencentCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "tencent",
-        name: "Tencent",
-        description: "i18n.collectors.tencent.description",
-        version: "0",
-        website: "https://console.tencentcloud.com/expense/invoicing",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4368505.jpg",
+        id: 'tencent',
+        name: 'Tencent',
+        description: 'i18n.collectors.tencent.description',
+        version: '0',
+        website: 'https://console.tencentcloud.com/expense/invoicing',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4368505.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://console.tencentcloud.com/expense/invoicing",
+        loginUrl: 'https://console.tencentcloud.com/expense/invoicing',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(TencentCollector.CONFIG);

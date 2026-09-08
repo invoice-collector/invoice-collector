@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class EauxDeMarseilleCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "eaux_de_marseille",
-        name: "Eaux de Marseille",
-        description: "i18n.collectors.eaux_de_marseille.description",
-        version: "0",
-        website: "https://espaceclients.eaudemarseille-metropole.fr/index.html#/login",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/27350.jpg",
+        id: 'eaux_de_marseille',
+        name: 'Eaux de Marseille',
+        description: 'i18n.collectors.eaux_de_marseille.description',
+        version: '0',
+        website: 'https://espaceclients.eaudemarseille-metropole.fr/index.html#/login',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/27350.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://espaceclients.eaudemarseille-metropole.fr/index.html#/login",
+        loginUrl: 'https://espaceclients.eaudemarseille-metropole.fr/index.html#/login',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(EauxDeMarseilleCollector.CONFIG);

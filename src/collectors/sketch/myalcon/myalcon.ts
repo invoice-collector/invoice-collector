@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class MyalconCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "myalcon",
-        name: "MyAlcon",
-        description: "i18n.collectors.myalcon.description",
-        version: "0",
-        website: "https://order.myalcon.ca/alconCA/en_CA/CAD/visioncare/invoices",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4231160.jpg",
+        id: 'myalcon',
+        name: 'MyAlcon',
+        description: 'i18n.collectors.myalcon.description',
+        version: '0',
+        website: 'https://order.myalcon.ca/alconCA/en_CA/CAD/visioncare/invoices',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4231160.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://order.myalcon.ca/alconCA/en_CA/CAD/visioncare/invoices",
+        loginUrl: 'https://order.myalcon.ca/alconCA/en_CA/CAD/visioncare/invoices',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(MyalconCollector.CONFIG);

@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class EndesaXxiCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "endesa_xxi",
-        name: "Endesa XXI",
-        description: "i18n.collectors.endesa_xxi.description",
-        version: "0",
-        website: "https://www.energiaxxi.com/login-en.html?d=Any",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1203385.jpg",
+        id: 'endesa_xxi',
+        name: 'Endesa XXI',
+        description: 'i18n.collectors.endesa_xxi.description',
+        version: '0',
+        website: 'https://www.energiaxxi.com/login-en.html?d=Any',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1203385.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://www.energiaxxi.com/login-en.html?d=Any",
+        loginUrl: 'https://www.energiaxxi.com/login-en.html?d=Any',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(EndesaXxiCollector.CONFIG);

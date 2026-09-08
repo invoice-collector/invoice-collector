@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class SnappcarCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "snappcar",
-        name: "snappcar",
-        description: "i18n.collectors.snappcar.description",
-        version: "0",
-        website: "https://www.snappcar.de/account/reservations",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/223743.jpg",
+        id: 'snappcar',
+        name: 'snappcar',
+        description: 'i18n.collectors.snappcar.description',
+        version: '0',
+        website: 'https://www.snappcar.de/account/reservations',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/223743.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://www.snappcar.de/account/reservations",
+        loginUrl: 'https://www.snappcar.de/account/reservations',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(SnappcarCollector.CONFIG);

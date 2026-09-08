@@ -9,13 +9,13 @@ import { Secret } from '../model/secret';
 export class AxonautIntegration extends AbstractIntegration { 
 
     static CONFIG: IntegrationConfig = {
-        id: "axonaut",
-        name: "Axonaut",
-        description: "i18n.integrations.axonaut.description",
+        id: 'axonaut',
+        name: 'Axonaut',
+        description: 'i18n.integrations.axonaut.description',
         state: 'planned',
         params: {
             //TODO: add specific params here
-        }
+        },
     };
     
     constructor(secret: Secret) {

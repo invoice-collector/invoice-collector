@@ -8,32 +8,32 @@ import * as utils from '../../../utils';
 export class BureauValleeCollector extends LinearWebCollector {
 
     static CONFIG = {
-        id: "bureau_vallee",
-        name: "Bureau Vallée",
-        description: "i18n.collectors.bureau_vallee.description",
-        version: "14",
-        website: "https://www.bureau-vallee.fr",
-        logo: "https://upload.wikimedia.org/wikipedia/commons/3/32/Logo-bureau-vallee-2021.png",
+        id: 'bureau_vallee',
+        name: 'Bureau Vallée',
+        description: 'i18n.collectors.bureau_vallee.description',
+        version: '14',
+        website: 'https://www.bureau-vallee.fr',
+        logo: 'https://upload.wikimedia.org/wikipedia/commons/3/32/Logo-bureau-vallee-2021.png',
         type: CollectorType.WEB,
         params: {
             id: {
-                type: "string",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'string',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
                 mandatory: true,
-            }
+            },
         },
-        loginUrl: "https://www.bureau-vallee.fr/customer/account/login",
-        entryUrl: "https://www.bureau-vallee.fr/customer/invoices",
+        loginUrl: 'https://www.bureau-vallee.fr/customer/account/login',
+        entryUrl: 'https://www.bureau-vallee.fr/customer/invoices',
         captcha: CollectorCaptcha.NONE,
-        authenticationMethod: CollectorAuthenticationMethod.SECRETS_ONLY
-    }
+        authenticationMethod: CollectorAuthenticationMethod.SECRETS_ONLY,
+    };
 
     constructor() {
         super(BureauValleeCollector.CONFIG);
@@ -50,13 +50,13 @@ export class BureauValleeCollector extends LinearWebCollector {
         // Check if email is incorrect
         const email_alert = await driver.getElement(BureauValleeSelectors.CONTAINER_LOGIN_ALERT, { raiseException: false, timeout: 2000 });
         if (email_alert) {
-            return await email_alert.textContent("i18n.collectors.all.email_or_number.error");
+            return await email_alert.textContent('i18n.collectors.all.email_or_number.error');
         }
     
         // Check if password strength container is displayed, if yes, it means that the account doesn't exist
         const passwordStrength = await driver.getElement(BureauValleeSelectors.CONTAINER_PASSWORD_STRENGTH, { raiseException: false, timeout: 100 });
         if (passwordStrength) {
-            return "i18n.collectors.all.signup.error";
+            return 'i18n.collectors.all.signup.error';
         }
     
         // Input password
@@ -66,13 +66,13 @@ export class BureauValleeCollector extends LinearWebCollector {
         // Check if password is incorrect
         const password_alert = await driver.getElement(BureauValleeSelectors.CONTAINER_PASSWORD_ALERT, { raiseException: false, timeout: 2000 });
         if (password_alert) {
-            return await password_alert.textContent("i18n.collectors.all.password.error");
+            return await password_alert.textContent('i18n.collectors.all.password.error');
         }
     }
 
     async navigate(driver: Driver): Promise<void> {
         // Wait for profile container
-        await driver.getElement(BureauValleeSelectors.CONTAINER_PROFIL)
+        await driver.getElement(BureauValleeSelectors.CONTAINER_PROFIL);
         // Go to invoices page
         await driver.goto(this.config.entryUrl);
     }
@@ -87,18 +87,18 @@ export class BureauValleeCollector extends LinearWebCollector {
 
     async data(driver: Driver, element: Element): Promise<Invoice | null> {
         // Get data
-        const date = await element.getAttribute(BureauValleeSelectors.CONTAINER_INVOICE_DATE, "textContent");
+        const date = await element.getAttribute(BureauValleeSelectors.CONTAINER_INVOICE_DATE, 'textContent');
         const timestamp = utils.timestampFromString(date, "'Facture du 'dd MMMM yyyy", 'fr');
-        const amount = await element.getAttribute(BureauValleeSelectors.CONTAINER_INVOICE_AMOUNT, "textContent");
+        const amount = await element.getAttribute(BureauValleeSelectors.CONTAINER_INVOICE_AMOUNT, 'textContent');
         const downloadElement = await element.getElement(BureauValleeSelectors.BUTTON_INVOICE_DOWNLOAD);
-        const link = await element.getAttribute(BureauValleeSelectors.BUTTON_INVOICE_DOWNLOAD, "href");
+        const link = await element.getAttribute(BureauValleeSelectors.BUTTON_INVOICE_DOWNLOAD, 'href');
 
         return {
             id: utils.hash_string(`${date}${amount}`),
             timestamp,
             amount,
             link,
-            downloadButton: downloadElement
+            downloadButton: downloadElement,
         };
     }
 

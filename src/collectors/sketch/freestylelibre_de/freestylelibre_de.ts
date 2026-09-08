@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class FreestylelibreDeCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "freestylelibre_de",
-        name: "freestylelibre.de",
-        description: "i18n.collectors.freestylelibre_de.description",
-        version: "0",
-        website: "https://www.freestylelibre.de/anmelden/login.html",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1035436.jpg",
+        id: 'freestylelibre_de',
+        name: 'freestylelibre.de',
+        description: 'i18n.collectors.freestylelibre_de.description',
+        version: '0',
+        website: 'https://www.freestylelibre.de/anmelden/login.html',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1035436.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://www.freestylelibre.de/anmelden/login.html",
+        loginUrl: 'https://www.freestylelibre.de/anmelden/login.html',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(FreestylelibreDeCollector.CONFIG);

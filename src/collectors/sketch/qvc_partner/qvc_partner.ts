@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class QvcPartnerCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "qvc_partner",
-        name: "QVC Partner",
-        description: "i18n.collectors.qvc_partner.description",
-        version: "0",
-        website: "https://partner.qvc.de/",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/776395.jpg",
+        id: 'qvc_partner',
+        name: 'QVC Partner',
+        description: 'i18n.collectors.qvc_partner.description',
+        version: '0',
+        website: 'https://partner.qvc.de/',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/776395.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://partner.qvc.de/",
+        loginUrl: 'https://partner.qvc.de/',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(QvcPartnerCollector.CONFIG);

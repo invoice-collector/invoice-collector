@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class EurosportCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "eurosport",
-        name: "Eurosport",
-        description: "i18n.collectors.eurosport.description",
-        version: "0",
-        website: "https://auth.eurosport.com/login?flow=login",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1098161.jpg",
+        id: 'eurosport',
+        name: 'Eurosport',
+        description: 'i18n.collectors.eurosport.description',
+        version: '0',
+        website: 'https://auth.eurosport.com/login?flow=login',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1098161.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://auth.eurosport.com/login?flow=login",
+        loginUrl: 'https://auth.eurosport.com/login?flow=login',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(EurosportCollector.CONFIG);

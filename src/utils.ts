@@ -1,4 +1,4 @@
-import os from 'os'
+import os from 'os';
 import fs from 'fs';
 import path from 'path';
 import * as crypto from 'crypto';
@@ -10,27 +10,27 @@ import { CollectorState, CollectorType, CompleteInvoice, Config } from './collec
 
 /* PUBLIC CONSTANTS */
 
-export const DEBUG_ENABLED = getEnvVar("ENV", "prod") === "debug";
-export const PORT = getEnvVar("PORT");
-export const BACKEND_URI = DEBUG_ENABLED ? `http://localhost:${PORT}` : "https://api.invoice-collector.com";
+export const DEBUG_ENABLED = getEnvVar('ENV', 'prod') === 'debug';
+export const PORT = getEnvVar('PORT');
+export const BACKEND_URI = DEBUG_ENABLED ? `http://localhost:${PORT}` : 'https://api.invoice-collector.com';
 
 /* PRIVATE CONSTANTS */
 
 const FAKE_INVOICE_FILE = path.resolve(__dirname, '../data/fake_invoice.pdf');
 const MIMETYPE_BASE64_SIGNATURE = {
-    JVBERi0: "application/pdf",
-    ACVQREY: "application/pdf",
-    iVBORw0KGgo: "image/png",
-    "/9j/": "image/jpg",
-    "UEsDB": "application/zip"
+    JVBERi0: 'application/pdf',
+    ACVQREY: 'application/pdf',
+    iVBORw0KGgo: 'image/png',
+    '/9j/': 'image/jpg',
+    'UEsDB': 'application/zip',
 };
 
 /* ENUMS */
 
 export enum BearerType {
-    CUSTOMER_SESSION = "c_sess",
-    USER_SESSION = "u_sess",
-    API = "api"
+    CUSTOMER_SESSION = 'c_sess',
+    USER_SESSION = 'u_sess',
+    API = 'api'
 }
 
 /* FUNCTIONS */
@@ -49,7 +49,7 @@ export function hash_string(input: string, algorithm: string = 'sha3-512'): stri
 
 export function delay(ms) {
     return new Promise(function(resolve) {
-        setTimeout(resolve, ms)
+        setTimeout(resolve, ms);
     });
 }
 
@@ -86,7 +86,7 @@ export function timestampFromString(date: string, formats: string | string[], lo
     }
 
     const fnsLocales = {
-        fr: fr,
+        fr,
         uk: enGB,
         en: enGB,
         engb: enGB,
@@ -101,7 +101,7 @@ export function timestampFromString(date: string, formats: string | string[], lo
         // For each format
         for (const format of formats) {
             // Try to parse date
-            let parsedDate = date_fns.parse(date.trim(), format, new Date(), { locale: dateFnsLocale });
+            const parsedDate = date_fns.parse(date.trim(), format, new Date(), { locale: dateFnsLocale });
 
             // Check if parsing succeeded
             if (!isNaN(parsedDate.getTime())) {
@@ -115,15 +115,15 @@ export function timestampFromString(date: string, formats: string | string[], lo
 
 export function wildcardToRegex(pattern: string): RegExp {
     const escaped = pattern.replace(/[.+?^${}()|[\]\\]/g, '\\$&');
-    return new RegExp('^' + escaped.replace(/\*/g, '.*') + '$', 'i');
+    return new RegExp(`^${  escaped.replace(/\*/g, '.*')  }$`, 'i');
 }
 
 export function mimetypeFromBase64(base64: string | null): string {
-    if(base64 == null) {
+    if(base64 === null) {
         return 'application/octet-stream';
     }
 
-    for (var s in MIMETYPE_BASE64_SIGNATURE) {
+    for (const s in MIMETYPE_BASE64_SIGNATURE) {
         if (base64.startsWith(s)) {
             return MIMETYPE_BASE64_SIGNATURE[s];
         }
@@ -142,19 +142,19 @@ export async function mergePdfDocuments(documents: string[]): Promise<string> {
         const mimetype = mimetypeFromBase64(document);
 
         // If mimetype is pdf
-        if(mimetype == "application/pdf") {
+        if(mimetype === 'application/pdf') {
             // Load PDF document and add each page to final pdf
             const documentPdf = await PDFDocument.load(document);
             const pages = await pdfDoc.copyPages(documentPdf, documentPdf.getPageIndices());
             pages.forEach(page => pdfDoc.addPage(page));
         }
-        else if (mimetype.startsWith("image/")) {
+        else if (mimetype.startsWith('image/')) {
             // Attach image to pdf
             let image;
-            if (mimetype === "image/png") {
+            if (mimetype === 'image/png') {
                 image = await pdfDoc.embedPng(document);
             }
-            else if (mimetype === "image/jpg" || mimetype === "image/jpeg") {
+            else if (mimetype === 'image/jpg' || mimetype === 'image/jpeg') {
                 image = await pdfDoc.embedJpg(document);
             }
             else {
@@ -164,7 +164,7 @@ export async function mergePdfDocuments(documents: string[]): Promise<string> {
             // Get image dimensions
             const imageDims = image.scale(0.75);
             // Add a blank page to the document
-            const page = pdfDoc.addPage()
+            const page = pdfDoc.addPage();
             // Draw the image in the center of the page
             page.drawImage(image, {
                 x: page.getWidth() / 2 - imageDims.width / 2,
@@ -218,25 +218,25 @@ export function trim(str: string): string {
 }
 
 export function generateUserAgent()  {
-    const chromeVersion = Math.floor(Math.random() * 20) + 60
-    const webkitVersion = Math.floor(Math.random() * 700) + 500
+    const chromeVersion = Math.floor(Math.random() * 20) + 60;
+    const webkitVersion = Math.floor(Math.random() * 700) + 500;
     const osPlatform =
       os.platform() === 'win32'
         ? 'Win64; x64'
-        : 'Macintosh; Intel Mac OS X 10_15_0'
-    const userAgent = `Mozilla/5.0 (${osPlatform}) AppleWebKit/${webkitVersion}.36 (KHTML, like Gecko) Chrome/${chromeVersion}.0.3163.100 Safari/${webkitVersion}.36`
-    return userAgent
+        : 'Macintosh; Intel Mac OS X 10_15_0';
+    const userAgent = `Mozilla/5.0 (${osPlatform}) AppleWebKit/${webkitVersion}.36 (KHTML, like Gecko) Chrome/${chromeVersion}.0.3163.100 Safari/${webkitVersion}.36`;
+    return userAgent;
 }
 
 export function getEnvVar(envVar: string, fallback: string | undefined = undefined): string {
     const value = process.env[envVar];
     // If the value is undefined or empty
-    if (value === undefined || value === "") {
+    if (value === undefined || value === '') {
         // If no fallback is provided, throw an error
         if (fallback === undefined) {
             throw new Error(`Environment variable ${envVar} is not set. See: https://invoice-collector.com/docs/developers/environment-variables`);
         }
-        return fallback
+        return fallback;
     }
     return value;
 }
@@ -248,22 +248,22 @@ export function createFakeInvoice(): {
     } {
     const data = fs.readFileSync(FAKE_INVOICE_FILE, {encoding: 'base64'});
     const invoice = {
-        id: "INV-3337",
+        id: 'INV-3337',
         timestamp: Date.now(),
-        amount: "$93.50",
-        link: "https://slicedinvoices.com/pdf/wordpress-pdf-invoice-plugin-sample.pdf",
-        data: data,
+        amount: '$93.50',
+        link: 'https://slicedinvoices.com/pdf/wordpress-pdf-invoice-plugin-sample.pdf',
+        data,
         mimetype: mimetypeFromBase64(data),
-        hash: hash_string(data, "md5"),
-        metadata: { contract: "CON-1234" },
+        hash: hash_string(data, 'md5'),
+        metadata: { contract: 'CON-1234' },
         downloadButton: null,
-        collected_timestamp: Date.now()
+        collected_timestamp: Date.now(),
     };
     return {
         collector: createFakeCollectorConfig(),
-        remote_id: "R121439",
-        invoice
-    }
+        remote_id: 'R121439',
+        invoice,
+    };
 }
 
 export function createFakeNotificationDisconnected(): {
@@ -274,44 +274,44 @@ export function createFakeNotificationDisconnected(): {
     } {
     return {
         collector: createFakeCollectorConfig(),
-        credential_id: "6776b5258821de266afbc3f6",
-        user_id: "687108e5dce5050bc8ca53c1",
-        remote_id: "R121439",
+        credential_id: '6776b5258821de266afbc3f6',
+        user_id: '687108e5dce5050bc8ca53c1',
+        remote_id: 'R121439',
     };
 }
 
 export function createFakeCollectorConfig(): Config {
     return {
-        id: "sliced_invoices",
-        name: "Sliced Invoices",
-        description: "A fake collector for testing purposes",
-        instructions: "Follow the instructions",
-        version: "12",
-        website: "https://slicedinvoices.com",
-        logo: "https://slicedinvoices.com/wp-content/uploads/2018/04/sliced-invoices-logo-1.png",
+        id: 'sliced_invoices',
+        name: 'Sliced Invoices',
+        description: 'A fake collector for testing purposes',
+        instructions: 'Follow the instructions',
+        version: '12',
+        website: 'https://slicedinvoices.com',
+        logo: 'https://slicedinvoices.com/wp-content/uploads/2018/04/sliced-invoices-logo-1.png',
         type: CollectorType.WEB,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        state: CollectorState.ACTIVE
+        state: CollectorState.ACTIVE,
     };
 }
 
 export function checkAmountContainsCurrencySymbol(amount: string): void {
     // Check if amount is empty
-    if (!amount || amount.trim() === "") {
-        throw new Error("Amount is empty.");
+    if (!amount || amount.trim() === '') {
+        throw new Error('Amount is empty.');
     }
 
     // Check if amount contains a currency symbol
@@ -323,7 +323,7 @@ export function checkAmountContainsCurrencySymbol(amount: string): void {
 
 export function checkEmailIsValid(email: string): boolean {
     // Check if email is empty
-    if (!email || email.trim() === "") {
+    if (!email || email.trim() === '') {
         return false;
     }
 
@@ -343,13 +343,13 @@ export function convertNameToInviteId(name: string): string {
     name = name.replace(/\s+/g, '-');
 
     // Add a random 5 characters string at the end to ensure uniqueness
-    name = name + '-' + crypto.randomBytes(3).toString('hex');
+    name = `${name  }-${  crypto.randomBytes(3).toString('hex')}`;
 
     return name;
 }
 
 export async function getLinksFromPdfDocument(data: string): Promise<string[]> {
-    let links: string[] = [];
+    const links: string[] = [];
     const documentPdf = await PDFDocument.load(data);
     const pages = documentPdf.getPages();
     pages.forEach((p) => {
@@ -358,14 +358,14 @@ export async function getLinksFromPdfDocument(data: string): Promise<string[]> {
         ?.asArray()
         .forEach((a) => {
             const dict = documentPdf.context.lookupMaybe(a, PDFDict);
-            if (!dict) return;
-            const aRecord = dict.get(asPDFName(`A`));
+            if (!dict) {return;}
+            const aRecord = dict.get(asPDFName('A'));
             const link = documentPdf.context.lookupMaybe(aRecord, PDFDict);
-            if (!link) return;
-            const pdfObject = link.get(asPDFName("URI"));
-            if(!pdfObject) return;
+            if (!link) {return;}
+            const pdfObject = link.get(asPDFName('URI'));
+            if(!pdfObject) {return;}
             const uri = pdfObject.toString().slice(1, -1); // get the original link, remove parenthesis
-            if (uri.startsWith("http")) {
+            if (uri.startsWith('http')) {
                 links.push(uri);
             }
         });

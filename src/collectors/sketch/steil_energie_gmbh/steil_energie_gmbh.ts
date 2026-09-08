@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class SteilEnergieGmbhCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "steil_energie_gmbh",
-        name: "Steil Energie GmbH",
-        description: "i18n.collectors.steil_energie_gmbh.description",
-        version: "0",
-        website: "https://portal.steil-energie.de/aviacard/invoices",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1811531.jpg",
+        id: 'steil_energie_gmbh',
+        name: 'Steil Energie GmbH',
+        description: 'i18n.collectors.steil_energie_gmbh.description',
+        version: '0',
+        website: 'https://portal.steil-energie.de/aviacard/invoices',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1811531.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://portal.steil-energie.de/aviacard/invoices",
+        loginUrl: 'https://portal.steil-energie.de/aviacard/invoices',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(SteilEnergieGmbhCollector.CONFIG);

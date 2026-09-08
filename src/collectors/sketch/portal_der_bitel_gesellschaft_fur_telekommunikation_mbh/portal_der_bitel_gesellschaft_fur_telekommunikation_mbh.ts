@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class PortalDerBitelGesellschaftFurTelekommunikationMbhCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "portal_der_bitel_gesellschaft_fur_telekommunikation_mbh",
-        name: "Portal der BITel Gesellschaft fur Telekommunikation mbH",
-        description: "i18n.collectors.portal_der_bitel_gesellschaft_fur_telekommunikation_mbh.description",
-        version: "0",
-        website: "https://portal.meinbitel.net/customer/dashboard",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/245906.jpg",
+        id: 'portal_der_bitel_gesellschaft_fur_telekommunikation_mbh',
+        name: 'Portal der BITel Gesellschaft fur Telekommunikation mbH',
+        description: 'i18n.collectors.portal_der_bitel_gesellschaft_fur_telekommunikation_mbh.description',
+        version: '0',
+        website: 'https://portal.meinbitel.net/customer/dashboard',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/245906.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://portal.meinbitel.net/customer/dashboard",
+        loginUrl: 'https://portal.meinbitel.net/customer/dashboard',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(PortalDerBitelGesellschaftFurTelekommunikationMbhCollector.CONFIG);

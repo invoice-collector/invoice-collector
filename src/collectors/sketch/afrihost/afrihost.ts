@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class AfrihostCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "afrihost",
-        name: "Afrihost",
-        description: "i18n.collectors.afrihost.description",
-        version: "0",
-        website: "https://www.afrihost.com",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/222783.jpg",
+        id: 'afrihost',
+        name: 'Afrihost',
+        description: 'i18n.collectors.afrihost.description',
+        version: '0',
+        website: 'https://www.afrihost.com',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/222783.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://www.afrihost.com",
+        loginUrl: 'https://www.afrihost.com',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(AfrihostCollector.CONFIG);

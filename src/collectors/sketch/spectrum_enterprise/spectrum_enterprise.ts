@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class SpectrumEnterpriseCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "spectrum_enterprise",
-        name: "Spectrum Enterprise",
-        description: "i18n.collectors.spectrum_enterprise.description",
-        version: "0",
-        website: "https://spectrumenterprise.net/login?signed-out=true",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2385159.jpg",
+        id: 'spectrum_enterprise',
+        name: 'Spectrum Enterprise',
+        description: 'i18n.collectors.spectrum_enterprise.description',
+        version: '0',
+        website: 'https://spectrumenterprise.net/login?signed-out=true',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2385159.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://spectrumenterprise.net/login?signed-out=true",
+        loginUrl: 'https://spectrumenterprise.net/login?signed-out=true',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(SpectrumEnterpriseCollector.CONFIG);

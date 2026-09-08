@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class EntegaPrivatkundenCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "entega_privatkunden",
-        name: "Entega - Privatkunden",
-        description: "i18n.collectors.entega_privatkunden.description",
-        version: "0",
-        website: "https://www.meineentega.de/start/anmeldung.html",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/13374.jpg",
+        id: 'entega_privatkunden',
+        name: 'Entega - Privatkunden',
+        description: 'i18n.collectors.entega_privatkunden.description',
+        version: '0',
+        website: 'https://www.meineentega.de/start/anmeldung.html',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/13374.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://www.meineentega.de/start/anmeldung.html",
+        loginUrl: 'https://www.meineentega.de/start/anmeldung.html',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(EntegaPrivatkundenCollector.CONFIG);

@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class ArsysCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "arsys",
-        name: "arsys",
-        description: "i18n.collectors.arsys.description",
-        version: "0",
-        website: "https://www.arsys.es/clientes",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/9016.jpg",
+        id: 'arsys',
+        name: 'arsys',
+        description: 'i18n.collectors.arsys.description',
+        version: '0',
+        website: 'https://www.arsys.es/clientes',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/9016.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://www.arsys.es/clientes",
+        loginUrl: 'https://www.arsys.es/clientes',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(ArsysCollector.CONFIG);

@@ -12,15 +12,15 @@ const MAILBOX_TO_IGNORE = [
     'spam',
     'spams',
     'junk',
-    'junks'
-]
+    'junks',
+];
 
 export class ImapCollector extends EmailProvider {
 
     static CONFIG = {
         id: 'imap',
         name: 'i18n.collectors.imap.name',
-        description: "i18n.collectors.imap.description",
+        description: 'i18n.collectors.imap.description',
         version: '1',
         website: 'https://imap.example.com',
         logo: 'https://upload.wikimedia.org/wikipedia/commons/5/5d/Email_icon.png',
@@ -28,38 +28,38 @@ export class ImapCollector extends EmailProvider {
         params: {
             host: {
                 type: 'text',
-                name: "i18n.collectors.imap.host",
+                name: 'i18n.collectors.imap.host',
                 placeholder: 'imap.example.com',
-                mandatory: true
+                mandatory: true,
             },
             port: {
                 type: 'number',
-                name: "i18n.collectors.imap.port",
+                name: 'i18n.collectors.imap.port',
                 placeholder: '993',
-                mandatory: true
+                mandatory: true,
             },
             secure: {
                 type: 'boolean',
                 name: 'i18n.collectors.imap.secure',
                 placeholder: 'true',
-                mandatory: false
+                mandatory: false,
             },
             username: {
                 type: 'text',
-                name: "i18n.collectors.all.email",
+                name: 'i18n.collectors.all.email',
                 placeholder: 'i18n.collectors.all.email.placeholder',
-                mandatory: true
+                mandatory: true,
             },
             password: {
                 type: 'password',
-                name: "i18n.collectors.all.password",
+                name: 'i18n.collectors.all.password',
                 placeholder: 'i18n.collectors.all.password.placeholder',
-                mandatory: true
-            }
+                mandatory: true,
+            },
         },
         state: CollectorState.ACTIVE,
-        authenticationMethod: CollectorAuthenticationMethod.SECRETS_ONLY
-    }
+        authenticationMethod: CollectorAuthenticationMethod.SECRETS_ONLY,
+    };
 
     constructor() {
         super(ImapCollector.CONFIG);
@@ -86,10 +86,10 @@ export class ImapCollector extends EmailProvider {
                 secure,
                 auth: {
                     user: username.trim(),
-                    pass: password
+                    pass: password,
                 },
                 //disableCompression: true,
-                logger: false
+                logger: false,
             });
 
             await this.client.connect();
@@ -157,8 +157,8 @@ export class ImapCollector extends EmailProvider {
                                 uid: message.uid,
                                 part: attachment.part,
                                 filename: attachment.filename,
-                                senderAddress
-                            }
+                                senderAddress,
+                            },
                         });
                     }
                 }
@@ -189,7 +189,7 @@ export class ImapCollector extends EmailProvider {
             return {
                 ...invoice,
                 data: content.toString('base64'),
-                mimetype: downloaded[part].meta.contentType || 'application/octet-stream'
+                mimetype: downloaded[part].meta.contentType || 'application/octet-stream',
             };
         } finally {
             lock.release();
@@ -214,7 +214,7 @@ export class ImapCollector extends EmailProvider {
                 type: node.type,
                 filename: node.dispositionParameters?.filename ||
                     node.parameters?.name ||
-                    'unnamed'
+                    'unnamed',
             });
         }
 

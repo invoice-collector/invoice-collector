@@ -13,24 +13,24 @@ export class AmazonCollector extends LinearWebCollector {
     static TWO_DAYS_IN_MS = 2 * 24 * 60 * 60 * 1000;
 
     static CONFIG = {
-        id: "amazon",
-        name: "Amazon (.fr)",
-        description: "i18n.collectors.amazon.description",
-        version: "41",
-        website: "https://www.amazon.fr",
-        logo: "https://upload.wikimedia.org/wikipedia/commons/4/4a/Amazon_icon.svg",
+        id: 'amazon',
+        name: 'Amazon (.fr)',
+        description: 'i18n.collectors.amazon.description',
+        version: '41',
+        website: 'https://www.amazon.fr',
+        logo: 'https://upload.wikimedia.org/wikipedia/commons/4/4a/Amazon_icon.svg',
         type: CollectorType.WEB,
         params: {
             id: {
-                type: "string",
-                name: "i18n.collectors.all.email_or_number",
-                placeholder: "i18n.collectors.all.email_or_number.placeholder",
-                mandatory: true
+                type: 'string',
+                name: 'i18n.collectors.all.email_or_number',
+                placeholder: 'i18n.collectors.all.email_or_number.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
                 mandatory: true,
             },
             /*marketplace: {
@@ -59,11 +59,11 @@ export class AmazonCollector extends LinearWebCollector {
                 }
             }*/
         },
-        loginUrl: "https://www.amazon.fr/ap/signin?openid.pape.max_auth_age=0&openid.return_to=https%3A%2F%2Fwww.amazon.fr%2Fgp%2Fcss%2Fyour-account-access%3Fref_%3Dnav_signin&openid.identity=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.assoc_handle=frflex&openid.mode=checkid_setup&openid.claimed_id=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0",
-        entryUrl: "https://www.amazon.fr/your-orders/orders",
+        loginUrl: 'https://www.amazon.fr/ap/signin?openid.pape.max_auth_age=0&openid.return_to=https%3A%2F%2Fwww.amazon.fr%2Fgp%2Fcss%2Fyour-account-access%3Fref_%3Dnav_signin&openid.identity=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.assoc_handle=frflex&openid.mode=checkid_setup&openid.claimed_id=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0',
+        entryUrl: 'https://www.amazon.fr/your-orders/orders',
         captcha: CollectorCaptcha.NONE,
-        authenticationMethod: CollectorAuthenticationMethod.ALL
-    }
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
+    };
 
     constructor() {
         super(AmazonCollector.CONFIG);
@@ -99,7 +99,7 @@ export class AmazonCollector extends LinearWebCollector {
             // Check if email is incorrect
             const email_alert = await driver.getElement(AmazonSelectors.CONTAINER_LOGIN_ALERT, { raiseException: false, timeout: 2000 });
             if (email_alert) {
-                return await email_alert.textContent("i18n.collectors.all.email.error");
+                return await email_alert.textContent('i18n.collectors.all.email.error');
             }
         }
 
@@ -111,13 +111,13 @@ export class AmazonCollector extends LinearWebCollector {
         // Check if password is incorrect
         const password_alert = await driver.getElement(AmazonSelectors.CONTAINER_PASSWORD_ALERT, { raiseException: false, timeout: 2000 });
         if (password_alert) {
-            return await password_alert.textContent("i18n.collectors.all.password.error");
+            return await password_alert.textContent('i18n.collectors.all.password.error');
         }
 
         // Check if captcha is required
         const captcha_element = await driver.getElement(AmazonSelectors.CONTAINER_CAPTCHA, { raiseException: false, timeout: 100 });
         if (captcha_element) {
-            return "i18n.collectors.all.password.error";
+            return 'i18n.collectors.all.password.error';
         }
 
         // Select personnal account if displayed
@@ -131,7 +131,7 @@ export class AmazonCollector extends LinearWebCollector {
         // Check if 2FA is required
         const twofa_instruction = await driver.getElement(AmazonSelectors.CONTAINER_2FA_INSTRUCTIONS, { raiseException: false, timeout: 1000 });
         if (twofa_instruction) {
-            return await twofa_instruction.textContent("i18n.collectors.all.2fa.instruction");
+            return await twofa_instruction.textContent('i18n.collectors.all.2fa.instruction');
         }
     }
 
@@ -147,7 +147,7 @@ export class AmazonCollector extends LinearWebCollector {
         // Check if 2fa code is incorrect
         const twofa_alert = await driver.getElement(AmazonSelectors.CONTAINER_2FA_ALERT, { raiseException: false, timeout: 1000 });
         if (twofa_alert) {
-            return await twofa_alert.textContent("i18n.collectors.all.2fa.error");
+            return await twofa_alert.textContent('i18n.collectors.all.2fa.error');
         }
 
         // Select personnal account if displayed
@@ -156,7 +156,7 @@ export class AmazonCollector extends LinearWebCollector {
 
     async navigate(driver: Driver): Promise<void>{
         // Get UI language element
-        this.language = await driver.getAttribute(AmazonSelectors.CONTAINER_LANGUAGE, "textContent");
+        this.language = await driver.getAttribute(AmazonSelectors.CONTAINER_LANGUAGE, 'textContent');
     }
 
     async forEachPage(driver: Driver, next: () => Promise<void>): Promise<void> {
@@ -169,7 +169,7 @@ export class AmazonCollector extends LinearWebCollector {
             await next();
 
             // Get other pages links
-            const pages = await driver.getAttributes(AmazonSelectors.BUTTON_PAGE, "href", { raiseException: false, timeout: 100 }) ?? [];
+            const pages = await driver.getAttributes(AmazonSelectors.BUTTON_PAGE, 'href', { raiseException: false, timeout: 100 }) ?? [];
 
             // For each other page
             for (const page of pages) {
@@ -182,7 +182,7 @@ export class AmazonCollector extends LinearWebCollector {
     }
 
     async isEmpty(driver: Driver): Promise<boolean>{
-        return await driver.getElement(AmazonSelectors.CONTAINER_NO_ORDERS, { raiseException: false, timeout: 100 }) != null;
+        return await driver.getElement(AmazonSelectors.CONTAINER_NO_ORDERS, { raiseException: false, timeout: 100 }) !== null;
     }
 
     async getInvoices(driver: Driver): Promise<Element[]> {
@@ -192,7 +192,7 @@ export class AmazonCollector extends LinearWebCollector {
 
     async data(driver: Driver, element: Element): Promise<Invoice | null> {
         // Get timestamp
-        const date = await element.getAttribute(AmazonSelectors.CONTAINER_ORDER_DATE, "textContent");
+        const date = await element.getAttribute(AmazonSelectors.CONTAINER_ORDER_DATE, 'textContent');
         const timestamp = timestampFromString(date, 'd MMMM yyyy', this.language);
 
         // Cancel invoice if more recent than 2 days (invoice not yet available)
@@ -204,39 +204,39 @@ export class AmazonCollector extends LinearWebCollector {
         // Cancel invoice if amount is not displayed (order canceled)
         const amountElement = await element.getElement(AmazonSelectors.CONTAINER_ORDER_AMOUNT, { raiseException: false });
         if (!amountElement) {
-            console.warn(`Invoice skipped because order amount is not displayed`);
+            console.warn('Invoice skipped because order amount is not displayed');
             return null;
         }
 
         // Get id
-        const id = await element.getAttribute(AmazonSelectors.CONTAINER_ORDER_ID, "textContent");
+        const id = await element.getAttribute(AmazonSelectors.CONTAINER_ORDER_ID, 'textContent');
 
         // Get amount
-        const amount = await element.getAttribute(AmazonSelectors.CONTAINER_ORDER_AMOUNT, "textContent");
+        const amount = await element.getAttribute(AmazonSelectors.CONTAINER_ORDER_AMOUNT, 'textContent');
 
         // Get downloadButton
         const downloadElement = await element.getElement(AmazonSelectors.CONTAINER_DOCUMENTS_LINK, { raiseException: false });
         
         // Cancel invoice if documents link is not displayed (invoice not available)
         if (!downloadElement) {
-            console.warn(`Invoice skipped because no invoice link available`);
+            console.warn('Invoice skipped because no invoice link available');
             return null;
         }
 
         // Get link
-        const link = driver.origin() + await element.getAttribute(AmazonSelectors.CONTAINER_DOCUMENTS_LINK, "href");
+        const link = driver.origin() + await element.getAttribute(AmazonSelectors.CONTAINER_DOCUMENTS_LINK, 'href');
 
         return {
             id,
             timestamp,
             amount,
             link,
-            downloadButton: downloadElement
+            downloadButton: downloadElement,
         };
     }
 
     async download(driver: Driver, invoice: Invoice): Promise<string[]> {
-        let documents: string[] = [];
+        const documents: string[] = [];
 
         // Get origin
         const origin = driver.origin();
@@ -245,10 +245,10 @@ export class AmazonCollector extends LinearWebCollector {
         await invoice.downloadButton.middleClick();
 
         // Get order link
-        const orderLink = await driver.getAttribute(AmazonSelectors.CONTAINER_ORDER_LINK, "href");
+        const orderLink = await driver.getAttribute(AmazonSelectors.CONTAINER_ORDER_LINK, 'href');
 
         // Get invoices link
-        const invoicesLink = await driver.getAttributes(AmazonSelectors.CONTAINER_INVOICES, "href", { raiseException: false, timeout: 100 });
+        const invoicesLink = await driver.getAttributes(AmazonSelectors.CONTAINER_INVOICES, 'href', { raiseException: false, timeout: 100 });
 
         // Download invoices
         for (const invoiceLink of invoicesLink) {

@@ -17,8 +17,8 @@ export abstract class AbstractProxy {
     static DEFAULT_LOCATION: Location = {
         country: 'FR',
         lat: '48.853264',
-        lon: '2.348993'
-    }
+        lon: '2.348993',
+    };
 
     abstract get(location: Location | null): Promise<Proxy | null>;
 
@@ -36,13 +36,13 @@ export abstract class AbstractProxy {
             return null;
         }
         const json = await response.json();
-        if(json.status === "fail") {
+        if(json.status === 'fail') {
             return null;
         }
         return {
             country: json.countryCode,
             lat: json.lat,
-            lon: json.lon
-        }
+            lon: json.lon,
+        };
     }
 }

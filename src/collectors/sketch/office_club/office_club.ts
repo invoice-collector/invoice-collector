@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class OfficeClubCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "office_club",
-        name: "Office Club",
-        description: "i18n.collectors.office_club.description",
-        version: "0",
-        website: "https://voyager.officeclub.com/invoice",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/24485.jpg",
+        id: 'office_club',
+        name: 'Office Club',
+        description: 'i18n.collectors.office_club.description',
+        version: '0',
+        website: 'https://voyager.officeclub.com/invoice',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/24485.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://voyager.officeclub.com/invoice",
+        loginUrl: 'https://voyager.officeclub.com/invoice',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(OfficeClubCollector.CONFIG);

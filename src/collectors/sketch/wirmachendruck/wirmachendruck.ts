@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class WirmachendruckCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "wirmachendruck",
-        name: "WIRmachenDRUCK",
-        description: "i18n.collectors.wirmachendruck.description",
-        version: "0",
-        website: "https://www.wir-machen-druck.de/konto_tracking_list.htm",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/7906.jpg",
+        id: 'wirmachendruck',
+        name: 'WIRmachenDRUCK',
+        description: 'i18n.collectors.wirmachendruck.description',
+        version: '0',
+        website: 'https://www.wir-machen-druck.de/konto_tracking_list.htm',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/7906.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://www.wir-machen-druck.de/konto_tracking_list.htm",
+        loginUrl: 'https://www.wir-machen-druck.de/konto_tracking_list.htm',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(WirmachendruckCollector.CONFIG);

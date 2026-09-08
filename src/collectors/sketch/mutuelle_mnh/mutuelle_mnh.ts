@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class MutuelleMnhCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "mutuelle_mnh",
-        name: "Mutuelle MNH",
-        description: "i18n.collectors.mutuelle_mnh.description",
-        version: "0",
-        website: "https://adherent.mnh.fr/",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/129819.jpg",
+        id: 'mutuelle_mnh',
+        name: 'Mutuelle MNH',
+        description: 'i18n.collectors.mutuelle_mnh.description',
+        version: '0',
+        website: 'https://adherent.mnh.fr/',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/129819.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://adherent.mnh.fr/",
+        loginUrl: 'https://adherent.mnh.fr/',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(MutuelleMnhCollector.CONFIG);

@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class RakutenFrCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "rakuten_fr",
-        name: "Rakuten (.fr)",
-        description: "i18n.collectors.rakuten_fr.description",
-        version: "0",
-        website: "https://fr.shopping.rakuten.com/usersecure?action=invoicesaction",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/618870.jpg",
+        id: 'rakuten_fr',
+        name: 'Rakuten (.fr)',
+        description: 'i18n.collectors.rakuten_fr.description',
+        version: '0',
+        website: 'https://fr.shopping.rakuten.com/usersecure?action=invoicesaction',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/618870.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://fr.shopping.rakuten.com/usersecure?action=invoicesaction",
+        loginUrl: 'https://fr.shopping.rakuten.com/usersecure?action=invoicesaction',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(RakutenFrCollector.CONFIG);

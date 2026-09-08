@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class EkeystoneCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "ekeystone",
-        name: "eKeystone",
-        description: "i18n.collectors.ekeystone.description",
-        version: "0",
-        website: "https://wwwsc.ekeystone.com/account-center/invoices-returns",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4610144.jpg",
+        id: 'ekeystone',
+        name: 'eKeystone',
+        description: 'i18n.collectors.ekeystone.description',
+        version: '0',
+        website: 'https://wwwsc.ekeystone.com/account-center/invoices-returns',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4610144.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://wwwsc.ekeystone.com/account-center/invoices-returns",
+        loginUrl: 'https://wwwsc.ekeystone.com/account-center/invoices-returns',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(EkeystoneCollector.CONFIG);

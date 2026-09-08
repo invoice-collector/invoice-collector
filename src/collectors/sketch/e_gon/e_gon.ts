@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class EGonCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "e_gon",
-        name: "e.gon",
-        description: "i18n.collectors.e_gon.description",
-        version: "0",
-        website: "https://energiegemeinschaften.ezn.at/backend/e/invoice/list/user",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2985688.jpg",
+        id: 'e_gon',
+        name: 'e.gon',
+        description: 'i18n.collectors.e_gon.description',
+        version: '0',
+        website: 'https://energiegemeinschaften.ezn.at/backend/e/invoice/list/user',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2985688.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://energiegemeinschaften.ezn.at/backend/e/invoice/list/user",
+        loginUrl: 'https://energiegemeinschaften.ezn.at/backend/e/invoice/list/user',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(EGonCollector.CONFIG);

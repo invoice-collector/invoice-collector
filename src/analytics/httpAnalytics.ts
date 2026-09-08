@@ -12,10 +12,10 @@ export class HttpAnalytics extends AbstractAnalytics {
     public constructor(analyticsServerEndpoint: string) {
         super();
         this.client = axios.create({
-            baseURL: `${analyticsServerEndpoint}/${AbstractAnalytics.VERSION}`
+            baseURL: `${analyticsServerEndpoint}/${AbstractAnalytics.VERSION}`,
         });
 
-        const headers = JSON.parse(utils.getEnvVar("ANALYTICS_SERVER_HEADERS", "{}"));
+        const headers = JSON.parse(utils.getEnvVar('ANALYTICS_SERVER_HEADERS', '{}'));
         if (headers) {
             for (const [key, value] of Object.entries(headers)) {
                 this.client.defaults.headers.common[key] = String(value);
@@ -25,19 +25,19 @@ export class HttpAnalytics extends AbstractAnalytics {
 
     async ping(): Promise<void> {
         try {
-            await this.client.get("/ping");
+            await this.client.get('/ping');
         } catch (error) {
-            throw new Error("Could not reach analytics server", { cause: error });
+            throw new Error('Could not reach analytics server', { cause: error });
         }
     }
 
     logSuccess(collector: AbstractCollector<Config>): void {
-        this.client.post("/log/success", {
+        this.client.post('/log/success', {
             collector: collector.config.id,
             version: collector.config.version,
         })
         .then(response => {
-            console.log("Analytics server successfully reached");
+            console.log('Analytics server successfully reached');
         })
         .catch(error => {
             console.error(`Could not reach analytics server at ${error.request.res?.responseUrl || error.request._currentUrl}. Status code: ${error.response?.status || error.code}`);
@@ -45,7 +45,7 @@ export class HttpAnalytics extends AbstractAnalytics {
     }
 
     logError(email: string, remoteId: string, err: LoggableError): void {
-        this.client.post("/log/error", {
+        this.client.post('/log/error', {
             email,
             collector: err.collector_id,
             name: err.collector_name,
@@ -55,10 +55,10 @@ export class HttpAnalytics extends AbstractAnalytics {
             error: err.name,
             traceback: fullStackTrace(err),
             source_code: err.source_code,
-            screenshot: err.screenshot.data
+            screenshot: err.screenshot.data,
         })
         .then(response => {
-            console.log("Analytics server successfully reached");
+            console.log('Analytics server successfully reached');
         })
         .catch(error => {
             console.error(`Could not reach analytics server at ${error.request.res?.responseUrl || error.request._currentUrl}. Status code: ${error.response?.status || error.code}`);
@@ -66,34 +66,34 @@ export class HttpAnalytics extends AbstractAnalytics {
     }
 
     async feedback(type: string, message: string, email: string, user_id: string): Promise<void> {
-        const response = await this.client.post("/feedback", {
-            from: "app",
+        const response = await this.client.post('/feedback', {
+            from: 'app',
             type,
             message,
             email,
-            user_id
+            user_id,
         });
 
         // Check response status
         if (response.status !== 200) {
             throw new Error(`Could not reach analytics server at ${response.request.res?.responseUrl || response.request._currentUrl}. Status code: ${response.request?.status || response.status}`);
-        };
+        }
     }
 
     // EMAILS
 
     public async sendWelcomeEmail(email: string, locale: string): Promise<void> {
         // Send email
-        console.log("Sending welcome email to", email);
+        console.log('Sending welcome email to', email);
         await this.sendEmail(
             [email],
-            "Welcome to Invoice-Collector",
+            'Welcome to Invoice-Collector',
             [
-                { text: `We are excited to have you on board. You can start using the app after defining your password.`, bold: false, center: false, italic: false },
-                { text: "You will receive a second email to define your password.", bold: false, center: false, italic: false },
+                { text: 'We are excited to have you on board. You can start using the app after defining your password.', bold: false, center: false, italic: false },
+                { text: 'You will receive a second email to define your password.', bold: false, center: false, italic: false },
                 { text: null, bold: false, center: false, italic: false },
-                { text: "You are not the requestor? Kindly ignore this message.", bold: false, center: false, italic: true }
-            ]
+                { text: 'You are not the requestor? Kindly ignore this message.', bold: false, center: false, italic: true },
+            ],
         );
     }
 
@@ -102,23 +102,23 @@ export class HttpAnalytics extends AbstractAnalytics {
         const code: string = utils.generateVerificationCode();
 
         // Send email
-        console.log("Sending verification code email to", email);
+        console.log('Sending verification code email to', email);
         await this.sendEmail(
             [email],
-            "Activation Code",
+            'Activation Code',
             [
-                { text: `Hello`, bold: false, center: false, italic: false },
-                { text: `Your activation code is:`, bold: false, center: false, italic: false },
+                { text: 'Hello', bold: false, center: false, italic: false },
+                { text: 'Your activation code is:', bold: false, center: false, italic: false },
                 { text: code, bold: true, center: true, italic: false },
-                { text: "This code is valid for 10 minutes after the reception of this email.", bold: false, center: false, italic: false },
+                { text: 'This code is valid for 10 minutes after the reception of this email.', bold: false, center: false, italic: false },
                 { text: null, bold: false, center: false, italic: false },
-                { text: "You are not the requestor? Kindly ignore this message.", bold: false, center: false, italic: true }
-            ]
+                { text: 'You are not the requestor? Kindly ignore this message.', bold: false, center: false, italic: true },
+            ],
         );
 
         return {
-            code: code,
-            sentAt: Date.now()
+            code,
+            sentAt: Date.now(),
         };
     }
 
@@ -126,18 +126,18 @@ export class HttpAnalytics extends AbstractAnalytics {
         // Build reset password link
         const resetLink = `${AbstractAnalytics.FRONTEND}/reset-password/${resetToken}`;
         // Send email
-        console.log("Sending reset password email to", email);
+        console.log('Sending reset password email to', email);
         await this.sendEmail(
             [email],
-            "Define your password",
+            'Define your password',
             [
-                { text: `Hello`, bold: false, center: false, italic: false },
-                { text: `You requested to change your password. Please use the following link:`, bold: false, center: false, italic: false },
+                { text: 'Hello', bold: false, center: false, italic: false },
+                { text: 'You requested to change your password. Please use the following link:', bold: false, center: false, italic: false },
                 { text: `<a href="${resetLink}" rel="nofollow noopener noreferrer">Define a new password</a>`, bold: true, center: true, italic: false },
                 { text: `This link is valid for ${Math.round(Server.RESET_PASSWORD_TOKEN_VALIDITY_DURATION_MS / 60000)} minutes.`, bold: false, center: false, italic: false },
                 { text: null, bold: false, center: false, italic: false },
-                { text: "You are not the requestor? Kindly ignore this message.", bold: false, center: false, italic: true }
-            ]
+                { text: 'You are not the requestor? Kindly ignore this message.', bold: false, center: false, italic: true },
+            ],
         );
         return resetLink;
     }
@@ -150,9 +150,9 @@ export class HttpAnalytics extends AbstractAnalytics {
             bold: boolean,
             center: boolean,
             italic: boolean
-        }[]
+        }[],
     ): Promise<void> {
-        const response = await this.client.post("/email", {
+        const response = await this.client.post('/email', {
             to,
             subject,
             content,
@@ -160,7 +160,7 @@ export class HttpAnalytics extends AbstractAnalytics {
 
         // Check response status
         if (response.status !== 200) {
-            throw new Error(`Failed to send email to ${to.join(", ")}`);
+            throw new Error(`Failed to send email to ${to.join(', ')}`);
         }
     }
 }

@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class AxerealCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "axereal",
-        name: "Axereal",
-        description: "i18n.collectors.axereal.description",
-        version: "0",
-        website: "https://www.axereal.com/en",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/640716.jpg",
+        id: 'axereal',
+        name: 'Axereal',
+        description: 'i18n.collectors.axereal.description',
+        version: '0',
+        website: 'https://www.axereal.com/en',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/640716.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://www.axereal.com/en",
+        loginUrl: 'https://www.axereal.com/en',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(AxerealCollector.CONFIG);

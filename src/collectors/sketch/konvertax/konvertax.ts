@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class KonvertaxCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "konvertax",
-        name: "Konvertax",
-        description: "i18n.collectors.konvertax.description",
-        version: "0",
-        website: "https://konvertax.de/invoice",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1759333.jpg",
+        id: 'konvertax',
+        name: 'Konvertax',
+        description: 'i18n.collectors.konvertax.description',
+        version: '0',
+        website: 'https://konvertax.de/invoice',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1759333.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://konvertax.de/invoice",
+        loginUrl: 'https://konvertax.de/invoice',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(KonvertaxCollector.CONFIG);

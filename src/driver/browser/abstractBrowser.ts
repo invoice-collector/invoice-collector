@@ -1,15 +1,15 @@
 import path from 'path';
-import puppeteer, { Browser, ConnectOptions, DownloadPolicy } from "rebrowser-puppeteer-core";
+import puppeteer, { Browser, ConnectOptions, DownloadPolicy } from 'rebrowser-puppeteer-core';
 import * as ChromeLauncher from 'chrome-launcher';
-import { pageController, PageWithCursor } from "../puppeteer/pageController";
-import { Proxy } from "../../proxy/abstractProxy";
+import { pageController, PageWithCursor } from '../puppeteer/pageController';
+import { Proxy } from '../../proxy/abstractProxy';
 import { Driver } from '../driver';
 
 let Xvfb;
 try {
-  Xvfb = require("xvfb");
+  Xvfb = require('xvfb');
 } catch (err) {
-  console.error("xvfb is not installed. If you are running on a Linux platform, please install it with the following command `sudo apt-get install xvfb`");
+  console.error('xvfb is not installed. If you are running on a Linux platform, please install it with the following command `sudo apt-get install xvfb`');
   console.error(err);
 }
 
@@ -33,30 +33,30 @@ export abstract class AbstractBrowser {
 
   private getPuppeteerConfig(locale: string): Options {
       return {
-          args: ["--start-maximized", `--lang=${locale}`, `--accept-lang=${locale}`],
+          args: ['--start-maximized', `--lang=${locale}`, `--accept-lang=${locale}`],
           turnstile: true,
           headless: false,
           customConfig: {
               prefs: {
                   download: {
                       open_pdf_in_system_reader: false,
-                      prompt_for_download: false
+                      prompt_for_download: false,
                   },
                   plugins: {
-                      always_open_pdf_externally: true
-                  }
-              }
+                      always_open_pdf_externally: true,
+                  },
+              },
           },
           connectOption: {
               defaultViewport: {
                   width: Driver.VIEWPORT_WIDTH,
                   height: Driver.VIEWPORT_HEIGHT,
-              }
+              },
           },
           disableXvfb: false,
-          ignoreAllFlags: false
-      }
-  };
+          ignoreAllFlags: false,
+      };
+  }
 
   protected ip: string;
   protected downloadPath: string;
@@ -80,31 +80,31 @@ export abstract class AbstractBrowser {
 
   get puppeteerBrowser(): Browser {
     if (!this._puppeteerBrowser) {
-      throw new Error("Browser is not connected. Please call connect() method first.");
+      throw new Error('Browser is not connected. Please call connect() method first.');
     }
     return this._puppeteerBrowser;
   }
 
   async connect(
     locale: string,
-    proxy: Proxy | null
+    proxy: Proxy | null,
   ): Promise<PageWithCursor> {
     const dynamicImport = new Function('specifier', 'return import(specifier)');
     const { Launcher } = await dynamicImport('chrome-launcher');
 
-    let puppeteerConfig = this.getPuppeteerConfig(locale);
+    const puppeteerConfig = this.getPuppeteerConfig(locale);
 
-    if (process.platform === "linux" && puppeteerConfig.disableXvfb === false && !xvfbsession) {
+    if (process.platform === 'linux' && puppeteerConfig.disableXvfb === false && !xvfbsession) {
       try {
         xvfbsession = new Xvfb({
           silent: true,
-          xvfb_args: ["-screen", "0", "1920x1080x24", "-ac"],
+          xvfb_args: ['-screen', '0', '1920x1080x24', '-ac'],
         });
         xvfbsession.startSync();
       } catch (err) {
-        console.error("You are running on a Linux platform but xvfb cannot start. Please install it with the following command `sudo apt-get install xvfb`");
+        console.error('You are running on a Linux platform but xvfb cannot start. Please install it with the following command `sudo apt-get install xvfb`');
         console.error(err);
-        console.error("Fallback to headless mode. The browser can be captured, but it can still be used for automation tasks.");
+        console.error('Fallback to headless mode. The browser can be captured, but it can still be used for automation tasks.');
         puppeteerConfig.headless = true; // Fallback to headless mode if xvfb is not available
       }
     }
@@ -134,8 +134,8 @@ export abstract class AbstractBrowser {
         ...(proxy && proxy.host && proxy.port
           ? [`--proxy-server=${proxy.host}:${proxy.port}`]
           : []),
-        "--no-sandbox",
-        "--disable-dev-shm-usage",
+        '--no-sandbox',
+        '--disable-dev-shm-usage',
       ];
     }
 
@@ -157,30 +157,30 @@ export abstract class AbstractBrowser {
       ...puppeteerConfig.connectOption,
     });
 
-    let [page] = await this._puppeteerBrowser.pages();
+    const [page] = await this._puppeteerBrowser.pages();
 
-    let pageControllerConfig = {
+    const pageControllerConfig = {
       browser: this._puppeteerBrowser,
       page,
       proxy,
       turnstile: puppeteerConfig.turnstile,
-      locale
+      locale,
     };
 
-    let pageWithCursor = await pageController({
+    const pageWithCursor = await pageController({
       ...pageControllerConfig,
       killProcess: true,
       abstractBrowser: this,
     });
 
-    this._puppeteerBrowser.on("targetcreated", async (target) => {
-      if (target.type() === "page") {
+    this._puppeteerBrowser.on('targetcreated', async (target) => {
+      if (target.type() === 'page') {
         let newPage = await target.page();
         if(newPage !== null) {
           pageControllerConfig.page = newPage;
           newPage = await pageController({
             ...pageControllerConfig,
-            killProcess: false
+            killProcess: false,
           });
         }
       }

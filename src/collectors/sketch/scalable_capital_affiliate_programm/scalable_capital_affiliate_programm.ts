@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class ScalableCapitalAffiliateProgrammCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "scalable_capital_affiliate_programm",
-        name: "Scalable Capital - Affiliate Programm",
-        description: "i18n.collectors.scalable_capital_affiliate_programm.description",
-        version: "0",
-        website: "https://partner.scalable-capital.de/auszahlungen.cgi",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1722884.jpg",
+        id: 'scalable_capital_affiliate_programm',
+        name: 'Scalable Capital - Affiliate Programm',
+        description: 'i18n.collectors.scalable_capital_affiliate_programm.description',
+        version: '0',
+        website: 'https://partner.scalable-capital.de/auszahlungen.cgi',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1722884.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://partner.scalable-capital.de/auszahlungen.cgi",
+        loginUrl: 'https://partner.scalable-capital.de/auszahlungen.cgi',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(ScalableCapitalAffiliateProgrammCollector.CONFIG);

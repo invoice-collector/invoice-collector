@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class PlentymarketsBusinessCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "plentymarkets_business",
-        name: "Plentymarkets Business",
-        description: "i18n.collectors.plentymarkets_business.description",
-        version: "0",
-        website: "https://plentymarkets-cloud-de.com/",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/159733.jpg",
+        id: 'plentymarkets_business',
+        name: 'Plentymarkets Business',
+        description: 'i18n.collectors.plentymarkets_business.description',
+        version: '0',
+        website: 'https://plentymarkets-cloud-de.com/',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/159733.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://plentymarkets-cloud-de.com/",
+        loginUrl: 'https://plentymarkets-cloud-de.com/',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(PlentymarketsBusinessCollector.CONFIG);

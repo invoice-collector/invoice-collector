@@ -1,5 +1,5 @@
-import { AbstractSecretManager } from "./abstractSecretManager";
-import { Secret } from "../model/secret";
+import { AbstractSecretManager } from './abstractSecretManager';
+import { Secret } from '../model/secret';
 
 export class MockSecretManager extends AbstractSecretManager {
 
@@ -8,17 +8,17 @@ export class MockSecretManager extends AbstractSecretManager {
     async disconnect(): Promise<void> {}
 
     async ping(): Promise<void> {
-        console.warn("No secret manager configured. Cannot ping.");
+        console.warn('No secret manager configured. Cannot ping.');
     }
 
     // SECRETS
 
     async getValue(id: string): Promise<any> {
-        return { mockKey: "mockValue" };
+        return { mockKey: 'mockValue' };
     }
 
     async createSecret(secret: Secret): Promise<Secret> {
-        secret.id = "mockId";
+        secret.id = 'mockId';
         return secret;
     }
 

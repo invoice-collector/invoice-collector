@@ -4,32 +4,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class OxstalCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "oxstal",
-        name: "Oxstal",
-        description: "i18n.collectors.oxstal.description",
-        version: "0",
-        website: "https://www.oxstal.com",
-        logo: "https://www.oxstal.com/img/logo-1684837253-111-302x.jpg",
+        id: 'oxstal',
+        name: 'Oxstal',
+        description: 'i18n.collectors.oxstal.description',
+        version: '0',
+        website: 'https://www.oxstal.com',
+        logo: 'https://www.oxstal.com/img/logo-1684837253-111-302x.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://www.oxstal.com",
+        loginUrl: 'https://www.oxstal.com',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(OxstalCollector.CONFIG);

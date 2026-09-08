@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class MobilepinGmbhCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "mobilepin_gmbh",
-        name: "Mobilepin GmbH",
-        description: "i18n.collectors.mobilepin_gmbh.description",
-        version: "0",
-        website: "https://mobilepin.de/invoices-all",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1764059.jpg",
+        id: 'mobilepin_gmbh',
+        name: 'Mobilepin GmbH',
+        description: 'i18n.collectors.mobilepin_gmbh.description',
+        version: '0',
+        website: 'https://mobilepin.de/invoices-all',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1764059.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://mobilepin.de/invoices-all",
+        loginUrl: 'https://mobilepin.de/invoices-all',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(MobilepinGmbhCollector.CONFIG);

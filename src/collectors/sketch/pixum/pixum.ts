@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class PixumCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "pixum",
-        name: "pixum",
-        description: "i18n.collectors.pixum.description",
-        version: "0",
-        website: "https://www.pixum.de",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/7789.jpg",
+        id: 'pixum',
+        name: 'pixum',
+        description: 'i18n.collectors.pixum.description',
+        version: '0',
+        website: 'https://www.pixum.de',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/7789.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://www.pixum.de",
+        loginUrl: 'https://www.pixum.de',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(PixumCollector.CONFIG);

@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class MvvCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "mvv",
-        name: "MVV",
-        description: "i18n.collectors.mvv.description",
-        version: "0",
-        website: "https://ticketshop.mvv-muenchen.de/index.php/personal_data/orderList",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/172790.jpg",
+        id: 'mvv',
+        name: 'MVV',
+        description: 'i18n.collectors.mvv.description',
+        version: '0',
+        website: 'https://ticketshop.mvv-muenchen.de/index.php/personal_data/orderList',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/172790.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://ticketshop.mvv-muenchen.de/index.php/personal_data/orderList",
+        loginUrl: 'https://ticketshop.mvv-muenchen.de/index.php/personal_data/orderList',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(MvvCollector.CONFIG);

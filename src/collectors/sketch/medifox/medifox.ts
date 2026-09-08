@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class MedifoxCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "medifox",
-        name: "Medifox",
-        description: "i18n.collectors.medifox.description",
-        version: "0",
-        website: "https://www.medifoxdan.de/kunden-login/",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1153609.jpg",
+        id: 'medifox',
+        name: 'Medifox',
+        description: 'i18n.collectors.medifox.description',
+        version: '0',
+        website: 'https://www.medifoxdan.de/kunden-login/',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1153609.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://www.medifoxdan.de/kunden-login/",
+        loginUrl: 'https://www.medifoxdan.de/kunden-login/',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(MedifoxCollector.CONFIG);

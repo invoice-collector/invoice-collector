@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class FintechComCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "fintech_com",
-        name: "Fintech.com",
-        description: "i18n.collectors.fintech_com.description",
-        version: "0",
-        website: "https://www.fintech.net/fms/reports/retailer_invoice_information_summary.asp",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2297687.jpg",
+        id: 'fintech_com',
+        name: 'Fintech.com',
+        description: 'i18n.collectors.fintech_com.description',
+        version: '0',
+        website: 'https://www.fintech.net/fms/reports/retailer_invoice_information_summary.asp',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2297687.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://www.fintech.net/fms/reports/retailer_invoice_information_summary.asp",
+        loginUrl: 'https://www.fintech.net/fms/reports/retailer_invoice_information_summary.asp',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(FintechComCollector.CONFIG);

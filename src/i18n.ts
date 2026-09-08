@@ -15,7 +15,7 @@ export class I18n {
         defaultLocale: I18n.DEFAULT_LOCALE,
         retryInDefaultLocale: true,
         updateFiles: false,
-        cookie: 'lang'
+        cookie: 'lang',
     });
 
     static get(phrase: string | undefined, locale: string): string {
@@ -37,7 +37,7 @@ export class I18n {
             acc[key] = {
                 ...config.params[key],
                 name: I18n.get(config.params[key].name, locale),
-                placeholder: I18n.get(config.params[key].placeholder, locale)
+                placeholder: I18n.get(config.params[key].placeholder, locale),
             };
             return acc;
         }, {});
@@ -46,7 +46,7 @@ export class I18n {
             name,
             description,
             instructions,
-            params
+            params,
         };
     }
     
@@ -57,7 +57,7 @@ export class I18n {
             acc[key] = {
                 ...integration.params[key],
                 name: I18n.get(integration.params[key].name, locale),
-                placeholder: I18n.get(integration.params[key].placeholder, locale)
+                placeholder: I18n.get(integration.params[key].placeholder, locale),
             };
             return acc;
         }, {});
@@ -65,7 +65,7 @@ export class I18n {
             ...integration,
             name,
             description,
-            params
+            params,
         };
     }
 }

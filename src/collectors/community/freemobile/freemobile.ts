@@ -9,39 +9,39 @@ import { WebSocketServer } from '../../../websocket/webSocketServer';
 export class FreeMobileCollector extends LinearWebCollector {
 
     static CONFIG = {
-        id: "freemobile",
-        name: "Free Mobile",
-        description: "i18n.collectors.freemobile.description",
-        version: "13",
-        website: "https://mobile.free.fr",
-        logo: "https://upload.wikimedia.org/wikipedia/commons/1/1d/Free_mobile_2011.svg",
+        id: 'freemobile',
+        name: 'Free Mobile',
+        description: 'i18n.collectors.freemobile.description',
+        version: '13',
+        website: 'https://mobile.free.fr',
+        logo: 'https://upload.wikimedia.org/wikipedia/commons/1/1d/Free_mobile_2011.svg',
         type: CollectorType.WEB,
         params: {
             id: {
-                type: "string",
-                name: "i18n.collectors.all.identifier",
-                placeholder: "i18n.collectors.all.identifier",
-                mandatory: true
+                type: 'string',
+                name: 'i18n.collectors.all.identifier',
+                placeholder: 'i18n.collectors.all.identifier',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
                 mandatory: true,
-            }
+            },
         },
-        loginUrl: "https://mobile.free.fr/account/v2/login",
-        entryUrl: "https://mobile.free.fr/account",
+        loginUrl: 'https://mobile.free.fr/account/v2/login',
+        entryUrl: 'https://mobile.free.fr/account',
         captcha: CollectorCaptcha.NONE,
-        authenticationMethod: CollectorAuthenticationMethod.ALL
-    }
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
+    };
 
     constructor() {
         super(FreeMobileCollector.CONFIG);
     }
 
     async needLogin(driver: Driver): Promise<boolean> {
-        return driver.url().includes("login") || driver.url().includes("otp");
+        return driver.url().includes('login') || driver.url().includes('otp');
     }
 
     async login(driver: Driver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
@@ -53,9 +53,9 @@ export class FreeMobileCollector extends LinearWebCollector {
         await driver.leftClick(FreeMobileSelectors.BUTTON_SUBMIT);
 
         // Check if login alert exists
-        const login_alert = await driver.getElement(FreeMobileSelectors.CONTAINER_LOGIN_ALERT, { raiseException: false, timeout: 2000 })
+        const login_alert = await driver.getElement(FreeMobileSelectors.CONTAINER_LOGIN_ALERT, { raiseException: false, timeout: 2000 });
         if (login_alert) {
-            return await login_alert.textContent("i18n.collectors.all.password.error");
+            return await login_alert.textContent('i18n.collectors.all.password.error');
         }
     }
 
@@ -63,7 +63,7 @@ export class FreeMobileCollector extends LinearWebCollector {
         // Check if 2FA is required
         const twofaInstructions = await driver.getElement(FreeMobileSelectors.CONTAINER_2FA_INSTRUCTIONS, { raiseException: false, timeout: 2000 });
         if (twofaInstructions) {
-            return await twofaInstructions.textContent("i18n.collectors.all.2fa.instruction");
+            return await twofaInstructions.textContent('i18n.collectors.all.2fa.instruction');
         }
     }
 
@@ -71,7 +71,7 @@ export class FreeMobileCollector extends LinearWebCollector {
         // Check if too much attempts
         const twofa_too_much = await driver.getElement(FreeMobileSelectors.CONTAINER_2FA_ALERT, { raiseException: false, timeout: 1000 });
         if (twofa_too_much) {
-            return await twofa_too_much.textContent("i18n.collectors.all.2fa.error");
+            return await twofa_too_much.textContent('i18n.collectors.all.2fa.error');
         }
 
         // Wait for 2fa code from UI
@@ -79,7 +79,7 @@ export class FreeMobileCollector extends LinearWebCollector {
 
         // Check if 2fa code is 6 digits
         if (twofa_code.length !== 6) {
-            return "i18n.collectors.all.2fa.error";
+            return 'i18n.collectors.all.2fa.error';
         }
 
         // Input 2fa code slowly to avoid focus out
@@ -94,7 +94,7 @@ export class FreeMobileCollector extends LinearWebCollector {
         // Check if 2fa code is incorrect
         const twofa_alert = await driver.getElement(FreeMobileSelectors.CONTAINER_2FA_ALERT, { raiseException: false, timeout: 1000 });
         if (twofa_alert) {
-            return await twofa_alert.textContent("i18n.collectors.all.2fa.error");
+            return await twofa_alert.textContent('i18n.collectors.all.2fa.error');
         }
     }
 
@@ -118,12 +118,12 @@ export class FreeMobileCollector extends LinearWebCollector {
 
     async data(driver: Driver, element: Element): Promise<Invoice | null>{
         const downloadButton = await element.getElement(FreeMobileSelectors.CONTAINER_INVOICE_LINK);
-        const link = await element.getAttribute(FreeMobileSelectors.CONTAINER_INVOICE_LINK, "href");
-        const stringDate = await element.getAttribute(FreeMobileSelectors.CONTAINER_INVOICE_DATE, "textContent");
-        const date = stringDate.replace("Ma dernière facture - ", "").trim();
-        const amount = await element.getAttribute(FreeMobileSelectors.CONTAINER_INVOICE_AMOUNT, "textContent");
+        const link = await element.getAttribute(FreeMobileSelectors.CONTAINER_INVOICE_LINK, 'href');
+        const stringDate = await element.getAttribute(FreeMobileSelectors.CONTAINER_INVOICE_DATE, 'textContent');
+        const date = stringDate.replace('Ma dernière facture - ', '').trim();
+        const amount = await element.getAttribute(FreeMobileSelectors.CONTAINER_INVOICE_AMOUNT, 'textContent');
 
-        const id = link.split("/").pop();
+        const id = link.split('/').pop();
         if (!id) {
             throw new Error(`Cannot extract id from ${link}`);
         }
@@ -134,7 +134,7 @@ export class FreeMobileCollector extends LinearWebCollector {
             link: `https://mobile.free.fr${link}`,
             timestamp,
             amount,
-            downloadButton: downloadButton
+            downloadButton,
         };
     }
 

@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class VisibleWirelessCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "visible_wireless",
-        name: "Visible Wireless",
-        description: "i18n.collectors.visible_wireless.description",
-        version: "0",
-        website: "https://www.visible.com/account/bill-history",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1246694.jpg",
+        id: 'visible_wireless',
+        name: 'Visible Wireless',
+        description: 'i18n.collectors.visible_wireless.description',
+        version: '0',
+        website: 'https://www.visible.com/account/bill-history',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1246694.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://www.visible.com/account/bill-history",
+        loginUrl: 'https://www.visible.com/account/bill-history',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(VisibleWirelessCollector.CONFIG);

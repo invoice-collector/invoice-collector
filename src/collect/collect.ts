@@ -1,14 +1,14 @@
-import { AbstractCollector, Config } from "../collectors/abstractCollector";
-import { CollectorLoader } from "../collectors/collectorLoader";
-import { AuthenticationError, RemoveError, DisconnectedError, LoggableError, MaintenanceError, NoInvoiceFoundError } from "../error";
-import { Credential } from "../model/credential";
-import { State } from "../model/state";
-import { Customer } from "../model/customer";
-import { User } from "../model/user";
-import { AnalyticsFactory } from "../analytics/analyticsFactory";
+import { AbstractCollector, Config } from '../collectors/abstractCollector';
+import { CollectorLoader } from '../collectors/collectorLoader';
+import { AuthenticationError, RemoveError, DisconnectedError, LoggableError, MaintenanceError, NoInvoiceFoundError } from '../error';
+import { Credential } from '../model/credential';
+import { State } from '../model/state';
+import { Customer } from '../model/customer';
+import { User } from '../model/user';
+import { AnalyticsFactory } from '../analytics/analyticsFactory';
 import { WebSocketServer } from '../websocket/webSocketServer';
-import * as utils from "../utils";
-import { Secret } from "../model/secret";
+import * as utils from '../utils';
+import { Secret } from '../model/secret';
 
 export class Collect {
 
@@ -66,7 +66,7 @@ export class Collect {
                 collector = await CollectorLoader.get(credential.collector_id);
 
                 // Check if collector not found
-                if(collector == null) {
+                if(collector === null) {
                     throw new Error(`No collector with id "${credential.collector_id}" found.`);
                 }
                 console.log(`Using collector ${collector.config.id} version ${collector.config.version}`);
@@ -89,7 +89,7 @@ export class Collect {
                     user.locale,
                     user.location,
                     customer.authenticationMethod,
-                    providers
+                    providers,
                 );
                 console.log(`Found ${credential.invoices.length + newInvoices.length} invoices during collect and ${newInvoices.length} new`);
                 console.log(`Invoice collection for credential ${this.credential_id} succeed`);
@@ -152,7 +152,7 @@ export class Collect {
             // If error is NoInvoiceFoundError
             if (err instanceof NoInvoiceFoundError) {
                 console.warn(`Invoice collection for credential ${this.credential_id} succeed BUT no invoice found, collector may be broken`);
-                AnalyticsFactory.getInstance().logError(customer?.email || "", user?.remote_id || "", err);
+                AnalyticsFactory.getInstance().logError(customer?.email || '', user?.remote_id || '', err);
 
                 // If credential exists
                 if (credential) {
@@ -171,7 +171,7 @@ export class Collect {
             else if(err instanceof LoggableError) {
                 console.error(`Invoice collection for credential ${this.credential_id} has failed: ${err.message}`);
                 console.error(err);
-                AnalyticsFactory.getInstance().logError(customer?.email || "", user?.remote_id || "", err);
+                AnalyticsFactory.getInstance().logError(customer?.email || '', user?.remote_id || '', err);
 
                 // If credential exists
                 if (credential) {

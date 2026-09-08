@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class GrubhubCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "grubhub",
-        name: "Grubhub",
-        description: "i18n.collectors.grubhub.description",
-        version: "0",
-        website: "http://www.grubhub.com",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/52299.jpg",
+        id: 'grubhub',
+        name: 'Grubhub',
+        description: 'i18n.collectors.grubhub.description',
+        version: '0',
+        website: 'http://www.grubhub.com',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/52299.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "http://www.grubhub.com",
+        loginUrl: 'http://www.grubhub.com',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(GrubhubCollector.CONFIG);

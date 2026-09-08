@@ -8,7 +8,7 @@ export class AnalyticsFactory {
 
     static getInstance(): AbstractAnalytics {
         if (!AnalyticsFactory.instance) {
-            const analyticsServerEndpoint = utils.getEnvVar("ANALYTICS_SERVER_ENDPOINT", "");
+            const analyticsServerEndpoint = utils.getEnvVar('ANALYTICS_SERVER_ENDPOINT', '');
             if (typeof analyticsServerEndpoint === 'string' && analyticsServerEndpoint.startsWith('http')) {
                 AnalyticsFactory.instance = new HttpAnalytics(analyticsServerEndpoint);
             } else {

@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class SwpStadtwerkePassauCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "swp_stadtwerke_passau",
-        name: "SWP Stadtwerke Passau",
-        description: "i18n.collectors.swp_stadtwerke_passau.description",
-        version: "0",
-        website: "https://portal.tpponline.de/py/portal/default/index",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1919980.jpg",
+        id: 'swp_stadtwerke_passau',
+        name: 'SWP Stadtwerke Passau',
+        description: 'i18n.collectors.swp_stadtwerke_passau.description',
+        version: '0',
+        website: 'https://portal.tpponline.de/py/portal/default/index',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1919980.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://portal.tpponline.de/py/portal/default/index",
+        loginUrl: 'https://portal.tpponline.de/py/portal/default/index',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(SwpStadtwerkePassauCollector.CONFIG);

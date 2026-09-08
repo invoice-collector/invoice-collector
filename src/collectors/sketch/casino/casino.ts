@@ -4,32 +4,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class CasinoCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "casino",
-        name: "Casino",
-        description: "i18n.collectors.casino.description",
-        version: "0",
-        website: "https://casino.fr",
-        logo: "https://cdn.worldvectorlogo.com/logos/casino-supermarket-logo.svg",
+        id: 'casino',
+        name: 'Casino',
+        description: 'i18n.collectors.casino.description',
+        version: '0',
+        website: 'https://casino.fr',
+        logo: 'https://cdn.worldvectorlogo.com/logos/casino-supermarket-logo.svg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://casino.fr",
+        loginUrl: 'https://casino.fr',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(CasinoCollector.CONFIG);

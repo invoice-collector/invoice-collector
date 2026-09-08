@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class TelefonicaEmpresasCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "telefonica_empresas",
-        name: "Telefonica Empresas",
-        description: "i18n.collectors.telefonica_empresas.description",
-        version: "0",
-        website: "https://paut.telefonica.es/facturas",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/3200642.jpg",
+        id: 'telefonica_empresas',
+        name: 'Telefonica Empresas',
+        description: 'i18n.collectors.telefonica_empresas.description',
+        version: '0',
+        website: 'https://paut.telefonica.es/facturas',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/3200642.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://paut.telefonica.es/facturas",
+        loginUrl: 'https://paut.telefonica.es/facturas',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(TelefonicaEmpresasCollector.CONFIG);

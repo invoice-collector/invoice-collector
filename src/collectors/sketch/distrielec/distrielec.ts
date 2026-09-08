@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class DistrielecCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "distrielec",
-        name: "Distrielec",
-        description: "i18n.collectors.distrielec.description",
-        version: "0",
-        website: "https://www.d4online.com/my-account/invoice-history",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/777223.jpg",
+        id: 'distrielec',
+        name: 'Distrielec',
+        description: 'i18n.collectors.distrielec.description',
+        version: '0',
+        website: 'https://www.d4online.com/my-account/invoice-history',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/777223.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://www.d4online.com/my-account/invoice-history",
+        loginUrl: 'https://www.d4online.com/my-account/invoice-history',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(DistrielecCollector.CONFIG);

@@ -4,32 +4,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class KoneCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "kone",
-        name: "Kone",
-        description: "i18n.collectors.kone.description",
-        version: "0",
-        website: "https://kone.com",
-        logo: "https://upload.wikimedia.org/wikipedia/commons/6/6a/Kone_Logo_2023.svg",
+        id: 'kone',
+        name: 'Kone',
+        description: 'i18n.collectors.kone.description',
+        version: '0',
+        website: 'https://kone.com',
+        logo: 'https://upload.wikimedia.org/wikipedia/commons/6/6a/Kone_Logo_2023.svg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://secure2.anachron.com/kone/login",
+        loginUrl: 'https://secure2.anachron.com/kone/login',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(KoneCollector.CONFIG);

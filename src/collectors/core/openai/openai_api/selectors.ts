@@ -4,40 +4,40 @@ export const OpenaiSelectors = {
 
     BUTTON_LOGIN_OR_OUPS: {
         selector: "button[data-color='primary'][data-variant='soft'], .onb-homepage-link",
-        info: "login button"
+        info: 'login button',
     },
 
     // HOME PAGE
 
     BUTTON_PROFILE: {
         selector: "button[id*='radix'][data-state='closed'] > span:not(:has(*))",
-        info: "profile button"
+        info: 'profile button',
     },
 
     // CONTAINER INVOICE
 
     CONTAINER_NO_INVOICE: {
-        selector: "main > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1)",
-        info: "no invoice container"
+        selector: 'main > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1)',
+        info: 'no invoice container',
     },
     CONTAINER_INVOICE: {
-        selector: "table tbody tr",
-        info: "invoice container"
+        selector: 'table tbody tr',
+        info: 'invoice container',
     },
     CONTAINER_ID: {
-        selector: "td:nth-child(1)",
-        info: "invoice id container"
+        selector: 'td:nth-child(1)',
+        info: 'invoice id container',
     },
     CONTAINER_AMOUNT: {
-        selector: "td:nth-child(3)",
-        info: "invoice amount container"
+        selector: 'td:nth-child(3)',
+        info: 'invoice amount container',
     },
     CONTAINER_DATE: {
-        selector: "td:nth-child(4)",
-        info: "invoice date container"
+        selector: 'td:nth-child(4)',
+        info: 'invoice date container',
     },
     BUTTON_VIEW: {
-        selector: "td:nth-child(5) a",
-        info: "invoice date container"
-    }
-}
+        selector: 'td:nth-child(5) a',
+        info: 'invoice date container',
+    },
+};

@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class GsmplazaNlCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "gsmplaza_nl",
-        name: "GSMplaza.nl",
-        description: "i18n.collectors.gsmplaza_nl.description",
-        version: "0",
-        website: "http://www.gsmplaza.nl",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/9576.jpg",
+        id: 'gsmplaza_nl',
+        name: 'GSMplaza.nl',
+        description: 'i18n.collectors.gsmplaza_nl.description',
+        version: '0',
+        website: 'http://www.gsmplaza.nl',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/9576.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "http://www.gsmplaza.nl",
+        loginUrl: 'http://www.gsmplaza.nl',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(GsmplazaNlCollector.CONFIG);

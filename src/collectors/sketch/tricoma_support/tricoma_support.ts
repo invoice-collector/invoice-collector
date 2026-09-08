@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class TricomaSupportCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "tricoma_support",
-        name: "Tricoma Support",
-        description: "i18n.collectors.tricoma_support.description",
-        version: "0",
-        website: "https://support.tricoma.de/",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/132281.jpg",
+        id: 'tricoma_support',
+        name: 'Tricoma Support',
+        description: 'i18n.collectors.tricoma_support.description',
+        version: '0',
+        website: 'https://support.tricoma.de/',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/132281.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://support.tricoma.de/",
+        loginUrl: 'https://support.tricoma.de/',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(TricomaSupportCollector.CONFIG);

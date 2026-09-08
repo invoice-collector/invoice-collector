@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class JustcomCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "justcom",
-        name: "JustCom",
-        description: "i18n.collectors.justcom.description",
-        version: "0",
-        website: "https://www.justcom-shop.de/shopware.php/sViewport,account/sAction,orders",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/487.jpg",
+        id: 'justcom',
+        name: 'JustCom',
+        description: 'i18n.collectors.justcom.description',
+        version: '0',
+        website: 'https://www.justcom-shop.de/shopware.php/sViewport,account/sAction,orders',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/487.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://www.justcom-shop.de/shopware.php/sViewport,account/sAction,orders",
+        loginUrl: 'https://www.justcom-shop.de/shopware.php/sViewport,account/sAction,orders',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(JustcomCollector.CONFIG);

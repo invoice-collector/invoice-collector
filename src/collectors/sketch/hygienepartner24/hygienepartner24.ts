@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class Hygienepartner24Collector extends SketchCollector {
 
     static CONFIG = {
-        id: "hygienepartner24",
-        name: "Hygienepartner24",
-        description: "i18n.collectors.hygienepartner24.description",
-        version: "0",
-        website: "https://www.hygienepartner24.de/account/login",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1153514.jpg",
+        id: 'hygienepartner24',
+        name: 'Hygienepartner24',
+        description: 'i18n.collectors.hygienepartner24.description',
+        version: '0',
+        website: 'https://www.hygienepartner24.de/account/login',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1153514.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://www.hygienepartner24.de/account/login",
+        loginUrl: 'https://www.hygienepartner24.de/account/login',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(Hygienepartner24Collector.CONFIG);

@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class ZencoderCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "zencoder",
-        name: "Zencoder",
-        description: "i18n.collectors.zencoder.description",
-        version: "0",
-        website: "https://app.zencoder.com/account/statements/",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/60849.jpg",
+        id: 'zencoder',
+        name: 'Zencoder',
+        description: 'i18n.collectors.zencoder.description',
+        version: '0',
+        website: 'https://app.zencoder.com/account/statements/',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/60849.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://app.zencoder.com/account/statements/",
+        loginUrl: 'https://app.zencoder.com/account/statements/',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(ZencoderCollector.CONFIG);

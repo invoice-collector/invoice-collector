@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class FifthThirdBankCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "fifth_third_bank",
-        name: "Fifth Third Bank",
-        description: "i18n.collectors.fifth_third_bank.description",
-        version: "0",
-        website: "https://onlinebanking.53.com/olb/#/documents",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2519915.jpg",
+        id: 'fifth_third_bank',
+        name: 'Fifth Third Bank',
+        description: 'i18n.collectors.fifth_third_bank.description',
+        version: '0',
+        website: 'https://onlinebanking.53.com/olb/#/documents',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2519915.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://onlinebanking.53.com/olb/#/documents",
+        loginUrl: 'https://onlinebanking.53.com/olb/#/documents',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(FifthThirdBankCollector.CONFIG);

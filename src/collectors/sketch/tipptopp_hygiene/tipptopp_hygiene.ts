@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class TipptoppHygieneCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "tipptopp_hygiene",
-        name: "Tipptopp Hygiene",
-        description: "i18n.collectors.tipptopp_hygiene.description",
-        version: "0",
-        website: "https://tipptopp-hygiene.de/customer/account/login",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4564527.jpg",
+        id: 'tipptopp_hygiene',
+        name: 'Tipptopp Hygiene',
+        description: 'i18n.collectors.tipptopp_hygiene.description',
+        version: '0',
+        website: 'https://tipptopp-hygiene.de/customer/account/login',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4564527.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://tipptopp-hygiene.de/customer/account/login",
+        loginUrl: 'https://tipptopp-hygiene.de/customer/account/login',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(TipptoppHygieneCollector.CONFIG);

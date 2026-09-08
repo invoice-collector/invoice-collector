@@ -1,8 +1,8 @@
-import { AbstractBrowser } from "./abstractBrowser";
-import { PageWithCursor } from "../puppeteer/pageController";
-import { LocalBrowser } from "./localBrowser";
-import { RemoteBrowser } from "./remoteBrowser";
-import { Proxy } from "../../proxy/abstractProxy";
+import { AbstractBrowser } from './abstractBrowser';
+import { PageWithCursor } from '../puppeteer/pageController';
+import { LocalBrowser } from './localBrowser';
+import { RemoteBrowser } from './remoteBrowser';
+import { Proxy } from '../../proxy/abstractProxy';
 
 export class BrowserFactory {
     static async connect(remoteBrowser: boolean, locale: string, proxy: Proxy | null): Promise<{
@@ -15,7 +15,7 @@ export class BrowserFactory {
                 const page = await browser.connect(locale, proxy);
                 return {
                     browser,
-                    page
+                    page,
                 };
             }
             catch (e) {

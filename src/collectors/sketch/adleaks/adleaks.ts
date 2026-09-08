@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class AdleaksCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "adleaks",
-        name: "Adleaks",
-        description: "i18n.collectors.adleaks.description",
-        version: "0",
-        website: "https://www.billingportal.com/s/adleaks-bt/statements",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/203083.jpg",
+        id: 'adleaks',
+        name: 'Adleaks',
+        description: 'i18n.collectors.adleaks.description',
+        version: '0',
+        website: 'https://www.billingportal.com/s/adleaks-bt/statements',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/203083.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://www.billingportal.com/s/adleaks-bt/statements",
+        loginUrl: 'https://www.billingportal.com/s/adleaks-bt/statements',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(AdleaksCollector.CONFIG);

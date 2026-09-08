@@ -4,32 +4,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class BurgerKingCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "burgerking",
-        name: "Burger king",
-        description: "i18n.collectors.burgerking.description",
-        version: "0",
-        website: "https://burgerking.fr",
-        logo: "https://upload.wikimedia.org/wikipedia/commons/c/cc/Burger_King_2020.svg",
+        id: 'burgerking',
+        name: 'Burger king',
+        description: 'i18n.collectors.burgerking.description',
+        version: '0',
+        website: 'https://burgerking.fr',
+        logo: 'https://upload.wikimedia.org/wikipedia/commons/c/cc/Burger_King_2020.svg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://www.burgerking.fr/connexion",
+        loginUrl: 'https://www.burgerking.fr/connexion',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(BurgerKingCollector.CONFIG);

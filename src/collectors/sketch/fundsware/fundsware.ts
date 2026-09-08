@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class FundswareCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "fundsware",
-        name: "Fundsware",
-        description: "i18n.collectors.fundsware.description",
-        version: "0",
-        website: "https://www.fundsware.de/fwpro/content/investment_provisionsabrechnung",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2554839.jpg",
+        id: 'fundsware',
+        name: 'Fundsware',
+        description: 'i18n.collectors.fundsware.description',
+        version: '0',
+        website: 'https://www.fundsware.de/fwpro/content/investment_provisionsabrechnung',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2554839.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://www.fundsware.de/fwpro/content/investment_provisionsabrechnung",
+        loginUrl: 'https://www.fundsware.de/fwpro/content/investment_provisionsabrechnung',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(FundswareCollector.CONFIG);

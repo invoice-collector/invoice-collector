@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class MeQrCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "me_qr",
-        name: "Me-QR",
-        description: "i18n.collectors.me_qr.description",
-        version: "0",
-        website: "https://me-qr.com/subscription/admin",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2716253.jpg",
+        id: 'me_qr',
+        name: 'Me-QR',
+        description: 'i18n.collectors.me_qr.description',
+        version: '0',
+        website: 'https://me-qr.com/subscription/admin',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2716253.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://me-qr.com/subscription/admin",
+        loginUrl: 'https://me-qr.com/subscription/admin',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(MeQrCollector.CONFIG);

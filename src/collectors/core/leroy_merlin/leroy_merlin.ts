@@ -9,32 +9,32 @@ import { WebSocketServer } from '../../../websocket/webSocketServer';
 export class LeroyMerlinCollector extends LinearWebCollector {
 
     static CONFIG = {
-        id: "leroy_merlin",
-        name: "Leroy Merlin",
-        description: "i18n.collectors.leroy_merlin.description",
-        version: "22",
-        website: "https://www.leroymerlin.fr",
-        logo: "https://upload.wikimedia.org/wikipedia/commons/a/a4/Leroy_Merlin_-_logo_%28France%2C_1995-%29.svg",
+        id: 'leroy_merlin',
+        name: 'Leroy Merlin',
+        description: 'i18n.collectors.leroy_merlin.description',
+        version: '22',
+        website: 'https://www.leroymerlin.fr',
+        logo: 'https://upload.wikimedia.org/wikipedia/commons/a/a4/Leroy_Merlin_-_logo_%28France%2C_1995-%29.svg',
         type: CollectorType.WEB,
         params: {
             id: {
-                type: "string",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'string',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
                 mandatory: true,
-            }
+            },
         },
-        loginUrl: "https://www.leroymerlin.fr/login.html",
-        entryUrl: "https://www.leroymerlin.fr/espace-perso/suivi-de-commande.html?auth-mode=login",
+        loginUrl: 'https://www.leroymerlin.fr/login.html',
+        entryUrl: 'https://www.leroymerlin.fr/espace-perso/suivi-de-commande.html?auth-mode=login',
         captcha: CollectorCaptcha.DATADOME,
-        authenticationMethod: CollectorAuthenticationMethod.ALL
-    }
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
+    };
 
     constructor() {
         super(LeroyMerlinCollector.CONFIG);
@@ -62,7 +62,7 @@ export class LeroyMerlinCollector extends LinearWebCollector {
         // Check if email is incorrect
         const email_error = await driver.getElement(LeroyMerlinSelectors.CONTAINER_EMAIL_ERROR, { raiseException: false, timeout: 2000});
         if (email_error) {
-            return await email_error.textContent("i18n.collectors.all.email.error");
+            return await email_error.textContent('i18n.collectors.all.email.error');
         }
 
         // Input password
@@ -72,7 +72,7 @@ export class LeroyMerlinCollector extends LinearWebCollector {
         // Check if password is incorrect
         const password_error = await driver.getElement(LeroyMerlinSelectors.CONTAINER_PASSWORD_ERROR, { raiseException: false, timeout: 2000});
         if (password_error) {
-            return await password_error.textContent("i18n.collectors.all.password.error");
+            return await password_error.textContent('i18n.collectors.all.password.error');
         }
     }
 
@@ -80,7 +80,7 @@ export class LeroyMerlinCollector extends LinearWebCollector {
         // Check if 2FA is required
         const two_factor_auth = await driver.getElement(LeroyMerlinSelectors.CONTAINER_2FA_INSTRUCTIONS, { raiseException: false, timeout: 2000 });
         if (two_factor_auth) {
-            return await two_factor_auth.textContent("i18n.collectors.all.2fa.instruction");
+            return await two_factor_auth.textContent('i18n.collectors.all.2fa.instruction');
         }
     }
 
@@ -90,7 +90,7 @@ export class LeroyMerlinCollector extends LinearWebCollector {
 
         // Check if 2fa code is 6 digits
         if (twofa_code.length !== 6) {
-            return "i18n.collectors.all.2fa.error";
+            return 'i18n.collectors.all.2fa.error';
         }
         
         // Input 2fa code slowly to avoid focus out
@@ -104,7 +104,7 @@ export class LeroyMerlinCollector extends LinearWebCollector {
         // Check if 2fa code is incorrect
         const twofa_alert = await driver.getElement(LeroyMerlinSelectors.CONTAINER_2FA_ERROR, { raiseException: false, timeout: 1000 });
         if (twofa_alert) {
-            return await twofa_alert.textContent("i18n.collectors.all.2fa.error");
+            return await twofa_alert.textContent('i18n.collectors.all.2fa.error');
         }
     }
 
@@ -122,21 +122,21 @@ export class LeroyMerlinCollector extends LinearWebCollector {
         const link = driver.url();
 
         // Get timestamp
-        const date = await element.getAttribute(LeroyMerlinSelectors.CONTAINER_ORDER_DATE, "textContent");
-        const timestamp = utils.timestampFromString(date, "dd MMMM yyyy", 'fr');
+        const date = await element.getAttribute(LeroyMerlinSelectors.CONTAINER_ORDER_DATE, 'textContent');
+        const timestamp = utils.timestampFromString(date, 'dd MMMM yyyy', 'fr');
 
         // Get data
-        const id = await element.getAttribute(LeroyMerlinSelectors.CONTAINER_ORDER_ID, "textContent");
-        const amount = await element.getAttribute(LeroyMerlinSelectors.CONTAINER_ORDER_AMOUNT, "textContent");
+        const id = await element.getAttribute(LeroyMerlinSelectors.CONTAINER_ORDER_ID, 'textContent');
+        const amount = await element.getAttribute(LeroyMerlinSelectors.CONTAINER_ORDER_AMOUNT, 'textContent');
         const detailsButton = await element.getElement(LeroyMerlinSelectors.BUTTON_ORDER_DETAILS);
 
         // Return invoice
         return {
             id: id.replace('N°', ''),
             timestamp,
-            link: link,
+            link,
             amount,
-            downloadButton: detailsButton
+            downloadButton: detailsButton,
         };
     }
 

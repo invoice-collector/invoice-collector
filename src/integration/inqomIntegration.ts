@@ -5,13 +5,13 @@ import { Secret } from '../model/secret';
 export class InqomIntegration extends AbstractIntegration { 
 
     static CONFIG: IntegrationConfig = {
-        id: "inqom",
-        name: "Inqom",
-        description: "i18n.integrations.inqom.description",
+        id: 'inqom',
+        name: 'Inqom',
+        description: 'i18n.integrations.inqom.description',
         state: 'planned',
         params: {
             //TODO: add specific params here
-        }
+        },
     };
     
     constructor(secret: Secret) {

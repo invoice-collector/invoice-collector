@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class StadtwerkeMunsterBispingenCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "stadtwerke_munster_bispingen",
-        name: "Stadtwerke Munster-Bispingen",
-        description: "i18n.collectors.stadtwerke_munster_bispingen.description",
-        version: "0",
-        website: "https://kundenportal.ihr-stadtwerk.de/powercommerce/ivu/fo/portal/invoiceView?",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1340279.jpg",
+        id: 'stadtwerke_munster_bispingen',
+        name: 'Stadtwerke Munster-Bispingen',
+        description: 'i18n.collectors.stadtwerke_munster_bispingen.description',
+        version: '0',
+        website: 'https://kundenportal.ihr-stadtwerk.de/powercommerce/ivu/fo/portal/invoiceView?',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1340279.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://kundenportal.ihr-stadtwerk.de/powercommerce/ivu/fo/portal/invoiceView?",
+        loginUrl: 'https://kundenportal.ihr-stadtwerk.de/powercommerce/ivu/fo/portal/invoiceView?',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(StadtwerkeMunsterBispingenCollector.CONFIG);

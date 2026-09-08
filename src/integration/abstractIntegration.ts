@@ -1,5 +1,5 @@
-import { CompleteInvoice, Config } from "../collectors/abstractCollector";
-import { Secret } from "../model/secret";
+import { CompleteInvoice, Config } from '../collectors/abstractCollector';
+import { Secret } from '../model/secret';
 
 export type IntegrationConfig = {
     id: string,

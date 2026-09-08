@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class RaidboxesCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "raidboxes",
-        name: "RAIDBOXES",
-        description: "i18n.collectors.raidboxes.description",
-        version: "0",
-        website: "https://dashboard.raidboxes.de/rechnungen",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/19653.jpg",
+        id: 'raidboxes',
+        name: 'RAIDBOXES',
+        description: 'i18n.collectors.raidboxes.description',
+        version: '0',
+        website: 'https://dashboard.raidboxes.de/rechnungen',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/19653.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://dashboard.raidboxes.de/rechnungen",
+        loginUrl: 'https://dashboard.raidboxes.de/rechnungen',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(RaidboxesCollector.CONFIG);

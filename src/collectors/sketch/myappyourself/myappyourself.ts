@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class MyappyourselfCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "myappyourself",
-        name: "MyAppYourself",
-        description: "i18n.collectors.myappyourself.description",
-        version: "0",
-        website: "https://my.appyourself.net/#/account/data",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/96506.jpg",
+        id: 'myappyourself',
+        name: 'MyAppYourself',
+        description: 'i18n.collectors.myappyourself.description',
+        version: '0',
+        website: 'https://my.appyourself.net/#/account/data',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/96506.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://my.appyourself.net/#/account/data",
+        loginUrl: 'https://my.appyourself.net/#/account/data',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(MyappyourselfCollector.CONFIG);

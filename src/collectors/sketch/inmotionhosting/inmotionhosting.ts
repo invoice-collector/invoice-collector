@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class InmotionhostingCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "inmotionhosting",
-        name: "InMotionHosting",
-        description: "i18n.collectors.inmotionhosting.description",
-        version: "0",
-        website: "https://secure1.inmotionhosting.com/index/login",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/8978.jpg",
+        id: 'inmotionhosting',
+        name: 'InMotionHosting',
+        description: 'i18n.collectors.inmotionhosting.description',
+        version: '0',
+        website: 'https://secure1.inmotionhosting.com/index/login',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/8978.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://secure1.inmotionhosting.com/index/login",
+        loginUrl: 'https://secure1.inmotionhosting.com/index/login',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(InmotionhostingCollector.CONFIG);

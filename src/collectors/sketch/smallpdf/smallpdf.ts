@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class SmallpdfCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "smallpdf",
-        name: "SmallPDF",
-        description: "i18n.collectors.smallpdf.description",
-        version: "0",
-        website: "https://smallpdf.com/de",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/48361.jpg",
+        id: 'smallpdf',
+        name: 'SmallPDF',
+        description: 'i18n.collectors.smallpdf.description',
+        version: '0',
+        website: 'https://smallpdf.com/de',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/48361.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://smallpdf.com/de",
+        loginUrl: 'https://smallpdf.com/de',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(SmallpdfCollector.CONFIG);

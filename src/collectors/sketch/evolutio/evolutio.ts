@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class EvolutioCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "evolutio",
-        name: "evolutio",
-        description: "i18n.collectors.evolutio.description",
-        version: "0",
-        website: "https://my.evolutio.com",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/788569.jpg",
+        id: 'evolutio',
+        name: 'evolutio',
+        description: 'i18n.collectors.evolutio.description',
+        version: '0',
+        website: 'https://my.evolutio.com',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/788569.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://my.evolutio.com",
+        loginUrl: 'https://my.evolutio.com',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(EvolutioCollector.CONFIG);

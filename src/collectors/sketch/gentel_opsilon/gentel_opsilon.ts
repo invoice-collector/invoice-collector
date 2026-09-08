@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class GentelOpsilonCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "gentel_opsilon",
-        name: "Gentel - Opsilon",
-        description: "i18n.collectors.gentel_opsilon.description",
-        version: "0",
-        website: "https://extranet.gentel.fr/facture/1092",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4502965.jpg",
+        id: 'gentel_opsilon',
+        name: 'Gentel - Opsilon',
+        description: 'i18n.collectors.gentel_opsilon.description',
+        version: '0',
+        website: 'https://extranet.gentel.fr/facture/1092',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4502965.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://extranet.gentel.fr/facture/1092",
+        loginUrl: 'https://extranet.gentel.fr/facture/1092',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(GentelOpsilonCollector.CONFIG);

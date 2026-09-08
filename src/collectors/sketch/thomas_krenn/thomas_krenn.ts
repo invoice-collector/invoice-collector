@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class ThomasKrennCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "thomas_krenn",
-        name: "THOMAS KRENN",
-        description: "i18n.collectors.thomas_krenn.description",
-        version: "0",
-        website: "https://www.thomas-krenn.com/de/service-support/meine-rechnungen.html",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/94965.jpg",
+        id: 'thomas_krenn',
+        name: 'THOMAS KRENN',
+        description: 'i18n.collectors.thomas_krenn.description',
+        version: '0',
+        website: 'https://www.thomas-krenn.com/de/service-support/meine-rechnungen.html',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/94965.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://www.thomas-krenn.com/de/service-support/meine-rechnungen.html",
+        loginUrl: 'https://www.thomas-krenn.com/de/service-support/meine-rechnungen.html',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(ThomasKrennCollector.CONFIG);

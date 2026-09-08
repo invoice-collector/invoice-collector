@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class DeutschlandMonteurzimmerCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "deutschland_monteurzimmer",
-        name: "Deutschland Monteurzimmer",
-        description: "i18n.collectors.deutschland_monteurzimmer.description",
-        version: "0",
-        website: "https://www.deutschland-monteurzimmer.de/account/invoice",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/236071.jpg",
+        id: 'deutschland_monteurzimmer',
+        name: 'Deutschland Monteurzimmer',
+        description: 'i18n.collectors.deutschland_monteurzimmer.description',
+        version: '0',
+        website: 'https://www.deutschland-monteurzimmer.de/account/invoice',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/236071.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://www.deutschland-monteurzimmer.de/account/invoice",
+        loginUrl: 'https://www.deutschland-monteurzimmer.de/account/invoice',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(DeutschlandMonteurzimmerCollector.CONFIG);

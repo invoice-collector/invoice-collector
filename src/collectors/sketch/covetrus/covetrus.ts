@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class CovetrusCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "covetrus",
-        name: "Covetrus",
-        description: "i18n.collectors.covetrus.description",
-        version: "0",
-        website: "https://covetrus.de/i/konto/start",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/414364.jpg",
+        id: 'covetrus',
+        name: 'Covetrus',
+        description: 'i18n.collectors.covetrus.description',
+        version: '0',
+        website: 'https://covetrus.de/i/konto/start',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/414364.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://covetrus.de/i/konto/start",
+        loginUrl: 'https://covetrus.de/i/konto/start',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(CovetrusCollector.CONFIG);

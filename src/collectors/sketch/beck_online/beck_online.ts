@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class BeckOnlineCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "beck_online",
-        name: "beck-online",
-        description: "i18n.collectors.beck_online.description",
-        version: "0",
-        website: "https://beck-online.beck.de/Login",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2123187.jpg",
+        id: 'beck_online',
+        name: 'beck-online',
+        description: 'i18n.collectors.beck_online.description',
+        version: '0',
+        website: 'https://beck-online.beck.de/Login',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2123187.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://beck-online.beck.de/Login",
+        loginUrl: 'https://beck-online.beck.de/Login',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(BeckOnlineCollector.CONFIG);

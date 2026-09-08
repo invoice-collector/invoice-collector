@@ -34,7 +34,7 @@ export abstract class EmailProvider extends V2Collector<EmailProviderConfig> {
         super({
             ...config,
             type: CollectorType.PROVIDER,
-            state: config.state || CollectorState.ACTIVE
+            state: config.state || CollectorState.ACTIVE,
         });
     }
 
@@ -47,7 +47,7 @@ export abstract class EmailProvider extends V2Collector<EmailProviderConfig> {
         locale: string,
         location: Location | null,
         useInteractiveLogin: boolean,
-        providers: Credential[]
+        providers: Credential[],
     ): Promise<CompleteInvoice[]> {
         // Set progress step to logging in
         state.update(State._2_LOGGING_IN);

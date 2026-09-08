@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class NelnetStudentLoansCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "nelnet_student_loans",
-        name: "NelNet Student Loans",
-        description: "i18n.collectors.nelnet_student_loans.description",
-        version: "0",
-        website: "https://nelnet.studentaid.gov/documents/statements",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/3131718.jpg",
+        id: 'nelnet_student_loans',
+        name: 'NelNet Student Loans',
+        description: 'i18n.collectors.nelnet_student_loans.description',
+        version: '0',
+        website: 'https://nelnet.studentaid.gov/documents/statements',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/3131718.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://nelnet.studentaid.gov/documents/statements",
+        loginUrl: 'https://nelnet.studentaid.gov/documents/statements',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(NelnetStudentLoansCollector.CONFIG);

@@ -1,13 +1,13 @@
-import { Customer, CustomerStats } from "../model/customer";
-import { User } from "../model/user";
-import { Credential } from "../model/credential";
-import { CollectorMemory } from "../model/collectorMemory";
-import { Callback } from "../model/callback";
+import { Customer, CustomerStats } from '../model/customer';
+import { User } from '../model/user';
+import { Credential } from '../model/credential';
+import { CollectorMemory } from '../model/collectorMemory';
+import { Callback } from '../model/callback';
 
 export abstract class AbstractDatabase {
     constructor() {
         if (new.target === AbstractDatabase) {
-            throw new TypeError("Cannot construct AbstractDatabase instances directly");
+            throw new TypeError('Cannot construct AbstractDatabase instances directly');
         }
     }
 

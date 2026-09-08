@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class Hi5ZentralloginCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "hi5_zentrallogin",
-        name: "Hi5 Zentrallogin",
-        description: "i18n.collectors.hi5_zentrallogin.description",
-        version: "0",
-        website: "https://zentrallogin.hi5dev.de/contracts",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/413555.jpg",
+        id: 'hi5_zentrallogin',
+        name: 'Hi5 Zentrallogin',
+        description: 'i18n.collectors.hi5_zentrallogin.description',
+        version: '0',
+        website: 'https://zentrallogin.hi5dev.de/contracts',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/413555.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://zentrallogin.hi5dev.de/contracts",
+        loginUrl: 'https://zentrallogin.hi5dev.de/contracts',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(Hi5ZentralloginCollector.CONFIG);

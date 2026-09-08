@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class AutopayIoCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "autopay_io",
-        name: "Autopay.io",
-        description: "i18n.collectors.autopay_io.description",
-        version: "0",
-        website: "https://autopay.io/payments/receipts",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2010863.jpg",
+        id: 'autopay_io',
+        name: 'Autopay.io',
+        description: 'i18n.collectors.autopay_io.description',
+        version: '0',
+        website: 'https://autopay.io/payments/receipts',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2010863.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://autopay.io/payments/receipts",
+        loginUrl: 'https://autopay.io/payments/receipts',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(AutopayIoCollector.CONFIG);

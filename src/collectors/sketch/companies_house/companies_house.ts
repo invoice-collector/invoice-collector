@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class CompaniesHouseCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "companies_house",
-        name: "Companies House",
-        description: "i18n.collectors.companies_house.description",
-        version: "0",
-        website: "https://ebilling.companieshouse.gov.uk/customer-portal/signin.html",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/750169.jpg",
+        id: 'companies_house',
+        name: 'Companies House',
+        description: 'i18n.collectors.companies_house.description',
+        version: '0',
+        website: 'https://ebilling.companieshouse.gov.uk/customer-portal/signin.html',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/750169.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://ebilling.companieshouse.gov.uk/customer-portal/signin.html",
+        loginUrl: 'https://ebilling.companieshouse.gov.uk/customer-portal/signin.html',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(CompaniesHouseCollector.CONFIG);

@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class PinkPandaCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "pink_panda",
-        name: "Pink Panda",
-        description: "i18n.collectors.pink_panda.description",
-        version: "0",
-        website: "https://www.pinkpanda.de/my-orders",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/3200158.jpg",
+        id: 'pink_panda',
+        name: 'Pink Panda',
+        description: 'i18n.collectors.pink_panda.description',
+        version: '0',
+        website: 'https://www.pinkpanda.de/my-orders',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/3200158.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://www.pinkpanda.de/my-orders",
+        loginUrl: 'https://www.pinkpanda.de/my-orders',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(PinkPandaCollector.CONFIG);

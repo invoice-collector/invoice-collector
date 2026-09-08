@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class RelayAppCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "relay_app",
-        name: "Relay.app",
-        description: "i18n.collectors.relay_app.description",
-        version: "0",
-        website: "https://run.relay.app/dashboard#/settings/workspace/billing",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4506757.jpg",
+        id: 'relay_app',
+        name: 'Relay.app',
+        description: 'i18n.collectors.relay_app.description',
+        version: '0',
+        website: 'https://run.relay.app/dashboard#/settings/workspace/billing',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4506757.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://run.relay.app/dashboard#/settings/workspace/billing",
+        loginUrl: 'https://run.relay.app/dashboard#/settings/workspace/billing',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(RelayAppCollector.CONFIG);

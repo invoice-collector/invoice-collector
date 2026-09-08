@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class EverhourCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "everhour",
-        name: "everhour",
-        description: "i18n.collectors.everhour.description",
-        version: "0",
-        website: "https://everhour.com/signin/",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/6600.jpg",
+        id: 'everhour',
+        name: 'everhour',
+        description: 'i18n.collectors.everhour.description',
+        version: '0',
+        website: 'https://everhour.com/signin/',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/6600.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://everhour.com/signin/",
+        loginUrl: 'https://everhour.com/signin/',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(EverhourCollector.CONFIG);

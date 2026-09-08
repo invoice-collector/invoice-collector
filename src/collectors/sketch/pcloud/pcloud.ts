@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class PcloudCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "pcloud",
-        name: "pCloud",
-        description: "i18n.collectors.pcloud.description",
-        version: "0",
-        website: "https://my.pcloud.com/#page=settings&settings=tab-finance",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/94990.jpg",
+        id: 'pcloud',
+        name: 'pCloud',
+        description: 'i18n.collectors.pcloud.description',
+        version: '0',
+        website: 'https://my.pcloud.com/#page=settings&settings=tab-finance',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/94990.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://my.pcloud.com/#page=settings&settings=tab-finance",
+        loginUrl: 'https://my.pcloud.com/#page=settings&settings=tab-finance',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(PcloudCollector.CONFIG);

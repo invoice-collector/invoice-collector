@@ -1,12 +1,12 @@
 import path from 'path';
 import express from 'express';
-import { StatusError } from "./error"
-import { Server } from "./server"
-import * as utils from "./utils"
+import { StatusError } from './error';
+import { Server } from './server';
+import * as utils from './utils';
 import { I18n } from './i18n';
 
 // Configure express
-const app = express()
+const app = express();
 app.use(express.json());
 app.use(I18n.i18n.init);
 app.use('/views', express.static(path.join(__dirname, '..', 'views')));
@@ -26,7 +26,7 @@ const server = new Server();
 function handle_error(e, req, res){
     if(e instanceof StatusError) {
         res.setHeader('Content-Type', 'application/json');
-        res.status(e.status_code).end(JSON.stringify({type: "error", message: e.message}));
+        res.status(e.status_code).end(JSON.stringify({type: 'error', message: e.message}));
     }
     else {
         console.error(e);
@@ -35,10 +35,10 @@ function handle_error(e, req, res){
             message = e.message;
         }
         else {
-            message = "Internal server error"
+            message = 'Internal server error';
         }
         res.setHeader('Content-Type', 'application/json');
-        res.status(500).end(JSON.stringify({type: "error", message}));
+        res.status(500).end(JSON.stringify({type: 'error', message}));
     }
 }
 
@@ -89,9 +89,9 @@ function handle_error(e, req, res){
 app.get('/api/v1/ping', async (req, res) => {
     try {
         // Get ping status
-        console.log(`GET /ping`);
+        console.log('GET /ping');
         const response = await server.get_ping(
-            req.headers.authorization
+            req.headers.authorization,
         );
         res.setHeader('Content-Type', 'application/json');
         res.status(200).end(JSON.stringify(response));
@@ -144,9 +144,9 @@ app.get('/api/v1/ping', async (req, res) => {
 app.get('/api/v1/ui', async (req, res) => {
     try {
         // Get UI context
-        console.log(`GET /ui`);
+        console.log('GET /ui');
         const context = await server.get_ui(
-            req.query.token
+            req.query.token,
         );
 
         // Render ui.ejs
@@ -205,11 +205,11 @@ app.post('/api/v1/feedback', async (req, res) => {
             req.headers.authorization,
             req.query.token,
             req.body.type,
-            req.body.message
+            req.body.message,
         );
 
         // Build response
-        res.end()
+        res.end();
     } catch (e) {
         handle_error(e, req, res);
     }
@@ -269,7 +269,7 @@ app.post('/api/v1/login', async (req, res) => {
         console.log('POST /login');
         const response = await server.post_login(
             req.body.email,
-            req.body.password
+            req.body.password,
         );
 
         // Build response
@@ -397,7 +397,7 @@ app.post('/api/v1/forgot', async (req, res) => {
         // Perform forgot password
         console.log('POST /forgot');
         const response = await server.post_forgot(
-            req.body.email
+            req.body.email,
         );
 
         // Build response
@@ -461,11 +461,11 @@ app.post('/api/v1/reset', async (req, res) => {
         console.log('POST /reset');
         await server.post_reset(
             req.query.token,
-            req.body.password
+            req.body.password,
         );
 
         // Build response
-        res.end()
+        res.end();
     } catch (e) {
         handle_error(e, req, res);
     }
@@ -506,9 +506,9 @@ app.post('/api/v1/reset', async (req, res) => {
 app.get('/api/v1/customer', async (req, res) => {
     try {
         // Get customer
-        console.log(`GET /customer`);
+        console.log('GET /customer');
         const response = await server.get_customer(
-            req.headers.authorization
+            req.headers.authorization,
         );
 
         // Build response
@@ -575,7 +575,7 @@ app.get('/api/v1/customer', async (req, res) => {
 app.put('/api/v1/customer', async (req, res) => {
     try {
         // Save customer
-        console.log(`PUT /customer`);
+        console.log('PUT /customer');
         const response = await server.put_customer(
             req.headers.authorization,
             req.body.name,
@@ -585,7 +585,7 @@ app.put('/api/v1/customer', async (req, res) => {
             req.body.subscribedCollectors,
             req.body.isSubscribedToAll,
             req.body.authenticationMethod,
-            req.body.displaySketchCollectors
+            req.body.displaySketchCollectors,
         );
 
         // Build response
@@ -629,9 +629,9 @@ app.put('/api/v1/customer', async (req, res) => {
 app.post('/api/v1/customer/bearer', async (req, res) => {
     try {
         // Generate a new bearer for customer
-        console.log(`POST /customer/bearer`);
+        console.log('POST /customer/bearer');
         const response = await server.post_customer_bearer(
-            req.headers.authorization
+            req.headers.authorization,
         );
 
         // Build response
@@ -676,9 +676,9 @@ app.post('/api/v1/customer/bearer', async (req, res) => {
 app.get('/api/v1/customer/stats', async (req, res) => {
     try {
         // Get customer stats
-        console.log(`GET /customer/stats`);
+        console.log('GET /customer/stats');
         const response = await server.getCustomerStats(
-            req.headers.authorization
+            req.headers.authorization,
         );
 
         // Build response
@@ -724,9 +724,9 @@ app.get('/api/v1/customer/stats', async (req, res) => {
 app.get('/api/v1/users', async (req, res) => {
     try {
         // List users
-        console.log(`GET /users`);
+        console.log('GET /users');
         const response = await server.get_users(
-            req.headers.authorization
+            req.headers.authorization,
         );
 
         // Build response
@@ -801,7 +801,7 @@ app.post('/api/v1/user', async (req, res) => {
             req.headers.authorization,
             req.body.remoteId || req.body.remote_id,
             req.body.locale,
-            req.body.ip
+            req.body.ip,
         );
 
         // Build response
@@ -861,7 +861,7 @@ app.get('/api/v1/user/:user_id', async (req, res) => {
         console.log(`GET /user/${req.params.user_id}`);
         const response = await server.get_user(
             req.headers.authorization,
-            req.params.user_id
+            req.params.user_id,
         );
 
         // Build response
@@ -879,7 +879,7 @@ app.get('/api/v1/user', async (req, res) => {
         console.warn('GET /user (DEPRECATED, use GET /user/{userId} with userId "me" instead)');
         const response = await server.get_user(
             req.headers.authorization,
-            "me"
+            'me',
         );
 
         // Build response
@@ -958,7 +958,7 @@ app.put('/api/v1/user/:userId', async (req, res) => {
             req.body.remoteId,
             req.body.name,
             req.body.cid,
-            req.body.locale
+            req.body.locale,
         );
 
         // Build response
@@ -1013,11 +1013,11 @@ app.delete('/api/v1/user/:user_id', async (req, res) => {
         console.log(`DELETE /user/${req.params.user_id}`);
         await server.delete_user(
             req.headers.authorization,
-            req.params.user_id
+            req.params.user_id,
         );
 
         // Build response
-        res.end()
+        res.end();
     } catch (e) {
         handle_error(e, req, res);
     }
@@ -1070,7 +1070,7 @@ app.get('/api/v1/user/:user_id/credentials', async (req, res) => {
         const credentials = await server.get_credentials(
             req.headers.authorization,
             req.params.user_id,
-            req.query.token
+            req.query.token,
         );
 
         // Build response
@@ -1085,11 +1085,11 @@ app.get('/api/v1/user/:user_id/credentials', async (req, res) => {
 app.get('/api/v1/credentials', async (req, res) => {
     try {
         // Get credentials
-        console.warn(`GET /credentials (DEPRECATED, use GET /user/{userId}/credentials with userId "me" instead)`);
+        console.warn('GET /credentials (DEPRECATED, use GET /user/{userId}/credentials with userId "me" instead)');
         const credentials = await server.get_credentials(
             req.headers.authorization,
-            "me",
-            req.query.token
+            'me',
+            req.query.token,
         );
 
         // Build response
@@ -1176,7 +1176,7 @@ app.post('/api/v1/user/:user_id/credential', async (req, res) => {
             req.query.token,
             req.body.collector,
             req.body.params,
-            req.body.download_from_timestamp
+            req.body.download_from_timestamp,
         );
 
         // Build response
@@ -1191,14 +1191,14 @@ app.post('/api/v1/user/:user_id/credential', async (req, res) => {
 app.post('/api/v1/credential', async (req, res) => {
     try {
         // Save credential
-        console.warn(`POST /credential (DEPRECATED, use POST /user/{userId}/credential with userId "me" instead)`);
+        console.warn('POST /credential (DEPRECATED, use POST /user/{userId}/credential with userId "me" instead)');
         const response = await server.post_credential(
             req.headers.authorization,
-            "me",
+            'me',
             req.query.token,
             req.body.collector,
             req.body.params,
-            req.body.download_from_timestamp
+            req.body.download_from_timestamp,
         );
 
         // Build response
@@ -1272,7 +1272,7 @@ app.get('/api/v1/user/:user_id/credential/:credential_id', async (req, res) => {
             req.headers.authorization,
             req.params.user_id,
             req.query.token,
-            req.params.credential_id
+            req.params.credential_id,
         );
 
         // Build response
@@ -1286,13 +1286,13 @@ app.get('/api/v1/user/:user_id/credential/:credential_id', async (req, res) => {
 // TOKEN AUTHENTICATION
 app.get('/api/v1/credential/:credential_id', async (req, res) => {
     try {
-        console.warn(`GET credential (DEPRECATED, use GET /user/{userId}/credential/{credentialId} with userId "me" instead)`);
+        console.warn('GET credential (DEPRECATED, use GET /user/{userId}/credential/{credentialId} with userId "me" instead)');
         // Get credential status
         const response = await server.get_credential(
             req.headers.authorization,
-            "me",
+            'me',
             req.query.token,
-            req.params.credential_id
+            req.params.credential_id,
         );
 
         // Build response
@@ -1362,11 +1362,11 @@ app.delete('/api/v1/user/:user_id/credential/:credential_id', async (req, res) =
             req.headers.authorization,
             req.params.user_id,
             req.query.token,
-            req.params.credential_id
+            req.params.credential_id,
         );
 
         // Build response
-        res.end()
+        res.end();
     } catch (e) {
         handle_error(e, req, res);
     }
@@ -1379,13 +1379,13 @@ app.delete('/api/v1/credential/:credential_id', async (req, res) => {
         console.warn(`DELETE /credential/${req.params.credential_id} (DEPRECATED, use DELETE /user/{userId}/credential/{credentialId} with userId "me" instead)`);
         await server.delete_credential(
             req.headers.authorization,
-            "me",
+            'me',
             req.query.token,
-            req.params.credential_id
+            req.params.credential_id,
         );
 
         // Build response
-        res.end()
+        res.end();
     } catch (e) {
         handle_error(e, req, res);
     }
@@ -1462,11 +1462,11 @@ app.post('/api/v1/user/:user_id/credential/:credential_id/2fa', async (req, res)
             req.params.user_id,
             req.query.token,
             req.params.credential_id,
-            req.body.code
+            req.body.code,
         );
 
         // Build response
-        res.end()
+        res.end();
     } catch (e) {
         handle_error(e, req, res);
     }
@@ -1479,14 +1479,14 @@ app.post('/api/v1/credential/:credential_id/2fa', async (req, res) => {
         console.warn(`POST /credential/${req.params.credential_id}/2fa (DEPRECATED, use websockets instead)`);
         await server.post_credential_2fa(
             req.headers.authorization,
-            "me",
+            'me',
             req.query.token,
             req.params.credential_id,
-            req.body.code
+            req.body.code,
         );
 
         // Build response
-        res.end()
+        res.end();
     } catch (e) {
         handle_error(e, req, res);
     }
@@ -1610,7 +1610,7 @@ app.post('/api/v1/user/:user_id/credential/:credential_id/collect', async (req, 
             req.headers.authorization,
             req.params.user_id,
             req.query.token,
-            req.params.credential_id
+            req.params.credential_id,
         );
 
         // Build response
@@ -1628,9 +1628,9 @@ app.post('/api/v1/credential/:credential_id/collect', async (req, res) => {
         console.warn(`POST /credential/${req.params.credential_id}/collect (DEPRECATED, use websockets instead)`);
         const response = await server.post_credential_collect(
             req.headers.authorization,
-            "me",
+            'me',
             req.query.token,
-            req.params.credential_id
+            req.params.credential_id,
         );
 
         // Build response
@@ -1693,11 +1693,11 @@ app.post('/api/v1/credential/:credential_id/collect', async (req, res) => {
 app.get('/api/v1/collectors', async (req, res) => {
     try {
         // List all collectors
-        console.log(`GET /collectors`);
+        console.log('GET /collectors');
         const response = await server.get_collectors(
             req.headers.authorization,
             req.query.token,
-            req.query.locale
+            req.query.locale,
         );
 
         // Build response
@@ -1751,9 +1751,9 @@ app.get('/api/v1/collectors', async (req, res) => {
 app.get('/api/v1/callbacks', async (req, res) => {
     try {
         // List callbacks
-        console.log(`GET /callbacks`);
+        console.log('GET /callbacks');
         const response = await server.get_callbacks(
-            req.headers.authorization
+            req.headers.authorization,
         );
 
         // Build response
@@ -1814,11 +1814,11 @@ app.get('/api/v1/callbacks', async (req, res) => {
 app.post('/api/v1/callback', async (req, res) => {
     try {
         // Create callback
-        console.log(`POST /callback`);
+        console.log('POST /callback');
         const response = await server.post_callback(
             req.headers.authorization,
             req.body.integration_id,
-            req.body.params
+            req.body.params,
         );
 
         // Build response
@@ -1894,7 +1894,7 @@ app.put('/api/v1/callback/:callbackId', async (req, res) => {
         const response = await server.put_callback(
             req.headers.authorization,
             req.params.callbackId,
-            req.body.automaticExport
+            req.body.automaticExport,
         );
 
         // Build response
@@ -1951,11 +1951,11 @@ app.delete('/api/v1/callback/:callbackId', async (req, res) => {
         console.log(`DELETE /callback/${req.params.callbackId}`);
         await server.delete_callback(
             req.headers.authorization,
-            req.params.callbackId
+            req.params.callbackId,
         );
 
         // Build response
-        res.end()
+        res.end();
     } catch (e) {
         handle_error(e, req, res);
     }
@@ -2074,11 +2074,11 @@ app.get('/api/v1/callback/:callbackId/test/:type', async (req, res) => {
         await server.get_callback_test(
             req.headers.authorization,
             req.params.callbackId,
-            req.params.type
+            req.params.type,
         );
 
         // Build response
-        res.end()
+        res.end();
     } catch (e) {
         handle_error(e, req, res);
     }
@@ -2090,9 +2090,9 @@ app.get('/api/v1/callback/:callbackId/test/:type', async (req, res) => {
 app.get('/api/v1/integrations', async (req, res) => {
     try {
         // List available integrations
-        console.log(`GET /integrations`);
+        console.log('GET /integrations');
         const response = await server.get_integrations(
-            req.query.locale
+            req.query.locale,
         );
         // Build response
         res.setHeader('Content-Type', 'application/json');
@@ -2105,13 +2105,13 @@ app.get('/api/v1/integrations', async (req, res) => {
 // Handle non-existing endpoints
 app.use((req, res, next) => {
     res.setHeader('Content-Type', 'application/json');
-    res.status(404).end(JSON.stringify({type: "error", reason: "Endpoint not found"}));
+    res.status(404).end(JSON.stringify({type: 'error', reason: 'Endpoint not found'}));
 });
 
 // Start server
 server.start().then(() => {
     const httpServer = app.listen(utils.PORT, () => {
-        console.log(`App listening on port ${utils.PORT}`)
+        console.log(`App listening on port ${utils.PORT}`);
     });
 
     // Set http server to server instance to be able to use websockets

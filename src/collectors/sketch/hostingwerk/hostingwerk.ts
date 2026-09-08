@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class HostingwerkCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "hostingwerk",
-        name: "Hostingwerk",
-        description: "i18n.collectors.hostingwerk.description",
-        version: "0",
-        website: "https://hostingwerk.de/anmelden",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/782244.jpg",
+        id: 'hostingwerk',
+        name: 'Hostingwerk',
+        description: 'i18n.collectors.hostingwerk.description',
+        version: '0',
+        website: 'https://hostingwerk.de/anmelden',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/782244.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://hostingwerk.de/anmelden",
+        loginUrl: 'https://hostingwerk.de/anmelden',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(HostingwerkCollector.CONFIG);

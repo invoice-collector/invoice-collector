@@ -1,4 +1,4 @@
-import { State } from "../model/state";
+import { State } from '../model/state';
 
 export type AbstractMessage = {
     type: string;

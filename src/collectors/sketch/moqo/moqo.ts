@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class MoqoCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "moqo",
-        name: "Moqo",
-        description: "i18n.collectors.moqo.description",
-        version: "0",
-        website: "https://portal.moqo.de/",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/161954.jpg",
+        id: 'moqo',
+        name: 'Moqo',
+        description: 'i18n.collectors.moqo.description',
+        version: '0',
+        website: 'https://portal.moqo.de/',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/161954.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://portal.moqo.de/",
+        loginUrl: 'https://portal.moqo.de/',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(MoqoCollector.CONFIG);

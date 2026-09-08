@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class ThermonoordCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "thermonoord",
-        name: "Thermonoord",
-        description: "i18n.collectors.thermonoord.description",
-        version: "0",
-        website: "https://web.thermonoord.nl/B2B/PAGE_Start/7A8AANwHRfNPZGdZZmJvRkdkQwA",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/32249.jpg",
+        id: 'thermonoord',
+        name: 'Thermonoord',
+        description: 'i18n.collectors.thermonoord.description',
+        version: '0',
+        website: 'https://web.thermonoord.nl/B2B/PAGE_Start/7A8AANwHRfNPZGdZZmJvRkdkQwA',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/32249.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://web.thermonoord.nl/B2B/PAGE_Start/7A8AANwHRfNPZGdZZmJvRkdkQwA",
+        loginUrl: 'https://web.thermonoord.nl/B2B/PAGE_Start/7A8AANwHRfNPZGdZZmJvRkdkQwA',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(ThermonoordCollector.CONFIG);

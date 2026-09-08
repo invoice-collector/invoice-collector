@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class EnmaxCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "enmax",
-        name: "ENMAX",
-        description: "i18n.collectors.enmax.description",
-        version: "0",
-        website: "https://www.enmax.com/sign-in",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/63497.jpg",
+        id: 'enmax',
+        name: 'ENMAX',
+        description: 'i18n.collectors.enmax.description',
+        version: '0',
+        website: 'https://www.enmax.com/sign-in',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/63497.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://www.enmax.com/sign-in",
+        loginUrl: 'https://www.enmax.com/sign-in',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(EnmaxCollector.CONFIG);

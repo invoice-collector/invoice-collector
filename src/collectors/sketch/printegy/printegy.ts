@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class PrintegyCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "printegy",
-        name: "Printegy",
-        description: "i18n.collectors.printegy.description",
-        version: "0",
-        website: "https://app.printegy.de/billing",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4417826.jpg",
+        id: 'printegy',
+        name: 'Printegy',
+        description: 'i18n.collectors.printegy.description',
+        version: '0',
+        website: 'https://app.printegy.de/billing',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4417826.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://app.printegy.de/billing",
+        loginUrl: 'https://app.printegy.de/billing',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(PrintegyCollector.CONFIG);

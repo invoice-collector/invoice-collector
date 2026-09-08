@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class WhmcsCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "whmcs",
-        name: "WHMCS",
-        description: "i18n.collectors.whmcs.description",
-        version: "0",
-        website: "https://www.whmcs.com/members/clientarea.php",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/28522.jpg",
+        id: 'whmcs',
+        name: 'WHMCS',
+        description: 'i18n.collectors.whmcs.description',
+        version: '0',
+        website: 'https://www.whmcs.com/members/clientarea.php',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/28522.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://www.whmcs.com/members/clientarea.php",
+        loginUrl: 'https://www.whmcs.com/members/clientarea.php',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(WhmcsCollector.CONFIG);

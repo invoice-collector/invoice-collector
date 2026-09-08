@@ -1,7 +1,7 @@
-import { DatabaseFactory } from "../database/databaseFactory";
-import { Action } from "./action";
-import { Actions } from "./actions";
-import { ActionV2 } from "./actionV2";
+import { DatabaseFactory } from '../database/databaseFactory';
+import { Action } from './action';
+import { Actions } from './actions';
+import { ActionV2 } from './actionV2';
 
 export class CollectorMemory {
 
@@ -24,13 +24,13 @@ export class CollectorMemory {
         actionsV2: ActionV2<any, any, any>[],
         customerAreaUrl?: string,
         entryUrl?: string,
-        tips?: string
+        tips?: string,
     ) {
-        this.id = "";
+        this.id = '';
         this.collector_id = collector_id;
         this.actions = actions;
         this.actionsV2 = actionsV2;
-        this.customerAreaUrl = customerAreaUrl
+        this.customerAreaUrl = customerAreaUrl;
         this.entryUrl = entryUrl;
         this.tips = tips;
     }

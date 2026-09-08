@@ -4,32 +4,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class MgfCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "mgf_fr",
-        name: "MGF",
-        description: "i18n.collectors.mgf_fr.description",
-        version: "0",
-        website: "https://www.mgf-info.fr",
-        logo: "https://www.mgf-info.fr/static/version1783690429/frontend/Mgf/default/fr_FR/images/logo.svg",
+        id: 'mgf_fr',
+        name: 'MGF',
+        description: 'i18n.collectors.mgf_fr.description',
+        version: '0',
+        website: 'https://www.mgf-info.fr',
+        logo: 'https://www.mgf-info.fr/static/version1783690429/frontend/Mgf/default/fr_FR/images/logo.svg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://www.mgf-info.fr/customer/account/login/",
+        loginUrl: 'https://www.mgf-info.fr/customer/account/login/',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(MgfCollector.CONFIG);

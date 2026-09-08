@@ -22,10 +22,10 @@ export abstract class V2Collector<C extends Config> extends AbstractCollector<C>
         locale: string,
         location: Location | null,
         customerAuthenticationMethod: CustomerAuthenticationMethod,
-        providers: Credential[]
+        providers: Credential[],
     ): Promise<CompleteInvoice[]> {
         // Update collector params based on customerAuthenticationMethod
-        const useInteractiveLogin = AbstractCollector.updateCollectorParams(customerAuthenticationMethod, this.config)
+        const useInteractiveLogin = AbstractCollector.updateCollectorParams(customerAuthenticationMethod, this.config);
 
         // Check if a mandatory field is missing
         const secretParams = await secret.getParams();
@@ -46,7 +46,7 @@ export abstract class V2Collector<C extends Config> extends AbstractCollector<C>
                 locale,
                 location,
                 useInteractiveLogin,
-                providers
+                providers,
             );
         }
         finally {

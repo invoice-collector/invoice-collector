@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class WaveVideoCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "wave_video",
-        name: "wave.video",
-        description: "i18n.collectors.wave_video.description",
-        version: "0",
-        website: "https://www.animatron.com/wave/settings/subscription",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/88452.jpg",
+        id: 'wave_video',
+        name: 'wave.video',
+        description: 'i18n.collectors.wave_video.description',
+        version: '0',
+        website: 'https://www.animatron.com/wave/settings/subscription',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/88452.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://www.animatron.com/wave/settings/subscription",
+        loginUrl: 'https://www.animatron.com/wave/settings/subscription',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(WaveVideoCollector.CONFIG);

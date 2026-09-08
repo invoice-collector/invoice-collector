@@ -5,31 +5,31 @@ import { LoggableError } from '../error';
 
 export class MockAnalytics extends AbstractAnalytics {
     async ping(): Promise<void> {
-        console.warn("No analytics server endpoint configured. Cannot ping.");
+        console.warn('No analytics server endpoint configured. Cannot ping.');
     }
 
     logSuccess(collector: AbstractCollector<Config>): void {
-        console.warn("No analytics server endpoint configured. Cannot log success.");
+        console.warn('No analytics server endpoint configured. Cannot log success.');
     }
 
     logError(email: string, remoteId: string, err: LoggableError): void {
-        console.warn("No analytics server endpoint configured. Cannot log error.");
+        console.warn('No analytics server endpoint configured. Cannot log error.');
     }
 
     async feedback(type: string, message: string, email: string, user_id: string): Promise<void> {
-        console.warn("No analytics server endpoint configured. Cannot send feedback.");
+        console.warn('No analytics server endpoint configured. Cannot send feedback.');
     }
 
     async sendWelcomeEmail(email: string, locale: string): Promise<void> {
-        console.warn("No analytics server endpoint configured. Cannot send welcome email.");
+        console.warn('No analytics server endpoint configured. Cannot send welcome email.');
     }
 
     async sendOtpEmail(email: string, locale: string): Promise<OTP> {
         const code: string = utils.generateVerificationCode();
         console.warn(`No analytics server endpoint configured. Cannot send OTP email. Your OTP code is: ${code}`);
         return {
-            code: code,
-            sentAt: Date.now()
+            code,
+            sentAt: Date.now(),
         };
     }
 

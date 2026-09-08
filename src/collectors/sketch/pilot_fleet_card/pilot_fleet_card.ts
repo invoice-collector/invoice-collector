@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class PilotFleetCardCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "pilot_fleet_card",
-        name: "Pilot Fleet Card",
-        description: "i18n.collectors.pilot_fleet_card.description",
-        version: "0",
-        website: "https://portal.pilotflyingj.com/myrewards/login",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/8849.jpg",
+        id: 'pilot_fleet_card',
+        name: 'Pilot Fleet Card',
+        description: 'i18n.collectors.pilot_fleet_card.description',
+        version: '0',
+        website: 'https://portal.pilotflyingj.com/myrewards/login',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/8849.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://portal.pilotflyingj.com/myrewards/login",
+        loginUrl: 'https://portal.pilotflyingj.com/myrewards/login',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(PilotFleetCardCollector.CONFIG);

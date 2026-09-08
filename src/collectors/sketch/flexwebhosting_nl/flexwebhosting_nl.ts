@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class FlexwebhostingNlCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "flexwebhosting_nl",
-        name: "Flexwebhosting.nl",
-        description: "i18n.collectors.flexwebhosting_nl.description",
-        version: "0",
-        website: "https://cp.flexwebhosting.nl/login?ruri=aHR0cHM6Ly9jcC5mbGV4d2ViaG9zdGluZy5ubC8=",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/32724.jpg",
+        id: 'flexwebhosting_nl',
+        name: 'Flexwebhosting.nl',
+        description: 'i18n.collectors.flexwebhosting_nl.description',
+        version: '0',
+        website: 'https://cp.flexwebhosting.nl/login?ruri=aHR0cHM6Ly9jcC5mbGV4d2ViaG9zdGluZy5ubC8=',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/32724.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://cp.flexwebhosting.nl/login?ruri=aHR0cHM6Ly9jcC5mbGV4d2ViaG9zdGluZy5ubC8=",
+        loginUrl: 'https://cp.flexwebhosting.nl/login?ruri=aHR0cHM6Ly9jcC5mbGV4d2ViaG9zdGluZy5ubC8=',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(FlexwebhostingNlCollector.CONFIG);

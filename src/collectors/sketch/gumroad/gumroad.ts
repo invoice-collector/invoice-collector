@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class GumroadCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "gumroad",
-        name: "Gumroad",
-        description: "i18n.collectors.gumroad.description",
-        version: "0",
-        website: "http://www.gumroad.com",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/32089.jpg",
+        id: 'gumroad',
+        name: 'Gumroad',
+        description: 'i18n.collectors.gumroad.description',
+        version: '0',
+        website: 'http://www.gumroad.com',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/32089.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "http://www.gumroad.com",
+        loginUrl: 'http://www.gumroad.com',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(GumroadCollector.CONFIG);

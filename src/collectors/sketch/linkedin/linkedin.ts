@@ -4,33 +4,33 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class LinkedinCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "linkedin",
-        name: "LinkedIn",
-        description: "i18n.collectors.linkedin.description",
-        version: "1",
-        website: "https://www.linkedin.com",
-        logo: "https://upload.wikimedia.org/wikipedia/commons/0/01/LinkedIn_Logo.svg",
+        id: 'linkedin',
+        name: 'LinkedIn',
+        description: 'i18n.collectors.linkedin.description',
+        version: '1',
+        website: 'https://www.linkedin.com',
+        logo: 'https://upload.wikimedia.org/wikipedia/commons/0/01/LinkedIn_Logo.svg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://www.linkedin.com/uas/login?session_redirect=https%3A%2F%2Fwww.linkedin.com%2Fmanage%2Fpurchases-payments%2Ftransactions",
-        entryUrl: "https://www.linkedin.com/manage/purchases-payments/transactions",
+        loginUrl: 'https://www.linkedin.com/uas/login?session_redirect=https%3A%2F%2Fwww.linkedin.com%2Fmanage%2Fpurchases-payments%2Ftransactions',
+        entryUrl: 'https://www.linkedin.com/manage/purchases-payments/transactions',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(LinkedinCollector.CONFIG);

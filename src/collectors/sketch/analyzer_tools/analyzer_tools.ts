@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class AnalyzerToolsCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "analyzer_tools",
-        name: "Analyzer.tools",
-        description: "i18n.collectors.analyzer_tools.description",
-        version: "0",
-        website: "https://www.analyzer.tools/wp-login.php",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/3081093.jpg",
+        id: 'analyzer_tools',
+        name: 'Analyzer.tools',
+        description: 'i18n.collectors.analyzer_tools.description',
+        version: '0',
+        website: 'https://www.analyzer.tools/wp-login.php',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/3081093.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://www.analyzer.tools/wp-login.php",
+        loginUrl: 'https://www.analyzer.tools/wp-login.php',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(AnalyzerToolsCollector.CONFIG);

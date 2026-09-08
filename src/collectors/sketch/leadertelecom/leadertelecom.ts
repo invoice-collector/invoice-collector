@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class LeadertelecomCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "leadertelecom",
-        name: "LeaderTelecom",
-        description: "i18n.collectors.leadertelecom.description",
-        version: "0",
-        website: "https://order.leadertelecom.biz",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/88484.jpg",
+        id: 'leadertelecom',
+        name: 'LeaderTelecom',
+        description: 'i18n.collectors.leadertelecom.description',
+        version: '0',
+        website: 'https://order.leadertelecom.biz',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/88484.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://order.leadertelecom.biz",
+        loginUrl: 'https://order.leadertelecom.biz',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(LeadertelecomCollector.CONFIG);

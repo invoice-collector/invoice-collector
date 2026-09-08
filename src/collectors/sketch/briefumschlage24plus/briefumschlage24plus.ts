@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class Briefumschlage24plusCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "briefumschlage24plus",
-        name: "Briefumschlage24PLUS",
-        description: "i18n.collectors.briefumschlage24plus.description",
-        version: "0",
-        website: "https://www.briefumschlaege24plus.de/download",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1440665.jpg",
+        id: 'briefumschlage24plus',
+        name: 'Briefumschlage24PLUS',
+        description: 'i18n.collectors.briefumschlage24plus.description',
+        version: '0',
+        website: 'https://www.briefumschlaege24plus.de/download',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1440665.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://www.briefumschlaege24plus.de/download",
+        loginUrl: 'https://www.briefumschlaege24plus.de/download',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(Briefumschlage24plusCollector.CONFIG);

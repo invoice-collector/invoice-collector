@@ -1,11 +1,11 @@
 import { createCursor, GhostCursor } from 'ghost-cursor';
-import { Browser, Page } from "rebrowser-puppeteer-core";
+import { Browser, Page } from 'rebrowser-puppeteer-core';
 import { solveCaptchas } from './captchas';
 import { Proxy } from '../../proxy/abstractProxy';
 import { AbstractBrowser } from '../browser/abstractBrowser';
 
 export interface PageWithCursor extends Page {
-  realClick: GhostCursor["click"];
+  realClick: GhostCursor['click'];
   realCursor: GhostCursor;
 }
 
@@ -17,7 +17,7 @@ export interface PageControllerOptions {
     killProcess: boolean,
     locale: string,
     abstractBrowser?: AbstractBrowser
-};
+}
 
 export async function pageController({
     browser,
@@ -26,19 +26,19 @@ export async function pageController({
     turnstile,
     killProcess = false,
     locale,
-    abstractBrowser
+    abstractBrowser,
 }: PageControllerOptions): Promise<PageWithCursor> {
 
-    let solveStatus = turnstile
+    let solveStatus = turnstile;
 
     page.on('close', () => {
-        solveStatus = false
+        solveStatus = false;
     });
 
     browser.on('disconnected', async () => {
-        solveStatus = false
+        solveStatus = false;
         if (killProcess === true) {
-            if (abstractBrowser) try { abstractBrowser.close() } catch (err) { console.log(err); }
+            if (abstractBrowser) {try { abstractBrowser.close(); } catch (err) { console.log(err); }}
         }
     });
 
@@ -47,7 +47,7 @@ export async function pageController({
             await solveCaptchas({ page }).catch(() => { });
             await new Promise(r => setTimeout(r, 5000));
         }
-        return
+        return;
     }
 
     // Define locale on new page
@@ -55,21 +55,21 @@ export async function pageController({
         'Accept-Language': `${locale},${locale.split('-')[0]};q=0.9,en;q=0.8`,
     });
 
-    captchaSolver()
+    captchaSolver();
 
-    if (proxy && proxy.username && proxy.password) await page.authenticate({ username: proxy.username, password: proxy.password });
+    if (proxy && proxy.username && proxy.password) {await page.authenticate({ username: proxy.username, password: proxy.password });}
 
     await page.evaluateOnNewDocument(() => {
         Object.defineProperty(MouseEvent.prototype, 'screenX', {
-            get: function () {
+            get () {
                 return this.clientX + window.screenX;
-            }
+            },
         });
 
         Object.defineProperty(MouseEvent.prototype, 'screenY', {
-            get: function () {
+            get () {
                 return this.clientY + window.screenY;
-            }
+            },
         });
 
         // Prevent the native Windows Hello / passkey dialogs (both the "save the

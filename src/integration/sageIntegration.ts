@@ -5,13 +5,13 @@ import { Secret } from '../model/secret';
 export class SageIntegration extends AbstractIntegration { 
 
     static CONFIG: IntegrationConfig = {
-        id: "sage",
-        name: "Sage",
-        description: "i18n.integrations.sage.description",
+        id: 'sage',
+        name: 'Sage',
+        description: 'i18n.integrations.sage.description',
         state: 'planned',
         params: {
             //TODO: add specific params here
-        }
+        },
     };
     
     constructor(secret: Secret) {

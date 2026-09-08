@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class BgvBadischeVersicherungMaklerportalCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "bgv_badische_versicherung_maklerportal",
-        name: "BGV - Badische Versicherung - Maklerportal",
-        description: "i18n.collectors.bgv_badische_versicherung_maklerportal.description",
-        version: "0",
-        website: "https://makler.bgv.de/makler/bestand/kundenverwaltung/epostkorb/",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/73646.jpg",
+        id: 'bgv_badische_versicherung_maklerportal',
+        name: 'BGV - Badische Versicherung - Maklerportal',
+        description: 'i18n.collectors.bgv_badische_versicherung_maklerportal.description',
+        version: '0',
+        website: 'https://makler.bgv.de/makler/bestand/kundenverwaltung/epostkorb/',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/73646.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://makler.bgv.de/makler/bestand/kundenverwaltung/epostkorb/",
+        loginUrl: 'https://makler.bgv.de/makler/bestand/kundenverwaltung/epostkorb/',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(BgvBadischeVersicherungMaklerportalCollector.CONFIG);

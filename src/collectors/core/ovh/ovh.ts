@@ -1,5 +1,5 @@
 import * as crypto from 'crypto';
-import { AxiosInstance } from "axios";
+import { AxiosInstance } from 'axios';
 import { ApiCollector } from '../../apiCollector';
 import { CollectorType, DownloadedInvoice } from '../../abstractCollector';
 import { AuthenticationError } from '../../../error';
@@ -8,31 +8,31 @@ import { WebSocketServer } from '../../../websocket/webSocketServer';
 export class OvhCollector extends ApiCollector {
 
     static CONFIG = {
-        id: "ovh",
-        name: "OVH",
-        description: "i18n.collectors.ovh.description",
-        instructions: "i18n.collectors.ovh.instructions",
-        version: "2",
-        website: "https://www.ovh.com",
-        logo: "https://upload.wikimedia.org/wikipedia/commons/4/45/Logo_OVH.svg",
+        id: 'ovh',
+        name: 'OVH',
+        description: 'i18n.collectors.ovh.description',
+        instructions: 'i18n.collectors.ovh.instructions',
+        version: '2',
+        website: 'https://www.ovh.com',
+        logo: 'https://upload.wikimedia.org/wikipedia/commons/4/45/Logo_OVH.svg',
         type: CollectorType.API,
         params: {
             app_key: {
-                type: "string",
-                name: "Application key",
-                placeholder: "",
-                mandatory: true
+                type: 'string',
+                name: 'Application key',
+                placeholder: '',
+                mandatory: true,
             },
             app_secret: {
-                type: "password",
-                name: "Application secret",
-                placeholder: "",
+                type: 'password',
+                name: 'Application secret',
+                placeholder: '',
                 mandatory: true,
             },
             consumer_key: {
-                type: "string",
-                name: "Consumer key",
-                placeholder: "",
+                type: 'string',
+                name: 'Consumer key',
+                placeholder: '',
                 mandatory: true,
             },
             /*server: {
@@ -47,8 +47,8 @@ export class OvhCollector extends ApiCollector {
                 }
             }*/
         },
-        baseUrl: "https://eu.api.ovh.com/v1",
-    }
+        baseUrl: 'https://eu.api.ovh.com/v1',
+    };
 
     constructor() {
         super(OvhCollector.CONFIG);
@@ -69,8 +69,8 @@ export class OvhCollector extends ApiCollector {
                 id,
                 timestamp: new Date(bill.date).getTime(),
                 amount: bill.priceWithTax.text,
-                link: bill.pdfUrl
-            }
+                link: bill.pdfUrl,
+            };
         }));
     }
     
@@ -79,9 +79,9 @@ export class OvhCollector extends ApiCollector {
         return {
             ...invoice,
             documents: [
-                await this.download_direct_link(invoice)
-            ]
-        }
+                await this.download_direct_link(invoice),
+            ],
+        };
     }
 
     // Make request to OVH API
@@ -94,9 +94,9 @@ export class OvhCollector extends ApiCollector {
                 'X-Ovh-Timestamp': timestamp,
                 'X-Ovh-Signature': this.signRequest(params, method, instance.defaults.baseURL + path, '', timestamp),
             },
-            validateStatus: () => true
+            validateStatus: () => true,
         });
-        if (response.status != 200) {
+        if (response.status !== 200) {
             throw new AuthenticationError('i18n.collectors.ovh.authentication_error', this);
         }
         return response.data;
@@ -105,7 +105,7 @@ export class OvhCollector extends ApiCollector {
     // Get OVH API time
     async getAuthTime(instance): Promise<string> {
         const response = await instance.get('/auth/time');
-        if (response.status != 200) {
+        if (response.status !== 200) {
             throw new Error('Unable to get auth time');
         }
         return response.data;
@@ -113,15 +113,15 @@ export class OvhCollector extends ApiCollector {
 
     // Sign request
     signRequest(params: any, httpMethod: string, url: string, body: string, timestamp: string): string {
-        let s = [
+        const s = [
             params.app_secret,
             params.consumer_key,
             httpMethod,
             url,
             body || '',
-            timestamp
+            timestamp,
         ];
 
-        return '$1$' + crypto.createHash('sha1').update(s.join('+')).digest('hex');
+        return `$1$${  crypto.createHash('sha1').update(s.join('+')).digest('hex')}`;
     }
 }

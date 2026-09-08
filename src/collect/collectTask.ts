@@ -12,7 +12,7 @@ export class CollectTask {
     constructor() {
         const onTick = async () => {
             // Get all credentials on which we need to collect invoices
-            let credential_ids = await Credential.getCredentialsIdToCollect()
+            const credential_ids = await Credential.getCredentialsIdToCollect();
 
             if (credential_ids.length > 0) {
                 console.log(`Found ${credential_ids.length} credentials to collect`);
@@ -42,14 +42,14 @@ export class CollectTask {
                     }
                 }
             }
-        }
+        };
 
         this.job = CronJob.from({
             cronTime: CollectTask.DEFAULT_CRON_TIME,
-            onTick: onTick,
+            onTick,
             start: false,
             waitForCompletion: true,
-            timeZone: CollectTask.DEFAULT_TIMEZONE
+            timeZone: CollectTask.DEFAULT_TIMEZONE,
         });
     }
 

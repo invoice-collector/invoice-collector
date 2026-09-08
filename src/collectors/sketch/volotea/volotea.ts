@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class VoloteaCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "volotea",
-        name: "Volotea",
-        description: "i18n.collectors.volotea.description",
-        version: "0",
-        website: "https://booking.volotea.com/Invoice.aspx",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/180728.jpg",
+        id: 'volotea',
+        name: 'Volotea',
+        description: 'i18n.collectors.volotea.description',
+        version: '0',
+        website: 'https://booking.volotea.com/Invoice.aspx',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/180728.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://booking.volotea.com/Invoice.aspx",
+        loginUrl: 'https://booking.volotea.com/Invoice.aspx',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(VoloteaCollector.CONFIG);

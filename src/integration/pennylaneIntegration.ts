@@ -9,13 +9,13 @@ import { Secret } from '../model/secret';
 export class PennylaneIntegration extends AbstractIntegration {
 
     static CONFIG: IntegrationConfig = {
-        id: "pennylane",
-        name: "Pennylane",
-        description: "i18n.integrations.pennylane.description",
+        id: 'pennylane',
+        name: 'Pennylane',
+        description: 'i18n.integrations.pennylane.description',
         state: 'planned',
         params: {
             //TODO: add specific params here
-        }
+        },
     };
     
     constructor(secret: Secret) {

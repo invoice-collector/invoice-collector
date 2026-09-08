@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class UpscopeCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "upscope",
-        name: "UPSCOPE",
-        description: "i18n.collectors.upscope.description",
-        version: "0",
-        website: "https://app.upscope.io/settings/teams/bookingkit.de/billing",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/152275.jpg",
+        id: 'upscope',
+        name: 'UPSCOPE',
+        description: 'i18n.collectors.upscope.description',
+        version: '0',
+        website: 'https://app.upscope.io/settings/teams/bookingkit.de/billing',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/152275.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://app.upscope.io/settings/teams/bookingkit.de/billing",
+        loginUrl: 'https://app.upscope.io/settings/teams/bookingkit.de/billing',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(UpscopeCollector.CONFIG);

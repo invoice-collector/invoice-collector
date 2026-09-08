@@ -1,4 +1,4 @@
-import { ElementHandle } from "rebrowser-puppeteer-core";
+import { ElementHandle } from 'rebrowser-puppeteer-core';
 
 const CAPTCHAS = {
     turnstile: {
@@ -8,26 +8,26 @@ const CAPTCHAS = {
             const box = await parentElement.boundingBox();
             return {
                 x: box.x + 30,
-                y: box.y + box.height / 2
+                y: box.y + box.height / 2,
             };
-        }
+        },
     },
     friendlyCaptcha: {
         cssSelector: "input.frc-captcha-solution[value='.UNSTARTED']",
         computeCoordinates: async (element) => {
-            const button = await element.evaluateHandle(el => el.parentElement?.querySelector("button.frc-button"));
+            const button = await element.evaluateHandle(el => el.parentElement?.querySelector('button.frc-button'));
             const box = await button.boundingBox();
             return {
                 x: box.x + box.width / 2,
-                y: box.y + box.height / 2
+                y: box.y + box.height / 2,
             };
-        }
-    }
-}
+        },
+    },
+};
 
 export const solveCaptchas = ({ page }) => {
     return new Promise(async (resolve, reject) => {
-        var waitInterval = setTimeout(() => { clearInterval(waitInterval); resolve(false) }, 5000);
+        const waitInterval = setTimeout(() => { clearInterval(waitInterval); resolve(false); }, 5000);
         try {
             for (const captchaType in CAPTCHAS) {
                 const captcha = CAPTCHAS[captchaType];
@@ -39,11 +39,11 @@ export const solveCaptchas = ({ page }) => {
                     } catch (err) {}
                 }
             }
-            clearInterval(waitInterval)
-            resolve(true)
+            clearInterval(waitInterval);
+            resolve(true);
         } catch (err) {
-            clearInterval(waitInterval)
-            resolve(false)
+            clearInterval(waitInterval);
+            resolve(false);
         }
-    })
-}
+    });
+};

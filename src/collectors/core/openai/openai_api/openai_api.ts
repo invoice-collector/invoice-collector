@@ -7,42 +7,42 @@ import { OpenaiCommonCollector } from '../openai_common/openaiCommon';
 export class OpenaiApiCollector extends OpenaiCommonCollector {
 
     static CONFIG = {
-        id: "openai_api",
-        name: "OpenAI (API)",
-        description: "i18n.collectors.openai_api.description",
-        version: "19",
-        website: "https://openai.com",
-        logo: "https://upload.wikimedia.org/wikipedia/commons/6/66/OpenAI_logo_2025_(symbol).svg",
+        id: 'openai_api',
+        name: 'OpenAI (API)',
+        description: 'i18n.collectors.openai_api.description',
+        version: '19',
+        website: 'https://openai.com',
+        logo: 'https://upload.wikimedia.org/wikipedia/commons/6/66/OpenAI_logo_2025_(symbol).svg',
         type: CollectorType.WEB,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://platform.openai.com/login",
-        entryUrl: "https://platform.openai.com/settings/organization/billing/history",
+        loginUrl: 'https://platform.openai.com/login',
+        entryUrl: 'https://platform.openai.com/settings/organization/billing/history',
         captcha: CollectorCaptcha.NONE,
         autoLogin: {
-            localStorageKeys: ['@@auth0spajs@@']
+            localStorageKeys: ['@@auth0spajs@@'],
         },
-        authenticationMethod: CollectorAuthenticationMethod.ALL
-    }
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
+    };
 
     constructor() {
         super(OpenaiApiCollector.CONFIG);
     }
 
     async needLogin(driver: Driver): Promise<boolean> {
-        return await driver.getElement(OpenaiSelectors.BUTTON_LOGIN_OR_OUPS, { raiseException: false, timeout: 5000 }) != null ||
+        return await driver.getElement(OpenaiSelectors.BUTTON_LOGIN_OR_OUPS, { raiseException: false, timeout: 5000 }) !== null ||
             driver.url().includes(this.config.loginUrl);
     }
 
@@ -54,7 +54,7 @@ export class OpenaiApiCollector extends OpenaiCommonCollector {
     }
 
     async isEmpty(driver: Driver): Promise<boolean> {
-        return await driver.getElement(OpenaiSelectors.CONTAINER_NO_INVOICE, { raiseException: false, timeout: 5000 }) != null;
+        return await driver.getElement(OpenaiSelectors.CONTAINER_NO_INVOICE, { raiseException: false, timeout: 5000 }) !== null;
     }
 
     async getInvoices(driver: Driver): Promise<Element[]> {
@@ -66,7 +66,7 @@ export class OpenaiApiCollector extends OpenaiCommonCollector {
         const link = driver.url();
 
         // Compute timestamp
-        const dateTime = await element.getAttribute(OpenaiSelectors.CONTAINER_DATE, "textContent");
+        const dateTime = await element.getAttribute(OpenaiSelectors.CONTAINER_DATE, 'textContent');
         let timestamp;
         try {
             timestamp = utils.timestampFromString(dateTime, "d MMM yyyy',' HH':'mm", 'fr');
@@ -75,17 +75,17 @@ export class OpenaiApiCollector extends OpenaiCommonCollector {
         }
 
         // Get other data
-        const id = await element.getAttribute(OpenaiSelectors.CONTAINER_ID, "textContent");
-        const amount = await element.getAttribute(OpenaiSelectors.CONTAINER_AMOUNT, "textContent");
+        const id = await element.getAttribute(OpenaiSelectors.CONTAINER_ID, 'textContent');
+        const amount = await element.getAttribute(OpenaiSelectors.CONTAINER_AMOUNT, 'textContent');
         const viewInvoice = await element.getElement(OpenaiSelectors.BUTTON_VIEW);
 
         // Return invoice
         return {
             id,
             timestamp,
-            link: link,
+            link,
             amount,
-            downloadButton: viewInvoice
+            downloadButton: viewInvoice,
         };
     }
 }

@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class LelievreParisComCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "lelievre_paris_com",
-        name: "Lelièvre Paris",
-        description: "i18n.collectors.lelievre_paris_com.description",
-        version: "0",
-        website: "https://lelievreparis.com/",
-        logo: "https://cdn.brandfetch.io/idpbAn5ble/theme/dark/logo.svg?c=1bxid64Mup7aczewSAYMX&t=1755178990181",
+        id: 'lelievre_paris_com',
+        name: 'Lelièvre Paris',
+        description: 'i18n.collectors.lelievre_paris_com.description',
+        version: '0',
+        website: 'https://lelievreparis.com/',
+        logo: 'https://cdn.brandfetch.io/idpbAn5ble/theme/dark/logo.svg?c=1bxid64Mup7aczewSAYMX&t=1755178990181',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://lelievreparis.com/login",
+        loginUrl: 'https://lelievreparis.com/login',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(LelievreParisComCollector.CONFIG);

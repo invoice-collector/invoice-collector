@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class NexudusCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "nexudus",
-        name: "NEXUDUS",
-        description: "i18n.collectors.nexudus.description",
-        version: "0",
-        website: "https://platform.nexudus.com/auth/sign-in?continue_to=/",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1034300.jpg",
+        id: 'nexudus',
+        name: 'NEXUDUS',
+        description: 'i18n.collectors.nexudus.description',
+        version: '0',
+        website: 'https://platform.nexudus.com/auth/sign-in?continue_to=/',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1034300.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://platform.nexudus.com/auth/sign-in?continue_to=/",
+        loginUrl: 'https://platform.nexudus.com/auth/sign-in?continue_to=/',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(NexudusCollector.CONFIG);

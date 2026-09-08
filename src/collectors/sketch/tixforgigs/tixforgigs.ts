@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class TixforgigsCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "tixforgigs",
-        name: "TixforGigs",
-        description: "i18n.collectors.tixforgigs.description",
-        version: "0",
-        website: "https://promoter.tixforgigs.com/de-DE",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1439568.jpg",
+        id: 'tixforgigs',
+        name: 'TixforGigs',
+        description: 'i18n.collectors.tixforgigs.description',
+        version: '0',
+        website: 'https://promoter.tixforgigs.com/de-DE',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1439568.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://promoter.tixforgigs.com/de-DE",
+        loginUrl: 'https://promoter.tixforgigs.com/de-DE',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(TixforgigsCollector.CONFIG);

@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class Pm2KeymetricsCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "pm2_keymetrics",
-        name: "PM2 (Keymetrics)",
-        description: "i18n.collectors.pm2_keymetrics.description",
-        version: "0",
-        website: "https://id.keymetrics.io/api/oauth/login",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4503838.jpg",
+        id: 'pm2_keymetrics',
+        name: 'PM2 (Keymetrics)',
+        description: 'i18n.collectors.pm2_keymetrics.description',
+        version: '0',
+        website: 'https://id.keymetrics.io/api/oauth/login',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4503838.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://id.keymetrics.io/api/oauth/login",
+        loginUrl: 'https://id.keymetrics.io/api/oauth/login',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(Pm2KeymetricsCollector.CONFIG);

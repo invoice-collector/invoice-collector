@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class HelpScoutCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "help_scout",
-        name: "Help Scout",
-        description: "i18n.collectors.help_scout.description",
-        version: "0",
-        website: "https://secure.helpscout.net/members/login/",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4485.jpg",
+        id: 'help_scout',
+        name: 'Help Scout',
+        description: 'i18n.collectors.help_scout.description',
+        version: '0',
+        website: 'https://secure.helpscout.net/members/login/',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4485.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://secure.helpscout.net/members/login/",
+        loginUrl: 'https://secure.helpscout.net/members/login/',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(HelpScoutCollector.CONFIG);

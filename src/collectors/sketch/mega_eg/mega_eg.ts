@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class MegaEgCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "mega_eg",
-        name: "MEGA eG",
-        description: "i18n.collectors.mega_eg.description",
-        version: "0",
-        website: "https://shop.mega.de/store/mega/de/EUR/my-account/invoices",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1264460.jpg",
+        id: 'mega_eg',
+        name: 'MEGA eG',
+        description: 'i18n.collectors.mega_eg.description',
+        version: '0',
+        website: 'https://shop.mega.de/store/mega/de/EUR/my-account/invoices',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1264460.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://shop.mega.de/store/mega/de/EUR/my-account/invoices",
+        loginUrl: 'https://shop.mega.de/store/mega/de/EUR/my-account/invoices',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(MegaEgCollector.CONFIG);

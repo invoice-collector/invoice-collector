@@ -1,14 +1,14 @@
 export class Plan {
 
-    static TRIAL = new Plan('trial', "Trial", 1, 1, -1, -1, 0, 0, 0, 0, 0, [
+    static TRIAL = new Plan('trial', 'Trial', 1, 1, -1, -1, 0, 0, 0, 0, 0, [
         '1 user',
         '1 collector',
-        'Unlimited invoices per month'
+        'Unlimited invoices per month',
     ]);
-    static FREE = new Plan('free', "Free", -1, -1, -1, -1, 0, 0, 0, 0, 0, [
+    static FREE = new Plan('free', 'Free', -1, -1, -1, -1, 0, 0, 0, 0, 0, [
         'Unlimited users',
         'Unlimited collectors',
-        'Unlimited invoices per month'
+        'Unlimited invoices per month',
     ]);
 
     id: string;
@@ -36,7 +36,7 @@ export class Plan {
         pricePerCredential: number,
         pricePerInvoice: number,
         pricePerCollector: number,
-        features: string[]
+        features: string[],
     ) {
         this.id = id;
         this.name = name;

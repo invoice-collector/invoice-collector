@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class JarltechCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "jarltech",
-        name: "Jarltech",
-        description: "i18n.collectors.jarltech.description",
-        version: "0",
-        website: "https://www.jarltech.com/2007/index.php?language=de",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/9309.jpg",
+        id: 'jarltech',
+        name: 'Jarltech',
+        description: 'i18n.collectors.jarltech.description',
+        version: '0',
+        website: 'https://www.jarltech.com/2007/index.php?language=de',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/9309.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://www.jarltech.com/2007/index.php?language=de",
+        loginUrl: 'https://www.jarltech.com/2007/index.php?language=de',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(JarltechCollector.CONFIG);

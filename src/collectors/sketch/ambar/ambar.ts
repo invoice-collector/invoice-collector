@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class AmbarCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "ambar",
-        name: "Ambar",
-        description: "i18n.collectors.ambar.description",
-        version: "0",
-        website: "https://comunidad.ambarplus.com/s/",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4420572.jpg",
+        id: 'ambar',
+        name: 'Ambar',
+        description: 'i18n.collectors.ambar.description',
+        version: '0',
+        website: 'https://comunidad.ambarplus.com/s/',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4420572.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://comunidad.ambarplus.com/s/",
+        loginUrl: 'https://comunidad.ambarplus.com/s/',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(AmbarCollector.CONFIG);

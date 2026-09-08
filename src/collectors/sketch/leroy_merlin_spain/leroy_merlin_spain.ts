@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class LeyroyMerlinSpainCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "leroy_merlin_spain",
-        name: "Leroy Merlin Spain",
-        description: "i18n.collectors.leroy_merlin_spain.description",
-        version: "0",
-        website: "https://www.leroymerlin.es/mi-cuenta/mis-compras/historial",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4368011.jpg",
+        id: 'leroy_merlin_spain',
+        name: 'Leroy Merlin Spain',
+        description: 'i18n.collectors.leroy_merlin_spain.description',
+        version: '0',
+        website: 'https://www.leroymerlin.es/mi-cuenta/mis-compras/historial',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4368011.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://www.leroymerlin.es/mi-cuenta/mis-compras/historial",
+        loginUrl: 'https://www.leroymerlin.es/mi-cuenta/mis-compras/historial',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(LeyroyMerlinSpainCollector.CONFIG);

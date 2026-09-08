@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class GuenstigerDeHandlerPortaCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "guenstiger_de_handler_porta",
-        name: "guenstiger.de Handler porta",
-        description: "i18n.collectors.guenstiger_de_handler_porta.description",
-        version: "0",
-        website: "https://stats.guenstiger.de/",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/70909.jpg",
+        id: 'guenstiger_de_handler_porta',
+        name: 'guenstiger.de Handler porta',
+        description: 'i18n.collectors.guenstiger_de_handler_porta.description',
+        version: '0',
+        website: 'https://stats.guenstiger.de/',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/70909.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://stats.guenstiger.de/",
+        loginUrl: 'https://stats.guenstiger.de/',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(GuenstigerDeHandlerPortaCollector.CONFIG);

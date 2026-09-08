@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class FuelGenieCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "fuel_genie",
-        name: "Fuel Genie",
-        description: "i18n.collectors.fuel_genie.description",
-        version: "0",
-        website: "https://mma.fuelgenie.co.uk/secure/login.aspx?hideApply=1",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/408106.jpg",
+        id: 'fuel_genie',
+        name: 'Fuel Genie',
+        description: 'i18n.collectors.fuel_genie.description',
+        version: '0',
+        website: 'https://mma.fuelgenie.co.uk/secure/login.aspx?hideApply=1',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/408106.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://mma.fuelgenie.co.uk/secure/login.aspx?hideApply=1",
+        loginUrl: 'https://mma.fuelgenie.co.uk/secure/login.aspx?hideApply=1',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(FuelGenieCollector.CONFIG);

@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class VeloDeVilleCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "velo_de_ville",
-        name: "VELO DE VILLE",
-        description: "i18n.collectors.velo_de_ville.description",
-        version: "0",
-        website: "https://b2b.velo-de-ville.com/",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/846077.jpg",
+        id: 'velo_de_ville',
+        name: 'VELO DE VILLE',
+        description: 'i18n.collectors.velo_de_ville.description',
+        version: '0',
+        website: 'https://b2b.velo-de-ville.com/',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/846077.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://b2b.velo-de-ville.com/",
+        loginUrl: 'https://b2b.velo-de-ville.com/',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(VeloDeVilleCollector.CONFIG);

@@ -1,5 +1,5 @@
 import { AbstractSecretManager } from './abstractSecretManager';
-import * as utils from "../utils";
+import * as utils from '../utils';
 
 
 export class SecretManagerFactory {
@@ -7,14 +7,14 @@ export class SecretManagerFactory {
 
     static getSecretManager(): AbstractSecretManager {
         if (!SecretManagerFactory.instance) {
-            throw new Error("SecretManager not loaded. Call load() first.");
+            throw new Error('SecretManager not loaded. Call load() first.');
         }
         return SecretManagerFactory.instance;
     }
 
     static async load(): Promise<AbstractSecretManager> {
         if (!SecretManagerFactory.instance) {
-            const type = utils.getEnvVar("SECRET_MANAGER_TYPE");
+            const type = utils.getEnvVar('SECRET_MANAGER_TYPE');
             switch(type) {
                 case 'bitwarden':
                     const { BitwardenSecretManager } = await import('./bitwardenSecretManager');

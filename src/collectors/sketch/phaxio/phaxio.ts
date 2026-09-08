@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class PhaxioCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "phaxio",
-        name: "Phaxio",
-        description: "i18n.collectors.phaxio.description",
-        version: "0",
-        website: "https://console.phaxio.com/sf_guard_users/sign_in",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/26540.jpg",
+        id: 'phaxio',
+        name: 'Phaxio',
+        description: 'i18n.collectors.phaxio.description',
+        version: '0',
+        website: 'https://console.phaxio.com/sf_guard_users/sign_in',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/26540.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://console.phaxio.com/sf_guard_users/sign_in",
+        loginUrl: 'https://console.phaxio.com/sf_guard_users/sign_in',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(PhaxioCollector.CONFIG);

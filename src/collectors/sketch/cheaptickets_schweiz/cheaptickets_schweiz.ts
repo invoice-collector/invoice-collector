@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class CheapticketsSchweizCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "cheaptickets_schweiz",
-        name: "Cheaptickets Schweiz",
-        description: "i18n.collectors.cheaptickets_schweiz.description",
-        version: "0",
-        website: "https://www.cheaptickets.ch/account/bookings",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2155168.jpg",
+        id: 'cheaptickets_schweiz',
+        name: 'Cheaptickets Schweiz',
+        description: 'i18n.collectors.cheaptickets_schweiz.description',
+        version: '0',
+        website: 'https://www.cheaptickets.ch/account/bookings',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2155168.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://www.cheaptickets.ch/account/bookings",
+        loginUrl: 'https://www.cheaptickets.ch/account/bookings',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(CheapticketsSchweizCollector.CONFIG);

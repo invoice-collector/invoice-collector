@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class CloudradIoCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "cloudrad_io",
-        name: "CloudRad.io",
-        description: "i18n.collectors.cloudrad_io.description",
-        version: "0",
-        website: "https://console.cloudrad.io/users/sign_in",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1082092.jpg",
+        id: 'cloudrad_io',
+        name: 'CloudRad.io',
+        description: 'i18n.collectors.cloudrad_io.description',
+        version: '0',
+        website: 'https://console.cloudrad.io/users/sign_in',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1082092.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://console.cloudrad.io/users/sign_in",
+        loginUrl: 'https://console.cloudrad.io/users/sign_in',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(CloudradIoCollector.CONFIG);

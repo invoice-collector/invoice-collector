@@ -4,32 +4,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class BricoDepotCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "bricodepot",
-        name: "Brico dépôt",
-        description: "i18n.collectors.bricodepot.description",
-        version: "0",
-        website: "https://bricodepot.fr",
-        logo: "https://upload.wikimedia.org/wikipedia/commons/8/84/Brico_Depot_logo_2021.svg",
+        id: 'bricodepot',
+        name: 'Brico dépôt',
+        description: 'i18n.collectors.bricodepot.description',
+        version: '0',
+        website: 'https://bricodepot.fr',
+        logo: 'https://upload.wikimedia.org/wikipedia/commons/8/84/Brico_Depot_logo_2021.svg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://www.bricodepot.fr/catalogue/account/login/",
+        loginUrl: 'https://www.bricodepot.fr/catalogue/account/login/',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(BricoDepotCollector.CONFIG);

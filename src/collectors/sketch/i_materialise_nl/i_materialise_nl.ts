@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class IMaterialiseNlCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "i_materialise_nl",
-        name: "i.materialise.nl",
-        description: "i18n.collectors.i_materialise_nl.description",
-        version: "0",
-        website: "https://i.materialise.com/en/account/login?returnUrl=%2fen",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/32709.jpg",
+        id: 'i_materialise_nl',
+        name: 'i.materialise.nl',
+        description: 'i18n.collectors.i_materialise_nl.description',
+        version: '0',
+        website: 'https://i.materialise.com/en/account/login?returnUrl=%2fen',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/32709.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://i.materialise.com/en/account/login?returnUrl=%2fen",
+        loginUrl: 'https://i.materialise.com/en/account/login?returnUrl=%2fen',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(IMaterialiseNlCollector.CONFIG);

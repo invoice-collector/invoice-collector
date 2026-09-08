@@ -5,32 +5,32 @@ import { CollectorCaptcha, CollectorState, CollectorType, CollectorAuthenticatio
 export class KelaKeckAndLangGmbhCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "kela_keck_and_lang_gmbh",
-        name: "Kela (Keck & Lang GmbH)",
-        description: "i18n.collectors.kela_keck_and_lang_gmbh.description",
-        version: "0",
-        website: "https://b2b.kela.de/html/de/customerDocumentList-customerDocumentListId-invoice.html",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/413899.jpg",
+        id: 'kela_keck_and_lang_gmbh',
+        name: 'Kela (Keck & Lang GmbH)',
+        description: 'i18n.collectors.kela_keck_and_lang_gmbh.description',
+        version: '0',
+        website: 'https://b2b.kela.de/html/de/customerDocumentList-customerDocumentListId-invoice.html',
+        logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/413899.jpg',
         type: CollectorType.SKETCH,
         params: {
             email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
+                type: 'email',
+                name: 'i18n.collectors.all.email',
+                placeholder: 'i18n.collectors.all.email.placeholder',
+                mandatory: true,
             },
             password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
+                type: 'password',
+                name: 'i18n.collectors.all.password',
+                placeholder: 'i18n.collectors.all.password.placeholder',
+                mandatory: true,
+            },
         },
-        loginUrl: "https://b2b.kela.de/html/de/customerDocumentList-customerDocumentListId-invoice.html",
+        loginUrl: 'https://b2b.kela.de/html/de/customerDocumentList-customerDocumentListId-invoice.html',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.PLANNED
-    }
+        state: CollectorState.PLANNED,
+    };
 
     constructor() {
         super(KelaKeckAndLangGmbhCollector.CONFIG);

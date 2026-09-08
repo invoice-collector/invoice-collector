@@ -1,7 +1,7 @@
-import { AbstractCollector, Config } from "../collectors/abstractCollector";
-import { DisconnectedError } from "../error";
-import { State } from "../model/state";
-import * as utils from "../utils";
+import { AbstractCollector, Config } from '../collectors/abstractCollector';
+import { DisconnectedError } from '../error';
+import { State } from '../model/state';
+import * as utils from '../utils';
 
 export class TwofaPromise{
     static TWOFA_TIMEOUT_MS = 1000 * 60 * 5; // 5 minutes
@@ -49,21 +49,21 @@ export class TwofaPromise{
             this.state?.update(State._3_2FA_WAITING, instruction);
         }
         let timeoutPromise;
-        if(this.collector != null) {
+        if(this.collector !== null) {
             const collector = this.collector;
             timeoutPromise = new Promise<string>((_, reject) =>
-                setTimeout(() => reject(new DisconnectedError('i18n.collectors.all.2fa.timeout', collector)), TwofaPromise.TWOFA_TIMEOUT_MS)
-            )
+                setTimeout(() => reject(new DisconnectedError('i18n.collectors.all.2fa.timeout', collector)), TwofaPromise.TWOFA_TIMEOUT_MS),
+            );
         }
         else {
             timeoutPromise = new Promise<string>((_, reject) =>
-                setTimeout(() => reject(new Error('No 2FA code provided within the allotted time. Please try again.')), TwofaPromise.TWOFA_TIMEOUT_MS)
-            )
+                setTimeout(() => reject(new Error('No 2FA code provided within the allotted time. Please try again.')), TwofaPromise.TWOFA_TIMEOUT_MS),
+            );
         }
         
         return await Promise.race([
             this.codePromise,
-            timeoutPromise
+            timeoutPromise,
         ]);
     }
 }
