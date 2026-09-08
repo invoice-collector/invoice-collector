@@ -18,6 +18,9 @@ export class TokenManager {
     private userUiTokens: { [key: string]: string };
     private credentialOauth2States: { [key: string]: string };
 
+    /**
+     * Creates an instance of TokenManager with empty token/bearer maps.
+     */
     constructor() {
         this.customerUiBearers = {};
         this.customerResetTokens = {};
@@ -29,6 +32,11 @@ export class TokenManager {
 
     // ---------- CUSTOMER UI BEARER ----------
 
+    /**
+     * Generates a session bearer for a customer and schedules its expiration.
+     * @param customerId The id of the customer to map the bearer to.
+     * @returns The generated (unhashed) bearer token.
+     */
     public createCustomerUiBearer(customerId: string): string {
         // Generate session bearer token
         const bearer = utils.generate_bearer(utils.BearerType.CUSTOMER_SESSION);
@@ -47,12 +55,22 @@ export class TokenManager {
         return bearer;
     }
 
+    /**
+     * Retrieves the customer id mapped to a hashed UI bearer.
+     * @param hashedBearer The hashed bearer to look up.
+     * @returns The mapped customer id, or undefined if not found.
+     */
     public getCustomerIdFromUiBearer(hashedBearer: string): string | undefined {
         return this.customerUiBearers[hashedBearer];
     }
 
     // ---------- CUSTOMER RESET TOKEN ----------
 
+    /**
+     * Generates a password reset token for a customer and schedules its expiration.
+     * @param customerId The id of the customer to map the reset token to.
+     * @returns The generated reset token.
+     */
     public createCustomerResetToken(customerId: string): string {
         // Generate reset token
         const resetToken = utils.generate_token();
@@ -68,16 +86,30 @@ export class TokenManager {
         return resetToken;
     }
 
+    /**
+     * Retrieves the customer id mapped to a reset token.
+     * @param resetToken The reset token to look up.
+     * @returns The mapped customer id, or undefined if not found.
+     */
     public getCustomerIdFromResetToken(resetToken: string): string | undefined {
         return this.customerResetTokens[resetToken];
     }
 
+    /**
+     * Deletes a customer reset token.
+     * @param resetToken The reset token to delete.
+     */
     public deleteCustomerResetToken(resetToken: string): void {
         delete this.customerResetTokens[resetToken];
     }
 
     // ---------- USER UI BEARER ----------
 
+    /**
+     * Generates a session bearer for a user and schedules its expiration.
+     * @param userId The id of the user to map the bearer to.
+     * @returns The generated (unhashed) bearer token.
+     */
     public createUserUiBearer(userId: string): string {
         // Generate session bearer token
         const bearer = utils.generate_bearer(utils.BearerType.USER_SESSION);
@@ -96,12 +128,22 @@ export class TokenManager {
         return bearer;
     }
 
+    /**
+     * Retrieves the user id mapped to a hashed UI bearer.
+     * @param hashedBearer The hashed bearer to look up.
+     * @returns The mapped user id, or undefined if not found.
+     */
     public getUserIdFromUiBearer(hashedBearer: string): string | undefined {
         return this.userUiBearers[hashedBearer];
     }
 
     // ---------- USER RESET TOKEN ----------
 
+    /**
+     * Generates a password reset token for a user and schedules its expiration.
+     * @param userId The id of the user to map the reset token to.
+     * @returns The generated reset token.
+     */
     public createUserResetToken(userId: string): string {
         // Generate reset token
         const resetToken = utils.generate_token();
@@ -117,16 +159,30 @@ export class TokenManager {
         return resetToken;
     }
 
+    /**
+     * Retrieves the user id mapped to a reset token.
+     * @param resetToken The reset token to look up.
+     * @returns The mapped user id, or undefined if not found.
+     */
     public getUserIdFromResetToken(resetToken: string): string | undefined {
         return this.userResetTokens[resetToken];
     }
 
+    /**
+     * Deletes a user reset token.
+     * @param resetToken The reset token to delete.
+     */
     public deleteUserResetToken(resetToken: string): void {
         delete this.userResetTokens[resetToken];
     }
 
     // ---------- USER UI TOKEN ----------
 
+    /**
+     * Generates a UI token for a user and schedules its expiration.
+     * @param userId The id of the user to map the token to.
+     * @returns The generated UI token.
+     */
     public createUserUiToken(userId: string): string {
         // Generate ui token
         const uiToken = utils.generate_token();
@@ -142,6 +198,11 @@ export class TokenManager {
         return uiToken;
     }
 
+    /**
+     * Retrieves the user mapped to a UI token.
+     * @param uiToken The UI token to look up.
+     * @returns The user mapped to the token.
+     */
     public async getUserFromUiToken(uiToken: any): Promise<User> {
         // Check if token is missing or incorrect
         if (!uiToken || typeof uiToken !== 'string' || !this.userUiTokens.hasOwnProperty(uiToken)) {
@@ -162,6 +223,10 @@ export class TokenManager {
         return user;
     }
 
+    /**
+     * Deletes every UI token mapped to a given user.
+     * @param userId The id of the user whose tokens should be deleted.
+     */
     public deleteUserUiTokensForUser(userId: string): void {
         // Delete every ui token mapped to this user
         for (const uiToken in this.userUiTokens) {
@@ -173,6 +238,11 @@ export class TokenManager {
 
     // ---------- CREDENTIAL OAUTH2 STATE ----------
 
+    /**
+     * Generates an OAuth2 state for a credential and schedules its expiration.
+     * @param credentialId The id of the credential to map the state to.
+     * @returns The generated OAuth2 state.
+     */
     public createCredentialOauth2State(credentialId: string): string {
         // Generate oauth2 state
         const oauth2State = utils.generate_token();
@@ -188,6 +258,11 @@ export class TokenManager {
         return oauth2State;
     }
 
+    /**
+     * Retrieves the credential mapped to an OAuth2 state.
+     * @param oauth2State The OAuth2 state to look up.
+     * @returns The credential mapped to the state.
+     */
     public async getCredentialFromOauth2State(oauth2State: any): Promise<Credential> {
         // Check if state is missing or incorrect
         if (!oauth2State || typeof oauth2State !== 'string' || !this.credentialOauth2States.hasOwnProperty(oauth2State)) {
@@ -210,6 +285,12 @@ export class TokenManager {
 
     // ---------- OTHER METHODS ----------
 
+    /**
+     * Resolves a customer from either a UI token or a bearer (customer or user session).
+     * @param bearer The Bearer header value, if any.
+     * @param token The UI token, if any.
+     * @returns The resolved customer.
+     */
     async getCustomerFromBearerOrToken(bearer: string | undefined, token: any): Promise<Customer> {
         if (token) {
             // Get user from token
@@ -235,6 +316,13 @@ export class TokenManager {
         }
     }
 
+    /**
+     * Resolves a user from either a UI token, a user bearer, or a customer bearer combined with a user id.
+     * @param bearer The Bearer header value, if any.
+     * @param user_id The target user id, or 'me' to resolve the bearer's own user.
+     * @param token The UI token, if any.
+     * @returns The resolved user.
+     */
     async getUserFromBearerOrToken(bearer: string | undefined, user_id: string, token: any): Promise<User> {
         // If token provided, get user from token
         if (token) {
@@ -269,6 +357,11 @@ export class TokenManager {
         }
     }
 
+    /**
+     * Resolves a customer from a customer session bearer.
+     * @param bearer The Bearer header value.
+     * @returns The resolved customer.
+     */
     async getCustomerFromBearer(bearer: string | undefined): Promise<Customer> {
         // Check if bearer is missing
         if (!bearer || !bearer.startsWith('Bearer ')) {
@@ -299,6 +392,11 @@ export class TokenManager {
         return customer;
     }
 
+    /**
+     * Resolves a user from a user session bearer.
+     * @param bearer The Bearer header value.
+     * @returns The resolved user.
+     */
     async getUserFromBearer(bearer: string | undefined): Promise<User> {
         // Check if bearer is missing
         if (!bearer || !bearer.startsWith('Bearer ')) {
