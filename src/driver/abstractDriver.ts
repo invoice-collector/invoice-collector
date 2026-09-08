@@ -53,6 +53,10 @@ export abstract class AbstractDriver extends EventEmitter {
     collector: WebCollector;
     proxy: Proxy | null;
 
+    /**
+     * Creates an instance of AbstractDriver.
+     * @param collector The WebCollector instance to use for collecting data.
+     */
     constructor(collector: WebCollector) {
         super();
         if (new.target === AbstractDriver) {
