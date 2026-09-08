@@ -1,65 +1,23 @@
 import { CDPSession, ElementHandle, Frame, KeyInput, Page } from 'rebrowser-puppeteer-core';
-import { EventEmitter } from 'events';
 import { ElementNotFoundError, LoggableError } from '../error';
 import { Proxy } from '../proxy/abstractProxy';
 import * as utils from '../utils';
 import { WebCollector } from '../collectors/webCollector';
 import { BrowserFactory } from './browser/browserFactory';
+import { AbstractDriver, Screenshot } from './abstractDriver';
+import { Element } from './element';
 import { AbstractBrowser } from './browser/abstractBrowser';
 
-export type Screenshot = {
-    data: string; // Base64 encoded image data
-    width: number;
-    height: number;
-}
+export class PuppeteerDriver extends AbstractDriver {
 
-export class Driver extends EventEmitter {
-
-    static DEFAULT_NAVIGATION_TIMEOUT = 30000;  // 30 seconds
-    static DEFAULT_DOWNLOAD_TIMEOUT = 20000;    // 20 seconds
-    static DEFAULT_TIMEOUT = 10000;             // 10 seconds
-    static DEFAULT_POLLING = 1000;              // 1 second
-    static DEFAULT_DELAY = 1000;                // 1 second
-    static DEFAULT_DELAY_BETWEEN_RETRIES = 100; // 100 milliseconds
-
-    static VIEWPORT_WIDTH: number = 1920;
-    static VIEWPORT_HEIGHT: number = 1080;
-
-    public static getCommonCssSelector(selector1: string, selector2: string): string {
-        // Extract the common parent element from the two css selectors
-        const parts1 = selector1.split(' > ');
-        const parts2 = selector2.split(' > ');
-        const minLength = Math.min(parts1.length, parts2.length);
-        const commonParts: string[] = [];
-        let i: number;
-        let lastPart = '*';
-        for (i = 0; i < minLength; i++) {
-            if (parts1[i] === parts2[i]) {
-                commonParts.push(parts1[i]);
-            } else {
-                const tag1 = parts1[i].split(':')[0];
-                const tag2 = parts2[i].split(':')[0];
-                if (tag1 === tag2) {
-                    lastPart = tag1;
-                }
-                break;
-            }
-        }
-        return `${commonParts.join(' > ')} > ${lastPart}`;
-    }
-
-    collector: WebCollector;
     browser: AbstractBrowser | null;
     page: Page | null;
-    proxy: Proxy | null;
     screencastCdp: CDPSession | null;
 
     constructor(collector: WebCollector) {
-        super();
-        this.collector = collector;
+        super(collector);
         this.browser = null;
         this.page = null;
-        this.proxy = null;
         this.screencastCdp = null;
     }
 
@@ -147,7 +105,7 @@ export class Driver extends EventEmitter {
 
             // Listen for screencast frames and emit them as 'screenshot' events
             cdp.on('Page.screencastFrame', async ({ data, sessionId }) => {
-                this.emit('screenshot', data, Driver.VIEWPORT_WIDTH, Driver.VIEWPORT_HEIGHT);
+                this.emit('screenshot', data, AbstractDriver.VIEWPORT_WIDTH, AbstractDriver.VIEWPORT_HEIGHT);
                 // Acknowledge frame
                 await cdp.send('Page.screencastFrameAck', { sessionId }).catch(() => {});
             });
@@ -156,8 +114,8 @@ export class Driver extends EventEmitter {
             await cdp.send('Page.startScreencast', {
                 format: 'jpeg',         // jpeg = smaller than png
                 quality: 100,           // 0–100
-                maxWidth: Driver.VIEWPORT_WIDTH,
-                maxHeight: Driver.VIEWPORT_HEIGHT,
+                maxWidth: AbstractDriver.VIEWPORT_WIDTH,
+                maxHeight: AbstractDriver.VIEWPORT_HEIGHT,
                 everyNthFrame: 1,        // increase to reduce FPS
             });
 
@@ -213,11 +171,15 @@ export class Driver extends EventEmitter {
         return new URL(this.page.url()).origin;
     }
 
-    async pages(): Promise<Page[]> {
+    private async pages(): Promise<Page[]> {
         if (this.browser === null) {
             throw new Error('Browser is not initialized.');
         }
-        return this.browser.puppeteerBrowser.pages();
+        return await this.browser.puppeteerBrowser.pages();
+    }
+
+    async numberOfPages(): Promise<number> {
+        return (await this.pages()).length;
     }
 
     async closePage(): Promise<void> {
@@ -242,7 +204,7 @@ export class Driver extends EventEmitter {
         }
         try {
             // Navigate to previous page
-            await this.page.goBack({ waitUntil: 'networkidle0', timeout: Driver.DEFAULT_NAVIGATION_TIMEOUT });
+            await this.page.goBack({ waitUntil: 'networkidle0', timeout: AbstractDriver.DEFAULT_NAVIGATION_TIMEOUT });
         } catch (error) {
             console.warn('Failed to navigate to previous page, navigation timeout');
         }
@@ -251,7 +213,7 @@ export class Driver extends EventEmitter {
     // GOTO
 
     async goto(url: string | undefined, {
-        timeout = Driver.DEFAULT_NAVIGATION_TIMEOUT,
+        timeout = AbstractDriver.DEFAULT_NAVIGATION_TIMEOUT,
         navigation = true,
     } = {}): Promise<void> {
         if(url === undefined) {
@@ -288,7 +250,7 @@ export class Driver extends EventEmitter {
         if (this.page === null) {
             throw new Error('Page is not initialized.');
         }
-        await this.page.goto(url, { waitUntil: 'networkidle0', timeout: Driver.DEFAULT_NAVIGATION_TIMEOUT });
+        await this.page.goto(url, { waitUntil: 'networkidle0', timeout: AbstractDriver.DEFAULT_NAVIGATION_TIMEOUT });
         const data = await this.page.$eval('body', (element) => {
             try {
                 return JSON.parse(element.innerText);
@@ -315,8 +277,8 @@ export class Driver extends EventEmitter {
         check_condition: Function,
         error_message: string,
         raiseException: boolean = true,
-        timeout: number = Driver.DEFAULT_TIMEOUT,
-        polling: number = Driver.DEFAULT_POLLING,
+        timeout: number = AbstractDriver.DEFAULT_TIMEOUT,
+        polling: number = AbstractDriver.DEFAULT_POLLING,
     ): Promise<any> {
         const startDate = Date.now();
         while ((Date.now() - startDate) < timeout) {
@@ -338,7 +300,7 @@ export class Driver extends EventEmitter {
     }
 
     async waitForNavigation({
-        timeout = Driver.DEFAULT_TIMEOUT,
+        timeout = AbstractDriver.DEFAULT_TIMEOUT,
     } = {}): Promise<void> {
         if (this.page === null) {
             throw new Error('Page is not initialized.');
@@ -353,7 +315,7 @@ export class Driver extends EventEmitter {
 
     async getElement(selector, {
         raiseException = true,
-        timeout = Driver.DEFAULT_TIMEOUT,
+        timeout = AbstractDriver.DEFAULT_TIMEOUT,
     } = {}): Promise<Element | null> {
         if (this.page === null) {
             throw new Error('Page is not initialized.');
@@ -378,61 +340,75 @@ export class Driver extends EventEmitter {
         return element ? new Element(element, this) : null;
     }
 
-    async getElementCoordinates(x: number, y: number, context: Page | Frame | null = null): Promise<Element | null> {
-        if (context === null) {
-            if (this.page === null) {
-                throw new Error('Page is not initialized.');
-            }
-            context = this.page;
+    async getElementCoordinates(x: number, y: number): Promise<Element | null> {
+        if (this.page === null) {
+            throw new Error('Page is not initialized.');
         }
 
-        const elementHandle = await context.evaluateHandle((x, y) => {
-            function elementFromPointDeep(x: number, y: number, currentRoot: DocumentOrShadowRoot): globalThis.Element | null {
-                const el = currentRoot.elementFromPoint(x, y);
-                if (!el) {
-                    return null;
-                }
-                if (el.shadowRoot) {
-                    return elementFromPointDeep(x, y, el.shadowRoot);
-                }
-                return el;
-            }
-            return elementFromPointDeep(x, y, document);
-        }, x, y);
+        let context: Page | Frame = this.page;
 
-        if (!elementHandle) {
-            return null;
+        // Descend into nested iframes until the deepest element at (x, y) is found
+        let result: Element | null = null;
+        let done = false;
+        while (!done) {
+            const elementHandle = await context.evaluateHandle((x, y) => {
+                function elementFromPointDeep(x: number, y: number, currentRoot: DocumentOrShadowRoot): globalThis.Element | null {
+                    const el = currentRoot.elementFromPoint(x, y);
+                    if (!el) {
+                        return null;
+                    }
+                    if (el.shadowRoot) {
+                        return elementFromPointDeep(x, y, el.shadowRoot);
+                    }
+                    return el;
+                }
+                return elementFromPointDeep(x, y, document);
+            }, x, y);
+
+            if (!elementHandle) {
+                done = true;
+                continue;
+            }
+
+            // Check if the element is an iframe
+            const isIframe = await context.evaluate((el) => {
+                return el !== null && el.tagName === 'IFRAME';
+            }, elementHandle);
+
+            let descendedIntoFrame = false;
+            if (isIframe) {
+                const frameElement = await (elementHandle as ElementHandle);
+                const frame = await frameElement.contentFrame();
+                if (frame) {
+                    // Get iframe bounding box
+                    const frameBoundingBox = await frameElement.boundingBox();
+
+                    // If bounding box x and y are not defined
+                    if (!frameBoundingBox?.x || !frameBoundingBox?.y) {
+                        throw new Error('Iframe bounding box x or y is not defined');
+                    }
+
+                    // Loop again inside the iframe with coordinates relative to it
+                    x = x - frameBoundingBox.x;
+                    y = y - frameBoundingBox.y;
+                    context = frame;
+                    descendedIntoFrame = true;
+                }
+            }
+
+            // If not an iframe, the element is the final result
+            if (!descendedIntoFrame) {
+                result = new Element(elementHandle as ElementHandle, this);
+                done = true;
+            }
         }
 
-        // Check if the element is an iframe
-        const isIframe = await context.evaluate((el) => {
-            return el !== null && el.tagName === 'IFRAME';
-        }, elementHandle);
-
-        if (isIframe) {
-            const frameElement = await (elementHandle as ElementHandle);
-            const frame = await frameElement.contentFrame();
-            if (frame) {
-                // Get iframe bounding box
-                const frameBoundingBox = await frameElement.boundingBox();
-
-                // If bounding box x and y are not defined
-                if (!frameBoundingBox?.x || !frameBoundingBox?.y) {
-                    throw new Error('Iframe bounding box x or y is not defined');
-                }
-
-                // Recursively call the function inside the iframe and remove iframe coordinates
-                return this.getElementCoordinates(x - frameBoundingBox?.x, y - frameBoundingBox?.y, frame);
-            }
-        }
-
-        // If not an iframe, return the element
-        return new Element(elementHandle as ElementHandle, this);
+        return result;
     }
 
     async getElements(selector, {
         raiseException = true,
-        timeout = Driver.DEFAULT_TIMEOUT,
+        timeout = AbstractDriver.DEFAULT_TIMEOUT,
     } = {}): Promise<Element[]> {
         if (this.page === null) {
             throw new Error('Page is not initialized.');
@@ -443,7 +419,7 @@ export class Driver extends EventEmitter {
 
     async getAttribute(selector, attributeName, {
         raiseException = true,
-        timeout = Driver.DEFAULT_TIMEOUT,
+        timeout = AbstractDriver.DEFAULT_TIMEOUT,
     } = {}): Promise<string> {
         if (this.page === null) {
             throw new Error('Page is not initialized.');
@@ -464,8 +440,8 @@ export class Driver extends EventEmitter {
 
     async getAttributes(selector, attributeName, {
         raiseException = true,
-        timeout = Driver.DEFAULT_TIMEOUT,
-    } = {}) {
+        timeout = AbstractDriver.DEFAULT_TIMEOUT,
+    } = {}): Promise<string[]> {
         if (this.page === null) {
             throw new Error('Page is not initialized.');
         }
@@ -477,8 +453,8 @@ export class Driver extends EventEmitter {
 
     async leftClick(selector, {
         raiseException = true,
-        timeout = Driver.DEFAULT_TIMEOUT,
-        delay = Driver.DEFAULT_DELAY,
+        timeout = AbstractDriver.DEFAULT_TIMEOUT,
+        delay = AbstractDriver.DEFAULT_DELAY,
         navigation = true,
         mouseHover = false,
     } = {}): Promise<Element | null> {
@@ -495,8 +471,8 @@ export class Driver extends EventEmitter {
 
     async inputText(selector, text, {
         raiseException = true,
-        timeout = Driver.DEFAULT_TIMEOUT,
-        delay = Driver.DEFAULT_DELAY,
+        timeout = AbstractDriver.DEFAULT_TIMEOUT,
+        delay = AbstractDriver.DEFAULT_DELAY,
         tries = 5,
         navigation = false,
         mouseHover = false,
@@ -511,8 +487,8 @@ export class Driver extends EventEmitter {
 
     async dropdownSelect(selector, value: string, {
         raiseException = true,
-        timeout = Driver.DEFAULT_TIMEOUT,
-        delay = Driver.DEFAULT_DELAY,
+        timeout = AbstractDriver.DEFAULT_TIMEOUT,
+        delay = AbstractDriver.DEFAULT_DELAY,
         mouseHover = false,
     } = {}): Promise<Element | null> {
         const element = await this.getElement(selector, { raiseException, timeout });
@@ -523,15 +499,22 @@ export class Driver extends EventEmitter {
         return null;
     }
 
-    async press(key: KeyInput, occurence: number = 1): Promise<void> {
-        for(let i = 0; i < occurence; i++) {
-            await utils.randomDelay();
-            await this.page?.keyboard.press(key);
-        }
+    async click(x: number, y: number, {
+        delay = AbstractDriver.DEFAULT_DELAY,
+    } = {}): Promise<void> {
+        await this.page?.mouse.click(x, y);
+        await utils.delay(delay);
+    }
+
+    async press(key: string, {
+        delay = AbstractDriver.DEFAULT_DELAY,
+    } = {}): Promise<void> {
+        await this.page?.keyboard.press(key as KeyInput);
+        await utils.delay(delay);
     }
 
     async type(text: string, {
-        delay = Driver.DEFAULT_DELAY,
+        delay = AbstractDriver.DEFAULT_DELAY,
     } = {}): Promise<void> {
         await this.page?.keyboard.type(text);
         await utils.delay(delay);
@@ -549,6 +532,11 @@ export class Driver extends EventEmitter {
             printBackground: true,
         });
         return Buffer.from(bytes).toString('base64');
+    }
+
+    async getDownloadedFiles(clean: boolean = true): Promise<string[]> {
+        const files = await this.browser?.getDownloadedFiles(clean);
+        return files || [];
     }
 
     // SOURCE CODE
@@ -604,8 +592,8 @@ export class Driver extends EventEmitter {
         const data = await this.page.screenshot({encoding: 'base64'});
         return {
             data,
-            width: this.page.viewport()?.width || Driver.VIEWPORT_WIDTH,
-            height: this.page.viewport()?.height || Driver.VIEWPORT_HEIGHT,
+            width: this.page.viewport()?.width || AbstractDriver.VIEWPORT_WIDTH,
+            height: this.page.viewport()?.height || AbstractDriver.VIEWPORT_HEIGHT,
         };
     }
 
@@ -631,13 +619,13 @@ export class Driver extends EventEmitter {
         const file = await this.waitFor(async (driver) => {
             const files = await this.browser?.getDownloadedFiles(true);
             return files && files.length > 0 ? files[0] : null;
-        }, `No file downloaded after ${Driver.DEFAULT_TIMEOUT}ms`,
+        }, `No file downloaded after ${AbstractDriver.DEFAULT_TIMEOUT}ms`,
         raiseException,
-        Driver.DEFAULT_DOWNLOAD_TIMEOUT);
+        AbstractDriver.DEFAULT_DOWNLOAD_TIMEOUT);
 
         // Check if no file found
         if (file === null) {
-            const error = new LoggableError(`No file downloaded after ${Driver.DEFAULT_DOWNLOAD_TIMEOUT}ms`, this.collector);
+            const error = new LoggableError(`No file downloaded after ${AbstractDriver.DEFAULT_DOWNLOAD_TIMEOUT}ms`, this.collector);
             error.url = this.url();
             error.source_code = await this.sourceCode(true, true);
             error.screenshot = await this.screenshot();
@@ -733,198 +721,5 @@ export class Driver extends EventEmitter {
                 }
             }, data);
         }
-    }
-}
-
-export class Element {
-
-    element: ElementHandle;
-    driver: Driver;
-
-    constructor(element: ElementHandle, driver: Driver) {
-        this.element = element;
-        this.driver = driver;
-    }
-
-    /**
-     * Retrieves the associated element.
-     *
-     * @returns A promise that resolves to the ElementHandle of the associated element, or null if the element is not found.
-     */
-    async getElement(selector: any, options?: { raiseException?: true }): Promise<Element>;
-    async getElement(selector: any, options: { raiseException: false }): Promise<Element | null>;
-    async getElement(selector: any, {
-        raiseException = true,
-    } = {}): Promise<Element | null> {
-        const elementHandle = await this.element.$(selector.selector);
-        // If element not found and must raise exception
-        if (!elementHandle && raiseException) {
-            const error = new ElementNotFoundError(this.driver.collector, selector, {
-                cause: `No element matching selector "${selector.selector}"`,
-            });
-            error.url = this.driver.url();
-            error.source_code = await this.driver.sourceCode(true, true);
-            error.screenshot = await this.driver.screenshot();
-            throw error;
-        }
-        return elementHandle ? new Element(elementHandle, this.driver) : null;
-    }
-
-    /**
-     * Retrieves the text content of the associated element.
-     *
-     * @param _default - A default string value.
-     * @returns A promise that resolves to the text content of the element, or the default value if the element's text content is null.
-     */
-    async textContent(_default: string): Promise<string> {
-        return await this.element.evaluate(el => el.textContent) || _default;
-    }
-
-    async leftClick({
-        timeout = Driver.DEFAULT_TIMEOUT,
-        delay = Driver.DEFAULT_DELAY,
-        navigation = true,
-        mouseHover = false,
-    } = {}): Promise<void> {
-        if (mouseHover) {
-            await this.element.hover();
-            await utils.delay(delay);
-        }
-        await this.element.click();
-        await utils.delay(delay);
-        if(navigation === true) {
-            await this.driver.waitForNavigation({timeout});
-        }
-    }
-
-    async middleClick({
-        useFallbackMethod = false,
-        timeout = Driver.DEFAULT_TIMEOUT,
-    } = {}): Promise<void> {
-        // If does not open in a new page by default
-        if(!useFallbackMethod) {
-            // Get number of opened pages before middle click
-            const numberOfPagesBefore = (await this.driver.pages()).length;
-            // Get number of downloaded files before middle click
-            const numberOfFilesBefore = (await this.driver.browser?.getDownloadedFiles(false))?.length || 0;
-            // Perform middle click
-            await this.element.click({ button: 'middle' });
-            // Wait for the new tab to open or file to download
-            await utils.delay(timeout);
-            // Get number of opened pages after middle click
-            const numberOfPagesAfter = await this.driver.pages();
-            // Get number of downloaded files after middle click
-            const numberOfFilesAfter = (await this.driver.browser?.getDownloadedFiles(false))?.length || 0;
-            // If no new page opened and no new file downloaded, set useFallbackMethod to true
-            useFallbackMethod = numberOfPagesAfter.length === numberOfPagesBefore && numberOfFilesAfter === numberOfFilesBefore;
-        }
-        // If need to open in a new page
-        if (useFallbackMethod) {
-            // Get current url
-            const currentUrl = this.driver.url();
-            // Open new page
-            await this.driver.newPage(currentUrl);
-            // Click on the element again
-            await this.driver.leftClick({
-                selector: await this.cssSelector(),
-                info: 'middle click',
-            }, {
-                timeout,
-            });
-        }
-    }
-
-    async inputText(text: string, {
-        tries = 5,
-        timeout = Driver.DEFAULT_TIMEOUT,
-        delay = Driver.DEFAULT_DELAY,
-        navigation = false,
-        mouseHover = false,
-    } = {}): Promise<void> {
-        if (mouseHover) {
-            await this.element.hover();
-            await utils.delay(delay);
-        }
-        if (tries > 0) {
-            let currentValue = null;
-            while (currentValue !== text && tries > 0) {
-                await this.element.click({ clickCount: 3 });    // Select all text
-                await this.element.type(text);                  // Replace
-                await utils.delay(Driver.DEFAULT_DELAY_BETWEEN_RETRIES);
-                currentValue = await this.element.evaluate((el: any) => el.value);
-                tries--;
-            }
-        }
-        else {
-            await this.element.click({ clickCount: 3 });    // Select all text
-            await this.element.type(text);                  // Replace
-        }
-        await utils.delay(delay);
-        if(navigation === true) {
-            await this.driver.waitForNavigation({timeout});
-        }
-    }
-
-    async dropdownSelect(value: string, {
-        delay = Driver.DEFAULT_DELAY,
-        mouseHover = false,
-    } = {}): Promise<void> {
-        if (mouseHover) {
-            await this.element.hover();
-            await utils.delay(delay);
-        }
-        await this.element.select(value);
-        await utils.delay(delay);
-    }
-
-    async getAttribute(selector, attribute: string): Promise<string> {
-        return await this.element.$eval(selector.selector, (element, attr) => element.getAttribute(attr) ?? element[attr], attribute);
-    }
-
-    async innerHTML(): Promise<string> {
-        return this.element.evaluate(el => el.innerHTML);
-    }
-
-    async cssSelector(): Promise<string> {
-        return await this.element.evaluate(element => {
-            function getCssSelector(element): string {
-                if (element === document.body) {
-                    return 'body';
-                }
-                let selector = element.tagName.toLowerCase();
-                if (element.getAttribute('name')) {
-                    selector += `[name="${element.getAttribute('name')}"]`;
-                }
-                if (element.getAttribute('type')) {
-                    selector += `[type="${element.getAttribute('type')}"]`;
-                }
-                let sibling = element;
-                let nth = 1;
-                while ((sibling = sibling.previousElementSibling)) {
-                    if (sibling.tagName === element.tagName) {nth++;}
-                }
-                selector += `:nth-of-type(${nth})`;
-
-                // If parent is null and root node is not document, it means we are in a shadow DOM and we need to get the selector of the parent element in the main DOM
-                if (element.parentElement! === null && element.getRootNode() !== document) {
-                    console.log('We are in a shadow DOM');
-                    return `${getCssSelector(element.getRootNode().host)  } >>>> ${  selector}`;
-                }
-                return `${getCssSelector(element.parentElement!)  } > ${  selector}`;
-            }
-            return getCssSelector(element);
-        });
-    }
-
-    async tagName(): Promise<string> {
-        return await this.element.evaluate(el => el.tagName.toLowerCase());
-    }
-
-    async isClickable(): Promise<boolean> {
-        const [isVisible, isDisabled] = await Promise.all([
-            this.element.isVisible(),
-            this.element.evaluate((element) => element.getAttribute('disabled') !== null),
-        ]);
-        return isVisible && !isDisabled;
     }
 }

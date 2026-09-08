@@ -1,5 +1,7 @@
 import { Invoice, CompleteInvoice } from './abstractCollector';
-import { Driver, Element } from '../driver/driver';
+import { AbstractDriver } from '../driver/abstractDriver';
+import { DriverFactory } from '../driver/driverFactory';
+import { Element } from '../driver/element';
 import { AuthenticationError, CollectorError, DisconnectedError, LoggableError, NoInvoiceFoundError } from '../error';
 import { ProxyFactory } from '../proxy/proxyFactory';
 import { Location, Proxy } from '../proxy/abstractProxy';
@@ -39,7 +41,7 @@ export abstract class LinearWebCollector extends WebCollector {
         }
 
         // Start browser and page
-        let driver = new Driver(this);
+        let driver = DriverFactory.getDriver(this);
         this.driver = driver;
         await driver.open(locale, proxy);
 
@@ -73,7 +75,7 @@ export abstract class LinearWebCollector extends WebCollector {
                         // Get proxy
                         const proxy = await ProxyFactory.getProxy().get(location);
                         // Open new driver with proxy
-                        driver = new Driver(this);
+                        driver = DriverFactory.getDriver(this);
                         await driver.open(locale, proxy);
                         // Transfer cookies, localStorage and url to new driver
                         await driver.setCookies(await this.driver.getCookies([]));
@@ -148,7 +150,7 @@ export abstract class LinearWebCollector extends WebCollector {
                         // Get proxy
                         const proxy = await ProxyFactory.getProxy().get(location);
                         // Open new driver with proxy
-                        driver = new Driver(this);
+                        driver = DriverFactory.getDriver(this);
                         await driver.open(locale, proxy);
                         // Close old driver
                         await this.driver.close();
@@ -280,13 +282,13 @@ export abstract class LinearWebCollector extends WebCollector {
                                 }
 
                                 // Get number of pages before download
-                                const pagesBefore = (await driver.pages()).length;
+                                const pagesBefore = await driver.numberOfPages();
 
                                 // Download invoice
                                 let documents = await this.download(driver, invoice);
 
                                 // Get number of pages after download
-                                const pagesAfter = (await driver.pages()).length;
+                                const pagesAfter = await driver.numberOfPages();
 
                                 // Close all new pages if download opened some
                                 for (let i = pagesAfter; i > pagesBefore; i--) {
@@ -352,44 +354,44 @@ export abstract class LinearWebCollector extends WebCollector {
     }
 
     //NOT IMPLEMENTED
-    async pre(driver: Driver): Promise<void> {
+    async pre(driver: AbstractDriver): Promise<void> {
         // Assume the collector does not need pre actions
     }
 
-    async needLogin(driver: Driver): Promise<boolean>{
+    async needLogin(driver: AbstractDriver): Promise<boolean>{
         // User is not logged in if:
         // - entryUrl is not defined = always need go through login process
         // - current URL does not contain entryUrl
         return this.config.entryUrl === undefined || !driver.url().includes(this.config.entryUrl);
     }
 
-    abstract login(driver: Driver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string |void>;
+    abstract login(driver: AbstractDriver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string |void>;
 
-    async needTwofa(driver: Driver): Promise<string | void>{
+    async needTwofa(driver: AbstractDriver): Promise<string | void>{
         // Assume the collector does not implement 2FA
     }
 
-    async twofa(driver: Driver, params: any, twofa_promise: TwofaPromise, webSocketServer: WebSocketServer): Promise<string | void> {
+    async twofa(driver: AbstractDriver, params: any, twofa_promise: TwofaPromise, webSocketServer: WebSocketServer): Promise<string | void> {
         // Assume the collector does not implement 2FA
     }
 
-    async navigate(driver: Driver): Promise<void> {
+    async navigate(driver: AbstractDriver): Promise<void> {
         // Assume the collector does not need navigation
     }
 
-    async isEmpty(driver: Driver): Promise<boolean> {
+    async isEmpty(driver: AbstractDriver): Promise<boolean> {
         // Assume invoices are present
         return false;
     }
 
-    async forEachPage(driver: Driver, next: () => Promise<void>): Promise<void> {
+    async forEachPage(driver: AbstractDriver, next: () => Promise<void>): Promise<void> {
         // Assume the collector does not have pagination
         await next();
     }
 
-    abstract getInvoices(driver: Driver): Promise<Element[]>;
+    abstract getInvoices(driver: AbstractDriver): Promise<Element[]>;
 
-    abstract data(driver: Driver, element: Element): Promise<Invoice | null>;
+    abstract data(driver: AbstractDriver, element: Element): Promise<Invoice | null>;
 
-    abstract download(driver: Driver, invoice: Invoice): Promise<string[]>;
+    abstract download(driver: AbstractDriver, invoice: Invoice): Promise<string[]>;
 }

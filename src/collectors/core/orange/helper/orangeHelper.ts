@@ -1,5 +1,6 @@
 import { OrangeHelperSelectors } from './selectors';
-import { Driver, Element } from '../../../../driver/driver';
+import { AbstractDriver } from '../../../../driver/abstractDriver';
+import { Element } from '../../../../driver/element';
 import { WebSocketServer } from '../../../../websocket/webSocketServer';
 import { TwofaPromise } from '../../../../collect/twofaPromise';
 import * as utils from '../../../../utils';
@@ -9,11 +10,11 @@ import { WebCollector } from '../../../webCollector';
 
 export class OrangeHelper {
 
-    static async needLogin(driver: Driver): Promise<boolean> {
+    static async needLogin(driver: AbstractDriver): Promise<boolean> {
         return driver.url().includes('login.orange');
     }
 
-    static async login(driver: Driver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
+    static async login(driver: AbstractDriver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
         // Refuse cookies
         await driver.leftClick(OrangeHelperSelectors.BUTTON_REFUSE_COOKIES, { raiseException: false, timeout: 5000});
 
@@ -57,7 +58,7 @@ export class OrangeHelper {
         await driver.leftClick(OrangeHelperSelectors.BUTTON_SKIP_2FA, { raiseException: false, timeout: 2000 });
     }
 
-    static async needTwofa(driver: Driver): Promise<string | void>{
+    static async needTwofa(driver: AbstractDriver): Promise<string | void>{
         if(driver.url().includes('mobile-connect')){
             // Click on "Authenticate with Mobile Connect" button
             await driver.leftClick(OrangeHelperSelectors.BUTTON_AUTHENTICATE_MOBILE_CONNECT);
@@ -72,12 +73,12 @@ export class OrangeHelper {
         }
     }
 
-    static async twofa(driver: Driver, params: any, twofa_promise: TwofaPromise, webSocketServer: WebSocketServer): Promise<string | void> {
+    static async twofa(driver: AbstractDriver, params: any, twofa_promise: TwofaPromise, webSocketServer: WebSocketServer): Promise<string | void> {
         // Get code from UI
         const code = await Promise.race([twofa_promise.code(), webSocketServer.getTwofa()]);
     }
 
-    static async forEachPage(driver: Driver, next: () => Promise<void>): Promise<void> {
+    static async forEachPage(driver: AbstractDriver, next: () => Promise<void>): Promise<void> {
         // If need to select offer
         const needOfferSelection = driver.url().includes('selectionner-un-contrat');
         if (needOfferSelection) {
@@ -105,15 +106,15 @@ export class OrangeHelper {
         }
     }
 
-    static async isEmpty(driver: Driver): Promise<boolean> {
+    static async isEmpty(driver: AbstractDriver): Promise<boolean> {
         return await driver.getElement(OrangeHelperSelectors.CONTAINER_NO_INVOICE, { raiseException: false, timeout: 2000 }) !== null;
     }
                  
-    static async getInvoices(driver: Driver): Promise<Element[]> {
+    static async getInvoices(driver: AbstractDriver): Promise<Element[]> {
         return await driver.getElements(OrangeHelperSelectors.CONTAINER_INVOICE);
     }
 
-    static async data(driver: Driver, element: Element): Promise<Invoice | null> {
+    static async data(driver: AbstractDriver, element: Element): Promise<Invoice | null> {
         // Get url before map
         const link = driver.url();
         const contractId = link.match(/\/facture-paiement\/(\d+)\//)?.[1];
@@ -135,7 +136,7 @@ export class OrangeHelper {
         };
     }
 
-    static async download(driver: Driver, invoice: Invoice, collector: WebCollector): Promise<string[]> {
+    static async download(driver: AbstractDriver, invoice: Invoice, collector: WebCollector): Promise<string[]> {
         // Click on element
         await invoice.downloadButton.middleClick({ useFallbackMethod: true });
 

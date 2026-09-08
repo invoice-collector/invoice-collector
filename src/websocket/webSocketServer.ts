@@ -3,7 +3,7 @@ import http from 'http';
 import * as utils from '../utils';
 import { AbstractMessage, MessageClick, MessageInteractive, MessageKeydown, MessageOauth2, MessageScreenshot, MessageState, MessageText, MessageTwofa } from './message';
 import { State } from '../model/state';
-import { Driver } from '../driver/driver';
+import { AbstractDriver } from '../driver/abstractDriver';
 import { I18n } from '../i18n';
 import { DisconnectedError } from '../error';
 import { AbstractCollector, Config } from '../collectors/abstractCollector';
@@ -131,8 +131,8 @@ export class WebSocketServer extends EventEmitter {
                     this.onTwofa(data as MessageTwofa);
                 }
                 else if (data.type === 'click' && data.x !== undefined && data.y !== undefined && this.onClick) {
-                    data.x = Driver.VIEWPORT_WIDTH * data.x;
-                    data.y = Driver.VIEWPORT_HEIGHT * data.y;
+                    data.x = AbstractDriver.VIEWPORT_WIDTH * data.x;
+                    data.y = AbstractDriver.VIEWPORT_HEIGHT * data.y;
                     this.onClick(data as MessageClick);
                 }
                 else if (data.type === 'keydown' && data.key && this.onKeydown) {

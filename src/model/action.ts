@@ -1,4 +1,5 @@
-import { Driver, Element } from '../driver/driver';
+import { AbstractDriver } from '../driver/abstractDriver';
+import { Element } from '../driver/element';
 import { TwofaPromise } from '../collect/twofaPromise';
 import * as utils from '../utils';
 import { Invoice } from '../collectors/abstractCollector';
@@ -69,7 +70,7 @@ export abstract class Action<Context, Result> {
         this.cssSelector = cssSelector;
     }
 
-    protected async getElement(driver: Driver): Promise<Element> {
+    protected async getElement(driver: AbstractDriver): Promise<Element> {
         let element: Element | null;
         // If we have cssSelector, use it
         if (this.cssSelector) {
@@ -110,7 +111,7 @@ export abstract class Action<Context, Result> {
 }
 
 export type LeftClickContext = {
-    driver: Driver;
+    driver: AbstractDriver;
     element?: Element;
 }
 
@@ -147,7 +148,7 @@ export class LeftClickAction extends Action<LeftClickContext, void> {
 }
 
 export type MiddleClickContext = {
-    driver: Driver;
+    driver: AbstractDriver;
     element?: Element;
 }
 
@@ -175,7 +176,7 @@ export class MiddleClickAction extends Action<MiddleClickContext, void> {
 }
 
 export type InputTextContext = {
-    driver: Driver;
+    driver: AbstractDriver;
     params: any;
 }
 
@@ -211,7 +212,7 @@ export class InputTextAction extends Action<InputTextContext, void> {
 }
 
 export type GetTextContentContext = {
-    driver: Driver;
+    driver: AbstractDriver;
 }
 
 export class GetTextContentAction extends Action<GetTextContentContext, string> {
@@ -239,7 +240,7 @@ export class GetTextContentAction extends Action<GetTextContentContext, string> 
 }
 
 export type InputTwofaContext = {
-    driver: Driver;
+    driver: AbstractDriver;
     twofaPromise: TwofaPromise;
     webSocketServer: WebSocketServer;
 }
@@ -267,7 +268,7 @@ export class InputTwofaAction extends Action<InputTwofaContext, void> {
 }
 
 export type GetTwofaInstructionsContext = {
-    driver: Driver;
+    driver: AbstractDriver;
 }
 
 export class GetTwofaInstructionsAction extends Action<GetTwofaInstructionsContext, string | void> {
@@ -302,7 +303,7 @@ export class GetTwofaInstructionsAction extends Action<GetTwofaInstructionsConte
 }
 
 export type GetInvoicesContext = {
-    driver: Driver;
+    driver: AbstractDriver;
 }
 
 export class GetInvoicesAction extends Action<GetInvoicesContext, Element[]> {
@@ -327,7 +328,7 @@ export class GetInvoicesAction extends Action<GetInvoicesContext, Element[]> {
 }
 
 export type ExtractInvoiceDataContext = {
-    driver: Driver;
+    driver: AbstractDriver;
     element: Element;
 }
 
@@ -389,7 +390,7 @@ export class ExtractInvoiceDataAction extends Action<ExtractInvoiceDataContext, 
 }
 
 export type RaiseErrorContext = {
-    driver: Driver;
+    driver: AbstractDriver;
 }
 
 export class RaiseErrorIfDisplayed extends Action<RaiseErrorContext, void> {

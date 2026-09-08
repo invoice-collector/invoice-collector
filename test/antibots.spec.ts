@@ -4,7 +4,8 @@ import fs from 'fs';
 import path from 'path';
 import { expect, describe, beforeAll, afterAll } from '@jest/globals';
 import { OxylabProxy } from '../src/proxy/oxylabProxy';
-import { Driver } from '../src/driver/driver';
+import { AbstractDriver } from '../src/driver/abstractDriver';
+import { DriverFactory } from '../src/driver/driverFactory';
 import { LeroyMerlinCollector } from '../src/collectors/leroy_merlin/leroy_merlin';
 
 const ONE_MINUTE = 60 * 1000; // 1 minute in milliseconds
@@ -27,11 +28,11 @@ function saveToFile(content: string|object, filename: string) {
 
 describe(`Test antibots`, () => {
 
-    let driver: Driver;
+    let driver: AbstractDriver;
 
     beforeAll(async () => {
         const proxy = await new OxylabProxy().get(null);
-        driver = new Driver(new LeroyMerlinCollector());
+        driver = DriverFactory.getDriver(new LeroyMerlinCollector());
         await driver.open(proxy);
     });
 

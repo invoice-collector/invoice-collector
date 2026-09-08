@@ -1,5 +1,5 @@
 import { TwofaPromise } from '../../collect/twofaPromise';
-import { Driver } from '../../driver/driver';
+import { AbstractDriver } from '../../driver/abstractDriver';
 import { WebSocketServer } from '../../websocket/webSocketServer';
 
 export const MicrosoftOauth2Selectors = {
@@ -56,11 +56,11 @@ export const MicrosoftOauth2Selectors = {
 
 export class MicrosoftOauth2 {
 
-    static check(driver: Driver): boolean {
+    static check(driver: AbstractDriver): boolean {
         return driver.url().includes('login.live.com/oauth2');
     }
 
-    static async login(driver: Driver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
+    static async login(driver: AbstractDriver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
         if(MicrosoftOauth2.check(driver)) {
             // Display other authentication methods if the button is displayed
             await driver.leftClick(MicrosoftOauth2Selectors.BUTTON_OTHER_AUTHENTICATION_METHODS, { timeout: 1000, raiseException: false });
@@ -92,7 +92,7 @@ export class MicrosoftOauth2 {
         }
     }
 
-    static async needTwofa(driver: Driver): Promise<string | void> {
+    static async needTwofa(driver: AbstractDriver): Promise<string | void> {
         if(MicrosoftOauth2.check(driver)) {
             // Click send notification button
             await driver.leftClick(MicrosoftOauth2Selectors.BUTTON_SEND_NOTIFICATION, { raiseException: false, timeout: 5000, navigation: false });
@@ -103,7 +103,7 @@ export class MicrosoftOauth2 {
         }
     }
 
-    static async twofa(driver: Driver, params: any, twofa_promise: TwofaPromise, webSocketServer: WebSocketServer): Promise<string | void> {
+    static async twofa(driver: AbstractDriver, params: any, twofa_promise: TwofaPromise, webSocketServer: WebSocketServer): Promise<string | void> {
         if(MicrosoftOauth2.check(driver)) {
             // Get code from UI
             const code = await Promise.race([twofa_promise.code(), webSocketServer.getTwofa()]);

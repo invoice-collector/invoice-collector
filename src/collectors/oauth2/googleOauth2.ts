@@ -1,5 +1,5 @@
 import { TwofaPromise } from '../../collect/twofaPromise';
-import { Driver } from '../../driver/driver';
+import { AbstractDriver } from '../../driver/abstractDriver';
 import { WebSocketServer } from '../../websocket/webSocketServer';
 
 export const GoogleOauth2Selectors = {
@@ -61,11 +61,11 @@ export const GoogleOauth2Selectors = {
 
 export class GoogleOauth2 {
 
-    static check(driver: Driver): boolean {
+    static check(driver: AbstractDriver): boolean {
         return driver.url().includes('accounts.google.com') && driver.url().includes('/signin/');
     }
 
-    static async login(driver: Driver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
+    static async login(driver: AbstractDriver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
         if(GoogleOauth2.check(driver) && driver.url().includes('signin/accountchooser')) {
             // If account chooser is displayed, click on use another account
             await driver.leftClick(GoogleOauth2Selectors.BUTTON_USE_ANOTHER_ACCOUNT, { delay: 3000 });
@@ -113,7 +113,7 @@ export class GoogleOauth2 {
         }
     }
 
-    static async needTwofa(driver: Driver): Promise<string | void> {
+    static async needTwofa(driver: AbstractDriver): Promise<string | void> {
         if(GoogleOauth2.check(driver) && driver.url().includes('signin/challenge')) {
             // Select 2FA method if selection page is displayed
             if(driver.url().includes('signin/challenge/selection')) {
@@ -125,7 +125,7 @@ export class GoogleOauth2 {
         }
     }
 
-    static async twofa(driver: Driver, params: any, twofa_promise: TwofaPromise, webSocketServer: WebSocketServer): Promise<string | void> {
+    static async twofa(driver: AbstractDriver, params: any, twofa_promise: TwofaPromise, webSocketServer: WebSocketServer): Promise<string | void> {
         if(GoogleOauth2.check(driver) && driver.url().includes('signin/challenge')) {
             // Get code from UI
             const code = await Promise.race([twofa_promise.code(), webSocketServer.getTwofa()]);

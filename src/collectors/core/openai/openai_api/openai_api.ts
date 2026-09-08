@@ -1,5 +1,6 @@
 import { OpenaiSelectors } from './selectors';
-import { Driver, Element } from '../../../../driver/driver';
+import { AbstractDriver } from '../../../../driver/abstractDriver';
+import { Element } from '../../../../driver/element';
 import { CollectorCaptcha, CollectorType, Invoice, CollectorAuthenticationMethod } from '../../../abstractCollector';
 import * as utils from '../../../../utils';
 import { OpenaiCommonCollector } from '../openai_common/openaiCommon';
@@ -41,27 +42,27 @@ export class OpenaiApiCollector extends OpenaiCommonCollector {
         super(OpenaiApiCollector.CONFIG);
     }
 
-    async needLogin(driver: Driver): Promise<boolean> {
+    async needLogin(driver: AbstractDriver): Promise<boolean> {
         return await driver.getElement(OpenaiSelectors.BUTTON_LOGIN_OR_OUPS, { raiseException: false, timeout: 5000 }) !== null ||
             driver.url().includes(this.config.loginUrl);
     }
 
-    async navigate(driver: Driver): Promise<void> {
+    async navigate(driver: AbstractDriver): Promise<void> {
         // Wait for profile button
         await driver.getElement(OpenaiSelectors.BUTTON_PROFILE, { timeout: 5000 });
         // Go to invoices page
         await driver.goto(this.config.entryUrl);
     }
 
-    async isEmpty(driver: Driver): Promise<boolean> {
+    async isEmpty(driver: AbstractDriver): Promise<boolean> {
         return await driver.getElement(OpenaiSelectors.CONTAINER_NO_INVOICE, { raiseException: false, timeout: 5000 }) !== null;
     }
 
-    async getInvoices(driver: Driver): Promise<Element[]> {
+    async getInvoices(driver: AbstractDriver): Promise<Element[]> {
         return await driver.getElements(OpenaiSelectors.CONTAINER_INVOICE);
     }
 
-    async data(driver: Driver, element: Element): Promise<Invoice | null> {
+    async data(driver: AbstractDriver, element: Element): Promise<Invoice | null> {
         // Get url before map
         const link = driver.url();
 

@@ -1,10 +1,9 @@
 import { CollectorType, CollectorCaptcha, CollectorState, Config, CollectorAuthenticationMethod } from './abstractCollector';
-import { Driver } from '../driver/driver';
+import { AbstractDriver } from '../driver/abstractDriver';
 import { V2Collector } from './v2Collector';
 import { WebSocketServer } from '../websocket/webSocketServer';
 import { AuthenticationError, DisconnectedError, LoggableError, RemoveError } from '../error';
 import { MessageClick, MessageKeydown, MessageText } from '../websocket/message';
-import { KeyInput } from 'rebrowser-puppeteer-core';
 
 export type WebConfig = Config & {
     loginUrl: string,
@@ -25,7 +24,7 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
 
     static LOGIN_TIMEOUT_MS = 10 * 60 * 1000; // 10 minutes
 
-    driver: Driver | null;
+    driver: AbstractDriver | null;
 
     constructor(config: WebConfig) {
         super({
@@ -54,11 +53,11 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
 
     // DOWNLOAD METHODS
 
-    async download_link(driver: Driver, link: string): Promise<string> {
+    async download_link(driver: AbstractDriver, link: string): Promise<string> {
         return await driver.downloadFile(link);
     }
 
-    async download_webpage(driver: Driver, link: string): Promise<string> {
+    async download_webpage(driver: AbstractDriver, link: string): Promise<string> {
         // Get current value
         const loadImagesPreviousValue = driver.collector.config.loadImages;
         // Allow loading images so that the invoice is fully rendered
@@ -72,12 +71,12 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
         return data;
     }
 
-    async download_from_file(driver: Driver): Promise<string> {
+    async download_from_file(driver: AbstractDriver): Promise<string> {
         return await driver.waitForFileToDownload(false);
     }
 
     protected async interactive(
-        driver: Driver,
+        driver: AbstractDriver,
         webSocketServer: WebSocketServer | undefined,
         instructions: string,
     ): Promise<string |void> {
@@ -103,21 +102,21 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
 
             // Define what to do on click event
             webSocketServer.onClick = async (event: MessageClick) => {
-                await driver.page?.mouse.click(event.x, event.y);
+                await driver.click(event.x, event.y, { delay: 0 });
             };
             // Define what to do on keydown event
             webSocketServer.onKeydown = async (event: MessageKeydown) => {
                 // If key is a single character, type it, else press the key
                 if (event.key.length === 1){
-                    await driver.page?.keyboard.type(event.key);
+                    await driver.type(event.key, { delay: 0 });
                 }
                 else {
-                    await driver.page?.keyboard.press(event.key as KeyInput);
+                    await driver.press(event.key, { delay: 0 });
                 }
             };
             // Define what to do on text event
             webSocketServer.onText = async (event: MessageText) => {
-                await driver.page?.keyboard.type(event.text);
+                await driver.type(event.text, { delay: 0 });
             };
             // Define what to do on interactive event
             webSocketServer.onInteractive = async (event) => {
