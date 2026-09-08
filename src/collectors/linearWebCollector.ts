@@ -282,13 +282,13 @@ export abstract class LinearWebCollector extends WebCollector {
                                 }
 
                                 // Get number of pages before download
-                                const pagesBefore = (await driver.pages()).length;
+                                const pagesBefore = await driver.numberOfPages();
 
                                 // Download invoice
                                 let documents = await this.download(driver, invoice);
 
                                 // Get number of pages after download
-                                const pagesAfter = (await driver.pages()).length;
+                                const pagesAfter = await driver.numberOfPages();
 
                                 // Close all new pages if download opened some
                                 for (let i = pagesAfter; i > pagesBefore; i--) {

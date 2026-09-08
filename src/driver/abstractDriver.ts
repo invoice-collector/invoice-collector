@@ -1,4 +1,3 @@
-import { Frame, Page } from 'rebrowser-puppeteer-core';
 import { EventEmitter } from 'events';
 import { Proxy } from '../proxy/abstractProxy';
 import { WebCollector } from '../collectors/webCollector';
@@ -75,7 +74,7 @@ export abstract class AbstractDriver extends EventEmitter {
 
     abstract origin(): string;
 
-    abstract pages(): Promise<Page[]>;
+    abstract numberOfPages(): Promise<number>;
 
     abstract closePage(): Promise<void>;
 
@@ -114,8 +113,7 @@ export abstract class AbstractDriver extends EventEmitter {
 
     abstract getElementCoordinates(
         x: number,
-        y: number,
-        context?: Page | Frame | null
+        y: number
     ): Promise<Element | null>;
 
     abstract getElements(selector: any, options?: {

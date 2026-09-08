@@ -71,7 +71,7 @@ export class Element {
         // If does not open in a new page by default
         if(!useFallbackMethod) {
             // Get number of opened pages before middle click
-            const numberOfPagesBefore = (await this.driver.pages()).length;
+            const numberOfPagesBefore = await this.driver.numberOfPages();
             // Get number of downloaded files before middle click
             const numberOfFilesBefore = (await this.driver.getDownloadedFiles(false)).length;
             // Perform middle click
@@ -79,11 +79,11 @@ export class Element {
             // Wait for the new tab to open or file to download
             await utils.delay(timeout);
             // Get number of opened pages after middle click
-            const numberOfPagesAfter = await this.driver.pages();
+            const numberOfPagesAfter = await this.driver.numberOfPages();
             // Get number of downloaded files after middle click
             const numberOfFilesAfter = (await this.driver.getDownloadedFiles(false)).length;
             // If no new page opened and no new file downloaded, set useFallbackMethod to true
-            useFallbackMethod = numberOfPagesAfter.length === numberOfPagesBefore && numberOfFilesAfter === numberOfFilesBefore;
+            useFallbackMethod = numberOfPagesAfter === numberOfPagesBefore && numberOfFilesAfter === numberOfFilesBefore;
         }
         // If need to open in a new page
         if (useFallbackMethod) {

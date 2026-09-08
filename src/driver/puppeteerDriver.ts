@@ -171,11 +171,15 @@ export class PuppeteerDriver extends AbstractDriver {
         return new URL(this.page.url()).origin;
     }
 
-    async pages(): Promise<Page[]> {
+    private async pages(): Promise<Page[]> {
         if (this.browser === null) {
             throw new Error('Browser is not initialized.');
         }
-        return this.browser.puppeteerBrowser.pages();
+        return await this.browser.puppeteerBrowser.pages();
+    }
+
+    async numberOfPages(): Promise<number> {
+        return (await this.pages()).length;
     }
 
     async closePage(): Promise<void> {
@@ -336,56 +340,70 @@ export class PuppeteerDriver extends AbstractDriver {
         return element ? new Element(element, this) : null;
     }
 
-    async getElementCoordinates(x: number, y: number, context: Page | Frame | null = null): Promise<Element | null> {
-        if (context === null) {
-            if (this.page === null) {
-                throw new Error('Page is not initialized.');
-            }
-            context = this.page;
+    async getElementCoordinates(x: number, y: number): Promise<Element | null> {
+        if (this.page === null) {
+            throw new Error('Page is not initialized.');
         }
 
-        const elementHandle = await context.evaluateHandle((x, y) => {
-            function elementFromPointDeep(x: number, y: number, currentRoot: DocumentOrShadowRoot): globalThis.Element | null {
-                const el = currentRoot.elementFromPoint(x, y);
-                if (!el) {
-                    return null;
-                }
-                if (el.shadowRoot) {
-                    return elementFromPointDeep(x, y, el.shadowRoot);
-                }
-                return el;
-            }
-            return elementFromPointDeep(x, y, document);
-        }, x, y);
+        let context: Page | Frame = this.page;
 
-        if (!elementHandle) {
-            return null;
+        // Descend into nested iframes until the deepest element at (x, y) is found
+        let result: Element | null = null;
+        let done = false;
+        while (!done) {
+            const elementHandle = await context.evaluateHandle((x, y) => {
+                function elementFromPointDeep(x: number, y: number, currentRoot: DocumentOrShadowRoot): globalThis.Element | null {
+                    const el = currentRoot.elementFromPoint(x, y);
+                    if (!el) {
+                        return null;
+                    }
+                    if (el.shadowRoot) {
+                        return elementFromPointDeep(x, y, el.shadowRoot);
+                    }
+                    return el;
+                }
+                return elementFromPointDeep(x, y, document);
+            }, x, y);
+
+            if (!elementHandle) {
+                done = true;
+                continue;
+            }
+
+            // Check if the element is an iframe
+            const isIframe = await context.evaluate((el) => {
+                return el !== null && el.tagName === 'IFRAME';
+            }, elementHandle);
+
+            let descendedIntoFrame = false;
+            if (isIframe) {
+                const frameElement = await (elementHandle as ElementHandle);
+                const frame = await frameElement.contentFrame();
+                if (frame) {
+                    // Get iframe bounding box
+                    const frameBoundingBox = await frameElement.boundingBox();
+
+                    // If bounding box x and y are not defined
+                    if (!frameBoundingBox?.x || !frameBoundingBox?.y) {
+                        throw new Error('Iframe bounding box x or y is not defined');
+                    }
+
+                    // Loop again inside the iframe with coordinates relative to it
+                    x = x - frameBoundingBox.x;
+                    y = y - frameBoundingBox.y;
+                    context = frame;
+                    descendedIntoFrame = true;
+                }
+            }
+
+            // If not an iframe, the element is the final result
+            if (!descendedIntoFrame) {
+                result = new Element(elementHandle as ElementHandle, this);
+                done = true;
+            }
         }
 
-        // Check if the element is an iframe
-        const isIframe = await context.evaluate((el) => {
-            return el !== null && el.tagName === 'IFRAME';
-        }, elementHandle);
-
-        if (isIframe) {
-            const frameElement = await (elementHandle as ElementHandle);
-            const frame = await frameElement.contentFrame();
-            if (frame) {
-                // Get iframe bounding box
-                const frameBoundingBox = await frameElement.boundingBox();
-
-                // If bounding box x and y are not defined
-                if (!frameBoundingBox?.x || !frameBoundingBox?.y) {
-                    throw new Error('Iframe bounding box x or y is not defined');
-                }
-
-                // Recursively call the function inside the iframe and remove iframe coordinates
-                return this.getElementCoordinates(x - frameBoundingBox?.x, y - frameBoundingBox?.y, frame);
-            }
-        }
-
-        // If not an iframe, return the element
-        return new Element(elementHandle as ElementHandle, this);
+        return result;
     }
 
     async getElements(selector, {
