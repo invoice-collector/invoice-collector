@@ -56,12 +56,12 @@ export class TokenManager {
     }
 
     /**
-     * Retrieves the customer id mapped to a hashed UI bearer.
-     * @param hashedBearer The hashed bearer to look up.
+     * Retrieves the customer id mapped to a UI bearer.
+     * @param bearer The (unhashed) bearer token to look up.
      * @returns The mapped customer id, or undefined if not found.
      */
-    public getCustomerIdFromUiBearer(hashedBearer: string): string | undefined {
-        return this.customerUiBearers[hashedBearer];
+    public getCustomerIdFromUiBearer(bearer: string): string | undefined {
+        return this.customerUiBearers[utils.hash_string(bearer)];
     }
 
     // ---------- CUSTOMER RESET TOKEN ----------
@@ -69,18 +69,21 @@ export class TokenManager {
     /**
      * Generates a password reset token for a customer and schedules its expiration.
      * @param customerId The id of the customer to map the reset token to.
-     * @returns The generated reset token.
+     * @returns The generated (unhashed) reset token.
      */
     public createCustomerResetToken(customerId: string): string {
         // Generate reset token
         const resetToken = utils.generate_token();
 
-        // Map reset token with customer
-        this.customerResetTokens[resetToken] = customerId;
+        // Compute hashed reset token
+        const hashedResetToken = utils.hash_string(resetToken);
+
+        // Map hashed reset token with customer
+        this.customerResetTokens[hashedResetToken] = customerId;
 
         // Schedule token delete after validity duration
         setTimeout(() => {
-            delete this.customerResetTokens[resetToken];
+            delete this.customerResetTokens[hashedResetToken];
         }, TokenManager.RESET_PASSWORD_TOKEN_VALIDITY_DURATION_MS);
 
         return resetToken;
@@ -88,19 +91,19 @@ export class TokenManager {
 
     /**
      * Retrieves the customer id mapped to a reset token.
-     * @param resetToken The reset token to look up.
+     * @param resetToken The (unhashed) reset token to look up.
      * @returns The mapped customer id, or undefined if not found.
      */
     public getCustomerIdFromResetToken(resetToken: string): string | undefined {
-        return this.customerResetTokens[resetToken];
+        return this.customerResetTokens[utils.hash_string(resetToken)];
     }
 
     /**
      * Deletes a customer reset token.
-     * @param resetToken The reset token to delete.
+     * @param resetToken The (unhashed) reset token to delete.
      */
     public deleteCustomerResetToken(resetToken: string): void {
-        delete this.customerResetTokens[resetToken];
+        delete this.customerResetTokens[utils.hash_string(resetToken)];
     }
 
     // ---------- USER UI BEARER ----------
@@ -129,12 +132,12 @@ export class TokenManager {
     }
 
     /**
-     * Retrieves the user id mapped to a hashed UI bearer.
-     * @param hashedBearer The hashed bearer to look up.
+     * Retrieves the user id mapped to a UI bearer.
+     * @param bearer The (unhashed) bearer token to look up.
      * @returns The mapped user id, or undefined if not found.
      */
-    public getUserIdFromUiBearer(hashedBearer: string): string | undefined {
-        return this.userUiBearers[hashedBearer];
+    public getUserIdFromUiBearer(bearer: string): string | undefined {
+        return this.userUiBearers[utils.hash_string(bearer)];
     }
 
     // ---------- USER RESET TOKEN ----------
@@ -142,18 +145,21 @@ export class TokenManager {
     /**
      * Generates a password reset token for a user and schedules its expiration.
      * @param userId The id of the user to map the reset token to.
-     * @returns The generated reset token.
+     * @returns The generated (unhashed) reset token.
      */
     public createUserResetToken(userId: string): string {
         // Generate reset token
         const resetToken = utils.generate_token();
 
-        // Map reset token with user
-        this.userResetTokens[resetToken] = userId;
+        // Compute hashed reset token
+        const hashedResetToken = utils.hash_string(resetToken);
+
+        // Map hashed reset token with user
+        this.userResetTokens[hashedResetToken] = userId;
 
         // Schedule token delete after validity duration
         setTimeout(() => {
-            delete this.userResetTokens[resetToken];
+            delete this.userResetTokens[hashedResetToken];
         }, TokenManager.RESET_PASSWORD_TOKEN_VALIDITY_DURATION_MS);
 
         return resetToken;
@@ -161,19 +167,19 @@ export class TokenManager {
 
     /**
      * Retrieves the user id mapped to a reset token.
-     * @param resetToken The reset token to look up.
+     * @param resetToken The (unhashed) reset token to look up.
      * @returns The mapped user id, or undefined if not found.
      */
     public getUserIdFromResetToken(resetToken: string): string | undefined {
-        return this.userResetTokens[resetToken];
+        return this.userResetTokens[utils.hash_string(resetToken)];
     }
 
     /**
      * Deletes a user reset token.
-     * @param resetToken The reset token to delete.
+     * @param resetToken The (unhashed) reset token to delete.
      */
     public deleteUserResetToken(resetToken: string): void {
-        delete this.userResetTokens[resetToken];
+        delete this.userResetTokens[utils.hash_string(resetToken)];
     }
 
     // ---------- USER UI TOKEN ----------
@@ -181,18 +187,21 @@ export class TokenManager {
     /**
      * Generates a UI token for a user and schedules its expiration.
      * @param userId The id of the user to map the token to.
-     * @returns The generated UI token.
+     * @returns The generated (unhashed) UI token.
      */
     public createUserUiToken(userId: string): string {
         // Generate ui token
         const uiToken = utils.generate_token();
 
-        // Map token with user
-        this.userUiTokens[uiToken] = userId;
+        // Compute hashed ui token
+        const hashedUiToken = utils.hash_string(uiToken);
+
+        // Map hashed token with user
+        this.userUiTokens[hashedUiToken] = userId;
 
         // Schedule token delete after validity duration
         setTimeout(() => {
-            delete this.userUiTokens[uiToken];
+            delete this.userUiTokens[hashedUiToken];
         }, TokenManager.OAUTH_TOKEN_VALIDITY_DURATION_MS);
 
         return uiToken;
@@ -200,17 +209,25 @@ export class TokenManager {
 
     /**
      * Retrieves the user mapped to a UI token.
-     * @param uiToken The UI token to look up.
+     * @param uiToken The (unhashed) UI token to look up.
      * @returns The user mapped to the token.
      */
     public async getUserFromUiToken(uiToken: any): Promise<User> {
         // Check if token is missing or incorrect
-        if (!uiToken || typeof uiToken !== 'string' || !this.userUiTokens.hasOwnProperty(uiToken)) {
+        if (!uiToken || typeof uiToken !== 'string') {
+            throw new OauthError();
+        }
+
+        // Compute hashed ui token
+        const hashedUiToken = utils.hash_string(uiToken);
+
+        // Check if a user maps to the hashed token
+        if (!this.userUiTokens.hasOwnProperty(hashedUiToken)) {
             throw new OauthError();
         }
 
         // Get user id from token
-        const userId = this.userUiTokens[uiToken];
+        const userId = this.userUiTokens[hashedUiToken];
 
         // Get user from id
         const user = await User.fromId(userId);
@@ -241,18 +258,21 @@ export class TokenManager {
     /**
      * Generates an OAuth2 state for a credential and schedules its expiration.
      * @param credentialId The id of the credential to map the state to.
-     * @returns The generated OAuth2 state.
+     * @returns The generated (unhashed) OAuth2 state.
      */
     public createCredentialOauth2State(credentialId: string): string {
         // Generate oauth2 state
         const oauth2State = utils.generate_token();
 
-        // Map state with credential
-        this.credentialOauth2States[oauth2State] = credentialId;
+        // Compute hashed oauth2 state
+        const hashedOauth2State = utils.hash_string(oauth2State);
+
+        // Map hashed state with credential
+        this.credentialOauth2States[hashedOauth2State] = credentialId;
 
         // Schedule state delete after validity duration
         setTimeout(() => {
-            delete this.credentialOauth2States[oauth2State];
+            delete this.credentialOauth2States[hashedOauth2State];
         }, TokenManager.OAUTH_TOKEN_VALIDITY_DURATION_MS);
 
         return oauth2State;
@@ -260,17 +280,25 @@ export class TokenManager {
 
     /**
      * Retrieves the credential mapped to an OAuth2 state.
-     * @param oauth2State The OAuth2 state to look up.
+     * @param oauth2State The (unhashed) OAuth2 state to look up.
      * @returns The credential mapped to the state.
      */
     public async getCredentialFromOauth2State(oauth2State: any): Promise<Credential> {
         // Check if state is missing or incorrect
-        if (!oauth2State || typeof oauth2State !== 'string' || !this.credentialOauth2States.hasOwnProperty(oauth2State)) {
+        if (!oauth2State || typeof oauth2State !== 'string') {
+            throw new OauthError();
+        }
+
+        // Compute hashed oauth2 state
+        const hashedOauth2State = utils.hash_string(oauth2State);
+
+        // Check if a credential maps to the hashed state
+        if (!this.credentialOauth2States.hasOwnProperty(hashedOauth2State)) {
             throw new OauthError();
         }
 
         // Get credential id from state
-        const credentialId = this.credentialOauth2States[oauth2State];
+        const credentialId = this.credentialOauth2States[hashedOauth2State];
 
         // Get credential from id
         const credential = await Credential.fromId(credentialId);
@@ -369,10 +397,10 @@ export class TokenManager {
         }
 
         // Get hashed bearer
-        const hashed_bearer = utils.hash_string(bearer.split(' ')[1]);
+        const raw_bearer = bearer.split(' ')[1];
 
         // Check if a customer ui bearer maps to the hashed bearer
-        const customer_id = this.getCustomerIdFromUiBearer(hashed_bearer);
+        const customer_id = this.getCustomerIdFromUiBearer(raw_bearer);
 
         let customer: Customer | null;
         if (customer_id !== undefined) {
@@ -381,7 +409,7 @@ export class TokenManager {
         }
         else {
             // Get customer from bearer
-            customer = await Customer.fromBearer(hashed_bearer);
+            customer = await Customer.fromBearer(raw_bearer);
         }
 
         // Check if customer exists
@@ -404,10 +432,10 @@ export class TokenManager {
         }
 
         // Get hashed bearer
-        const hashed_bearer = utils.hash_string(bearer.split(' ')[1]);
+        const raw_bearer = bearer.split(' ')[1];
 
         // Get user id from ui bearers
-        const user_id = this.getUserIdFromUiBearer(hashed_bearer);
+        const user_id = this.getUserIdFromUiBearer(raw_bearer);
 
         // If the bearer is not mapped to a user
         if(user_id === undefined) {
