@@ -43,7 +43,7 @@ export class CollectorLoader {
                     // Read the file content
                     const content = fs.readFileSync(file, 'utf8');
 
-                    const configMatch = content.match(/CONFIG\s*=\s*({[\s\S]*?})\s*constructor/);
+                    const configMatch = content.match(/CONFIG\s*=\s*({[\s\S]*?});?\s*constructor/);
                     if (configMatch) {
                         try {
                             let configStr = configMatch[1];
@@ -77,8 +77,8 @@ export class CollectorLoader {
                             }
 
                             if (config && config.id) {
-                            CollectorLoader.collectors.set(config.id.toLowerCase(), { config, file });
-                            nbFFilesLoaded++;
+                                CollectorLoader.collectors.set(config.id.toLowerCase(), { config, file });
+                                nbFFilesLoaded++;
                             }
                         } catch (e) {
                             reject(new Error(`Failed to parse CONFIG in ${file}`, { cause: e }));
