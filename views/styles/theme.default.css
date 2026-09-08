@@ -237,6 +237,7 @@ body {
   width: 100%;
   margin-top: auto;
   margin-bottom: auto;
+  text-align: center;
 }
 
 .ic-card-logo {
@@ -254,9 +255,6 @@ body {
   font-weight: 600;
   color: var(--text);
   margin-bottom: 0;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 .ic-card-body {

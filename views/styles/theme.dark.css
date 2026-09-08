@@ -243,6 +243,7 @@ body {
   width: 100%;
   margin-top: auto;
   margin-bottom: auto;
+  text-align: center;
 }
 
 .ic-card-logo {
@@ -257,8 +258,6 @@ body {
   font-size: 0.9rem;
   color: var(--primary);
   margin-bottom: 0;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 .ic-card-body {
