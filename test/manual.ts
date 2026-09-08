@@ -245,7 +245,8 @@ function getHashFromSecret(secret: Secret): string {
             [],
             LOCALE,
             null,
-            authenticationMethod
+            authenticationMethod,
+            []
         );
         console.log(`${newInvoicesPart3.length} invoices downloaded`);
 
@@ -302,7 +303,8 @@ function getHashFromSecret(secret: Secret): string {
             [],
             LOCALE,
             null,
-            authenticationMethod
+            authenticationMethod,
+            []
         );
 
         // ---------- PART 7 : CHECK INVOICES ----------
@@ -337,7 +339,8 @@ function getHashFromSecret(secret: Secret): string {
             modelInvoices,
             LOCALE,
             null,
-            authenticationMethod
+            authenticationMethod,
+            []
         );
 
         // ---------- PART 9 : CHECK INVOICES ----------
