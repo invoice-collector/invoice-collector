@@ -20,7 +20,7 @@ import { WebSocketServer } from './websocket/webSocketServer';
 import { IntegrationLoader } from './integration/integrationLoader';
 import { Callback } from './model/callback';
 import { IntegrationConfig } from './integration/abstractIntegration';
-import { TokenManager } from './model/tokenManager';
+import { TokenManager } from './tokenManager';
 
 export class Server {
 
@@ -70,7 +70,7 @@ export class Server {
         secretManager: boolean
     }> {
         // Get user from bearer or token
-        await this.getCustomerFromBearer(bearer);
+        await this.tokenManager.getCustomerFromBearer(bearer);
 
         // Ping analytics server, database and secret manager in parallel
         const [analytics, database, secretManager] = await Promise.all([
@@ -141,7 +141,7 @@ export class Server {
         }
 
         // Get customer from bearer or token
-        const customer = await this.getCustomerFromBearerOrToken(bearer, token);
+        const customer = await this.tokenManager.getCustomerFromBearerOrToken(bearer, token);
 
         // Send feedback to analytics server
         await AnalyticsFactory.getInstance().feedback(
@@ -440,7 +440,7 @@ export class Server {
         plan: Plan
     }> {
         // Get customer from bearer
-        const customer = await this.getCustomerFromBearer(bearer);
+        const customer = await this.tokenManager.getCustomerFromBearer(bearer);
 
         // Return customer
         return {
@@ -489,7 +489,7 @@ export class Server {
         plan: Plan
     }> {
         // Get customer from bearer
-        const customer = await this.getCustomerFromBearer(bearer);
+        const customer = await this.tokenManager.getCustomerFromBearer(bearer);
 
         // Check if name field is present
         if(name) {
@@ -554,7 +554,7 @@ export class Server {
         bearer: string
     }> {
         // Get customer from bearer
-        const customer = await this.getCustomerFromBearer(bearer);
+        const customer = await this.tokenManager.getCustomerFromBearer(bearer);
 
         // Generate api bearer
         const newBearer = utils.generate_bearer(utils.BearerType.API);
@@ -574,7 +574,7 @@ export class Server {
 
     public async getCustomerStats(bearer: string | undefined): Promise<CustomerStats>{
         // Get customer from bearer
-        const customer = await this.getCustomerFromBearer(bearer);
+        const customer = await this.tokenManager.getCustomerFromBearer(bearer);
 
         // Get customer stats
         return await customer.getStats();
@@ -599,7 +599,7 @@ export class Server {
         stats: UserStats
     }[]> {
         // Get customer from bearer
-        const customer = await this.getCustomerFromBearer(bearer);
+        const customer = await this.tokenManager.getCustomerFromBearer(bearer);
 
         // Get users from customer
         const users = await customer.getUsers();
@@ -649,7 +649,7 @@ export class Server {
         stats: UserStats
     }> {
         // Get customer from bearer
-        const customer = await this.getCustomerFromBearer(bearer);
+        const customer = await this.tokenManager.getCustomerFromBearer(bearer);
 
         // Check if remote_id field is missing
         if(!remote_id) {
@@ -761,7 +761,7 @@ export class Server {
         stats: UserStats
     }> {
         // Get user from bearer
-        const user = await this.getUserFromBearerOrToken(bearer, user_id, null);
+        const user = await this.tokenManager.getUserFromBearerOrToken(bearer, user_id, null);
 
         // Get customer from user
         const customer = await user.getCustomer();
@@ -813,7 +813,7 @@ export class Server {
         stats: UserStats
     }> {
         // Get user from bearer
-        const user = await this.getUserFromBearerOrToken(bearer, user_id, null);
+        const user = await this.tokenManager.getUserFromBearerOrToken(bearer, user_id, null);
 
         // Get customer from user
         const customer = await user.getCustomer();
@@ -883,7 +883,7 @@ export class Server {
     // BEARER AUTHENTICATION
     public async delete_user(bearer: string | undefined, user_id: string) {
         // Get customer from bearer
-        const customer = await this.getCustomerFromBearer(bearer);
+        const customer = await this.tokenManager.getCustomerFromBearer(bearer);
 
         // Check if user_id field is missing
         if(!user_id) {
@@ -926,7 +926,7 @@ export class Server {
         wsPath: string | null
     }[]> {
         // Get user from bearer or token
-         const user = await this.getUserFromBearerOrToken(bearer, user_id, token);
+         const user = await this.tokenManager.getUserFromBearerOrToken(bearer, user_id, token);
 
         // Get credentials from user
         const credentials = await user.getCredentials();
@@ -992,7 +992,7 @@ export class Server {
         wsPath: string
     }> {
         // Get user from bearer or token
-        const user = await this.getUserFromBearerOrToken(bearer, user_id, token);
+        const user = await this.tokenManager.getUserFromBearerOrToken(bearer, user_id, token);
 
         // Check if id field is missing
         if(!collector_id) {
@@ -1140,7 +1140,7 @@ export class Server {
         wsPath: string | null
     }> {
         // Get user from bearer or token
-        const user = await this.getUserFromBearerOrToken(bearer, user_id, token);
+        const user = await this.tokenManager.getUserFromBearerOrToken(bearer, user_id, token);
 
         // Get credential from id
         const credential = await user.getCredential(id);
@@ -1200,7 +1200,7 @@ export class Server {
         id: string,
     ): Promise<void> {
         // Get user from bearer or token
-        const user = await this.getUserFromBearerOrToken(bearer, user_id, token);
+        const user = await this.tokenManager.getUserFromBearerOrToken(bearer, user_id, token);
 
         // Get credential from id
         const credential = await user.getCredential(id);
@@ -1234,7 +1234,7 @@ export class Server {
         code: string | undefined,
     ): Promise<void> {
         // Get user from bearer or token
-        const user = await this.getUserFromBearerOrToken(bearer, user_id, token);
+        const user = await this.tokenManager.getUserFromBearerOrToken(bearer, user_id, token);
 
          // Check code id field is missing
          if(!code) {
@@ -1316,7 +1316,7 @@ export class Server {
         wsPath: string | null
     }> {
         // Get user from bearer or token
-        const user = await this.getUserFromBearerOrToken(bearer, user_id, token);
+        const user = await this.tokenManager.getUserFromBearerOrToken(bearer, user_id, token);
 
         // Get credential from id
         const credential = await user.getCredential(credential_id);
@@ -1395,7 +1395,7 @@ export class Server {
         let displaySketchCollectors: boolean = Customer.DEFAULT_DISPLAY_SKETCH_COLLECTORS;
         if(token || bearer) {
             // Get customer from bearer or token
-            const customer = await this.getCustomerFromBearerOrToken(bearer, token);
+            const customer = await this.tokenManager.getCustomerFromBearerOrToken(bearer, token);
             subscribedCollectors = customer.subscribedCollectors;
             isSubscribedToAll = customer.isSubscribedToAll;
             authenticationMethod = customer.authenticationMethod;
@@ -1440,7 +1440,7 @@ export class Server {
         automaticExport: boolean
     }[]> {
         // Get customer from bearer
-        const customer = await this.getCustomerFromBearer(bearer);
+        const customer = await this.tokenManager.getCustomerFromBearer(bearer);
 
         // Get callbacks from customer
         const callbacks = await customer.getCallbacks();
@@ -1473,7 +1473,7 @@ export class Server {
         automaticExport: boolean | undefined
     }> {
         // Get customer from bearer
-        const customer = await this.getCustomerFromBearer(bearer);
+        const customer = await this.tokenManager.getCustomerFromBearer(bearer);
  
         // Check if integration_id field is missing
         if(!integration_id) {
@@ -1556,7 +1556,7 @@ export class Server {
         automaticExport: boolean | undefined
     }> {
         // Get customer from bearer
-        const customer = await this.getCustomerFromBearer(bearer);
+        const customer = await this.tokenManager.getCustomerFromBearer(bearer);
 
         // Get callbacks from customer
         const callbacks = await customer.getCallbacks();
@@ -1607,7 +1607,7 @@ export class Server {
         callback_id: string,
     ): Promise<void> {
         // Get customer from bearer
-        const customer = await this.getCustomerFromBearer(bearer);
+        const customer = await this.tokenManager.getCustomerFromBearer(bearer);
 
         // Get callbacks from customer
         const callbacks = await customer.getCallbacks();
@@ -1629,7 +1629,7 @@ export class Server {
         type: string,
     ): Promise<void> {
         // Get customer from bearer
-        const customer = await this.getCustomerFromBearer(bearer);
+        const customer = await this.tokenManager.getCustomerFromBearer(bearer);
 
         // Check if type field is missing
         if(!type) {
@@ -1687,123 +1687,6 @@ export class Server {
     }
 
     // ---------- PRIVATE METHODS ----------
-
-    private async getCustomerFromBearerOrToken(bearer: string | undefined, token: any): Promise<Customer> {
-        if (token) {
-            // Get user from token
-            const user = this.tokenManager.getUserFromUiToken(token);
-            // Get customer from user
-            return await user.getCustomer();
-        }
-        else if (bearer) {
-            // If is a user bearer, get user from bearer
-            if(bearer.startsWith(`Bearer ${utils.BearerType.USER_SESSION}`)) {
-                // Get user from bearer
-                const user = await this.getUserFromBearer(bearer);
-                // Get customer from user
-                return await user.getCustomer();
-            }
-            else {
-                // Get customer from bearer
-                return await this.getCustomerFromBearer(bearer);
-            }
-        }
-        else {
-            throw new StatusError('Provide a Bearer token or a "token" field in the query.', 400);
-        }
-    }
-
-    private async getUserFromBearerOrToken(bearer: string | undefined, user_id: string, token: any): Promise<User> {
-        // If token provided, get user from token
-        if (token) {
-            // Get user from token
-            return this.tokenManager.getUserFromUiToken(token);
-        }
-        // If only bearer provided, get user from bearer
-        else if (bearer && user_id === 'me') {
-            // Get user from bearer
-            return await this.getUserFromBearer(bearer);
-        }
-        // If bearer and user_id provided, get user from customer bearer
-        else if (bearer && user_id) {
-            // Check if user_id is provided
-            if (!user_id) {
-                throw new MissingField('user_id');
-            }
-            // Get customer from bearer
-            const customer = await this.getCustomerFromBearer(bearer);
-            // Get user from customer
-            const user = await customer.getUser(user_id);
-
-            // Check if user exists
-            if (!user) {
-                throw new StatusError(`User with id "${user_id}" not found.`, 400);
-            }
-
-            return user;
-        }
-        else {
-            throw new StatusError('Provide a Bearer token or a "token" field in the query.', 400);
-        }
-    }
-
-    private async getCustomerFromBearer(bearer: string | undefined): Promise<Customer> {
-        // Check if bearer is missing
-        if (!bearer || !bearer.startsWith('Bearer ')) {
-            throw new AuthenticationBearerError();
-        }
-
-        // Get hashed bearer
-        const hashed_bearer = utils.hash_string(bearer.split(' ')[1]);
-
-        // Check if a customer ui bearer maps to the hashed bearer
-        const customer_id = this.tokenManager.getCustomerIdFromUiBearer(hashed_bearer);
-
-        let customer: Customer | null;
-        if (customer_id !== undefined) {
-            // Get customer from id
-            customer = await Customer.fromId(customer_id);
-        }
-        else {
-            // Get customer from bearer
-            customer = await Customer.fromBearer(hashed_bearer);
-        }
-
-        // Check if customer exists
-        if (!customer) {
-            throw new AuthenticationBearerError();
-        }
-
-        return customer;
-    }
-
-    private async getUserFromBearer(bearer: string | undefined): Promise<User> {
-        // Check if bearer is missing
-        if (!bearer || !bearer.startsWith('Bearer ')) {
-            throw new AuthenticationBearerError();
-        }
-
-        // Get hashed bearer
-        const hashed_bearer = utils.hash_string(bearer.split(' ')[1]);
-
-        // Get user id from ui bearers
-        const user_id = this.tokenManager.getUserIdFromUiBearer(hashed_bearer);
-
-        // If the bearer is not mapped to a user
-        if(user_id === undefined) {
-            throw new AuthenticationBearerError();
-        }
-
-        // Get user from id
-        const user = await User.fromId(user_id);
-
-        // Check if user exists
-        if (!user) {
-            throw new AuthenticationBearerError();
-        }
-
-        return user;
-    }
 
     private async handleUserResetPassword(user: User): Promise<string> {
         // Generate reset token

@@ -1,7 +1,8 @@
-import * as utils from '../utils';
-import { OauthError } from '../error';
-import { User } from './user';
-import { Credential } from './credential';
+import * as utils from './utils';
+import { AuthenticationBearerError, MissingField, OauthError, StatusError } from './error';
+import { User } from './model/user';
+import { Credential } from './model/credential';
+import { Customer } from './model/customer';
 
 // Maps ephemeral tokens/bearers to Customers, Users or Credentials
 export class TokenManager {
@@ -181,5 +182,124 @@ export class TokenManager {
             throw new OauthError();
         }
         return this.credentialOauth2States[oauth2State];
+    }
+
+    // ---------- OTHER METHODS ----------
+
+    async getCustomerFromBearerOrToken(bearer: string | undefined, token: any): Promise<Customer> {
+        if (token) {
+            // Get user from token
+            const user = this.getUserFromUiToken(token);
+            // Get customer from user
+            return await user.getCustomer();
+        }
+        else if (bearer) {
+            // If is a user bearer, get user from bearer
+            if(bearer.startsWith(`Bearer ${utils.BearerType.USER_SESSION}`)) {
+                // Get user from bearer
+                const user = await this.getUserFromBearer(bearer);
+                // Get customer from user
+                return await user.getCustomer();
+            }
+            else {
+                // Get customer from bearer
+                return await this.getCustomerFromBearer(bearer);
+            }
+        }
+        else {
+            throw new StatusError('Provide a Bearer token or a "token" field in the query.', 400);
+        }
+    }
+
+    async getUserFromBearerOrToken(bearer: string | undefined, user_id: string, token: any): Promise<User> {
+        // If token provided, get user from token
+        if (token) {
+            // Get user from token
+            return this.getUserFromUiToken(token);
+        }
+        // If only bearer provided, get user from bearer
+        else if (bearer && user_id === 'me') {
+            // Get user from bearer
+            return await this.getUserFromBearer(bearer);
+        }
+        // If bearer and user_id provided, get user from customer bearer
+        else if (bearer && user_id) {
+            // Check if user_id is provided
+            if (!user_id) {
+                throw new MissingField('user_id');
+            }
+            // Get customer from bearer
+            const customer = await this.getCustomerFromBearer(bearer);
+            // Get user from customer
+            const user = await customer.getUser(user_id);
+
+            // Check if user exists
+            if (!user) {
+                throw new StatusError(`User with id "${user_id}" not found.`, 400);
+            }
+
+            return user;
+        }
+        else {
+            throw new StatusError('Provide a Bearer token or a "token" field in the query.', 400);
+        }
+    }
+
+    async getCustomerFromBearer(bearer: string | undefined): Promise<Customer> {
+        // Check if bearer is missing
+        if (!bearer || !bearer.startsWith('Bearer ')) {
+            throw new AuthenticationBearerError();
+        }
+
+        // Get hashed bearer
+        const hashed_bearer = utils.hash_string(bearer.split(' ')[1]);
+
+        // Check if a customer ui bearer maps to the hashed bearer
+        const customer_id = this.getCustomerIdFromUiBearer(hashed_bearer);
+
+        let customer: Customer | null;
+        if (customer_id !== undefined) {
+            // Get customer from id
+            customer = await Customer.fromId(customer_id);
+        }
+        else {
+            // Get customer from bearer
+            customer = await Customer.fromBearer(hashed_bearer);
+        }
+
+        // Check if customer exists
+        if (!customer) {
+            throw new AuthenticationBearerError();
+        }
+
+        return customer;
+    }
+
+    async getUserFromBearer(bearer: string | undefined): Promise<User> {
+        // Check if bearer is missing
+        if (!bearer || !bearer.startsWith('Bearer ')) {
+            throw new AuthenticationBearerError();
+        }
+
+        // Get hashed bearer
+        const hashed_bearer = utils.hash_string(bearer.split(' ')[1]);
+
+        // Get user id from ui bearers
+        const user_id = this.getUserIdFromUiBearer(hashed_bearer);
+
+        // If the bearer is not mapped to a user
+        if(user_id === undefined) {
+            throw new AuthenticationBearerError();
+        }
+
+        // Get user from id
+        const user = await User.fromId(user_id);
+
+        // Check if user exists
+        if (!user) {
+            throw new AuthenticationBearerError();
+        }
+
+        return user;
     }
 }
