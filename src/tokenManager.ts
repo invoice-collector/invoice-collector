@@ -396,10 +396,10 @@ export class TokenManager {
             throw new AuthenticationBearerError();
         }
 
-        // Get hashed bearer
+        // Extract raw bearer
         const raw_bearer = bearer.split(' ')[1];
 
-        // Check if a customer ui bearer maps to the hashed bearer
+        // Check if a customer ui bearer maps to the bearer
         const customer_id = this.getCustomerIdFromUiBearer(raw_bearer);
 
         let customer: Customer | null;
@@ -431,7 +431,7 @@ export class TokenManager {
             throw new AuthenticationBearerError();
         }
 
-        // Get hashed bearer
+        // Extract raw bearer
         const raw_bearer = bearer.split(' ')[1];
 
         // Get user id from ui bearers
