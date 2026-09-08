@@ -7,9 +7,9 @@ import { Customer } from './model/customer';
 // Maps ephemeral tokens/bearers to Customers, Users or Credentials
 export class TokenManager {
 
-    static OAUTH_TOKEN_VALIDITY_DURATION_MS = Number(utils.getEnvVar('OAUTH_TOKEN_VALIDITY_DURATION_MS', '1800000'));                   // 30 minutes in milliseconds
-    static RESET_PASSWORD_TOKEN_VALIDITY_DURATION_MS = Number(utils.getEnvVar('RESET_PASSWORD_TOKEN_VALIDITY_DURATION_MS', '3600000')); // 1 hour in milliseconds
     static UI_BEARER_VALIDITY_DURATION_MS = Number(utils.getEnvVar('UI_BEARER_VALIDITY_DURATION_MS', '3600000'));                       // 1 hour in milliseconds
+    static RESET_PASSWORD_TOKEN_VALIDITY_DURATION_MS = Number(utils.getEnvVar('RESET_PASSWORD_TOKEN_VALIDITY_DURATION_MS', '3600000')); // 1 hour in milliseconds
+    static OAUTH_TOKEN_VALIDITY_DURATION_MS = Number(utils.getEnvVar('OAUTH_TOKEN_VALIDITY_DURATION_MS', '1800000'));                   // 30 minutes in milliseconds
 
     private customerUiBearers: { [key: string]: string };
     private customerResetTokens: { [key: string]: string };
@@ -22,9 +22,9 @@ export class TokenManager {
         this.customerUiBearers = {};
         this.customerResetTokens = {};
         this.userUiBearers = {};
+        this.userResetTokens = {};
         this.userUiTokens = {};
         this.credentialOauth2States = {};
-        this.userResetTokens = {};
     }
 
     // ---------- CUSTOMER UI BEARER ----------
