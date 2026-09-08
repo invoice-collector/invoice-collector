@@ -14,9 +14,9 @@ export class TokenManager {
     private customerUiBearers: { [key: string]: string };
     private customerResetTokens: { [key: string]: string };
     private userUiBearers: { [key: string]: string };
-    private userUiTokens: { [key: string]: User };
-    private credentialOauth2States: { [key: string]: Credential };
     private userResetTokens: { [key: string]: string };
+    private userUiTokens: { [key: string]: string };
+    private credentialOauth2States: { [key: string]: string };
 
     constructor() {
         this.customerUiBearers = {};
@@ -51,30 +51,6 @@ export class TokenManager {
         return this.customerUiBearers[hashedBearer];
     }
 
-    // ---------- USER UI BEARER ----------
-
-    public createUserUiBearer(userId: string): string {
-        // Generate session bearer token
-        const bearer = utils.generate_bearer(utils.BearerType.USER_SESSION);
-
-        // Compute hashed bearer
-        const hashedBearer = utils.hash_string(bearer);
-
-        // Map bearer token with user
-        this.userUiBearers[hashedBearer] = userId;
-
-        // Schedule token delete after validity duration
-        setTimeout(() => {
-            delete this.userUiBearers[hashedBearer];
-        }, TokenManager.UI_BEARER_VALIDITY_DURATION_MS);
-
-        return bearer;
-    }
-
-    public getUserIdFromUiBearer(hashedBearer: string): string | undefined {
-        return this.userUiBearers[hashedBearer];
-    }
-
     // ---------- CUSTOMER RESET TOKEN ----------
 
     public createCustomerResetToken(customerId: string): string {
@@ -98,6 +74,30 @@ export class TokenManager {
 
     public deleteCustomerResetToken(resetToken: string): void {
         delete this.customerResetTokens[resetToken];
+    }
+
+    // ---------- USER UI BEARER ----------
+
+    public createUserUiBearer(userId: string): string {
+        // Generate session bearer token
+        const bearer = utils.generate_bearer(utils.BearerType.USER_SESSION);
+
+        // Compute hashed bearer
+        const hashedBearer = utils.hash_string(bearer);
+
+        // Map bearer token with user
+        this.userUiBearers[hashedBearer] = userId;
+
+        // Schedule token delete after validity duration
+        setTimeout(() => {
+            delete this.userUiBearers[hashedBearer];
+        }, TokenManager.UI_BEARER_VALIDITY_DURATION_MS);
+
+        return bearer;
+    }
+
+    public getUserIdFromUiBearer(hashedBearer: string): string | undefined {
+        return this.userUiBearers[hashedBearer];
     }
 
     // ---------- USER RESET TOKEN ----------
@@ -127,12 +127,12 @@ export class TokenManager {
 
     // ---------- USER UI TOKEN ----------
 
-    public createUserUiToken(user: User): string {
+    public createUserUiToken(userId: string): string {
         // Generate ui token
         const uiToken = utils.generate_token();
 
         // Map token with user
-        this.userUiTokens[uiToken] = user;
+        this.userUiTokens[uiToken] = userId;
 
         // Schedule token delete after validity duration
         setTimeout(() => {
@@ -142,18 +142,27 @@ export class TokenManager {
         return uiToken;
     }
 
-    public getUserFromUiToken(uiToken: any): User {
+    public async getUserFromUiToken(uiToken: any): Promise<User> {
         // Check if token is missing or incorrect
         if (!uiToken || typeof uiToken !== 'string' || !this.userUiTokens.hasOwnProperty(uiToken)) {
             throw new OauthError();
         }
-        return this.userUiTokens[uiToken];
+        // Get user id from token
+        const userId = this.userUiTokens[uiToken];
+        // Get user from id
+        const user = await User.fromId(userId);
+        // Check if user exists
+        if (!user) {
+            throw new OauthError();
+        }
+        // Return user
+        return user;
     }
 
     public deleteUserUiTokensForUser(userId: string): void {
         // Delete every ui token mapped to this user
         for (const uiToken in this.userUiTokens) {
-            if (this.userUiTokens[uiToken].id === userId) {
+            if (this.userUiTokens[uiToken] === userId) {
                 delete this.userUiTokens[uiToken];
             }
         }
@@ -161,12 +170,12 @@ export class TokenManager {
 
     // ---------- CREDENTIAL OAUTH2 STATE ----------
 
-    public createCredentialOauth2State(credential: Credential): string {
+    public createCredentialOauth2State(credentialId: string): string {
         // Generate oauth2 state
         const oauth2State = utils.generate_token();
 
         // Map state with credential
-        this.credentialOauth2States[oauth2State] = credential;
+        this.credentialOauth2States[oauth2State] = credentialId;
 
         // Schedule state delete after validity duration
         setTimeout(() => {
@@ -176,12 +185,21 @@ export class TokenManager {
         return oauth2State;
     }
 
-    public getCredentialFromOauth2State(oauth2State: any): Credential {
+    public async getCredentialFromOauth2State(oauth2State: any): Promise<Credential> {
         // Check if state is missing or incorrect
         if (!oauth2State || typeof oauth2State !== 'string' || !this.credentialOauth2States.hasOwnProperty(oauth2State)) {
             throw new OauthError();
         }
-        return this.credentialOauth2States[oauth2State];
+        // Get credential id from state
+        const credentialId = this.credentialOauth2States[oauth2State];
+        // Get credential from id
+        const credential = await Credential.fromId(credentialId);
+        // If the credential does not exist, throw an error
+        if (!credential) {
+            throw new OauthError();
+        }
+        // Return credential
+        return credential;
     }
 
     // ---------- OTHER METHODS ----------
@@ -189,7 +207,7 @@ export class TokenManager {
     async getCustomerFromBearerOrToken(bearer: string | undefined, token: any): Promise<Customer> {
         if (token) {
             // Get user from token
-            const user = this.getUserFromUiToken(token);
+            const user = await this.getUserFromUiToken(token);
             // Get customer from user
             return await user.getCustomer();
         }

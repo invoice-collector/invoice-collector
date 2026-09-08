@@ -1,7 +1,7 @@
 import { DatabaseFactory } from './database/databaseFactory';
 import { Secret } from './model/secret';
 import { SecretManagerFactory } from './secret_manager/secretManagerFactory';
-import { MissingField, MissingParams, StatusError, AuthenticationBearerError } from './error';
+import { MissingField, MissingParams, StatusError } from './error';
 import { CollectorLoader } from './collectors/collectorLoader';
 import { User, UserStats } from './model/user';
 import { Customer, CustomerAuthenticationMethod, CustomerStats } from './model/customer';
@@ -103,7 +103,7 @@ export class Server {
         theme: string
     }> {
         // Get user from token
-        const user = this.tokenManager.getUserFromUiToken(token);
+        const user = await this.tokenManager.getUserFromUiToken(token);
 
         // Get customer from user
         const customer = await user.getCustomer();
@@ -722,7 +722,7 @@ export class Server {
         await user.commit();
 
         // Generate UI token
-        const uiToken = this.tokenManager.createUserUiToken(user);
+        const uiToken = this.tokenManager.createUserUiToken(user.id);
 
         // Get user stats
         const stats = await user.getStats();
@@ -767,7 +767,7 @@ export class Server {
         const customer = await user.getCustomer();
 
         // Generate UI token
-        const uiToken = this.tokenManager.createUserUiToken(user);
+        const uiToken = this.tokenManager.createUserUiToken(user.id);
 
         // Get user stats
         const stats = await user.getStats();
@@ -1080,7 +1080,7 @@ export class Server {
         await credential.commit();
 
         // Generate oauth2 state from credential
-        const oauth2State = this.tokenManager.createCredentialOauth2State(credential);
+        const oauth2State = this.tokenManager.createCredentialOauth2State(credential.id);
 
         // Start web socket server and get token
         const webSocketServer = new WebSocketServer(this.httpServer, user.locale, collector, oauth2State);
@@ -1279,7 +1279,7 @@ export class Server {
         theme: string
     }> {
         // Get credential from oauth2 state
-        const credential = this.tokenManager.getCredentialFromOauth2State(oauth2State);
+        const credential = await this.tokenManager.getCredentialFromOauth2State(oauth2State);
 
         // Get user from credential
         const user = await credential.getUser();
@@ -1346,7 +1346,7 @@ export class Server {
             AbstractCollector.updateCollectorParams(customer.authenticationMethod, collector.config);
 
             // Generate oauth2 state from credential
-            const oauth2State = this.tokenManager.createCredentialOauth2State(credential);
+            const oauth2State = this.tokenManager.createCredentialOauth2State(credential.id);
 
             // Start web socket server and get token
             const webSocketServer = new WebSocketServer(this.httpServer, user.locale, collector, oauth2State);
