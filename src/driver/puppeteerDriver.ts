@@ -602,6 +602,9 @@ export class PuppeteerDriver extends AbstractDriver {
             throw new Error('Page is not initialized.');
         }
 
+        // Guard against SSRF: reject links resolving to internal/private/non-HTTPS targets
+        await utils.assertPublicHttpsUrl(url);
+
         // Get downloaded files and remove all files in the download folder
         await this.browser?.getDownloadedFiles(true);
 

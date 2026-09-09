@@ -6,6 +6,7 @@ import { WebSocketServer } from '../websocket/webSocketServer';
 import { Element } from '../driver/element';
 import { Credential, ModelInvoice } from '../model/credential';
 import { CustomerAuthenticationMethod } from '../model/customer';
+import * as utils from '../utils';
 
 export enum CollectorState {
     PLANNED = 'planned',
@@ -165,6 +166,10 @@ export abstract class AbstractCollector<C extends Config> {
         if (!invoice.link) {
             throw new Error('Field `link` is missing in the invoice object.');
         }
+
+        // Guard against SSRF: reject links resolving to internal/private/non-HTTPS targets
+        await utils.assertPublicHttpsUrl(invoice.link);
+
         const response = await axios.get(invoice.link, {
             responseType: 'arraybuffer',
         });
