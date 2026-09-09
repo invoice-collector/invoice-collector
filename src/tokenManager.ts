@@ -74,6 +74,18 @@ export class TokenManager {
         return this.customerUiBearers[utils.hash_string(bearer)];
     }
 
+    /**
+     * Deletes every UI bearer mapped to a given customer, e.g. after a password reset.
+     * @param customerId The id of the customer whose bearers should be invalidated.
+     */
+    public deleteCustomerUiBearersForCustomer(customerId: string): void {
+        for (const bearer in this.customerUiBearers) {
+            if (this.customerUiBearers[bearer] === customerId) {
+                delete this.customerUiBearers[bearer];
+            }
+        }
+    }
+
     // ---------- CUSTOMER RESET TOKEN ----------
 
     /**
@@ -152,6 +164,18 @@ export class TokenManager {
      */
     public getUserIdFromUiBearer(bearer: string): string | undefined {
         return this.userUiBearers[utils.hash_string(bearer)];
+    }
+
+    /**
+     * Deletes every UI bearer mapped to a given user, e.g. after a password reset.
+     * @param userId The id of the user whose bearers should be invalidated.
+     */
+    public deleteUserUiBearersForUser(userId: string): void {
+        for (const bearer in this.userUiBearers) {
+            if (this.userUiBearers[bearer] === userId) {
+                delete this.userUiBearers[bearer];
+            }
+        }
     }
 
     // ---------- USER RESET TOKEN ----------
@@ -319,6 +343,9 @@ export class TokenManager {
 
         // Get credential id from state
         const credentialId = this.credentialOauth2States[hashedOauth2State];
+
+        // Delete state immediately so it cannot be replayed
+        delete this.credentialOauth2States[hashedOauth2State];
 
         // Get credential from id
         const credential = await Credential.fromId(credentialId);

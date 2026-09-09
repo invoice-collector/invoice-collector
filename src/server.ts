@@ -375,6 +375,9 @@ export class Server {
 
             // Delete customer reset token
             this.tokenManager.deleteCustomerResetToken(resetToken);
+
+            // Revoke existing sessions so a leaked/compromised bearer can't survive a password reset
+            this.tokenManager.deleteCustomerUiBearersForCustomer(customerId);
         }
         // If reset token belongs to a user
         else {
@@ -399,6 +402,9 @@ export class Server {
 
                 // Delete user reset token
                 this.tokenManager.deleteUserResetToken(resetToken);
+
+                // Revoke existing sessions so a leaked/compromised bearer can't survive a password reset
+                this.tokenManager.deleteUserUiBearersForUser(userId);
             }
             else {
                 throw new StatusError('Invalid reset token. Your reset link probably expired.', 401);
