@@ -1107,7 +1107,7 @@ export class Server {
         // Register collect in progress
         CollectPool.getInstance().registerCollect(credential.id, collect);
 
-        // Do not wait for promise to resolve
+        // Start the collect and do not wait for promise to resolve
         collect.start().catch((err) => {
             console.error(`Collect for credential ${credential.id} has failed`);
             console.error(err);
@@ -1346,34 +1346,31 @@ export class Server {
             throw new StatusError(`Credential with id "${credential_id}" does not belong to user.`, 403);
         }
 
-        let collect = CollectPool.getInstance().get(credential.id);
-        let wsPath: string | null;
+        // Get collector from id
+        const collector = await CollectorLoader.get(credential.collector_id);
 
-        // If no collect in progress, start a new one
-        if (collect === undefined) {
-            // Get collector from id
-            const collector = await CollectorLoader.get(credential.collector_id);
+        // Get customer from user
+        const customer = await user.getCustomer();
 
-            // Get customer from user
-            const customer = await user.getCustomer();
+        // Update collector params based on customer settings
+        AbstractCollector.updateCollectorParams(customer.authenticationMethod, collector.config);
 
-            // Update collector params based on customer settings
-            AbstractCollector.updateCollectorParams(customer.authenticationMethod, collector.config);
+        // Generate oauth2 state from credential
+        const oauth2State = this.tokenManager.createCredentialOauth2State(credential.id);
 
-            // Generate oauth2 state from credential
-            const oauth2State = this.tokenManager.createCredentialOauth2State(credential.id);
+        // Start web socket server and get token
+        const webSocketServer = new WebSocketServer(this.httpServer, user.locale, collector, oauth2State);
+        let wsPath: string | null = webSocketServer.start();
 
-            // Start web socket server and get token
-            const webSocketServer = new WebSocketServer(this.httpServer, user.locale, collector, oauth2State);
-            wsPath = webSocketServer.start();
+        // Create a new collect
+        const collect = new Collect(credential.id, webSocketServer);
 
-            // Start collect
-            collect = new Collect(credential.id, webSocketServer);
+        // Register collect in progress before starting it.
+        const registrationResult = CollectPool.getInstance().registerCollect(credential.id, collect);
 
-            // Register collect in progress
-            CollectPool.getInstance().registerCollect(credential.id, collect);
-
-            // Do not wait for promise to resolve
+        // If the new collect was successfully registered
+        if (registrationResult.registered) {
+            // Start the collect and do not wait for promise to resolve
             collect.start().catch((err) => {
                 console.error(`Collect for credential ${credential.id} has failed`);
                 console.error(err);
@@ -1387,7 +1384,7 @@ export class Server {
         }
         else {
             // If collect in progress, return existing wsPath
-            wsPath = collect.webSocketServer?.path || null;
+            wsPath = registrationResult.collect.webSocketServer?.path || null;
         }
 
         return {
