@@ -3,6 +3,7 @@ import { AuthenticationError, LoggableError } from '../../../error';
 import { CollectorAuthenticationMethod, CollectorState, CollectorType } from '../../abstractCollector';
 import { DownloadedEmailInvoice, EmailInvoice, EmailInvoiceWildcards, EmailProvider, EmailProviderConfig } from '../../emailProvider';
 import * as utils from '../../../utils';
+import { WebSocketServer } from '../../../websocket/webSocketServer';
 
 const MAILBOX_TO_IGNORE = [
     'sent',
@@ -68,7 +69,7 @@ export class ImapCollector extends EmailProvider {
 
     private client: ImapFlow | null;
 
-    async authenticate(params: any): Promise<void> {
+    async authenticate(params: any, webSocketServer?: WebSocketServer): Promise<void> {
         const host = params.host as string;
         const username = params.username as string;
         const password = params.password as string;

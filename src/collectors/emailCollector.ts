@@ -63,7 +63,7 @@ export abstract class EmailCollector extends V2Collector<EmailCollectorConfig> {
 
                 try {
                     // Authenticate to open the underlying mailbox connection
-                    await emailProvider.authenticate(await providerSecret.getParams());
+                    await emailProvider.authenticate(await providerSecret.getParams(), undefined);
                 } catch (error) {
                     continue;
                 }

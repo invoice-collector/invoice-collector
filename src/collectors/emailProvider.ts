@@ -53,7 +53,7 @@ export abstract class EmailProvider extends V2Collector<EmailProviderConfig> {
         state.update(State._2_LOGGING_IN);
         webSocketServer?.sendState(State._2_LOGGING_IN);
     
-        await this.authenticate(await secret.getParams());
+        await this.authenticate(await secret.getParams(), webSocketServer);
 
         // Set progress step to collecting
         state.update(State._5_COLLECTING);
@@ -63,7 +63,8 @@ export abstract class EmailProvider extends V2Collector<EmailProviderConfig> {
         return [];
     }
 
-    abstract authenticate(params: any): Promise<void>;
+    // webSocketServer is only needed by OAuth2 based providers to request an interactive authorization code
+    abstract authenticate(params: any, webSocketServer?: WebSocketServer): Promise<void>;
 
     // Find emails matching the given wildcards, on the mailbox connection opened by authenticate()
     abstract getInvoices(wildcards: EmailInvoiceWildcards, download_from_timestamp: number): Promise<EmailInvoice[]>;
