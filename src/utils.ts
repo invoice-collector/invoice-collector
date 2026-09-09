@@ -165,6 +165,23 @@ export async function assertPublicHttpsUrl(rawUrl: string): Promise<void> {
     }
 }
 
+// Per-key serialization to close TOCTOU gaps around check-then-act operations (e.g. plan quota checks)
+const keyLocks = new Map<string, Promise<unknown>>();
+
+/**
+ * Runs `fn` exclusively with respect to any other call sharing the same `key`, serializing
+ * concurrent invocations so check-then-act sequences (e.g. quota checks) can't race each other.
+ * @param key The lock key. Calls with different keys run concurrently.
+ * @param fn The function to run once the lock for `key` is acquired.
+ */
+export async function withLock<T>(key: string, fn: () => Promise<T>): Promise<T> {
+    const previous = keyLocks.get(key) ?? Promise.resolve();
+    const run = previous.then(fn, fn);
+    // Swallow errors here so the chain never gets stuck; the real error still propagates via `run`
+    keyLocks.set(key, run.catch(() => undefined));
+    return run;
+}
+
 /**
  * Wait for a specified number of milliseconds.
  * @param ms The number of milliseconds to wait. Does not wait if ms is 0.

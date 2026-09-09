@@ -671,49 +671,55 @@ export class Server {
             throw new StatusError('A customer with this email already exists.', 400);
         }
 
-        // Get user from remote_id
-        let user = await customer.getUserFromRemoteId(remote_id);
+        // Check the user quota atomically to close a TOCTOU race that
+        // would otherwise let concurrent requests bypass the plan's user limit
+        const user = await utils.withLock(`user-quota-${customer.id}`, async () => {
+            // Get user from remote_id
+            let user = await customer.getUserFromRemoteId(remote_id);
 
-        // If user does not exist, create it
-        if(!user) {
-            // Check if customer can add more users
-            const canAddUser = await customer.canAddUser();
+            // If user does not exist, create it
+            if(!user) {
+                // Check if customer can add more users
+                const canAddUser = await customer.canAddUser();
 
-            // If customer cannot add more users, throw an error
-            if (!canAddUser) {
-                throw new StatusError(`User limit reached. Max users: ${customer.plan.maxUsers}`, 403);
+                // If customer cannot add more users, throw an error
+                if (!canAddUser) {
+                    throw new StatusError(`User limit reached. Max users: ${customer.plan.maxUsers}`, 403);
+                }
+
+                // Get user location
+                const location = await ProxyFactory.getProxy().locate(ip);
+                // Create user
+                user = new User(
+                    customer.id,
+                    remote_id,
+                    User.DEFAULT_PASSWORD,
+                    User.DEFAULT_NAME,
+                    User.DEFAULT_CID,
+                    location,
+                    locale,
+                    Date.now(),
+                );
             }
+            else {
+                // Update user locale
+                user.locale = locale;
 
-            // Get user location
-            const location = await ProxyFactory.getProxy().locate(ip);
-            // Create user
-            user = new User(
-                customer.id,
-                remote_id,
-                User.DEFAULT_PASSWORD,
-                User.DEFAULT_NAME,
-                User.DEFAULT_CID,
-                location,
-                locale,
-                Date.now(),
-            );
-        }
-        else {
-            // Update user locale
-            user.locale = locale;
-            
-            // If user location is unknown
-            if (user.location === null) {
-                // Update user with location
-                user.location = await ProxyFactory.getProxy().locate(ip);
-                if (user.location !== null) {
-                    await user.commit();
+                // If user location is unknown
+                if (user.location === null) {
+                    // Update user with location
+                    user.location = await ProxyFactory.getProxy().locate(ip);
+                    if (user.location !== null) {
+                        await user.commit();
+                    }
                 }
             }
-        }
 
-        // Commit changes in database
-        await user.commit();
+            // Commit changes in database
+            await user.commit();
+
+            return user;
+        });
 
         // Generate UI token
         const uiToken = this.tokenManager.createUserUiToken(user.id);
@@ -1047,40 +1053,46 @@ export class Server {
             );
         }
 
-        // Check if customer can add more credentials
-        const canAddCredential = await customer.canAddCredential();
+        // Check quota and create the credential atomically to close a TOCTOU race that would
+        // otherwise let concurrent requests bypass the plan's credential limit
+        const credential = await utils.withLock(`credential-quota-${customer.id}`, async () => {
+            // Check if customer can add more credentials
+            const canAddCredential = await customer.canAddCredential();
 
-        // If customer cannot add more credentials, throw an error
-        if (!canAddCredential) {
-            throw new StatusError(`Credential limit reached. Max credentials: ${customer.plan.maxCredentials}`, 403);
-        }
+            // If customer cannot add more credentials, throw an error
+            if (!canAddCredential) {
+                throw new StatusError(`Credential limit reached. Max credentials: ${customer.plan.maxCredentials}`, 403);
+            }
 
-        // Create secret
-        const secret = new Secret(`${user.id}_${collector.config.id}`, {
-            params,
-            cookies: null,
-            localStorage: null,
+            // Create secret
+            const secret = new Secret(`${user.id}_${collector.config.id}`, {
+                params,
+                cookies: null,
+                localStorage: null,
+            });
+
+            // Create secret in Secure Storage
+            await secret.commit();
+
+            // Create credential
+            const now = Date.now();
+            const credential = new Credential(
+                user.id,
+                collector.config.id,
+                note,
+                secret.id,
+                now,
+                download_from_timestamp ?? now,
+            );
+
+            // Compute next collect
+            credential.computeNextCollect(customer.maxDelayBetweenCollect);
+
+            // Create credential in database
+            await credential.commit();
+
+            return credential;
         });
-
-        // Create secret in Secure Storage
-        await secret.commit();
-
-        // Create credential
-        const now = Date.now();
-        const credential = new Credential(
-            user.id,
-            collector.config.id,
-            note,
-            secret.id,
-            now,
-            download_from_timestamp ?? now,
-        );
-
-        // Compute next collect
-        credential.computeNextCollect(customer.maxDelayBetweenCollect);
-
-        // Create credential in database
-        await credential.commit();
 
         // Generate oauth2 state from credential
         const oauth2State = this.tokenManager.createCredentialOauth2State(credential.id);
