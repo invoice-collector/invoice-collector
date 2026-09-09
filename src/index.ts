@@ -1405,8 +1405,8 @@ app.get('/api/v1/user/:user_id/credential/:credential_id', async (req, res) => {
 app.get('/api/v1/credential/:credential_id', async (req, res) => {
     try {
         markDeprecated(res);
-        console.warn('GET credential (DEPRECATED, use GET /user/{userId}/credential/{credentialId} with userId "me" instead)');
         // Get credential status
+        console.warn('GET credential (DEPRECATED, use GET /user/{userId}/credential/{credentialId} with userId "me" instead)');
         const response = await server.get_credential(
             req.headers.authorization,
             'me',

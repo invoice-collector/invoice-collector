@@ -280,7 +280,6 @@ export class Server {
 
             // Handle password reset for user
             await this.handleUserResetPassword(user);
-            return;
         }
         else {
             // Create new customer
