@@ -2273,7 +2273,9 @@ app.get('/api/v1/callback/:callbackId/test/:type', creationRateLimiter, async (r
  * @swagger
  * /api/v1/integrations:
  *   get:
+ *     tags: [General]
  *     summary: List integrations
+ *     description: Returns all available integrations.
  *     parameters:
  *       - in: query
  *         name: locale
@@ -2291,12 +2293,6 @@ app.get('/api/v1/callback/:callbackId/test/:type', creationRateLimiter, async (r
  *                 $ref: '#/components/schemas/integration'
  *       400:
  *         description: Bad request
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/error'
- *       429:
- *         description: Too many requests
  *         content:
  *           application/json:
  *             schema:

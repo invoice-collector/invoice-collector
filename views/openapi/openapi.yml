@@ -2238,7 +2238,10 @@ paths:
                   description: Error
   /api/v1/integrations:
     get:
+      tags:
+        - General
       summary: List integrations
+      description: Returns all available integrations.
       parameters:
         - in: query
           name: locale
@@ -2256,12 +2259,6 @@ paths:
                   $ref: "#/components/schemas/integration"
         "400":
           description: Bad request
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/error"
-        "429":
-          description: Too many requests
           content:
             application/json:
               schema:
