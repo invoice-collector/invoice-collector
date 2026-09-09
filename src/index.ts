@@ -484,6 +484,12 @@ app.post('/api/v1/forgot', authRateLimiter, async (req, res) => {
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/error'
+ *       429:
+ *         description: Too many requests
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
  *       500:
  *         description: Internal server error
  *         content:
@@ -528,6 +534,12 @@ app.post('/api/v1/reset', authRateLimiter, async (req, res) => {
  *               $ref: '#/components/schemas/customer'
  *       401:
  *         description: Authentication error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       429:
+ *         description: Too many requests
  *         content:
  *           application/json:
  *             schema:
@@ -601,6 +613,12 @@ app.get('/api/v1/customer', async (req, res) => {
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/error'
+ *       429:
+ *         description: Too many requests
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
  *       500:
  *         description: Internal server error
  *         content:
@@ -655,6 +673,12 @@ app.put('/api/v1/customer', async (req, res) => {
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/error'
+ *       429:
+ *         description: Too many requests
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
  *       500:
  *         description: Internal server error
  *         content:
@@ -698,6 +722,12 @@ app.post('/api/v1/customer/bearer', async (req, res) => {
  *               $ref: '#/components/schemas/customerStats'
  *       401:
  *         description: Authentication error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       429:
+ *         description: Too many requests
  *         content:
  *           application/json:
  *             schema:
@@ -746,6 +776,12 @@ app.get('/api/v1/customer/stats', async (req, res) => {
  *               $ref: '#/components/schemas/userListItem'
  *       401:
  *         description: Authentication error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       429:
+ *         description: Too many requests
  *         content:
  *           application/json:
  *             schema:
@@ -822,6 +858,12 @@ app.get('/api/v1/users', async (req, res) => {
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/error'
+ *       429:
+ *         description: Too many requests
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
  *       500:
  *         description: Internal server error
  *         content:
@@ -880,6 +922,12 @@ app.post('/api/v1/user', creationRateLimiter, async (req, res) => {
  *               $ref: '#/components/schemas/error'
  *       401:
  *         description: Authentication error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       429:
+ *         description: Too many requests
  *         content:
  *           application/json:
  *             schema:
@@ -978,6 +1026,12 @@ app.get('/api/v1/user', async (req, res) => {
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/error'
+ *       429:
+ *         description: Too many requests
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
  *       500:
  *         description: Internal server error
  *         content:
@@ -1037,6 +1091,12 @@ app.put('/api/v1/user/:userId', async (req, res) => {
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/error'
+ *       429:
+ *         description: Too many requests
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
  *       500:
  *         description: Internal server error
  *         content:
@@ -1089,6 +1149,12 @@ app.delete('/api/v1/user/:user_id', async (req, res) => {
  *               $ref: '#/components/schemas/credentials'
  *       401:
  *         description: Authentication error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       429:
+ *         description: Too many requests
  *         content:
  *           application/json:
  *             schema:
@@ -1197,6 +1263,12 @@ app.get('/api/v1/credentials', async (req, res) => {
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/error'
+ *       429:
+ *         description: Too many requests
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
  *       500:
  *         description: Internal server error
  *         content:
@@ -1296,6 +1368,12 @@ app.post('/api/v1/credential', creationRateLimiter, async (req, res) => {
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/error'
+ *       429:
+ *         description: Too many requests
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
  *       500:
  *         description: Internal server error
  *         content:
@@ -1383,6 +1461,12 @@ app.get('/api/v1/credential/:credential_id', async (req, res) => {
  *               $ref: '#/components/schemas/error'
  *       403:
  *         description: Credential does not belong to user
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       429:
+ *         description: Too many requests
  *         content:
  *           application/json:
  *             schema:
@@ -1487,6 +1571,12 @@ app.delete('/api/v1/credential/:credential_id', async (req, res) => {
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/error'
+ *       429:
+ *         description: Too many requests
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
  *       500:
  *         description: Internal server error
  *         content:
@@ -1564,6 +1654,12 @@ app.post('/api/v1/credential/:credential_id/2fa', twofaRateLimiter, async (req, 
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/error'
+ *       429:
+ *         description: Too many requests
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
  *       500:
  *         description: Internal server error
  *         content:
@@ -1634,6 +1730,12 @@ app.get('/api/v1/oauth2', async (req, res) => {
  *               $ref: '#/components/schemas/error'
  *       403:
  *         description: Credential does not belong to user
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       429:
+ *         description: Too many requests
  *         content:
  *           application/json:
  *             schema:
@@ -1727,6 +1829,12 @@ app.post('/api/v1/credential/:credential_id/collect', async (req, res) => {
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/error'
+ *       429:
+ *         description: Too many requests
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
  *       500:
  *         description: Internal server error
  *         content:
@@ -1781,6 +1889,12 @@ app.get('/api/v1/collectors', async (req, res) => {
  *               $ref: '#/components/schemas/error'
  *       401:
  *         description: Authentication error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       429:
+ *         description: Too many requests
  *         content:
  *           application/json:
  *             schema:
@@ -1844,6 +1958,12 @@ app.get('/api/v1/callbacks', async (req, res) => {
  *               $ref: '#/components/schemas/error'
  *       401:
  *         description: Authentication error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       429:
+ *         description: Too many requests
  *         content:
  *           application/json:
  *             schema:
@@ -1925,6 +2045,12 @@ app.post('/api/v1/callback', creationRateLimiter, async (req, res) => {
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/error'
+ *       429:
+ *         description: Too many requests
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
  *       500:
  *         description: Internal server error
  *         content:
@@ -1977,6 +2103,12 @@ app.put('/api/v1/callback/:callbackId', async (req, res) => {
  *               $ref: '#/components/schemas/error'
  *       401:
  *         description: Authentication error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       429:
+ *         description: Too many requests
  *         content:
  *           application/json:
  *             schema:
@@ -2038,6 +2170,12 @@ app.delete('/api/v1/callback/:callbackId', async (req, res) => {
  *               $ref: '#/components/schemas/error'
  *       401:
  *         description: Authentication error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       429:
+ *         description: Too many requests
  *         content:
  *           application/json:
  *             schema:
@@ -2153,6 +2291,12 @@ app.get('/api/v1/callback/:callbackId/test/:type', creationRateLimiter, async (r
  *                 $ref: '#/components/schemas/integration'
  *       400:
  *         description: Bad request
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       429:
+ *         description: Too many requests
  *         content:
  *           application/json:
  *             schema:

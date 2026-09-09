@@ -680,18 +680,28 @@ components:
                 type: string
                 description: Type of the parameter.
                 enum:
-                  - text
-                  - password
-                  - url
-                example: text
-              description:
+                  - string
+                  - number
+                  - boolean
+                  - enum
+                example: string
+              name:
                 type: string
-                description: Description of the parameter.
-                example: This is a parameter.
+                description: Name of the parameter.
+                example: Email
+              placeholder:
+                type: string
+                description: Placeholder of the parameter.
+                example: Email of the account
               mandatory:
                 type: boolean
-                description: Indicates if the parameter is mandatory.
+                description: Whether the parameter is mandatory or not.
                 example: true
+            required:
+              - type
+              - name
+              - placeholder
+              - mandatory
       required:
         - id
         - name
@@ -1072,6 +1082,12 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/error"
+        "429":
+          description: Too many requests
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/error"
         "500":
           description: Internal server error
           content:
@@ -1095,6 +1111,12 @@ paths:
                 $ref: "#/components/schemas/customer"
         "401":
           description: Authentication error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/error"
+        "429":
+          description: Too many requests
           content:
             application/json:
               schema:
@@ -1148,6 +1170,12 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/error"
+        "429":
+          description: Too many requests
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/error"
         "500":
           description: Internal server error
           content:
@@ -1171,6 +1199,12 @@ paths:
                 $ref: "#/components/schemas/bearerResponse"
         "401":
           description: Authentication error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/error"
+        "429":
+          description: Too many requests
           content:
             application/json:
               schema:
@@ -1202,6 +1236,12 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/error"
+        "429":
+          description: Too many requests
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/error"
         "500":
           description: Internal server error
           content:
@@ -1225,6 +1265,12 @@ paths:
                 $ref: "#/components/schemas/userListItem"
         "401":
           description: Authentication error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/error"
+        "429":
+          description: Too many requests
           content:
             application/json:
               schema:
@@ -1285,6 +1331,12 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/error"
+        "429":
+          description: Too many requests
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/error"
         "500":
           description: Internal server error
           content:
@@ -1321,6 +1373,12 @@ paths:
                 $ref: "#/components/schemas/error"
         "401":
           description: Authentication error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/error"
+        "429":
+          description: Too many requests
           content:
             application/json:
               schema:
@@ -1379,6 +1437,12 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/error"
+        "429":
+          description: Too many requests
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/error"
         "500":
           description: Internal server error
           content:
@@ -1409,6 +1473,12 @@ paths:
                 $ref: "#/components/schemas/error"
         "401":
           description: Authentication error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/error"
+        "429":
+          description: Too many requests
           content:
             application/json:
               schema:
@@ -1444,6 +1514,12 @@ paths:
                 $ref: "#/components/schemas/credentials"
         "401":
           description: Authentication error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/error"
+        "429":
+          description: Too many requests
           content:
             application/json:
               schema:
@@ -1514,6 +1590,12 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/error"
+        "429":
+          description: Too many requests
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/error"
         "500":
           description: Internal server error
           content:
@@ -1566,6 +1648,12 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/error"
+        "429":
+          description: Too many requests
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/error"
         "500":
           description: Internal server error
           content:
@@ -1609,6 +1697,12 @@ paths:
                 $ref: "#/components/schemas/error"
         "403":
           description: Credential does not belong to user
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/error"
+        "429":
+          description: Too many requests
           content:
             application/json:
               schema:
@@ -1674,6 +1768,12 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/error"
+        "429":
+          description: Too many requests
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/error"
         "500":
           description: Internal server error
           content:
@@ -1703,6 +1803,12 @@ paths:
                 type: string
         "401":
           description: Authentication error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/error"
+        "429":
+          description: Too many requests
           content:
             application/json:
               schema:
@@ -1762,6 +1868,12 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/error"
+        "429":
+          description: Too many requests
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/error"
         "500":
           description: Internal server error
           content:
@@ -1808,6 +1920,12 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/error"
+        "429":
+          description: Too many requests
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/error"
         "500":
           description: Internal server error
           content:
@@ -1839,6 +1957,12 @@ paths:
                 $ref: "#/components/schemas/error"
         "401":
           description: Authentication error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/error"
+        "429":
+          description: Too many requests
           content:
             application/json:
               schema:
@@ -1883,6 +2007,12 @@ paths:
                 $ref: "#/components/schemas/error"
         "401":
           description: Authentication error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/error"
+        "429":
+          description: Too many requests
           content:
             application/json:
               schema:
@@ -1943,6 +2073,12 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/error"
+        "429":
+          description: Too many requests
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/error"
         "500":
           description: Internal server error
           content:
@@ -1975,6 +2111,12 @@ paths:
                 $ref: "#/components/schemas/error"
         "401":
           description: Authentication error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/error"
+        "429":
+          description: Too many requests
           content:
             application/json:
               schema:
@@ -2016,6 +2158,12 @@ paths:
                 $ref: "#/components/schemas/error"
         "401":
           description: Authentication error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/error"
+        "429":
+          description: Too many requests
           content:
             application/json:
               schema:
@@ -2088,3 +2236,39 @@ paths:
                   description: Success
                 "400":
                   description: Error
+  /api/v1/integrations:
+    get:
+      summary: List integrations
+      parameters:
+        - in: query
+          name: locale
+          schema:
+            type: string
+          description: Locale for the integrations
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/integration"
+        "400":
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/error"
+        "429":
+          description: Too many requests
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/error"
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/error"
