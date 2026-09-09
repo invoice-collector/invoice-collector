@@ -24,6 +24,8 @@ import { TokenManager } from './tokenManager';
 
 export class Server {
 
+    static MAX_CREDENTIAL_PARAMS_BYTES = 50 * 1024; // 50KB
+
     tokenManager: TokenManager;
     collectTask: CollectTask;
     httpServer: any;
@@ -994,6 +996,15 @@ export class Server {
         // Check if params field is missing
         if(!params) {
             throw new MissingField('params');
+        }
+
+        // Check if params is a plain object and not oversized (the global 100kb body limit already
+        // bounds this loosely; this gives a tighter, explicit cap on what gets stored as a secret)
+        if(typeof params !== 'object' || Array.isArray(params)) {
+            throw new StatusError('The field "params" must be an object.', 400);
+        }
+        if(JSON.stringify(params).length > Server.MAX_CREDENTIAL_PARAMS_BYTES) {
+            throw new StatusError(`The field "params" is too large. Max ${Server.MAX_CREDENTIAL_PARAMS_BYTES} bytes.`, 400);
         }
 
         // Check if download_from_timestamp is valid
