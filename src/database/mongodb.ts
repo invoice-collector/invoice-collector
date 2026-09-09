@@ -10,6 +10,20 @@ import { CollectorMemory } from '../model/collectorMemory';
 import { Actions } from '../model/actions';
 import { ActionV2 } from '../model/actionV2';
 import { Callback } from '../model/callback';
+import { StatusError } from '../error';
+
+// Rejects matcher values that are not primitives (e.g. `{ $ne: null }`), since a legitimate query
+// never needs an operator here. This is what prevents NoSQL injection through user-supplied fields.
+function assertSafeMatcher(matcher: Record<string, unknown>): void {
+    for (const [key, value] of Object.entries(matcher)) {
+        if (value instanceof ObjectId) {
+            continue;
+        }
+        if (typeof value !== 'string' && typeof value !== 'number' && typeof value !== 'boolean') {
+            throw new StatusError(`Invalid value for field "${key}".`, 400);
+        }
+    }
+}
 
 export class MongoDB extends AbstractDatabase {
 
@@ -113,7 +127,8 @@ export class MongoDB extends AbstractDatabase {
         return customer;
     }
 
-    private async getCustomerFromMatcher(matcher: object): Promise<Customer|null> {
+    private async getCustomerFromMatcher(matcher: Record<string, unknown>): Promise<Customer|null> {
+        assertSafeMatcher(matcher);
         const db = await this.ensureConnected();
         const document = await db.collection(MongoDB.CUSTOMER_COLLECTION).findOne(matcher);
         if (!document) {
@@ -149,7 +164,12 @@ export class MongoDB extends AbstractDatabase {
     }
 
     async getCustomerFromEmailAndPassword(email: string, password: string): Promise<Customer|null> {
-        return await this.getCustomerFromMatcher({ email, password });
+        // Fetch by email only, then verify the password against its per-customer salted hash
+        const customer = await this.getCustomerFromMatcher({ email });
+        if (!customer || !utils.verifyPassword(password, customer.password)) {
+            return null;
+        }
+        return customer;
     }
     
     async getCustomerFromInviteId(inviteId: string): Promise<Customer|null> {
@@ -278,7 +298,8 @@ export class MongoDB extends AbstractDatabase {
         });
     }
 
-    private async getUserFromMatcher(matcher: object): Promise<User|null> {
+    private async getUserFromMatcher(matcher: Record<string, unknown>): Promise<User|null> {
+        assertSafeMatcher(matcher);
         const db = await this.ensureConnected();
         const document = await db.collection(MongoDB.USER_COLLECTION).findOne(matcher);
         if (!document) {
@@ -307,10 +328,12 @@ export class MongoDB extends AbstractDatabase {
     }
 
     async getUserFromRemoteIdAndPassword(remoteId: string, password: string): Promise<User|null> {
-        return await this.getUserFromMatcher({
-            remote_id: remoteId,
-            password,
-        });
+        // Fetch by remote_id only, then verify the password against its per-user salted hash
+        const user = await this.getUserFromMatcher({ remote_id: remoteId });
+        if (!user || !utils.verifyPassword(password, user.password)) {
+            return null;
+        }
+        return user;
     }
 
     async getUserFromCustomerIdAndRemoteId(customer_id: string, remote_id: string): Promise<User|null> {

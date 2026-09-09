@@ -137,7 +137,7 @@ export class Customer {
         authenticationMethod: CustomerAuthenticationMethod = Customer.DEFAULT_AUTHENTICATION_METHOD,
         displaySketchCollectors: boolean = Customer.DEFAULT_DISPLAY_SKETCH_COLLECTORS,
         maxDelayBetweenCollect: number = Customer.DEFAULT_MAX_DELAY_BETWEEN_COLLECT,
-        plan: Plan = Server.IS_SELF_HOSTED ? Plan.FREE : Plan.TRIAL,
+        plan: Plan = utils.IS_SELF_HOSTED ? Plan.FREE : Plan.TRIAL,
     ) {
         this.id = '';
         this.email = email;
@@ -203,13 +203,13 @@ export class Customer {
     }
 
     async setSubscribedCollectors(collectors: string[]): Promise<void> {
-        // Order collectors alphabetically
-        collectors.sort();
-
         // Check if collectors is an array
         if (!Array.isArray(collectors)) {
             throw new StatusError('Collectors must be an array.', 400);
         }
+
+        // Order collectors alphabetically
+        collectors.sort();
 
         // Get existing collectors
         const valid_collectors = (await CollectorLoader.getAll()).map((config) => config.id);

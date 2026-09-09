@@ -17,8 +17,25 @@ export class CollectPool {
         this.collects = new Map();
     }
 
-    public registerCollect(id: string, collect: Collect): void {
+    /**
+     * Registers a collect only if none is already in progress for `id`.
+     * @returns Whether the collect was registered.
+     */
+    public registerCollect(id: string, collect: Collect): {
+        registered: boolean,
+        collect: Collect
+    } {
+        if (this.collects.has(id)) {
+            return {
+                registered: false,
+                collect: this.collects.get(id)!
+            };
+        }
         this.collects.set(id, collect);
+        return {
+            registered: true,
+            collect
+        };
     }
 
     public unregisterCollect(id: string): void {

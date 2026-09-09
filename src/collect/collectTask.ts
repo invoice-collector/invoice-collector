@@ -19,21 +19,19 @@ export class CollectTask {
 
                 // Collect invoices for each credential one by one
                 for (const credential_id of credential_ids) {
-                    // Check if a collect is in progress for this credential
-                    if (!CollectPool.getInstance().has(credential_id)) {
+                    const collect = new Collect(credential_id, undefined);
+
+                    // Register collect in progress
+                    if (CollectPool.getInstance().registerCollect(credential_id, collect).registered) {
                         try {
-                            const collect = new Collect(credential_id, undefined);
-                        
-                            // Register collect in progress
-                            CollectPool.getInstance().registerCollect(credential_id, collect);
-                            // Start the collect
+                            // Start the collect and wait for it to complete
                             await collect.start();
                         }
                         catch (err) {
                             console.error(`Invoice collection for credential ${credential_id} has failed`);
                             console.error(err);
                         }
-                        finally{
+                        finally {
                             CollectPool.getInstance().unregisterCollect(credential_id);
                         }
                     }

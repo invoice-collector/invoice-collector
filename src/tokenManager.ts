@@ -10,6 +10,8 @@ export class TokenManager {
     static UI_BEARER_VALIDITY_DURATION_MS = Number(utils.getEnvVar('UI_BEARER_VALIDITY_DURATION_MS', '3600000'));                       // 1 hour in milliseconds
     static RESET_PASSWORD_TOKEN_VALIDITY_DURATION_MS = Number(utils.getEnvVar('RESET_PASSWORD_TOKEN_VALIDITY_DURATION_MS', '3600000')); // 1 hour in milliseconds
     static OAUTH_TOKEN_VALIDITY_DURATION_MS = Number(utils.getEnvVar('OAUTH_TOKEN_VALIDITY_DURATION_MS', '1800000'));                   // 30 minutes in milliseconds
+    // Upper bound per in-memory map, to prevent unbounded memory growth if issuance is flooded
+    static MAX_ENTRIES_PER_MAP = Number(utils.getEnvVar('TOKEN_MANAGER_MAX_ENTRIES_PER_MAP', '50000'));
 
     private customerUiBearers: { [key: string]: string };
     private customerResetTokens: { [key: string]: string };
@@ -30,6 +32,12 @@ export class TokenManager {
         this.credentialOauth2States = {};
     }
 
+    private assertCapacity(map: { [key: string]: string }): void {
+        if (Object.keys(map).length >= TokenManager.MAX_ENTRIES_PER_MAP) {
+            throw new StatusError('Too many active tokens. Please try again later.', 429);
+        }
+    }
+
     // ---------- CUSTOMER UI BEARER ----------
 
     /**
@@ -38,6 +46,8 @@ export class TokenManager {
      * @returns The generated (unhashed) bearer token.
      */
     public createCustomerUiBearer(customerId: string): string {
+        this.assertCapacity(this.customerUiBearers);
+
         // Generate session bearer token
         const bearer = utils.generate_bearer(utils.BearerType.CUSTOMER_SESSION);
 
@@ -64,6 +74,18 @@ export class TokenManager {
         return this.customerUiBearers[utils.hash_string(bearer)];
     }
 
+    /**
+     * Deletes every UI bearer mapped to a given customer, e.g. after a password reset.
+     * @param customerId The id of the customer whose bearers should be invalidated.
+     */
+    public deleteCustomerUiBearersForCustomer(customerId: string): void {
+        for (const bearer in this.customerUiBearers) {
+            if (this.customerUiBearers[bearer] === customerId) {
+                delete this.customerUiBearers[bearer];
+            }
+        }
+    }
+
     // ---------- CUSTOMER RESET TOKEN ----------
 
     /**
@@ -72,6 +94,8 @@ export class TokenManager {
      * @returns The generated (unhashed) reset token.
      */
     public createCustomerResetToken(customerId: string): string {
+        this.assertCapacity(this.customerResetTokens);
+
         // Generate reset token
         const resetToken = utils.generate_token();
 
@@ -114,6 +138,8 @@ export class TokenManager {
      * @returns The generated (unhashed) bearer token.
      */
     public createUserUiBearer(userId: string): string {
+        this.assertCapacity(this.userUiBearers);
+
         // Generate session bearer token
         const bearer = utils.generate_bearer(utils.BearerType.USER_SESSION);
 
@@ -140,6 +166,18 @@ export class TokenManager {
         return this.userUiBearers[utils.hash_string(bearer)];
     }
 
+    /**
+     * Deletes every UI bearer mapped to a given user, e.g. after a password reset.
+     * @param userId The id of the user whose bearers should be invalidated.
+     */
+    public deleteUserUiBearersForUser(userId: string): void {
+        for (const bearer in this.userUiBearers) {
+            if (this.userUiBearers[bearer] === userId) {
+                delete this.userUiBearers[bearer];
+            }
+        }
+    }
+
     // ---------- USER RESET TOKEN ----------
 
     /**
@@ -148,6 +186,8 @@ export class TokenManager {
      * @returns The generated (unhashed) reset token.
      */
     public createUserResetToken(userId: string): string {
+        this.assertCapacity(this.userResetTokens);
+
         // Generate reset token
         const resetToken = utils.generate_token();
 
@@ -190,6 +230,8 @@ export class TokenManager {
      * @returns The generated (unhashed) UI token.
      */
     public createUserUiToken(userId: string): string {
+        this.assertCapacity(this.userUiTokens);
+
         // Generate ui token
         const uiToken = utils.generate_token();
 
@@ -261,6 +303,8 @@ export class TokenManager {
      * @returns The generated (unhashed) OAuth2 state.
      */
     public createCredentialOauth2State(credentialId: string): string {
+        this.assertCapacity(this.credentialOauth2States);
+
         // Generate oauth2 state
         const oauth2State = utils.generate_token();
 
@@ -299,6 +343,9 @@ export class TokenManager {
 
         // Get credential id from state
         const credentialId = this.credentialOauth2States[hashedOauth2State];
+
+        // Delete state immediately so it cannot be replayed
+        delete this.credentialOauth2States[hashedOauth2State];
 
         // Get credential from id
         const credential = await Credential.fromId(credentialId);

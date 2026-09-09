@@ -1,6 +1,7 @@
 import os from 'os';
 import fs from 'fs';
 import path from 'path';
+import dns from 'dns';
 import * as crypto from 'crypto';
 import date_fns from 'date-fns';
 import { PDFDocument, PDFDict, asPDFName } from 'pdf-lib';
@@ -13,6 +14,7 @@ import { CollectorState, CollectorType, CompleteInvoice, Config } from './collec
 export const DEBUG_ENABLED = getEnvVar('ENV', 'prod') === 'debug';
 export const PORT = getEnvVar('PORT');
 export const BACKEND_URI = DEBUG_ENABLED ? `http://localhost:${PORT}` : 'https://api.invoice-collector.com';
+export const IS_SELF_HOSTED = getEnvVar('IS_SELF_HOSTED', 'true').toLowerCase() === 'true';
 
 /* PRIVATE CONSTANTS */
 
@@ -45,6 +47,139 @@ export function generate_token(size=64): string {
 
 export function hash_string(input: string, algorithm: string = 'sha3-512'): string {
     return crypto.createHash(algorithm).update(input).digest('hex');
+}
+
+const SCRYPT_KEY_LENGTH = 64;
+
+/**
+ * Hashes a low-entropy secret (password) with a random per-secret salt and a slow KDF (scrypt),
+ * unlike `hash_string` which is meant for high-entropy random tokens/bearers.
+ * @param password The plaintext password to hash.
+ * @returns A string of the form "salt:derivedKey", both hex-encoded.
+ */
+export function hashPassword(password: string): string {
+    const salt = crypto.randomBytes(16).toString('hex');
+    const derivedKey = crypto.scryptSync(password, salt, SCRYPT_KEY_LENGTH);
+    return `${salt}:${derivedKey.toString('hex')}`;
+}
+
+/**
+ * Verifies a plaintext password against a hash produced by `hashPassword`, in constant time.
+ * @param password The plaintext password to verify.
+ * @param storedHash The "salt:derivedKey" hash to verify against.
+ * @returns Whether the password matches the stored hash.
+ */
+export function verifyPassword(password: string, storedHash: string): boolean {
+    const [salt, key] = (storedHash || '').split(':');
+    if (!salt || !key) {
+        return false;
+    }
+
+    const keyBuffer = Buffer.from(key, 'hex');
+    const derivedBuffer = crypto.scryptSync(password, salt, SCRYPT_KEY_LENGTH);
+
+    if (keyBuffer.length !== derivedBuffer.length) {
+        return false;
+    }
+
+    return crypto.timingSafeEqual(keyBuffer, derivedBuffer);
+}
+
+// CIDR ranges that must never be reachable from server-initiated outbound requests (SSRF guard)
+const BLOCKED_IPV4_RANGES: Array<[string, number]> = [
+    ['0.0.0.0', 8],       // "this" network
+    ['10.0.0.0', 8],      // private
+    ['100.64.0.0', 10],   // carrier-grade NAT
+    ['127.0.0.0', 8],     // loopback
+    ['169.254.0.0', 16],  // link-local / cloud metadata (169.254.169.254)
+    ['172.16.0.0', 12],   // private
+    ['192.0.0.0', 24],    // IETF protocol assignments
+    ['192.168.0.0', 16],  // private
+    ['198.18.0.0', 15],   // benchmarking
+    ['224.0.0.0', 4],     // multicast
+    ['240.0.0.0', 4],     // reserved
+];
+
+function ipv4ToInt(ip: string): number {
+    return ip.split('.').reduce((acc, octet) => (acc << 8) + Number(octet), 0) >>> 0;
+}
+
+function isPrivateIpv4(ip: string): boolean {
+    const ipInt = ipv4ToInt(ip);
+    return BLOCKED_IPV4_RANGES.some(([base, bits]) => {
+        const mask = bits === 0 ? 0 : (0xFFFFFFFF << (32 - bits)) >>> 0;
+        return (ipInt & mask) === (ipv4ToInt(base) & mask);
+    });
+}
+
+function isPrivateIpv6(ip: string): boolean {
+    const normalized = ip.toLowerCase();
+    return normalized === '::1'                      // loopback
+        || normalized.startsWith('::ffff:127.')      // IPv4-mapped loopback
+        || normalized.startsWith('::ffff:10.')       // IPv4-mapped private
+        || normalized.startsWith('::ffff:169.254.')  // IPv4-mapped link-local
+        || normalized.startsWith('fe80:')            // link-local
+        || normalized.startsWith('fc')                // unique local
+        || normalized.startsWith('fd');               // unique local
+}
+
+/**
+ * Guards against SSRF: ensures a user-supplied URL uses HTTPS and, unless self-hosted (where the
+ * destination is expected to be able to be a private/internal address on the deployer's own
+ * network), resolves to a public, non-internal address before the server is allowed to send a
+ * request to it.
+ * @param rawUrl The URL to validate.
+ */
+export async function assertPublicHttpsUrl(rawUrl: string): Promise<void> {
+    let parsed: URL;
+    try {
+        parsed = new URL(rawUrl);
+    } catch {
+        throw new Error(`"${rawUrl}" is not a valid URL.`);
+    }
+
+    if (parsed.protocol !== 'https:') {
+        throw new Error('URL must use HTTPS.');
+    }
+
+    // Self-hosted deployments own their whole network, so private/internal destinations are expected
+    if (IS_SELF_HOSTED) {
+        return;
+    }
+
+    if (parsed.hostname === 'localhost') {
+        throw new Error('URL cannot target localhost.');
+    }
+
+    let address: string;
+    let family: number;
+    try {
+        ({ address, family } = await dns.promises.lookup(parsed.hostname));
+    } catch {
+        throw new Error(`Could not resolve hostname "${parsed.hostname}".`);
+    }
+
+    const isPrivate = family === 4 ? isPrivateIpv4(address) : isPrivateIpv6(address);
+    if (isPrivate) {
+        throw new Error('URL resolves to a non-routable or internal address and is not allowed.');
+    }
+}
+
+// Per-key serialization to close TOCTOU gaps around check-then-act operations (e.g. plan quota checks)
+const keyLocks = new Map<string, Promise<unknown>>();
+
+/**
+ * Runs `fn` exclusively with respect to any other call sharing the same `key`, serializing
+ * concurrent invocations so check-then-act sequences (e.g. quota checks) can't race each other.
+ * @param key The lock key. Calls with different keys run concurrently.
+ * @param fn The function to run once the lock for `key` is acquired.
+ */
+export async function withLock<T>(key: string, fn: () => Promise<T>): Promise<T> {
+    const previous = keyLocks.get(key) ?? Promise.resolve();
+    const run = previous.then(fn, fn);
+    // Swallow errors here so the chain never gets stuck; the real error still propagates via `run`
+    keyLocks.set(key, run.catch(() => undefined));
+    return run;
 }
 
 /**
@@ -187,6 +322,10 @@ export async function mergePdfDocuments(documents: string[]): Promise<string> {
     return await pdfDoc.saveAsBase64();
 }
 
+// Zip-bomb guards: caps on entry count and total decompressed bytes when extracting untrusted zips
+const ZIP_MAX_ENTRIES = 100;
+const ZIP_MAX_TOTAL_DECOMPRESSED_BYTES = 200 * 1024 * 1024; // 200MB
+
 export async function extractPdfFromZip(invoice: CompleteInvoice): Promise<CompleteInvoice[]> {
     if (!invoice.data) {
         throw new Error(`Cannot extract PDFs from zip for invoice ${invoice.id}: missing invoice data.`);
@@ -200,9 +339,20 @@ export async function extractPdfFromZip(invoice: CompleteInvoice): Promise<Compl
         throw new Error(`No PDF file found in zip for invoice ${invoice.id}.`);
     }
 
+    if (zipEntries.length > ZIP_MAX_ENTRIES) {
+        throw new Error(`Zip for invoice ${invoice.id} contains too many entries (max ${ZIP_MAX_ENTRIES}).`);
+    }
+
     const invoices: CompleteInvoice[] = [];
+    let totalDecompressedBytes = 0;
     for (const entry of zipEntries) {
         const data = await entry.async('base64');
+
+        // Base64 decodes to roughly 3/4 of its length
+        totalDecompressedBytes += Math.ceil(data.length * 3 / 4);
+        if (totalDecompressedBytes > ZIP_MAX_TOTAL_DECOMPRESSED_BYTES) {
+            throw new Error(`Zip for invoice ${invoice.id} exceeds max decompressed size (${ZIP_MAX_TOTAL_DECOMPRESSED_BYTES} bytes).`);
+        }
 
         invoices.push({
             ...invoice,

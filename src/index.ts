@@ -1,5 +1,7 @@
 import path from 'path';
 import express from 'express';
+import helmet from 'helmet';
+import { ipKeyGenerator, rateLimit } from 'express-rate-limit';
 import { StatusError } from './error';
 import { Server } from './server';
 import * as utils from './utils';
@@ -7,11 +9,64 @@ import { I18n } from './i18n';
 
 // Configure express
 const app = express();
-app.use(express.json());
+// CSP is disabled because the EJS views (ui/ui.ejs, ui/oauth2.ejs) rely on inline scripts and
+// inline event handlers; enabling it as-is would break those pages. Other helmet protections
+// (X-Content-Type-Options, HSTS, Referrer-Policy, X-Frame-Options, ...) remain active.
+app.use(helmet({ contentSecurityPolicy: false }));
+app.use(express.json({ limit: '100kb' }));
 app.use(I18n.i18n.init);
 app.use('/views', express.static(path.join(__dirname, '..', 'views')));
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '..', 'views'));
+
+// Keys rate limiters by the caller's bearer/token when present, falling back to IP otherwise,
+// so limits apply per authenticated principal rather than shared across an entire NAT'd network.
+function principalKeyGenerator(req: express.Request): string {
+    const authorization = req.headers.authorization;
+    if (authorization) {
+        return utils.hash_string(authorization);
+    }
+    const token = req.query.token;
+    if (typeof token === 'string') {
+        return utils.hash_string(token);
+    }
+    return ipKeyGenerator(req.ip || 'unknown');
+}
+
+// Throttle unauthenticated auth endpoints to slow down brute-force/credential-stuffing attempts
+const authRateLimiter = rateLimit({
+    windowMs: 15 * 60 * 1000, // 15 minutes
+    limit: 20,
+    standardHeaders: true,
+    legacyHeaders: false,
+    message: { type: 'error', message: 'Too many requests, please try again later.' },
+});
+
+// Throttle 2FA code submission to prevent brute-forcing the 6-digit verification code
+const twofaRateLimiter = rateLimit({
+    windowMs: 15 * 60 * 1000, // 15 minutes
+    limit: 10,
+    standardHeaders: true,
+    legacyHeaders: false,
+    keyGenerator: principalKeyGenerator,
+    message: { type: 'error', message: 'Too many attempts, please try again later.' },
+});
+
+// Throttle resource creation/outbound-triggering endpoints to prevent quota/abuse loops
+const creationRateLimiter = rateLimit({
+    windowMs: 15 * 60 * 1000, // 15 minutes
+    limit: 30,
+    standardHeaders: true,
+    legacyHeaders: false,
+    keyGenerator: principalKeyGenerator,
+    message: { type: 'error', message: 'Too many requests, please try again later.' },
+});
+
+// Flags a route as deprecated (RFC 8594) so API consumers/tooling can detect legacy endpoint usage
+function markDeprecated(res: express.Response): void {
+    res.setHeader('Deprecation', 'true');
+}
+
 declare global {
     namespace Express {
         interface Request {
@@ -85,7 +140,7 @@ function handle_error(e, req, res){
  *             schema:
  *               $ref: '#/components/schemas/error'
  */
-// NO AUTHENTICATION
+// BEARER AUTHENTICATION
 app.get('/api/v1/ping', async (req, res) => {
     try {
         // Get ping status
@@ -197,7 +252,7 @@ app.get('/api/v1/ui', async (req, res) => {
  *               $ref: '#/components/schemas/error'
  */
 // BEARER OR TOKEN AUTHENTICATION
-app.post('/api/v1/feedback', async (req, res) => {
+app.post('/api/v1/feedback', creationRateLimiter, async (req, res) => {
     try {
         // Send feedback
         console.log('POST /feedback');
@@ -263,7 +318,7 @@ app.post('/api/v1/feedback', async (req, res) => {
  *               $ref: '#/components/schemas/error'
  */
 // NO AUTHENTICATION
-app.post('/api/v1/login', async (req, res) => {
+app.post('/api/v1/login', authRateLimiter, async (req, res) => {
     try {
         // Perform login
         console.log('POST /login');
@@ -307,15 +362,7 @@ app.post('/api/v1/login', async (req, res) => {
  *                 $ref: '#/components/schemas/inviteId'
  *     responses:
  *       200:
- *         description: Success
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               required: [resetToken]
- *               properties:
- *                 resetToken:
- *                   $ref: '#/components/schemas/resetToken'
+ *         description: Success. A password reset email has been sent to the provided address.
  *       400:
  *         description: Bad request
  *         content:
@@ -330,11 +377,11 @@ app.post('/api/v1/login', async (req, res) => {
  *               $ref: '#/components/schemas/error'
  */
 // NO AUTHENTICATION
-app.post('/api/v1/signup', async (req, res) => {
+app.post('/api/v1/signup', authRateLimiter, async (req, res) => {
     try {
         // Perform signup
         console.log('POST /signup');
-        const response = await server.post_signup(
+        await server.post_signup(
             req.body.email,
             req.body.name,
             req.body.cid,
@@ -343,8 +390,7 @@ app.post('/api/v1/signup', async (req, res) => {
         );
 
         // Build response
-        res.setHeader('Content-Type', 'application/json');
-        res.end(JSON.stringify(response));
+        res.end();
     } catch (e) {
         handle_error(e, req, res);
     }
@@ -369,15 +415,7 @@ app.post('/api/v1/signup', async (req, res) => {
  *                 $ref: '#/components/schemas/email'
  *     responses:
  *       200:
- *         description: Success
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               required: [resetToken]
- *               properties:
- *                 resetToken:
- *                   $ref: '#/components/schemas/resetToken'
+ *         description: Success. If an account exists for this email, a password reset email has been sent. The response is intentionally identical whether or not an account exists.
  *       400:
  *         description: Bad request
  *         content:
@@ -392,17 +430,16 @@ app.post('/api/v1/signup', async (req, res) => {
  *               $ref: '#/components/schemas/error'
  */
 // NO AUTHENTICATION
-app.post('/api/v1/forgot', async (req, res) => {
+app.post('/api/v1/forgot', authRateLimiter, async (req, res) => {
     try {
         // Perform forgot password
         console.log('POST /forgot');
-        const response = await server.post_forgot(
+        await server.post_forgot(
             req.body.email,
         );
 
         // Build response
-        res.setHeader('Content-Type', 'application/json');
-        res.end(JSON.stringify(response));
+        res.end();
     } catch (e) {
         handle_error(e, req, res);
     }
@@ -419,7 +456,7 @@ app.post('/api/v1/forgot', async (req, res) => {
  *       - name: token
  *         in: query
  *         required: true
- *         description: Token to be used for password reset. _You can get it using the `POST /signup` endpoint._
+ *         description: Token to be used for password reset. _Sent by email via the `POST /forgot` or `POST /signup` endpoints._
  *         schema:
  *           $ref: '#/components/schemas/resetToken'
  *     requestBody:
@@ -447,6 +484,12 @@ app.post('/api/v1/forgot', async (req, res) => {
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/error'
+ *       429:
+ *         description: Too many requests
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
  *       500:
  *         description: Internal server error
  *         content:
@@ -455,7 +498,7 @@ app.post('/api/v1/forgot', async (req, res) => {
  *               $ref: '#/components/schemas/error'
  */
 // NO AUTHENTICATION
-app.post('/api/v1/reset', async (req, res) => {
+app.post('/api/v1/reset', authRateLimiter, async (req, res) => {
     try {
         // Perform reset password
         console.log('POST /reset');
@@ -491,6 +534,12 @@ app.post('/api/v1/reset', async (req, res) => {
  *               $ref: '#/components/schemas/customer'
  *       401:
  *         description: Authentication error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       429:
+ *         description: Too many requests
  *         content:
  *           application/json:
  *             schema:
@@ -564,6 +613,12 @@ app.get('/api/v1/customer', async (req, res) => {
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/error'
+ *       429:
+ *         description: Too many requests
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
  *       500:
  *         description: Internal server error
  *         content:
@@ -618,6 +673,12 @@ app.put('/api/v1/customer', async (req, res) => {
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/error'
+ *       429:
+ *         description: Too many requests
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
  *       500:
  *         description: Internal server error
  *         content:
@@ -661,6 +722,12 @@ app.post('/api/v1/customer/bearer', async (req, res) => {
  *               $ref: '#/components/schemas/customerStats'
  *       401:
  *         description: Authentication error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       429:
+ *         description: Too many requests
  *         content:
  *           application/json:
  *             schema:
@@ -709,6 +776,12 @@ app.get('/api/v1/customer/stats', async (req, res) => {
  *               $ref: '#/components/schemas/userListItem'
  *       401:
  *         description: Authentication error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       429:
+ *         description: Too many requests
  *         content:
  *           application/json:
  *             schema:
@@ -785,6 +858,12 @@ app.get('/api/v1/users', async (req, res) => {
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/error'
+ *       429:
+ *         description: Too many requests
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
  *       500:
  *         description: Internal server error
  *         content:
@@ -793,7 +872,7 @@ app.get('/api/v1/users', async (req, res) => {
  *               $ref: '#/components/schemas/error'
  */
 // BEARER AUTHENTICATION
-app.post('/api/v1/user', async (req, res) => {
+app.post('/api/v1/user', creationRateLimiter, async (req, res) => {
     try {
         // Perform authorization
         console.log('POST /user');
@@ -847,6 +926,12 @@ app.post('/api/v1/user', async (req, res) => {
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/error'
+ *       429:
+ *         description: Too many requests
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
  *       500:
  *         description: Internal server error
  *         content:
@@ -875,6 +960,7 @@ app.get('/api/v1/user/:user_id', async (req, res) => {
 // BEARER AUTHENTICATION
 app.get('/api/v1/user', async (req, res) => {
     try {
+        markDeprecated(res);
         // Get user
         console.warn('GET /user (DEPRECATED, use GET /user/{userId} with userId "me" instead)');
         const response = await server.get_user(
@@ -940,6 +1026,12 @@ app.get('/api/v1/user', async (req, res) => {
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/error'
+ *       429:
+ *         description: Too many requests
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
  *       500:
  *         description: Internal server error
  *         content:
@@ -995,6 +1087,12 @@ app.put('/api/v1/user/:userId', async (req, res) => {
  *               $ref: '#/components/schemas/error'
  *       401:
  *         description: Authentication error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       429:
+ *         description: Too many requests
  *         content:
  *           application/json:
  *             schema:
@@ -1055,6 +1153,12 @@ app.delete('/api/v1/user/:user_id', async (req, res) => {
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/error'
+ *       429:
+ *         description: Too many requests
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
  *       500:
  *         description: Internal server error
  *         content:
@@ -1084,6 +1188,7 @@ app.get('/api/v1/user/:user_id/credentials', async (req, res) => {
 // TOKEN AUTHENTICATION
 app.get('/api/v1/credentials', async (req, res) => {
     try {
+        markDeprecated(res);
         // Get credentials
         console.warn('GET /credentials (DEPRECATED, use GET /user/{userId}/credentials with userId "me" instead)');
         const credentials = await server.get_credentials(
@@ -1158,6 +1263,12 @@ app.get('/api/v1/credentials', async (req, res) => {
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/error'
+ *       429:
+ *         description: Too many requests
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
  *       500:
  *         description: Internal server error
  *         content:
@@ -1166,13 +1277,13 @@ app.get('/api/v1/credentials', async (req, res) => {
  *               $ref: '#/components/schemas/error'
  */
 // BEARER AUTHENTICATION
-app.post('/api/v1/user/:user_id/credential', async (req, res) => {
+app.post('/api/v1/user/:user_id/credential', creationRateLimiter, async (req, res) => {
     try {
         // Save credential
         console.log(`POST /user/${req.params.user_id}/credential`);
         const response = await server.post_credential(
             req.headers.authorization,
-            req.params.user_id,
+            String(req.params.user_id),
             req.query.token,
             req.body.collector,
             req.body.params,
@@ -1188,8 +1299,9 @@ app.post('/api/v1/user/:user_id/credential', async (req, res) => {
 });
 
 // TOKEN AUTHENTICATION
-app.post('/api/v1/credential', async (req, res) => {
+app.post('/api/v1/credential', creationRateLimiter, async (req, res) => {
     try {
+        markDeprecated(res);
         // Save credential
         console.warn('POST /credential (DEPRECATED, use POST /user/{userId}/credential with userId "me" instead)');
         const response = await server.post_credential(
@@ -1256,6 +1368,12 @@ app.post('/api/v1/credential', async (req, res) => {
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/error'
+ *       429:
+ *         description: Too many requests
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
  *       500:
  *         description: Internal server error
  *         content:
@@ -1286,8 +1404,9 @@ app.get('/api/v1/user/:user_id/credential/:credential_id', async (req, res) => {
 // TOKEN AUTHENTICATION
 app.get('/api/v1/credential/:credential_id', async (req, res) => {
     try {
-        console.warn('GET credential (DEPRECATED, use GET /user/{userId}/credential/{credentialId} with userId "me" instead)');
+        markDeprecated(res);
         // Get credential status
+        console.warn('GET credential (DEPRECATED, use GET /user/{userId}/credential/{credentialId} with userId "me" instead)');
         const response = await server.get_credential(
             req.headers.authorization,
             'me',
@@ -1346,6 +1465,12 @@ app.get('/api/v1/credential/:credential_id', async (req, res) => {
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/error'
+ *       429:
+ *         description: Too many requests
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
  *       500:
  *         description: Internal server error
  *         content:
@@ -1375,6 +1500,7 @@ app.delete('/api/v1/user/:user_id/credential/:credential_id', async (req, res) =
 // TOKEN AUTHENTICATION
 app.delete('/api/v1/credential/:credential_id', async (req, res) => {
     try {
+        markDeprecated(res);
         // Delete credential
         console.warn(`DELETE /credential/${req.params.credential_id} (DEPRECATED, use DELETE /user/{userId}/credential/{credentialId} with userId "me" instead)`);
         await server.delete_credential(
@@ -1445,6 +1571,12 @@ app.delete('/api/v1/credential/:credential_id', async (req, res) => {
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/error'
+ *       429:
+ *         description: Too many requests
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
  *       500:
  *         description: Internal server error
  *         content:
@@ -1453,15 +1585,16 @@ app.delete('/api/v1/credential/:credential_id', async (req, res) => {
  *               $ref: '#/components/schemas/error'
  */
 // BEARER AUTHENTICATION
-app.post('/api/v1/user/:user_id/credential/:credential_id/2fa', async (req, res) => {
+app.post('/api/v1/user/:user_id/credential/:credential_id/2fa', twofaRateLimiter, async (req, res) => {
     try {
+        markDeprecated(res);
         // Post 2fa
         console.warn(`POST /user/${req.params.user_id}/credential/${req.params.credential_id}/2fa (DEPRECATED, use websockets instead)`);
         await server.post_credential_2fa(
             req.headers.authorization,
-            req.params.user_id,
+            String(req.params.user_id),
             req.query.token,
-            req.params.credential_id,
+            String(req.params.credential_id),
             req.body.code,
         );
 
@@ -1473,15 +1606,16 @@ app.post('/api/v1/user/:user_id/credential/:credential_id/2fa', async (req, res)
 });
 
 // TOKEN AUTHENTICATION
-app.post('/api/v1/credential/:credential_id/2fa', async (req, res) => {
+app.post('/api/v1/credential/:credential_id/2fa', twofaRateLimiter, async (req, res) => {
     try {
+        markDeprecated(res);
         // Post 2fa
         console.warn(`POST /credential/${req.params.credential_id}/2fa (DEPRECATED, use websockets instead)`);
         await server.post_credential_2fa(
             req.headers.authorization,
             'me',
             req.query.token,
-            req.params.credential_id,
+            String(req.params.credential_id),
             req.body.code,
         );
 
@@ -1516,6 +1650,12 @@ app.post('/api/v1/credential/:credential_id/2fa', async (req, res) => {
  *               type: string
  *       401:
  *         description: Authentication error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       429:
+ *         description: Too many requests
  *         content:
  *           application/json:
  *             schema:
@@ -1594,6 +1734,12 @@ app.get('/api/v1/oauth2', async (req, res) => {
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/error'
+ *       429:
+ *         description: Too many requests
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
  *       500:
  *         description: Internal server error
  *         content:
@@ -1624,6 +1770,7 @@ app.post('/api/v1/user/:user_id/credential/:credential_id/collect', async (req, 
 // TOKEN AUTHENTICATION
 app.post('/api/v1/credential/:credential_id/collect', async (req, res) => {
     try {
+        markDeprecated(res);
         // Post collect
         console.warn(`POST /credential/${req.params.credential_id}/collect (DEPRECATED, use websockets instead)`);
         const response = await server.post_credential_collect(
@@ -1682,6 +1829,12 @@ app.post('/api/v1/credential/:credential_id/collect', async (req, res) => {
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/error'
+ *       429:
+ *         description: Too many requests
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
  *       500:
  *         description: Internal server error
  *         content:
@@ -1736,6 +1889,12 @@ app.get('/api/v1/collectors', async (req, res) => {
  *               $ref: '#/components/schemas/error'
  *       401:
  *         description: Authentication error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       429:
+ *         description: Too many requests
  *         content:
  *           application/json:
  *             schema:
@@ -1803,6 +1962,12 @@ app.get('/api/v1/callbacks', async (req, res) => {
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/error'
+ *       429:
+ *         description: Too many requests
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
  *       500:
  *         description: Internal server error
  *         content:
@@ -1811,7 +1976,7 @@ app.get('/api/v1/callbacks', async (req, res) => {
  *               $ref: '#/components/schemas/error'
  */
 //BEARER AUTHENTICATION
-app.post('/api/v1/callback', async (req, res) => {
+app.post('/api/v1/callback', creationRateLimiter, async (req, res) => {
     try {
         // Create callback
         console.log('POST /callback');
@@ -1880,6 +2045,12 @@ app.post('/api/v1/callback', async (req, res) => {
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/error'
+ *       429:
+ *         description: Too many requests
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
  *       500:
  *         description: Internal server error
  *         content:
@@ -1932,6 +2103,12 @@ app.put('/api/v1/callback/:callbackId', async (req, res) => {
  *               $ref: '#/components/schemas/error'
  *       401:
  *         description: Authentication error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       429:
+ *         description: Too many requests
  *         content:
  *           application/json:
  *             schema:
@@ -1993,6 +2170,12 @@ app.delete('/api/v1/callback/:callbackId', async (req, res) => {
  *               $ref: '#/components/schemas/error'
  *       401:
  *         description: Authentication error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       429:
+ *         description: Too many requests
  *         content:
  *           application/json:
  *             schema:
@@ -2067,14 +2250,14 @@ app.delete('/api/v1/callback/:callbackId', async (req, res) => {
  *                 description: Error
  */
 // BEARER AUTHENTICATION
-app.get('/api/v1/callback/:callbackId/test/:type', async (req, res) => {
+app.get('/api/v1/callback/:callbackId/test/:type', creationRateLimiter, async (req, res) => {
     try {
         // Test callback
         console.log(`GET /callback/${req.params.callbackId}/test/${req.params.type}`);
         await server.get_callback_test(
             req.headers.authorization,
-            req.params.callbackId,
-            req.params.type,
+            String(req.params.callbackId),
+            String(req.params.type),
         );
 
         // Build response
@@ -2086,6 +2269,41 @@ app.get('/api/v1/callback/:callbackId/test/:type', async (req, res) => {
 
 // ---------- INTEGRATIONS ENDPOINTS ----------
 
+/**
+ * @swagger
+ * /api/v1/integrations:
+ *   get:
+ *     tags: [General]
+ *     summary: List integrations
+ *     description: Returns all available integrations.
+ *     parameters:
+ *       - in: query
+ *         name: locale
+ *         schema:
+ *           type: string
+ *         description: Locale for the integrations
+ *     responses:
+ *       200:
+ *         description: Success
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: '#/components/schemas/integration'
+ *       400:
+ *         description: Bad request
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       500:
+ *         description: Internal server error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ */
 //NO AUTHENTICATION
 app.get('/api/v1/integrations', async (req, res) => {
     try {

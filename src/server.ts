@@ -24,7 +24,7 @@ import { TokenManager } from './tokenManager';
 
 export class Server {
 
-    static IS_SELF_HOSTED: boolean = utils.getEnvVar('IS_SELF_HOSTED', 'true').toLowerCase() === 'true';
+    static MAX_CREDENTIAL_PARAMS_BYTES = 50 * 1024; // 50KB
 
     tokenManager: TokenManager;
     collectTask: CollectTask;
@@ -172,8 +172,8 @@ export class Server {
             throw new MissingField('password');
         }
 
-        // Get customer from email
-        const customer = await Customer.fromEmailAndPassword(email, utils.hash_string(password));
+        // Get customer from email (password verified against its salted hash in the database layer)
+        const customer = await Customer.fromEmailAndPassword(email, password);
 
         // If customer exists
         if(customer) {
@@ -188,7 +188,7 @@ export class Server {
         }
         else {
             // Get user from remote_id and password
-            const user = await User.fromRemoteIdAndPassword(email, utils.hash_string(password));
+            const user = await User.fromRemoteIdAndPassword(email, password);
             
             // Check if user exists
             if(!user) {
@@ -213,9 +213,7 @@ export class Server {
         cid: string | undefined,
         locale: string | undefined,
         inviteId: string | undefined,
-    ): Promise<{
-        resetToken: string
-    }> {
+    ): Promise<void> {
         // Check if email field is missing
         if(!email) {
             throw new MissingField('email');
@@ -281,10 +279,7 @@ export class Server {
             await AnalyticsFactory.getInstance().sendWelcomeEmail(email, user.locale);
 
             // Handle password reset for user
-            const resetToken = await this.handleUserResetPassword(user);
-
-            // Return reset token
-            return { resetToken };
+            await this.handleUserResetPassword(user);
         }
         else {
             // Create new customer
@@ -306,22 +301,22 @@ export class Server {
             await AnalyticsFactory.getInstance().sendWelcomeEmail(email, locale || I18n.DEFAULT_LOCALE);
 
             // Handle password reset for customer
-            const resetToken = await this.handleCustomerResetPassword(customer);
-
-            // Return reset token
-            return { resetToken };
+            await this.handleCustomerResetPassword(customer);
         }
     }
 
     // NO AUTHENTICATION
     public async post_forgot(
         email: string | undefined,
-    ): Promise<{
-        resetToken: string
-    }> {
+    ): Promise<void> {
         // Check if email field is missing
         if(!email) {
             throw new MissingField('email');
+        }
+
+        // Check if email is a string to prevent NoSQL operator injection
+        if(typeof email !== 'string') {
+            throw new StatusError('The field "email" must be a string.', 400);
         }
 
         // Get customer from email
@@ -329,27 +324,19 @@ export class Server {
 
         // If customer exists
         if(customer) {
-            // Generate reset token
-            const resetToken = await this.handleCustomerResetPassword(customer);
-
-            // Return reset token
-            return { resetToken };
+            // Handle password reset for customer
+            await this.handleCustomerResetPassword(customer);
         }
+        else {
+            // Check if a user exists instead
+            const user = await User.fromRemoteId(email);
 
-        // Check if customer already exists
-        const user = await User.fromRemoteId(email);
-
-        // If user exists
-        if(user) {
-            // Generate reset token and return it
-            const resetToken = await this.handleUserResetPassword(user);
-
-            // Return reset token
-            return { resetToken };
+            // If user exists
+            if(user) {
+                // Handle password reset for user
+                await this.handleUserResetPassword(user);
+            }
         }
-
-        // If not customer or user found, raise error
-        throw new StatusError(`No account found for email "${email}".`, 400);
     }
 
     // RESET TOKEN AUTHENTICATION
@@ -382,13 +369,16 @@ export class Server {
             }
 
             // Set new password
-            customer.password = utils.hash_string(password);
+            customer.password = utils.hashPassword(password);
 
             // Commit changes in database
             await customer.commit();
 
             // Delete customer reset token
             this.tokenManager.deleteCustomerResetToken(resetToken);
+
+            // Revoke existing sessions so a leaked/compromised bearer can't survive a password reset
+            this.tokenManager.deleteCustomerUiBearersForCustomer(customerId);
         }
         // If reset token belongs to a user
         else {
@@ -406,13 +396,16 @@ export class Server {
                 }
 
                 // Set new password
-                user.password = utils.hash_string(password);
+                user.password = utils.hashPassword(password);
 
                 // Commit changes in database
                 await user.commit();
 
                 // Delete user reset token
                 this.tokenManager.deleteUserResetToken(resetToken);
+
+                // Revoke existing sessions so a leaked/compromised bearer can't survive a password reset
+                this.tokenManager.deleteUserUiBearersForUser(userId);
             }
             else {
                 throw new StatusError('Invalid reset token. Your reset link probably expired.', 401);
@@ -677,49 +670,55 @@ export class Server {
             throw new StatusError('A customer with this email already exists.', 400);
         }
 
-        // Get user from remote_id
-        let user = await customer.getUserFromRemoteId(remote_id);
+        // Check the user quota atomically to close a TOCTOU race that
+        // would otherwise let concurrent requests bypass the plan's user limit
+        const user = await utils.withLock(`user-quota-${customer.id}`, async () => {
+            // Get user from remote_id
+            let user = await customer.getUserFromRemoteId(remote_id);
 
-        // If user does not exist, create it
-        if(!user) {
-            // Check if customer can add more users
-            const canAddUser = await customer.canAddUser();
+            // If user does not exist, create it
+            if(!user) {
+                // Check if customer can add more users
+                const canAddUser = await customer.canAddUser();
 
-            // If customer cannot add more users, throw an error
-            if (!canAddUser) {
-                throw new StatusError(`User limit reached. Max users: ${customer.plan.maxUsers}`, 403);
+                // If customer cannot add more users, throw an error
+                if (!canAddUser) {
+                    throw new StatusError(`User limit reached. Max users: ${customer.plan.maxUsers}`, 403);
+                }
+
+                // Get user location
+                const location = await ProxyFactory.getProxy().locate(ip);
+                // Create user
+                user = new User(
+                    customer.id,
+                    remote_id,
+                    User.DEFAULT_PASSWORD,
+                    User.DEFAULT_NAME,
+                    User.DEFAULT_CID,
+                    location,
+                    locale,
+                    Date.now(),
+                );
             }
+            else {
+                // Update user locale
+                user.locale = locale;
 
-            // Get user location
-            const location = await ProxyFactory.getProxy().locate(ip);
-            // Create user
-            user = new User(
-                customer.id,
-                remote_id,
-                User.DEFAULT_PASSWORD,
-                User.DEFAULT_NAME,
-                User.DEFAULT_CID,
-                location,
-                locale,
-                Date.now(),
-            );
-        }
-        else {
-            // Update user locale
-            user.locale = locale;
-            
-            // If user location is unknown
-            if (user.location === null) {
-                // Update user with location
-                user.location = await ProxyFactory.getProxy().locate(ip);
-                if (user.location !== null) {
-                    await user.commit();
+                // If user location is unknown
+                if (user.location === null) {
+                    // Update user with location
+                    user.location = await ProxyFactory.getProxy().locate(ip);
+                    if (user.location !== null) {
+                        await user.commit();
+                    }
                 }
             }
-        }
 
-        // Commit changes in database
-        await user.commit();
+            // Commit changes in database
+            await user.commit();
+
+            return user;
+        });
 
         // Generate UI token
         const uiToken = this.tokenManager.createUserUiToken(user.id);
@@ -1004,6 +1003,15 @@ export class Server {
             throw new MissingField('params');
         }
 
+        // Check if params is a plain object and not oversized (the global 100kb body limit already
+        // bounds this loosely; this gives a tighter, explicit cap on what gets stored as a secret)
+        if(typeof params !== 'object' || Array.isArray(params)) {
+            throw new StatusError('The field "params" must be an object.', 400);
+        }
+        if(JSON.stringify(params).length > Server.MAX_CREDENTIAL_PARAMS_BYTES) {
+            throw new StatusError(`The field "params" is too large. Max ${Server.MAX_CREDENTIAL_PARAMS_BYTES} bytes.`, 400);
+        }
+
         // Check if download_from_timestamp is valid
         if(download_from_timestamp !== undefined && (typeof download_from_timestamp !== 'number' || download_from_timestamp < 0)) {
             throw new StatusError('The field "download_from_timestamp" must be a positive number.', 400);
@@ -1044,40 +1052,46 @@ export class Server {
             );
         }
 
-        // Check if customer can add more credentials
-        const canAddCredential = await customer.canAddCredential();
+        // Check quota and create the credential atomically to close a TOCTOU race that would
+        // otherwise let concurrent requests bypass the plan's credential limit
+        const credential = await utils.withLock(`credential-quota-${customer.id}`, async () => {
+            // Check if customer can add more credentials
+            const canAddCredential = await customer.canAddCredential();
 
-        // If customer cannot add more credentials, throw an error
-        if (!canAddCredential) {
-            throw new StatusError(`Credential limit reached. Max credentials: ${customer.plan.maxCredentials}`, 403);
-        }
+            // If customer cannot add more credentials, throw an error
+            if (!canAddCredential) {
+                throw new StatusError(`Credential limit reached. Max credentials: ${customer.plan.maxCredentials}`, 403);
+            }
 
-        // Create secret
-        const secret = new Secret(`${user.id}_${collector.config.id}`, {
-            params,
-            cookies: null,
-            localStorage: null,
+            // Create secret
+            const secret = new Secret(`${user.id}_${collector.config.id}`, {
+                params,
+                cookies: null,
+                localStorage: null,
+            });
+
+            // Create secret in Secure Storage
+            await secret.commit();
+
+            // Create credential
+            const now = Date.now();
+            const credential = new Credential(
+                user.id,
+                collector.config.id,
+                note,
+                secret.id,
+                now,
+                download_from_timestamp ?? now,
+            );
+
+            // Compute next collect
+            credential.computeNextCollect(customer.maxDelayBetweenCollect);
+
+            // Create credential in database
+            await credential.commit();
+
+            return credential;
         });
-
-        // Create secret in Secure Storage
-        await secret.commit();
-
-        // Create credential
-        const now = Date.now();
-        const credential = new Credential(
-            user.id,
-            collector.config.id,
-            note,
-            secret.id,
-            now,
-            download_from_timestamp ?? now,
-        );
-
-        // Compute next collect
-        credential.computeNextCollect(customer.maxDelayBetweenCollect);
-
-        // Create credential in database
-        await credential.commit();
 
         // Generate oauth2 state from credential
         const oauth2State = this.tokenManager.createCredentialOauth2State(credential.id);
@@ -1092,7 +1106,7 @@ export class Server {
         // Register collect in progress
         CollectPool.getInstance().registerCollect(credential.id, collect);
 
-        // Do not wait for promise to resolve
+        // Start the collect and do not wait for promise to resolve
         collect.start().catch((err) => {
             console.error(`Collect for credential ${credential.id} has failed`);
             console.error(err);
@@ -1331,34 +1345,31 @@ export class Server {
             throw new StatusError(`Credential with id "${credential_id}" does not belong to user.`, 403);
         }
 
-        let collect = CollectPool.getInstance().get(credential.id);
-        let wsPath: string | null;
+        // Get collector from id
+        const collector = await CollectorLoader.get(credential.collector_id);
 
-        // If no collect in progress, start a new one
-        if (collect === undefined) {
-            // Get collector from id
-            const collector = await CollectorLoader.get(credential.collector_id);
+        // Get customer from user
+        const customer = await user.getCustomer();
 
-            // Get customer from user
-            const customer = await user.getCustomer();
+        // Update collector params based on customer settings
+        AbstractCollector.updateCollectorParams(customer.authenticationMethod, collector.config);
 
-            // Update collector params based on customer settings
-            AbstractCollector.updateCollectorParams(customer.authenticationMethod, collector.config);
+        // Generate oauth2 state from credential
+        const oauth2State = this.tokenManager.createCredentialOauth2State(credential.id);
 
-            // Generate oauth2 state from credential
-            const oauth2State = this.tokenManager.createCredentialOauth2State(credential.id);
+        // Start web socket server and get token
+        const webSocketServer = new WebSocketServer(this.httpServer, user.locale, collector, oauth2State);
+        let wsPath: string | null = webSocketServer.start();
 
-            // Start web socket server and get token
-            const webSocketServer = new WebSocketServer(this.httpServer, user.locale, collector, oauth2State);
-            wsPath = webSocketServer.start();
+        // Create a new collect
+        const collect = new Collect(credential.id, webSocketServer);
 
-            // Start collect
-            collect = new Collect(credential.id, webSocketServer);
+        // Register collect in progress before starting it.
+        const registrationResult = CollectPool.getInstance().registerCollect(credential.id, collect);
 
-            // Register collect in progress
-            CollectPool.getInstance().registerCollect(credential.id, collect);
-
-            // Do not wait for promise to resolve
+        // If the new collect was successfully registered
+        if (registrationResult.registered) {
+            // Start the collect and do not wait for promise to resolve
             collect.start().catch((err) => {
                 console.error(`Collect for credential ${credential.id} has failed`);
                 console.error(err);
@@ -1372,7 +1383,7 @@ export class Server {
         }
         else {
             // If collect in progress, return existing wsPath
-            wsPath = collect.webSocketServer?.path || null;
+            wsPath = registrationResult.collect.webSocketServer?.path || null;
         }
 
         return {
@@ -1499,6 +1510,18 @@ export class Server {
             .filter((param) => integrationConfig.params[param].mandatory && (!params.hasOwnProperty(param) || !params[param]));
         if(missing_params.length > 0) {
             throw new MissingParams(missing_params);
+        }
+
+        // Reject URL params pointing to internal/private/cloud-metadata addresses (SSRF)
+        for (const [param, paramConfig] of Object.entries(integrationConfig.params)) {
+            if (paramConfig.type === 'url' && params[param]) {
+                try {
+                    await utils.assertPublicHttpsUrl(params[param]);
+                } catch (e) {
+                    const message = e instanceof Error ? e.message : String(e);
+                    throw new StatusError(`Invalid "${param}": ${message}`, 400);
+                }
+            }
         }
 
         // Get callbacks from customer
