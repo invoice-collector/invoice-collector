@@ -1,7 +1,7 @@
 import path from 'path';
 import express from 'express';
 import helmet from 'helmet';
-import { rateLimit } from 'express-rate-limit';
+import { ipKeyGenerator, rateLimit } from 'express-rate-limit';
 import { StatusError } from './error';
 import { Server } from './server';
 import * as utils from './utils';
@@ -19,12 +19,46 @@ app.use('/views', express.static(path.join(__dirname, '..', 'views')));
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '..', 'views'));
 
+// Keys rate limiters by the caller's bearer/token when present, falling back to IP otherwise,
+// so limits apply per authenticated principal rather than shared across an entire NAT'd network.
+function principalKeyGenerator(req: express.Request): string {
+    const authorization = req.headers.authorization;
+    if (authorization) {
+        return utils.hash_string(authorization);
+    }
+    const token = req.query.token;
+    if (typeof token === 'string') {
+        return utils.hash_string(token);
+    }
+    return ipKeyGenerator(req.ip || 'unknown');
+}
+
 // Throttle unauthenticated auth endpoints to slow down brute-force/credential-stuffing attempts
 const authRateLimiter = rateLimit({
     windowMs: 15 * 60 * 1000, // 15 minutes
     limit: 20,
     standardHeaders: true,
     legacyHeaders: false,
+    message: { type: 'error', message: 'Too many requests, please try again later.' },
+});
+
+// Throttle 2FA code submission to prevent brute-forcing the 6-digit verification code
+const twofaRateLimiter = rateLimit({
+    windowMs: 15 * 60 * 1000, // 15 minutes
+    limit: 10,
+    standardHeaders: true,
+    legacyHeaders: false,
+    keyGenerator: principalKeyGenerator,
+    message: { type: 'error', message: 'Too many attempts, please try again later.' },
+});
+
+// Throttle resource creation/outbound-triggering endpoints to prevent quota/abuse loops
+const creationRateLimiter = rateLimit({
+    windowMs: 15 * 60 * 1000, // 15 minutes
+    limit: 30,
+    standardHeaders: true,
+    legacyHeaders: false,
+    keyGenerator: principalKeyGenerator,
     message: { type: 'error', message: 'Too many requests, please try again later.' },
 });
 
@@ -106,7 +140,7 @@ function handle_error(e, req, res){
  *             schema:
  *               $ref: '#/components/schemas/error'
  */
-// NO AUTHENTICATION
+// BEARER AUTHENTICATION
 app.get('/api/v1/ping', async (req, res) => {
     try {
         // Get ping status
@@ -218,7 +252,7 @@ app.get('/api/v1/ui', async (req, res) => {
  *               $ref: '#/components/schemas/error'
  */
 // BEARER OR TOKEN AUTHENTICATION
-app.post('/api/v1/feedback', async (req, res) => {
+app.post('/api/v1/feedback', creationRateLimiter, async (req, res) => {
     try {
         // Send feedback
         console.log('POST /feedback');
@@ -796,7 +830,7 @@ app.get('/api/v1/users', async (req, res) => {
  *               $ref: '#/components/schemas/error'
  */
 // BEARER AUTHENTICATION
-app.post('/api/v1/user', async (req, res) => {
+app.post('/api/v1/user', creationRateLimiter, async (req, res) => {
     try {
         // Perform authorization
         console.log('POST /user');
@@ -1171,13 +1205,13 @@ app.get('/api/v1/credentials', async (req, res) => {
  *               $ref: '#/components/schemas/error'
  */
 // BEARER AUTHENTICATION
-app.post('/api/v1/user/:user_id/credential', async (req, res) => {
+app.post('/api/v1/user/:user_id/credential', creationRateLimiter, async (req, res) => {
     try {
         // Save credential
         console.log(`POST /user/${req.params.user_id}/credential`);
         const response = await server.post_credential(
             req.headers.authorization,
-            req.params.user_id,
+            String(req.params.user_id),
             req.query.token,
             req.body.collector,
             req.body.params,
@@ -1193,7 +1227,7 @@ app.post('/api/v1/user/:user_id/credential', async (req, res) => {
 });
 
 // TOKEN AUTHENTICATION
-app.post('/api/v1/credential', async (req, res) => {
+app.post('/api/v1/credential', creationRateLimiter, async (req, res) => {
     try {
         markDeprecated(res);
         // Save credential
@@ -1461,16 +1495,16 @@ app.delete('/api/v1/credential/:credential_id', async (req, res) => {
  *               $ref: '#/components/schemas/error'
  */
 // BEARER AUTHENTICATION
-app.post('/api/v1/user/:user_id/credential/:credential_id/2fa', async (req, res) => {
+app.post('/api/v1/user/:user_id/credential/:credential_id/2fa', twofaRateLimiter, async (req, res) => {
     try {
         markDeprecated(res);
         // Post 2fa
         console.warn(`POST /user/${req.params.user_id}/credential/${req.params.credential_id}/2fa (DEPRECATED, use websockets instead)`);
         await server.post_credential_2fa(
             req.headers.authorization,
-            req.params.user_id,
+            String(req.params.user_id),
             req.query.token,
-            req.params.credential_id,
+            String(req.params.credential_id),
             req.body.code,
         );
 
@@ -1482,7 +1516,7 @@ app.post('/api/v1/user/:user_id/credential/:credential_id/2fa', async (req, res)
 });
 
 // TOKEN AUTHENTICATION
-app.post('/api/v1/credential/:credential_id/2fa', async (req, res) => {
+app.post('/api/v1/credential/:credential_id/2fa', twofaRateLimiter, async (req, res) => {
     try {
         markDeprecated(res);
         // Post 2fa
@@ -1491,7 +1525,7 @@ app.post('/api/v1/credential/:credential_id/2fa', async (req, res) => {
             req.headers.authorization,
             'me',
             req.query.token,
-            req.params.credential_id,
+            String(req.params.credential_id),
             req.body.code,
         );
 
@@ -1822,7 +1856,7 @@ app.get('/api/v1/callbacks', async (req, res) => {
  *               $ref: '#/components/schemas/error'
  */
 //BEARER AUTHENTICATION
-app.post('/api/v1/callback', async (req, res) => {
+app.post('/api/v1/callback', creationRateLimiter, async (req, res) => {
     try {
         // Create callback
         console.log('POST /callback');
@@ -2078,14 +2112,14 @@ app.delete('/api/v1/callback/:callbackId', async (req, res) => {
  *                 description: Error
  */
 // BEARER AUTHENTICATION
-app.get('/api/v1/callback/:callbackId/test/:type', async (req, res) => {
+app.get('/api/v1/callback/:callbackId/test/:type', creationRateLimiter, async (req, res) => {
     try {
         // Test callback
         console.log(`GET /callback/${req.params.callbackId}/test/${req.params.type}`);
         await server.get_callback_test(
             req.headers.authorization,
-            req.params.callbackId,
-            req.params.type,
+            String(req.params.callbackId),
+            String(req.params.type),
         );
 
         // Build response
