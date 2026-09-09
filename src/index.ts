@@ -2131,6 +2131,39 @@ app.get('/api/v1/callback/:callbackId/test/:type', creationRateLimiter, async (r
 
 // ---------- INTEGRATIONS ENDPOINTS ----------
 
+/**
+ * @swagger
+ * /api/v1/integrations:
+ *   get:
+ *     summary: List integrations
+ *     parameters:
+ *       - in: query
+ *         name: locale
+ *         schema:
+ *           type: string
+ *         description: Locale for the integrations
+ *     responses:
+ *       200:
+ *         description: Success
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: '#/components/schemas/integration'
+ *       400:
+ *         description: Bad request
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       500:
+ *         description: Internal server error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ */
 //NO AUTHENTICATION
 app.get('/api/v1/integrations', async (req, res) => {
     try {

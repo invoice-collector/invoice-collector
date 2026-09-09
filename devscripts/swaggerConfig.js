@@ -429,10 +429,12 @@ const SWAGGER_DEFINITION = {
                             additionalProperties: {
                                 type: 'object',
                                 properties: {
-                                    type: { type: 'string', description: 'Type of the parameter.', enum: ['text', 'password', 'url'], example: 'text' },
-                                    description: { type: 'string', description: 'Description of the parameter.', example: 'This is a parameter.' },
-                                    mandatory: { type: 'boolean', description: 'Indicates if the parameter is mandatory.', example: true }
-                                }
+                                    type: { type: 'string', description: 'Type of the parameter.', enum: ['string', 'number', 'boolean', 'enum'], example: 'string' },
+                                    name: { type: 'string', description: 'Name of the parameter.', example: 'Email' },
+                                    placeholder: { type: 'string', description: 'Placeholder of the parameter.', example: 'Email of the account' },
+                                    mandatory: { type: 'boolean', description: 'Whether the parameter is mandatory or not.', example: true },
+                                },
+                                required: ['type', 'name', 'placeholder', 'mandatory']
                             }
                         }
                     },
