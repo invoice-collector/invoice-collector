@@ -1,6 +1,7 @@
 import path from 'path';
 import { glob } from 'glob';
 import fs from 'fs';
+import vm from 'vm';
 import { AbstractCollector, CollectorAuthenticationMethod, CollectorCaptcha, CollectorType, CollectorState, Config } from './abstractCollector';
 import { StatusError } from '../error';
 
@@ -8,7 +9,7 @@ export class CollectorLoader {
     private static collectors: Map<string, {config: Config, file: string}> = new Map();
 
     static async load(filter: string | null = null): Promise<Map<string, {config: Config, file: string}>> {
-        //await this.loadFolders('sketch', 'sketch', filter);
+        await this.loadFolders('sketch', 'sketch', filter);
         await this.loadFolders('community', 'community', filter);
         await this.loadFolders('core', 'core', filter);
         await this.loadFolders('email_provider', 'email_provider', filter);
@@ -68,8 +69,9 @@ export class CollectorLoader {
                                 configStr = configStr.replaceAll(`CollectorAuthenticationMethod.${key}`, `"${value}"`);
                             }
 
-                            // Evaluate the config object
-                            const config = eval(`(${  configStr  })`);
+                            // Evaluate the config object in a sandbox with no access to the
+                            // surrounding module scope or Node globals (process, require, etc.)
+                            const config = vm.runInNewContext(`(${configStr})`, Object.create(null), { timeout: 1000 });
 
                             // Set config.state to default if not set
                             if (!config.state) {
