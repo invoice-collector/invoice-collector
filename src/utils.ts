@@ -322,6 +322,10 @@ export async function mergePdfDocuments(documents: string[]): Promise<string> {
     return await pdfDoc.saveAsBase64();
 }
 
+// Zip-bomb guards: caps on entry count and total decompressed bytes when extracting untrusted zips
+const ZIP_MAX_ENTRIES = 100;
+const ZIP_MAX_TOTAL_DECOMPRESSED_BYTES = 200 * 1024 * 1024; // 200MB
+
 export async function extractPdfFromZip(invoice: CompleteInvoice): Promise<CompleteInvoice[]> {
     if (!invoice.data) {
         throw new Error(`Cannot extract PDFs from zip for invoice ${invoice.id}: missing invoice data.`);
@@ -335,9 +339,20 @@ export async function extractPdfFromZip(invoice: CompleteInvoice): Promise<Compl
         throw new Error(`No PDF file found in zip for invoice ${invoice.id}.`);
     }
 
+    if (zipEntries.length > ZIP_MAX_ENTRIES) {
+        throw new Error(`Zip for invoice ${invoice.id} contains too many entries (max ${ZIP_MAX_ENTRIES}).`);
+    }
+
     const invoices: CompleteInvoice[] = [];
+    let totalDecompressedBytes = 0;
     for (const entry of zipEntries) {
         const data = await entry.async('base64');
+
+        // Base64 decodes to roughly 3/4 of its length
+        totalDecompressedBytes += Math.ceil(data.length * 3 / 4);
+        if (totalDecompressedBytes > ZIP_MAX_TOTAL_DECOMPRESSED_BYTES) {
+            throw new Error(`Zip for invoice ${invoice.id} exceeds max decompressed size (${ZIP_MAX_TOTAL_DECOMPRESSED_BYTES} bytes).`);
+        }
 
         invoices.push({
             ...invoice,
