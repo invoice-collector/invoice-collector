@@ -11,7 +11,7 @@ services:
       - .env
     ports:
       - 8080:8080
-      - 9229:9229
+      - 127.0.0.1:9229:9229
     volumes:
       - ./src:/usr/app/src
       - ./locales:/usr/app/locales
@@ -37,6 +37,6 @@ services:
       - ./.mongodb/data:/data/db
       - ./.mongodb/config:/etc/mongo/
     ports:
-      - 27017:27017
+      - 127.0.0.1:27017:27017
     command: --logpath /dev/null
     #command: --quiet --config /etc/mongo/mongod.conf # Quiet option not working
