@@ -60,10 +60,6 @@ export class GmailCollector extends EmailProvider {
             await this.refreshAccessToken(params);
         }
 
-        if (!params.access_token) {
-            throw new AuthenticationError('i18n.collectors.gmail.authentication_error', this);
-        }
-
         // Set the Authorization header for future requests
         this.instance.defaults.headers.common['Authorization'] = `Bearer ${params.access_token}`;
     }
