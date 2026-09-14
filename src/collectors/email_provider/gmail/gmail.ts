@@ -143,10 +143,21 @@ export class GmailCollector extends EmailProvider {
         // No persistent connection to close for the Gmail REST API.
     }
 
+    /**
+     * Extracts the value of a specific header from the list of headers.
+     * @param headers The list of Gmail headers to search through.
+     * @param name The name of the header to extract.
+     * @returns The value of the specified header, or an empty string if not found.
+     */
     private headerValue(headers: GmailHeader[], name: string): string {
         return headers.find(header => header.name.toLowerCase() === name.toLowerCase())?.value || '';
     }
 
+    /**
+     * Finds all attachments within a Gmail message part recursively.
+     * @param node The Gmail message part to search for attachments.
+     * @returns An array of attachment objects found within the message part.
+     */
     private findAttachments(node?: GmailMessagePart): { attachmentId: string, mimeType?: string, filename: string }[] {
         if (!node) {
             return [];
@@ -170,8 +181,9 @@ export class GmailCollector extends EmailProvider {
     }
 
     /**
-     * Exchanges the authorization code obtained from the user consent redirect
-     * for an access token and a refresh token.
+     * Exchanges the authorization code obtained from the user consent redirect for an access token and a refresh token.
+     * @param params The parameters object containing the necessary information for the token exchange.
+     * @param code The authorization code obtained from the user consent redirect.
      */
     private async getAccessToken(params: any, code: string): Promise<void> {
         const body = new URLSearchParams({
@@ -196,6 +208,7 @@ export class GmailCollector extends EmailProvider {
 
     /**
      * Exchanges the refresh token for a new access token.
+     * @param params The parameters object containing the refresh token and other necessary information for the token exchange.
      */
     private async refreshAccessToken(params: any): Promise<void> {
         const body = new URLSearchParams({
@@ -219,6 +232,10 @@ export class GmailCollector extends EmailProvider {
 
     /**
      * Makes a request to the Gmail API (or the Google token endpoint) using the underlying Axios instance.
+     * @param method The HTTP method to use for the request (e.g., 'GET', 'POST').
+     * @param url The URL to send the request to.
+     * @param options Optional Axios request configuration options.
+     * @returns The response data from the request.
      */
     private async request(method: string, url: string, options: any = {}): Promise<any> {
         const response = await this.instance.request({

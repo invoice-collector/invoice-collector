@@ -30,6 +30,10 @@ export type DownloadedEmailInvoice = EmailInvoice & {
 
 export abstract class EmailProvider extends V2Collector<EmailProviderConfig> {
 
+    /**
+     * Constructs a new EmailProvider instance.
+     * @param config The configuration object for the email provider.
+     */
     constructor(config: EmailProviderConfig) {
         super({
             ...config,
@@ -63,12 +67,24 @@ export abstract class EmailProvider extends V2Collector<EmailProviderConfig> {
         return [];
     }
 
-    // webSocketServer is only needed by OAuth2 based providers to request an interactive authorization code
+    /**
+     * Authenticates the email provider with the given parameters.
+     * @param params The authentication parameters required by the email provider.
+     * @param webSocketServer The WebSocket server used for interactive authentication, if needed.
+     */
     abstract authenticate(params: any, webSocketServer?: WebSocketServer): Promise<void>;
 
-    // Find emails matching the given wildcards, on the mailbox connection opened by authenticate()
+    /**
+     * Gets the list of invoices matching the given wildcards.
+     * @param wildcards The wildcards to match against email sender, subject, body, and attachment name.
+     * @param download_from_timestamp The timestamp from which to start downloading invoices.
+     */
     abstract getInvoices(wildcards: EmailInvoiceWildcards, download_from_timestamp: number): Promise<EmailInvoice[]>;
 
-    // Download the attachment referenced by the invoice returned by getInvoices()
+    /**
+     * Downloads the attachment referenced by the given invoice.
+     * @param invoice The invoice referencing the attachment to be downloaded.
+     * @returns A promise that resolves to the downloaded email invoice, including the attachment data and mimetype.
+     */
     abstract downloadInvoice(invoice: EmailInvoice): Promise<DownloadedEmailInvoice>;
 }

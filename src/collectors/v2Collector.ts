@@ -57,6 +57,18 @@ export abstract class V2Collector<C extends Config> extends AbstractCollector<C>
 
     //NOT IMPLEMENTED
 
+    /**
+     * Collects new invoices from the data source.
+     * @param state The current state of the collector.
+     * @param webSocketServer The WebSocket server instance for real-time updates.
+     * @param secret The secret containing authentication credentials.
+     * @param download_from_timestamp The timestamp from which to start downloading invoices.
+     * @param previousInvoices The list of previously collected invoices.
+     * @param locale The locale for localization purposes.
+     * @param location The location context for the collection.
+     * @param useInteractiveLogin Whether to use interactive login for authentication.
+     * @param providers The list of credential providers available for authentication.
+     */
     abstract _collect(
         state: State,
         webSocketServer: WebSocketServer | undefined,
@@ -69,5 +81,8 @@ export abstract class V2Collector<C extends Config> extends AbstractCollector<C>
         providers: Credential[]
     ): Promise<CompleteInvoice[]>;
 
+    /**
+     * Closes the collector resources and performs any necessary cleanup.
+     */
     abstract _close(): Promise<void>;
 }
