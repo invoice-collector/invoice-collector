@@ -47,7 +47,13 @@ export abstract class EmailCollector extends V2Collector<EmailCollectorConfig> {
             throw new DisconnectedError('i18n.collectors.email.no_provider', this);
         }
 
-        let atLeastOneProviderSucceeded = false;
+        // Filter active providers
+        providers = providers.filter(provider => provider.state.index === provider.state.max);
+
+        // If no active provider, raise Disconnected error
+        if (providers.length === 0 && webSocketServer) {
+            throw new DisconnectedError('i18n.collectors.email.authentication_failed', this);
+        }
 
         // For each provider
         for (const provider of providers) {
@@ -61,12 +67,8 @@ export abstract class EmailCollector extends V2Collector<EmailCollectorConfig> {
                 state.update(State._2_LOGGING_IN);
                 webSocketServer?.sendState(State._2_LOGGING_IN);
 
-                try {
-                    // Authenticate to open the underlying mailbox connection
-                    await emailProvider.authenticate(await providerSecret.getParams(), undefined);
-                } catch (error) {
-                    continue;
-                }
+                // Authenticate to open the underlying mailbox connection
+                await emailProvider.authenticate(await providerSecret.getParams(), undefined);
 
                 const wildcards: EmailInvoiceWildcards = {
                     sender: this.config.wildcards.sender,
@@ -123,15 +125,14 @@ export abstract class EmailCollector extends V2Collector<EmailCollectorConfig> {
                         });
                     }
                 }
-                atLeastOneProviderSucceeded = true;
+            }
+            catch (error) {
+                throw new Error(`Failed to collect invoices from email provider`, { cause: error });
             }
             finally {
                 // Close the underlying mailbox connection
                 await emailProvider._close();
             }
-        }
-        if (!atLeastOneProviderSucceeded && webSocketServer) {
-            throw new DisconnectedError('i18n.collectors.email.authentication_failed', this);
         }
         return completeInvoices;
     }

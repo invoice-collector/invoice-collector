@@ -207,12 +207,12 @@ export class GmailCollector extends EmailProvider {
             data: body.toString(),
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         });
-        if (!data?.access_token || !data?.refresh_token) {
+        if (!data?.access_token) {
             throw new AuthenticationError('i18n.collectors.gmail.authentication_error', this);
         }
         // Update params with the new access token for future use
         params.access_token = data.access_token;
-        params.refresh_token = data.refresh_token;
+        // The refresh token remains unchanged and never expires
     }
 
     /**
