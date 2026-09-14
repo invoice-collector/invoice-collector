@@ -149,6 +149,13 @@ export class GmailCollector extends EmailProvider {
     }
 
     /**
+     * @inheritdoc
+     */
+    async _close(): Promise<void> {
+        // No persistent connection to close for the Gmail REST API.
+    }
+
+    /**
      * Extracts the value of a specific header from the list of headers.
      * @param headers The list of Gmail headers to search through.
      * @param name The name of the header to extract.
