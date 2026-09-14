@@ -45,6 +45,9 @@ export class GmailCollector extends EmailProvider {
 
     private instance: AxiosInstance;
 
+    /**
+     * @inheritdoc
+     */
     async authenticate(params: any, webSocketServer?: WebSocketServer): Promise<void> {
         // If param does not contain a refresh token nor an access token, the user has not authenticated yet.
         if (!params.refresh_token && !params.access_token && webSocketServer) {
@@ -64,6 +67,9 @@ export class GmailCollector extends EmailProvider {
         this.instance.defaults.headers.common['Authorization'] = `Bearer ${params.access_token}`;
     }
 
+    /**
+     * @inheritdoc
+     */
     async getInvoices(wildcards: EmailInvoiceWildcards, download_from_timestamp: number): Promise<EmailInvoice[]> {
         const senderRegex = utils.wildcardToRegex(wildcards.sender);
         const subjectRegex = utils.wildcardToRegex(wildcards.subject);
@@ -127,6 +133,9 @@ export class GmailCollector extends EmailProvider {
         return invoices;
     }
 
+    /**
+     * @inheritdoc
+     */
     async downloadInvoice(invoice: EmailInvoice): Promise<DownloadedEmailInvoice> {
         const { messageId, attachmentId, mimetype } = invoice.metadata as { messageId: string, attachmentId: string, mimetype: string };
 
@@ -137,10 +146,6 @@ export class GmailCollector extends EmailProvider {
             data: Buffer.from(attachment.data, 'base64url').toString('base64'),
             mimetype: mimetype || 'application/octet-stream',
         };
-    }
-
-    async _close(): Promise<void> {
-        // No persistent connection to close for the Gmail REST API.
     }
 
     /**

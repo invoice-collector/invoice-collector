@@ -54,6 +54,9 @@ export class CustomEmailCollector extends EmailCollector {
         super(CustomEmailCollector.CONFIG);
     }
 
+    /**
+     * @inheritdoc
+     */
     async _collect(
         state: State,
         webSocketServer: WebSocketServer | undefined,

@@ -45,6 +45,9 @@ export class TeslaCollector extends ApiCollector {
         CN: 'https://fleet-api.prd.cn.vn.cloud.tesla.cn',
     };
 
+    /**
+     * @inheritdoc
+     */
     async collect(instance: AxiosInstance, webSocketServer: WebSocketServer | undefined, params: any): Promise<any[]> {
         // If param does not contain a refresh token nor an access token, the user has not authenticated yet.
         if (!params.refresh_token && !params.access_token && webSocketServer !== undefined) {
@@ -109,6 +112,9 @@ export class TeslaCollector extends ApiCollector {
         return invoices;
     }
 
+    /**
+     * @inheritdoc
+     */
     async download(instance: AxiosInstance, invoice: any): Promise<DownloadedInvoice> {
         // Download the PDF
         const data = await this.downloadInvoice(instance, invoice.link);

@@ -69,6 +69,9 @@ export class ImapCollector extends EmailProvider {
 
     private client: ImapFlow | null;
 
+    /**
+     * @inheritdoc
+     */
     async authenticate(params: any, webSocketServer?: WebSocketServer): Promise<void> {
         const host = params.host as string;
         const username = params.username as string;
@@ -100,6 +103,9 @@ export class ImapCollector extends EmailProvider {
         }
     }
 
+    /**
+     * @inheritdoc
+     */
     async getInvoices(wildcards: EmailInvoiceWildcards, download_from_timestamp: number): Promise<EmailInvoice[]> {
         if (!this.client) {
             throw new Error('IMAP client is not connected');
@@ -171,6 +177,9 @@ export class ImapCollector extends EmailProvider {
         return invoices;
     }
 
+    /**
+     * @inheritdoc
+     */
     async downloadInvoice(invoice: EmailInvoice): Promise<DownloadedEmailInvoice> {
         if (!this.client) {
             throw new Error('IMAP client is not connected');
@@ -197,6 +206,30 @@ export class ImapCollector extends EmailProvider {
         }
     }
 
+    /**
+     * @inheritdoc
+     */
+    async _close(): Promise<void> {
+        if (!this.client) {
+            return;
+        }
+
+        try {
+            if (this.client.usable) {
+                await this.client.logout();
+            }
+        } catch (error) {
+            // Ignore close errors to avoid masking collection results.
+        } finally {
+            this.client = null;
+        }
+    }
+
+    /**
+     * Finds all attachments within a message structure node recursively.
+     * @param node The message structure node to search for attachments.
+     * @returns An array of attachment objects found within the message structure node.
+     */
     private findAttachments(node?: MessageStructureObject): { part: string, type: string, filename: string }[] {
         if (!node) {
             return [];
@@ -226,21 +259,5 @@ export class ImapCollector extends EmailProvider {
         }
 
         return attachments;
-    }
-
-    async _close(): Promise<void> {
-        if (!this.client) {
-            return;
-        }
-
-        try {
-            if (this.client.usable) {
-                await this.client.logout();
-            }
-        } catch (error) {
-            // Ignore close errors to avoid masking collection results.
-        } finally {
-            this.client = null;
-        }
     }
 }

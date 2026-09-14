@@ -21,6 +21,10 @@ export type EmailCollectorConfig = Config & {
 
 export abstract class EmailCollector extends V2Collector<EmailCollectorConfig> {
 
+    /**
+     * Constructs a new EmailCollector instance.
+     * @param config The configuration object for the email collector.
+     */
     constructor(config: EmailCollectorConfig) {
         super({
             ...config,
@@ -29,6 +33,9 @@ export abstract class EmailCollector extends V2Collector<EmailCollectorConfig> {
         });
     }
 
+    /**
+     * @inheritdoc
+     */
     async _collect(
         state: State,
         webSocketServer: WebSocketServer | undefined,
@@ -137,6 +144,9 @@ export abstract class EmailCollector extends V2Collector<EmailCollectorConfig> {
         return completeInvoices;
     }
 
+    /**
+     * @inheritdoc
+     */
     async _close(): Promise<void> {
         // The email provider connection is already closed right after each collect.
     }

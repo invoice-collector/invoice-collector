@@ -42,6 +42,9 @@ export abstract class EmailProvider extends V2Collector<EmailProviderConfig> {
         });
     }
 
+    /**
+     * @inheritdoc
+     */
     async _collect(
         state: State,
         webSocketServer: WebSocketServer | undefined,
