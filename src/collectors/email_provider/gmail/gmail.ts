@@ -88,7 +88,9 @@ export class GmailCollector extends EmailProvider {
                 const message = await this.request('GET', `/messages/${id}`, { params: { format: 'full' } });
 
                 const headers: GmailHeader[] = message.payload?.headers || [];
-                const senderAddress = this.headerValue(headers, 'From');
+                const rawRenderAddress = this.headerValue(headers, 'From');
+                const emailMatch = rawRenderAddress.match(/<([^>]+)>/);
+                const senderAddress = emailMatch ? emailMatch[1] : rawRenderAddress;
                 if (!senderRegex.test(senderAddress)) {
                     continue;
                 }
