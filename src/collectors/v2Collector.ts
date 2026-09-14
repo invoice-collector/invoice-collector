@@ -9,10 +9,17 @@ import { CustomerAuthenticationMethod } from '../model/customer';
 
 export abstract class V2Collector<C extends Config> extends AbstractCollector<C> {
 
+    /**
+     * Constructor for the V2Collector class.
+     * @param config The configuration object for the collector.
+     */
     constructor(config: C) {
         super(config);
     }
 
+    /**
+     * @inheritdoc
+     */
     async collect_new_invoices(
         state: State,
         webSocketServer: WebSocketServer | undefined,

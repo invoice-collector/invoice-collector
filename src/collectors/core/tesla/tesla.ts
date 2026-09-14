@@ -125,7 +125,10 @@ export class TeslaCollector extends ApiCollector {
     }
 
     /**
-     * Regional server of the account. The region is carried by the code.
+     * Determines the base URL for the Tesla API based on the code.
+     * It can be the access code or the authorization code.
+     * @param code The regional code to determine the base URL for.
+     * @returns The base URL corresponding to the regional code.
      */
     private baseUrlFromCode(code: string): string {
         for (const [key, value] of Object.entries(TeslaCollector.REGIONS)) {
@@ -137,8 +140,10 @@ export class TeslaCollector extends ApiCollector {
     }
 
     /**
-     * Exchanges the authorization code obtained from the user consent redirect
-     * for an access token and a refresh token.
+     * Exchanges the authorization code obtained from the user consent redirect for an access token and a refresh token.
+     * @param instance The Axios instance to use for the request.
+     * @param params The parameters object to store the obtained tokens.
+     * @param code The authorization code obtained from the user consent redirect.
      */
     private async getAccessToken(instance: AxiosInstance, params: any, code: string): Promise<void> {
         // Get the base URL from the code and update the instance defaults
@@ -168,6 +173,8 @@ export class TeslaCollector extends ApiCollector {
 
     /**
      * Exchanges the refresh token for an access token and a new refresh token.
+     * @param instance The Axios instance to use for the request.
+     * @param params The parameters object containing the refresh token.
      */
     private async refreshAccessToken(instance: AxiosInstance, params: any): Promise<void> {
         // Set the base URL from the code and update the instance defaults
