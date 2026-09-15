@@ -31,4 +31,7 @@ jobs:
         env:
           PORT: 8080
           FRONTEND: localhost:5173
+          OAUTH2_TESLA_CLIENT_ID: mock
           OAUTH2_TESLA_CLIENT_SECRET: mock
+          OAUTH2_GMAIL_CLIENT_ID: mock
+          OAUTH2_GMAIL_CLIENT_SECRET: mock

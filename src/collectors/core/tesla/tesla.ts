@@ -31,7 +31,7 @@ export class TeslaCollector extends ApiCollector {
     }
 
     static REDIRECT_URI = `${utils.BACKEND_URI}/api/v1/oauth2`;
-    static CLIENT_ID = '86f1cbbc-3023-4e1c-98ea-dd4bb2171f3e';
+    static CLIENT_ID = utils.getEnvVar('OAUTH2_TESLA_CLIENT_ID');
     static CLIENT_SECRET = utils.getEnvVar('OAUTH2_TESLA_CLIENT_SECRET');
     static OAUTH2_URL = `https://auth.tesla.com/oauth2/v3/authorize?client_id=${TeslaCollector.CLIENT_ID}&locale=en-US&prompt=login&prompt_missing_scopes=true&redirect_uri=${encodeURIComponent(TeslaCollector.REDIRECT_URI)}&response_type=code&scope=openid%20vehicle_charging_cmds%20offline_access&state={state}`;
     static TOKEN_URL = 'https://fleet-auth.prd.vn.cloud.tesla.com/oauth2/v3/token';
@@ -45,6 +45,9 @@ export class TeslaCollector extends ApiCollector {
         CN: 'https://fleet-api.prd.cn.vn.cloud.tesla.cn',
     };
 
+    /**
+     * @inheritdoc
+     */
     async collect(instance: AxiosInstance, webSocketServer: WebSocketServer | undefined, params: any): Promise<any[]> {
         // If param does not contain a refresh token nor an access token, the user has not authenticated yet.
         if (!params.refresh_token && !params.access_token && webSocketServer !== undefined) {
@@ -109,6 +112,9 @@ export class TeslaCollector extends ApiCollector {
         return invoices;
     }
 
+    /**
+     * @inheritdoc
+     */
     async download(instance: AxiosInstance, invoice: any): Promise<DownloadedInvoice> {
         // Download the PDF
         const data = await this.downloadInvoice(instance, invoice.link);
@@ -119,7 +125,10 @@ export class TeslaCollector extends ApiCollector {
     }
 
     /**
-     * Regional server of the account. The region is carried by the code.
+     * Determines the base URL for the Tesla API based on the code.
+     * It can be the access code or the authorization code.
+     * @param code The regional code to determine the base URL for.
+     * @returns The base URL corresponding to the regional code.
      */
     private baseUrlFromCode(code: string): string {
         for (const [key, value] of Object.entries(TeslaCollector.REGIONS)) {
@@ -131,8 +140,10 @@ export class TeslaCollector extends ApiCollector {
     }
 
     /**
-     * Exchanges the authorization code obtained from the user consent redirect
-     * for an access token and a refresh token.
+     * Exchanges the authorization code obtained from the user consent redirect for an access token and a refresh token.
+     * @param instance The Axios instance to use for the request.
+     * @param params The parameters object to store the obtained tokens.
+     * @param code The authorization code obtained from the user consent redirect.
      */
     private async getAccessToken(instance: AxiosInstance, params: any, code: string): Promise<void> {
         // Get the base URL from the code and update the instance defaults
@@ -162,6 +173,8 @@ export class TeslaCollector extends ApiCollector {
 
     /**
      * Exchanges the refresh token for an access token and a new refresh token.
+     * @param instance The Axios instance to use for the request.
+     * @param params The parameters object containing the refresh token.
      */
     private async refreshAccessToken(instance: AxiosInstance, params: any): Promise<void> {
         // Set the base URL from the code and update the instance defaults

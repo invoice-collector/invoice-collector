@@ -11,7 +11,8 @@ export type IntegrationConfig = {
             type: 'text' | 'password' | 'url',
             name: string,
             placeholder: string,
-            mandatory: boolean
+            mandatory: boolean,
+            default?: any,
         }
     }
 }

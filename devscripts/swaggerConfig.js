@@ -289,6 +289,7 @@ const SWAGGER_DEFINITION = {
                         name: { type: 'string', description: 'Name of the parameter.', example: 'Email' },
                         placeholder: { type: 'string', description: 'Placeholder of the parameter.', example: 'Email of the account' },
                         mandatory: { type: 'boolean', description: 'Whether the parameter is mandatory or not.', example: true },
+                        default: { type: 'object', description: 'Default value of the parameter. Can be a string, number, boolean, or enum.', example: 'default_value' }
                     },
                     required: ['type', 'name', 'placeholder', 'mandatory'],
                 },
@@ -433,6 +434,7 @@ const SWAGGER_DEFINITION = {
                                     name: { type: 'string', description: 'Name of the parameter.', example: 'Email' },
                                     placeholder: { type: 'string', description: 'Placeholder of the parameter.', example: 'Email of the account' },
                                     mandatory: { type: 'boolean', description: 'Whether the parameter is mandatory or not.', example: true },
+                                    default: { type: 'object', description: 'Default value of the parameter. Can be a string, number, boolean, or enum.', example: 'default_value' },
                                 },
                                 required: ['type', 'name', 'placeholder', 'mandatory']
                             }

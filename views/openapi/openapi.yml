@@ -368,6 +368,11 @@ components:
           type: boolean
           description: Whether the parameter is mandatory or not.
           example: true
+        default:
+          type: object
+          description: Default value of the parameter. Can be a string, number, boolean,
+            or enum.
+          example: default_value
       required:
         - type
         - name
@@ -697,6 +702,11 @@ components:
                 type: boolean
                 description: Whether the parameter is mandatory or not.
                 example: true
+              default:
+                type: object
+                description: Default value of the parameter. Can be a string, number, boolean,
+                  or enum.
+                example: default_value
             required:
               - type
               - name

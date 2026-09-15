@@ -60,7 +60,8 @@ export type Config = {
             type: string,
             name: string,
             placeholder: string,
-            mandatory: boolean
+            mandatory: boolean,
+            default?: any
         }
     },
     state?: CollectorState
