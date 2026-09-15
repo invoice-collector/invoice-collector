@@ -314,7 +314,12 @@ function showForm(company) {
         input.name = key;
         input.placeholder = param.placeholder;
         input.required = param.mandatory;
-        input.value = param.default || '';
+        if(param.default != undefined) {
+            input.value = param.default;
+        }
+        if(param.type === 'boolean' && param.default == true) {
+            input.checked = true;
+        }
         
         formGroup.appendChild(label);
         formGroup.appendChild(input);

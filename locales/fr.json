@@ -3341,6 +3341,7 @@
   "i18n.collectors.gm_packaging.description": "Un fournisseur en ligne de solutions d'emballage proposant des options personnalisables et durables pour les entreprises.",
   "i18n.collectors.gmail.authentication_error": "Gmail a rejeté ces identifiants. Veuillez reconnecter votre compte Gmail.",
   "i18n.collectors.gmail.description": "Connectez votre boîte mail Gmail via OAuth2.",
+  "i18n.collectors.gmail.instructions": "L'application Gmail n'est pas encore vérifiée. Nous procédons à une <a href=\"https://support.google.com/cloud/answer/13465431\">évaluation de sécurité</a> avec les équipes de Google pour garantir la conformité et la sécurité. Lors du processus de connexion, sélectionnez \"Paramètes avancés\", puis \"Accéder à Invoice-Collector (non sécurisé)\".",
   "i18n.collectors.gmail.name": "Gmail",
   "i18n.collectors.gmass.description": "Un outil puissant de marketing par e-mail qui s'intègre à Gmail pour des campagnes d'e-mails en masse et des fusions de publipostage.",
   "i18n.collectors.gmelius.description": "Une plateforme collaborative qui transforme Gmail en boîte de réception partagée, automatisation des flux de travail et outil de collaboration d'équipe.",
