@@ -314,6 +314,7 @@ function showForm(company) {
         input.name = key;
         input.placeholder = param.placeholder;
         input.required = param.mandatory;
+        input.value = param.default || '';
         
         formGroup.appendChild(label);
         formGroup.appendChild(input);
