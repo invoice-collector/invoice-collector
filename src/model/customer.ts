@@ -5,8 +5,8 @@ import { User } from './user';
 import { CollectorLoader } from '../collectors/collectorLoader';
 import { Plan } from './plan';
 import { Callback } from './callback';
-import { InternalInvoice } from './internalInvoice';
 import { AllCustomerData } from '../database/abstractDatabase';
+import { Bill } from './bill';
 
 export enum Theme {
     DEFAULT = 'default',
@@ -122,7 +122,7 @@ export class Customer {
     displaySketchCollectors: boolean;
     maxDelayBetweenCollect: number;
     plan: Plan;
-    internalInvoices: InternalInvoice[];
+    bills: Bill[];
 
     constructor(
         email: string,
@@ -140,7 +140,7 @@ export class Customer {
         displaySketchCollectors: boolean = Customer.DEFAULT_DISPLAY_SKETCH_COLLECTORS,
         maxDelayBetweenCollect: number = Customer.DEFAULT_MAX_DELAY_BETWEEN_COLLECT,
         plan: Plan = utils.IS_SELF_HOSTED ? Plan.FREE : Plan.TRIAL,
-        internalInvoices: InternalInvoice[] = []
+        bills: Bill[] = []
     ) {
         this.id = '';
         this.email = email;
@@ -158,7 +158,7 @@ export class Customer {
         this.displaySketchCollectors = displaySketchCollectors;
         this.maxDelayBetweenCollect = maxDelayBetweenCollect;
         this.plan = plan;
-        this.internalInvoices = internalInvoices;
+        this.bills = bills;
     }
 
     async getUserFromRemoteId(remote_id: string): Promise<User|null> {
@@ -249,12 +249,12 @@ export class Customer {
 
     // INTERNAL INVOICES
 
-    async computeMissingInternalInvoice(): Promise<void> {
+    async computeMissingBills(): Promise<void> {
         // Compute months between now and createdAt
         const months = utils.getMonthsBetween(this.createdAt, new Date());
 
-        // Filter months to find the ones that do not have an internal invoice yet
-        const missingMonths = months.filter((month) => !this.internalInvoices.some((invoice) => invoice.month === month));
+        // Filter months to find the ones that do not have a bill yet
+        const missingMonths = months.filter((month) => !this.bills.some((bill) => bill.month === month));
 
         // If there are no missing months, return early
         if (missingMonths.length === 0) {
@@ -264,13 +264,13 @@ export class Customer {
         // Get all the customer data
         const allCustomerData = await DatabaseFactory.getDatabase().getAllCustomerData(this.id);
 
-        // Create internal invoices for the missing months
+        // Create bills for the missing months
         for (const month of missingMonths) {
-            await this.createInternalInvoices(allCustomerData, month);
+            await this.createBill(allCustomerData, month);
         }
     }
 
-    private async createInternalInvoices(allCustomerData: AllCustomerData, month: string): Promise<InternalInvoice> {
+    private async createBill(allCustomerData: AllCustomerData, month: string): Promise<Bill> {
         const [year, monthStr] = month.split('-').map(Number);
         const monthStart = new Date(Date.UTC(year, monthStr - 1));  // First millisecond of the month
         const monthEnd = new Date(Date.UTC(year, monthStr));        // Last millisecond of the month
@@ -321,7 +321,7 @@ export class Customer {
         }
 
         // Create the internal invoice for the given month
-        const internalInvoice = new InternalInvoice(
+        const bill = new Bill(
             id,
             month,
             creationDate,
@@ -336,9 +336,9 @@ export class Customer {
             activeCollectors.size
         );
 
-        // Add the internal invoice to the customer's internal invoices
-        this.internalInvoices.push(internalInvoice);
+        // Add the bill to the customer's bills
+        this.bills.push(bill);
 
-        return internalInvoice;
+        return bill;
     }
 }

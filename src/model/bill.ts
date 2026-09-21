@@ -1,6 +1,6 @@
 import { Plan } from "./plan";
 
-export class InternalInvoice {
+export class Bill {
 
     id: string;
     month: string;
@@ -16,17 +16,18 @@ export class InternalInvoice {
     activeCollectors: number;
 
     /**
-     * Constructs a new Invoice-Collector Invoice (internal invoice).
-     * @param id The unique identifier of the internal invoice.
-     * @param month The month of the invoice.
-     * @param creationDate The creation date of the invoice.
-     * @param dueDate The due date of the invoice.
-     * @param plan The plan associated with the invoice.
+     * Constructs a new Invoice-Collector Bill (internal invoice).
+     * Unlike invoice that are collected for users, bills are used for internal accounting purposes.
+     * @param id The unique identifier of the internal bill.
+     * @param month The month of the bill.
+     * @param creationDate The creation date of the bill.
+     * @param dueDate The due date of the bill.
+     * @param plan The plan associated with the bill.
      * @param users The total number of users.
      * @param activeUsers The number of active users. A user is concidered active if at least one invoice has been issued for them.
      * @param credentials The total number of credentials.
      * @param activeCredentials The number of active credentials. A credential is considered active if at least one invoice has been issued for it.
-     * @param invoices The total number of invoices.
+     * @param invoices The total number of invoices associated with the bill.
      * @param collectors The total number of collectors.
      * @param activeCollectors The number of active collectors. A collector is considered active if at least one invoice has been issued for them.
      */
