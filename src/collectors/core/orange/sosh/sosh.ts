@@ -1,4 +1,4 @@
-import { TwofaPromise } from '../../../../collect/twofaPromise';
+import { TwofaPromise } from '../../../../tasks/collect/twofaPromise';
 import { CollectorCaptcha, CollectorType, Invoice, CollectorAuthenticationMethod } from '../../../abstractCollector';
 import { OrangeHelper } from '../helper/orangeHelper';
 import { LinearWebCollector } from '../../../linearWebCollector';

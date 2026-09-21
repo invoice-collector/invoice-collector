@@ -1,5 +1,5 @@
 import { CronJob } from 'cron';
-import { Credential } from '../model/credential';
+import { Credential } from '../../model/credential';
 import { Collect } from './collect';
 import { CollectPool } from './collectPool';
 

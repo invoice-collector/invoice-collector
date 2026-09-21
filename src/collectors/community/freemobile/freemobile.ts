@@ -3,7 +3,7 @@ import { FreeMobileSelectors } from './selectors';
 import { AbstractDriver } from '../../../driver/abstractDriver';
 import { Element } from '../../../driver/element';
 import { CollectorCaptcha, CollectorType, Invoice, CollectorAuthenticationMethod } from '../../abstractCollector';
-import { TwofaPromise } from '../../../collect/twofaPromise';
+import { TwofaPromise } from '../../../tasks/collect/twofaPromise';
 import * as utils from '../../../utils';
 import { WebSocketServer } from '../../../websocket/webSocketServer';
 

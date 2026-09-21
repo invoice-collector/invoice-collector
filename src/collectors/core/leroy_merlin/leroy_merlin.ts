@@ -4,7 +4,7 @@ import { AbstractDriver } from '../../../driver/abstractDriver';
 import { Element } from '../../../driver/element';
 import { Invoice, CollectorCaptcha, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
 import * as utils from '../../../utils';
-import { TwofaPromise } from '../../../collect/twofaPromise';
+import { TwofaPromise } from '../../../tasks/collect/twofaPromise';
 import { WebSocketServer } from '../../../websocket/webSocketServer';
 
 export class LeroyMerlinCollector extends LinearWebCollector {

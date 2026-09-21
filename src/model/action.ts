@@ -1,6 +1,6 @@
 import { AbstractDriver } from '../driver/abstractDriver';
 import { Element } from '../driver/element';
-import { TwofaPromise } from '../collect/twofaPromise';
+import { TwofaPromise } from '../tasks/collect/twofaPromise';
 import * as utils from '../utils';
 import { Invoice } from '../collectors/abstractCollector';
 import { AuthenticationError, DisconnectedError, ElementNotFoundError } from '../error';

@@ -6,7 +6,7 @@ import { AuthenticationError, CollectorError, DisconnectedError, LoggableError, 
 import { ProxyFactory } from '../proxy/proxyFactory';
 import { Location, Proxy } from '../proxy/abstractProxy';
 import { Secret } from '../model/secret';
-import { TwofaPromise } from '../collect/twofaPromise';
+import { TwofaPromise } from '../tasks/collect/twofaPromise';
 import { State } from '../model/state';
 import * as utils from '../utils';
 import { WebSocketServer } from '../websocket/webSocketServer';

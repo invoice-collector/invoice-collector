@@ -5,7 +5,7 @@ import { CollectorCaptcha, CollectorType, Invoice, CollectorAuthenticationMethod
 import { AuthenticationError } from '../../../../error';
 import { OrangeHelper } from '../helper/orangeHelper';
 import { WebSocketServer } from '../../../../websocket/webSocketServer';
-import { TwofaPromise } from '../../../../collect/twofaPromise';
+import { TwofaPromise } from '../../../../tasks/collect/twofaPromise';
 import { LinearWebCollector } from '../../../linearWebCollector';
 
 export class OrangeCollector extends LinearWebCollector {

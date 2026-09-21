@@ -4,7 +4,7 @@ import { CollectorCaptcha, CollectorType, Invoice, CollectorAuthenticationMethod
 import { LinearWebCollector } from '../../../collectors/linearWebCollector';
 import { AmazonSelectors } from './selectors';
 import { timestampFromString } from '../../../utils';
-import { TwofaPromise } from '../../../collect/twofaPromise';
+import { TwofaPromise } from '../../../tasks/collect/twofaPromise';
 import { WebSocketServer } from '../../../websocket/webSocketServer';
 
 export class AmazonCollector extends LinearWebCollector {

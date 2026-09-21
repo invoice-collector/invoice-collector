@@ -1,4 +1,4 @@
-import { TwofaPromise } from '../../collect/twofaPromise';
+import { TwofaPromise } from '../../tasks/collect/twofaPromise';
 import { AbstractDriver } from '../../driver/abstractDriver';
 import { WebSocketServer } from '../../websocket/webSocketServer';
 

@@ -1,14 +1,14 @@
-import { AbstractCollector, Config } from '../collectors/abstractCollector';
-import { CollectorLoader } from '../collectors/collectorLoader';
-import { AuthenticationError, RemoveError, DisconnectedError, LoggableError, MaintenanceError, NoInvoiceFoundError } from '../error';
-import { Credential } from '../model/credential';
-import { State } from '../model/state';
-import { Customer } from '../model/customer';
-import { User } from '../model/user';
-import { AnalyticsFactory } from '../analytics/analyticsFactory';
-import { WebSocketServer } from '../websocket/webSocketServer';
-import * as utils from '../utils';
-import { Secret } from '../model/secret';
+import { AbstractCollector, Config } from '../../collectors/abstractCollector';
+import { CollectorLoader } from '../../collectors/collectorLoader';
+import { AuthenticationError, RemoveError, DisconnectedError, LoggableError, MaintenanceError, NoInvoiceFoundError } from '../../error';
+import { Credential } from '../../model/credential';
+import { State } from '../../model/state';
+import { Customer } from '../../model/customer';
+import { User } from '../../model/user';
+import { AnalyticsFactory } from '../../analytics/analyticsFactory';
+import { WebSocketServer } from '../../websocket/webSocketServer';
+import * as utils from '../../utils';
+import { Secret } from '../../model/secret';
 
 export class Collect {
 
