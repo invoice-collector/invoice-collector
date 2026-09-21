@@ -152,6 +152,7 @@ export class PuppeteerDriver extends AbstractDriver {
     }
 
     async close() {
+        await this.stopScreenCast();
         await this.browser?.close();
     }
 
