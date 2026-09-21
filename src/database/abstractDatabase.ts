@@ -1,8 +1,18 @@
 import { Customer, CustomerStats } from '../model/customer';
 import { User } from '../model/user';
-import { Credential } from '../model/credential';
+import { Credential, ModelInvoice } from '../model/credential';
 import { CollectorMemory } from '../model/collectorMemory';
 import { Callback } from '../model/callback';
+
+
+
+export type AllCustomerData = {
+    users: ({
+        credentials: ({
+            invoices: ModelInvoice[];
+        } & Credential)[];
+    } & User)[];
+} & Customer;
 
 export abstract class AbstractDatabase {
     constructor() {
@@ -35,7 +45,9 @@ export abstract class AbstractDatabase {
 
     abstract updateCustomer(customer: Customer): Promise<void>;
 
-    abstract getCustomerStats(customer_id: string): Promise<CustomerStats|null>;
+    abstract getCustomerStats(customer_id: string): Promise<CustomerStats>;
+
+    abstract getAllCustomerData(customer_id: string): Promise<AllCustomerData>;
 
     // USER
 
