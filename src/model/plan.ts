@@ -11,6 +11,26 @@ export class Plan {
         'Unlimited invoices per month',
     ]);
 
+    static fromObject(obj: any): Plan {
+        return new Plan(
+            obj.id,
+            obj.name,
+            obj.maxUsers,
+            obj.maxCredentials,
+            obj.maxInvoicesPerMonth,
+            obj.maxCollectors,
+            obj.priceBase,
+            obj.pricePerUser,
+            obj.pricePerActiveUser,
+            obj.pricePerCredential,
+            obj.pricePerActiveCredential,
+            obj.pricePerInvoice,
+            obj.pricePerCollector,
+            obj.pricePerActiveCollector,
+            obj.features,
+        );
+    }
+
     id: string;
     name: string;
     maxUsers: number;

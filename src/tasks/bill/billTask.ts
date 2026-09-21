@@ -6,7 +6,7 @@ import { Customer } from '../../model/customer';
  */
 export class BillTask {
     static DEFAULT_CRON_TIME = '30 0 1 * *';
-    static DEFAULT_TIMEZONE = 'Europe/Paris';
+    static DEFAULT_TIMEZONE = 'UTC';
 
     private job: CronJob;
 
