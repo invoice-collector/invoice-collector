@@ -255,7 +255,7 @@ export class Customer {
 
     async computeMissingBills(): Promise<Bill[]> {
         // Compute months between now and createdAt
-        const months = utils.getMonthsBetween(this.createdAt, new Date());
+        const months = utils.getMonthsBetween(this.createdAt, new Date(), true, false);
 
         // Filter months to find the ones that do not have a bill yet
         const missingMonths = months.filter((month) => !this.bills.some((bill) => bill.month === month));
@@ -345,6 +345,9 @@ export class Customer {
 
         // Add the bill to the customer's bills
         this.bills.push(bill);
+
+        // Commit the changes in database
+        await this.commit()
 
         return bill;
     }

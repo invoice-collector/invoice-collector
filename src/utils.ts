@@ -535,7 +535,7 @@ export async function getLinksFromPdfDocument(data: string): Promise<string[]> {
  * @param endDate The end date as a Date object (default is current date)
  * @returns An array of months in the format "yyyy-mm" between the start and end dates
  */
-export function getMonthsBetween(startTimestamp: number, endDate): string[] {
+export function getMonthsBetween(startTimestamp: number, endDate: Date, excludeFirstMonth: boolean, excludeLastMonth: boolean): string[] {
     const startDate = new Date(startTimestamp);
     const months: string[] = [];
 
@@ -553,5 +553,13 @@ export function getMonthsBetween(startTimestamp: number, endDate): string[] {
         currentDate.setMonth(currentDate.getMonth() + 1);
     }
 
+    // Exclude the first month if the flag is set
+    if (excludeFirstMonth && months.length > 0) {
+        months.shift();
+    }
+    // Exclude the last month if the flag is set
+    if (excludeLastMonth && months.length > 0) {
+        months.pop();
+    }
     return months;
 }

@@ -10,6 +10,9 @@ export class BillTask {
 
     private job: CronJob;
 
+    /**
+     * Constructs a new tasks to create a bill at the end of each month.
+     */
     constructor() {
         const onTick = async () => {
             //Get all customers
@@ -32,11 +35,17 @@ export class BillTask {
         });
     }
 
+    /**
+     * Starts the task.
+     */
     public start() {
         this.job.start();
         console.log('Bill Task started!');
     }
 
+    /**
+     * Stops the task.
+     */
     public stop() {
         this.job.stop();
     }
