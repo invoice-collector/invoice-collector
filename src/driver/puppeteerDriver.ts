@@ -14,6 +14,10 @@ export class PuppeteerDriver extends AbstractDriver {
     page: Page | null;
     screencastCdp: CDPSession | null;
 
+    /**
+     * Constructor for PuppeteerDriver.
+     * @param collector The web collector instance associated with this driver.
+     */
     constructor(collector: WebCollector) {
         super(collector);
         this.browser = null;
@@ -21,6 +25,9 @@ export class PuppeteerDriver extends AbstractDriver {
         this.screencastCdp = null;
     }
 
+    /**
+     * @inheritdoc
+     */
     async open(locale: string, proxy: Proxy | null = null) {
         // Open browser and page
         const { browser, page } = await BrowserFactory.connect(this.collector.config.remoteBrowser || false, locale, proxy);
@@ -91,6 +98,9 @@ export class PuppeteerDriver extends AbstractDriver {
 
     // SCREENCAST
 
+    /**
+     * @inheritdoc
+     */
     async startScreenCast(): Promise<void> {
         if (this.page === null) {
             throw new Error('Page is not initialized.');
@@ -128,6 +138,9 @@ export class PuppeteerDriver extends AbstractDriver {
         }
     }
 
+    /**
+     * @inheritdoc
+     */
     async stopScreenCast(): Promise<void> {
         if (this.screencastCdp) {
             await this.screencastCdp.send('Page.stopScreencast').catch(() => {});
@@ -136,6 +149,9 @@ export class PuppeteerDriver extends AbstractDriver {
         }
     }
 
+    /**
+     * @inheritdoc
+     */
     async update(locale: string, proxy: Proxy | null = null): Promise<void> {
         const currentUrl = this.url();
         const cookies = (currentUrl && currentUrl.startsWith('http')) ? await this.getCookies([]) : null;
@@ -151,6 +167,9 @@ export class PuppeteerDriver extends AbstractDriver {
         }
     }
 
+    /**
+     * @inheritdoc
+     */
     async close() {
         await this.stopScreenCast();
         await this.browser?.close();
@@ -158,6 +177,9 @@ export class PuppeteerDriver extends AbstractDriver {
 
     // URL
 
+    /**
+     * @inheritdoc
+     */
     url(): string {
         if (this.page === null) {
             throw new Error('Page is not initialized.');
@@ -165,6 +187,9 @@ export class PuppeteerDriver extends AbstractDriver {
         return this.page.url();
     }
 
+    /**
+     * @inheritdoc
+     */
     origin(): string {
         if (this.page === null) {
             throw new Error('Page is not initialized.');
@@ -172,6 +197,10 @@ export class PuppeteerDriver extends AbstractDriver {
         return new URL(this.page.url()).origin;
     }
 
+    /**
+     * Returns all open pages in the browser.
+     * @returns A promise that resolves to an array of open pages.
+     */
     private async pages(): Promise<Page[]> {
         if (this.browser === null) {
             throw new Error('Browser is not initialized.');
@@ -179,15 +208,24 @@ export class PuppeteerDriver extends AbstractDriver {
         return await this.browser.puppeteerBrowser.pages();
     }
 
+    /**
+     * @inheritdoc
+     */
     async numberOfPages(): Promise<number> {
         return (await this.pages()).length;
     }
 
+    /**
+     * @inheritdoc
+     */
     async closePage(): Promise<void> {
         // Close curretn page
         await this.page?.close();
     }
 
+    /**
+     * @inheritdoc
+     */
     async closeExtraPages(): Promise<void> {
         // Get all pages
         const pages = await this.pages();
@@ -199,6 +237,9 @@ export class PuppeteerDriver extends AbstractDriver {
         });
     }
 
+    /**
+     * @inheritdoc
+     */
     async goBack(): Promise<void> {
         if (this.page === null) {
             throw new Error('Page is not initialized.');
@@ -213,6 +254,9 @@ export class PuppeteerDriver extends AbstractDriver {
 
     // GOTO
 
+    /**
+     * @inheritdoc
+     */
     async goto(url: string | undefined, {
         timeout = AbstractDriver.DEFAULT_NAVIGATION_TIMEOUT,
         navigation = true,
@@ -243,9 +287,7 @@ export class PuppeteerDriver extends AbstractDriver {
     }
 
     /**
-     * Navigates to the given URL and returns the parsed JSON from the body element.
-     * @param url The URL to navigate to.
-     * @returns The parsed JSON object from the body.
+     * @inheritdoc
      */
     async goToJson(url: string): Promise<any> {
         if (this.page === null) {
@@ -262,6 +304,9 @@ export class PuppeteerDriver extends AbstractDriver {
         return data;
     }
 
+    /**
+     * @inheritdoc
+     */
     async newPage(url: string): Promise<void> {
         if (this.page === null) {
             throw new Error('Page is not initialized.');
@@ -274,6 +319,15 @@ export class PuppeteerDriver extends AbstractDriver {
 
     // WAIT
 
+    /**
+     * Wait for a specific condition to be met within the given timeout.
+     * @param check_condition The condition function to check.
+     * @param error_message The error message to use if the condition is not met.
+     * @param raiseException Whether to raise an exception if the condition is not met.
+     * @param timeout The maximum time to wait for the condition.
+     * @param polling The interval at which to check the condition.
+     * @returns The result of the condition function if met, otherwise null.
+     */
     private async waitFor(
         check_condition: Function,
         error_message: string,
@@ -300,6 +354,9 @@ export class PuppeteerDriver extends AbstractDriver {
         return null;
     }
 
+    /**
+     * @inheritdoc
+     */
     async waitForNavigation({
         timeout = AbstractDriver.DEFAULT_TIMEOUT,
     } = {}): Promise<void> {
@@ -314,6 +371,9 @@ export class PuppeteerDriver extends AbstractDriver {
 
     // ACTIONS
 
+    /**
+     * @inheritdoc
+     */
     async getElement(selector, {
         raiseException = true,
         timeout = AbstractDriver.DEFAULT_TIMEOUT,
@@ -341,6 +401,9 @@ export class PuppeteerDriver extends AbstractDriver {
         return element ? new Element(element, this) : null;
     }
 
+    /**
+     * @inheritdoc
+     */
     async getElementCoordinates(x: number, y: number): Promise<Element | null> {
         if (this.page === null) {
             throw new Error('Page is not initialized.');
@@ -407,6 +470,9 @@ export class PuppeteerDriver extends AbstractDriver {
         return result;
     }
 
+    /**
+     * @inheritdoc
+     */
     async getElements(selector, {
         raiseException = true,
         timeout = AbstractDriver.DEFAULT_TIMEOUT,
@@ -418,6 +484,9 @@ export class PuppeteerDriver extends AbstractDriver {
         return (await this.page.$$(selector.selector)).map(element => new Element(element, this));
     }
 
+    /**
+     * @inheritdoc
+     */
     async getAttribute(selector, attributeName, {
         raiseException = true,
         timeout = AbstractDriver.DEFAULT_TIMEOUT,
@@ -439,6 +508,9 @@ export class PuppeteerDriver extends AbstractDriver {
         return await element.element.evaluate((el, attr) => el.getAttribute(attr) ?? el[attr], attributeName);
     }
 
+    /**
+     * @inheritdoc
+     */
     async getAttributes(selector, attributeName, {
         raiseException = true,
         timeout = AbstractDriver.DEFAULT_TIMEOUT,
@@ -452,6 +524,9 @@ export class PuppeteerDriver extends AbstractDriver {
         }, attributeName);
     }
 
+    /**
+     * @inheritdoc
+     */
     async leftClick(selector, {
         raiseException = true,
         timeout = AbstractDriver.DEFAULT_TIMEOUT,
@@ -470,6 +545,9 @@ export class PuppeteerDriver extends AbstractDriver {
         return null;
     }
 
+    /**
+     * @inheritdoc
+     */
     async inputText(selector, text, {
         raiseException = true,
         timeout = AbstractDriver.DEFAULT_TIMEOUT,
@@ -486,6 +564,9 @@ export class PuppeteerDriver extends AbstractDriver {
         return null;
     }
 
+    /**
+     * @inheritdoc
+     */
     async dropdownSelect(selector, value: string, {
         raiseException = true,
         timeout = AbstractDriver.DEFAULT_TIMEOUT,
@@ -500,6 +581,9 @@ export class PuppeteerDriver extends AbstractDriver {
         return null;
     }
 
+    /**
+     * @inheritdoc
+     */
     async click(x: number, y: number, {
         delay = AbstractDriver.DEFAULT_DELAY,
     } = {}): Promise<void> {
@@ -507,6 +591,9 @@ export class PuppeteerDriver extends AbstractDriver {
         await utils.delay(delay);
     }
 
+    /**
+     * @inheritdoc
+     */
     async press(key: string, {
         delay = AbstractDriver.DEFAULT_DELAY,
     } = {}): Promise<void> {
@@ -514,6 +601,9 @@ export class PuppeteerDriver extends AbstractDriver {
         await utils.delay(delay);
     }
 
+    /**
+     * @inheritdoc
+     */
     async type(text: string, {
         delay = AbstractDriver.DEFAULT_DELAY,
     } = {}): Promise<void> {
@@ -523,6 +613,9 @@ export class PuppeteerDriver extends AbstractDriver {
 
     // PDF
 
+    /**
+     * @inheritdoc
+     */
     async pdf(): Promise<string> {
         if (this.page === null) {
             throw new Error('Page is not initialized.');
@@ -535,6 +628,9 @@ export class PuppeteerDriver extends AbstractDriver {
         return Buffer.from(bytes).toString('base64');
     }
 
+    /**
+     * @inheritdoc
+     */
     async getDownloadedFiles(clean: boolean = true): Promise<string[]> {
         const files = await this.browser?.getDownloadedFiles(clean);
         return files || [];
@@ -542,6 +638,9 @@ export class PuppeteerDriver extends AbstractDriver {
 
     // SOURCE CODE
 
+    /**
+     * @inheritdoc
+     */
     async sourceCode(base64: boolean, includeIframes: boolean): Promise<string> {
         if (this.page === null) {
             throw new Error('Page is not initialized.');
@@ -586,6 +685,9 @@ export class PuppeteerDriver extends AbstractDriver {
 
     // SCREENSHOT
 
+    /**
+     * @inheritdoc
+     */
     async screenshot(): Promise<Screenshot> {
         if (this.page === null) {
             throw new Error('Page is not initialized.');
@@ -598,6 +700,9 @@ export class PuppeteerDriver extends AbstractDriver {
         };
     }
 
+    /**
+     * @inheritdoc
+     */
     async downloadFile(url: string): Promise<string> {
         if (this.page === null) {
             throw new Error('Page is not initialized.');
@@ -618,6 +723,9 @@ export class PuppeteerDriver extends AbstractDriver {
         return await this.waitForFileToDownload();
     }
 
+    /**
+     * @inheritdoc
+     */
     async waitForFileToDownload(raiseException: boolean = true): Promise<string> {
         // Wait for file to download
         const file = await this.waitFor(async (driver) => {
@@ -641,6 +749,9 @@ export class PuppeteerDriver extends AbstractDriver {
 
     // CAPTCHAS
 
+    /**
+     * @inheritdoc
+     */
     async waitForCloudflareTurnstile(): Promise<void> {
         if (this.page === null) {
             throw new Error('Page is not initialized.');
@@ -654,6 +765,9 @@ export class PuppeteerDriver extends AbstractDriver {
         });
     }
 
+    /**
+     * @inheritdoc
+     */
     async waitForDatadomeCaptcha(): Promise<void> {
         if (this.page === null) {
             throw new Error('Page is not initialized.');
@@ -667,6 +781,9 @@ export class PuppeteerDriver extends AbstractDriver {
 
     // COOKIES
 
+    /**
+     * @inheritdoc
+     */
     async getCookies(namesToGet: string[] | undefined): Promise<any> {
         // If namesToGet is undefined, return empty object
         if (namesToGet === undefined) {
@@ -682,6 +799,9 @@ export class PuppeteerDriver extends AbstractDriver {
             .filter(cookie => namesToGet.length === 0 || namesToGet.some(name => cookie.name.includes(name)));
     }
 
+    /**
+     * @inheritdoc
+     */
     async setCookies(cookies: any): Promise<void> {
         if (cookies) {
             await this.browser?.puppeteerBrowser.setCookie(...cookies);
@@ -690,6 +810,9 @@ export class PuppeteerDriver extends AbstractDriver {
 
     // LOCAL STORAGE
 
+    /**
+     * @inheritdoc
+     */
     async getLocalStorage(keysToGet: string[] | undefined): Promise<any> {
         // If keysToGet is undefined, return empty object
         if (keysToGet === undefined) {
@@ -717,6 +840,9 @@ export class PuppeteerDriver extends AbstractDriver {
         }, keysToGet);
     }
 
+    /**
+     * @inheritdoc
+     */
     async setLocalStorage(data: any): Promise<void> {
         if (data) {
             await this.page?.evaluateOnNewDocument((data) => {
