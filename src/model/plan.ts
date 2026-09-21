@@ -60,4 +60,15 @@ export class Plan {
         this.pricePerActiveCollector = pricePerActiveCollector;
         this.features = features;
     }
+
+    noCost(): boolean {
+        return this.priceBase === 0 &&
+               this.pricePerUser === 0 &&
+               this.pricePerActiveUser === 0 &&
+               this.pricePerCredential === 0 &&
+               this.pricePerActiveCredential === 0 &&
+               this.pricePerInvoice === 0 &&
+               this.pricePerCollector === 0 &&
+               this.pricePerActiveCollector === 0;
+    }
 }

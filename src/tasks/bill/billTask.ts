@@ -16,7 +16,10 @@ export class BillTask {
             const customers = await Customer.getAll();
             // For each customer, create a bill
             for (const customer of customers) {
-                customer.computeMissingBills();
+                // If the plan does not have no cost
+                if(!customer.plan.noCost()) {
+                    await customer.computeMissingBills();
+                }
             }
         };
 
