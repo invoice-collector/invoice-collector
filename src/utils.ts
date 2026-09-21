@@ -8,6 +8,7 @@ import { PDFDocument, PDFDict, asPDFName } from 'pdf-lib';
 import JSZip from 'jszip';
 import { fr, enGB, enUS } from 'date-fns/locale';
 import { CollectorState, CollectorType, CompleteInvoice, Config } from './collectors/abstractCollector';
+import { DatabaseFactory } from './database/databaseFactory';
 
 /* PUBLIC CONSTANTS */
 
@@ -562,4 +563,13 @@ export function getMonthsBetween(startTimestamp: number, endDate: Date, excludeF
         months.pop();
     }
     return months;
+}
+
+// COUNTERS
+
+const COUNTER_BILL = 'bill';
+
+export async function generateBillId(): Promise<string> {
+    const number = await DatabaseFactory.getDatabase().getCounter(COUNTER_BILL);
+    return`INV-${number}`;
 }

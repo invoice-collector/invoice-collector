@@ -28,6 +28,7 @@ function assertSafeMatcher(matcher: Record<string, unknown>): void {
 
 export class MongoDB extends AbstractDatabase {
 
+    static COUNTER_COLLECTION = 'counters';
     static CUSTOMER_COLLECTION = 'customers';
     static USER_COLLECTION = 'users';
     static CREDENTIAL_COLLECTION = 'credentials';
@@ -52,6 +53,7 @@ export class MongoDB extends AbstractDatabase {
             this.db = this.client.db(this.db_name);
 
             // Create collection if not existing
+            await this.db.createCollection(MongoDB.COUNTER_COLLECTION);
             await this.db.createCollection(MongoDB.CUSTOMER_COLLECTION);
             await this.db.createCollection(MongoDB.USER_COLLECTION);
             await this.db.createCollection(MongoDB.CREDENTIAL_COLLECTION);
@@ -96,6 +98,26 @@ export class MongoDB extends AbstractDatabase {
         } catch (err) {
             throw new Error('Could not reach MongoDB server', { cause: err });
         }
+    }
+
+    // COUNTER
+
+    async getCounter(counterName: string): Promise<number> {
+        const db = await this.ensureConnected();
+        const result = await db.collection(MongoDB.COUNTER_COLLECTION).findOneAndUpdate(
+            { counterName: counterName },
+            { 
+                $inc: { value: 1 }
+            },
+            {
+                upsert: true,               // Insert if not found
+                returnDocument: 'after'     // Return the updated document
+            }
+        );
+        if (!result) {
+            throw new Error('Failed to get counter value');
+        }
+        return result.value;
     }
 
     // CUSTOMER

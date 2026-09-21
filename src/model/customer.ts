@@ -282,8 +282,8 @@ export class Customer {
         const monthStart = new Date(Date.UTC(year, monthStr - 1));  // First millisecond of the month
         const monthEnd = new Date(Date.UTC(year, monthStr));        // Last millisecond of the month
 
-        // Compute id
-        const id = "TODO" //utils.generateId();
+        // Generate bill id
+        const id = await utils.generateBillId();
 
         // Compute creation date and due date
         const creationDate = new Date();

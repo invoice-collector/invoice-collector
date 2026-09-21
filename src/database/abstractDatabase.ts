@@ -27,6 +27,10 @@ export abstract class AbstractDatabase {
 
     abstract ping(): Promise<void>;
 
+    // COUNTERS
+
+    abstract getCounter(counterName: string): Promise<number>;
+
     // CUSTOMER
 
     abstract countCustomers(): Promise<number>;
