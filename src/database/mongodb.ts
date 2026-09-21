@@ -103,6 +103,32 @@ export class MongoDB extends AbstractDatabase {
         const db = await this.ensureConnected();
         return await db.collection(MongoDB.CUSTOMER_COLLECTION).countDocuments();
     }
+    
+    async getAllCustomers(): Promise<Customer[]> {
+        const db = await this.ensureConnected();
+        const documents = await db.collection(MongoDB.CUSTOMER_COLLECTION).find({}).toArray();
+        return documents.map(document => {
+            const customer = new Customer(
+                document.email,
+                document.password,
+                document.name,
+                document.cid,
+                document.remoteId,
+                document.bearer,
+                document.inviteId,
+                document.createdAt,
+                document.theme,
+                document.subscribedCollectors,
+                document.isSubscribedToAll,
+                document.authenticationMethod,
+                document.displaySketchCollectors,
+                document.maxDelayBetweenCollect,
+                document.plan,
+            );
+            customer.id = document._id.toString();
+            return customer;
+        });
+    }
 
     async createCustomer(customer: Customer): Promise<Customer> {
         const db = await this.ensureConnected();

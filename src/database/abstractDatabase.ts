@@ -31,6 +31,8 @@ export abstract class AbstractDatabase {
 
     abstract countCustomers(): Promise<number>;
 
+    abstract getAllCustomers(): Promise<Customer[]>;
+
     abstract createCustomer(customer: Customer): Promise<Customer>;
 
     abstract getCustomerFromBearer(bearer: string): Promise<Customer|null>;

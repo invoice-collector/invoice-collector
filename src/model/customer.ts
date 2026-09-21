@@ -52,6 +52,10 @@ export class Customer {
     static DEFAULT_DISPLAY_SKETCH_COLLECTORS = true;
     static DEFAULT_MAX_DELAY_BETWEEN_COLLECT = 2592000000; // 30 days in milliseconds
 
+    static async getAll(): Promise<Customer[]> {
+        return await DatabaseFactory.getDatabase().getAllCustomers();
+    }
+
     static async fromBearer(raw_bearer: string): Promise<Customer> {
         // Get hashed bearer
         const hashed_bearer = utils.hash_string(raw_bearer);
@@ -249,7 +253,7 @@ export class Customer {
 
     // INTERNAL INVOICES
 
-    async computeMissingBills(): Promise<void> {
+    async computeMissingBills(): Promise<Bill[]> {
         // Compute months between now and createdAt
         const months = utils.getMonthsBetween(this.createdAt, new Date());
 
@@ -258,16 +262,19 @@ export class Customer {
 
         // If there are no missing months, return early
         if (missingMonths.length === 0) {
-            return;
+            return [];
         }
 
         // Get all the customer data
         const allCustomerData = await DatabaseFactory.getDatabase().getAllCustomerData(this.id);
 
         // Create bills for the missing months
+        const newBills: Bill[] = [];
         for (const month of missingMonths) {
-            await this.createBill(allCustomerData, month);
+            const bill = await this.createBill(allCustomerData, month);
+            newBills.push(bill);
         }
+        return newBills;
     }
 
     private async createBill(allCustomerData: AllCustomerData, month: string): Promise<Bill> {

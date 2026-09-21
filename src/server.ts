@@ -21,6 +21,7 @@ import { IntegrationLoader } from './integration/integrationLoader';
 import { Callback } from './model/callback';
 import { IntegrationConfig } from './integration/abstractIntegration';
 import { TokenManager } from './tokenManager';
+import { BillTask } from './tasks/bill/billTask';
 
 export class Server {
 
@@ -28,11 +29,13 @@ export class Server {
 
     tokenManager: TokenManager;
     collectTask: CollectTask;
+    billTask: BillTask;
     httpServer: any;
 
     constructor() {
         this.tokenManager = new TokenManager();
         this.collectTask = new CollectTask();
+        this.billTask = new BillTask();
 	}
 
     async start(){
@@ -55,8 +58,10 @@ export class Server {
                 console.error('Could not reach analytics server. You are still able to use the product but some features may not work as expected.');
             });
 
-        // Start cron job for invoice collection
+        // Start collect task
         this.collectTask.start();
+        // Start bill task
+        this.billTask.start();
     }
 
     // ---------- GENERAL ENDPOINTS ----------
