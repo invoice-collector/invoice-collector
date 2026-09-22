@@ -12,6 +12,7 @@ import { ActionV2 } from '../model/actionV2';
 import { Callback } from '../model/callback';
 import { StatusError } from '../error';
 import { Plan } from '../model/plan';
+import { Bill } from '../model/bill';
 
 // Rejects matcher values that are not primitives (e.g. `{ $ne: null }`), since a legitimate query
 // never needs an operator here. This is what prevents NoSQL injection through user-supplied fields.
@@ -147,7 +148,7 @@ export class MongoDB extends AbstractDatabase {
                 document.displaySketchCollectors,
                 document.maxDelayBetweenCollect,
                 Plan.fromObject(document.plan),
-                document.bills,
+                Bill.fromObjects(document.bills),
             );
             customer.id = document._id.toString();
             return customer;
@@ -201,7 +202,7 @@ export class MongoDB extends AbstractDatabase {
             document.displaySketchCollectors,
             document.maxDelayBetweenCollect,
             Plan.fromObject(document.plan),
-            document.bills,
+            Bill.fromObjects(document.bills),
         );
         customer.id = document._id.toString();
         return customer;
