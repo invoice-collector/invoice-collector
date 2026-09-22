@@ -8,6 +8,7 @@ import { PDFDocument, PDFDict, asPDFName } from 'pdf-lib';
 import JSZip from 'jszip';
 import { fr, enGB, enUS } from 'date-fns/locale';
 import { CollectorState, CollectorType, CompleteInvoice, Config } from './collectors/abstractCollector';
+import { DatabaseFactory } from './database/databaseFactory';
 
 /* PUBLIC CONSTANTS */
 
@@ -527,4 +528,48 @@ export async function getLinksFromPdfDocument(data: string): Promise<string[]> {
         });
     });
     return links;
+}
+
+/**
+ * Get months between two dates.
+ * @param startTimestamp The start date as a timestamp
+ * @param endDate The end date as a Date object (default is current date)
+ * @returns An array of months in the format "yyyy-mm" between the start and end dates
+ */
+export function getMonthsBetween(startTimestamp: number, endDate: Date, excludeFirstMonth: boolean, excludeLastMonth: boolean): string[] {
+    const startDate = new Date(startTimestamp);
+    const months: string[] = [];
+
+    // Clone the start date to avoid modifying the original
+    const currentDate = new Date(startDate);
+
+    // Loop until we reach the end date
+    while (currentDate <= endDate) {
+        // Format as yyyy-mm
+        const year = currentDate.getFullYear();
+        const month = String(currentDate.getMonth() + 1).padStart(2, '0');
+        months.push(`${year}-${month}`);
+
+        // Move to the next month
+        currentDate.setMonth(currentDate.getMonth() + 1);
+    }
+
+    // Exclude the first month if the flag is set
+    if (excludeFirstMonth && months.length > 0) {
+        months.shift();
+    }
+    // Exclude the last month if the flag is set
+    if (excludeLastMonth && months.length > 0) {
+        months.pop();
+    }
+    return months;
+}
+
+// COUNTERS
+
+const COUNTER_BILL = 'bill';
+
+export async function generateBillId(): Promise<string> {
+    const number = await DatabaseFactory.getDatabase().getCounter(COUNTER_BILL);
+    return`INV-${number}`;
 }

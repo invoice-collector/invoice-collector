@@ -1,5 +1,5 @@
-import { TwofaPromise } from '../../../../collect/twofaPromise';
-import { CollectorCaptcha, CollectorType, Invoice, CollectorAuthenticationMethod } from '../../../abstractCollector';
+import { TwofaPromise } from '../../../../tasks/collect/twofaPromise';
+import { CollectorCaptcha, CollectorType, Invoice, CollectorAuthenticationMethod, CollectorState } from '../../../abstractCollector';
 import { OrangeHelper } from '../helper/orangeHelper';
 import { LinearWebCollector } from '../../../linearWebCollector';
 import { AbstractDriver } from '../../../../driver/abstractDriver';
@@ -37,6 +37,7 @@ export class SoshCollector extends LinearWebCollector {
         captcha: CollectorCaptcha.NONE,
         useProxy: true,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
+        state: CollectorState.ACTIVE,
     };
 
     constructor() {

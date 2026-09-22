@@ -7,7 +7,7 @@ import { AbstractDriver } from '../driver/abstractDriver';
 import { I18n } from '../i18n';
 import { DisconnectedError } from '../error';
 import { AbstractCollector, Config } from '../collectors/abstractCollector';
-import { TwofaPromise } from '../collect/twofaPromise';
+import { TwofaPromise } from '../tasks/collect/twofaPromise';
 import { EventEmitter } from 'events';
 
 // Singleton WebSocket server manager

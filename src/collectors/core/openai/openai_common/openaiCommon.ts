@@ -1,6 +1,6 @@
 import { OpenaiSelectors } from './selectors';
 import { AbstractDriver } from '../../../../driver/abstractDriver';
-import { TwofaPromise } from '../../../../collect/twofaPromise';
+import { TwofaPromise } from '../../../../tasks/collect/twofaPromise';
 import { WebSocketServer } from '../../../../websocket/webSocketServer';
 import { LinearWebCollector } from '../../../linearWebCollector';
 import { Invoice } from '../../../abstractCollector';

@@ -1,7 +1,7 @@
 import { OpenaiSelectors } from './selectors';
 import { AbstractDriver } from '../../../../driver/abstractDriver';
 import { Element } from '../../../../driver/element';
-import { CollectorCaptcha, CollectorType, Invoice, CollectorAuthenticationMethod } from '../../../abstractCollector';
+import { CollectorCaptcha, CollectorType, Invoice, CollectorAuthenticationMethod, CollectorState } from '../../../abstractCollector';
 import * as utils from '../../../../utils';
 import { OpenaiCommonCollector } from '../openai_common/openaiCommon';
 
@@ -36,6 +36,7 @@ export class OpenaiApiCollector extends OpenaiCommonCollector {
             localStorageKeys: ['@@auth0spajs@@'],
         },
         authenticationMethod: CollectorAuthenticationMethod.ALL,
+        state: CollectorState.ACTIVE,
     };
 
     constructor() {

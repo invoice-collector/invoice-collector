@@ -184,3 +184,42 @@ export const buildCustomerStatsPipeline = (matcher: object): Document[] => {
         },
     ];
 };
+
+
+
+export const getAllCustomerData = (matcher: object): Document[] => {
+    return [
+        // Match the customer
+        { $match: matcher },
+        {
+            "$lookup": {
+            "from": "users",
+            "localField": "_id",
+            "foreignField": "customer_id",
+            "as": "users"
+            }
+        },
+        {
+            "$unwind": {
+            "path": "$users",
+            "preserveNullAndEmptyArrays": true
+            }
+        },
+        {
+            "$lookup": {
+            "from": "credentials",
+            "localField": "users._id",
+            "foreignField": "user_id",
+            "as": "users.credentials"
+            }
+        },
+        {
+            "$group": {
+            "_id": "$_id",
+            "name": { "$first": "$name"},
+            "plan": { "$first": "$plan"},
+            "users": { "$push": "$users" }
+            }
+        }
+    ];
+};

@@ -1,11 +1,11 @@
 import { CronJob } from 'cron';
-import { Credential } from '../model/credential';
+import { Credential } from '../../model/credential';
 import { Collect } from './collect';
 import { CollectPool } from './collectPool';
 
 export class CollectTask {
-    static DEFAULT_CRON_TIME = '* * * * *';
-    static DEFAULT_TIMEZONE = 'Europe/Paris';
+    static DEFAULT_CRON_TIME = '* * * * *';     // Every minute
+    static DEFAULT_TIMEZONE = 'UTC';
 
     private job: CronJob;
 

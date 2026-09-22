@@ -6,13 +6,13 @@ import { CollectorLoader } from './collectors/collectorLoader';
 import { User, UserStats } from './model/user';
 import { Customer, CustomerAuthenticationMethod, CustomerStats } from './model/customer';
 import { Credential } from './model/credential';
-import { CollectTask } from './collect/collectTask';
+import { CollectTask } from './tasks/collect/collectTask';
 import { ProxyFactory } from './proxy/proxyFactory';
 import { AbstractCollector, CollectorType, Config } from './collectors/abstractCollector';
 import { AnalyticsFactory } from './analytics/analyticsFactory';
 import * as utils from './utils';
-import { CollectPool } from './collect/collectPool';
-import { Collect } from './collect/collect';
+import { CollectPool } from './tasks/collect/collectPool';
+import { Collect } from './tasks/collect/collect';
 import { I18n } from './i18n';
 import { Plan } from './model/plan';
 import { State } from './model/state';
@@ -21,6 +21,7 @@ import { IntegrationLoader } from './integration/integrationLoader';
 import { Callback } from './model/callback';
 import { IntegrationConfig } from './integration/abstractIntegration';
 import { TokenManager } from './tokenManager';
+import { BillTask } from './tasks/bill/billTask';
 
 export class Server {
 
@@ -28,11 +29,13 @@ export class Server {
 
     tokenManager: TokenManager;
     collectTask: CollectTask;
+    billTask: BillTask;
     httpServer: any;
 
     constructor() {
         this.tokenManager = new TokenManager();
         this.collectTask = new CollectTask();
+        this.billTask = new BillTask();
 	}
 
     async start(){
@@ -55,8 +58,10 @@ export class Server {
                 console.error('Could not reach analytics server. You are still able to use the product but some features may not work as expected.');
             });
 
-        // Start cron job for invoice collection
+        // Start collect task
         this.collectTask.start();
+        // Start bill task
+        this.billTask.start();
     }
 
     // ---------- GENERAL ENDPOINTS ----------
@@ -192,7 +197,7 @@ export class Server {
             
             // Check if user exists
             if(!user) {
-                throw new StatusError('Invalid credentials', 401);
+                throw new StatusError('Your email or password is incorrect.', 401);
             }
 
             // Generate session bearer token

@@ -1,6 +1,6 @@
 import { AxiosInstance } from 'axios';
 import { ApiCollector } from '../../apiCollector';
-import { CollectorType, DownloadedInvoice } from '../../abstractCollector';
+import { CollectorState, CollectorType, DownloadedInvoice } from '../../abstractCollector';
 import { AuthenticationError } from '../../../error';
 import { WebSocketServer } from '../../../websocket/webSocketServer';
 import * as utils from '../../../utils';
@@ -24,6 +24,7 @@ export class TeslaCollector extends ApiCollector {
         type: CollectorType.API,
         params: {},
         baseUrl: 'https://fleet-api.prd.eu.vn.cloud.tesla.com',
+        state: CollectorState.ACTIVE,
     };
 
     constructor() {

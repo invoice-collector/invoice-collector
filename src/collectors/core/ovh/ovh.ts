@@ -1,7 +1,7 @@
 import * as crypto from 'crypto';
 import { AxiosInstance } from 'axios';
 import { ApiCollector } from '../../apiCollector';
-import { CollectorType, DownloadedInvoice } from '../../abstractCollector';
+import { CollectorState, CollectorType, DownloadedInvoice } from '../../abstractCollector';
 import { AuthenticationError } from '../../../error';
 import { WebSocketServer } from '../../../websocket/webSocketServer';
 
@@ -48,6 +48,7 @@ export class OvhCollector extends ApiCollector {
             }*/
         },
         baseUrl: 'https://eu.api.ovh.com/v1',
+        state: CollectorState.ACTIVE,
     };
 
     constructor() {

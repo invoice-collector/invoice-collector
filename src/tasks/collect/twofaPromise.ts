@@ -1,7 +1,7 @@
-import { AbstractCollector, Config } from '../collectors/abstractCollector';
-import { DisconnectedError } from '../error';
-import { State } from '../model/state';
-import * as utils from '../utils';
+import { AbstractCollector, Config } from '../../collectors/abstractCollector';
+import { DisconnectedError } from '../../error';
+import { State } from '../../model/state';
+import * as utils from '../../utils';
 
 export class TwofaPromise{
     static TWOFA_TIMEOUT_MS = 1000 * 60 * 5; // 5 minutes

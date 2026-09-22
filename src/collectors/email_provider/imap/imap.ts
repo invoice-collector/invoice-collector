@@ -58,8 +58,8 @@ export class ImapCollector extends EmailProvider {
                 mandatory: true,
             },
         },
-        state: CollectorState.ACTIVE,
         authenticationMethod: CollectorAuthenticationMethod.SECRETS_ONLY,
+        state: CollectorState.ACTIVE,
     };
 
     constructor() {

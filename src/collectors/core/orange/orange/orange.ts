@@ -1,11 +1,11 @@
 import { OrangeSelectors } from './selectors';
 import { AbstractDriver } from '../../../../driver/abstractDriver';
 import { Element } from '../../../../driver/element';
-import { CollectorCaptcha, CollectorType, Invoice, CollectorAuthenticationMethod } from '../../../../collectors/abstractCollector';
+import { CollectorCaptcha, CollectorType, Invoice, CollectorAuthenticationMethod, CollectorState } from '../../../../collectors/abstractCollector';
 import { AuthenticationError } from '../../../../error';
 import { OrangeHelper } from '../helper/orangeHelper';
 import { WebSocketServer } from '../../../../websocket/webSocketServer';
-import { TwofaPromise } from '../../../../collect/twofaPromise';
+import { TwofaPromise } from '../../../../tasks/collect/twofaPromise';
 import { LinearWebCollector } from '../../../linearWebCollector';
 
 export class OrangeCollector extends LinearWebCollector {
@@ -38,6 +38,7 @@ export class OrangeCollector extends LinearWebCollector {
         captcha: CollectorCaptcha.NONE,
         useProxy: true,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
+        state: CollectorState.ACTIVE,
     };
 
     constructor() {

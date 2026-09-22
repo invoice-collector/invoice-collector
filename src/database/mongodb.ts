@@ -1,16 +1,18 @@
 import { MongoClient, Db, ObjectId } from 'mongodb';
-import { AbstractDatabase } from './abstractDatabase';
+import { AbstractDatabase, AllCustomerData } from './abstractDatabase';
 import { Customer, CustomerStats } from '../model/customer';
 import { User } from '../model/user';
 import { Credential } from '../model/credential';
 import * as utils from '../utils';
-import { buildCustomerStatsPipeline } from './mongodbConstants';
+import { buildCustomerStatsPipeline, getAllCustomerData } from './mongodbConstants';
 import { State } from '../model/state';
 import { CollectorMemory } from '../model/collectorMemory';
 import { Actions } from '../model/actions';
 import { ActionV2 } from '../model/actionV2';
 import { Callback } from '../model/callback';
 import { StatusError } from '../error';
+import { Plan } from '../model/plan';
+import { Bill } from '../model/bill';
 
 // Rejects matcher values that are not primitives (e.g. `{ $ne: null }`), since a legitimate query
 // never needs an operator here. This is what prevents NoSQL injection through user-supplied fields.
@@ -27,6 +29,7 @@ function assertSafeMatcher(matcher: Record<string, unknown>): void {
 
 export class MongoDB extends AbstractDatabase {
 
+    static COUNTER_COLLECTION = 'counters';
     static CUSTOMER_COLLECTION = 'customers';
     static USER_COLLECTION = 'users';
     static CREDENTIAL_COLLECTION = 'credentials';
@@ -51,6 +54,7 @@ export class MongoDB extends AbstractDatabase {
             this.db = this.client.db(this.db_name);
 
             // Create collection if not existing
+            await this.db.createCollection(MongoDB.COUNTER_COLLECTION);
             await this.db.createCollection(MongoDB.CUSTOMER_COLLECTION);
             await this.db.createCollection(MongoDB.USER_COLLECTION);
             await this.db.createCollection(MongoDB.CREDENTIAL_COLLECTION);
@@ -97,11 +101,58 @@ export class MongoDB extends AbstractDatabase {
         }
     }
 
+    // COUNTER
+
+    async getCounter(counterName: string): Promise<number> {
+        const db = await this.ensureConnected();
+        const result = await db.collection(MongoDB.COUNTER_COLLECTION).findOneAndUpdate(
+            { counterName: counterName },
+            { 
+                $inc: { value: 1 }
+            },
+            {
+                upsert: true,               // Insert if not found
+                returnDocument: 'after'     // Return the updated document
+            }
+        );
+        if (!result) {
+            throw new Error('Failed to get counter value');
+        }
+        return result.value;
+    }
+
     // CUSTOMER
 
     async countCustomers(): Promise<number> {
         const db = await this.ensureConnected();
         return await db.collection(MongoDB.CUSTOMER_COLLECTION).countDocuments();
+    }
+    
+    async getAllCustomers(): Promise<Customer[]> {
+        const db = await this.ensureConnected();
+        const documents = await db.collection(MongoDB.CUSTOMER_COLLECTION).find({}).toArray();
+        return documents.map(document => {
+            const customer = new Customer(
+                document.email,
+                document.password,
+                document.name,
+                document.cid,
+                document.remoteId,
+                document.bearer,
+                document.inviteId,
+                document.createdAt,
+                document.theme,
+                document.subscribedCollectors,
+                document.isSubscribedToAll,
+                document.authenticationMethod,
+                document.displaySketchCollectors,
+                document.maxDelayBetweenCollect,
+                Plan.fromObject(document.plan),
+                Bill.fromObjects(document.bills),
+            );
+            customer.id = document._id.toString();
+            return customer;
+        });
     }
 
     async createCustomer(customer: Customer): Promise<Customer> {
@@ -122,6 +173,7 @@ export class MongoDB extends AbstractDatabase {
             displaySketchCollectors: customer.displaySketchCollectors,
             maxDelayBetweenCollect: customer.maxDelayBetweenCollect,
             plan: customer.plan,
+            bills: customer.bills,
         });
         customer.id = document.insertedId.toString();
         return customer;
@@ -149,7 +201,8 @@ export class MongoDB extends AbstractDatabase {
             document.authenticationMethod,
             document.displaySketchCollectors,
             document.maxDelayBetweenCollect,
-            document.plan,
+            Plan.fromObject(document.plan),
+            Bill.fromObjects(document.bills),
         );
         customer.id = document._id.toString();
         return customer;
@@ -198,16 +251,20 @@ export class MongoDB extends AbstractDatabase {
                 displaySketchCollectors: customer.displaySketchCollectors,
                 maxDelayBetweenCollect: customer.maxDelayBetweenCollect,
                 plan: customer.plan,
+                bills: customer.bills,
             }},
         );
     }
 
-    async getCustomerStats(customer_id: string): Promise<CustomerStats | null> {
+    async getCustomerStats(customer_id: string): Promise<CustomerStats> {
         const db = await this.ensureConnected();
         const pipeline = buildCustomerStatsPipeline({ _id: new ObjectId(customer_id) });
         const documents = await db.collection(MongoDB.CUSTOMER_COLLECTION).aggregate(pipeline).toArray();
         if (documents.length === 0) {
-            return null;
+            throw new Error('No documents found for customer stats'); 
+        }
+        if (documents.length > 1) {
+            throw new Error('Multiple documents found for customer stats'); 
         }
 
         const document = documents[0];
@@ -273,6 +330,21 @@ export class MongoDB extends AbstractDatabase {
         };
 
         return stats;
+    }
+
+    async getAllCustomerData(customer_id: string): Promise<AllCustomerData> {
+        const db = await this.ensureConnected();
+        const pipeline = getAllCustomerData({ _id: new ObjectId(customer_id) });
+        const documents = await db.collection(MongoDB.CUSTOMER_COLLECTION).aggregate(pipeline).toArray();
+        if (documents.length === 0) {
+            throw new Error('No documents found for all customer data');
+        }
+        if (documents.length > 1) {
+            throw new Error('Multiple documents found for all customer data');
+        }
+
+        const document = documents[0];
+        return document as AllCustomerData;
     }
 
     // USER

@@ -1,4 +1,4 @@
-import { CollectorType } from '../../abstractCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 import { EmailCollector } from '../../emailCollector';
 
 export class OxylabsCollector extends EmailCollector {
@@ -18,6 +18,7 @@ export class OxylabsCollector extends EmailCollector {
             body: '*',
             attachmentName: '*.pdf',
         },
+        state: CollectorState.ACTIVE,
     };
 
     constructor() {
