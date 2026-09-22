@@ -35,8 +35,8 @@ export class GmailCollector extends EmailProvider {
         logo: 'https://upload.wikimedia.org/wikipedia/commons/8/8f/Gmail_icon_%282026%29.svg?utm_source=fr.wikipedia.org&utm_campaign=index&utm_content=original',
         type: CollectorType.PROVIDER,
         params: {},
-        state: CollectorState.ACTIVE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
+        state: CollectorState.ACTIVE,
     };
 
     constructor() {

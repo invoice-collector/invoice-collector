@@ -64,7 +64,7 @@ export type Config = {
             default?: any
         }
     },
-    state?: CollectorState
+    state: CollectorState
 }
 
 export type Invoice = {

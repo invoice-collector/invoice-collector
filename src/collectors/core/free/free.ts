@@ -2,7 +2,7 @@ import { LinearWebCollector } from '../../linearWebCollector';
 import { FreeSelectors } from './selectors';
 import { AbstractDriver } from '../../../driver/abstractDriver';
 import { Element } from '../../../driver/element';
-import { CollectorCaptcha, CollectorType, Invoice, CollectorAuthenticationMethod } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorType, Invoice, CollectorAuthenticationMethod, CollectorState } from '../../abstractCollector';
 import { WebSocketServer } from '../../../websocket/webSocketServer';
 
 export class FreeCollector extends LinearWebCollector {
@@ -33,6 +33,7 @@ export class FreeCollector extends LinearWebCollector {
         entryUrl: 'https://adsl.free.fr/facture_liste.pl',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.SECRETS_ONLY,
+        state: CollectorState.ACTIVE,
     };
 
     constructor() {

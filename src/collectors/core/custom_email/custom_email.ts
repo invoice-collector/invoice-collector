@@ -3,7 +3,7 @@ import { Secret } from '../../../model/secret';
 import { State } from '../../../model/state';
 import { Location } from '../../../proxy/abstractProxy';
 import { WebSocketServer } from '../../../websocket/webSocketServer';
-import { CollectorType, CompleteInvoice } from '../../abstractCollector';
+import { CollectorState, CollectorType, CompleteInvoice } from '../../abstractCollector';
 import { EmailCollector } from '../../emailCollector';
 
 export class CustomEmailCollector extends EmailCollector {
@@ -48,6 +48,7 @@ export class CustomEmailCollector extends EmailCollector {
             body: '*',
             attachmentName: '*',
         },
+        state: CollectorState.ACTIVE,
     };
 
     constructor() {

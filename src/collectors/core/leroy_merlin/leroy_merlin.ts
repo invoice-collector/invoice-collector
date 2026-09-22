@@ -2,7 +2,7 @@ import { LinearWebCollector } from '../../linearWebCollector';
 import { LeroyMerlinSelectors } from './selectors';
 import { AbstractDriver } from '../../../driver/abstractDriver';
 import { Element } from '../../../driver/element';
-import { Invoice, CollectorCaptcha, CollectorType, CollectorAuthenticationMethod } from '../../abstractCollector';
+import { Invoice, CollectorCaptcha, CollectorType, CollectorAuthenticationMethod, CollectorState } from '../../abstractCollector';
 import * as utils from '../../../utils';
 import { TwofaPromise } from '../../../tasks/collect/twofaPromise';
 import { WebSocketServer } from '../../../websocket/webSocketServer';
@@ -35,6 +35,7 @@ export class LeroyMerlinCollector extends LinearWebCollector {
         entryUrl: 'https://www.leroymerlin.fr/espace-perso/suivi-de-commande.html?auth-mode=login',
         captcha: CollectorCaptcha.DATADOME,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
+        state: CollectorState.ACTIVE,
     };
 
     constructor() {

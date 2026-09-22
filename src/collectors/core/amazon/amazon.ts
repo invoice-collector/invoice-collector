@@ -1,6 +1,6 @@
 import { AbstractDriver } from '../../../driver/abstractDriver';
 import { Element } from '../../../driver/element';
-import { CollectorCaptcha, CollectorType, Invoice, CollectorAuthenticationMethod } from '../../../collectors/abstractCollector';
+import { CollectorCaptcha, CollectorType, Invoice, CollectorAuthenticationMethod, CollectorState } from '../../../collectors/abstractCollector';
 import { LinearWebCollector } from '../../../collectors/linearWebCollector';
 import { AmazonSelectors } from './selectors';
 import { timestampFromString } from '../../../utils';
@@ -64,6 +64,7 @@ export class AmazonCollector extends LinearWebCollector {
         entryUrl: 'https://www.amazon.fr/your-orders/orders',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
+        state: CollectorState.ACTIVE,
     };
 
     constructor() {
