@@ -7,6 +7,7 @@ import { Plan } from './plan';
 import { Callback } from './callback';
 import { AllCustomerData } from '../database/abstractDatabase';
 import { Bill } from './bill';
+import { CollectorState } from '../collectors/abstractCollector';
 
 export enum Theme {
     DEFAULT = 'default',
@@ -316,8 +317,6 @@ export class Customer {
                 credentials++;
                 // Increase the total invoices count
                 invoices += monthInvoices.length;
-                // Add the collector to the used collectors set
-                usedCollectors.add(credential.collector_id);
                 // If the credential is active, add its collectors to the active collectors set
                 if (isActive) {
                     // Add the user to the active users set
@@ -326,6 +325,13 @@ export class Customer {
                     activeCredentials.add(credential.id);
                     // Add the collector to the active collectors set
                     activeCollectors.add(credential.collector_id);
+                }
+                // Get collector from collector id
+                const collector = await CollectorLoader.getConfig(credential.collector_id);
+                // If collector is not planned
+                if (collector.state !== CollectorState.PLANNED) {
+                    // Add the collector to the used collectors set
+                    usedCollectors.add(credential.collector_id);
                 }
             }
         }
