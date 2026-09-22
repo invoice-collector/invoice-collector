@@ -19,7 +19,6 @@ services:
       - ./media:/usr/app/media
       - ./test:/usr/app/test
     depends_on:
-    #  - mongodb
       mongodb:
         condition: service_healthy
     environment:
