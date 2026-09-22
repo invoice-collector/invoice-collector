@@ -15,14 +15,24 @@ export class BillTask {
      */
     constructor() {
         const onTick = async () => {
-            //Get all customers
-            const customers = await Customer.getAll();
-            // For each customer, create a bill
-            for (const customer of customers) {
-                // If the plan does not have no cost
-                if(!customer.plan.noCost()) {
-                    await customer.computeMissingBills();
+            try {
+                //Get all customers
+                const customers = await Customer.getAll();
+                // For each customer, create a bill
+                for (const customer of customers) {
+                    try {
+                        // If the plan does not have no cost
+                        if(!customer.plan.noCost()) {
+                            await customer.computeMissingBills();
+                        }
+                    } catch (error) {
+                        console.error(`Error occurred while creating bill for customer ${customer.id}:`);
+                        console.error(error);
+                    }
                 }
+            } catch (error) {
+                console.error('Error occurred while creating bills:');
+                console.error(error);
             }
         };
 
