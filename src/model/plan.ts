@@ -1,17 +1,27 @@
 export class Plan {
 
-    static TRIAL = new Plan('trial', 'Trial', 1, 1, -1, -1, 0, 0, 0, 0, 0, 0, 0, 0, [
+    static TRIAL = new Plan('trial', 'Trial', 1, 1, -1, -1, 0, 0, 0, 0, 0, 0, 0, 0, 0, [
         '1 user',
         '1 collector',
         'Unlimited invoices per month',
     ]);
-    static FREE = new Plan('free', 'Free', -1, -1, -1, -1, 0, 0, 0, 0, 0, 0, 0, 0, [
+    static FREE = new Plan('free', 'Free', -1, -1, -1, -1, 0, 0, 0, 0, 0, 0, 0, 0, 0, [
         'Unlimited users',
         'Unlimited collectors',
         'Unlimited invoices per month',
     ]);
 
+    /**
+     * Creates a Plan instance from a plain object.
+     * Throws an error if the input object is null or undefined.
+     * @param obj A plain object representing a plan.
+     * @returns A Plan instance.
+     */
     static fromObject(obj: any): Plan {
+        // If obj is null or undefined, return null
+        if (obj === null || obj === undefined) {
+            throw new Error(`Cannot convert object to Plan: input is not a valid object: ${JSON.stringify(obj)}`);
+        }
         return new Plan(
             obj.id,
             obj.name,
@@ -25,7 +35,8 @@ export class Plan {
             obj.pricePerCredential,
             obj.pricePerActiveCredential,
             obj.pricePerInvoice,
-            obj.pricePerCollector,
+            obj.pricePerSubscribedCollector,
+            obj.pricePerUsedCollector,
             obj.pricePerActiveCollector,
             obj.features,
         );
@@ -43,7 +54,8 @@ export class Plan {
     pricePerCredential: number;
     pricePerActiveCredential: number;
     pricePerInvoice: number;
-    pricePerCollector: number;
+    pricePerSubscribedCollector: number;
+    pricePerUsedCollector: number;
     pricePerActiveCollector: number;
     features: string[];
 
@@ -60,7 +72,8 @@ export class Plan {
         pricePerCredential: number,
         pricePerActiveCredential: number,
         pricePerInvoice: number,
-        pricePerCollector: number,
+        pricePerSubscribedCollector: number,
+        pricePerUsedCollector: number,
         pricePerActiveCollector: number,
         features: string[],
     ) {
@@ -76,7 +89,8 @@ export class Plan {
         this.pricePerCredential = pricePerCredential;
         this.pricePerActiveCredential = pricePerActiveCredential;
         this.pricePerInvoice = pricePerInvoice;
-        this.pricePerCollector = pricePerCollector;
+        this.pricePerSubscribedCollector = pricePerSubscribedCollector;
+        this.pricePerUsedCollector = pricePerUsedCollector;
         this.pricePerActiveCollector = pricePerActiveCollector;
         this.features = features;
     }
@@ -88,7 +102,8 @@ export class Plan {
                this.pricePerCredential === 0 &&
                this.pricePerActiveCredential === 0 &&
                this.pricePerInvoice === 0 &&
-               this.pricePerCollector === 0 &&
+               this.pricePerSubscribedCollector === 0 &&
+               this.pricePerUsedCollector === 0 &&
                this.pricePerActiveCollector === 0;
     }
 }

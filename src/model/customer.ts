@@ -293,6 +293,7 @@ export class Customer {
         // Compute active users, credentials and collectors
         const activeUsers = new Set<string>();
         const activeCredentials = new Set<string>();
+        const usedCollectors = new Set<string>();
         const activeCollectors = new Set<string>();
         let credentials = 0;
         let invoices = 0;
@@ -315,6 +316,8 @@ export class Customer {
                 credentials++;
                 // Increase the total invoices count
                 invoices += monthInvoices.length;
+                // Add the collector to the used collectors set
+                usedCollectors.add(credential.collector_id);
                 // If the credential is active, add its collectors to the active collectors set
                 if (isActive) {
                     // Add the user to the active users set
@@ -340,6 +343,7 @@ export class Customer {
             activeCredentials.size,
             invoices,
             this.subscribedCollectors.length,
+            usedCollectors.size,
             activeCollectors.size
         );
 
