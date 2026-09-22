@@ -4,7 +4,8 @@ services:
     ports:
       - 8080:8080
     depends_on:
-      - mongodb
+      mongodb:
+        condition: service_healthy
     environment:
       - PORT=8080
       - DATABASE_URI=mongodb://mongodb:27017
@@ -26,3 +27,9 @@ services:
     ports:
       - 127.0.0.1:27017:27017
     command: --logpath /dev/null
+    healthcheck:
+      test: ["CMD", "mongosh", "--quiet", "--eval", "db.adminCommand('ping')"]
+      interval: 5s
+      timeout: 3s
+      retries: 24
+      start_period: 10s
