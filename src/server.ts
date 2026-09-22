@@ -197,7 +197,7 @@ export class Server {
             
             // Check if user exists
             if(!user) {
-                throw new StatusError('Invalid credentials', 401);
+                throw new StatusError('Your email or password is incorrect.', 401);
             }
 
             // Generate session bearer token
