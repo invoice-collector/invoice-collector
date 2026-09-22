@@ -5,7 +5,7 @@ import { Customer } from '../../model/customer';
  * Task responsible for scheduling and creating a bill at the end of each month.
  */
 export class BillTask {
-    static DEFAULT_CRON_TIME = '30 0 1 * *';
+    static DEFAULT_CRON_TIME = '30 0 1 * *';    // At 00:30 the 1st day of every month
     static DEFAULT_TIMEZONE = 'UTC';
 
     private job: CronJob;
