@@ -169,12 +169,32 @@ export const buildCustomerStatsPipeline = (matcher: object): Document[] => {
                         $group: {
                             _id: '$month',
                             credential_count: { $sum: 1 },
+                            credentialsAuthenticationError: {
+                                $sum: {
+                                    $cond: [
+                                        { $eq: ['$credentials.state.index', -1] },
+                                        1,
+                                        0,
+                                    ],
+                                },
+                            },
+                            credentialsDisconnectedError: {
+                                $sum: {
+                                    $cond: [
+                                        { $eq: ['$credentials.state.index', -2] },
+                                        1,
+                                        0,
+                                    ],
+                                },
+                            },
                         },
                     },
                     {
                         $project: {
                             month: '$_id',
                             credential_count: 1,
+                            credentialsAuthenticationError: 1,
+                            credentialsDisconnectedError: 1,
                             _id: 0,
                         },
                     },

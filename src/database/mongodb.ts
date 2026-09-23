@@ -272,16 +272,24 @@ export class MongoDB extends AbstractDatabase {
         // Calculate totals
         const totalUsers = document.usersByMonth.reduce((sum, item) => sum + item.user_count, 0);
         const totalCredentials = document.credentialsByMonth.reduce((sum, item) => sum + item.credential_count, 0);
+        const totalCredentialsAuthenticationError = document.credentialsByMonth.reduce((sum, item) => sum + item.credentialsAuthenticationError, 0);
+        const totalCredentialsDisconnectedError = document.credentialsByMonth.reduce((sum, item) => sum + item.credentialsDisconnectedError, 0);
         const totalInvoices = document.invoicesByMonth.reduce((sum, item) => sum + item.invoice_count, 0);
 
         // Build byMonth object
-        const byMonth: { [key: string]: { users: number; credentials: number; invoices: number } } = {};
+        const byMonth: { [key: string]: {
+            users: number;
+            credentials: number;
+            credentialsAuthenticationError: number;
+            credentialsDisconnectedError: number;
+            invoices: number
+        } } = {};
         
         // Add users
         document.usersByMonth.forEach(item => {
             if (item.month) {
                 if (!byMonth[item.month]) {
-                    byMonth[item.month] = { users: 0, credentials: 0, invoices: 0 };
+                    byMonth[item.month] = { users: 0, credentials: 0, credentialsAuthenticationError: 0, credentialsDisconnectedError: 0, invoices: 0 };
                 }
                 byMonth[item.month].users = item.user_count;
             }
@@ -291,9 +299,29 @@ export class MongoDB extends AbstractDatabase {
         document.credentialsByMonth.forEach(item => {
             if (item.month) {
                 if (!byMonth[item.month]) {
-                    byMonth[item.month] = { users: 0, credentials: 0, invoices: 0 };
+                    byMonth[item.month] = { users: 0, credentials: 0, credentialsAuthenticationError: 0, credentialsDisconnectedError: 0, invoices: 0 };
                 }
                 byMonth[item.month].credentials = item.credential_count;
+            }
+        });
+
+        // Add credentials authentication errors
+        document.credentialsByMonth.forEach(item => {
+            if (item.month) {
+                if (!byMonth[item.month]) {
+                    byMonth[item.month] = { users: 0, credentials: 0, credentialsAuthenticationError: 0, credentialsDisconnectedError: 0, invoices: 0 };
+                }
+                byMonth[item.month].credentialsAuthenticationError = item.credentialsAuthenticationError;
+            }
+        });
+
+        // Add credentials disconnected errors
+        document.credentialsByMonth.forEach(item => {
+            if (item.month) {
+                if (!byMonth[item.month]) {
+                    byMonth[item.month] = { users: 0, credentials: 0, credentialsAuthenticationError: 0, credentialsDisconnectedError: 0, invoices: 0 };
+                }
+                byMonth[item.month].credentialsDisconnectedError = item.credentialsDisconnectedError;
             }
         });
 
@@ -301,14 +329,14 @@ export class MongoDB extends AbstractDatabase {
         document.invoicesByMonth.forEach(item => {
             if (item.month) {
                 if (!byMonth[item.month]) {
-                    byMonth[item.month] = { users: 0, credentials: 0, invoices: 0 };
+                    byMonth[item.month] = { users: 0, credentials: 0, credentialsAuthenticationError: 0, credentialsDisconnectedError: 0, invoices: 0 };
                 }
                 byMonth[item.month].invoices = item.invoice_count;
             }
         });
 
         // Sort byMonth by month descending
-        const sortedByMonth: { [key: string]: { users: number; credentials: number; invoices: number } } = {};
+        const sortedByMonth: { [key: string]: { users: number; credentials: number; credentialsAuthenticationError: number; credentialsDisconnectedError: number; invoices: number } } = {};
         Object.keys(byMonth).sort((a, b) => (a < b ? 1 : -1)).forEach(key => {
             sortedByMonth[key] = byMonth[key];
         });
@@ -324,6 +352,8 @@ export class MongoDB extends AbstractDatabase {
         const stats: CustomerStats = {
             users: totalUsers,
             credentials: totalCredentials,
+            credentialsAuthenticationError: totalCredentialsAuthenticationError,
+            credentialsDisconnectedError: totalCredentialsDisconnectedError,
             invoices: totalInvoices,
             byMonth: sortedByMonth,
             collectors,
