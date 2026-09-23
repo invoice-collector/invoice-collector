@@ -37,21 +37,24 @@ export class MongoDB extends AbstractDatabase {
     static CALLBACK_COLLECTION = 'callbacks';
 
     client: MongoClient;
-    db_name: string;
+    dbName: string;
     db: Db|null;
 
     constructor(uri) {
         super();
         this.client = new MongoClient(uri);
-        this.db_name = utils.getEnvVar('DATABASE_MONGODB_NAME');
+        this.dbName = utils.getEnvVar('DATABASE_MONGODB_NAME');
         this.db = null;
     }
 
+    /**
+     * @inheritdoc
+     */
     async connect(throwOnError: boolean = false): Promise<void> {
         try {
             await this.client.connect();
             console.log('Connected successfully to MongoDB');
-            this.db = this.client.db(this.db_name);
+            this.db = this.client.db(this.dbName);
 
             // Create collection if not existing
             await this.db.createCollection(MongoDB.COUNTER_COLLECTION);
@@ -76,6 +79,10 @@ export class MongoDB extends AbstractDatabase {
         }
     }
 
+    /**
+     * Ensures that the database connection is established.
+     * @returns The connected database instance.
+     */
     private async ensureConnected(): Promise<Db> {
         if (!this.db) {
             await this.connect(true);
@@ -83,6 +90,9 @@ export class MongoDB extends AbstractDatabase {
         return this.db!;
     }
 
+    /**
+     * @inheritdoc
+     */
     async disconnect(): Promise<void> {
         try {
             await this.client.close();
@@ -92,6 +102,9 @@ export class MongoDB extends AbstractDatabase {
         }
     }
 
+    /**
+     * @inheritdoc
+     */
     async ping(): Promise<void> {
         const db = await this.ensureConnected();
         try {
@@ -103,17 +116,20 @@ export class MongoDB extends AbstractDatabase {
 
     // COUNTER
 
+    /**
+     * @inheritdoc
+     */
     async getCounter(counterName: string): Promise<number> {
         const db = await this.ensureConnected();
         const result = await db.collection(MongoDB.COUNTER_COLLECTION).findOneAndUpdate(
             { counterName: counterName },
             { 
-                $inc: { value: 1 }
+                $inc: { value: 1 },
             },
             {
                 upsert: true,               // Insert if not found
-                returnDocument: 'after'     // Return the updated document
-            }
+                returnDocument: 'after',    // Return the updated document
+            },
         );
         if (!result) {
             throw new Error('Failed to get counter value');
@@ -123,11 +139,17 @@ export class MongoDB extends AbstractDatabase {
 
     // CUSTOMER
 
+    /**
+     * @inheritdoc
+     */
     async countCustomers(): Promise<number> {
         const db = await this.ensureConnected();
         return await db.collection(MongoDB.CUSTOMER_COLLECTION).countDocuments();
     }
     
+    /**
+     * @inheritdoc
+     */
     async getAllCustomers(): Promise<Customer[]> {
         const db = await this.ensureConnected();
         const documents = await db.collection(MongoDB.CUSTOMER_COLLECTION).find({}).toArray();
@@ -155,6 +177,9 @@ export class MongoDB extends AbstractDatabase {
         });
     }
 
+    /**
+     * @inheritdoc
+     */
     async createCustomer(customer: Customer): Promise<Customer> {
         const db = await this.ensureConnected();
         const document = await db.collection(MongoDB.CUSTOMER_COLLECTION).insertOne({
@@ -179,6 +204,11 @@ export class MongoDB extends AbstractDatabase {
         return customer;
     }
 
+    /**
+     * Get a customer from a matcher object.
+     * @param matcher The matcher object to find the customer.
+     * @returns The customer if found, otherwise null.
+     */
     private async getCustomerFromMatcher(matcher: Record<string, unknown>): Promise<Customer|null> {
         assertSafeMatcher(matcher);
         const db = await this.ensureConnected();
@@ -208,14 +238,23 @@ export class MongoDB extends AbstractDatabase {
         return customer;
     }
 
+    /**
+     * @inheritdoc
+     */
     async getCustomerFromBearer(bearer: string): Promise<Customer|null> {
         return await this.getCustomerFromMatcher({ bearer });
     }
 
+    /**
+     * @inheritdoc
+     */
     async getCustomerFromEmail(email: string): Promise<Customer|null> {
         return await this.getCustomerFromMatcher({ email });
     }
 
+    /**
+     * @inheritdoc
+     */
     async getCustomerFromEmailAndPassword(email: string, password: string): Promise<Customer|null> {
         // Fetch by email only, then verify the password against its per-customer salted hash
         const customer = await this.getCustomerFromMatcher({ email });
@@ -224,15 +263,23 @@ export class MongoDB extends AbstractDatabase {
         }
         return customer;
     }
-    
+    /**
+     * @inheritdoc
+     */
     async getCustomerFromInviteId(inviteId: string): Promise<Customer|null> {
         return await this.getCustomerFromMatcher({ inviteId });
     }
 
+    /**
+     * @inheritdoc
+     */
     async getCustomer(customer_id: string): Promise<Customer|null> {
         return await this.getCustomerFromMatcher({ _id: new ObjectId(customer_id) });
     }
 
+    /**
+     * @inheritdoc
+     */
     async updateCustomer(customer: Customer): Promise<void> {
         const db = await this.ensureConnected();
         await db.collection(MongoDB.CUSTOMER_COLLECTION).updateOne(
@@ -256,6 +303,9 @@ export class MongoDB extends AbstractDatabase {
         );
     }
 
+    /**
+     * @inheritdoc
+     */
     async getCustomerStats(customer_id: string): Promise<CustomerStats> {
         const db = await this.ensureConnected();
         const pipeline = buildCustomerStatsPipeline({ _id: new ObjectId(customer_id) });
@@ -270,11 +320,11 @@ export class MongoDB extends AbstractDatabase {
         const document = documents[0];
 
         // Calculate totals
-        const totalUsers = document.usersByMonth.reduce((sum, item) => sum + item.user_count, 0);
-        const totalCredentials = document.credentialsByMonth.reduce((sum, item) => sum + item.credential_count, 0);
+        const totalUsers = document.usersByMonth.reduce((sum, item) => sum + item.users, 0);
+        const totalCredentials = document.credentialsByMonth.reduce((sum, item) => sum + item.credentials, 0);
         const totalCredentialsAuthenticationError = document.credentialsByMonth.reduce((sum, item) => sum + item.credentialsAuthenticationError, 0);
         const totalCredentialsDisconnectedError = document.credentialsByMonth.reduce((sum, item) => sum + item.credentialsDisconnectedError, 0);
-        const totalInvoices = document.invoicesByMonth.reduce((sum, item) => sum + item.invoice_count, 0);
+        const totalInvoices = document.invoicesByMonth.reduce((sum, item) => sum + item.invoices, 0);
 
         // Build byMonth object
         const byMonth: { [key: string]: {
@@ -291,7 +341,7 @@ export class MongoDB extends AbstractDatabase {
                 if (!byMonth[item.month]) {
                     byMonth[item.month] = { users: 0, credentials: 0, credentialsAuthenticationError: 0, credentialsDisconnectedError: 0, invoices: 0 };
                 }
-                byMonth[item.month].users = item.user_count;
+                byMonth[item.month].users = item.users;
             }
         });
 
@@ -301,7 +351,7 @@ export class MongoDB extends AbstractDatabase {
                 if (!byMonth[item.month]) {
                     byMonth[item.month] = { users: 0, credentials: 0, credentialsAuthenticationError: 0, credentialsDisconnectedError: 0, invoices: 0 };
                 }
-                byMonth[item.month].credentials = item.credential_count;
+                byMonth[item.month].credentials = item.credentials;
             }
         });
 
@@ -331,7 +381,7 @@ export class MongoDB extends AbstractDatabase {
                 if (!byMonth[item.month]) {
                     byMonth[item.month] = { users: 0, credentials: 0, credentialsAuthenticationError: 0, credentialsDisconnectedError: 0, invoices: 0 };
                 }
-                byMonth[item.month].invoices = item.invoice_count;
+                byMonth[item.month].invoices = item.invoices;
             }
         });
 
@@ -346,7 +396,7 @@ export class MongoDB extends AbstractDatabase {
 
         // Add collectors
         document.collectorStats.forEach(item => {
-            collectors[item.collector_id] = item.credential_count;
+            collectors[item.collector_id] = item.credentials;
         });
 
         const stats: CustomerStats = {
@@ -362,6 +412,9 @@ export class MongoDB extends AbstractDatabase {
         return stats;
     }
 
+    /**
+     * @inheritdoc
+     */
     async getAllCustomerData(customer_id: string): Promise<AllCustomerData> {
         const db = await this.ensureConnected();
         const pipeline = getAllCustomerData({ _id: new ObjectId(customer_id) });
@@ -379,6 +432,9 @@ export class MongoDB extends AbstractDatabase {
 
     // USER
 
+    /**
+     * @inheritdoc
+     */
     async getUsers(customer_id: string): Promise<User[]> {
         const db = await this.ensureConnected();
         const documents = await db.collection(MongoDB.USER_COLLECTION).find({
@@ -400,6 +456,11 @@ export class MongoDB extends AbstractDatabase {
         });
     }
 
+    /**
+     * Get a user from a matcher object.
+     * @param matcher The matcher object to find the user.
+     * @returns The user if found, otherwise null.
+     */
     private async getUserFromMatcher(matcher: Record<string, unknown>): Promise<User|null> {
         assertSafeMatcher(matcher);
         const db = await this.ensureConnected();
@@ -421,14 +482,23 @@ export class MongoDB extends AbstractDatabase {
         return user;
     }
 
+    /**
+     * @inheritdoc
+     */
     async getUser(user_id: string): Promise<User|null> {
         return await this.getUserFromMatcher({ _id: new ObjectId(user_id) });
     }
 
+    /**
+     * @inheritdoc
+     */
     async getUserFromRemoteId(remoteId: string): Promise<User|null> {
         return await this.getUserFromMatcher({ remote_id: remoteId });
     }
 
+    /**
+     * @inheritdoc
+     */
     async getUserFromRemoteIdAndPassword(remoteId: string, password: string): Promise<User|null> {
         // Fetch by remote_id only, then verify the password against its per-user salted hash
         const user = await this.getUserFromMatcher({ remote_id: remoteId });
@@ -438,6 +508,9 @@ export class MongoDB extends AbstractDatabase {
         return user;
     }
 
+    /**
+     * @inheritdoc
+     */
     async getUserFromCustomerIdAndRemoteId(customer_id: string, remote_id: string): Promise<User|null> {
         return await this.getUserFromMatcher({
             customer_id: new ObjectId(customer_id),
@@ -445,6 +518,9 @@ export class MongoDB extends AbstractDatabase {
         });
     }
 
+    /**
+     * @inheritdoc
+     */
     async getUserBellongingToCustomer(user_id: string, customer_id: string): Promise<User|null> {
         return await this.getUserFromMatcher({
             _id: new ObjectId(user_id),
@@ -452,6 +528,9 @@ export class MongoDB extends AbstractDatabase {
         });
     }
 
+    /**
+     * @inheritdoc
+     */
     async createUser(user: User): Promise<User> {
         const db = await this.ensureConnected();
         const document = await db.collection(MongoDB.USER_COLLECTION).insertOne({
@@ -468,6 +547,9 @@ export class MongoDB extends AbstractDatabase {
         return user;
     }
 
+    /**
+     * @inheritdoc
+     */
     async updateUser(user: User): Promise<void> {
         const db = await this.ensureConnected();
         await db.collection(MongoDB.USER_COLLECTION).updateOne(
@@ -484,6 +566,9 @@ export class MongoDB extends AbstractDatabase {
         );
     }
 
+    /**
+     * @inheritdoc
+     */
     async deleteUser(user_id: string): Promise<void> {
         const db = await this.ensureConnected();
         await db.collection(MongoDB.USER_COLLECTION).deleteOne({
@@ -493,6 +578,9 @@ export class MongoDB extends AbstractDatabase {
 
     // CREDENTIAL
 
+    /**
+     * @inheritdoc
+     */
     async getCredentialsIdToCollect(): Promise<string[]> {
         const db = await this.ensureConnected();
         const query = {
@@ -514,6 +602,9 @@ export class MongoDB extends AbstractDatabase {
         return documents.map(document => document._id.toString());
     }
 
+    /**
+     * @inheritdoc
+     */
     async getCredentials(user_id: string): Promise<Credential[]> {
         const db = await this.ensureConnected();
         const documents = await db.collection(MongoDB.CREDENTIAL_COLLECTION).find({
@@ -537,6 +628,9 @@ export class MongoDB extends AbstractDatabase {
         });
     }
 
+    /**
+     * @inheritdoc
+     */
     async getCredential(credential_id: string): Promise<Credential|null> {
         const db = await this.ensureConnected();
         const document = await db.collection(MongoDB.CREDENTIAL_COLLECTION).findOne({
@@ -561,6 +655,9 @@ export class MongoDB extends AbstractDatabase {
         return credential;
     }
 
+    /**
+     * @inheritdoc
+     */
     async createCredential(credential: Credential): Promise<Credential> {
         const db = await this.ensureConnected();
         const document = await db.collection(MongoDB.CREDENTIAL_COLLECTION).insertOne({
@@ -579,6 +676,9 @@ export class MongoDB extends AbstractDatabase {
         return credential;
     }
 
+    /**
+     * @inheritdoc
+     */
     async updateCredential(credential: Credential): Promise<void> {
         const db = await this.ensureConnected();
         await db.collection(MongoDB.CREDENTIAL_COLLECTION).updateOne(
@@ -596,6 +696,9 @@ export class MongoDB extends AbstractDatabase {
         );
     }
 
+    /**
+     * @inheritdoc
+     */
     async deleteCredential(user_id: string, credential_id: string): Promise<void> {
         const db = await this.ensureConnected();
         await db.collection(MongoDB.CREDENTIAL_COLLECTION).deleteOne({
@@ -604,6 +707,9 @@ export class MongoDB extends AbstractDatabase {
         });
     }
 
+    /**
+     * @inheritdoc
+     */
     async deleteCredentials(user_id: string): Promise<void> {
         const db = await this.ensureConnected();
         await db.collection(MongoDB.CREDENTIAL_COLLECTION).deleteMany({
@@ -613,6 +719,9 @@ export class MongoDB extends AbstractDatabase {
 
     // COLLECTOR MEMORY
 
+    /**
+     * @inheritdoc
+     */
     async getCollectorMemories(): Promise<CollectorMemory[]> {
         if (!this.db) {
             throw new Error('Database is not connected');
@@ -632,6 +741,9 @@ export class MongoDB extends AbstractDatabase {
         });
     }
 
+    /**
+     * @inheritdoc
+     */
     async getCollectorMemory(collector_id: string): Promise<CollectorMemory | null> {
         const db = await this.ensureConnected();
         const document = await db.collection(MongoDB.COLLECTOR_MEMORY_COLLECTION).findOne({ collector_id });
@@ -650,6 +762,9 @@ export class MongoDB extends AbstractDatabase {
         return collectorMemory;
     }
 
+    /**
+     * @inheritdoc
+     */
     async createCollectorMemory(collectorMemory: CollectorMemory): Promise<CollectorMemory> {
         const db = await this.ensureConnected();
         const document = await db.collection(MongoDB.COLLECTOR_MEMORY_COLLECTION).insertOne({
@@ -664,6 +779,9 @@ export class MongoDB extends AbstractDatabase {
         return collectorMemory;
     }
 
+    /**
+     * @inheritdoc
+     */
     async updateCollectorMemory(collectorMemory: CollectorMemory): Promise<void> {
         const db = await this.ensureConnected();
         await db.collection(MongoDB.COLLECTOR_MEMORY_COLLECTION).updateOne(
@@ -681,6 +799,9 @@ export class MongoDB extends AbstractDatabase {
 
     // CALLBACK
 
+    /**
+     * @inheritdoc
+     */
     async getCallbacks(customer_user_id: string): Promise<Callback[]> {
         const db = await this.ensureConnected();
         const documents = await db.collection(MongoDB.CALLBACK_COLLECTION).find({
@@ -699,6 +820,9 @@ export class MongoDB extends AbstractDatabase {
         });
     }
 
+    /**
+     * @inheritdoc
+     */
     async getCallback(callback_id: string): Promise<Callback | null> {
         const db = await this.ensureConnected();
         const document = await db.collection(MongoDB.CALLBACK_COLLECTION).findOne({
@@ -718,6 +842,9 @@ export class MongoDB extends AbstractDatabase {
         return callback;
     }
 
+    /**
+     * @inheritdoc
+     */
     async createCallback(callback: Callback): Promise<Callback> {
         const db = await this.ensureConnected();
         const document = await db.collection(MongoDB.CALLBACK_COLLECTION).insertOne({
@@ -731,6 +858,9 @@ export class MongoDB extends AbstractDatabase {
         return callback;
     }
 
+    /**
+     * @inheritdoc
+     */
     async updateCallback(callback: Callback): Promise<void> {
         const db = await this.ensureConnected();
         await db.collection(MongoDB.CALLBACK_COLLECTION).updateOne(
@@ -741,7 +871,9 @@ export class MongoDB extends AbstractDatabase {
         );
     }
 
-
+    /**
+     * @inheritdoc
+     */
     async deleteCallback(callback_id: string): Promise<void> {
         const db = await this.ensureConnected();
         await db.collection(MongoDB.CALLBACK_COLLECTION).deleteOne({
