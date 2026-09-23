@@ -14,8 +14,12 @@ import { StatusError } from '../error';
 import { Plan } from '../model/plan';
 import { Bill } from '../model/bill';
 
-// Rejects matcher values that are not primitives (e.g. `{ $ne: null }`), since a legitimate query
-// never needs an operator here. This is what prevents NoSQL injection through user-supplied fields.
+/**
+ * Asserts that the provided matcher object contains only safe primitive values.
+ * Rejects matcher values that are not primitives (e.g. `{ $ne: null }`), since a legitimate query
+ * never needs an operator here. This is what prevents NoSQL injection through user-supplied fields.
+ * @param matcher The matcher object to be validated.
+ */
 function assertSafeMatcher(matcher: Record<string, unknown>): void {
     for (const [key, value] of Object.entries(matcher)) {
         if (value instanceof ObjectId) {
@@ -40,6 +44,10 @@ export class MongoDB extends AbstractDatabase {
     dbName: string;
     db: Db|null;
 
+    /**
+     * Creates a new instance of the MongoDB class.
+     * @param uri The MongoDB connection URI.
+     */
     constructor(uri) {
         super();
         this.client = new MongoClient(uri);
@@ -242,14 +250,14 @@ export class MongoDB extends AbstractDatabase {
      * @inheritdoc
      */
     async getCustomerFromBearer(bearer: string): Promise<Customer|null> {
-        return await this.getCustomerFromMatcher({ bearer });
+        return await this.getCustomerFromMatcher({ bearer: bearer });
     }
 
     /**
      * @inheritdoc
      */
     async getCustomerFromEmail(email: string): Promise<Customer|null> {
-        return await this.getCustomerFromMatcher({ email });
+        return await this.getCustomerFromMatcher({ email: email });
     }
 
     /**
@@ -257,7 +265,7 @@ export class MongoDB extends AbstractDatabase {
      */
     async getCustomerFromEmailAndPassword(email: string, password: string): Promise<Customer|null> {
         // Fetch by email only, then verify the password against its per-customer salted hash
-        const customer = await this.getCustomerFromMatcher({ email });
+        const customer = await this.getCustomerFromMatcher({ email: email });
         if (!customer || !utils.verifyPassword(password, customer.password)) {
             return null;
         }
@@ -267,7 +275,7 @@ export class MongoDB extends AbstractDatabase {
      * @inheritdoc
      */
     async getCustomerFromInviteId(inviteId: string): Promise<Customer|null> {
-        return await this.getCustomerFromMatcher({ inviteId });
+        return await this.getCustomerFromMatcher({ inviteId: inviteId });
     }
 
     /**
@@ -406,7 +414,7 @@ export class MongoDB extends AbstractDatabase {
             credentialsDisconnectedError: totalCredentialsDisconnectedError,
             invoices: totalInvoices,
             byMonth: sortedByMonth,
-            collectors,
+            collectors: collectors,
         };
 
         return stats;
@@ -746,7 +754,7 @@ export class MongoDB extends AbstractDatabase {
      */
     async getCollectorMemory(collector_id: string): Promise<CollectorMemory | null> {
         const db = await this.ensureConnected();
-        const document = await db.collection(MongoDB.COLLECTOR_MEMORY_COLLECTION).findOne({ collector_id });
+        const document = await db.collection(MongoDB.COLLECTOR_MEMORY_COLLECTION).findOne({ collector_id: collector_id });
         if (!document) {
             return null;
         }

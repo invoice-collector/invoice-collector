@@ -217,13 +217,13 @@ export const getAllCustomerData = (matcher: object): Document[] => {
                 'localField': '_id',
                 'foreignField': 'customer_id',
                 'as': 'users',
-            }
+            },
         },
         {
             '$unwind': {
                 'path': '$users',
                 'preserveNullAndEmptyArrays': true,
-            }
+            },
         },
         {
             '$lookup': {
@@ -231,7 +231,7 @@ export const getAllCustomerData = (matcher: object): Document[] => {
                 'localField': 'users._id',
                 'foreignField': 'user_id',
                 'as': 'users.credentials',
-            }
+            },
         },
         {
             '$group': {
@@ -239,7 +239,7 @@ export const getAllCustomerData = (matcher: object): Document[] => {
                 'name': { '$first': '$name'},
                 'plan': { '$first': '$plan'},
                 'users': { '$push': '$users' },
-            }
-        }
+            },
+        },
     ];
 };
