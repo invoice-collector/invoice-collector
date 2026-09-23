@@ -9,6 +9,10 @@ export class HttpAnalytics extends AbstractAnalytics {
 
     private client: AxiosInstance;
 
+    /**
+     * Constructs an instance of HttpAnalytics.
+     * @param analyticsServerEndpoint The endpoint of the analytics server.
+     */
     public constructor(analyticsServerEndpoint: string) {
         super();
         this.client = axios.create({
@@ -23,6 +27,9 @@ export class HttpAnalytics extends AbstractAnalytics {
         }
     }
 
+    /**
+     * @inheritdoc
+     */
     async ping(): Promise<void> {
         try {
             await this.client.get('/ping');
@@ -31,6 +38,9 @@ export class HttpAnalytics extends AbstractAnalytics {
         }
     }
 
+    /**
+     * @inheritdoc
+     */
     logSuccess(collector: AbstractCollector<Config>): void {
         this.client.post('/log/success', {
             collector: collector.config.id,
@@ -44,6 +54,9 @@ export class HttpAnalytics extends AbstractAnalytics {
         });
     }
 
+    /**
+     * @inheritdoc
+     */
     logError(email: string, remoteId: string, err: LoggableError): void {
         this.client.post('/log/error', {
             email,
@@ -65,6 +78,9 @@ export class HttpAnalytics extends AbstractAnalytics {
         });
     }
 
+    /**
+     * @inheritdoc
+     */
     async feedback(type: string, message: string, email: string, user_id: string): Promise<void> {
         const response = await this.client.post('/feedback', {
             from: 'app',
@@ -82,6 +98,9 @@ export class HttpAnalytics extends AbstractAnalytics {
 
     // EMAILS
 
+    /**
+     * @inheritdoc
+     */
     public async sendWelcomeEmail(email: string, locale: string): Promise<void> {
         // Send email
         console.log('Sending welcome email to', email);
@@ -97,6 +116,9 @@ export class HttpAnalytics extends AbstractAnalytics {
         );
     }
 
+    /**
+     * @inheritdoc
+     */
     public async sendOtpEmail(email: string, locale: string): Promise<OTP> {
         // Generate verification code
         const code: string = utils.generateVerificationCode();
@@ -122,6 +144,9 @@ export class HttpAnalytics extends AbstractAnalytics {
         };
     }
 
+    /**
+     * @inheritdoc
+     */
     public async sendResetPasswordEmail(email: string, resetToken: string): Promise<string> {
         // Build reset password link
         const resetLink = `${AbstractAnalytics.FRONTEND}/reset-password/${resetToken}`;
@@ -142,6 +167,12 @@ export class HttpAnalytics extends AbstractAnalytics {
         return resetLink;
     }
 
+    /**
+     * Sends an email with the specified subject and content to the given recipients.
+     * @param to The list of recipient email addresses.
+     * @param subject The subject of the email.
+     * @param content The content of the email, including text, bold, center, and italic formatting.
+     */
     private async sendEmail(
         to: string[],
         subject: string,

@@ -4,26 +4,44 @@ import { AbstractCollector, Config } from '../collectors/abstractCollector';
 import { LoggableError } from '../error';
 
 export class MockAnalytics extends AbstractAnalytics {
+    /**
+     * @inheritdoc
+     */
     async ping(): Promise<void> {
         console.warn('No analytics server endpoint configured. Cannot ping.');
     }
 
+    /**
+     * @inheritdoc
+     */
     logSuccess(collector: AbstractCollector<Config>): void {
         console.warn('No analytics server endpoint configured. Cannot log success.');
     }
 
+    /**
+     * @inheritdoc
+     */
     logError(email: string, remoteId: string, err: LoggableError): void {
         console.warn('No analytics server endpoint configured. Cannot log error.');
     }
 
+    /**
+     * @inheritdoc
+     */
     async feedback(type: string, message: string, email: string, user_id: string): Promise<void> {
         console.warn('No analytics server endpoint configured. Cannot send feedback.');
     }
 
+    /**
+     * @inheritdoc
+     */
     async sendWelcomeEmail(email: string, locale: string): Promise<void> {
         console.warn('No analytics server endpoint configured. Cannot send welcome email.');
     }
 
+    /**
+     * @inheritdoc
+     */
     async sendOtpEmail(email: string, locale: string): Promise<OTP> {
         const code: string = utils.generateVerificationCode();
         console.warn(`No analytics server endpoint configured. Cannot send OTP email. Your OTP code is: ${code}`);
@@ -33,6 +51,9 @@ export class MockAnalytics extends AbstractAnalytics {
         };
     }
 
+    /**
+     * @inheritdoc
+     */
     async sendResetPasswordEmail(email: string, resetToken: string): Promise<string> {
         const resetLink = `${AbstractAnalytics.FRONTEND}/reset-password/${resetToken}`;
         console.warn(`No analytics server endpoint configured. Cannot send reset password email. Your reset link is: ${resetLink}`);
