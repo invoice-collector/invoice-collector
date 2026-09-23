@@ -19,7 +19,7 @@ export default [
       'no-throw-literal': 'error',
       'no-unreachable': 'error',
       'no-var': 'error',
-      'object-shorthand': ['error', 'always'],
+      'object-shorthand': ['error', 'never'],
       'prefer-const': 'error',
       'prefer-template': 'error',
       'quotes': ['error', 'single', { avoidEscape: true }],

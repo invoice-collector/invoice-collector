@@ -37,13 +37,10 @@ export class State {
 
     // Use update method to update the state values without creating a new instance
     update(state: State, message?: string) {
-        // Set state if in error or if current state is not the maximum
-        if (state.index < 0 || this.index !== this.max) {
-            this.index = state.index;
-            this.max = state.max;
-            this.title = state.title;
-            this.message = message ? utils.trim(message) : state.message;
-        }
+        this.index = state.index;
+        this.max = state.max;
+        this.title = state.title;
+        this.message = message ? utils.trim(message) : state.message;
     }
 
     isError(): boolean {

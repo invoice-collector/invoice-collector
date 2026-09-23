@@ -251,9 +251,11 @@ const SWAGGER_DEFINITION = {
                 customerStats: {
                     type: 'object',
                     properties: {
-                        users: { type: 'integer', description: 'Number of users under the customer.', example: 5 },
-                        credentials: { type: 'integer', description: 'Number of credentials under the customer.', example: 10 },
-                        invoices: { type: 'integer', description: 'Number of invoices under the customer.', example: 50 },
+                        users: { type: 'integer', description: 'Number of users.', example: 5 },
+                        credentials: { type: 'integer', description: 'Number of credentials.', example: 10 },
+                        credentialsAuthenticationError: { type: 'integer', description: 'Number of credentials with authentication errors.', example: 2 },
+                        credentialsDisconnectedError: { type: 'integer', description: 'Number of credentials with disconnected errors.', example: 1 },
+                        invoices: { type: 'integer', description: 'Number of invoices.', example: 50 },
                         byMonth: {
                             type: 'object',
                             additionalProperties: {
@@ -261,6 +263,8 @@ const SWAGGER_DEFINITION = {
                                 properties: {
                                     users: { type: 'integer' },
                                     credentials: { type: 'integer' },
+                                    credentialsAuthenticationError: { type: 'integer' },
+                                    credentialsDisconnectedError: { type: 'integer' },
                                     invoices: { type: 'integer' },
                                 },
                                 required: ['users', 'credentials', 'invoices'],

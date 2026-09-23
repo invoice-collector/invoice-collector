@@ -27,11 +27,15 @@ export enum CustomerAuthenticationMethod {
 export interface CustomerStats {
     users: number;
     credentials: number;
+    credentialsAuthenticationError: number;
+    credentialsDisconnectedError: number;
     invoices: number;
     byMonth: {
         [key: string]: {
             users: number;
             credentials: number;
+            credentialsAuthenticationError: number;
+            credentialsDisconnectedError: number;
             invoices: number;
         }
     };

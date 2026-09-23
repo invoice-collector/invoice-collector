@@ -37,12 +37,12 @@ export const buildCustomerStatsPipeline = (matcher: object): Document[] => {
                     {
                         $project: {
                             collector_id: '$_id',
-                            credential_count: '$count',
+                            credentials: '$count',
                             _id: 0,
                         },
                     },
                     {
-                        $sort: { credential_count: -1 },
+                        $sort: { credentials: -1 },
                     },
                 ],
 
@@ -70,13 +70,13 @@ export const buildCustomerStatsPipeline = (matcher: object): Document[] => {
                     {
                         $group: {
                             _id: '$month',
-                            user_count: { $sum: 1 },
+                            users: { $sum: 1 },
                         },
                     },
                     {
                         $project: {
                             month: '$_id',
-                            user_count: 1,
+                            users: 1,
                             _id: 0,
                         },
                     },
@@ -122,13 +122,13 @@ export const buildCustomerStatsPipeline = (matcher: object): Document[] => {
                     {
                         $group: {
                             _id: '$month',
-                            invoice_count: { $sum: 1 },
+                            invoices: { $sum: 1 },
                         },
                     },
                     {
                         $project: {
                             month: '$_id',
-                            invoice_count: 1,
+                            invoices: 1,
                             _id: 0,
                         },
                     },
@@ -168,13 +168,33 @@ export const buildCustomerStatsPipeline = (matcher: object): Document[] => {
                     {
                         $group: {
                             _id: '$month',
-                            credential_count: { $sum: 1 },
+                            credentials: { $sum: 1 },
+                            credentialsAuthenticationError: {
+                                $sum: {
+                                    $cond: [
+                                        { $eq: ['$credentials.state.index', -1] },
+                                        1,
+                                        0,
+                                    ],
+                                },
+                            },
+                            credentialsDisconnectedError: {
+                                $sum: {
+                                    $cond: [
+                                        { $eq: ['$credentials.state.index', -2] },
+                                        1,
+                                        0,
+                                    ],
+                                },
+                            },
                         },
                     },
                     {
                         $project: {
                             month: '$_id',
-                            credential_count: 1,
+                            credentials: 1,
+                            credentialsAuthenticationError: 1,
+                            credentialsDisconnectedError: 1,
                             _id: 0,
                         },
                     },
@@ -192,34 +212,34 @@ export const getAllCustomerData = (matcher: object): Document[] => {
         // Match the customer
         { $match: matcher },
         {
-            "$lookup": {
-            "from": "users",
-            "localField": "_id",
-            "foreignField": "customer_id",
-            "as": "users"
-            }
+            '$lookup': {
+                'from': 'users',
+                'localField': '_id',
+                'foreignField': 'customer_id',
+                'as': 'users',
+            },
         },
         {
-            "$unwind": {
-            "path": "$users",
-            "preserveNullAndEmptyArrays": true
-            }
+            '$unwind': {
+                'path': '$users',
+                'preserveNullAndEmptyArrays': true,
+            },
         },
         {
-            "$lookup": {
-            "from": "credentials",
-            "localField": "users._id",
-            "foreignField": "user_id",
-            "as": "users.credentials"
-            }
+            '$lookup': {
+                'from': 'credentials',
+                'localField': 'users._id',
+                'foreignField': 'user_id',
+                'as': 'users.credentials',
+            },
         },
         {
-            "$group": {
-            "_id": "$_id",
-            "name": { "$first": "$name"},
-            "plan": { "$first": "$plan"},
-            "users": { "$push": "$users" }
-            }
-        }
+            '$group': {
+                '_id': '$_id',
+                'name': { '$first': '$name'},
+                'plan': { '$first': '$plan'},
+                'users': { '$push': '$users' },
+            },
+        },
     ];
 };

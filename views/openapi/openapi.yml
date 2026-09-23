@@ -290,15 +290,23 @@ components:
       properties:
         users:
           type: integer
-          description: Number of users under the customer.
+          description: Number of users.
           example: 5
         credentials:
           type: integer
-          description: Number of credentials under the customer.
+          description: Number of credentials.
           example: 10
+        credentialsAuthenticationError:
+          type: integer
+          description: Number of credentials with authentication errors.
+          example: 2
+        credentialsDisconnectedError:
+          type: integer
+          description: Number of credentials with disconnected errors.
+          example: 1
         invoices:
           type: integer
-          description: Number of invoices under the customer.
+          description: Number of invoices.
           example: 50
         byMonth:
           type: object
@@ -308,6 +316,10 @@ components:
               users:
                 type: integer
               credentials:
+                type: integer
+              credentialsAuthenticationError:
+                type: integer
+              credentialsDisconnectedError:
                 type: integer
               invoices:
                 type: integer
