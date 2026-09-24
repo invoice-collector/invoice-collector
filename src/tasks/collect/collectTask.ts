@@ -9,6 +9,9 @@ export class CollectTask {
 
     private job: CronJob;
 
+    /**
+     * Constructs an instance of the CollectTask class, initializing the cron job for periodic invoice collection.
+     */
     constructor() {
         const onTick = async () => {
             // Get all credentials on which we need to collect invoices
@@ -51,11 +54,17 @@ export class CollectTask {
         });
     }
 
+    /**
+     * Starts the collect task, initiating the cron job for periodic invoice collection.
+     */
     public start() {
         this.job.start();
         console.log('Collect Task started!');
     }
 
+    /**
+     * Stops the collect task, halting the cron job for periodic invoice collection.
+     */
     public stop() {
         this.job.stop();
     }
