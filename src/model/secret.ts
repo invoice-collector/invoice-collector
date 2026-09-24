@@ -8,12 +8,23 @@ export class Secret {
     key: string;
     value: any;
 
+    /**
+     * Constructs a new Secret instance with the specified key and value.
+     * @param key The key associated with the secret in the secret manager. //TODO rename it to "name" not to confuse with key-value pairs inside the secret.
+     * @param value The value associated with the secret. Defaults to an empty object if not provided.
+     */
     constructor(key: string, value: any = Secret.DEFAULT_VALUE) {
         this.id = '';
         this.key = key;
         this.value = value;
     }
 
+    /**
+     * Retrieves the value associated with the specified key from the secret.
+     * If the secret is empty, it fetches the value from the secret manager first.
+     * @param key The key identifying the value to retrieve.
+     * @returns The value associated with the specified key.
+     */
     private async getValue(key: string): Promise<any> {
         if (Object.keys(this.value).length === 0) {
             this.value = await SecretManagerFactory.getSecretManager().getValue(this.id);
@@ -21,26 +32,50 @@ export class Secret {
         return this.value[key];
     }
 
+    /**
+     * Get the 'params' value from the secret.
+     * @returns The value associated with the 'params' key.
+     */
     async getParams(): Promise<any> {
         return this.getValue('params');
     }
 
+    /**
+     * Sets the 'params' value in the secret.
+     * @param value The value to associate with the 'params' key.
+     */
     async setParams(value: any) {
         this.value['params'] = value;
     }
 
+    /**
+     * Get the 'cookies' value from the secret.
+     * @returns The value associated with the 'cookies' key.
+     */
     async getCookies(): Promise<any> {
         return this.getValue('cookies');
     }
 
+    /**
+     * Sets the 'cookies' value in the secret.
+     * @param value The value to associate with the 'cookies' key.
+     */
     async setCookies(value: any) {
         this.value['cookies'] = value;
     }
 
+    /**
+     * Get the 'localStorage' value from the secret.
+     * @returns The value associated with the 'localStorage' key.
+     */
     async getLocalStorage(): Promise<any> {
         return this.getValue('localStorage');
     }
 
+    /**
+     * Sets the 'localStorage' value in the secret.
+     * @param value The value to associate with the 'localStorage' key.
+     */
     async setLocalStorage(value: any) {
         this.value['localStorage'] = value;
     }
@@ -64,6 +99,9 @@ export class Secret {
         }
     }
 
+    /**
+     * Deletes the secret from the secret manager.
+     */
     async delete(): Promise<void> {
         await SecretManagerFactory.getSecretManager().deleteSecret(this.id);
     }
