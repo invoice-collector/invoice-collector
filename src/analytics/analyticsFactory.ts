@@ -7,7 +7,7 @@ export class AnalyticsFactory {
     static instance: AbstractAnalytics;
 
     /**
-     * Get the singleton instance of the analytics service.
+     * Gets the singleton instance of the analytics service.
      * @returns The singleton instance of the analytics service.
      */
     static getInstance(): AbstractAnalytics {

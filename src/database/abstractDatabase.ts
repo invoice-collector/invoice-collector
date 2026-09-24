@@ -41,7 +41,7 @@ export abstract class AbstractDatabase {
     // COUNTERS
 
     /**
-     * Get the value of the specified counter.
+     * Gets the value of the specified counter.
      * @param counterName The name of the counter to retrieve. Creates the counter if it does not exist.
      * @returns The value of the counter.
      */
@@ -91,7 +91,7 @@ export abstract class AbstractDatabase {
     abstract getCustomerFromEmailAndPassword(email: string, password: string): Promise<Customer|null>;
 
     /**
-     * Get the customer associated with the given invite ID.
+     * Gets the customer associated with the given invite ID.
      * @param inviteId The invite ID to use for retrieving the customer.
      * @returns The customer associated with the given invite ID, or null if not found.
      */
