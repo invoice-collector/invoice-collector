@@ -19,8 +19,13 @@ app.use('/views', express.static(path.join(__dirname, '..', 'views')));
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '..', 'views'));
 
-// Keys rate limiters by the caller's bearer/token when present, falling back to IP otherwise,
-// so limits apply per authenticated principal rather than shared across an entire NAT'd network.
+/**
+ * Defines the key generator function for rate limiting based on the principal (bearer/token or IP).
+ * Keys rate limiters by the caller's bearer/token when present, falling back to IP otherwise,
+ * so limits apply per authenticated principal rather than shared across an entire NAT'd network.
+ * @param req The Express request object.
+ * @returns The key to be used for rate limiting.
+ */
 function principalKeyGenerator(req: express.Request): string {
     const authorization = req.headers.authorization;
     if (authorization) {
@@ -62,7 +67,10 @@ const creationRateLimiter = rateLimit({
     message: { type: 'error', message: 'Too many requests, please try again later.' },
 });
 
-// Flags a route as deprecated (RFC 8594) so API consumers/tooling can detect legacy endpoint usage
+/**
+ * Flags a route as deprecated (RFC 8594) so API consumers/tooling can detect legacy endpoint usage
+ * @param res The Express response object.
+ */
 function markDeprecated(res: express.Response): void {
     res.setHeader('Deprecation', 'true');
 }
@@ -78,6 +86,12 @@ declare global {
 // Create server
 const server = new Server();
 
+/**
+ * Handles errors and sends appropriate HTTP responses.
+ * @param e The error object.
+ * @param req The Express request object.
+ * @param res The Express response object.
+ */
 function handle_error(e, req, res){
     if(e instanceof StatusError) {
         res.setHeader('Content-Type', 'application/json');
