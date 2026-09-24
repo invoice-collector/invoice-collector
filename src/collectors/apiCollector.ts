@@ -18,6 +18,10 @@ export abstract class ApiCollector extends V1Collector<ApiConfig> {
 
     instance: AxiosInstance | null;
 
+    /**
+     * Constructs a new instance of the API collector.
+     * @param config The configuration of the API collector.
+     */
     constructor(config: ApiConfig) {
         super({
             ...config,
@@ -27,6 +31,9 @@ export abstract class ApiCollector extends V1Collector<ApiConfig> {
         this.instance = null;
     }
 
+    /**
+     * @inheritdoc
+     */
     async _collect(state: State, webSocketServer: WebSocketServer | undefined, secret: Secret, location: Location | null): Promise<Invoice[]> {
         console.log('API Collector, do not use proxy');
 
@@ -72,6 +79,8 @@ export abstract class ApiCollector extends V1Collector<ApiConfig> {
         }
     }
 
+    /**
+     * @inheritdoc */
     async _download(invoice: Invoice): Promise<CompleteInvoice> {
         if (!this.instance) {
             throw new Error('Instance is not initialized.');
@@ -129,12 +138,27 @@ export abstract class ApiCollector extends V1Collector<ApiConfig> {
         }
     }
 
+    /**
+     * @inheritdoc
+     */
     async _close(): Promise<void> {
         // Assume the collector does not need to close anything
     }
     
     //NOT IMPLEMENTED
+
+    /**
+     * Collects invoices from the API collector.
+     * @param instance The Axios instance for making API requests.
+     * @param webSocketServer The WebSocket server instance for real-time communication, or undefined if not available.
+     * @param params The parameters required for the collection process.
+     */
     abstract collect(instance: AxiosInstance, webSocketServer: WebSocketServer | undefined, params: any): Promise<Invoice[] | void>;
     
+    /**
+     * Downloads a specific invoice from the API collector.
+     * @param instance The Axios instance for making API requests.
+     * @param invoice The invoice to be downloaded.
+     */
     abstract download(instance: AxiosInstance, invoice: Invoice): Promise<DownloadedInvoice>;
 }

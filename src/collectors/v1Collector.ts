@@ -8,10 +8,17 @@ import { CustomerAuthenticationMethod } from '../model/customer';
 
 export abstract class V1Collector<C extends Config> extends AbstractCollector<C> {
 
+    /**
+     * Constructs a new instance of the V1 collector.
+     * @param config The configuration of the V1 collector.
+     */
     constructor(config: C) {
         super(config);
     }
 
+    /**
+     * @inheritdoc
+     */
     async collect_new_invoices(
         state: State,
         webSocketServer: WebSocketServer | undefined,
@@ -98,9 +105,23 @@ export abstract class V1Collector<C extends Config> extends AbstractCollector<C>
 
     //NOT IMPLEMENTED
 
+    /**
+     * Collects invoices from the V1 collector.
+     * @param state The current state of the collector.
+     * @param webSocketServer The WebSocket server instance for real-time communication, or undefined if not available.
+     * @param secret The secret containing authentication details.
+     * @param location The location information, or null if not applicable.
+     */
     abstract _collect(state: State, webSocketServer: WebSocketServer | undefined, secret: Secret, location: Location | null): Promise<Invoice[]>;
 
+    /**
+     * Downloads new invoices.
+     * @param invoice The invoice to be downloaded.
+     */
     abstract _download(invoice: Invoice): Promise<CompleteInvoice>;
 
+    /**
+     * Closes the resources used by the V1 collector.
+     */
     abstract _close(): Promise<void>;
 }
