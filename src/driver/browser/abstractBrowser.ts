@@ -70,6 +70,11 @@ export abstract class AbstractBrowser {
   protected wsid: string|undefined;
   protected _puppeteerBrowser: Browser|undefined;
 
+  /**
+   * Constructs a new instance of the AbstractBrowser class.
+   * @param ip The IP address of the browser instance.
+   * @param downloadPath The path where downloaded files will be stored.
+   */
   constructor(ip: string, downloadPath: string) {
     this.ip = ip;
     this.downloadPath = downloadPath;

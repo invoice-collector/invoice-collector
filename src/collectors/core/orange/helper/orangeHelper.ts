@@ -186,6 +186,7 @@ export class OrangeHelper {
      * Downloads the files associated with a specific invoice.
      * @param driver The driver instance used to perform the download.
      * @param invoice The invoice for which to download the files.
+     * @param collector The web collector instance used for the download.
      * @returns An array of file paths for the downloaded files.
      */
     static async download(driver: AbstractDriver, invoice: Invoice, collector: WebCollector): Promise<string[]> {

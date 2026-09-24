@@ -107,7 +107,10 @@ export class IntermarcheCollector extends LinearWebCollector {
         // Check if empty basket container exists
         return await driver.getElement(IntermarcheSelectors.CONTAINER_EMPTY_BASKET, { raiseException: false, timeout: 100 }) !== null;
     }
-     
+
+    /**
+     * @inheritdoc
+     */
     async getInvoices(driver: AbstractDriver): Promise<Element[]> {
         throw new UnfinishedCollectorError(this);
     }

@@ -18,11 +18,20 @@ export class Credential {
     static ONE_DAY_MS: number = 86400000;
     static ONE_WEEK_MS: number = 604800000;
 
+    /**
+     * Finds a credential by its ID.
+     * @param id The ID of the credential to find.
+     * @returns The credential with the specified ID, or null if not found.
+     */
     static async fromId(id: string): Promise<Credential | null> {
         // Get customer from bearer
         return await DatabaseFactory.getDatabase().getCredential(id);
     }
 
+    /**
+     * Gets the IDs of credentials that need to be collected.
+     * @returns An array of credential IDs that are ready for collection.
+     */
     static async getCredentialsIdToCollect(): Promise<string[]> {
         return await DatabaseFactory.getDatabase().getCredentialsIdToCollect();
     }

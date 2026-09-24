@@ -206,6 +206,7 @@ const keyLocks = new Map<string, Promise<unknown>>();
  * concurrent invocations so check-then-act sequences (e.g. quota checks) can't race each other.
  * @param key The lock key. Calls with different keys run concurrently.
  * @param fn The function to run once the lock for `key` is acquired.
+ * @returns The result of the function `fn` after acquiring the lock.
  */
 export async function withLock<T>(key: string, fn: () => Promise<T>): Promise<T> {
     const previous = keyLocks.get(key) ?? Promise.resolve();
@@ -445,6 +446,11 @@ export function generateVerificationCode(): string {
     return Math.floor(100000 + Math.random() * 900000).toString().padStart(6, '0');
 }
 
+/**
+ * Trims the input string, replaces newlines with spaces, and collapses multiple spaces into one.
+ * @param str The input string to be trimmed and cleaned.
+ * @returns The cleaned and trimmed string.
+ */
 export function trim(str: string): string {
     return str.trim().replaceAll('\n', ' ').replace(/  +/g, ' ');
 }
@@ -651,6 +657,8 @@ export async function getLinksFromPdfDocument(data: string): Promise<string[]> {
  * Gets months between two dates.
  * @param startTimestamp The start date as a timestamp
  * @param endDate The end date as a Date object (default is current date)
+ * @param excludeFirstMonth Whether to exclude the first month from the result.
+ * @param excludeLastMonth Whether to exclude the last month from the result.
  * @returns An array of months in the format "yyyy-mm" between the start and end dates
  */
 export function getMonthsBetween(startTimestamp: number, endDate: Date, excludeFirstMonth: boolean, excludeLastMonth: boolean): string[] {

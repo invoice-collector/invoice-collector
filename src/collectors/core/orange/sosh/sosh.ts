@@ -110,7 +110,10 @@ export class SoshCollector extends LinearWebCollector {
     async data(driver: AbstractDriver, element: Element): Promise<Invoice | null> {
         return await OrangeHelper.data(driver, element);
     }
-    
+
+    /**
+     * @inheritdoc
+     */
     async download(driver: AbstractDriver, invoice: Invoice): Promise<string[]> {
         return await OrangeHelper.download(driver, invoice, this);
     }

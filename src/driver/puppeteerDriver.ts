@@ -416,6 +416,13 @@ export class PuppeteerDriver extends AbstractDriver {
         let done = false;
         while (!done) {
             const elementHandle = await context.evaluateHandle((x, y) => {
+                /**
+                 * Finds the deepest element at the specified coordinates within the current root, including shadow DOM.
+                 * @param x The x-coordinate relative to the current root.
+                 * @param y The y-coordinate relative to the current root.
+                 * @param currentRoot The current root element or document to search within.
+                 * @returns The deepest element at the specified coordinates, or null if none is found.
+                 */
                 function elementFromPointDeep(x: number, y: number, currentRoot: DocumentOrShadowRoot): globalThis.Element | null {
                     const el = currentRoot.elementFromPoint(x, y);
                     if (!el) {

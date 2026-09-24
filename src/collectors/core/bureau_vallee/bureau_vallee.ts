@@ -94,7 +94,10 @@ export class BureauValleeCollector extends LinearWebCollector {
     async isEmpty(driver: AbstractDriver): Promise<boolean> {
         return await driver.getElement(BureauValleeSelectors.CONTAINER_NO_INVOICE, { raiseException: false, timeout: 5000 }) !== null;
     }
- 
+
+    /**
+     * @inheritdoc
+     */
     async getInvoices(driver: AbstractDriver): Promise<Element[]> {
         return await driver.getElements(BureauValleeSelectors.CONTAINER_INVOICE);
     }

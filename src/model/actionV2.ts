@@ -1046,6 +1046,9 @@ export class MiddleClickAction extends ActionV2<MiddleClickContext, MiddleClickA
         );
     }
 
+    /**
+     * @inheritdoc
+     */
     async _perform(context: MiddleClickContext): Promise<MiddleClickContext> {
         let element: Element | null = context.element || null;
     

@@ -166,7 +166,9 @@ export class LeroyMerlinCollector extends LinearWebCollector {
         };
     }
 
-    // Define custom method to download invoice
+    /**
+     * @inheritdoc
+     */
     async download(driver: AbstractDriver, invoice: Invoice): Promise<string[]> {
         // Open details in a new page
         await invoice.downloadButton.middleClick();

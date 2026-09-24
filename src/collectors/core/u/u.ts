@@ -90,7 +90,10 @@ export class UCollector extends LinearWebCollector {
 
         // TODO : Implement the rest of the collector
     }
-     
+
+    /**
+     * @inheritdoc
+     */
     async getInvoices(driver: AbstractDriver): Promise<Element[]> {
         throw new UnfinishedCollectorError(this);
     }
