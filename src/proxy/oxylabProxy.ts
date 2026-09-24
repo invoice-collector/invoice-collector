@@ -14,12 +14,18 @@ export class OxylabProxy extends AbstractProxy {
     username: string;
     password: string;
 
+    /**
+     * Constructs an instance of the OxylabProxy class.
+     */
     constructor() {
         super();
         this.username = utils.getEnvVar('PROXY_OXYLAB_USERNAME');
         this.password = utils.getEnvVar('PROXY_OXYLAB_PASSWORD');
     }
 
+    /**
+     * @inheritdoc
+     */
     async get(location: Location | null): Promise<Proxy | null> {
         if(location === null) {
             console.log('Location is unknown, using default location');
