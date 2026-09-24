@@ -74,7 +74,10 @@ export class OpenaiChatgptCollector extends OpenaiCommonCollector {
         // Collect invoices
         await next();
     }
-    
+
+    /**
+     * @inheritdoc
+     */
     async isEmpty(driver: AbstractDriver): Promise<boolean>{
         return await driver.getElement(OpenaiSelectors.CONTAINER_NO_ORDERS, { raiseException: false, timeout: 100 }) !== null;
     }

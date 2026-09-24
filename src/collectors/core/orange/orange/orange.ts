@@ -102,6 +102,9 @@ export class OrangeCollector extends LinearWebCollector {
         return await OrangeHelper.forEachPage(driver, next);
     }
 
+    /**
+     * @inheritdoc
+     */
     async isEmpty(driver: AbstractDriver): Promise<boolean> {
         return await OrangeHelper.isEmpty(driver);
     }

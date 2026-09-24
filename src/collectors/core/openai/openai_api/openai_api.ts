@@ -64,6 +64,9 @@ export class OpenaiApiCollector extends OpenaiCommonCollector {
         await driver.goto(this.config.entryUrl);
     }
 
+    /**
+     * @inheritdoc
+     */
     async isEmpty(driver: AbstractDriver): Promise<boolean> {
         return await driver.getElement(OpenaiSelectors.CONTAINER_NO_INVOICE, { raiseException: false, timeout: 5000 }) !== null;
     }

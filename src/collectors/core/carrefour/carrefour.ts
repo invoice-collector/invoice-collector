@@ -143,6 +143,9 @@ export class CarrefourCollector extends LinearWebCollector {
         }
     }
 
+    /**
+     * @inheritdoc
+     */
     async isEmpty(driver: AbstractDriver): Promise<boolean>{
         return await driver.getElement(CarrefourSelectors.CONTAINER_NO_ORDERS, { raiseException: false, timeout: 100 }) !== null;
     }

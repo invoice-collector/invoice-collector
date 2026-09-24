@@ -98,6 +98,9 @@ export class IntermarcheCollector extends LinearWebCollector {
         await driver.leftClick(IntermarcheSelectors.BUTTON_REFUSE_COOKIES, { raiseException: false, timeout: 5000});
     }
 
+    /**
+     * @inheritdoc
+     */
     async isEmpty(driver: AbstractDriver): Promise<boolean> {
         // Wait for panel commandes to be loaded
         await driver.getElement(IntermarcheSelectors.CONTAINER_PANEL_COMMANDES);
