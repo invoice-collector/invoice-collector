@@ -26,16 +26,32 @@ export class User {
     static DEFAULT_NAME = '';
     static DEFAULT_CID = '';
 
+    /**
+     * Gets a user from its ID.
+     * @param id The ID of the user to retrieve.
+     * @returns The User instance if found, or null otherwise.
+     */
     static async fromId(id: string): Promise<User|null> {
         // Get user from id
         return await DatabaseFactory.getDatabase().getUser(id);
     }
 
+    /**
+     * Gets a user from its remote ID.
+     * @param remoteId The remote ID of the user to retrieve.
+     * @returns The User instance if found, or null otherwise.
+     */
     static async fromRemoteId(remoteId: string): Promise<User|null> {
         // Get user from remote_id
         return await DatabaseFactory.getDatabase().getUserFromRemoteId(remoteId);
     }
 
+    /**
+     * Gets a user from its remote ID and password.
+     * @param remoteId The remote ID of the user to retrieve.
+     * @param password The password of the user to retrieve.
+     * @returns The User instance if found, or null otherwise.
+     */
     static async fromRemoteIdAndPassword(remoteId: string, password: string): Promise<User|null> {
         // Get user from remote_id and password
         return await DatabaseFactory.getDatabase().getUserFromRemoteIdAndPassword(remoteId, password);
@@ -51,6 +67,17 @@ export class User {
     locale: string;
     createdAt: number;
 
+    /**
+     * Constructs a new User instance.
+     * @param customer_id The ID of the customer the user belongs to.
+     * @param remote_id The remote ID of the user.
+     * @param password The hashed password of the user.
+     * @param name The name of the user.
+     * @param cid The company ID of the user.
+     * @param location The location of the user.
+     * @param locale The locale of the user.
+     * @param createdAt The creation timestamp of the user.
+     */
     constructor(
         customer_id: string,
         remote_id: string,
@@ -72,6 +99,11 @@ export class User {
         this.createdAt = createdAt;
     }
 
+    /**
+     * Gets the customer the user belongs to.
+     * @returns The Customer the user belongs to.
+     * @throws StatusError if the customer cannot be found.
+     */
     async getCustomer(): Promise<Customer> {
         const customer = await DatabaseFactory.getDatabase().getCustomer(this.customer_id);
             
@@ -82,15 +114,27 @@ export class User {
         return customer;
     }
 
-    async getCredential(credential_id: string) {
+    /**
+     * Gets the credential with the specified ID.
+     * @param credential_id The ID of the credential to retrieve.
+     * @returns The Credential with the specified ID, or null if not found.
+     */
+    async getCredential(credential_id: string): Promise<Credential | null> {
         return await DatabaseFactory.getDatabase().getCredential(credential_id);
     }
 
-    async getCredentials() {
+    /**
+     * Gets all credentials associated with the user.
+     * @returns An array of Credential instances associated with the user.
+     */
+    async getCredentials(): Promise<Credential[]> {
         return await DatabaseFactory.getDatabase().getCredentials(this.id);
     }
 
-    // Return every credential of this user whose collector is an email provider (mailbox connection)
+    /**
+     * Gets all credentials of the user whose collector is an email provider (mailbox connection).
+     * @returns An array of Credential instances that are email providers.
+     */
     async getProviders(): Promise<Credential[]> {
         const credentials = await this.getCredentials();
         const providers: Credential[] = [];
@@ -110,7 +154,11 @@ export class User {
 
         return providers;
     }
-    
+
+    /**
+     * Gets all callbacks associated with the user.
+     * @returns An array of Callback instances associated with the user.
+     */
     async getCallbacks(): Promise<Callback[]> {
         return DatabaseFactory.getDatabase().getCallbacks(this.id);
     }
@@ -131,6 +179,9 @@ export class User {
         }
     }
 
+    /**
+     * Deletes the user along with all associated credentials and secrets.
+     */
     async delete() {
         // Get all credentials ids
         const credentials: Credential[] = await this.getCredentials();
@@ -148,6 +199,10 @@ export class User {
         await DatabaseFactory.getDatabase().deleteUser(this.id);
     }
 
+    /**
+     * Gets the statistics for the user.
+     * @returns An object containing the user's statistics.
+     */
     async getStats(): Promise<UserStats> {
         // Get credentials
         const credentials = await this.getCredentials();

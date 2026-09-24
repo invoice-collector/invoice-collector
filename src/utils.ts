@@ -531,7 +531,7 @@ export async function getLinksFromPdfDocument(data: string): Promise<string[]> {
 }
 
 /**
- * Get months between two dates.
+ * Gets months between two dates.
  * @param startTimestamp The start date as a timestamp
  * @param endDate The end date as a Date object (default is current date)
  * @returns An array of months in the format "yyyy-mm" between the start and end dates

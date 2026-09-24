@@ -58,7 +58,7 @@ export class Customer {
     static DEFAULT_MAX_DELAY_BETWEEN_COLLECT = 2592000000; // 30 days in milliseconds
 
     /**
-     * Get all customers from the database.
+     * Gets all customers from the database.
      * @returns An array of all customer instances.
      */
     static async getAll(): Promise<Customer[]> {

@@ -33,7 +33,7 @@ export class Secret {
     }
 
     /**
-     * Get the 'params' value from the secret.
+     * Gets the 'params' value from the secret.
      * @returns The value associated with the 'params' key.
      */
     async getParams(): Promise<any> {
@@ -49,7 +49,7 @@ export class Secret {
     }
 
     /**
-     * Get the 'cookies' value from the secret.
+     * Gets the 'cookies' value from the secret.
      * @returns The value associated with the 'cookies' key.
      */
     async getCookies(): Promise<any> {
@@ -65,7 +65,7 @@ export class Secret {
     }
 
     /**
-     * Get the 'localStorage' value from the secret.
+     * Gets the 'localStorage' value from the secret.
      * @returns The value associated with the 'localStorage' key.
      */
     async getLocalStorage(): Promise<any> {

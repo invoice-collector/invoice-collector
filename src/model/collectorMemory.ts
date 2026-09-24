@@ -6,7 +6,7 @@ import { ActionV2 } from './actionV2';
 export class CollectorMemory {
 
     /**
-     * Get the collector memory for the given collector ID. If it does not exist, create a new one.
+     * Gets the collector memory for the given collector ID. If it does not exist, create a new one.
      * @param collector_id The ID of the collector.
      * @returns The collector memory associated with the given collector ID.
      */
