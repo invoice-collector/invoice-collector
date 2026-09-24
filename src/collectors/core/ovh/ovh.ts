@@ -51,6 +51,9 @@ export class OvhCollector extends ApiCollector {
         state: CollectorState.ACTIVE,
     };
 
+    /**
+     * Constructs a new instance of the OvhCollector class.
+     */
     constructor() {
         super(OvhCollector.CONFIG);
     }

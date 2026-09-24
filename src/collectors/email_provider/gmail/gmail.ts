@@ -39,6 +39,9 @@ export class GmailCollector extends EmailProvider {
         state: CollectorState.ACTIVE,
     };
 
+    /**
+     * Constructs a new instance of the GmailCollector class.
+     */
     constructor() {
         super(GmailCollector.CONFIG);
         this.instance = axios.create({ baseURL: GmailCollector.BASE_URL, timeout: 10000 });

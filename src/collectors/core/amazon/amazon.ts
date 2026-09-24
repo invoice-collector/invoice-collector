@@ -67,11 +67,17 @@ export class AmazonCollector extends LinearWebCollector {
         state: CollectorState.ACTIVE,
     };
 
+    /**
+     * Constructs a new instance of the AmazonCollector class.
+     */
     constructor() {
         super(AmazonCollector.CONFIG);
         this.language = 'en';
     }
 
+    /**
+     * @inheritdoc
+     */
     async needLogin(driver: AbstractDriver): Promise<boolean> {
         // Select loggedin account if displayed
         await driver.leftClick(AmazonSelectors.CONTAINER_LOGGEDIN_ACCOUNT, { raiseException: false, timeout: 1000 });
@@ -82,6 +88,9 @@ export class AmazonCollector extends LinearWebCollector {
         return driver.url() !== this.config.entryUrl;
     }
 
+    /**
+     * @inheritdoc
+     */
     async login(driver: AbstractDriver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
         // Go to login page
         await driver.goto(this.config.loginUrl);
@@ -126,6 +135,9 @@ export class AmazonCollector extends LinearWebCollector {
         await driver.leftClick(AmazonSelectors.CONTAINER_PERSONAL_ACCOUNT, { raiseException: false, timeout: 100 });
     }
 
+    /**
+     * @inheritdoc
+     */
     async needTwofa(driver: AbstractDriver): Promise<string | void> {
         // Select default 2FA method if displayed
         await driver.leftClick(AmazonSelectors.BUTTON_2FA_METHOD, { raiseException: false, timeout: 1000 });
@@ -137,6 +149,9 @@ export class AmazonCollector extends LinearWebCollector {
         }
     }
 
+    /**
+     * @inheritdoc
+     */
     async twofa(driver: AbstractDriver, params: any, twofa_promise: TwofaPromise, webSocketServer: WebSocketServer): Promise<string | void> {
         // Wait for 2fa code from UI
         const twofa_code = await Promise.race([twofa_promise.code(), webSocketServer.getTwofa()]);
@@ -156,11 +171,17 @@ export class AmazonCollector extends LinearWebCollector {
         await driver.leftClick(AmazonSelectors.CONTAINER_PERSONAL_ACCOUNT, { raiseException: false, timeout: 100 });
     }
 
+    /**
+     * @inheritdoc
+     */
     async navigate(driver: AbstractDriver): Promise<void>{
         // Get UI language element
         this.language = await driver.getAttribute(AmazonSelectors.CONTAINER_LANGUAGE, 'textContent');
     }
 
+    /**
+     * @inheritdoc
+     */
     async forEachPage(driver: AbstractDriver, next: () => Promise<void>): Promise<void> {
         const currentYear = new Date().getFullYear();
 
@@ -187,11 +208,17 @@ export class AmazonCollector extends LinearWebCollector {
         return await driver.getElement(AmazonSelectors.CONTAINER_NO_ORDERS, { raiseException: false, timeout: 100 }) !== null;
     }
 
+    /**
+     * @inheritdoc
+     */
     async getInvoices(driver: AbstractDriver): Promise<Element[]> {
         // Get order elements
         return await driver.getElements(AmazonSelectors.CONTAINER_ORDER);
     }
 
+    /**
+     * @inheritdoc
+     */
     async data(driver: AbstractDriver, element: Element): Promise<Invoice | null> {
         // Get timestamp
         const date = await element.getAttribute(AmazonSelectors.CONTAINER_ORDER_DATE, 'textContent');
@@ -237,6 +264,9 @@ export class AmazonCollector extends LinearWebCollector {
         };
     }
 
+    /**
+     * @inheritdoc
+     */
     async download(driver: AbstractDriver, invoice: Invoice): Promise<string[]> {
         const documents: string[] = [];
 

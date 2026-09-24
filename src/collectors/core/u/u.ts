@@ -37,10 +37,16 @@ export class UCollector extends LinearWebCollector {
         state: CollectorState.DEVELOPMENT,
     };
 
+    /**
+     * Constructs a new instance of the UCollector class.
+     */
     constructor() {
         super(UCollector.CONFIG);
     }
 
+    /**
+     * @inheritdoc
+     */
     async login(driver: AbstractDriver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
         // Refuse cookies
         await driver.leftClick(USelectors.BUTTON_REFUSE_COOKIES, { raiseException: false, timeout: 5000});
@@ -72,6 +78,9 @@ export class UCollector extends LinearWebCollector {
         }
     }
 
+    /**
+     * @inheritdoc
+     */
     async navigate(driver: AbstractDriver): Promise<void> {
         // Go to orders page
         await driver.goto('https://www.coursesu.com/mon-compte/mes-commandes');
@@ -86,10 +95,16 @@ export class UCollector extends LinearWebCollector {
         throw new UnfinishedCollectorError(this);
     }
 
+    /**
+     * @inheritdoc
+     */
     async data(driver: AbstractDriver, element: Element): Promise<Invoice | null> {
         throw new UnfinishedCollectorError(this);
     }
 
+    /**
+     * @inheritdoc
+     */
     async download(driver: AbstractDriver, invoice: Invoice): Promise<string[]> {
         throw new UnfinishedCollectorError(this);
     }
