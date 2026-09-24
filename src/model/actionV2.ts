@@ -25,6 +25,11 @@ export abstract class ActionV2<InputContext, Args, OutputContext> {
 
     static MAX_USAGE_COUNT = 2;
 
+    /**
+     * Builds an array of ActionV2 instances from a list of plain objects.
+     * @param objs The list of plain objects representing actions.
+     * @returns An array of constructed ActionV2 instances.
+     */
     static fromObjectList(objs: any): ActionV2<any, any, any>[] {
         // If objs is null or undefined or not an array, return empty array
         if (objs === null || objs === undefined || !Array.isArray(objs)) {
@@ -43,6 +48,11 @@ export abstract class ActionV2<InputContext, Args, OutputContext> {
         return actions;
     }
 
+    /**
+     * Builds an ActionV2 instance from a plain object.
+     * @param obj The plain object representing the action.
+     * @returns The constructed ActionV2 instance.
+     */
     static fromObject(obj: any): ActionV2<any, any, any> {
         // Check if obj.action exists
         if (!obj.hasOwnProperty('action')) {
@@ -64,6 +74,12 @@ export abstract class ActionV2<InputContext, Args, OutputContext> {
         );
     }
 
+    /**
+     * Performs a sequence of actions in the given context.
+     * @param actions The array of actions to perform.
+     * @param context The context in which to perform the actions.
+     * @returns The result of the first action that produces a result, or undefined if no action produces a result.
+     */
     static async performActions(actions: ActionV2<any, any, any>[], context: any): Promise<any> {
         for(const action of actions) {
             const result = await action.perform(context);
@@ -83,6 +99,17 @@ export abstract class ActionV2<InputContext, Args, OutputContext> {
     args: Args;
     destinationIds: string[];
 
+    /**
+     * Constructs a new ActionV2 instance.
+     * @param id The unique identifier of the action.
+     * @param action The type of action.
+     * @param description A description of the action.
+     * @param pageUrlRegex The URL regex pattern associated with the action.
+     * @param objectiveId The objective ID associated with the action.
+     * @param lastUsed The timestamp of when the action was last used.
+     * @param args The arguments required to perform the action.
+     * @param destinationIds The destination IDs associated with the action.
+     */
     constructor(
         id: string | null,
         action: ActionEnum,
@@ -103,6 +130,11 @@ export abstract class ActionV2<InputContext, Args, OutputContext> {
         this.destinationIds = destinationIds;
     }
 
+    /**
+     * Performs the action in the given context.
+     * @param context The context in which to perform the action.
+     * @returns The output context resulting from performing the action. It can be a single context or an array of contexts.
+     */
     async perform(context: InputContext): Promise<OutputContext | OutputContext[]> {
         try {
             console.log(`Performing action ${this.id}: ${this.description}`);
@@ -119,10 +151,32 @@ export abstract class ActionV2<InputContext, Args, OutputContext> {
         }
     }
 
+    /**
+     * Performs the action in the given context.
+     * @param context The context in which to perform the action.
+     * @returns The output context resulting from performing the action. It can be a single context or an array of contexts.
+     */
     abstract _perform(context: InputContext): Promise<OutputContext | OutputContext[]>;
+
+    /**
+     * Checks whether this action can be performed in the given context.
+     * @param context The context in which to check if the action can be performed.
+     * @returns A boolean indicating whether the action can be performed.
+     */
     abstract canPerform(context: InputContext): Promise<boolean>;
+
+    /**
+     * Checks whether this action can follow the given sequence of actions.
+     * @param actions The sequence of actions to check against.
+     * @param previousAction The action immediately preceding this one.
+     * @param secondPreviousAction The action two steps before this one.
+     */
     abstract canFollow(actions: ActionEnum[], previousAction: ActionEnum | null, secondPreviousAction: ActionEnum | null): boolean;
 
+    /**
+     * Returns a string representation of the action.
+     * @returns The description of the action.
+     */
     toString(): string {
         return this.description;
     }
@@ -138,6 +192,17 @@ export type NoopArgs = {
 
 export class NoopAction extends ActionV2<NoopContext, NoopArgs, NoopContext> {
 
+    /**
+     * Constructs a new NoopAction instance.
+     * This action performs no operation and simply waits for the page to load.
+     * @param id The unique identifier of the action.
+     * @param description The description of the action.
+     * @param pageUrlRegex The regex pattern for matching page URLs.
+     * @param objectiveId The identifier of the associated objective.
+     * @param lastUsed The timestamp of when the action was last used.
+     * @param args The arguments for the action.
+     * @param destinationIds The identifiers of the destination actions.
+     */
     constructor(
         id: string | null,
         description: string,
@@ -159,12 +224,18 @@ export class NoopAction extends ActionV2<NoopContext, NoopArgs, NoopContext> {
         );
     }
 
+    /**
+     * @inheritdoc
+     */
     async _perform(context: NoopContext): Promise<NoopContext> {
         // Wait for page to load
         await context.driver.waitForNavigation();
         return context;
     }
 
+    /**
+     * @inheritdoc
+     */
     async canPerform(context: NoopContext): Promise<boolean> {
         if (!new RegExp(this.pageUrlRegex).test(context.driver.url())) {
             return false;
@@ -180,6 +251,9 @@ export class NoopAction extends ActionV2<NoopContext, NoopArgs, NoopContext> {
         return true;
     }
 
+    /**
+     * @inheritdoc
+     */
     canFollow(actions: ActionEnum[], previousAction: ActionEnum | null, secondPreviousAction: ActionEnum | null): boolean {
         return previousAction !== ActionEnum.GET_INVOICES &&
         previousAction !== ActionEnum.EXTRACT_INVOICE_DATA &&
@@ -203,6 +277,17 @@ export type LeftClickArgs = {
 
 export class LeftClickAction extends ActionV2<LeftClickContext, LeftClickArgs, LeftClickContext> {
 
+    /**
+     * Constructs a new LeftClickAction instance.
+     * This action performs a left click on a specified element or selector.
+     * @param id The unique identifier of the action.
+     * @param description The description of the action.
+     * @param pageUrlRegex The regex pattern for matching page URLs.
+     * @param objectiveId The identifier of the associated objective.
+     * @param lastUsed The timestamp of when the action was last used.
+     * @param args The arguments for the action.
+     * @param destinationIds The identifiers of the destination actions.
+     */
     constructor(
         id: string | null,
         description: string,
@@ -233,6 +318,9 @@ export class LeftClickAction extends ActionV2<LeftClickContext, LeftClickArgs, L
         );
     }
 
+    /**
+     * @inheritdoc
+     */
     async _perform(context: LeftClickContext): Promise<LeftClickContext> {
         if(context.element) {
             // Perform left click on provided element
@@ -251,6 +339,9 @@ export class LeftClickAction extends ActionV2<LeftClickContext, LeftClickArgs, L
         return context;
     }
 
+    /**
+     * @inheritdoc
+     */
     async canPerform(context: LeftClickContext): Promise<boolean> {
         if (!new RegExp(this.pageUrlRegex).test(context.driver.url())) {
             return false;
@@ -262,6 +353,9 @@ export class LeftClickAction extends ActionV2<LeftClickContext, LeftClickArgs, L
         return el?.isClickable() || false;
     }
 
+    /**
+     * @inheritdoc
+     */
     canFollow(actions: ActionEnum[], previousAction: ActionEnum | null, secondPreviousAction: ActionEnum | null): boolean {
         return previousAction !== ActionEnum.GET_INVOICES;
     }
@@ -284,6 +378,17 @@ export type InputTextArgs = {
 
 export class InputTextAction extends ActionV2<InputTextContext, InputTextArgs, InputTextContext> {
 
+    /**
+     * Constructs a new InputTextAction instance.
+     * This action inputs text into a specified field identified by a CSS selector.
+     * @param id The unique identifier of the action.
+     * @param description The description of the action.
+     * @param pageUrlRegex The regex pattern for matching page URLs.
+     * @param objectiveId The identifier of the associated objective.
+     * @param lastUsed The timestamp of when the action was last used.
+     * @param args The arguments for the action.
+     * @param destinationIds The identifiers of the destination actions.
+     */
     constructor(
         id: string | null,
         description: string,
@@ -314,6 +419,9 @@ export class InputTextAction extends ActionV2<InputTextContext, InputTextArgs, I
         );
     }
 
+    /**
+     * @inheritdoc
+     */
     async _perform(context: InputTextContext): Promise<InputTextContext> {
         // Get params from secret
         const params = await context.secret.getParams();
@@ -331,6 +439,9 @@ export class InputTextAction extends ActionV2<InputTextContext, InputTextArgs, I
         return context;
     }
 
+    /**
+     * @inheritdoc
+     */
     async canPerform(context: InputTextContext): Promise<boolean> {
         if (!new RegExp(this.pageUrlRegex).test(context.driver.url())) {
             return false;
@@ -339,6 +450,9 @@ export class InputTextAction extends ActionV2<InputTextContext, InputTextArgs, I
         return el?.isClickable() || false;
     }
 
+    /**
+     * @inheritdoc
+     */
     canFollow(actions: ActionEnum[], previousAction: ActionEnum | null, secondPreviousAction: ActionEnum | null): boolean {
         return previousAction !== ActionEnum.GET_INVOICES &&
         previousAction !== ActionEnum.EXTRACT_INVOICE_DATA;
@@ -356,6 +470,17 @@ export type RaiseErrorArgs = {
 
 export class ErrorDisplayedAction extends ActionV2<RaiseErrorContext, RaiseErrorArgs, RaiseErrorContext> {
 
+    /**
+     * Constructs a new ErrorDisplayedAction instance.
+     * This action checks if an error message is displayed on the page based on a specified CSS selector.
+     * @param id The unique identifier of the action.
+     * @param description The description of the action.
+     * @param pageUrlRegex The regex pattern for matching page URLs.
+     * @param objectiveId The identifier of the associated objective.
+     * @param lastUsed The timestamp of when the action was last used.
+     * @param args The arguments for the action.
+     * @param destinationIds The identifiers of the destination actions.
+     */
     constructor(
         id: string | null,
         description: string,
@@ -385,6 +510,9 @@ export class ErrorDisplayedAction extends ActionV2<RaiseErrorContext, RaiseError
         );
     }
 
+    /**
+     * @inheritdoc
+     */
     async _perform(context: RaiseErrorContext): Promise<RaiseErrorContext> {
         // Get element from cssSelector
         const element = await context.driver.getElement({
@@ -403,6 +531,9 @@ export class ErrorDisplayedAction extends ActionV2<RaiseErrorContext, RaiseError
         throw new AuthenticationError(errorMessage, context.driver.collector);
     }
 
+    /**
+     * @inheritdoc
+     */
     async canPerform(context: RaiseErrorContext): Promise<boolean> {
         if (!new RegExp(this.pageUrlRegex).test(context.driver.url())) {
             return false;
@@ -411,6 +542,9 @@ export class ErrorDisplayedAction extends ActionV2<RaiseErrorContext, RaiseError
         return el?.isClickable() || false;
     }
 
+    /**
+     * @inheritdoc
+     */
     canFollow(actions: ActionEnum[], previousAction: ActionEnum | null, secondPreviousAction: ActionEnum | null): boolean {
         return previousAction !== ActionEnum.GET_INVOICES &&
             previousAction !== ActionEnum.EXTRACT_INVOICE_DATA &&
@@ -438,6 +572,17 @@ export type InputTwofaArgs = {
 
 export class InputTwofaAction extends ActionV2<InputTwofaContext, InputTwofaArgs, InputTwofaContext> {
 
+    /**
+     * Constructs a new InputTwofaAction instance.
+     * This action handles the input of a two-factor authentication (2FA) code.
+     * @param id The unique identifier of the action.
+     * @param description The description of the action.
+     * @param pageUrlRegex The regex pattern for matching page URLs.
+     * @param objectiveId The identifier of the associated objective.
+     * @param lastUsed The timestamp of when the action was last used.
+     * @param args The arguments for the action.
+     * @param destinationIds The identifiers of the destination actions.
+     */
     constructor(
         id: string | null,
         description: string,
@@ -465,6 +610,9 @@ export class InputTwofaAction extends ActionV2<InputTwofaContext, InputTwofaArgs
         );
     }
 
+    /**
+     * @inheritdoc
+     */
     async _perform(context: InputTwofaContext): Promise<InputTwofaContext> {
         // If the webSocketServer is undefined, it means that the session has expired
         if (!context.webSocketServer) {
@@ -503,6 +651,9 @@ export class InputTwofaAction extends ActionV2<InputTwofaContext, InputTwofaArgs
         return context;
     }
 
+    /**
+     * @inheritdoc
+     */
     async canPerform(context: InputTwofaContext): Promise<boolean> {
         if (!new RegExp(this.pageUrlRegex).test(context.driver.url())) {
             return false;
@@ -518,6 +669,9 @@ export class InputTwofaAction extends ActionV2<InputTwofaContext, InputTwofaArgs
         return el1Clickable && el2Clickable;
     }
     
+    /**
+     * @inheritdoc
+     */
     canFollow(actions: ActionEnum[], previousAction: ActionEnum | null, secondPreviousAction: ActionEnum | null): boolean {
         return previousAction === ActionEnum.LEFT_CLICK ||
         previousAction === ActionEnum.WAIT ||
@@ -540,6 +694,17 @@ export type GetInvoicesArgs = {
 
 export class GetInvoicesAction extends ActionV2<GetInvoicesInputContext, GetInvoicesArgs, GetInvoicesOutputContext> {
 
+    /**
+     * Constructs a new GetInvoicesAction instance.
+     * This action retrieves invoice elements from the page based on a specified CSS selector.
+     * @param id The unique identifier of the action.
+     * @param description The description of the action.
+     * @param pageUrlRegex The regex pattern for matching page URLs.
+     * @param objectiveId The identifier of the associated objective.
+     * @param lastUsed The timestamp of when the action was last used.
+     * @param args The arguments for the action.
+     * @param destinationIds The identifiers of the destination actions.
+     */
     constructor(
         id: string | null,
         description: string,
@@ -564,6 +729,9 @@ export class GetInvoicesAction extends ActionV2<GetInvoicesInputContext, GetInvo
         );
     }
 
+    /**
+     * @inheritdoc
+     */
     async _perform(context: GetInvoicesInputContext): Promise<GetInvoicesOutputContext[]> {
         const elements = await context.driver.getElements({
             selector: this.args.cssSelector,
@@ -582,6 +750,9 @@ export class GetInvoicesAction extends ActionV2<GetInvoicesInputContext, GetInvo
         return outputContexts;
     }
 
+    /**
+     * @inheritdoc
+     */
     async canPerform(context: GetInvoicesInputContext): Promise<boolean> {
         if (!new RegExp(this.pageUrlRegex).test(context.driver.url())) {
             return false;
@@ -590,6 +761,9 @@ export class GetInvoicesAction extends ActionV2<GetInvoicesInputContext, GetInvo
         return el?.isClickable() || false;
     }
 
+    /**
+     * @inheritdoc
+     */
     canFollow(actions: ActionEnum[], previousAction: ActionEnum | null, secondPreviousAction: ActionEnum | null): boolean {
         return !actions.includes(ActionEnum.GET_INVOICES) &&
         (previousAction === ActionEnum.LEFT_CLICK ||
@@ -609,6 +783,17 @@ export type ErrorNoInvoicesArgs = {
 
 export class ErrorNoInvoicesAction extends ActionV2<ErrorNoInvoicesContext, ErrorNoInvoicesArgs, ErrorNoInvoicesContext> {
 
+    /**
+     * Constructs a new ErrorNoInvoicesAction instance.
+     * This action checks for the presence of an error message indicating that no invoices are available and throws a specific error if found.
+     * @param id The unique identifier of the action.
+     * @param description The description of the action.
+     * @param pageUrlRegex The regex pattern for matching page URLs.
+     * @param objectiveId The identifier of the associated objective.
+     * @param lastUsed The timestamp of when the action was last used.
+     * @param args The arguments for the action.
+     * @param destinationIds The identifiers of the destination actions.
+     */
     constructor(
         id: string | null,
         description: string,
@@ -634,6 +819,9 @@ export class ErrorNoInvoicesAction extends ActionV2<ErrorNoInvoicesContext, Erro
         );
     }
 
+    /**
+     * @inheritdoc
+     */
     async _perform(context: ErrorNoInvoicesContext): Promise<ErrorNoInvoicesContext> {
         // Get element from cssSelector
         await context.driver.getElement({
@@ -644,6 +832,9 @@ export class ErrorNoInvoicesAction extends ActionV2<ErrorNoInvoicesContext, Erro
         throw new NoInvoiceFoundError(context.driver.collector);
     }
 
+    /**
+     * @inheritdoc
+     */
     async canPerform(context: ErrorNoInvoicesContext): Promise<boolean> {
         if (!new RegExp(this.pageUrlRegex).test(context.driver.url())) {
             return false;
@@ -652,6 +843,9 @@ export class ErrorNoInvoicesAction extends ActionV2<ErrorNoInvoicesContext, Erro
         return el?.isClickable() || false;
     }
 
+    /**
+     * @inheritdoc
+     */
     canFollow(actions: ActionEnum[], previousAction: ActionEnum | null, secondPreviousAction: ActionEnum | null): boolean {
         return previousAction === ActionEnum.LEFT_CLICK ||
         previousAction === ActionEnum.NOOP ||
@@ -681,6 +875,17 @@ export type ExtractInvoiceDataArgs = {
 
 export class ExtractInvoiceDataAction extends ActionV2<ExtractInvoiceDataInputContext, ExtractInvoiceDataArgs, ExtractInvoiceDataOutputContext> {
 
+    /**
+     * Constructs a new ExtractInvoiceDataAction instance.
+     * This action extracts invoice data from a specified element on the page, including the invoice date, amount, currency, and download link.
+     * @param id The unique identifier of the action.
+     * @param description The description of the action.
+     * @param pageUrlRegex The regex pattern for matching page URLs.
+     * @param objectiveId The identifier of the associated objective.
+     * @param lastUsed The timestamp of when the action was last used.
+     * @param args The arguments for the action.
+     * @param destinationIds The identifiers of the destination actions.
+     */
     constructor(
         id: string | null,
         description: string,
@@ -708,6 +913,9 @@ export class ExtractInvoiceDataAction extends ActionV2<ExtractInvoiceDataInputCo
         );
     }
 
+    /**
+     * @inheritdoc
+     */
     async _perform(context: ExtractInvoiceDataInputContext): Promise<ExtractInvoiceDataOutputContext> {
         const link = context.driver.url();
         const date = await context.element.getAttribute({selector: this.args.date.cssSelector, info: 'date'}, this.args.date.attribute || 'textContent');
@@ -757,6 +965,9 @@ export class ExtractInvoiceDataAction extends ActionV2<ExtractInvoiceDataInputCo
         };
     }
 
+    /**
+     * @inheritdoc
+     */
     async canPerform(context: ExtractInvoiceDataInputContext): Promise<boolean> {
         if(!context.element) {
             return false;
@@ -779,6 +990,9 @@ export class ExtractInvoiceDataAction extends ActionV2<ExtractInvoiceDataInputCo
         return idElementClickable && amountElementClickable && dateElementClickable && downloadElementClickable;
     }
 
+    /**
+     * @inheritdoc
+     */
     canFollow(actions: ActionEnum[], previousAction: ActionEnum | null, secondPreviousAction: ActionEnum | null): boolean {
         return !actions.includes(ActionEnum.EXTRACT_INVOICE_DATA) &&
         (previousAction === ActionEnum.GET_INVOICES ||
@@ -800,6 +1014,17 @@ export type MiddleClickArgs = {
 
 export class MiddleClickAction extends ActionV2<MiddleClickContext, MiddleClickArgs, MiddleClickContext> {
 
+    /**
+     * Constructs a new MiddleClickAction instance.
+     * This action performs a middle click on a specified element identified by a CSS selector or an existing element in the context.
+     * @param id The unique identifier of the action.
+     * @param description The description of the action.
+     * @param pageUrlRegex The regex pattern for matching page URLs.
+     * @param objectiveId The identifier of the associated objective.
+     * @param lastUsed The timestamp of when the action was last used.
+     * @param args The arguments for the action.
+     * @param destinationIds The identifiers of the destination actions.
+     */
     constructor(
         id: string | null,
         description: string,
@@ -848,6 +1073,9 @@ export class MiddleClickAction extends ActionV2<MiddleClickContext, MiddleClickA
         return context;
     }
 
+    /**
+     * @inheritdoc
+     */
     async canPerform(context: MiddleClickContext): Promise<boolean> {
         if (!new RegExp(this.pageUrlRegex).test(context.driver.url())) {
             return false;
@@ -862,11 +1090,17 @@ export class MiddleClickAction extends ActionV2<MiddleClickContext, MiddleClickA
         return el?.isClickable() || false;
     }
 
+    /**
+     * @inheritdoc
+     */
     canFollow(actions: ActionEnum[], previousAction: ActionEnum | null, secondPreviousAction: ActionEnum | null): boolean {
         return previousAction === ActionEnum.EXTRACT_INVOICE_DATA ||
         previousAction === ActionEnum.CUSTOM;
     }
 
+    /**
+     * @inheritdoc
+     */
     toString(): string {
         return `Middle click on ${this.description}`;
     }
@@ -882,6 +1116,17 @@ export type CustomArgs = {
 
 export class CustomAction extends ActionV2<CustomContext, CustomArgs, CustomContext> {
 
+    /**
+     * Constructs a new CustomAction instance.
+     * This action allows for custom behavior defined by the user.
+     * @param id The unique identifier of the action.
+     * @param description The description of the action.
+     * @param pageUrlRegex The regex pattern for matching page URLs.
+     * @param objectiveId The identifier of the associated objective.
+     * @param lastUsed The timestamp of when the action was last used.
+     * @param args The arguments for the action.
+     * @param destinationIds The identifiers of the destination actions.
+     */
     constructor(
         id: string | null,
         description: string,
@@ -903,14 +1148,23 @@ export class CustomAction extends ActionV2<CustomContext, CustomArgs, CustomCont
         );
     }
 
+    /**
+     * @inheritdoc
+     */
     async _perform(context: CustomContext): Promise<CustomContext> {
         return context;
     }
 
+    /**
+     * @inheritdoc
+     */
     async canPerform(context: CustomContext): Promise<boolean> {
         return new RegExp(this.pageUrlRegex).test(context.driver.url());
     }
 
+    /**
+     * @inheritdoc
+     */
     canFollow(actions: ActionEnum[], previousAction: ActionEnum | null, secondPreviousAction: ActionEnum | null): boolean {
         return true;
     }
@@ -926,6 +1180,17 @@ export type ErrorLoginPageDisplayedArgs = {
 
 export class ErrorLoginPageDisplayedAction extends ActionV2<ErrorLoginPageDisplayedContext, ErrorLoginPageDisplayedArgs, ErrorLoginPageDisplayedContext> {
 
+    /**
+     * Constructs a new ErrorLoginPageDisplayedAction instance.
+     * This action checks if the login page is displayed based on a specified CSS selector and raises an error if it is.
+     * @param id The unique identifier of the action.
+     * @param description The description of the action.
+     * @param pageUrlRegex The regex pattern for matching page URLs.
+     * @param objectiveId The identifier of the associated objective.
+     * @param lastUsed The timestamp of when the action was last used.
+     * @param args The arguments for the action.
+     * @param destinationIds The identifiers of the destination actions.
+     */
     constructor(
         id: string | null,
         description: string,
@@ -950,11 +1215,17 @@ export class ErrorLoginPageDisplayedAction extends ActionV2<ErrorLoginPageDispla
         );
     }
 
+    /**
+     * @inheritdoc
+     */
     async _perform(context: ErrorLoginPageDisplayedContext): Promise<ErrorLoginPageDisplayedContext> {
         // Raise DisconnectedError to signal that the login page is displayed and the session has expired
         throw new DisconnectedError('i18n.collectors.all.login.expired', context.driver.collector);
     }
 
+    /**
+     * @inheritdoc
+     */
     async canPerform(context: ErrorLoginPageDisplayedContext): Promise<boolean> {
         if (!new RegExp(this.pageUrlRegex).test(context.driver.url())) {
             return false;
@@ -963,6 +1234,9 @@ export class ErrorLoginPageDisplayedAction extends ActionV2<ErrorLoginPageDispla
         return el?.isClickable() || false;
     }
 
+    /**
+     * @inheritdoc
+     */
     canFollow(actions: ActionEnum[], previousAction: ActionEnum | null, secondPreviousAction: ActionEnum | null): boolean {
         return previousAction === ActionEnum.LEFT_CLICK ||
         previousAction === ActionEnum.WAIT ||
@@ -980,6 +1254,17 @@ export type WaitArgs = {
 
 export class WaitAction extends ActionV2<WaitContext, WaitArgs, WaitContext> {
 
+    /**
+     * Constructs a new WaitAction instance.
+     * This action waits for a specified delay before proceeding.
+     * @param id The unique identifier of the action.
+     * @param description The description of the action.
+     * @param pageUrlRegex The regex pattern for matching page URLs.
+     * @param objectiveId The identifier of the associated objective.
+     * @param lastUsed The timestamp of when the action was last used.
+     * @param args The arguments for the action.
+     * @param destinationIds The identifiers of the destination actions.
+     */
     constructor(
         id: string | null,
         description: string,
@@ -1004,12 +1289,18 @@ export class WaitAction extends ActionV2<WaitContext, WaitArgs, WaitContext> {
         );
     }
 
+    /**
+     * @inheritdoc
+     */
     async _perform(context: WaitContext): Promise<WaitContext> {
         // Wait for the specified delay in milliseconds
         await utils.delay(this.args.delay);
         return context;
     }
 
+    /**
+     * @inheritdoc
+     */
     async canPerform(context: WaitContext): Promise<boolean> {
         if (!new RegExp(this.pageUrlRegex).test(context.driver.url())) {
             return false;
@@ -1017,6 +1308,9 @@ export class WaitAction extends ActionV2<WaitContext, WaitArgs, WaitContext> {
         return true;
     }
 
+    /**
+     * @inheritdoc
+     */
     canFollow(actions: ActionEnum[], previousAction: ActionEnum | null, secondPreviousAction: ActionEnum | null): boolean {
         return previousAction === ActionEnum.MIDDLE_CLICK ||
         previousAction === ActionEnum.LEFT_CLICK;

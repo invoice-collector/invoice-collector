@@ -199,7 +199,7 @@ export class PuppeteerDriver extends AbstractDriver {
 
     /**
      * Returns all open pages in the browser.
-     * @returns A promise that resolves to an array of open pages.
+     * @returns An array of open pages.
      */
     private async pages(): Promise<Page[]> {
         if (this.browser === null) {

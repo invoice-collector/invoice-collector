@@ -21,7 +21,7 @@ export class Element {
     /**
      * Retrieves the associated element.
      *
-     * @returns A promise that resolves to the ElementHandle of the associated element, or null if the element is not found.
+     * @returns The ElementHandle of the associated element, or null if the element is not found.
      */
     async getElement(selector: any, options?: { raiseException?: true }): Promise<Element>;
     async getElement(selector: any, options: { raiseException: false }): Promise<Element | null>;
@@ -46,7 +46,7 @@ export class Element {
      * Retrieves the text content of the associated element.
      *
      * @param _default A default string value.
-     * @returns A promise that resolves to the text content of the element, or the default value if the element's text content is null.
+     * @returns The text content of the element, or the default value if the element's text content is null.
      */
     async textContent(_default: string): Promise<string> {
         return await this.element.evaluate(el => el.textContent) || _default;
