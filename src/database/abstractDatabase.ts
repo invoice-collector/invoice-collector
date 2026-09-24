@@ -266,12 +266,6 @@ export abstract class AbstractDatabase {
      */
     abstract updateCollectorMemory(collectorMemory: CollectorMemory): Promise<void>;
 
-    /**
-     * Deletes the collector memory with the specified name from the database.
-     * @param name The name of the collector memory to be deleted.
-     */
-    abstract deleteCollectorMemory(name: string): Promise<void>;
-
     // CALLBACK
 
     /**
