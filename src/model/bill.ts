@@ -4,9 +4,9 @@ export class Bill {
 
     /**
      * Creates an array of Bill instances from an array of plain objects.
-     * Throws an error if the input object is null, undefined, or not an array.
      * @param objs An array of plain objects representing bills.
      * @returns An array of Bill instances.
+     * @throws An error if the input object is null, undefined, or not an array.
      */
     static fromObjects(objs: any[]): Bill[] {
         // If objs is null or undefined or not an array, return empty array
@@ -18,7 +18,7 @@ export class Bill {
 
     /**
      * Creates a Bill instance from a plain object.
-     * Throws an error if the input object is null or undefined.
+     * @throws An error if the input object is null or undefined.
      * @param obj A plain object representing a bill.
      * @returns A Bill instance.
      */

@@ -1075,7 +1075,7 @@ export class Server {
                 localStorage: null,
             });
 
-            // Create secret in Secure Storage
+            // Create secret in Secret Manager
             await secret.commit();
 
             // Create credential
@@ -1539,7 +1539,7 @@ export class Server {
             localStorage: null,
         });
 
-        // Create secret in Secure Storage
+        // Create secret in Secret Manager
         await secret.commit();
 
         // Create new callback

@@ -34,7 +34,7 @@ export abstract class AbstractDatabase {
 
     /**
      * Pings the database to check if it is reachable.
-     * Throws an error if the database is not reachable.
+     * @throws An error if the database is not reachable.
      */
     abstract ping(): Promise<void>;
 

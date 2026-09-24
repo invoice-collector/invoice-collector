@@ -43,7 +43,7 @@ export class OxylabProxy extends AbstractProxy {
      * by making a test request to a predefined location URL.
      *
      * @param proxy - The proxy configuration object containing the URI to be tested.
-     * @throws {Error} Throws an error with a cause if the proxy cannot be constrained to the specified coordinates.
+     * @throws An error with a cause if the proxy cannot be constrained to the specified coordinates.
      */
     async geoConstrain(proxy: Proxy, location: Location): Promise<void> {
         for (const radius of OxylabProxy.RADIUS_ACCURACIES) {

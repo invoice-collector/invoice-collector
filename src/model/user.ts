@@ -115,7 +115,12 @@ export class User {
         return DatabaseFactory.getDatabase().getCallbacks(this.id);
     }
 
-    async commit() {
+    /**
+     * Commits the current state of the user to the database.
+     * Creates a new user entry if it does not already exist.
+     * Updates the existing entry otherwise.
+     */
+    async commit(): Promise<void> {
         if (this.id) {
             // Update existing user
             await DatabaseFactory.getDatabase().updateUser(this);

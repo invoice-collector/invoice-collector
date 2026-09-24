@@ -13,9 +13,9 @@ export class Plan {
 
     /**
      * Creates a Plan instance from a plain object.
-     * Throws an error if the input object is null or undefined.
      * @param obj A plain object representing a plan.
      * @returns A Plan instance.
+     * @throws An error if the input object is null or undefined.
      */
     static fromObject(obj: any): Plan {
         // If obj is null or undefined, return null

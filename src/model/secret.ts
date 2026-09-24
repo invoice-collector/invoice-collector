@@ -45,6 +45,11 @@ export class Secret {
         this.value['localStorage'] = value;
     }
 
+    /**
+     * Commits the current state of the secret to the secret manager.
+     * Creates a new secret entry if it does not already exist.
+     * Updates the existing entry otherwise.
+     */
     async commit(): Promise<void> {
         // If the secret is not empty
         if(Object.keys(this.value).length > 0) {

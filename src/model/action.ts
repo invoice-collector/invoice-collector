@@ -23,9 +23,9 @@ export abstract class Action<Context, Result> {
 
     /**
      * Builds an Action instance from a plain object.
-     * Throws an error if the object does not correspond to a known action.
      * @param obj The plain object representing the action.
      * @returns An instance of the corresponding Action subclass.
+     * @throws An error if the object does not correspond to a known action.
      */
     static fromObject(obj: any): Action<any, any> {
         switch (obj.action) {
