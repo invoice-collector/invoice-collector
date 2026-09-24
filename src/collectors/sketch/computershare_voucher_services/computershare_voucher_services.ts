@@ -32,6 +32,9 @@ export class ComputershareVoucherServicesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ComputershareVoucherServicesCollector class.
+     */
     constructor() {
         super(ComputershareVoucherServicesCollector.CONFIG);
     }

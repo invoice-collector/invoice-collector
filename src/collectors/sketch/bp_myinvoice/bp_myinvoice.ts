@@ -32,6 +32,9 @@ export class BpMyinvoiceCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BpMyinvoiceCollector class.
+     */
     constructor() {
         super(BpMyinvoiceCollector.CONFIG);
     }

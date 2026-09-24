@@ -32,6 +32,9 @@ export class PassionfroidCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PassionfroidCollector class.
+     */
     constructor() {
         super(PassionfroidCollector.CONFIG);
     }

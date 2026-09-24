@@ -32,6 +32,9 @@ export class AnixterCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AnixterCollector class.
+     */
     constructor() {
         super(AnixterCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class RatrigCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RatrigCollector class.
+     */
     constructor() {
         super(RatrigCollector.CONFIG);
     }

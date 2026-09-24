@@ -32,6 +32,9 @@ export class MigrosCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MigrosCollector class.
+     */
     constructor() {
         super(MigrosCollector.CONFIG);
     }

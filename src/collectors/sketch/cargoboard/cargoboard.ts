@@ -32,6 +32,9 @@ export class CargoboardCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CargoboardCollector class.
+     */
     constructor() {
         super(CargoboardCollector.CONFIG);
     }

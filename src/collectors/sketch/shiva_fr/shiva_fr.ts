@@ -32,6 +32,9 @@ export class ShivaFrCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ShivaFrCollector class.
+     */
     constructor() {
         super(ShivaFrCollector.CONFIG);
     }

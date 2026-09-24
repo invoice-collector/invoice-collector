@@ -32,6 +32,9 @@ export class GazDeBarrCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GazDeBarrCollector class.
+     */
     constructor() {
         super(GazDeBarrCollector.CONFIG);
     }

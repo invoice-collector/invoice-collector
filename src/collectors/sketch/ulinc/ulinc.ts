@@ -32,6 +32,9 @@ export class UlincCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the UlincCollector class.
+     */
     constructor() {
         super(UlincCollector.CONFIG);
     }

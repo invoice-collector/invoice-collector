@@ -32,6 +32,9 @@ export class AnaptisCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AnaptisCollector class.
+     */
     constructor() {
         super(AnaptisCollector.CONFIG);
     }

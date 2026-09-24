@@ -32,6 +32,9 @@ export class EasynameAtCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EasynameAtCollector class.
+     */
     constructor() {
         super(EasynameAtCollector.CONFIG);
     }

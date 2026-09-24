@@ -32,6 +32,9 @@ export class SteuerverwaltungDesKantonsBernCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SteuerverwaltungDesKantonsBernCollector class.
+     */
     constructor() {
         super(SteuerverwaltungDesKantonsBernCollector.CONFIG);
     }

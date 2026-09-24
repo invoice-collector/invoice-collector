@@ -32,6 +32,9 @@ export class PomonaTerreAzurCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PomonaTerreAzurCollector class.
+     */
     constructor() {
         super(PomonaTerreAzurCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class SmabtpCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SmabtpCollector class.
+     */
     constructor() {
         super(SmabtpCollector.CONFIG);
     }

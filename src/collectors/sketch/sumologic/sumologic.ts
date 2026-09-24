@@ -32,6 +32,9 @@ export class SumologicCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SumologicCollector class.
+     */
     constructor() {
         super(SumologicCollector.CONFIG);
     }

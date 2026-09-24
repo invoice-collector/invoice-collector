@@ -32,6 +32,9 @@ export class SupersaasCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SupersaasCollector class.
+     */
     constructor() {
         super(SupersaasCollector.CONFIG);
     }

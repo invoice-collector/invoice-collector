@@ -32,6 +32,9 @@ export class SBahnBerlinAboOnlineCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SBahnBerlinAboOnlineCollector class.
+     */
     constructor() {
         super(SBahnBerlinAboOnlineCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class SeterusCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SeterusCollector class.
+     */
     constructor() {
         super(SeterusCollector.CONFIG);
     }

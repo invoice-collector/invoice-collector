@@ -32,6 +32,9 @@ export class BeatporthypeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BeatporthypeCollector class.
+     */
     constructor() {
         super(BeatporthypeCollector.CONFIG);
     }

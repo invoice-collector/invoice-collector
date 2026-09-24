@@ -32,6 +32,9 @@ export class EkooknaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EkooknaCollector class.
+     */
     constructor() {
         super(EkooknaCollector.CONFIG);
     }

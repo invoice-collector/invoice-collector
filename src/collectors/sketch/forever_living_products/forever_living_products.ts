@@ -32,6 +32,9 @@ export class ForeverLivingProductsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ForeverLivingProductsCollector class.
+     */
     constructor() {
         super(ForeverLivingProductsCollector.CONFIG);
     }

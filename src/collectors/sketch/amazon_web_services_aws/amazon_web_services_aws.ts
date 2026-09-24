@@ -32,6 +32,9 @@ export class AmazonWebServicesAwsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AmazonWebServicesAwsCollector class.
+     */
     constructor() {
         super(AmazonWebServicesAwsCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class WeatherstackCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WeatherstackCollector class.
+     */
     constructor() {
         super(WeatherstackCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class CaissesDesjardinsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CaissesDesjardinsCollector class.
+     */
     constructor() {
         super(CaissesDesjardinsCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class MietmeileCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MietmeileCollector class.
+     */
     constructor() {
         super(MietmeileCollector.CONFIG);
     }

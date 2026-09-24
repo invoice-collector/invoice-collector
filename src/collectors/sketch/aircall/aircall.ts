@@ -32,6 +32,9 @@ export class AircallCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AircallCollector class.
+     */
     constructor() {
         super(AircallCollector.CONFIG);
     }

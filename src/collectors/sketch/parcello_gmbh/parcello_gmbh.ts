@@ -32,6 +32,9 @@ export class ParcelloGmbhCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ParcelloGmbhCollector class.
+     */
     constructor() {
         super(ParcelloGmbhCollector.CONFIG);
     }

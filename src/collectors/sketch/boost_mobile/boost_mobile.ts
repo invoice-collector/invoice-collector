@@ -32,6 +32,9 @@ export class BoostMobileCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BoostMobileCollector class.
+     */
     constructor() {
         super(BoostMobileCollector.CONFIG);
     }

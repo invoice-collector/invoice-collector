@@ -32,6 +32,9 @@ export class AirbrakeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AirbrakeCollector class.
+     */
     constructor() {
         super(AirbrakeCollector.CONFIG);
     }

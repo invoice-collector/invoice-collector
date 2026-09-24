@@ -32,6 +32,9 @@ export class MkbAfvalNlCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MkbAfvalNlCollector class.
+     */
     constructor() {
         super(MkbAfvalNlCollector.CONFIG);
     }

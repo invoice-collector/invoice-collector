@@ -32,6 +32,9 @@ export class PushalertCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PushalertCollector class.
+     */
     constructor() {
         super(PushalertCollector.CONFIG);
     }

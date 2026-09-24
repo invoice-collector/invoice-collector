@@ -32,6 +32,9 @@ export class ProSitemapsComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ProSitemapsComCollector class.
+     */
     constructor() {
         super(ProSitemapsComCollector.CONFIG);
     }

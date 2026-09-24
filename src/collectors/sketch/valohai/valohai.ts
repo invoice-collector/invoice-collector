@@ -32,6 +32,9 @@ export class ValohaiCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ValohaiCollector class.
+     */
     constructor() {
         super(ValohaiCollector.CONFIG);
     }

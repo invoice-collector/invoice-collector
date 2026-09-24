@@ -32,6 +32,9 @@ export class CompassminingIoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CompassminingIoCollector class.
+     */
     constructor() {
         super(CompassminingIoCollector.CONFIG);
     }

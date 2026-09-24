@@ -32,6 +32,9 @@ export class VrPlusPortalWareCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VrPlusPortalWareCollector class.
+     */
     constructor() {
         super(VrPlusPortalWareCollector.CONFIG);
     }

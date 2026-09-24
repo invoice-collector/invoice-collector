@@ -32,6 +32,9 @@ export class TeadsPublishersCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TeadsPublishersCollector class.
+     */
     constructor() {
         super(TeadsPublishersCollector.CONFIG);
     }

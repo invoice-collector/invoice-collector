@@ -32,6 +32,9 @@ export class DriftCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DriftCollector class.
+     */
     constructor() {
         super(DriftCollector.CONFIG);
     }

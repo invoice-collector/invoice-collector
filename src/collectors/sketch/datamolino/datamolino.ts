@@ -32,6 +32,9 @@ export class DatamolinoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DatamolinoCollector class.
+     */
     constructor() {
         super(DatamolinoCollector.CONFIG);
     }

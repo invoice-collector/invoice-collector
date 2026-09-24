@@ -32,6 +32,9 @@ export class ClickmeetingCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ClickmeetingCollector class.
+     */
     constructor() {
         super(ClickmeetingCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class WorldpayCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WorldpayCollector class.
+     */
     constructor() {
         super(WorldpayCollector.CONFIG);
     }

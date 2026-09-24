@@ -32,6 +32,9 @@ export class ShortpixelCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ShortpixelCollector class.
+     */
     constructor() {
         super(ShortpixelCollector.CONFIG);
     }

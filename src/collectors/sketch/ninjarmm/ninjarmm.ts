@@ -32,6 +32,9 @@ export class NinjarmmCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NinjarmmCollector class.
+     */
     constructor() {
         super(NinjarmmCollector.CONFIG);
     }

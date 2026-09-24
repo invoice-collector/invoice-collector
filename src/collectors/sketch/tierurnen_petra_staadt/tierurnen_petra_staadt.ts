@@ -32,6 +32,9 @@ export class TierurnenPetraStaadtCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TierurnenPetraStaadtCollector class.
+     */
     constructor() {
         super(TierurnenPetraStaadtCollector.CONFIG);
     }

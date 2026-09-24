@@ -32,6 +32,9 @@ export class FortBendCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FortBendCollector class.
+     */
     constructor() {
         super(FortBendCollector.CONFIG);
     }

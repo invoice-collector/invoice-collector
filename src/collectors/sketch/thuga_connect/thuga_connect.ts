@@ -32,6 +32,9 @@ export class ThugaConnectCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ThugaConnectCollector class.
+     */
     constructor() {
         super(ThugaConnectCollector.CONFIG);
     }

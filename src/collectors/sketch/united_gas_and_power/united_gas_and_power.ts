@@ -32,6 +32,9 @@ export class UnitedGasAndPowerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the UnitedGasAndPowerCollector class.
+     */
     constructor() {
         super(UnitedGasAndPowerCollector.CONFIG);
     }

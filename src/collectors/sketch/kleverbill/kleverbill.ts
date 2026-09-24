@@ -32,6 +32,9 @@ export class KleverbillCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KleverbillCollector class.
+     */
     constructor() {
         super(KleverbillCollector.CONFIG);
     }

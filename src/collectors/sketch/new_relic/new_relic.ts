@@ -32,6 +32,9 @@ export class NewRelicCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NewRelicCollector class.
+     */
     constructor() {
         super(NewRelicCollector.CONFIG);
     }

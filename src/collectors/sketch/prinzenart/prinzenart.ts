@@ -32,6 +32,9 @@ export class PrinzenartCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PrinzenartCollector class.
+     */
     constructor() {
         super(PrinzenartCollector.CONFIG);
     }

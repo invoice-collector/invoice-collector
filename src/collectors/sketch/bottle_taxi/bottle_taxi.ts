@@ -32,6 +32,9 @@ export class BottleTaxiCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BottleTaxiCollector class.
+     */
     constructor() {
         super(BottleTaxiCollector.CONFIG);
     }

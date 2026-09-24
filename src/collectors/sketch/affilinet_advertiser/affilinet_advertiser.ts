@@ -32,6 +32,9 @@ export class AffilinetAdvertiserCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AffilinetAdvertiserCollector class.
+     */
     constructor() {
         super(AffilinetAdvertiserCollector.CONFIG);
     }

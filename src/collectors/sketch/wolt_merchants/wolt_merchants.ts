@@ -32,6 +32,9 @@ export class WoltMerchantsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WoltMerchantsCollector class.
+     */
     constructor() {
         super(WoltMerchantsCollector.CONFIG);
     }

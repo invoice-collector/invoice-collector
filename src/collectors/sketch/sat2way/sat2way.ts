@@ -32,6 +32,9 @@ export class Sat2wayCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Sat2wayCollector class.
+     */
     constructor() {
         super(Sat2wayCollector.CONFIG);
     }

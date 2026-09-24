@@ -32,6 +32,9 @@ export class MoebelDePartnerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MoebelDePartnerCollector class.
+     */
     constructor() {
         super(MoebelDePartnerCollector.CONFIG);
     }

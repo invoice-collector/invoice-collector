@@ -32,6 +32,9 @@ export class SimpelNlCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SimpelNlCollector class.
+     */
     constructor() {
         super(SimpelNlCollector.CONFIG);
     }

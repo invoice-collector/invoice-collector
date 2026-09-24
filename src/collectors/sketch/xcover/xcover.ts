@@ -32,6 +32,9 @@ export class XcoverCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the XcoverCollector class.
+     */
     constructor() {
         super(XcoverCollector.CONFIG);
     }

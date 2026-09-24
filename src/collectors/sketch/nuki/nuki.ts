@@ -32,6 +32,9 @@ export class NukiCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NukiCollector class.
+     */
     constructor() {
         super(NukiCollector.CONFIG);
     }

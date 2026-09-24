@@ -32,6 +32,9 @@ export class StonexCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StonexCollector class.
+     */
     constructor() {
         super(StonexCollector.CONFIG);
     }

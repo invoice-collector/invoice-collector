@@ -32,6 +32,9 @@ export class BzBernerZeitungCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BzBernerZeitungCollector class.
+     */
     constructor() {
         super(BzBernerZeitungCollector.CONFIG);
     }

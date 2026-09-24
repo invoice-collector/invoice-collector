@@ -32,6 +32,9 @@ export class CharlotteTilburyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CharlotteTilburyCollector class.
+     */
     constructor() {
         super(CharlotteTilburyCollector.CONFIG);
     }

@@ -31,6 +31,9 @@ export class ReflectivCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ReflectivCollector class.
+     */
     constructor() {
         super(ReflectivCollector.CONFIG);
     }

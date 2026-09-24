@@ -32,6 +32,9 @@ export class YoutubeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the YoutubeCollector class.
+     */
     constructor() {
         super(YoutubeCollector.CONFIG);
     }

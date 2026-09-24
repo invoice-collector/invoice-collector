@@ -32,6 +32,9 @@ export class FloridaPublicUtilitiesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FloridaPublicUtilitiesCollector class.
+     */
     constructor() {
         super(FloridaPublicUtilitiesCollector.CONFIG);
     }

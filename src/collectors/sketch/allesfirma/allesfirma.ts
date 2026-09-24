@@ -32,6 +32,9 @@ export class AllesfirmaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AllesfirmaCollector class.
+     */
     constructor() {
         super(AllesfirmaCollector.CONFIG);
     }

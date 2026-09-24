@@ -32,6 +32,9 @@ export class ProalphaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ProalphaCollector class.
+     */
     constructor() {
         super(ProalphaCollector.CONFIG);
     }

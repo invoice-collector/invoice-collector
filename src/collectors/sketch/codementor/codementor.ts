@@ -32,6 +32,9 @@ export class CodementorCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CodementorCollector class.
+     */
     constructor() {
         super(CodementorCollector.CONFIG);
     }

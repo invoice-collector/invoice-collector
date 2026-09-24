@@ -32,6 +32,9 @@ export class Felix1DeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Felix1DeCollector class.
+     */
     constructor() {
         super(Felix1DeCollector.CONFIG);
     }

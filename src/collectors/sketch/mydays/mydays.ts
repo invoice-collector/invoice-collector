@@ -32,6 +32,9 @@ export class MydaysCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MydaysCollector class.
+     */
     constructor() {
         super(MydaysCollector.CONFIG);
     }

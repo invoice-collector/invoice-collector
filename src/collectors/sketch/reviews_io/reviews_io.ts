@@ -32,6 +32,9 @@ export class ReviewsIoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ReviewsIoCollector class.
+     */
     constructor() {
         super(ReviewsIoCollector.CONFIG);
     }

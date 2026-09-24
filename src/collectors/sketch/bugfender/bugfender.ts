@@ -32,6 +32,9 @@ export class BugfenderCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BugfenderCollector class.
+     */
     constructor() {
         super(BugfenderCollector.CONFIG);
     }

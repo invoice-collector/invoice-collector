@@ -32,6 +32,9 @@ export class VolsingCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VolsingCollector class.
+     */
     constructor() {
         super(VolsingCollector.CONFIG);
     }

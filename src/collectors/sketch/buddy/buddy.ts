@@ -32,6 +32,9 @@ export class BuddyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BuddyCollector class.
+     */
     constructor() {
         super(BuddyCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class Xs4allCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Xs4allCollector class.
+     */
     constructor() {
         super(Xs4allCollector.CONFIG);
     }

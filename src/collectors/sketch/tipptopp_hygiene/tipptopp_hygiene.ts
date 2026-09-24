@@ -32,6 +32,9 @@ export class TipptoppHygieneCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TipptoppHygieneCollector class.
+     */
     constructor() {
         super(TipptoppHygieneCollector.CONFIG);
     }

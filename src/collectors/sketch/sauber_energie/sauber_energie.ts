@@ -32,6 +32,9 @@ export class SauberEnergieCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SauberEnergieCollector class.
+     */
     constructor() {
         super(SauberEnergieCollector.CONFIG);
     }

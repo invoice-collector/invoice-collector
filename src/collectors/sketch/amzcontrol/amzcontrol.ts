@@ -32,6 +32,9 @@ export class AmzcontrolCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AmzcontrolCollector class.
+     */
     constructor() {
         super(AmzcontrolCollector.CONFIG);
     }

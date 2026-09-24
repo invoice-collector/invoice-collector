@@ -32,6 +32,9 @@ export class GnipCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GnipCollector class.
+     */
     constructor() {
         super(GnipCollector.CONFIG);
     }

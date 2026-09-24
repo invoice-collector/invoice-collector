@@ -32,6 +32,9 @@ export class GitkrakenCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GitkrakenCollector class.
+     */
     constructor() {
         super(GitkrakenCollector.CONFIG);
     }

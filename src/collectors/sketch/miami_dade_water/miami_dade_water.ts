@@ -32,6 +32,9 @@ export class MiamiDadeWaterCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MiamiDadeWaterCollector class.
+     */
     constructor() {
         super(MiamiDadeWaterCollector.CONFIG);
     }

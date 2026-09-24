@@ -32,6 +32,9 @@ export class CrowWingPowerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CrowWingPowerCollector class.
+     */
     constructor() {
         super(CrowWingPowerCollector.CONFIG);
     }

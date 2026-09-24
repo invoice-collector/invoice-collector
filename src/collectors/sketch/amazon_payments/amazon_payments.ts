@@ -32,6 +32,9 @@ export class AmazonPaymentsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AmazonPaymentsCollector class.
+     */
     constructor() {
         super(AmazonPaymentsCollector.CONFIG);
     }

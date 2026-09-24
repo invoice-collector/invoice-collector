@@ -32,6 +32,9 @@ export class YakaroulerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the YakaroulerCollector class.
+     */
     constructor() {
         super(YakaroulerCollector.CONFIG);
     }

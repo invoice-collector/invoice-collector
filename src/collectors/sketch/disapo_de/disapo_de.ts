@@ -32,6 +32,9 @@ export class DisapoDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DisapoDeCollector class.
+     */
     constructor() {
         super(DisapoDeCollector.CONFIG);
     }

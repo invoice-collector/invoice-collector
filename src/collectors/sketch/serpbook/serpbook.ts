@@ -32,6 +32,9 @@ export class SerpbookCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SerpbookCollector class.
+     */
     constructor() {
         super(SerpbookCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class VercelCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VercelCollector class.
+     */
     constructor() {
         super(VercelCollector.CONFIG);
     }

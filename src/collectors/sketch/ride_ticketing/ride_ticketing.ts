@@ -32,6 +32,9 @@ export class RideTicketingCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RideTicketingCollector class.
+     */
     constructor() {
         super(RideTicketingCollector.CONFIG);
     }

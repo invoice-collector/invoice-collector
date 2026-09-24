@@ -32,6 +32,9 @@ export class SocieteGeneraleSharinboxCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SocieteGeneraleSharinboxCollector class.
+     */
     constructor() {
         super(SocieteGeneraleSharinboxCollector.CONFIG);
     }

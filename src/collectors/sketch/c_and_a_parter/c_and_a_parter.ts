@@ -32,6 +32,9 @@ export class CAndAParterCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CAndAParterCollector class.
+     */
     constructor() {
         super(CAndAParterCollector.CONFIG);
     }

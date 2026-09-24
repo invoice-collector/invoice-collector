@@ -32,6 +32,9 @@ export class AboalarmCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AboalarmCollector class.
+     */
     constructor() {
         super(AboalarmCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class TeamganttCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TeamganttCollector class.
+     */
     constructor() {
         super(TeamganttCollector.CONFIG);
     }

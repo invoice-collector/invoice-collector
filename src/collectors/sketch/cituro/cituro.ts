@@ -32,6 +32,9 @@ export class CituroCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CituroCollector class.
+     */
     constructor() {
         super(CituroCollector.CONFIG);
     }

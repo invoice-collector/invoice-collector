@@ -32,6 +32,9 @@ export class IntercarsPlCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the IntercarsPlCollector class.
+     */
     constructor() {
         super(IntercarsPlCollector.CONFIG);
     }

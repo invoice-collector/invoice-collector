@@ -32,6 +32,9 @@ export class VariaStoreCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VariaStoreCollector class.
+     */
     constructor() {
         super(VariaStoreCollector.CONFIG);
     }

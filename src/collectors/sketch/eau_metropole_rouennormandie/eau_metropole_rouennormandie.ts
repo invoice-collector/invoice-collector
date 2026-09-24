@@ -32,6 +32,9 @@ export class EauMetropoleRouennormandieCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EauMetropoleRouennormandieCollector class.
+     */
     constructor() {
         super(EauMetropoleRouennormandieCollector.CONFIG);
     }

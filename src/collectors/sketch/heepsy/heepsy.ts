@@ -32,6 +32,9 @@ export class HeepsyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HeepsyCollector class.
+     */
     constructor() {
         super(HeepsyCollector.CONFIG);
     }

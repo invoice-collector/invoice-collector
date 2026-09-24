@@ -32,6 +32,9 @@ export class InsurgoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the InsurgoCollector class.
+     */
     constructor() {
         super(InsurgoCollector.CONFIG);
     }

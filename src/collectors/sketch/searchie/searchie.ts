@@ -32,6 +32,9 @@ export class SearchieCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SearchieCollector class.
+     */
     constructor() {
         super(SearchieCollector.CONFIG);
     }

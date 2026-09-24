@@ -32,6 +32,9 @@ export class ServiparkCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ServiparkCollector class.
+     */
     constructor() {
         super(ServiparkCollector.CONFIG);
     }

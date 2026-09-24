@@ -32,6 +32,9 @@ export class SkimlinksCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SkimlinksCollector class.
+     */
     constructor() {
         super(SkimlinksCollector.CONFIG);
     }

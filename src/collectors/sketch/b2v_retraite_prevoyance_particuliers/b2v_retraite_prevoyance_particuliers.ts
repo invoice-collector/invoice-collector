@@ -32,6 +32,9 @@ export class B2vRetraitePrevoyanceParticuliersCollector extends SketchCollector 
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the B2vRetraitePrevoyanceParticuliersCollector class.
+     */
     constructor() {
         super(B2vRetraitePrevoyanceParticuliersCollector.CONFIG);
     }

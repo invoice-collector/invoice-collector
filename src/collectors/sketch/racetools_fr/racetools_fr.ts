@@ -32,6 +32,9 @@ export class RacetoolsFrCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RacetoolsFrCollector class.
+     */
     constructor() {
         super(RacetoolsFrCollector.CONFIG);
     }

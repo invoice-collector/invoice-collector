@@ -32,6 +32,9 @@ export class LaesephoneCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LaesephoneCollector class.
+     */
     constructor() {
         super(LaesephoneCollector.CONFIG);
     }

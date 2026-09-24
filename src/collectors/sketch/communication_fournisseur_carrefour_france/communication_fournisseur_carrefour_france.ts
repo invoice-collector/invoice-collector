@@ -32,6 +32,9 @@ export class CommunicationFournisseurCarrefourFranceCollector extends SketchColl
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CommunicationFournisseurCarrefourFranceCollector class.
+     */
     constructor() {
         super(CommunicationFournisseurCarrefourFranceCollector.CONFIG);
     }

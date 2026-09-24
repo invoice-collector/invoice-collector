@@ -32,6 +32,9 @@ export class WapplerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WapplerCollector class.
+     */
     constructor() {
         super(WapplerCollector.CONFIG);
     }

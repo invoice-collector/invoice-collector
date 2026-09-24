@@ -32,6 +32,9 @@ export class GptTrainerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GptTrainerCollector class.
+     */
     constructor() {
         super(GptTrainerCollector.CONFIG);
     }

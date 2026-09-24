@@ -32,6 +32,9 @@ export class BlockchainBitcoinaverageCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BlockchainBitcoinaverageCollector class.
+     */
     constructor() {
         super(BlockchainBitcoinaverageCollector.CONFIG);
     }

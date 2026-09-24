@@ -32,6 +32,9 @@ export class MonServicePublicCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MonServicePublicCollector class.
+     */
     constructor() {
         super(MonServicePublicCollector.CONFIG);
     }

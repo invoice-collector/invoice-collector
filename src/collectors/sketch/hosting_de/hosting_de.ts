@@ -32,6 +32,9 @@ export class HostingDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HostingDeCollector class.
+     */
     constructor() {
         super(HostingDeCollector.CONFIG);
     }

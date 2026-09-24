@@ -32,6 +32,9 @@ export class PowerstreamCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PowerstreamCollector class.
+     */
     constructor() {
         super(PowerstreamCollector.CONFIG);
     }

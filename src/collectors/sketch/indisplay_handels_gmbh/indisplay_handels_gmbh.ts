@@ -32,6 +32,9 @@ export class IndisplayHandelsGmbhCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the IndisplayHandelsGmbhCollector class.
+     */
     constructor() {
         super(IndisplayHandelsGmbhCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class CopytrackCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CopytrackCollector class.
+     */
     constructor() {
         super(CopytrackCollector.CONFIG);
     }

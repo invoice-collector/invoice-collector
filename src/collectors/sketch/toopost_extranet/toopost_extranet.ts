@@ -32,6 +32,9 @@ export class ToopostExtranetCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ToopostExtranetCollector class.
+     */
     constructor() {
         super(ToopostExtranetCollector.CONFIG);
     }

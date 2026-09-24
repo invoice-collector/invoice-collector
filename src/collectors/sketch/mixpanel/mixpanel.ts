@@ -32,6 +32,9 @@ export class MixpanelCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MixpanelCollector class.
+     */
     constructor() {
         super(MixpanelCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class JournalLIndependantCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the JournalLIndependantCollector class.
+     */
     constructor() {
         super(JournalLIndependantCollector.CONFIG);
     }

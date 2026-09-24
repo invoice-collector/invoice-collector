@@ -32,6 +32,9 @@ export class FormstackCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FormstackCollector class.
+     */
     constructor() {
         super(FormstackCollector.CONFIG);
     }

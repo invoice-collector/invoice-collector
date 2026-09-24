@@ -32,6 +32,9 @@ export class AahCoUkCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AahCoUkCollector class.
+     */
     constructor() {
         super(AahCoUkCollector.CONFIG);
     }

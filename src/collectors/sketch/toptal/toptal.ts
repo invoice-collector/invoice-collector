@@ -32,6 +32,9 @@ export class ToptalCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ToptalCollector class.
+     */
     constructor() {
         super(ToptalCollector.CONFIG);
     }

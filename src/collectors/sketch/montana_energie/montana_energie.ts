@@ -32,6 +32,9 @@ export class MontanaEnergieCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MontanaEnergieCollector class.
+     */
     constructor() {
         super(MontanaEnergieCollector.CONFIG);
     }

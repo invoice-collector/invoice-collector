@@ -32,6 +32,9 @@ export class IcfHabitatCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the IcfHabitatCollector class.
+     */
     constructor() {
         super(IcfHabitatCollector.CONFIG);
     }

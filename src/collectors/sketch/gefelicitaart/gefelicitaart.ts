@@ -32,6 +32,9 @@ export class GefelicitaartCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GefelicitaartCollector class.
+     */
     constructor() {
         super(GefelicitaartCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class LaracastsComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LaracastsComCollector class.
+     */
     constructor() {
         super(LaracastsComCollector.CONFIG);
     }

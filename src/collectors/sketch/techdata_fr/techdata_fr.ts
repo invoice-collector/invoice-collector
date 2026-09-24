@@ -32,6 +32,9 @@ export class TechdataFrCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TechdataFrCollector class.
+     */
     constructor() {
         super(TechdataFrCollector.CONFIG);
     }

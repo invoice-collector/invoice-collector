@@ -32,6 +32,9 @@ export class SmartSenderCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SmartSenderCollector class.
+     */
     constructor() {
         super(SmartSenderCollector.CONFIG);
     }

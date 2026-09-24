@@ -32,6 +32,9 @@ export class Psd2htmlCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Psd2htmlCollector class.
+     */
     constructor() {
         super(Psd2htmlCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class RealhostersCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RealhostersCollector class.
+     */
     constructor() {
         super(RealhostersCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class WebDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WebDeCollector class.
+     */
     constructor() {
         super(WebDeCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class VersandoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VersandoCollector class.
+     */
     constructor() {
         super(VersandoCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class BuzzsproutCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BuzzsproutCollector class.
+     */
     constructor() {
         super(BuzzsproutCollector.CONFIG);
     }

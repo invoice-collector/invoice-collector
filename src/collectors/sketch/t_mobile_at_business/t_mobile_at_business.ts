@@ -32,6 +32,9 @@ export class TMobileAtBusinessCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TMobileAtBusinessCollector class.
+     */
     constructor() {
         super(TMobileAtBusinessCollector.CONFIG);
     }

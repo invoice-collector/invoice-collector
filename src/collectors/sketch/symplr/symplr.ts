@@ -32,6 +32,9 @@ export class SymplrCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SymplrCollector class.
+     */
     constructor() {
         super(SymplrCollector.CONFIG);
     }

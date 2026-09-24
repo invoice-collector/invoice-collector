@@ -32,6 +32,9 @@ export class TrustmaryCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TrustmaryCollector class.
+     */
     constructor() {
         super(TrustmaryCollector.CONFIG);
     }

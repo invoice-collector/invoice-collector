@@ -32,6 +32,9 @@ export class AmzsharkCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AmzsharkCollector class.
+     */
     constructor() {
         super(AmzsharkCollector.CONFIG);
     }

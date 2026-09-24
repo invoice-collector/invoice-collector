@@ -32,6 +32,9 @@ export class OlinCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OlinCollector class.
+     */
     constructor() {
         super(OlinCollector.CONFIG);
     }

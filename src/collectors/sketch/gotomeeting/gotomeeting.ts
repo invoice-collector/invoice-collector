@@ -32,6 +32,9 @@ export class GotomeetingCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GotomeetingCollector class.
+     */
     constructor() {
         super(GotomeetingCollector.CONFIG);
     }

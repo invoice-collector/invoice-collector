@@ -32,6 +32,9 @@ export class GodaddyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GodaddyCollector class.
+     */
     constructor() {
         super(GodaddyCollector.CONFIG);
     }

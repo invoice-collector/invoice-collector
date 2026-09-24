@@ -32,6 +32,9 @@ export class AtlistCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AtlistCollector class.
+     */
     constructor() {
         super(AtlistCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class BrandibleCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BrandibleCollector class.
+     */
     constructor() {
         super(BrandibleCollector.CONFIG);
     }

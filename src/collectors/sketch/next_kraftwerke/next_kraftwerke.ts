@@ -32,6 +32,9 @@ export class NextKraftwerkeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NextKraftwerkeCollector class.
+     */
     constructor() {
         super(NextKraftwerkeCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class CeltxCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CeltxCollector class.
+     */
     constructor() {
         super(CeltxCollector.CONFIG);
     }

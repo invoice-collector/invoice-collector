@@ -32,6 +32,9 @@ export class IronsourceCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the IronsourceCollector class.
+     */
     constructor() {
         super(IronsourceCollector.CONFIG);
     }

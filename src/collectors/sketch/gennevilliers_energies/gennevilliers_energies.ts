@@ -31,6 +31,9 @@ export class GennevilliersEnergiesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GennevilliersEnergiesCollector class.
+     */
     constructor() {
         super(GennevilliersEnergiesCollector.CONFIG);
     }

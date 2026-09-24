@@ -32,6 +32,9 @@ export class UnivalomCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the UnivalomCollector class.
+     */
     constructor() {
         super(UnivalomCollector.CONFIG);
     }

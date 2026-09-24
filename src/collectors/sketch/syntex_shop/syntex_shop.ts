@@ -32,6 +32,9 @@ export class SyntexShopCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SyntexShopCollector class.
+     */
     constructor() {
         super(SyntexShopCollector.CONFIG);
     }

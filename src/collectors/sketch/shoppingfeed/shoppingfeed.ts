@@ -32,6 +32,9 @@ export class ShoppingfeedCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ShoppingfeedCollector class.
+     */
     constructor() {
         super(ShoppingfeedCollector.CONFIG);
     }

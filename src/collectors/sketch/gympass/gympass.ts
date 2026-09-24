@@ -32,6 +32,9 @@ export class GympassCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GympassCollector class.
+     */
     constructor() {
         super(GympassCollector.CONFIG);
     }

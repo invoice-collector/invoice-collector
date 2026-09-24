@@ -32,6 +32,9 @@ export class ScreenshotlayerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ScreenshotlayerCollector class.
+     */
     constructor() {
         super(ScreenshotlayerCollector.CONFIG);
     }

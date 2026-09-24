@@ -32,6 +32,9 @@ export class ErnstingsFamilyPartnerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ErnstingsFamilyPartnerCollector class.
+     */
     constructor() {
         super(ErnstingsFamilyPartnerCollector.CONFIG);
     }

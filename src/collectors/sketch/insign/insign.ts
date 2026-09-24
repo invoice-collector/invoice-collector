@@ -32,6 +32,9 @@ export class InsignCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the InsignCollector class.
+     */
     constructor() {
         super(InsignCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class CanalDigitaalCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CanalDigitaalCollector class.
+     */
     constructor() {
         super(CanalDigitaalCollector.CONFIG);
     }

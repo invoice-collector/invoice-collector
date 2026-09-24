@@ -32,6 +32,9 @@ export class CricketWirelessCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CricketWirelessCollector class.
+     */
     constructor() {
         super(CricketWirelessCollector.CONFIG);
     }

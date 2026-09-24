@@ -32,6 +32,9 @@ export class ModulesgardenCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ModulesgardenCollector class.
+     */
     constructor() {
         super(ModulesgardenCollector.CONFIG);
     }

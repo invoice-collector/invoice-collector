@@ -32,6 +32,9 @@ export class ElektroMosterCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ElektroMosterCollector class.
+     */
     constructor() {
         super(ElektroMosterCollector.CONFIG);
     }

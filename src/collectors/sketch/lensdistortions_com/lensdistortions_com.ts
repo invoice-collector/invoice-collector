@@ -32,6 +32,9 @@ export class LensdistortionsComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LensdistortionsComCollector class.
+     */
     constructor() {
         super(LensdistortionsComCollector.CONFIG);
     }

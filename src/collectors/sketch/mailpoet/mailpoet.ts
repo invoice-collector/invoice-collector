@@ -32,6 +32,9 @@ export class MailpoetCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MailpoetCollector class.
+     */
     constructor() {
         super(MailpoetCollector.CONFIG);
     }

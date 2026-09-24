@@ -32,6 +32,9 @@ export class YellowbrickDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the YellowbrickDeCollector class.
+     */
     constructor() {
         super(YellowbrickDeCollector.CONFIG);
     }

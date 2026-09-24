@@ -32,6 +32,9 @@ export class SendowlCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SendowlCollector class.
+     */
     constructor() {
         super(SendowlCollector.CONFIG);
     }

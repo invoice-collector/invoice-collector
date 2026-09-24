@@ -32,6 +32,9 @@ export class IssuuCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the IssuuCollector class.
+     */
     constructor() {
         super(IssuuCollector.CONFIG);
     }

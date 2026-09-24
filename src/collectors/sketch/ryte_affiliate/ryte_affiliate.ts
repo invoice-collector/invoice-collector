@@ -32,6 +32,9 @@ export class RyteAffiliateCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RyteAffiliateCollector class.
+     */
     constructor() {
         super(RyteAffiliateCollector.CONFIG);
     }

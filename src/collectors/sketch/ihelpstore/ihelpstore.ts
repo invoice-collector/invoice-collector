@@ -32,6 +32,9 @@ export class IhelpstoreCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the IhelpstoreCollector class.
+     */
     constructor() {
         super(IhelpstoreCollector.CONFIG);
     }

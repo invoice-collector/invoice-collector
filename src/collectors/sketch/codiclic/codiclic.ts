@@ -32,6 +32,9 @@ export class CodiclicCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CodiclicCollector class.
+     */
     constructor() {
         super(CodiclicCollector.CONFIG);
     }

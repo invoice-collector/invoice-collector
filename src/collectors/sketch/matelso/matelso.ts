@@ -32,6 +32,9 @@ export class MatelsoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MatelsoCollector class.
+     */
     constructor() {
         super(MatelsoCollector.CONFIG);
     }

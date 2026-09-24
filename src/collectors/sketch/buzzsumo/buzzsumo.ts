@@ -32,6 +32,9 @@ export class BuzzsumoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BuzzsumoCollector class.
+     */
     constructor() {
         super(BuzzsumoCollector.CONFIG);
     }

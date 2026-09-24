@@ -32,6 +32,9 @@ export class QuincaillerieProCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the QuincaillerieProCollector class.
+     */
     constructor() {
         super(QuincaillerieProCollector.CONFIG);
     }

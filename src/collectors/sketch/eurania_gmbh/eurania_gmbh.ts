@@ -32,6 +32,9 @@ export class EuraniaGmbhCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EuraniaGmbhCollector class.
+     */
     constructor() {
         super(EuraniaGmbhCollector.CONFIG);
     }

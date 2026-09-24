@@ -32,6 +32,9 @@ export class TidelyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TidelyCollector class.
+     */
     constructor() {
         super(TidelyCollector.CONFIG);
     }

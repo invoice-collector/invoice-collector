@@ -32,6 +32,9 @@ export class TdcDkCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TdcDkCollector class.
+     */
     constructor() {
         super(TdcDkCollector.CONFIG);
     }

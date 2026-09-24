@@ -32,6 +32,9 @@ export class VionityPrepaidHosterCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VionityPrepaidHosterCollector class.
+     */
     constructor() {
         super(VionityPrepaidHosterCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class EpagCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EpagCollector class.
+     */
     constructor() {
         super(EpagCollector.CONFIG);
     }

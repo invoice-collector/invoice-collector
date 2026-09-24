@@ -32,6 +32,9 @@ export class LetsCastCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LetsCastCollector class.
+     */
     constructor() {
         super(LetsCastCollector.CONFIG);
     }

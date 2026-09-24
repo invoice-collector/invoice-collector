@@ -32,6 +32,9 @@ export class _1msgPteLtdCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the _1msgPteLtdCollector class.
+     */
     constructor() {
         super(_1msgPteLtdCollector.CONFIG);
     }

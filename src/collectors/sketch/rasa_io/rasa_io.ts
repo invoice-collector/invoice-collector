@@ -32,6 +32,9 @@ export class RasaIoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RasaIoCollector class.
+     */
     constructor() {
         super(RasaIoCollector.CONFIG);
     }

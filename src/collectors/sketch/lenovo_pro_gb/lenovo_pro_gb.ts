@@ -32,6 +32,9 @@ export class LenovoProGbCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LenovoProGbCollector class.
+     */
     constructor() {
         super(LenovoProGbCollector.CONFIG);
     }

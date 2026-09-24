@@ -32,6 +32,9 @@ export class AprilMotoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AprilMotoCollector class.
+     */
     constructor() {
         super(AprilMotoCollector.CONFIG);
     }

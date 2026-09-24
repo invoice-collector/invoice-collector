@@ -32,6 +32,9 @@ export class TricentisCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TricentisCollector class.
+     */
     constructor() {
         super(TricentisCollector.CONFIG);
     }

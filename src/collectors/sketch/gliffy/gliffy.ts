@@ -32,6 +32,9 @@ export class GliffyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GliffyCollector class.
+     */
     constructor() {
         super(GliffyCollector.CONFIG);
     }

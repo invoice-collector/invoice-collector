@@ -32,6 +32,9 @@ export class DigiphotoproCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DigiphotoproCollector class.
+     */
     constructor() {
         super(DigiphotoproCollector.CONFIG);
     }

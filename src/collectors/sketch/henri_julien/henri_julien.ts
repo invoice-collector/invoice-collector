@@ -32,6 +32,9 @@ export class HenriJulienCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HenriJulienCollector class.
+     */
     constructor() {
         super(HenriJulienCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class EvboxCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EvboxCollector class.
+     */
     constructor() {
         super(EvboxCollector.CONFIG);
     }

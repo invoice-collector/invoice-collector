@@ -32,6 +32,9 @@ export class DentalMonitoringCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DentalMonitoringCollector class.
+     */
     constructor() {
         super(DentalMonitoringCollector.CONFIG);
     }

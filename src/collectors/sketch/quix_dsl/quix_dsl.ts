@@ -32,6 +32,9 @@ export class QuixDslCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the QuixDslCollector class.
+     */
     constructor() {
         super(QuixDslCollector.CONFIG);
     }

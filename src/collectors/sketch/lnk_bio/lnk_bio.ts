@@ -32,6 +32,9 @@ export class LnkBioCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LnkBioCollector class.
+     */
     constructor() {
         super(LnkBioCollector.CONFIG);
     }

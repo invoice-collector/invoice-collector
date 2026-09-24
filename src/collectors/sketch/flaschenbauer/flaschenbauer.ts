@@ -32,6 +32,9 @@ export class FlaschenbauerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FlaschenbauerCollector class.
+     */
     constructor() {
         super(FlaschenbauerCollector.CONFIG);
     }

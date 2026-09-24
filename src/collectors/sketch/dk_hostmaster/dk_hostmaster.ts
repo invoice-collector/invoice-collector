@@ -32,6 +32,9 @@ export class DkHostmasterCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DkHostmasterCollector class.
+     */
     constructor() {
         super(DkHostmasterCollector.CONFIG);
     }

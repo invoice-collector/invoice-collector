@@ -32,6 +32,9 @@ export class CarethyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CarethyCollector class.
+     */
     constructor() {
         super(CarethyCollector.CONFIG);
     }

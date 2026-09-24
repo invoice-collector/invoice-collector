@@ -32,6 +32,9 @@ export class ComputerfuturesWorksheetsNewPortalCollector extends SketchCollector
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ComputerfuturesWorksheetsNewPortalCollector class.
+     */
     constructor() {
         super(ComputerfuturesWorksheetsNewPortalCollector.CONFIG);
     }

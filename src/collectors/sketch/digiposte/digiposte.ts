@@ -32,6 +32,9 @@ export class DigiposteCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DigiposteCollector class.
+     */
     constructor() {
         super(DigiposteCollector.CONFIG);
     }

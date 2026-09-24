@@ -32,6 +32,9 @@ export class NorthHudsonSewerageAuthorityCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NorthHudsonSewerageAuthorityCollector class.
+     */
     constructor() {
         super(NorthHudsonSewerageAuthorityCollector.CONFIG);
     }

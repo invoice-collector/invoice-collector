@@ -32,6 +32,9 @@ export class IwonatecCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the IwonatecCollector class.
+     */
     constructor() {
         super(IwonatecCollector.CONFIG);
     }

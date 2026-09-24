@@ -32,6 +32,9 @@ export class ApartenaReadCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ApartenaReadCollector class.
+     */
     constructor() {
         super(ApartenaReadCollector.CONFIG);
     }

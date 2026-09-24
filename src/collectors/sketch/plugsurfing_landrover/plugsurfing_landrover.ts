@@ -32,6 +32,9 @@ export class PlugsurfingLandroverCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PlugsurfingLandroverCollector class.
+     */
     constructor() {
         super(PlugsurfingLandroverCollector.CONFIG);
     }

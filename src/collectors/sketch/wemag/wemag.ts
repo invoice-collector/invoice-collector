@@ -32,6 +32,9 @@ export class WemagCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WemagCollector class.
+     */
     constructor() {
         super(WemagCollector.CONFIG);
     }

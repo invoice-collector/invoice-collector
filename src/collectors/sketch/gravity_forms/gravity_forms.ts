@@ -32,6 +32,9 @@ export class GravityFormsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GravityFormsCollector class.
+     */
     constructor() {
         super(GravityFormsCollector.CONFIG);
     }

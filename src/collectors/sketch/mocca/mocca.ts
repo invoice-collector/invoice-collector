@@ -32,6 +32,9 @@ export class MoccaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MoccaCollector class.
+     */
     constructor() {
         super(MoccaCollector.CONFIG);
     }

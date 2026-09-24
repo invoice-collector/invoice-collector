@@ -32,6 +32,9 @@ export class ChannelengineCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ChannelengineCollector class.
+     */
     constructor() {
         super(ChannelengineCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class SynologyC2Collector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SynologyC2Collector class.
+     */
     constructor() {
         super(SynologyC2Collector.CONFIG);
     }

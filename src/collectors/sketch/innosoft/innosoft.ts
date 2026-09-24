@@ -32,6 +32,9 @@ export class InnosoftCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the InnosoftCollector class.
+     */
     constructor() {
         super(InnosoftCollector.CONFIG);
     }

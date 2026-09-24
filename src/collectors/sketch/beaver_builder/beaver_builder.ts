@@ -32,6 +32,9 @@ export class BeaverBuilderCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BeaverBuilderCollector class.
+     */
     constructor() {
         super(BeaverBuilderCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class VirtuagymCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VirtuagymCollector class.
+     */
     constructor() {
         super(VirtuagymCollector.CONFIG);
     }

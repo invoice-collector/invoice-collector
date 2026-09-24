@@ -32,6 +32,9 @@ export class DesertWaterAgencyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DesertWaterAgencyCollector class.
+     */
     constructor() {
         super(DesertWaterAgencyCollector.CONFIG);
     }

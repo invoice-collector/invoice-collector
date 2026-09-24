@@ -32,6 +32,9 @@ export class DevkCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DevkCollector class.
+     */
     constructor() {
         super(DevkCollector.CONFIG);
     }

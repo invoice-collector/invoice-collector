@@ -32,6 +32,9 @@ export class AssurancevieComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AssurancevieComCollector class.
+     */
     constructor() {
         super(AssurancevieComCollector.CONFIG);
     }

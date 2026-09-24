@@ -32,6 +32,9 @@ export class CasafariCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CasafariCollector class.
+     */
     constructor() {
         super(CasafariCollector.CONFIG);
     }

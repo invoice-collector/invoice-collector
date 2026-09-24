@@ -32,6 +32,9 @@ export class AirgigsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AirgigsCollector class.
+     */
     constructor() {
         super(AirgigsCollector.CONFIG);
     }

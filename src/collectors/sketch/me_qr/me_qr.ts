@@ -32,6 +32,9 @@ export class MeQrCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MeQrCollector class.
+     */
     constructor() {
         super(MeQrCollector.CONFIG);
     }

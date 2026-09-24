@@ -32,6 +32,9 @@ export class AcuitySchedulingCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AcuitySchedulingCollector class.
+     */
     constructor() {
         super(AcuitySchedulingCollector.CONFIG);
     }

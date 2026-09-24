@@ -32,6 +32,9 @@ export class DupliCheckerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DupliCheckerCollector class.
+     */
     constructor() {
         super(DupliCheckerCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class NvidiaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NvidiaCollector class.
+     */
     constructor() {
         super(NvidiaCollector.CONFIG);
     }

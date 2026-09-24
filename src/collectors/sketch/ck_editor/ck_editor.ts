@@ -32,6 +32,9 @@ export class CkEditorCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CkEditorCollector class.
+     */
     constructor() {
         super(CkEditorCollector.CONFIG);
     }

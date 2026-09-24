@@ -32,6 +32,9 @@ export class NecFinancialServicesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NecFinancialServicesCollector class.
+     */
     constructor() {
         super(NecFinancialServicesCollector.CONFIG);
     }

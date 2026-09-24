@@ -32,6 +32,9 @@ export class QuestionproCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the QuestionproCollector class.
+     */
     constructor() {
         super(QuestionproCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class DeutscheGlasfaserCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DeutscheGlasfaserCollector class.
+     */
     constructor() {
         super(DeutscheGlasfaserCollector.CONFIG);
     }

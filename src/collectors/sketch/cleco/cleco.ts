@@ -32,6 +32,9 @@ export class ClecoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ClecoCollector class.
+     */
     constructor() {
         super(ClecoCollector.CONFIG);
     }

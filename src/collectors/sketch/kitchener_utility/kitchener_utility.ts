@@ -32,6 +32,9 @@ export class KitchenerUtilityCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KitchenerUtilityCollector class.
+     */
     constructor() {
         super(KitchenerUtilityCollector.CONFIG);
     }

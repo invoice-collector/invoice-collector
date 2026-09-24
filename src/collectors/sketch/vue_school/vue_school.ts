@@ -32,6 +32,9 @@ export class VueSchoolCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VueSchoolCollector class.
+     */
     constructor() {
         super(VueSchoolCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class SafetywingCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SafetywingCollector class.
+     */
     constructor() {
         super(SafetywingCollector.CONFIG);
     }

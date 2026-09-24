@@ -32,6 +32,9 @@ export class AvsMeldescheinCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AvsMeldescheinCollector class.
+     */
     constructor() {
         super(AvsMeldescheinCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class RhenusOfficeSystemsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RhenusOfficeSystemsCollector class.
+     */
     constructor() {
         super(RhenusOfficeSystemsCollector.CONFIG);
     }

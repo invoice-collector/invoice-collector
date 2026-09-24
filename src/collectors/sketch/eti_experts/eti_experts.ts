@@ -32,6 +32,9 @@ export class EtiExpertsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EtiExpertsCollector class.
+     */
     constructor() {
         super(EtiExpertsCollector.CONFIG);
     }

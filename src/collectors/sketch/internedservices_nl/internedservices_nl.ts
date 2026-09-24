@@ -32,6 +32,9 @@ export class InternedservicesNlCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the InternedservicesNlCollector class.
+     */
     constructor() {
         super(InternedservicesNlCollector.CONFIG);
     }

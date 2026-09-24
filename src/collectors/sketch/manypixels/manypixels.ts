@@ -32,6 +32,9 @@ export class ManypixelsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ManypixelsCollector class.
+     */
     constructor() {
         super(ManypixelsCollector.CONFIG);
     }

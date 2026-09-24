@@ -32,6 +32,9 @@ export class TourradarTravelerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TourradarTravelerCollector class.
+     */
     constructor() {
         super(TourradarTravelerCollector.CONFIG);
     }

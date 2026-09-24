@@ -32,6 +32,9 @@ export class TssGroupCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TssGroupCollector class.
+     */
     constructor() {
         super(TssGroupCollector.CONFIG);
     }

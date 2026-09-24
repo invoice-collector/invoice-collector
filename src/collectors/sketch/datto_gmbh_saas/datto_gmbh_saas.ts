@@ -32,6 +32,9 @@ export class DattoGmbhSaasCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DattoGmbhSaasCollector class.
+     */
     constructor() {
         super(DattoGmbhSaasCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class TransaviaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TransaviaCollector class.
+     */
     constructor() {
         super(TransaviaCollector.CONFIG);
     }

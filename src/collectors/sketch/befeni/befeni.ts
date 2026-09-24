@@ -32,6 +32,9 @@ export class BefeniCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BefeniCollector class.
+     */
     constructor() {
         super(BefeniCollector.CONFIG);
     }

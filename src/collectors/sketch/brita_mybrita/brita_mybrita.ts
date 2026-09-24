@@ -32,6 +32,9 @@ export class BritaMybritaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BritaMybritaCollector class.
+     */
     constructor() {
         super(BritaMybritaCollector.CONFIG);
     }

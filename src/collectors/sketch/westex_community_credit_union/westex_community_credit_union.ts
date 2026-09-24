@@ -32,6 +32,9 @@ export class WestexCommunityCreditUnionCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WestexCommunityCreditUnionCollector class.
+     */
     constructor() {
         super(WestexCommunityCreditUnionCollector.CONFIG);
     }

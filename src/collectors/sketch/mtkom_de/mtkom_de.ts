@@ -32,6 +32,9 @@ export class MtkomDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MtkomDeCollector class.
+     */
     constructor() {
         super(MtkomDeCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class DLivingDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DLivingDeCollector class.
+     */
     constructor() {
         super(DLivingDeCollector.CONFIG);
     }

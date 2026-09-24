@@ -32,6 +32,9 @@ export class AgpmCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AgpmCollector class.
+     */
     constructor() {
         super(AgpmCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class SoftlayerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SoftlayerCollector class.
+     */
     constructor() {
         super(SoftlayerCollector.CONFIG);
     }

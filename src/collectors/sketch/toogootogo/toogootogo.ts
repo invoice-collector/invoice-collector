@@ -32,6 +32,9 @@ export class ToogootogoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ToogootogoCollector class.
+     */
     constructor() {
         super(ToogootogoCollector.CONFIG);
     }

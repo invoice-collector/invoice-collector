@@ -32,6 +32,9 @@ export class MemberpressCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MemberpressCollector class.
+     */
     constructor() {
         super(MemberpressCollector.CONFIG);
     }

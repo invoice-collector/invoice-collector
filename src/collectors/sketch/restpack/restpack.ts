@@ -32,6 +32,9 @@ export class RestpackCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RestpackCollector class.
+     */
     constructor() {
         super(RestpackCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class TarifcheckCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TarifcheckCollector class.
+     */
     constructor() {
         super(TarifcheckCollector.CONFIG);
     }

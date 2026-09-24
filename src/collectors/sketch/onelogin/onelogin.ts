@@ -32,6 +32,9 @@ export class OneloginCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OneloginCollector class.
+     */
     constructor() {
         super(OneloginCollector.CONFIG);
     }

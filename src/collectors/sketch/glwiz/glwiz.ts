@@ -32,6 +32,9 @@ export class GlwizCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GlwizCollector class.
+     */
     constructor() {
         super(GlwizCollector.CONFIG);
     }

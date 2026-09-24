@@ -32,6 +32,9 @@ export class RemoteInterviewCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RemoteInterviewCollector class.
+     */
     constructor() {
         super(RemoteInterviewCollector.CONFIG);
     }

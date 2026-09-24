@@ -32,6 +32,9 @@ export class VgnVerkehrsverbundGrossraumNurnbergCollector extends SketchCollecto
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VgnVerkehrsverbundGrossraumNurnbergCollector class.
+     */
     constructor() {
         super(VgnVerkehrsverbundGrossraumNurnbergCollector.CONFIG);
     }

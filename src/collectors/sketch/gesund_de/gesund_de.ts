@@ -32,6 +32,9 @@ export class GesundDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GesundDeCollector class.
+     */
     constructor() {
         super(GesundDeCollector.CONFIG);
     }

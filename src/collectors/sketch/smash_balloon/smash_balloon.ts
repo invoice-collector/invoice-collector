@@ -32,6 +32,9 @@ export class SmashBalloonCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SmashBalloonCollector class.
+     */
     constructor() {
         super(SmashBalloonCollector.CONFIG);
     }

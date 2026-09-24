@@ -32,6 +32,9 @@ export class AffiliconCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AffiliconCollector class.
+     */
     constructor() {
         super(AffiliconCollector.CONFIG);
     }

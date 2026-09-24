@@ -32,6 +32,9 @@ export class ParcelforceCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ParcelforceCollector class.
+     */
     constructor() {
         super(ParcelforceCollector.CONFIG);
     }

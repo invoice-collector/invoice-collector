@@ -32,6 +32,9 @@ export class DaDirektCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DaDirektCollector class.
+     */
     constructor() {
         super(DaDirektCollector.CONFIG);
     }

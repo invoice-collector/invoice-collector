@@ -32,6 +32,9 @@ export class ReveoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ReveoCollector class.
+     */
     constructor() {
         super(ReveoCollector.CONFIG);
     }

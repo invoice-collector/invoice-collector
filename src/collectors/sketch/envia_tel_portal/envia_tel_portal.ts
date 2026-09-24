@@ -32,6 +32,9 @@ export class EnviaTelPortalCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EnviaTelPortalCollector class.
+     */
     constructor() {
         super(EnviaTelPortalCollector.CONFIG);
     }

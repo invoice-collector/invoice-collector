@@ -32,6 +32,9 @@ export class MyCrmBackupCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MyCrmBackupCollector class.
+     */
     constructor() {
         super(MyCrmBackupCollector.CONFIG);
     }

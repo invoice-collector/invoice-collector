@@ -32,6 +32,9 @@ export class VerivoxCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VerivoxCollector class.
+     */
     constructor() {
         super(VerivoxCollector.CONFIG);
     }

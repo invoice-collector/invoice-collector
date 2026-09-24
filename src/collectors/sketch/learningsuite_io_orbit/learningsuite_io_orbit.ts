@@ -32,6 +32,9 @@ export class LearningsuiteIoOrbitCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LearningsuiteIoOrbitCollector class.
+     */
     constructor() {
         super(LearningsuiteIoOrbitCollector.CONFIG);
     }

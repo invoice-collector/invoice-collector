@@ -32,6 +32,9 @@ export class Solve360Collector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Solve360Collector class.
+     */
     constructor() {
         super(Solve360Collector.CONFIG);
     }

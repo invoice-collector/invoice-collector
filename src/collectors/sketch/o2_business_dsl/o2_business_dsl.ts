@@ -32,6 +32,9 @@ export class O2BusinessDslCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the O2BusinessDslCollector class.
+     */
     constructor() {
         super(O2BusinessDslCollector.CONFIG);
     }

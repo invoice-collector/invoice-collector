@@ -32,6 +32,9 @@ export class WoltlabCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WoltlabCollector class.
+     */
     constructor() {
         super(WoltlabCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class One4allCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the One4allCollector class.
+     */
     constructor() {
         super(One4allCollector.CONFIG);
     }

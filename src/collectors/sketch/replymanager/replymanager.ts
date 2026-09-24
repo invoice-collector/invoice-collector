@@ -32,6 +32,9 @@ export class ReplymanagerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ReplymanagerCollector class.
+     */
     constructor() {
         super(ReplymanagerCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class SparfuchsProfisCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SparfuchsProfisCollector class.
+     */
     constructor() {
         super(SparfuchsProfisCollector.CONFIG);
     }

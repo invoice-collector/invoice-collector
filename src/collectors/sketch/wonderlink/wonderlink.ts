@@ -32,6 +32,9 @@ export class WonderlinkCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WonderlinkCollector class.
+     */
     constructor() {
         super(WonderlinkCollector.CONFIG);
     }

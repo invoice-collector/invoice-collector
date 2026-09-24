@@ -32,6 +32,9 @@ export class GezCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GezCollector class.
+     */
     constructor() {
         super(GezCollector.CONFIG);
     }

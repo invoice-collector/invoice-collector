@@ -32,6 +32,9 @@ export class NordvpnCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NordvpnCollector class.
+     */
     constructor() {
         super(NordvpnCollector.CONFIG);
     }

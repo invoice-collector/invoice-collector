@@ -32,6 +32,9 @@ export class InterworksCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the InterworksCollector class.
+     */
     constructor() {
         super(InterworksCollector.CONFIG);
     }

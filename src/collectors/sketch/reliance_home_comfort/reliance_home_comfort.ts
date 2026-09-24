@@ -32,6 +32,9 @@ export class RelianceHomeComfortCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RelianceHomeComfortCollector class.
+     */
     constructor() {
         super(RelianceHomeComfortCollector.CONFIG);
     }

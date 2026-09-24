@@ -32,6 +32,9 @@ export class DiamondInsuranceCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DiamondInsuranceCollector class.
+     */
     constructor() {
         super(DiamondInsuranceCollector.CONFIG);
     }

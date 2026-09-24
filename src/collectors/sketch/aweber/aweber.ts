@@ -32,6 +32,9 @@ export class AweberCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AweberCollector class.
+     */
     constructor() {
         super(AweberCollector.CONFIG);
     }

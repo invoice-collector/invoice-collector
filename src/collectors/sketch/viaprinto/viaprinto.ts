@@ -32,6 +32,9 @@ export class ViaprintoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ViaprintoCollector class.
+     */
     constructor() {
         super(ViaprintoCollector.CONFIG);
     }

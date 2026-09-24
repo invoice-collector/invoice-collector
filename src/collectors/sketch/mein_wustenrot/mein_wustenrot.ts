@@ -32,6 +32,9 @@ export class MeinWustenrotCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MeinWustenrotCollector class.
+     */
     constructor() {
         super(MeinWustenrotCollector.CONFIG);
     }

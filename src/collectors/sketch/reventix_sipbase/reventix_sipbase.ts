@@ -32,6 +32,9 @@ export class ReventixSipbaseCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ReventixSipbaseCollector class.
+     */
     constructor() {
         super(ReventixSipbaseCollector.CONFIG);
     }

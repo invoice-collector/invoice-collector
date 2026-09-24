@@ -32,6 +32,9 @@ export class CoffeosiCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CoffeosiCollector class.
+     */
     constructor() {
         super(CoffeosiCollector.CONFIG);
     }

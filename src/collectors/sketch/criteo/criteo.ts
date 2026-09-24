@@ -32,6 +32,9 @@ export class CriteoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CriteoCollector class.
+     */
     constructor() {
         super(CriteoCollector.CONFIG);
     }

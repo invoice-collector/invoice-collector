@@ -32,6 +32,9 @@ export class ImmoweltKundenportalCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ImmoweltKundenportalCollector class.
+     */
     constructor() {
         super(ImmoweltKundenportalCollector.CONFIG);
     }

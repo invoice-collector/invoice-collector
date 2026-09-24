@@ -32,6 +32,9 @@ export class DesktimeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DesktimeCollector class.
+     */
     constructor() {
         super(DesktimeCollector.CONFIG);
     }

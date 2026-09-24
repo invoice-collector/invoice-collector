@@ -32,6 +32,9 @@ export class CorkBuilderProviderCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CorkBuilderProviderCollector class.
+     */
     constructor() {
         super(CorkBuilderProviderCollector.CONFIG);
     }

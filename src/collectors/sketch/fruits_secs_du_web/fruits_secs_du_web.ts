@@ -32,6 +32,9 @@ export class FruitsSecsDuWebCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FruitsSecsDuWebCollector class.
+     */
     constructor() {
         super(FruitsSecsDuWebCollector.CONFIG);
     }

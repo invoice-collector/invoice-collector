@@ -32,6 +32,9 @@ export class AboutYouCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AboutYouCollector class.
+     */
     constructor() {
         super(AboutYouCollector.CONFIG);
     }

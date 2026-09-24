@@ -32,6 +32,9 @@ export class FegaAndSchmittCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FegaAndSchmittCollector class.
+     */
     constructor() {
         super(FegaAndSchmittCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class WgvVersicherungenCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WgvVersicherungenCollector class.
+     */
     constructor() {
         super(WgvVersicherungenCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class JustEatTakeawayComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the JustEatTakeawayComCollector class.
+     */
     constructor() {
         super(JustEatTakeawayComCollector.CONFIG);
     }

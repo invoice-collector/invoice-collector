@@ -32,6 +32,9 @@ export class FedexExpressTntCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FedexExpressTntCollector class.
+     */
     constructor() {
         super(FedexExpressTntCollector.CONFIG);
     }

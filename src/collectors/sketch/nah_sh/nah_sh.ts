@@ -32,6 +32,9 @@ export class NahShCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NahShCollector class.
+     */
     constructor() {
         super(NahShCollector.CONFIG);
     }

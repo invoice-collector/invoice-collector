@@ -32,6 +32,9 @@ export class GetklarCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GetklarCollector class.
+     */
     constructor() {
         super(GetklarCollector.CONFIG);
     }

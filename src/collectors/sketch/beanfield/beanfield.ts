@@ -32,6 +32,9 @@ export class BeanfieldCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BeanfieldCollector class.
+     */
     constructor() {
         super(BeanfieldCollector.CONFIG);
     }

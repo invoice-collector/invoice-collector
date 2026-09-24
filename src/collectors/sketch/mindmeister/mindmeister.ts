@@ -32,6 +32,9 @@ export class MindmeisterCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MindmeisterCollector class.
+     */
     constructor() {
         super(MindmeisterCollector.CONFIG);
     }

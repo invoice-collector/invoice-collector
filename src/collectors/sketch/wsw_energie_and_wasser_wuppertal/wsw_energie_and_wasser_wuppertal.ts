@@ -32,6 +32,9 @@ export class WswEnergieAndWasserWuppertalCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WswEnergieAndWasserWuppertalCollector class.
+     */
     constructor() {
         super(WswEnergieAndWasserWuppertalCollector.CONFIG);
     }

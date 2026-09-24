@@ -32,6 +32,9 @@ export class HotglooGbrCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HotglooGbrCollector class.
+     */
     constructor() {
         super(HotglooGbrCollector.CONFIG);
     }

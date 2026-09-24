@@ -32,6 +32,9 @@ export class GasagCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GasagCollector class.
+     */
     constructor() {
         super(GasagCollector.CONFIG);
     }

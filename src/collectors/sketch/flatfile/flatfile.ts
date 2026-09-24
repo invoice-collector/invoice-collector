@@ -32,6 +32,9 @@ export class FlatfileCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FlatfileCollector class.
+     */
     constructor() {
         super(FlatfileCollector.CONFIG);
     }

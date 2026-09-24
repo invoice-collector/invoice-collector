@@ -32,6 +32,9 @@ export class _1passwordEuCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the _1passwordEuCollector class.
+     */
     constructor() {
         super(_1passwordEuCollector.CONFIG);
     }

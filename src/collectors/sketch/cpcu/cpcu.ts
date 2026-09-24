@@ -31,6 +31,9 @@ export class CpcuCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CpcuCollector class.
+     */
     constructor() {
         super(CpcuCollector.CONFIG);
     }

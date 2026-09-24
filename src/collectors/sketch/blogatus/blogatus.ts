@@ -32,6 +32,9 @@ export class BlogatusCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BlogatusCollector class.
+     */
     constructor() {
         super(BlogatusCollector.CONFIG);
     }

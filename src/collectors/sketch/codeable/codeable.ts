@@ -32,6 +32,9 @@ export class CodeableCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CodeableCollector class.
+     */
     constructor() {
         super(CodeableCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class BnTBlatzheimNetworksCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BnTBlatzheimNetworksCollector class.
+     */
     constructor() {
         super(BnTBlatzheimNetworksCollector.CONFIG);
     }

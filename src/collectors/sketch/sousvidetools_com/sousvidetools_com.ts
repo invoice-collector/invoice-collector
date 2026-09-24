@@ -32,6 +32,9 @@ export class SousvidetoolsComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SousvidetoolsComCollector class.
+     */
     constructor() {
         super(SousvidetoolsComCollector.CONFIG);
     }

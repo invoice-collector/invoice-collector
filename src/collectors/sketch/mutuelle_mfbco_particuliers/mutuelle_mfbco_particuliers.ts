@@ -32,6 +32,9 @@ export class MutuelleMfbcoParticuliersCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MutuelleMfbcoParticuliersCollector class.
+     */
     constructor() {
         super(MutuelleMfbcoParticuliersCollector.CONFIG);
     }

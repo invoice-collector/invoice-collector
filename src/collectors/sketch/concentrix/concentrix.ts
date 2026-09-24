@@ -32,6 +32,9 @@ export class ConcentrixCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ConcentrixCollector class.
+     */
     constructor() {
         super(ConcentrixCollector.CONFIG);
     }

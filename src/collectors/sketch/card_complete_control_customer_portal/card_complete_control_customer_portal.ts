@@ -32,6 +32,9 @@ export class CardCompleteControlCustomerPortalCollector extends SketchCollector 
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CardCompleteControlCustomerPortalCollector class.
+     */
     constructor() {
         super(CardCompleteControlCustomerPortalCollector.CONFIG);
     }

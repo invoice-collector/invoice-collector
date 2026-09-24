@@ -32,6 +32,9 @@ export class Usine23ComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Usine23ComCollector class.
+     */
     constructor() {
         super(Usine23ComCollector.CONFIG);
     }

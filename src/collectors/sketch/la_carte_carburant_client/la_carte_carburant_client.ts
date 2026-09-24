@@ -32,6 +32,9 @@ export class LaCarteCarburantClientCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LaCarteCarburantClientCollector class.
+     */
     constructor() {
         super(LaCarteCarburantClientCollector.CONFIG);
     }

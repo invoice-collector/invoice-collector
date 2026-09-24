@@ -32,6 +32,9 @@ export class WienerLinienCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WienerLinienCollector class.
+     */
     constructor() {
         super(WienerLinienCollector.CONFIG);
     }

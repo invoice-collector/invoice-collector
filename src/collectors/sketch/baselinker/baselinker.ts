@@ -32,6 +32,9 @@ export class BaselinkerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BaselinkerCollector class.
+     */
     constructor() {
         super(BaselinkerCollector.CONFIG);
     }

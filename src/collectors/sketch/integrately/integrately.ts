@@ -32,6 +32,9 @@ export class IntegratelyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the IntegratelyCollector class.
+     */
     constructor() {
         super(IntegratelyCollector.CONFIG);
     }

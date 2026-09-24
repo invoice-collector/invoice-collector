@@ -32,6 +32,9 @@ export class DoitCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DoitCollector class.
+     */
     constructor() {
         super(DoitCollector.CONFIG);
     }

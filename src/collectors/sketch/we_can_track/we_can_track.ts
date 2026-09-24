@@ -32,6 +32,9 @@ export class WeCanTrackCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WeCanTrackCollector class.
+     */
     constructor() {
         super(WeCanTrackCollector.CONFIG);
     }

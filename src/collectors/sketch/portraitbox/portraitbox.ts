@@ -32,6 +32,9 @@ export class PortraitboxCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PortraitboxCollector class.
+     */
     constructor() {
         super(PortraitboxCollector.CONFIG);
     }

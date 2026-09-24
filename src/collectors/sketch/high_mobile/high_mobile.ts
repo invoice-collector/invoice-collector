@@ -32,6 +32,9 @@ export class HighMobileCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HighMobileCollector class.
+     */
     constructor() {
         super(HighMobileCollector.CONFIG);
     }

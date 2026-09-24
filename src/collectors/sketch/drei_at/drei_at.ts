@@ -32,6 +32,9 @@ export class DreiAtCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DreiAtCollector class.
+     */
     constructor() {
         super(DreiAtCollector.CONFIG);
     }

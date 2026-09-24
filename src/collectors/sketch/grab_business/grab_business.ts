@@ -32,6 +32,9 @@ export class GrabBusinessCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GrabBusinessCollector class.
+     */
     constructor() {
         super(GrabBusinessCollector.CONFIG);
     }

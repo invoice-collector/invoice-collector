@@ -32,6 +32,9 @@ export class BerlinRecyclingCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BerlinRecyclingCollector class.
+     */
     constructor() {
         super(BerlinRecyclingCollector.CONFIG);
     }

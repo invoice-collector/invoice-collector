@@ -32,6 +32,9 @@ export class NeubaukompassCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NeubaukompassCollector class.
+     */
     constructor() {
         super(NeubaukompassCollector.CONFIG);
     }

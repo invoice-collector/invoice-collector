@@ -32,6 +32,9 @@ export class NelnetStudentLoansCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NelnetStudentLoansCollector class.
+     */
     constructor() {
         super(NelnetStudentLoansCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class NicsellCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NicsellCollector class.
+     */
     constructor() {
         super(NicsellCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class EcotapCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EcotapCollector class.
+     */
     constructor() {
         super(EcotapCollector.CONFIG);
     }

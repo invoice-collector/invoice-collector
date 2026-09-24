@@ -32,6 +32,9 @@ export class XanoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the XanoCollector class.
+     */
     constructor() {
         super(XanoCollector.CONFIG);
     }

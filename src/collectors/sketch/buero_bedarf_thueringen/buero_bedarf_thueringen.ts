@@ -32,6 +32,9 @@ export class BueroBedarfThueringenCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BueroBedarfThueringenCollector class.
+     */
     constructor() {
         super(BueroBedarfThueringenCollector.CONFIG);
     }

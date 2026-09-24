@@ -32,6 +32,9 @@ export class LeauDileDeFranceCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LeauDileDeFranceCollector class.
+     */
     constructor() {
         super(LeauDileDeFranceCollector.CONFIG);
     }

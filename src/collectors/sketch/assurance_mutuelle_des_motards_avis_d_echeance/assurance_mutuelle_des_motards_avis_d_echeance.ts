@@ -32,6 +32,9 @@ export class AssuranceMutuelleDesMotardsAvisDEcheanceCollector extends SketchCol
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AssuranceMutuelleDesMotardsAvisDEcheanceCollector class.
+     */
     constructor() {
         super(AssuranceMutuelleDesMotardsAvisDEcheanceCollector.CONFIG);
     }

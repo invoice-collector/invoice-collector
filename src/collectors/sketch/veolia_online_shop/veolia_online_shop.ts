@@ -32,6 +32,9 @@ export class VeoliaOnlineShopCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VeoliaOnlineShopCollector class.
+     */
     constructor() {
         super(VeoliaOnlineShopCollector.CONFIG);
     }

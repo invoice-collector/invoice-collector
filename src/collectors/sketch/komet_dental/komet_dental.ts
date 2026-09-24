@@ -32,6 +32,9 @@ export class KometDentalCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KometDentalCollector class.
+     */
     constructor() {
         super(KometDentalCollector.CONFIG);
     }

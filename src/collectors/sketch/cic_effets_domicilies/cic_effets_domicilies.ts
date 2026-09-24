@@ -32,6 +32,9 @@ export class CicEffetsDomiciliesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CicEffetsDomiciliesCollector class.
+     */
     constructor() {
         super(CicEffetsDomiciliesCollector.CONFIG);
     }

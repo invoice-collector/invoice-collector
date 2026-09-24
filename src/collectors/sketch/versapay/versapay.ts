@@ -32,6 +32,9 @@ export class VersapayCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VersapayCollector class.
+     */
     constructor() {
         super(VersapayCollector.CONFIG);
     }

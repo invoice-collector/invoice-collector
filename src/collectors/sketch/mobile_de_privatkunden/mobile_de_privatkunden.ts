@@ -32,6 +32,9 @@ export class MobileDePrivatkundenCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MobileDePrivatkundenCollector class.
+     */
     constructor() {
         super(MobileDePrivatkundenCollector.CONFIG);
     }

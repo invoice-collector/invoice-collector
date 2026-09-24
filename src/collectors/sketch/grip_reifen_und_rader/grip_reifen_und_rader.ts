@@ -32,6 +32,9 @@ export class GripReifenUndRaderCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GripReifenUndRaderCollector class.
+     */
     constructor() {
         super(GripReifenUndRaderCollector.CONFIG);
     }

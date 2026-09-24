@@ -32,6 +32,9 @@ export class CloudconvertCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CloudconvertCollector class.
+     */
     constructor() {
         super(CloudconvertCollector.CONFIG);
     }

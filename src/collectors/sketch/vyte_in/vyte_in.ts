@@ -32,6 +32,9 @@ export class VyteInCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VyteInCollector class.
+     */
     constructor() {
         super(VyteInCollector.CONFIG);
     }

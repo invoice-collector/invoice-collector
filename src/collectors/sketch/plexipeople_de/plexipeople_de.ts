@@ -32,6 +32,9 @@ export class PlexipeopleDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PlexipeopleDeCollector class.
+     */
     constructor() {
         super(PlexipeopleDeCollector.CONFIG);
     }

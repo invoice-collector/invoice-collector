@@ -32,6 +32,9 @@ export class UserechoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the UserechoCollector class.
+     */
     constructor() {
         super(UserechoCollector.CONFIG);
     }

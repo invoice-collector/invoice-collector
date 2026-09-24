@@ -32,6 +32,9 @@ export class SimplescraperCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SimplescraperCollector class.
+     */
     constructor() {
         super(SimplescraperCollector.CONFIG);
     }

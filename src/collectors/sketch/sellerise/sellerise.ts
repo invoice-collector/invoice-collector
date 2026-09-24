@@ -32,6 +32,9 @@ export class SelleriseCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SelleriseCollector class.
+     */
     constructor() {
         super(SelleriseCollector.CONFIG);
     }

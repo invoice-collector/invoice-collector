@@ -32,6 +32,9 @@ export class GcGruppeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GcGruppeCollector class.
+     */
     constructor() {
         super(GcGruppeCollector.CONFIG);
     }

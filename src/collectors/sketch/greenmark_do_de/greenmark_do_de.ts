@@ -32,6 +32,9 @@ export class GreenmarkDoDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GreenmarkDoDeCollector class.
+     */
     constructor() {
         super(GreenmarkDoDeCollector.CONFIG);
     }

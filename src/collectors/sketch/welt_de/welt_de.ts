@@ -32,6 +32,9 @@ export class WeltDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WeltDeCollector class.
+     */
     constructor() {
         super(WeltDeCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class SteuerseminareGrafCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SteuerseminareGrafCollector class.
+     */
     constructor() {
         super(SteuerseminareGrafCollector.CONFIG);
     }

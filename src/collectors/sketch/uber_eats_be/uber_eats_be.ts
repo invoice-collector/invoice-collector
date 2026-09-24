@@ -32,6 +32,9 @@ export class UberEatsBeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the UberEatsBeCollector class.
+     */
     constructor() {
         super(UberEatsBeCollector.CONFIG);
     }

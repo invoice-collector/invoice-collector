@@ -32,6 +32,9 @@ export class HgkHotelUndGastronomieKaufEgCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HgkHotelUndGastronomieKaufEgCollector class.
+     */
     constructor() {
         super(HgkHotelUndGastronomieKaufEgCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class CopieFranceCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CopieFranceCollector class.
+     */
     constructor() {
         super(CopieFranceCollector.CONFIG);
     }

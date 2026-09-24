@@ -32,6 +32,9 @@ export class SachsennetCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SachsennetCollector class.
+     */
     constructor() {
         super(SachsennetCollector.CONFIG);
     }

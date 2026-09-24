@@ -32,6 +32,9 @@ export class AdnetcomNethostingCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AdnetcomNethostingCollector class.
+     */
     constructor() {
         super(AdnetcomNethostingCollector.CONFIG);
     }

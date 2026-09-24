@@ -32,6 +32,9 @@ export class FontAwesomeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FontAwesomeCollector class.
+     */
     constructor() {
         super(FontAwesomeCollector.CONFIG);
     }

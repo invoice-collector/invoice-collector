@@ -32,6 +32,9 @@ export class ParallelsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ParallelsCollector class.
+     */
     constructor() {
         super(ParallelsCollector.CONFIG);
     }

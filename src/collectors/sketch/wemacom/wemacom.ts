@@ -32,6 +32,9 @@ export class WemacomCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WemacomCollector class.
+     */
     constructor() {
         super(WemacomCollector.CONFIG);
     }

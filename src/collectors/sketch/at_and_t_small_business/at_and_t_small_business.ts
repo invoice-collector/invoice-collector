@@ -32,6 +32,9 @@ export class AtAndTSmallBusinessCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AtAndTSmallBusinessCollector class.
+     */
     constructor() {
         super(AtAndTSmallBusinessCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class CloudcraftCoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CloudcraftCoCollector class.
+     */
     constructor() {
         super(CloudcraftCoCollector.CONFIG);
     }

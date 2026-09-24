@@ -32,6 +32,9 @@ export class StreamsharkCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StreamsharkCollector class.
+     */
     constructor() {
         super(StreamsharkCollector.CONFIG);
     }

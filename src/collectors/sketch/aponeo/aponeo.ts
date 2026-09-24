@@ -32,6 +32,9 @@ export class AponeoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AponeoCollector class.
+     */
     constructor() {
         super(AponeoCollector.CONFIG);
     }

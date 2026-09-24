@@ -32,6 +32,9 @@ export class OnsignCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OnsignCollector class.
+     */
     constructor() {
         super(OnsignCollector.CONFIG);
     }

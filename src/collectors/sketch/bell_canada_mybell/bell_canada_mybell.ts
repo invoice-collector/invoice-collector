@@ -32,6 +32,9 @@ export class BellCanadaMybellCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BellCanadaMybellCollector class.
+     */
     constructor() {
         super(BellCanadaMybellCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class PrimeoEnergieProfessionnelCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PrimeoEnergieProfessionnelCollector class.
+     */
     constructor() {
         super(PrimeoEnergieProfessionnelCollector.CONFIG);
     }

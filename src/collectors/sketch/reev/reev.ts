@@ -32,6 +32,9 @@ export class ReevCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ReevCollector class.
+     */
     constructor() {
         super(ReevCollector.CONFIG);
     }

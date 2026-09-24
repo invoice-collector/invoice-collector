@@ -32,6 +32,9 @@ export class _50hertzCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the _50hertzCollector class.
+     */
     constructor() {
         super(_50hertzCollector.CONFIG);
     }

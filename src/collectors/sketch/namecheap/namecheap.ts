@@ -32,6 +32,9 @@ export class NamecheapCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NamecheapCollector class.
+     */
     constructor() {
         super(NamecheapCollector.CONFIG);
     }

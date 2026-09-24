@@ -32,6 +32,9 @@ export class OstseeZeitungCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OstseeZeitungCollector class.
+     */
     constructor() {
         super(OstseeZeitungCollector.CONFIG);
     }

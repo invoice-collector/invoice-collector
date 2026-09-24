@@ -31,6 +31,9 @@ export class TuroCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TuroCollector class.
+     */
     constructor() {
         super(TuroCollector.CONFIG);
     }

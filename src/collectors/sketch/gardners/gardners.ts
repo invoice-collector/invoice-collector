@@ -32,6 +32,9 @@ export class GardnersCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GardnersCollector class.
+     */
     constructor() {
         super(GardnersCollector.CONFIG);
     }

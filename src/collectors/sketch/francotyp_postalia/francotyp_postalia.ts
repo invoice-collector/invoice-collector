@@ -32,6 +32,9 @@ export class FrancotypPostaliaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FrancotypPostaliaCollector class.
+     */
     constructor() {
         super(FrancotypPostaliaCollector.CONFIG);
     }

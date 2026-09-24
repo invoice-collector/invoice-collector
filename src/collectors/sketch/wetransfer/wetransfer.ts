@@ -32,6 +32,9 @@ export class WetransferCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WetransferCollector class.
+     */
     constructor() {
         super(WetransferCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class StadtwerkeHammCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StadtwerkeHammCollector class.
+     */
     constructor() {
         super(StadtwerkeHammCollector.CONFIG);
     }

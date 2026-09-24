@@ -32,6 +32,9 @@ export class InvolveMeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the InvolveMeCollector class.
+     */
     constructor() {
         super(InvolveMeCollector.CONFIG);
     }

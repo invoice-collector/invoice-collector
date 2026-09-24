@@ -32,6 +32,9 @@ export class WpRocketResellerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WpRocketResellerCollector class.
+     */
     constructor() {
         super(WpRocketResellerCollector.CONFIG);
     }

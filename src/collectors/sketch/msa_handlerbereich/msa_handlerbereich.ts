@@ -32,6 +32,9 @@ export class MsaHandlerbereichCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MsaHandlerbereichCollector class.
+     */
     constructor() {
         super(MsaHandlerbereichCollector.CONFIG);
     }

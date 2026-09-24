@@ -32,6 +32,9 @@ export class AromaZoneComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AromaZoneComCollector class.
+     */
     constructor() {
         super(AromaZoneComCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class HukCoburgCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HukCoburgCollector class.
+     */
     constructor() {
         super(HukCoburgCollector.CONFIG);
     }

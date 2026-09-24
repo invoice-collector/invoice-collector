@@ -32,6 +32,9 @@ export class DiaparCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DiaparCollector class.
+     */
     constructor() {
         super(DiaparCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class HellotaxCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HellotaxCollector class.
+     */
     constructor() {
         super(HellotaxCollector.CONFIG);
     }

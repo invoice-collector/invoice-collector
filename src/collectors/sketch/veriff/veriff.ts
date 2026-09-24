@@ -32,6 +32,9 @@ export class VeriffCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VeriffCollector class.
+     */
     constructor() {
         super(VeriffCollector.CONFIG);
     }

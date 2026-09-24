@@ -32,6 +32,9 @@ export class GetabstractComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GetabstractComCollector class.
+     */
     constructor() {
         super(GetabstractComCollector.CONFIG);
     }

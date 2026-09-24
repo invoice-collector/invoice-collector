@@ -32,6 +32,9 @@ export class FilemailCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FilemailCollector class.
+     */
     constructor() {
         super(FilemailCollector.CONFIG);
     }

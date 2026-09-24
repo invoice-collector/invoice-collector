@@ -32,6 +32,9 @@ export class VicetempleCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VicetempleCollector class.
+     */
     constructor() {
         super(VicetempleCollector.CONFIG);
     }

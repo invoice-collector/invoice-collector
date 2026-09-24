@@ -32,6 +32,9 @@ export class BablicCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BablicCollector class.
+     */
     constructor() {
         super(BablicCollector.CONFIG);
     }

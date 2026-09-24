@@ -32,6 +32,9 @@ export class PaydueCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PaydueCollector class.
+     */
     constructor() {
         super(PaydueCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class HelunaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HelunaCollector class.
+     */
     constructor() {
         super(HelunaCollector.CONFIG);
     }

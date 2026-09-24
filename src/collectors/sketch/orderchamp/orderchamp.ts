@@ -32,6 +32,9 @@ export class OrderchampCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OrderchampCollector class.
+     */
     constructor() {
         super(OrderchampCollector.CONFIG);
     }

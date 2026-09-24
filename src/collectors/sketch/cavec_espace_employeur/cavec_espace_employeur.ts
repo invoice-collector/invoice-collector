@@ -32,6 +32,9 @@ export class CavecEspaceEmployeurCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CavecEspaceEmployeurCollector class.
+     */
     constructor() {
         super(CavecEspaceEmployeurCollector.CONFIG);
     }

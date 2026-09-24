@@ -32,6 +32,9 @@ export class PixxIoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PixxIoCollector class.
+     */
     constructor() {
         super(PixxIoCollector.CONFIG);
     }

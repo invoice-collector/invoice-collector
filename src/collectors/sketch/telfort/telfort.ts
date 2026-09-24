@@ -32,6 +32,9 @@ export class TelfortCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TelfortCollector class.
+     */
     constructor() {
         super(TelfortCollector.CONFIG);
     }

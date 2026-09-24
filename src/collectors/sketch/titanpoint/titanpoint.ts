@@ -32,6 +32,9 @@ export class TitanpointCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TitanpointCollector class.
+     */
     constructor() {
         super(TitanpointCollector.CONFIG);
     }

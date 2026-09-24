@@ -32,6 +32,9 @@ export class SmskaufenComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SmskaufenComCollector class.
+     */
     constructor() {
         super(SmskaufenComCollector.CONFIG);
     }

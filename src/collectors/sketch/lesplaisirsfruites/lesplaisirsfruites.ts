@@ -32,6 +32,9 @@ export class LesplaisirsfruitesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LesplaisirsfruitesCollector class.
+     */
     constructor() {
         super(LesplaisirsfruitesCollector.CONFIG);
     }

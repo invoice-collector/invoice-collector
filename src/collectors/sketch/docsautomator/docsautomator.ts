@@ -32,6 +32,9 @@ export class DocsautomatorCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DocsautomatorCollector class.
+     */
     constructor() {
         super(DocsautomatorCollector.CONFIG);
     }

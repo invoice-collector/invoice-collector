@@ -32,6 +32,9 @@ export class AgrizCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AgrizCollector class.
+     */
     constructor() {
         super(AgrizCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class BirchCoomunicationsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BirchCoomunicationsCollector class.
+     */
     constructor() {
         super(BirchCoomunicationsCollector.CONFIG);
     }

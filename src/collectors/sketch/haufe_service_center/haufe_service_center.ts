@@ -32,6 +32,9 @@ export class HaufeServiceCenterCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HaufeServiceCenterCollector class.
+     */
     constructor() {
         super(HaufeServiceCenterCollector.CONFIG);
     }

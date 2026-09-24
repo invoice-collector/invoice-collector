@@ -32,6 +32,9 @@ export class TwagoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TwagoCollector class.
+     */
     constructor() {
         super(TwagoCollector.CONFIG);
     }

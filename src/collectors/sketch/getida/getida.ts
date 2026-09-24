@@ -32,6 +32,9 @@ export class GetidaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GetidaCollector class.
+     */
     constructor() {
         super(GetidaCollector.CONFIG);
     }

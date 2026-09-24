@@ -32,6 +32,9 @@ export class HaistGmbhCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HaistGmbhCollector class.
+     */
     constructor() {
         super(HaistGmbhCollector.CONFIG);
     }

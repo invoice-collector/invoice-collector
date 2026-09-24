@@ -32,6 +32,9 @@ export class WcaWasteCorporationCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WcaWasteCorporationCollector class.
+     */
     constructor() {
         super(WcaWasteCorporationCollector.CONFIG);
     }

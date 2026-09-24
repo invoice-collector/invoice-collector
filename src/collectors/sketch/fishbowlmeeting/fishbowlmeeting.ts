@@ -32,6 +32,9 @@ export class FishbowlmeetingCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FishbowlmeetingCollector class.
+     */
     constructor() {
         super(FishbowlmeetingCollector.CONFIG);
     }

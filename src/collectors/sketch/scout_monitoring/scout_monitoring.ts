@@ -32,6 +32,9 @@ export class ScoutMonitoringCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ScoutMonitoringCollector class.
+     */
     constructor() {
         super(ScoutMonitoringCollector.CONFIG);
     }

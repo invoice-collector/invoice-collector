@@ -32,6 +32,9 @@ export class KitchnCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KitchnCollector class.
+     */
     constructor() {
         super(KitchnCollector.CONFIG);
     }

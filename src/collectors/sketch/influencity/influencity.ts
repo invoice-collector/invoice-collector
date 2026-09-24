@@ -32,6 +32,9 @@ export class InfluencityCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the InfluencityCollector class.
+     */
     constructor() {
         super(InfluencityCollector.CONFIG);
     }

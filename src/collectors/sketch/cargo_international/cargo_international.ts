@@ -32,6 +32,9 @@ export class CargoInternationalCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CargoInternationalCollector class.
+     */
     constructor() {
         super(CargoInternationalCollector.CONFIG);
     }

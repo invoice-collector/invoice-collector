@@ -32,6 +32,9 @@ export class TexturesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TexturesCollector class.
+     */
     constructor() {
         super(TexturesCollector.CONFIG);
     }

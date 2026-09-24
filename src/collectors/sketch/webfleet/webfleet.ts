@@ -32,6 +32,9 @@ export class WebfleetCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WebfleetCollector class.
+     */
     constructor() {
         super(WebfleetCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class EasybellCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EasybellCollector class.
+     */
     constructor() {
         super(EasybellCollector.CONFIG);
     }

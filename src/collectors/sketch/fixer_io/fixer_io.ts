@@ -32,6 +32,9 @@ export class FixerIoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FixerIoCollector class.
+     */
     constructor() {
         super(FixerIoCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class OldenburgischeLandesbankCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OldenburgischeLandesbankCollector class.
+     */
     constructor() {
         super(OldenburgischeLandesbankCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class AutodeskCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AutodeskCollector class.
+     */
     constructor() {
         super(AutodeskCollector.CONFIG);
     }

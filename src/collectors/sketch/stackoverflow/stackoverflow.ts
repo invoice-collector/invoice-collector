@@ -32,6 +32,9 @@ export class StackoverflowCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StackoverflowCollector class.
+     */
     constructor() {
         super(StackoverflowCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class UserComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the UserComCollector class.
+     */
     constructor() {
         super(UserComCollector.CONFIG);
     }

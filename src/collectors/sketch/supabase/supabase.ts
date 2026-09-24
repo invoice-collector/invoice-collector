@@ -32,6 +32,9 @@ export class SupabaseCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SupabaseCollector class.
+     */
     constructor() {
         super(SupabaseCollector.CONFIG);
     }

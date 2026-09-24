@@ -32,6 +32,9 @@ export class EcomplyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EcomplyCollector class.
+     */
     constructor() {
         super(EcomplyCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class NiceIncontactCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NiceIncontactCollector class.
+     */
     constructor() {
         super(NiceIncontactCollector.CONFIG);
     }

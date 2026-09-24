@@ -32,6 +32,9 @@ export class CopyleaksCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CopyleaksCollector class.
+     */
     constructor() {
         super(CopyleaksCollector.CONFIG);
     }

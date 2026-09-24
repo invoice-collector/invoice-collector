@@ -32,6 +32,9 @@ export class CemexGoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CemexGoCollector class.
+     */
     constructor() {
         super(CemexGoCollector.CONFIG);
     }

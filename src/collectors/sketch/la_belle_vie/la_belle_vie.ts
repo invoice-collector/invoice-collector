@@ -32,6 +32,9 @@ export class LaBelleVieCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LaBelleVieCollector class.
+     */
     constructor() {
         super(LaBelleVieCollector.CONFIG);
     }

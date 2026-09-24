@@ -32,6 +32,9 @@ export class GetformIoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GetformIoCollector class.
+     */
     constructor() {
         super(GetformIoCollector.CONFIG);
     }

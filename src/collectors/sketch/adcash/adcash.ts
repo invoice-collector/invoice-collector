@@ -32,6 +32,9 @@ export class AdcashCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AdcashCollector class.
+     */
     constructor() {
         super(AdcashCollector.CONFIG);
     }

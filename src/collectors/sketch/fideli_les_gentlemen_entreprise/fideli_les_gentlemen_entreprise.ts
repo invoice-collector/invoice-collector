@@ -32,6 +32,9 @@ export class FideliLesGentlemenEntrepriseCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FideliLesGentlemenEntrepriseCollector class.
+     */
     constructor() {
         super(FideliLesGentlemenEntrepriseCollector.CONFIG);
     }

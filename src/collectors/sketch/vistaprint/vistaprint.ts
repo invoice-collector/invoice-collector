@@ -31,6 +31,9 @@ export class VistaPrintCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VistaPrintCollector class.
+     */
     constructor() {
         super(VistaPrintCollector.CONFIG);
     }

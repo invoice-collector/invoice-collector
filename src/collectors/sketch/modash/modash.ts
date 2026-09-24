@@ -32,6 +32,9 @@ export class ModashCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ModashCollector class.
+     */
     constructor() {
         super(ModashCollector.CONFIG);
     }

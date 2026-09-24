@@ -32,6 +32,9 @@ export class FreelanceDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FreelanceDeCollector class.
+     */
     constructor() {
         super(FreelanceDeCollector.CONFIG);
     }

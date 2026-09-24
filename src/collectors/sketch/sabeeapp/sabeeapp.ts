@@ -32,6 +32,9 @@ export class SabeeappCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SabeeappCollector class.
+     */
     constructor() {
         super(SabeeappCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class QuironprevencionCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the QuironprevencionCollector class.
+     */
     constructor() {
         super(QuironprevencionCollector.CONFIG);
     }

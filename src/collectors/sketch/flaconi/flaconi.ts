@@ -32,6 +32,9 @@ export class FlaconiCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FlaconiCollector class.
+     */
     constructor() {
         super(FlaconiCollector.CONFIG);
     }

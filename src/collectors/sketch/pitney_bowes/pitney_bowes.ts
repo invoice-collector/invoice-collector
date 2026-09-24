@@ -32,6 +32,9 @@ export class PitneyBowesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PitneyBowesCollector class.
+     */
     constructor() {
         super(PitneyBowesCollector.CONFIG);
     }

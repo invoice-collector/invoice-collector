@@ -32,6 +32,9 @@ export class WinesittingCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WinesittingCollector class.
+     */
     constructor() {
         super(WinesittingCollector.CONFIG);
     }

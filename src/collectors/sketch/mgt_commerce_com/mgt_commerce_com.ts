@@ -32,6 +32,9 @@ export class MgtCommerceComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MgtCommerceComCollector class.
+     */
     constructor() {
         super(MgtCommerceComCollector.CONFIG);
     }

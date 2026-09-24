@@ -32,6 +32,9 @@ export class ArtboardCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ArtboardCollector class.
+     */
     constructor() {
         super(ArtboardCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class SpeechmaticsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SpeechmaticsCollector class.
+     */
     constructor() {
         super(SpeechmaticsCollector.CONFIG);
     }

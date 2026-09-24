@@ -32,6 +32,9 @@ export class SuperMagneteCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SuperMagneteCollector class.
+     */
     constructor() {
         super(SuperMagneteCollector.CONFIG);
     }

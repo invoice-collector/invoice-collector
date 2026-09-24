@@ -32,6 +32,9 @@ export class YoufoneNlCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the YoufoneNlCollector class.
+     */
     constructor() {
         super(YoufoneNlCollector.CONFIG);
     }

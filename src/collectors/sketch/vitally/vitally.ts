@@ -32,6 +32,9 @@ export class VitallyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VitallyCollector class.
+     */
     constructor() {
         super(VitallyCollector.CONFIG);
     }

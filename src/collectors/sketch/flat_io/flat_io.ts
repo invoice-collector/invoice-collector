@@ -32,6 +32,9 @@ export class FlatIoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FlatIoCollector class.
+     */
     constructor() {
         super(FlatIoCollector.CONFIG);
     }

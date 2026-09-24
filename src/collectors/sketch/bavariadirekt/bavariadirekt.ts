@@ -32,6 +32,9 @@ export class BavariadirektCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BavariadirektCollector class.
+     */
     constructor() {
         super(BavariadirektCollector.CONFIG);
     }

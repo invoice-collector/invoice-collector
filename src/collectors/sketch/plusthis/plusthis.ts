@@ -32,6 +32,9 @@ export class PlusthisCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PlusthisCollector class.
+     */
     constructor() {
         super(PlusthisCollector.CONFIG);
     }

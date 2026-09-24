@@ -32,6 +32,9 @@ export class VmakeAiCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VmakeAiCollector class.
+     */
     constructor() {
         super(VmakeAiCollector.CONFIG);
     }

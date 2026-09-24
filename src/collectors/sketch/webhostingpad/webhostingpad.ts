@@ -32,6 +32,9 @@ export class WebhostingpadCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WebhostingpadCollector class.
+     */
     constructor() {
         super(WebhostingpadCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class CatchtigerComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CatchtigerComCollector class.
+     */
     constructor() {
         super(CatchtigerComCollector.CONFIG);
     }

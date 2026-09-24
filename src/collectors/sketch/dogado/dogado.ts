@@ -32,6 +32,9 @@ export class DogadoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DogadoCollector class.
+     */
     constructor() {
         super(DogadoCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class EbriefDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EbriefDeCollector class.
+     */
     constructor() {
         super(EbriefDeCollector.CONFIG);
     }

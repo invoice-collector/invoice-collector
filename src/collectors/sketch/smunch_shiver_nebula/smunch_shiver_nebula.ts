@@ -32,6 +32,9 @@ export class SmunchShiverNebulaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SmunchShiverNebulaCollector class.
+     */
     constructor() {
         super(SmunchShiverNebulaCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class AuchanTelecomCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AuchanTelecomCollector class.
+     */
     constructor() {
         super(AuchanTelecomCollector.CONFIG);
     }

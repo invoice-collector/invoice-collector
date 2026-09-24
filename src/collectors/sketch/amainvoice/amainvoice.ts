@@ -32,6 +32,9 @@ export class AmainvoiceCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AmainvoiceCollector class.
+     */
     constructor() {
         super(AmainvoiceCollector.CONFIG);
     }

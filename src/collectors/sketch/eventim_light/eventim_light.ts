@@ -32,6 +32,9 @@ export class EventimLightCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EventimLightCollector class.
+     */
     constructor() {
         super(EventimLightCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class N2fCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the N2fCollector class.
+     */
     constructor() {
         super(N2fCollector.CONFIG);
     }

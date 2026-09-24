@@ -32,6 +32,9 @@ export class BsiCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BsiCollector class.
+     */
     constructor() {
         super(BsiCollector.CONFIG);
     }

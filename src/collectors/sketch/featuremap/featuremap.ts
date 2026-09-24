@@ -32,6 +32,9 @@ export class FeaturemapCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FeaturemapCollector class.
+     */
     constructor() {
         super(FeaturemapCollector.CONFIG);
     }

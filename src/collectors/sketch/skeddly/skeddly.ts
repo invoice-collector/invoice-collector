@@ -32,6 +32,9 @@ export class SkeddlyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SkeddlyCollector class.
+     */
     constructor() {
         super(SkeddlyCollector.CONFIG);
     }

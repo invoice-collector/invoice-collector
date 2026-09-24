@@ -32,6 +32,9 @@ export class ListnrideCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ListnrideCollector class.
+     */
     constructor() {
         super(ListnrideCollector.CONFIG);
     }

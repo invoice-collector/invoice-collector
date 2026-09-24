@@ -32,6 +32,9 @@ export class OctoparseCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OctoparseCollector class.
+     */
     constructor() {
         super(OctoparseCollector.CONFIG);
     }

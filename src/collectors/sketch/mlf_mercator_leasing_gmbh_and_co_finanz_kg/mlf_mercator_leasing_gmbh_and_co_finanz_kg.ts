@@ -32,6 +32,9 @@ export class MlfMercatorLeasingGmbhAndCoFinanzKgCollector extends SketchCollecto
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MlfMercatorLeasingGmbhAndCoFinanzKgCollector class.
+     */
     constructor() {
         super(MlfMercatorLeasingGmbhAndCoFinanzKgCollector.CONFIG);
     }

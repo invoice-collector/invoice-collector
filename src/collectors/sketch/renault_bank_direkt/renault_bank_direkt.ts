@@ -32,6 +32,9 @@ export class RenaultBankDirektCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RenaultBankDirektCollector class.
+     */
     constructor() {
         super(RenaultBankDirektCollector.CONFIG);
     }

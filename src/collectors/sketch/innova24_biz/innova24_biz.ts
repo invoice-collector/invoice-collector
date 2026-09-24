@@ -32,6 +32,9 @@ export class Innova24BizCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Innova24BizCollector class.
+     */
     constructor() {
         super(Innova24BizCollector.CONFIG);
     }

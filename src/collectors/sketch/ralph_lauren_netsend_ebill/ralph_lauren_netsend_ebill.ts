@@ -32,6 +32,9 @@ export class RalphLaurenNetsendEbillCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RalphLaurenNetsendEbillCollector class.
+     */
     constructor() {
         super(RalphLaurenNetsendEbillCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class SihotCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SihotCollector class.
+     */
     constructor() {
         super(SihotCollector.CONFIG);
     }

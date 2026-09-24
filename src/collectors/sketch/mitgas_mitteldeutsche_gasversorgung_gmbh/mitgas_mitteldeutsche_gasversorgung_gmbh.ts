@@ -32,6 +32,9 @@ export class MitgasMitteldeutscheGasversorgungGmbhCollector extends SketchCollec
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MitgasMitteldeutscheGasversorgungGmbhCollector class.
+     */
     constructor() {
         super(MitgasMitteldeutscheGasversorgungGmbhCollector.CONFIG);
     }

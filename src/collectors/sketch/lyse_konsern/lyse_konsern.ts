@@ -32,6 +32,9 @@ export class LyseKonsernCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LyseKonsernCollector class.
+     */
     constructor() {
         super(LyseKonsernCollector.CONFIG);
     }

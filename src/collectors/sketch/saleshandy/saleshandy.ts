@@ -32,6 +32,9 @@ export class SaleshandyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SaleshandyCollector class.
+     */
     constructor() {
         super(SaleshandyCollector.CONFIG);
     }

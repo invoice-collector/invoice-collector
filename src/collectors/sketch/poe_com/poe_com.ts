@@ -32,6 +32,9 @@ export class PoeComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PoeComCollector class.
+     */
     constructor() {
         super(PoeComCollector.CONFIG);
     }

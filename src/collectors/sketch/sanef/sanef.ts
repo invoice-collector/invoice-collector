@@ -31,6 +31,9 @@ export class SanefCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SanefCollector class.
+     */
     constructor() {
         super(SanefCollector.CONFIG);
     }

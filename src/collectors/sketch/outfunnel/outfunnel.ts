@@ -32,6 +32,9 @@ export class OutfunnelCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OutfunnelCollector class.
+     */
     constructor() {
         super(OutfunnelCollector.CONFIG);
     }

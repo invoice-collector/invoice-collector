@@ -32,6 +32,9 @@ export class YadoreCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the YadoreCollector class.
+     */
     constructor() {
         super(YadoreCollector.CONFIG);
     }

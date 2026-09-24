@@ -32,6 +32,9 @@ export class PrivyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PrivyCollector class.
+     */
     constructor() {
         super(PrivyCollector.CONFIG);
     }

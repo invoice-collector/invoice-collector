@@ -32,6 +32,9 @@ export class DcWaterCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DcWaterCollector class.
+     */
     constructor() {
         super(DcWaterCollector.CONFIG);
     }

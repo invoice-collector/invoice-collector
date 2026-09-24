@@ -32,6 +32,9 @@ export class QparkNlCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the QparkNlCollector class.
+     */
     constructor() {
         super(QparkNlCollector.CONFIG);
     }

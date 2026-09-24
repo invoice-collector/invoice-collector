@@ -32,6 +32,9 @@ export class ReadymagCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ReadymagCollector class.
+     */
     constructor() {
         super(ReadymagCollector.CONFIG);
     }

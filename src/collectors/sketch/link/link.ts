@@ -32,6 +32,9 @@ export class LinkCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LinkCollector class.
+     */
     constructor() {
         super(LinkCollector.CONFIG);
     }

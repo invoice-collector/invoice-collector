@@ -32,6 +32,9 @@ export class DurableCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DurableCollector class.
+     */
     constructor() {
         super(DurableCollector.CONFIG);
     }

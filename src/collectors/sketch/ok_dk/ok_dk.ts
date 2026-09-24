@@ -32,6 +32,9 @@ export class OkDkCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OkDkCollector class.
+     */
     constructor() {
         super(OkDkCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class CharterCommunicationsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CharterCommunicationsCollector class.
+     */
     constructor() {
         super(CharterCommunicationsCollector.CONFIG);
     }

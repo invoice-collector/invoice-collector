@@ -32,6 +32,9 @@ export class OberbankCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OberbankCollector class.
+     */
     constructor() {
         super(OberbankCollector.CONFIG);
     }

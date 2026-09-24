@@ -32,6 +32,9 @@ export class PanoskinCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PanoskinCollector class.
+     */
     constructor() {
         super(PanoskinCollector.CONFIG);
     }

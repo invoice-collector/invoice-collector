@@ -32,6 +32,9 @@ export class BiobieneCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BiobieneCollector class.
+     */
     constructor() {
         super(BiobieneCollector.CONFIG);
     }

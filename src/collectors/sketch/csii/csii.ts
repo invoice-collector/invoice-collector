@@ -32,6 +32,9 @@ export class CsiiCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CsiiCollector class.
+     */
     constructor() {
         super(CsiiCollector.CONFIG);
     }

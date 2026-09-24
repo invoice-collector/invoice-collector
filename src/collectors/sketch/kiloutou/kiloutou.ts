@@ -31,6 +31,9 @@ export class KiloutouCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KiloutouCollector class.
+     */
     constructor() {
         super(KiloutouCollector.CONFIG);
     }

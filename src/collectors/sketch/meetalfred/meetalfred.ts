@@ -32,6 +32,9 @@ export class MeetalfredCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MeetalfredCollector class.
+     */
     constructor() {
         super(MeetalfredCollector.CONFIG);
     }

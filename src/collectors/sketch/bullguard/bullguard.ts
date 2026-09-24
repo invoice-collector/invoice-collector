@@ -32,6 +32,9 @@ export class BullguardCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BullguardCollector class.
+     */
     constructor() {
         super(BullguardCollector.CONFIG);
     }

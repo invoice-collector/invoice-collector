@@ -32,6 +32,9 @@ export class KyteTecCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KyteTecCollector class.
+     */
     constructor() {
         super(KyteTecCollector.CONFIG);
     }

@@ -31,6 +31,9 @@ export class Plastit35Collector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Plastit35Collector class.
+     */
     constructor() {
         super(Plastit35Collector.CONFIG);
     }

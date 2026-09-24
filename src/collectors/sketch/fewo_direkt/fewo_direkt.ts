@@ -32,6 +32,9 @@ export class FewoDirektCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FewoDirektCollector class.
+     */
     constructor() {
         super(FewoDirektCollector.CONFIG);
     }

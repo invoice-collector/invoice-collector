@@ -32,6 +32,9 @@ export class _2captchaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the _2captchaCollector class.
+     */
     constructor() {
         super(_2captchaCollector.CONFIG);
     }

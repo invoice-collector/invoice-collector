@@ -32,6 +32,9 @@ export class EuronicsXtranetCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EuronicsXtranetCollector class.
+     */
     constructor() {
         super(EuronicsXtranetCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class WalmartCanadaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WalmartCanadaCollector class.
+     */
     constructor() {
         super(WalmartCanadaCollector.CONFIG);
     }

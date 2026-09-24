@@ -32,6 +32,9 @@ export class OpusEnergyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OpusEnergyCollector class.
+     */
     constructor() {
         super(OpusEnergyCollector.CONFIG);
     }

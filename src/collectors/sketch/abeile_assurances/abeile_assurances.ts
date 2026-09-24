@@ -32,6 +32,9 @@ export class AbeileAssurancesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AbeileAssurancesCollector class.
+     */
     constructor() {
         super(AbeileAssurancesCollector.CONFIG);
     }

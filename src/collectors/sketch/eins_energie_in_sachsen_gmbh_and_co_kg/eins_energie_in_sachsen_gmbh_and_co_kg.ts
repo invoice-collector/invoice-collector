@@ -32,6 +32,9 @@ export class EinsEnergieInSachsenGmbhAndCoKgCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EinsEnergieInSachsenGmbhAndCoKgCollector class.
+     */
     constructor() {
         super(EinsEnergieInSachsenGmbhAndCoKgCollector.CONFIG);
     }

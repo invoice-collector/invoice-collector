@@ -32,6 +32,9 @@ export class PorscheChargingServiceCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PorscheChargingServiceCollector class.
+     */
     constructor() {
         super(PorscheChargingServiceCollector.CONFIG);
     }

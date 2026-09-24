@@ -32,6 +32,9 @@ export class PiecesEtPneusCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PiecesEtPneusCollector class.
+     */
     constructor() {
         super(PiecesEtPneusCollector.CONFIG);
     }

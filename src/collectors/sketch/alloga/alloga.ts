@@ -32,6 +32,9 @@ export class AllogaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AllogaCollector class.
+     */
     constructor() {
         super(AllogaCollector.CONFIG);
     }

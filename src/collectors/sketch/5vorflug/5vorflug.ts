@@ -32,6 +32,9 @@ export class _5vorflugCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the _5vorflugCollector class.
+     */
     constructor() {
         super(_5vorflugCollector.CONFIG);
     }

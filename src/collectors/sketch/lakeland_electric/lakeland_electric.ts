@@ -32,6 +32,9 @@ export class LakelandElectricCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LakelandElectricCollector class.
+     */
     constructor() {
         super(LakelandElectricCollector.CONFIG);
     }

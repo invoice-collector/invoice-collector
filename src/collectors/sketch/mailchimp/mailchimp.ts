@@ -32,6 +32,9 @@ export class MailchimpCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MailchimpCollector class.
+     */
     constructor() {
         super(MailchimpCollector.CONFIG);
     }

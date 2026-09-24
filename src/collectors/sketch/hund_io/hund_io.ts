@@ -32,6 +32,9 @@ export class HundIoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HundIoCollector class.
+     */
     constructor() {
         super(HundIoCollector.CONFIG);
     }

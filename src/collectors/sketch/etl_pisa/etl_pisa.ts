@@ -32,6 +32,9 @@ export class EtlPisaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EtlPisaCollector class.
+     */
     constructor() {
         super(EtlPisaCollector.CONFIG);
     }

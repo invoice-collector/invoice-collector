@@ -32,6 +32,9 @@ export class FahrradDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FahrradDeCollector class.
+     */
     constructor() {
         super(FahrradDeCollector.CONFIG);
     }

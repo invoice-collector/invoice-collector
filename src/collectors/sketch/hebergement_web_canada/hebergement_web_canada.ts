@@ -32,6 +32,9 @@ export class HebergementWebCanadaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HebergementWebCanadaCollector class.
+     */
     constructor() {
         super(HebergementWebCanadaCollector.CONFIG);
     }

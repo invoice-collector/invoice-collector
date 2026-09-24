@@ -32,6 +32,9 @@ export class PsohubCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PsohubCollector class.
+     */
     constructor() {
         super(PsohubCollector.CONFIG);
     }

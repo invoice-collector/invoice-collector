@@ -32,6 +32,9 @@ export class RelogGbrWarendorfCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RelogGbrWarendorfCollector class.
+     */
     constructor() {
         super(RelogGbrWarendorfCollector.CONFIG);
     }

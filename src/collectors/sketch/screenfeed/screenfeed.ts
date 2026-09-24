@@ -32,6 +32,9 @@ export class ScreenfeedCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ScreenfeedCollector class.
+     */
     constructor() {
         super(ScreenfeedCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class BtHomeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BtHomeCollector class.
+     */
     constructor() {
         super(BtHomeCollector.CONFIG);
     }

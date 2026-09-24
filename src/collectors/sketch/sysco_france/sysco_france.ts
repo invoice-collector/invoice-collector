@@ -32,6 +32,9 @@ export class SyscoFranceCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SyscoFranceCollector class.
+     */
     constructor() {
         super(SyscoFranceCollector.CONFIG);
     }

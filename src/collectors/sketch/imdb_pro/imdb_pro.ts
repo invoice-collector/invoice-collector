@@ -32,6 +32,9 @@ export class ImdbProCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ImdbProCollector class.
+     */
     constructor() {
         super(ImdbProCollector.CONFIG);
     }

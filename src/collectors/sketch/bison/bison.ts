@@ -32,6 +32,9 @@ export class BisonCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BisonCollector class.
+     */
     constructor() {
         super(BisonCollector.CONFIG);
     }

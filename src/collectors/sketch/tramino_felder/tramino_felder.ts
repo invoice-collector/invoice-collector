@@ -32,6 +32,9 @@ export class TraminoFelderCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TraminoFelderCollector class.
+     */
     constructor() {
         super(TraminoFelderCollector.CONFIG);
     }

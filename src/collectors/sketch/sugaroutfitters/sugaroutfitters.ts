@@ -32,6 +32,9 @@ export class SugaroutfittersCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SugaroutfittersCollector class.
+     */
     constructor() {
         super(SugaroutfittersCollector.CONFIG);
     }

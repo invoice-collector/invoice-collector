@@ -32,6 +32,9 @@ export class AmazonVideoDirectCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AmazonVideoDirectCollector class.
+     */
     constructor() {
         super(AmazonVideoDirectCollector.CONFIG);
     }

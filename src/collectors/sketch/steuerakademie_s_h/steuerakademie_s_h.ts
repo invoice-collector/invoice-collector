@@ -32,6 +32,9 @@ export class SteuerakademieSHCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SteuerakademieSHCollector class.
+     */
     constructor() {
         super(SteuerakademieSHCollector.CONFIG);
     }

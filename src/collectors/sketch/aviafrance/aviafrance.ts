@@ -31,6 +31,9 @@ export class AviaFranceCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AviaFranceCollector class.
+     */
     constructor() {
         super(AviaFranceCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class DondominioCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DondominioCollector class.
+     */
     constructor() {
         super(DondominioCollector.CONFIG);
     }

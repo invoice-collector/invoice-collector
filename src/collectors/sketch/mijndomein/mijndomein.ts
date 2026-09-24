@@ -32,6 +32,9 @@ export class MijndomeinCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MijndomeinCollector class.
+     */
     constructor() {
         super(MijndomeinCollector.CONFIG);
     }

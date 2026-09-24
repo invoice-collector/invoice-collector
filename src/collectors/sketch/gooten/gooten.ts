@@ -32,6 +32,9 @@ export class GootenCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GootenCollector class.
+     */
     constructor() {
         super(GootenCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class GimberCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GimberCollector class.
+     */
     constructor() {
         super(GimberCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class Protection24BnpParibasCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Protection24BnpParibasCollector class.
+     */
     constructor() {
         super(Protection24BnpParibasCollector.CONFIG);
     }

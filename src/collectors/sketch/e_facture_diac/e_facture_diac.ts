@@ -32,6 +32,9 @@ export class EFactureDiacCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EFactureDiacCollector class.
+     */
     constructor() {
         super(EFactureDiacCollector.CONFIG);
     }

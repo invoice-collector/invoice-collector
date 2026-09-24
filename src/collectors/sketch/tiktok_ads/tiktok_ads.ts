@@ -32,6 +32,9 @@ export class TiktokAdsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TiktokAdsCollector class.
+     */
     constructor() {
         super(TiktokAdsCollector.CONFIG);
     }

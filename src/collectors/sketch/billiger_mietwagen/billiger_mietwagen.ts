@@ -32,6 +32,9 @@ export class BilligerMietwagenCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BilligerMietwagenCollector class.
+     */
     constructor() {
         super(BilligerMietwagenCollector.CONFIG);
     }

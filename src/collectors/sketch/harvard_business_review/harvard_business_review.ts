@@ -32,6 +32,9 @@ export class HarvardBusinessReviewCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HarvardBusinessReviewCollector class.
+     */
     constructor() {
         super(HarvardBusinessReviewCollector.CONFIG);
     }

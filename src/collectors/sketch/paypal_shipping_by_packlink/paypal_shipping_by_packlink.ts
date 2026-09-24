@@ -32,6 +32,9 @@ export class PaypalShippingByPacklinkCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PaypalShippingByPacklinkCollector class.
+     */
     constructor() {
         super(PaypalShippingByPacklinkCollector.CONFIG);
     }

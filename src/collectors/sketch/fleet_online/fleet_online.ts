@@ -32,6 +32,9 @@ export class FleetOnlineCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FleetOnlineCollector class.
+     */
     constructor() {
         super(FleetOnlineCollector.CONFIG);
     }

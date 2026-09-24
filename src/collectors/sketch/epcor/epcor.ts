@@ -32,6 +32,9 @@ export class EpcorCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EpcorCollector class.
+     */
     constructor() {
         super(EpcorCollector.CONFIG);
     }

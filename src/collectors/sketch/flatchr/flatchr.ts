@@ -32,6 +32,9 @@ export class FlatchrCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FlatchrCollector class.
+     */
     constructor() {
         super(FlatchrCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class InboxlogyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the InboxlogyCollector class.
+     */
     constructor() {
         super(InboxlogyCollector.CONFIG);
     }

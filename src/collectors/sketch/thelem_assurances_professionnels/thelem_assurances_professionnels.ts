@@ -32,6 +32,9 @@ export class ThelemAssurancesProfessionnelsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ThelemAssurancesProfessionnelsCollector class.
+     */
     constructor() {
         super(ThelemAssurancesProfessionnelsCollector.CONFIG);
     }

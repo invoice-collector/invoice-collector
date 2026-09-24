@@ -32,6 +32,9 @@ export class NinjatechAiCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NinjatechAiCollector class.
+     */
     constructor() {
         super(NinjatechAiCollector.CONFIG);
     }

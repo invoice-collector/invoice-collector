@@ -32,6 +32,9 @@ export class GraphcommonsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GraphcommonsCollector class.
+     */
     constructor() {
         super(GraphcommonsCollector.CONFIG);
     }

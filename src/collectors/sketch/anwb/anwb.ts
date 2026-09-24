@@ -32,6 +32,9 @@ export class AnwbCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AnwbCollector class.
+     */
     constructor() {
         super(AnwbCollector.CONFIG);
     }

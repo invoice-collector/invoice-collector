@@ -32,6 +32,9 @@ export class HansefitCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HansefitCollector class.
+     */
     constructor() {
         super(HansefitCollector.CONFIG);
     }

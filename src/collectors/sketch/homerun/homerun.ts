@@ -32,6 +32,9 @@ export class HomerunCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HomerunCollector class.
+     */
     constructor() {
         super(HomerunCollector.CONFIG);
     }

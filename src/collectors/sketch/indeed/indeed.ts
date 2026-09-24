@@ -32,6 +32,9 @@ export class IndeedCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the IndeedCollector class.
+     */
     constructor() {
         super(IndeedCollector.CONFIG);
     }

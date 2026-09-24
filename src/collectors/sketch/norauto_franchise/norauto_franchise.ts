@@ -32,6 +32,9 @@ export class NorautoFranchiseCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NorautoFranchiseCollector class.
+     */
     constructor() {
         super(NorautoFranchiseCollector.CONFIG);
     }

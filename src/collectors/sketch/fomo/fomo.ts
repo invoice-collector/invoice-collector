@@ -32,6 +32,9 @@ export class FomoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FomoCollector class.
+     */
     constructor() {
         super(FomoCollector.CONFIG);
     }

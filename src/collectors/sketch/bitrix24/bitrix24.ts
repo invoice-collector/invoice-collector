@@ -32,6 +32,9 @@ export class Bitrix24Collector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Bitrix24Collector class.
+     */
     constructor() {
         super(Bitrix24Collector.CONFIG);
     }

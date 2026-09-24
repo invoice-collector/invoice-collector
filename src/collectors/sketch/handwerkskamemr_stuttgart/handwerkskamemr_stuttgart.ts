@@ -32,6 +32,9 @@ export class HandwerkskamemrStuttgartCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HandwerkskamemrStuttgartCollector class.
+     */
     constructor() {
         super(HandwerkskamemrStuttgartCollector.CONFIG);
     }

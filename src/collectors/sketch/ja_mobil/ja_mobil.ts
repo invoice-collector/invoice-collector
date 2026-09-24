@@ -32,6 +32,9 @@ export class JaMobilCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the JaMobilCollector class.
+     */
     constructor() {
         super(JaMobilCollector.CONFIG);
     }

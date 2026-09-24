@@ -32,6 +32,9 @@ export class EigennummerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EigennummerCollector class.
+     */
     constructor() {
         super(EigennummerCollector.CONFIG);
     }

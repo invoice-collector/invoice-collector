@@ -32,6 +32,9 @@ export class DellCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DellCollector class.
+     */
     constructor() {
         super(DellCollector.CONFIG);
     }

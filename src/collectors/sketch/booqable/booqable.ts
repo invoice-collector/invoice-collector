@@ -32,6 +32,9 @@ export class BooqableCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BooqableCollector class.
+     */
     constructor() {
         super(BooqableCollector.CONFIG);
     }

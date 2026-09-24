@@ -32,6 +32,9 @@ export class PlaceitCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PlaceitCollector class.
+     */
     constructor() {
         super(PlaceitCollector.CONFIG);
     }

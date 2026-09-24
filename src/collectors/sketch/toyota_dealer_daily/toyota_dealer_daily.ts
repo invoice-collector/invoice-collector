@@ -32,6 +32,9 @@ export class ToyotaDealerDailyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ToyotaDealerDailyCollector class.
+     */
     constructor() {
         super(ToyotaDealerDailyCollector.CONFIG);
     }

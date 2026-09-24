@@ -32,6 +32,9 @@ export class SimpliBotCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SimpliBotCollector class.
+     */
     constructor() {
         super(SimpliBotCollector.CONFIG);
     }

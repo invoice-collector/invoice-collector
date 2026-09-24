@@ -32,6 +32,9 @@ export class MsaPaiementsMaladieCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MsaPaiementsMaladieCollector class.
+     */
     constructor() {
         super(MsaPaiementsMaladieCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class Pm2KeymetricsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Pm2KeymetricsCollector class.
+     */
     constructor() {
         super(Pm2KeymetricsCollector.CONFIG);
     }

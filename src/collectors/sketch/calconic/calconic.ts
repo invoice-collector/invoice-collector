@@ -32,6 +32,9 @@ export class CalconicCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CalconicCollector class.
+     */
     constructor() {
         super(CalconicCollector.CONFIG);
     }

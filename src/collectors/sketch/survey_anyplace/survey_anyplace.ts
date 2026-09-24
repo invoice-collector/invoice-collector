@@ -32,6 +32,9 @@ export class SurveyAnyplaceCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SurveyAnyplaceCollector class.
+     */
     constructor() {
         super(SurveyAnyplaceCollector.CONFIG);
     }

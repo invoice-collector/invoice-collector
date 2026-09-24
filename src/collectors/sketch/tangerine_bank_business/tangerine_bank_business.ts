@@ -32,6 +32,9 @@ export class TangerineBankBusinessCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TangerineBankBusinessCollector class.
+     */
     constructor() {
         super(TangerineBankBusinessCollector.CONFIG);
     }

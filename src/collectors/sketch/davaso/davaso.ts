@@ -32,6 +32,9 @@ export class DavasoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DavasoCollector class.
+     */
     constructor() {
         super(DavasoCollector.CONFIG);
     }

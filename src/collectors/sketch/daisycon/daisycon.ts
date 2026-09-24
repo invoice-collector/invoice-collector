@@ -32,6 +32,9 @@ export class DaisyconCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DaisyconCollector class.
+     */
     constructor() {
         super(DaisyconCollector.CONFIG);
     }

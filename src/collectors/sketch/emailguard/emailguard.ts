@@ -32,6 +32,9 @@ export class EmailguardCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EmailguardCollector class.
+     */
     constructor() {
         super(EmailguardCollector.CONFIG);
     }

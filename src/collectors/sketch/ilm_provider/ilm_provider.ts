@@ -32,6 +32,9 @@ export class IlmProviderCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the IlmProviderCollector class.
+     */
     constructor() {
         super(IlmProviderCollector.CONFIG);
     }

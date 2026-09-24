@@ -32,6 +32,9 @@ export class WebgainsAdvertiserCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WebgainsAdvertiserCollector class.
+     */
     constructor() {
         super(WebgainsAdvertiserCollector.CONFIG);
     }

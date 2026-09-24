@@ -32,6 +32,9 @@ export class AlbacrossCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AlbacrossCollector class.
+     */
     constructor() {
         super(AlbacrossCollector.CONFIG);
     }

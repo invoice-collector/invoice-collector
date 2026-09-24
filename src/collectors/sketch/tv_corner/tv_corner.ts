@@ -32,6 +32,9 @@ export class TvCornerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TvCornerCollector class.
+     */
     constructor() {
         super(TvCornerCollector.CONFIG);
     }

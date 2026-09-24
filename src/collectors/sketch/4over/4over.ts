@@ -32,6 +32,9 @@ export class _4overCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the _4overCollector class.
+     */
     constructor() {
         super(_4overCollector.CONFIG);
     }

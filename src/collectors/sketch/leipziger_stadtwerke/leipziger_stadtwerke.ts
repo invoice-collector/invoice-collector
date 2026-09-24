@@ -32,6 +32,9 @@ export class LeipzigerStadtwerkeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LeipzigerStadtwerkeCollector class.
+     */
     constructor() {
         super(LeipzigerStadtwerkeCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class LEauBordeauxMetropoleProfessionnelsCollector extends SketchCollecto
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LEauBordeauxMetropoleProfessionnelsCollector class.
+     */
     constructor() {
         super(LEauBordeauxMetropoleProfessionnelsCollector.CONFIG);
     }

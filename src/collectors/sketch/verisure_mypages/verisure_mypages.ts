@@ -32,6 +32,9 @@ export class VerisureMypagesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VerisureMypagesCollector class.
+     */
     constructor() {
         super(VerisureMypagesCollector.CONFIG);
     }

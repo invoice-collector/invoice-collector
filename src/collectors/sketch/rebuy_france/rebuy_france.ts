@@ -32,6 +32,9 @@ export class RebuyFranceCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RebuyFranceCollector class.
+     */
     constructor() {
         super(RebuyFranceCollector.CONFIG);
     }

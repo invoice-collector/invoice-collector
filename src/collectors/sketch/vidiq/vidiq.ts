@@ -32,6 +32,9 @@ export class VidiqCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VidiqCollector class.
+     */
     constructor() {
         super(VidiqCollector.CONFIG);
     }

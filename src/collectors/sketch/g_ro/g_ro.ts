@@ -32,6 +32,9 @@ export class GRoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GRoCollector class.
+     */
     constructor() {
         super(GRoCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class KdpchampCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KdpchampCollector class.
+     */
     constructor() {
         super(KdpchampCollector.CONFIG);
     }

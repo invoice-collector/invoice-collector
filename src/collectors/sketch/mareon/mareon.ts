@@ -32,6 +32,9 @@ export class MareonCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MareonCollector class.
+     */
     constructor() {
         super(MareonCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class ENetElmshornCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ENetElmshornCollector class.
+     */
     constructor() {
         super(ENetElmshornCollector.CONFIG);
     }

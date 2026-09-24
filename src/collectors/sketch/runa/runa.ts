@@ -32,6 +32,9 @@ export class RunaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RunaCollector class.
+     */
     constructor() {
         super(RunaCollector.CONFIG);
     }

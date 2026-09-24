@@ -32,6 +32,9 @@ export class ShopeeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ShopeeCollector class.
+     */
     constructor() {
         super(ShopeeCollector.CONFIG);
     }

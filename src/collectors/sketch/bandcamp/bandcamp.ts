@@ -32,6 +32,9 @@ export class BandcampCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BandcampCollector class.
+     */
     constructor() {
         super(BandcampCollector.CONFIG);
     }

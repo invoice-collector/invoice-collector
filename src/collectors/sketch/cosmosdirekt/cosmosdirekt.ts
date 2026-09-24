@@ -32,6 +32,9 @@ export class CosmosdirektCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CosmosdirektCollector class.
+     */
     constructor() {
         super(CosmosdirektCollector.CONFIG);
     }

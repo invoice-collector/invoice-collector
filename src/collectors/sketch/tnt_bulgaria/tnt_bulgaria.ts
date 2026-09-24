@@ -32,6 +32,9 @@ export class TntBulgariaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TntBulgariaCollector class.
+     */
     constructor() {
         super(TntBulgariaCollector.CONFIG);
     }

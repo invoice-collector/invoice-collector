@@ -32,6 +32,9 @@ export class ExcelPriceFeedCoderunTechnologiesCollector extends SketchCollector 
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ExcelPriceFeedCoderunTechnologiesCollector class.
+     */
     constructor() {
         super(ExcelPriceFeedCoderunTechnologiesCollector.CONFIG);
     }

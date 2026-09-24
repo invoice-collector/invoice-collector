@@ -32,6 +32,9 @@ export class MotelOneCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MotelOneCollector class.
+     */
     constructor() {
         super(MotelOneCollector.CONFIG);
     }

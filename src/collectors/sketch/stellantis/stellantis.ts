@@ -32,6 +32,9 @@ export class StellantisCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StellantisCollector class.
+     */
     constructor() {
         super(StellantisCollector.CONFIG);
     }

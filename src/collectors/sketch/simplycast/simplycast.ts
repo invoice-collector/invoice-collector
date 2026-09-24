@@ -32,6 +32,9 @@ export class SimplycastCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SimplycastCollector class.
+     */
     constructor() {
         super(SimplycastCollector.CONFIG);
     }

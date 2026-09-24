@@ -32,6 +32,9 @@ export class TalentbaitCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TalentbaitCollector class.
+     */
     constructor() {
         super(TalentbaitCollector.CONFIG);
     }

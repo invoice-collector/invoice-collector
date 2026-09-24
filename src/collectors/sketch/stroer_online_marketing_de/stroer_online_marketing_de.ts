@@ -32,6 +32,9 @@ export class StroerOnlineMarketingDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StroerOnlineMarketingDeCollector class.
+     */
     constructor() {
         super(StroerOnlineMarketingDeCollector.CONFIG);
     }

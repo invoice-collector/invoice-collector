@@ -32,6 +32,9 @@ export class StaplesAdvantageCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StaplesAdvantageCollector class.
+     */
     constructor() {
         super(StaplesAdvantageCollector.CONFIG);
     }

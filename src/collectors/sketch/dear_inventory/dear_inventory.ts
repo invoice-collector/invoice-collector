@@ -32,6 +32,9 @@ export class DearInventoryCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DearInventoryCollector class.
+     */
     constructor() {
         super(DearInventoryCollector.CONFIG);
     }

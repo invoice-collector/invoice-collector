@@ -32,6 +32,9 @@ export class AlscoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AlscoCollector class.
+     */
     constructor() {
         super(AlscoCollector.CONFIG);
     }

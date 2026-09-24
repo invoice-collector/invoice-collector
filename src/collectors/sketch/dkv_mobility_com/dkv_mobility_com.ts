@@ -32,6 +32,9 @@ export class DkvMobilityComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DkvMobilityComCollector class.
+     */
     constructor() {
         super(DkvMobilityComCollector.CONFIG);
     }

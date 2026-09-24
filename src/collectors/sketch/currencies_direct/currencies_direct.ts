@@ -32,6 +32,9 @@ export class CurrenciesDirectCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CurrenciesDirectCollector class.
+     */
     constructor() {
         super(CurrenciesDirectCollector.CONFIG);
     }

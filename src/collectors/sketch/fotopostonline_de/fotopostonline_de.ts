@@ -32,6 +32,9 @@ export class FotopostonlineDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FotopostonlineDeCollector class.
+     */
     constructor() {
         super(FotopostonlineDeCollector.CONFIG);
     }

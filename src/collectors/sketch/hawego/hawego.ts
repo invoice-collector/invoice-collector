@@ -32,6 +32,9 @@ export class HawegoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HawegoCollector class.
+     */
     constructor() {
         super(HawegoCollector.CONFIG);
     }

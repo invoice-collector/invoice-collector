@@ -32,6 +32,9 @@ export class YoureditingteamCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the YoureditingteamCollector class.
+     */
     constructor() {
         super(YoureditingteamCollector.CONFIG);
     }

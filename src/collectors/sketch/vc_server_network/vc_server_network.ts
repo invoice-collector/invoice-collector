@@ -32,6 +32,9 @@ export class VcServerNetworkCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VcServerNetworkCollector class.
+     */
     constructor() {
         super(VcServerNetworkCollector.CONFIG);
     }

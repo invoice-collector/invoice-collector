@@ -32,6 +32,9 @@ export class BeautifulCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BeautifulCollector class.
+     */
     constructor() {
         super(BeautifulCollector.CONFIG);
     }

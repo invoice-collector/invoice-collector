@@ -31,6 +31,9 @@ export class LinkeoFrCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LinkeoFrCollector class.
+     */
     constructor() {
         super(LinkeoFrCollector.CONFIG);
     }

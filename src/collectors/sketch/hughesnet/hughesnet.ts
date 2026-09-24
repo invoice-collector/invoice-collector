@@ -32,6 +32,9 @@ export class HughesnetCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HughesnetCollector class.
+     */
     constructor() {
         super(HughesnetCollector.CONFIG);
     }

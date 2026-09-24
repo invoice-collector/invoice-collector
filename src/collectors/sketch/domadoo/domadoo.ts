@@ -32,6 +32,9 @@ export class DomadooCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DomadooCollector class.
+     */
     constructor() {
         super(DomadooCollector.CONFIG);
     }

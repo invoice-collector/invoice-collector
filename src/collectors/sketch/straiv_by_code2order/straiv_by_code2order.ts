@@ -32,6 +32,9 @@ export class StraivByCode2orderCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StraivByCode2orderCollector class.
+     */
     constructor() {
         super(StraivByCode2orderCollector.CONFIG);
     }

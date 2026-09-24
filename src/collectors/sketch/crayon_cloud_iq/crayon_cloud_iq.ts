@@ -32,6 +32,9 @@ export class CrayonCloudIqCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CrayonCloudIqCollector class.
+     */
     constructor() {
         super(CrayonCloudIqCollector.CONFIG);
     }

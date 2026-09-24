@@ -32,6 +32,9 @@ export class GvlCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GvlCollector class.
+     */
     constructor() {
         super(GvlCollector.CONFIG);
     }

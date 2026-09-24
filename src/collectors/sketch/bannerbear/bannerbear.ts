@@ -32,6 +32,9 @@ export class BannerbearCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BannerbearCollector class.
+     */
     constructor() {
         super(BannerbearCollector.CONFIG);
     }

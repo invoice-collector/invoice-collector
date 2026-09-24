@@ -32,6 +32,9 @@ export class LeexiCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LeexiCollector class.
+     */
     constructor() {
         super(LeexiCollector.CONFIG);
     }

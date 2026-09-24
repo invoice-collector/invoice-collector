@@ -32,6 +32,9 @@ export class SetinFrCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SetinFrCollector class.
+     */
     constructor() {
         super(SetinFrCollector.CONFIG);
     }

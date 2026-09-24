@@ -32,6 +32,9 @@ export class SchmetterlingInternationalCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SchmetterlingInternationalCollector class.
+     */
     constructor() {
         super(SchmetterlingInternationalCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class MegaEgCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MegaEgCollector class.
+     */
     constructor() {
         super(MegaEgCollector.CONFIG);
     }

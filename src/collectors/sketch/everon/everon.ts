@@ -32,6 +32,9 @@ export class EveronCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EveronCollector class.
+     */
     constructor() {
         super(EveronCollector.CONFIG);
     }

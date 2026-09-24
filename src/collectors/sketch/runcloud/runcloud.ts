@@ -32,6 +32,9 @@ export class RuncloudCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RuncloudCollector class.
+     */
     constructor() {
         super(RuncloudCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class ReicoVitalSystemeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ReicoVitalSystemeCollector class.
+     */
     constructor() {
         super(ReicoVitalSystemeCollector.CONFIG);
     }

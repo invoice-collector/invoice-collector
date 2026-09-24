@@ -32,6 +32,9 @@ export class UpworkCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the UpworkCollector class.
+     */
     constructor() {
         super(UpworkCollector.CONFIG);
     }

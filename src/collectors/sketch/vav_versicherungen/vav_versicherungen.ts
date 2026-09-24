@@ -32,6 +32,9 @@ export class VavVersicherungenCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VavVersicherungenCollector class.
+     */
     constructor() {
         super(VavVersicherungenCollector.CONFIG);
     }

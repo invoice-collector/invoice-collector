@@ -32,6 +32,9 @@ export class AxonLabAgCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AxonLabAgCollector class.
+     */
     constructor() {
         super(AxonLabAgCollector.CONFIG);
     }

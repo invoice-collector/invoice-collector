@@ -32,6 +32,9 @@ export class DotmailerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DotmailerCollector class.
+     */
     constructor() {
         super(DotmailerCollector.CONFIG);
     }

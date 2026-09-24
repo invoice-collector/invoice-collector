@@ -32,6 +32,9 @@ export class ZendeskCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ZendeskCollector class.
+     */
     constructor() {
         super(ZendeskCollector.CONFIG);
     }

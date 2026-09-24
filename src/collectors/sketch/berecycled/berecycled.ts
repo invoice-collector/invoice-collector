@@ -32,6 +32,9 @@ export class BerecycledCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BerecycledCollector class.
+     */
     constructor() {
         super(BerecycledCollector.CONFIG);
     }

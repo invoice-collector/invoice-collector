@@ -32,6 +32,9 @@ export class Performance360Collector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Performance360Collector class.
+     */
     constructor() {
         super(Performance360Collector.CONFIG);
     }

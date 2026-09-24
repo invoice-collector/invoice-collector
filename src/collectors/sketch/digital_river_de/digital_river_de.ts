@@ -32,6 +32,9 @@ export class DigitalRiverDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DigitalRiverDeCollector class.
+     */
     constructor() {
         super(DigitalRiverDeCollector.CONFIG);
     }

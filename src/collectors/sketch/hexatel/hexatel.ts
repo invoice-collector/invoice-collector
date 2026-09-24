@@ -32,6 +32,9 @@ export class HexatelCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HexatelCollector class.
+     */
     constructor() {
         super(HexatelCollector.CONFIG);
     }

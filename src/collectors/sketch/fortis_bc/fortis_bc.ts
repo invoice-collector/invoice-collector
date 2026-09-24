@@ -32,6 +32,9 @@ export class FortisBcCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FortisBcCollector class.
+     */
     constructor() {
         super(FortisBcCollector.CONFIG);
     }

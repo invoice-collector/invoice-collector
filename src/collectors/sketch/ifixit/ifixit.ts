@@ -32,6 +32,9 @@ export class IfixitCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the IfixitCollector class.
+     */
     constructor() {
         super(IfixitCollector.CONFIG);
     }

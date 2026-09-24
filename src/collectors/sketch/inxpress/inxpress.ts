@@ -32,6 +32,9 @@ export class InxpressCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the InxpressCollector class.
+     */
     constructor() {
         super(InxpressCollector.CONFIG);
     }

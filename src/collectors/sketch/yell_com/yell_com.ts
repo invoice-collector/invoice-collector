@@ -32,6 +32,9 @@ export class YellComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the YellComCollector class.
+     */
     constructor() {
         super(YellComCollector.CONFIG);
     }

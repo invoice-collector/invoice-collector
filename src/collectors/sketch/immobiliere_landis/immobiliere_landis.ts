@@ -32,6 +32,9 @@ export class ImmobiliereLandisCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ImmobiliereLandisCollector class.
+     */
     constructor() {
         super(ImmobiliereLandisCollector.CONFIG);
     }

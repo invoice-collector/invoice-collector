@@ -32,6 +32,9 @@ export class ToutembalCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ToutembalCollector class.
+     */
     constructor() {
         super(ToutembalCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class UbersuggestCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the UbersuggestCollector class.
+     */
     constructor() {
         super(UbersuggestCollector.CONFIG);
     }

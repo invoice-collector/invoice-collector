@@ -32,6 +32,9 @@ export class DolistoreCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DolistoreCollector class.
+     */
     constructor() {
         super(DolistoreCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class JitbitCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the JitbitCollector class.
+     */
     constructor() {
         super(JitbitCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class GiffgaffCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GiffgaffCollector class.
+     */
     constructor() {
         super(GiffgaffCollector.CONFIG);
     }

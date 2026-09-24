@@ -32,6 +32,9 @@ export class DataminerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DataminerCollector class.
+     */
     constructor() {
         super(DataminerCollector.CONFIG);
     }

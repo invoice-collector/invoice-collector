@@ -32,6 +32,9 @@ export class ZimpelOnlineCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ZimpelOnlineCollector class.
+     */
     constructor() {
         super(ZimpelOnlineCollector.CONFIG);
     }

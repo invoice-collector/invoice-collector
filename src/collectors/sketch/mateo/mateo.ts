@@ -32,6 +32,9 @@ export class MateoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MateoCollector class.
+     */
     constructor() {
         super(MateoCollector.CONFIG);
     }

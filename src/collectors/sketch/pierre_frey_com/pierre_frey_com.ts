@@ -32,6 +32,9 @@ export class PierreFreyComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PierreFreyComCollector class.
+     */
     constructor() {
         super(PierreFreyComCollector.CONFIG);
     }

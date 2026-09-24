@@ -32,6 +32,9 @@ export class RegistradoresOrgCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RegistradoresOrgCollector class.
+     */
     constructor() {
         super(RegistradoresOrgCollector.CONFIG);
     }

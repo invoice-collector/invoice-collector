@@ -32,6 +32,9 @@ export class ContactcareNlCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ContactcareNlCollector class.
+     */
     constructor() {
         super(ContactcareNlCollector.CONFIG);
     }

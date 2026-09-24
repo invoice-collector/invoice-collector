@@ -32,6 +32,9 @@ export class EnergiewachtCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EnergiewachtCollector class.
+     */
     constructor() {
         super(EnergiewachtCollector.CONFIG);
     }

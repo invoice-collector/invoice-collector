@@ -32,6 +32,9 @@ export class LightspeedRestaurantPosKSeriesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LightspeedRestaurantPosKSeriesCollector class.
+     */
     constructor() {
         super(LightspeedRestaurantPosKSeriesCollector.CONFIG);
     }

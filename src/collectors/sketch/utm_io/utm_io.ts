@@ -32,6 +32,9 @@ export class UtmIoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the UtmIoCollector class.
+     */
     constructor() {
         super(UtmIoCollector.CONFIG);
     }

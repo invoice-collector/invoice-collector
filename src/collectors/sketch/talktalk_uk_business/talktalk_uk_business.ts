@@ -32,6 +32,9 @@ export class TalktalkUkBusinessCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TalktalkUkBusinessCollector class.
+     */
     constructor() {
         super(TalktalkUkBusinessCollector.CONFIG);
     }

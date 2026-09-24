@@ -32,6 +32,9 @@ export class ChronodriveCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ChronodriveCollector class.
+     */
     constructor() {
         super(ChronodriveCollector.CONFIG);
     }

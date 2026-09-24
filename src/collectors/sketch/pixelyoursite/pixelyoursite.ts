@@ -32,6 +32,9 @@ export class PixelyoursiteCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PixelyoursiteCollector class.
+     */
     constructor() {
         super(PixelyoursiteCollector.CONFIG);
     }

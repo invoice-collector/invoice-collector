@@ -32,6 +32,9 @@ export class PswGroupCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PswGroupCollector class.
+     */
     constructor() {
         super(PswGroupCollector.CONFIG);
     }

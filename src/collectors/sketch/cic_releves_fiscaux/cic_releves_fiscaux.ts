@@ -32,6 +32,9 @@ export class CicRelevesFiscauxCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CicRelevesFiscauxCollector class.
+     */
     constructor() {
         super(CicRelevesFiscauxCollector.CONFIG);
     }

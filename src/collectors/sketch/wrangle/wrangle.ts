@@ -32,6 +32,9 @@ export class WrangleCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WrangleCollector class.
+     */
     constructor() {
         super(WrangleCollector.CONFIG);
     }

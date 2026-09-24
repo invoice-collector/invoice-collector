@@ -32,6 +32,9 @@ export class InfludataCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the InfludataCollector class.
+     */
     constructor() {
         super(InfludataCollector.CONFIG);
     }

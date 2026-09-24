@@ -32,6 +32,9 @@ export class StadtwerkeMuhlheimCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StadtwerkeMuhlheimCollector class.
+     */
     constructor() {
         super(StadtwerkeMuhlheimCollector.CONFIG);
     }

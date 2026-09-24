@@ -32,6 +32,9 @@ export class AudienseCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AudienseCollector class.
+     */
     constructor() {
         super(AudienseCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class PayproGlobalCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PayproGlobalCollector class.
+     */
     constructor() {
         super(PayproGlobalCollector.CONFIG);
     }

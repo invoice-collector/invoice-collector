@@ -32,6 +32,9 @@ export class JImprimeEnFranceCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the JImprimeEnFranceCollector class.
+     */
     constructor() {
         super(JImprimeEnFranceCollector.CONFIG);
     }

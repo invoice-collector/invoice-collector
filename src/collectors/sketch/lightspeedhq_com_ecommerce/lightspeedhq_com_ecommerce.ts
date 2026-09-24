@@ -32,6 +32,9 @@ export class LightspeedhqComEcommerceCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LightspeedhqComEcommerceCollector class.
+     */
     constructor() {
         super(LightspeedhqComEcommerceCollector.CONFIG);
     }

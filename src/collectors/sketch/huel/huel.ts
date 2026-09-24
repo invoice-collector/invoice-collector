@@ -32,6 +32,9 @@ export class HuelCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HuelCollector class.
+     */
     constructor() {
         super(HuelCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class CafAllocationsFamilialesEtPajeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CafAllocationsFamilialesEtPajeCollector class.
+     */
     constructor() {
         super(CafAllocationsFamilialesEtPajeCollector.CONFIG);
     }

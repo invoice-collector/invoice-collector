@@ -32,6 +32,9 @@ export class StempelFabrikDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StempelFabrikDeCollector class.
+     */
     constructor() {
         super(StempelFabrikDeCollector.CONFIG);
     }

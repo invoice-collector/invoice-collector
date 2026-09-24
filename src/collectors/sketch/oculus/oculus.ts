@@ -32,6 +32,9 @@ export class OculusCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OculusCollector class.
+     */
     constructor() {
         super(OculusCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class FunnelcockpitCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FunnelcockpitCollector class.
+     */
     constructor() {
         super(FunnelcockpitCollector.CONFIG);
     }

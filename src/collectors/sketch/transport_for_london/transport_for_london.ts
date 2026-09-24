@@ -32,6 +32,9 @@ export class TransportForLondonCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TransportForLondonCollector class.
+     */
     constructor() {
         super(TransportForLondonCollector.CONFIG);
     }

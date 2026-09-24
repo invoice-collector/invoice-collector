@@ -32,6 +32,9 @@ export class SimyoEsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SimyoEsCollector class.
+     */
     constructor() {
         super(SimyoEsCollector.CONFIG);
     }

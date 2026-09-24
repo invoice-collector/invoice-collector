@@ -32,6 +32,9 @@ export class FleuradaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FleuradaCollector class.
+     */
     constructor() {
         super(FleuradaCollector.CONFIG);
     }

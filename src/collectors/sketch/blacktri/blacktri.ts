@@ -32,6 +32,9 @@ export class BlacktriCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BlacktriCollector class.
+     */
     constructor() {
         super(BlacktriCollector.CONFIG);
     }

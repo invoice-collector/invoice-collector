@@ -32,6 +32,9 @@ export class ScrewfixCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ScrewfixCollector class.
+     */
     constructor() {
         super(ScrewfixCollector.CONFIG);
     }

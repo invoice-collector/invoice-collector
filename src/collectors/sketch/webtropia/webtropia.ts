@@ -32,6 +32,9 @@ export class WebtropiaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WebtropiaCollector class.
+     */
     constructor() {
         super(WebtropiaCollector.CONFIG);
     }

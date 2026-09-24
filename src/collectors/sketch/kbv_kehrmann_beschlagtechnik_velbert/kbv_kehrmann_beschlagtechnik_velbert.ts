@@ -32,6 +32,9 @@ export class KbvKehrmannBeschlagtechnikVelbertCollector extends SketchCollector 
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KbvKehrmannBeschlagtechnikVelbertCollector class.
+     */
     constructor() {
         super(KbvKehrmannBeschlagtechnikVelbertCollector.CONFIG);
     }

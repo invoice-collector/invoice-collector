@@ -32,6 +32,9 @@ export class YoungLivingCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the YoungLivingCollector class.
+     */
     constructor() {
         super(YoungLivingCollector.CONFIG);
     }

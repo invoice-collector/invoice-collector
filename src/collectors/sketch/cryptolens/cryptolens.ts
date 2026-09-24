@@ -32,6 +32,9 @@ export class CryptolensCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CryptolensCollector class.
+     */
     constructor() {
         super(CryptolensCollector.CONFIG);
     }

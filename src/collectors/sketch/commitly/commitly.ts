@@ -32,6 +32,9 @@ export class CommitlyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CommitlyCollector class.
+     */
     constructor() {
         super(CommitlyCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class ClubChauffeurCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ClubChauffeurCollector class.
+     */
     constructor() {
         super(ClubChauffeurCollector.CONFIG);
     }

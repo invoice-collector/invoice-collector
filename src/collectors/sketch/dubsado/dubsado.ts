@@ -32,6 +32,9 @@ export class DubsadoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DubsadoCollector class.
+     */
     constructor() {
         super(DubsadoCollector.CONFIG);
     }

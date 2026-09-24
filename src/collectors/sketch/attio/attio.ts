@@ -32,6 +32,9 @@ export class AttioCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AttioCollector class.
+     */
     constructor() {
         super(AttioCollector.CONFIG);
     }

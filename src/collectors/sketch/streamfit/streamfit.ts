@@ -32,6 +32,9 @@ export class StreamfitCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StreamfitCollector class.
+     */
     constructor() {
         super(StreamfitCollector.CONFIG);
     }

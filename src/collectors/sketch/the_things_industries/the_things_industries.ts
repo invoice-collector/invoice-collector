@@ -32,6 +32,9 @@ export class TheThingsIndustriesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TheThingsIndustriesCollector class.
+     */
     constructor() {
         super(TheThingsIndustriesCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class RjmetricsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RjmetricsCollector class.
+     */
     constructor() {
         super(RjmetricsCollector.CONFIG);
     }

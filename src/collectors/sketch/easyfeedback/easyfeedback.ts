@@ -32,6 +32,9 @@ export class EasyfeedbackCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EasyfeedbackCollector class.
+     */
     constructor() {
         super(EasyfeedbackCollector.CONFIG);
     }

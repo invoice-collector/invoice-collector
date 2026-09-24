@@ -32,6 +32,9 @@ export class AddisonOneclickMeineLohndokumenteCollector extends SketchCollector 
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AddisonOneclickMeineLohndokumenteCollector class.
+     */
     constructor() {
         super(AddisonOneclickMeineLohndokumenteCollector.CONFIG);
     }

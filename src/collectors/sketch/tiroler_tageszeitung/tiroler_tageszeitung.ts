@@ -32,6 +32,9 @@ export class TirolerTageszeitungCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TirolerTageszeitungCollector class.
+     */
     constructor() {
         super(TirolerTageszeitungCollector.CONFIG);
     }

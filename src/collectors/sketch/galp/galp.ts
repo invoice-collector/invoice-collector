@@ -32,6 +32,9 @@ export class GalpCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GalpCollector class.
+     */
     constructor() {
         super(GalpCollector.CONFIG);
     }

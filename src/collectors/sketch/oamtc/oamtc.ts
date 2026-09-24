@@ -32,6 +32,9 @@ export class OamtcCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OamtcCollector class.
+     */
     constructor() {
         super(OamtcCollector.CONFIG);
     }

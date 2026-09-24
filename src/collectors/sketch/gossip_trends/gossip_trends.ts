@@ -32,6 +32,9 @@ export class GossipTrendsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GossipTrendsCollector class.
+     */
     constructor() {
         super(GossipTrendsCollector.CONFIG);
     }

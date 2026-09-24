@@ -32,6 +32,9 @@ export class FloraliesgardenCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FloraliesgardenCollector class.
+     */
     constructor() {
         super(FloraliesgardenCollector.CONFIG);
     }

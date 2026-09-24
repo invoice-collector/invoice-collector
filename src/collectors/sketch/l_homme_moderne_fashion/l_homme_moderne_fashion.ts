@@ -32,6 +32,9 @@ export class LHommeModerneFashionCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LHommeModerneFashionCollector class.
+     */
     constructor() {
         super(LHommeModerneFashionCollector.CONFIG);
     }

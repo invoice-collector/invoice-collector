@@ -31,6 +31,9 @@ export class LaBovidaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LaBovidaCollector class.
+     */
     constructor() {
         super(LaBovidaCollector.CONFIG);
     }

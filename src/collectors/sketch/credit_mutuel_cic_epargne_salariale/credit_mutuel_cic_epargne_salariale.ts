@@ -32,6 +32,9 @@ export class CreditMutuelCicEpargneSalarialeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CreditMutuelCicEpargneSalarialeCollector class.
+     */
     constructor() {
         super(CreditMutuelCicEpargneSalarialeCollector.CONFIG);
     }

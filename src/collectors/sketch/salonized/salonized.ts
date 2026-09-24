@@ -32,6 +32,9 @@ export class SalonizedCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SalonizedCollector class.
+     */
     constructor() {
         super(SalonizedCollector.CONFIG);
     }

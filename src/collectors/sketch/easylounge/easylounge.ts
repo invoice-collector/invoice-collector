@@ -32,6 +32,9 @@ export class EasyloungeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EasyloungeCollector class.
+     */
     constructor() {
         super(EasyloungeCollector.CONFIG);
     }

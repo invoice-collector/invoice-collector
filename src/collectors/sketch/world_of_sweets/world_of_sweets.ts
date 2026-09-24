@@ -32,6 +32,9 @@ export class WorldOfSweetsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WorldOfSweetsCollector class.
+     */
     constructor() {
         super(WorldOfSweetsCollector.CONFIG);
     }

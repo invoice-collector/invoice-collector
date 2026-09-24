@@ -32,6 +32,9 @@ export class PaymoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PaymoCollector class.
+     */
     constructor() {
         super(PaymoCollector.CONFIG);
     }

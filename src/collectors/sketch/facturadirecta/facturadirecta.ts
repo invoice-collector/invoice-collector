@@ -32,6 +32,9 @@ export class FacturadirectaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FacturadirectaCollector class.
+     */
     constructor() {
         super(FacturadirectaCollector.CONFIG);
     }

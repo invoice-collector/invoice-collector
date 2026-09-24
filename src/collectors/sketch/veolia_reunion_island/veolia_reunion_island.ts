@@ -32,6 +32,9 @@ export class VeoliaReunionIslandCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VeoliaReunionIslandCollector class.
+     */
     constructor() {
         super(VeoliaReunionIslandCollector.CONFIG);
     }

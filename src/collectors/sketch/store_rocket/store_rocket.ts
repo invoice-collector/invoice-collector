@@ -32,6 +32,9 @@ export class StoreRocketCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StoreRocketCollector class.
+     */
     constructor() {
         super(StoreRocketCollector.CONFIG);
     }

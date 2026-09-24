@@ -32,6 +32,9 @@ export class CreditMutuelCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CreditMutuelCollector class.
+     */
     constructor() {
         super(CreditMutuelCollector.CONFIG);
     }

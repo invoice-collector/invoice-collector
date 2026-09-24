@@ -32,6 +32,9 @@ export class MydriverCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MydriverCollector class.
+     */
     constructor() {
         super(MydriverCollector.CONFIG);
     }

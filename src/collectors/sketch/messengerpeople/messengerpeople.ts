@@ -32,6 +32,9 @@ export class MessengerpeopleCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MessengerpeopleCollector class.
+     */
     constructor() {
         super(MessengerpeopleCollector.CONFIG);
     }

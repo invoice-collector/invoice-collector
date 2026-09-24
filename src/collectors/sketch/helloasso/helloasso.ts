@@ -31,6 +31,9 @@ export class HelloAssoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HelloAssoCollector class.
+     */
     constructor() {
         super(HelloAssoCollector.CONFIG);
     }

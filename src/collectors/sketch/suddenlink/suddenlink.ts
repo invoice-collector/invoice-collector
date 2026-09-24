@@ -32,6 +32,9 @@ export class SuddenlinkCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SuddenlinkCollector class.
+     */
     constructor() {
         super(SuddenlinkCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class HbMarketplaceHandlerbundCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HbMarketplaceHandlerbundCollector class.
+     */
     constructor() {
         super(HbMarketplaceHandlerbundCollector.CONFIG);
     }

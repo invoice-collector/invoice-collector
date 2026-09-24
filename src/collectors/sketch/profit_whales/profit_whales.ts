@@ -32,6 +32,9 @@ export class ProfitWhalesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ProfitWhalesCollector class.
+     */
     constructor() {
         super(ProfitWhalesCollector.CONFIG);
     }

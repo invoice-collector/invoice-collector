@@ -32,6 +32,9 @@ export class RepurposeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RepurposeCollector class.
+     */
     constructor() {
         super(RepurposeCollector.CONFIG);
     }

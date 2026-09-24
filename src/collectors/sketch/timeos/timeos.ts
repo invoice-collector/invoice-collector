@@ -32,6 +32,9 @@ export class TimeosCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TimeosCollector class.
+     */
     constructor() {
         super(TimeosCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class MegapathCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MegapathCollector class.
+     */
     constructor() {
         super(MegapathCollector.CONFIG);
     }

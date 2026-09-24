@@ -32,6 +32,9 @@ export class GriffatiCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GriffatiCollector class.
+     */
     constructor() {
         super(GriffatiCollector.CONFIG);
     }

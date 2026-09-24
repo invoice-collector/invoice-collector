@@ -32,6 +32,9 @@ export class PowershopAuCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PowershopAuCollector class.
+     */
     constructor() {
         super(PowershopAuCollector.CONFIG);
     }

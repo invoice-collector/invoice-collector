@@ -32,6 +32,9 @@ export class CityOfTampaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CityOfTampaCollector class.
+     */
     constructor() {
         super(CityOfTampaCollector.CONFIG);
     }

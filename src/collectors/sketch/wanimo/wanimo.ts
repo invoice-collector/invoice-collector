@@ -32,6 +32,9 @@ export class WanimoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WanimoCollector class.
+     */
     constructor() {
         super(WanimoCollector.CONFIG);
     }

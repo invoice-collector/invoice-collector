@@ -32,6 +32,9 @@ export class AldiGruneEnergieCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AldiGruneEnergieCollector class.
+     */
     constructor() {
         super(AldiGruneEnergieCollector.CONFIG);
     }

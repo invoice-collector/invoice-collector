@@ -32,6 +32,9 @@ export class MentionMeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MentionMeCollector class.
+     */
     constructor() {
         super(MentionMeCollector.CONFIG);
     }

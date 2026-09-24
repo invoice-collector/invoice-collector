@@ -32,6 +32,9 @@ export class OnepagecrmCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OnepagecrmCollector class.
+     */
     constructor() {
         super(OnepagecrmCollector.CONFIG);
     }

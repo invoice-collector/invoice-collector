@@ -32,6 +32,9 @@ export class CpanelCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CpanelCollector class.
+     */
     constructor() {
         super(CpanelCollector.CONFIG);
     }

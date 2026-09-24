@@ -32,6 +32,9 @@ export class DtadDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DtadDeCollector class.
+     */
     constructor() {
         super(DtadDeCollector.CONFIG);
     }

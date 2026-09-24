@@ -32,6 +32,9 @@ export class StatusIoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StatusIoCollector class.
+     */
     constructor() {
         super(StatusIoCollector.CONFIG);
     }

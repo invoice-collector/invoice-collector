@@ -32,6 +32,9 @@ export class YodeckCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the YodeckCollector class.
+     */
     constructor() {
         super(YodeckCollector.CONFIG);
     }

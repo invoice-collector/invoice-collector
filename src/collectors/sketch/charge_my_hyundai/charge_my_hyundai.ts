@@ -32,6 +32,9 @@ export class ChargeMyHyundaiCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ChargeMyHyundaiCollector class.
+     */
     constructor() {
         super(ChargeMyHyundaiCollector.CONFIG);
     }

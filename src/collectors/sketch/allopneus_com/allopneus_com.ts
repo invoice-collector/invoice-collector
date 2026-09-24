@@ -32,6 +32,9 @@ export class AllopneusComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AllopneusComCollector class.
+     */
     constructor() {
         super(AllopneusComCollector.CONFIG);
     }

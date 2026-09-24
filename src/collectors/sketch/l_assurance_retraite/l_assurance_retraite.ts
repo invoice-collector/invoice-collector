@@ -32,6 +32,9 @@ export class LAssuranceRetraiteCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LAssuranceRetraiteCollector class.
+     */
     constructor() {
         super(LAssuranceRetraiteCollector.CONFIG);
     }

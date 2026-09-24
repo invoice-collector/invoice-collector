@@ -32,6 +32,9 @@ export class AvangatePartnerResellerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AvangatePartnerResellerCollector class.
+     */
     constructor() {
         super(AvangatePartnerResellerCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class AccesSapProsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AccesSapProsCollector class.
+     */
     constructor() {
         super(AccesSapProsCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class I4wifiCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the I4wifiCollector class.
+     */
     constructor() {
         super(I4wifiCollector.CONFIG);
     }

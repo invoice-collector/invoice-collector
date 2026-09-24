@@ -32,6 +32,9 @@ export class GmxCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GmxCollector class.
+     */
     constructor() {
         super(GmxCollector.CONFIG);
     }

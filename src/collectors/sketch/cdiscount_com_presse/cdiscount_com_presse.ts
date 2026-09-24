@@ -32,6 +32,9 @@ export class CdiscountComPresseCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CdiscountComPresseCollector class.
+     */
     constructor() {
         super(CdiscountComPresseCollector.CONFIG);
     }

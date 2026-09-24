@@ -32,6 +32,9 @@ export class BookerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BookerCollector class.
+     */
     constructor() {
         super(BookerCollector.CONFIG);
     }

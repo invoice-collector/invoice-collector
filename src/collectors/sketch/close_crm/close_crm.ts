@@ -32,6 +32,9 @@ export class CloseCrmCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CloseCrmCollector class.
+     */
     constructor() {
         super(CloseCrmCollector.CONFIG);
     }

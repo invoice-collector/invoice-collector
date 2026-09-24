@@ -32,6 +32,9 @@ export class UnsplashCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the UnsplashCollector class.
+     */
     constructor() {
         super(UnsplashCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class ZiggoNlCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ZiggoNlCollector class.
+     */
     constructor() {
         super(ZiggoNlCollector.CONFIG);
     }

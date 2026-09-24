@@ -32,6 +32,9 @@ export class ChiemgauDslCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ChiemgauDslCollector class.
+     */
     constructor() {
         super(ChiemgauDslCollector.CONFIG);
     }

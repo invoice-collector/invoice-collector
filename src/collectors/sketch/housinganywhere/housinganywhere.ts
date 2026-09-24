@@ -32,6 +32,9 @@ export class HousinganywhereCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HousinganywhereCollector class.
+     */
     constructor() {
         super(HousinganywhereCollector.CONFIG);
     }

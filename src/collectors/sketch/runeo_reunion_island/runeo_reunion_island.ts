@@ -32,6 +32,9 @@ export class RuneoReunionIslandCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RuneoReunionIslandCollector class.
+     */
     constructor() {
         super(RuneoReunionIslandCollector.CONFIG);
     }

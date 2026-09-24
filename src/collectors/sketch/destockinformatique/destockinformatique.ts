@@ -31,6 +31,9 @@ export class DestockInformatiqueCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DestockInformatiqueCollector class.
+     */
     constructor() {
         super(DestockInformatiqueCollector.CONFIG);
     }

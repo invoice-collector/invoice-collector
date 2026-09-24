@@ -32,6 +32,9 @@ export class TwengaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TwengaCollector class.
+     */
     constructor() {
         super(TwengaCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class FotoDrucken24DeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FotoDrucken24DeCollector class.
+     */
     constructor() {
         super(FotoDrucken24DeCollector.CONFIG);
     }

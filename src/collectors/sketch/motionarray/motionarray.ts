@@ -32,6 +32,9 @@ export class MotionarrayCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MotionarrayCollector class.
+     */
     constructor() {
         super(MotionarrayCollector.CONFIG);
     }

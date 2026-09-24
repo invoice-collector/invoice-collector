@@ -32,6 +32,9 @@ export class BaurnewmediaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BaurnewmediaCollector class.
+     */
     constructor() {
         super(BaurnewmediaCollector.CONFIG);
     }

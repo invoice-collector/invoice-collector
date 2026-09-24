@@ -32,6 +32,9 @@ export class OnmisendCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OnmisendCollector class.
+     */
     constructor() {
         super(OnmisendCollector.CONFIG);
     }

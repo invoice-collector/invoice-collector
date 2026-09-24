@@ -32,6 +32,9 @@ export class DigixoComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DigixoComCollector class.
+     */
     constructor() {
         super(DigixoComCollector.CONFIG);
     }

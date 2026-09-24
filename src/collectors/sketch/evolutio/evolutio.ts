@@ -32,6 +32,9 @@ export class EvolutioCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EvolutioCollector class.
+     */
     constructor() {
         super(EvolutioCollector.CONFIG);
     }

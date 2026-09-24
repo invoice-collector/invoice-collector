@@ -32,6 +32,9 @@ export class SnapshooterCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SnapshooterCollector class.
+     */
     constructor() {
         super(SnapshooterCollector.CONFIG);
     }

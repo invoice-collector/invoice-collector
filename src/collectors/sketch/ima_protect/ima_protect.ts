@@ -32,6 +32,9 @@ export class ImaProtectCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ImaProtectCollector class.
+     */
     constructor() {
         super(ImaProtectCollector.CONFIG);
     }

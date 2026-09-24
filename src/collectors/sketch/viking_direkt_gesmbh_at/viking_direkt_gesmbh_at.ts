@@ -32,6 +32,9 @@ export class VikingDirektGesmbhAtCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VikingDirektGesmbhAtCollector class.
+     */
     constructor() {
         super(VikingDirektGesmbhAtCollector.CONFIG);
     }

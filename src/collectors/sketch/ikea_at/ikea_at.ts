@@ -32,6 +32,9 @@ export class IkeaAtCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the IkeaAtCollector class.
+     */
     constructor() {
         super(IkeaAtCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class AussiebumCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AussiebumCollector class.
+     */
     constructor() {
         super(AussiebumCollector.CONFIG);
     }

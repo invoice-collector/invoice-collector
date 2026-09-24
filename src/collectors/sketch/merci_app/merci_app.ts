@@ -32,6 +32,9 @@ export class MerciAppCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MerciAppCollector class.
+     */
     constructor() {
         super(MerciAppCollector.CONFIG);
     }

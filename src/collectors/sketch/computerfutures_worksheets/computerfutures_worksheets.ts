@@ -32,6 +32,9 @@ export class ComputerfuturesWorksheetsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ComputerfuturesWorksheetsCollector class.
+     */
     constructor() {
         super(ComputerfuturesWorksheetsCollector.CONFIG);
     }

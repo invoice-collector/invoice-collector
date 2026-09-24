@@ -32,6 +32,9 @@ export class TheDriveryCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TheDriveryCollector class.
+     */
     constructor() {
         super(TheDriveryCollector.CONFIG);
     }

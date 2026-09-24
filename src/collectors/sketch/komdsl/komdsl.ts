@@ -32,6 +32,9 @@ export class KomdslCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KomdslCollector class.
+     */
     constructor() {
         super(KomdslCollector.CONFIG);
     }

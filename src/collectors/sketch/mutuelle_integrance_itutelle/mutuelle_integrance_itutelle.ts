@@ -32,6 +32,9 @@ export class MutuelleIntegranceItutelleCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MutuelleIntegranceItutelleCollector class.
+     */
     constructor() {
         super(MutuelleIntegranceItutelleCollector.CONFIG);
     }

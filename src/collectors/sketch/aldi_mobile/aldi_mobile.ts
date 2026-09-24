@@ -32,6 +32,9 @@ export class AldiMobileCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AldiMobileCollector class.
+     */
     constructor() {
         super(AldiMobileCollector.CONFIG);
     }

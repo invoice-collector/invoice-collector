@@ -32,6 +32,9 @@ export class KeytchensCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KeytchensCollector class.
+     */
     constructor() {
         super(KeytchensCollector.CONFIG);
     }

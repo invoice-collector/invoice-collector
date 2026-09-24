@@ -32,6 +32,9 @@ export class EpiphanCloudCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EpiphanCloudCollector class.
+     */
     constructor() {
         super(EpiphanCloudCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class AwinAffiliateCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AwinAffiliateCollector class.
+     */
     constructor() {
         super(AwinAffiliateCollector.CONFIG);
     }

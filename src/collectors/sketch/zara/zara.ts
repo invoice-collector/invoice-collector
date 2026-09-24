@@ -32,6 +32,9 @@ export class ZaraCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ZaraCollector class.
+     */
     constructor() {
         super(ZaraCollector.CONFIG);
     }

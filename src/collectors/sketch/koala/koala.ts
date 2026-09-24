@@ -32,6 +32,9 @@ export class KoalaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KoalaCollector class.
+     */
     constructor() {
         super(KoalaCollector.CONFIG);
     }

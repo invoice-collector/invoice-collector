@@ -32,6 +32,9 @@ export class AzooZweihandwerkBackendCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AzooZweihandwerkBackendCollector class.
+     */
     constructor() {
         super(AzooZweihandwerkBackendCollector.CONFIG);
     }

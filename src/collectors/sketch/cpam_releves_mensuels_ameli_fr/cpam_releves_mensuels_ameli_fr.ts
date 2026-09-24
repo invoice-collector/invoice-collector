@@ -32,6 +32,9 @@ export class CpamRelevesMensuelsAmeliFrCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CpamRelevesMensuelsAmeliFrCollector class.
+     */
     constructor() {
         super(CpamRelevesMensuelsAmeliFrCollector.CONFIG);
     }

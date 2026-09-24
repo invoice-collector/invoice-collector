@@ -32,6 +32,9 @@ export class BrodosNetCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BrodosNetCollector class.
+     */
     constructor() {
         super(BrodosNetCollector.CONFIG);
     }

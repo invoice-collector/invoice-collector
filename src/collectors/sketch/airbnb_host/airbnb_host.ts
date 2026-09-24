@@ -33,6 +33,9 @@ export class AirbnbHostCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AirbnbHostCollector class.
+     */
     constructor() {
         super(AirbnbHostCollector.CONFIG);
     }

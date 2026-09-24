@@ -32,6 +32,9 @@ export class BreezyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BreezyCollector class.
+     */
     constructor() {
         super(BreezyCollector.CONFIG);
     }

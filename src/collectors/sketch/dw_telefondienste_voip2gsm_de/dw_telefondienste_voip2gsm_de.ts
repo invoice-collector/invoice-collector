@@ -32,6 +32,9 @@ export class DwTelefondiensteVoip2gsmDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DwTelefondiensteVoip2gsmDeCollector class.
+     */
     constructor() {
         super(DwTelefondiensteVoip2gsmDeCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class GearsetCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GearsetCollector class.
+     */
     constructor() {
         super(GearsetCollector.CONFIG);
     }

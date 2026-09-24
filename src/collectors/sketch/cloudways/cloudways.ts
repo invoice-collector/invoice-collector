@@ -32,6 +32,9 @@ export class CloudwaysCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CloudwaysCollector class.
+     */
     constructor() {
         super(CloudwaysCollector.CONFIG);
     }

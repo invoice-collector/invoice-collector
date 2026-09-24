@@ -32,6 +32,9 @@ export class MercavusCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MercavusCollector class.
+     */
     constructor() {
         super(MercavusCollector.CONFIG);
     }

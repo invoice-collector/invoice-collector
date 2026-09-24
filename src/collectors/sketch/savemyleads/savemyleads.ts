@@ -32,6 +32,9 @@ export class SavemyleadsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SavemyleadsCollector class.
+     */
     constructor() {
         super(SavemyleadsCollector.CONFIG);
     }

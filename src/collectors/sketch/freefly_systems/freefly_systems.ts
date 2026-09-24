@@ -32,6 +32,9 @@ export class FreeflySystemsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FreeflySystemsCollector class.
+     */
     constructor() {
         super(FreeflySystemsCollector.CONFIG);
     }

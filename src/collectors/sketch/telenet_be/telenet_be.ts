@@ -32,6 +32,9 @@ export class TelenetBeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TelenetBeCollector class.
+     */
     constructor() {
         super(TelenetBeCollector.CONFIG);
     }

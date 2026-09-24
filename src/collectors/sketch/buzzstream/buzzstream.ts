@@ -32,6 +32,9 @@ export class BuzzstreamCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BuzzstreamCollector class.
+     */
     constructor() {
         super(BuzzstreamCollector.CONFIG);
     }

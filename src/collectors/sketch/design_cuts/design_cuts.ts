@@ -32,6 +32,9 @@ export class DesignCutsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DesignCutsCollector class.
+     */
     constructor() {
         super(DesignCutsCollector.CONFIG);
     }

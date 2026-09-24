@@ -32,6 +32,9 @@ export class StawagStadtwerkeAachenAgCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StawagStadtwerkeAachenAgCollector class.
+     */
     constructor() {
         super(StawagStadtwerkeAachenAgCollector.CONFIG);
     }

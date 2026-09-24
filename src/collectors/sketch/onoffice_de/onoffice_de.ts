@@ -32,6 +32,9 @@ export class OnofficeDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OnofficeDeCollector class.
+     */
     constructor() {
         super(OnofficeDeCollector.CONFIG);
     }

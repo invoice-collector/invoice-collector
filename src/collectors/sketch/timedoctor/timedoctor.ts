@@ -32,6 +32,9 @@ export class TimedoctorCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TimedoctorCollector class.
+     */
     constructor() {
         super(TimedoctorCollector.CONFIG);
     }

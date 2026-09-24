@@ -32,6 +32,9 @@ export class WiismileCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WiismileCollector class.
+     */
     constructor() {
         super(WiismileCollector.CONFIG);
     }

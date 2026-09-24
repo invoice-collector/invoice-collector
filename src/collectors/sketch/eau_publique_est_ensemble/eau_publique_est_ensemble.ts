@@ -32,6 +32,9 @@ export class EauPubliqueEstEnsembleCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EauPubliqueEstEnsembleCollector class.
+     */
     constructor() {
         super(EauPubliqueEstEnsembleCollector.CONFIG);
     }

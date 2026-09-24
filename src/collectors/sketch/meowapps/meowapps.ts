@@ -32,6 +32,9 @@ export class MeowappsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MeowappsCollector class.
+     */
     constructor() {
         super(MeowappsCollector.CONFIG);
     }

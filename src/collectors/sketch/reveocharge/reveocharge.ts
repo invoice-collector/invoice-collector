@@ -32,6 +32,9 @@ export class ReveochargeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ReveochargeCollector class.
+     */
     constructor() {
         super(ReveochargeCollector.CONFIG);
     }

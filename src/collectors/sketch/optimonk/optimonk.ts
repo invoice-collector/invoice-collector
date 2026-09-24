@@ -32,6 +32,9 @@ export class OptimonkCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OptimonkCollector class.
+     */
     constructor() {
         super(OptimonkCollector.CONFIG);
     }

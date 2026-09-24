@@ -32,6 +32,9 @@ export class PachmyrCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PachmyrCollector class.
+     */
     constructor() {
         super(PachmyrCollector.CONFIG);
     }

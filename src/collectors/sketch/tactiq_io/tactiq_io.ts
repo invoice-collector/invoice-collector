@@ -32,6 +32,9 @@ export class TactiqIoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TactiqIoCollector class.
+     */
     constructor() {
         super(TactiqIoCollector.CONFIG);
     }

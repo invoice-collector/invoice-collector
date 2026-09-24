@@ -32,6 +32,9 @@ export class Rent24Collector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Rent24Collector class.
+     */
     constructor() {
         super(Rent24Collector.CONFIG);
     }

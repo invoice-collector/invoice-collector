@@ -32,6 +32,9 @@ export class ThrivecartCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ThrivecartCollector class.
+     */
     constructor() {
         super(ThrivecartCollector.CONFIG);
     }

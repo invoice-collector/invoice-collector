@@ -32,6 +32,9 @@ export class GenesisEnergyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GenesisEnergyCollector class.
+     */
     constructor() {
         super(GenesisEnergyCollector.CONFIG);
     }

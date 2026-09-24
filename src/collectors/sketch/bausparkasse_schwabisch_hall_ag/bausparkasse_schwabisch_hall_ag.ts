@@ -32,6 +32,9 @@ export class BausparkasseSchwabischHallAgCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BausparkasseSchwabischHallAgCollector class.
+     */
     constructor() {
         super(BausparkasseSchwabischHallAgCollector.CONFIG);
     }

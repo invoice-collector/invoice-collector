@@ -32,6 +32,9 @@ export class WhatismybrowserComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WhatismybrowserComCollector class.
+     */
     constructor() {
         super(WhatismybrowserComCollector.CONFIG);
     }

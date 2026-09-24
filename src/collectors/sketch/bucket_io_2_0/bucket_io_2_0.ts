@@ -32,6 +32,9 @@ export class BucketIo20Collector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BucketIo20Collector class.
+     */
     constructor() {
         super(BucketIo20Collector.CONFIG);
     }

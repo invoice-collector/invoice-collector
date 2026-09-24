@@ -32,6 +32,9 @@ export class BoatdriverChCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BoatdriverChCollector class.
+     */
     constructor() {
         super(BoatdriverChCollector.CONFIG);
     }

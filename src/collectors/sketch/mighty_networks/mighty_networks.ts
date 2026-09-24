@@ -32,6 +32,9 @@ export class MightyNetworksCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MightyNetworksCollector class.
+     */
     constructor() {
         super(MightyNetworksCollector.CONFIG);
     }

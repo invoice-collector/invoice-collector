@@ -32,6 +32,9 @@ export class GothruCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GothruCollector class.
+     */
     constructor() {
         super(GothruCollector.CONFIG);
     }

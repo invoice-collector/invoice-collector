@@ -32,6 +32,9 @@ export class SmartboxPartnerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SmartboxPartnerCollector class.
+     */
     constructor() {
         super(SmartboxPartnerCollector.CONFIG);
     }

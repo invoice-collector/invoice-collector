@@ -32,6 +32,9 @@ export class SmsfactorCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SmsfactorCollector class.
+     */
     constructor() {
         super(SmsfactorCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class AragCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AragCollector class.
+     */
     constructor() {
         super(AragCollector.CONFIG);
     }

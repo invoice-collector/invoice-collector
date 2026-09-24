@@ -32,6 +32,9 @@ export class NleCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NleCollector class.
+     */
     constructor() {
         super(NleCollector.CONFIG);
     }

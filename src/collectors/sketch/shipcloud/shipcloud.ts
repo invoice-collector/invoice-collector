@@ -32,6 +32,9 @@ export class ShipcloudCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ShipcloudCollector class.
+     */
     constructor() {
         super(ShipcloudCollector.CONFIG);
     }

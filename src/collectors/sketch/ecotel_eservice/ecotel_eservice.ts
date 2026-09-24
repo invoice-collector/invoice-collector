@@ -32,6 +32,9 @@ export class EcotelEserviceCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EcotelEserviceCollector class.
+     */
     constructor() {
         super(EcotelEserviceCollector.CONFIG);
     }

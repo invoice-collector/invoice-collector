@@ -32,6 +32,9 @@ export class ReifenGoggelCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ReifenGoggelCollector class.
+     */
     constructor() {
         super(ReifenGoggelCollector.CONFIG);
     }

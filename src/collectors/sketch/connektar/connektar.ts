@@ -32,6 +32,9 @@ export class ConnektarCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ConnektarCollector class.
+     */
     constructor() {
         super(ConnektarCollector.CONFIG);
     }

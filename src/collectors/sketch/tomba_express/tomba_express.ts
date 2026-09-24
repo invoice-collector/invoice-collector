@@ -32,6 +32,9 @@ export class TombaExpressCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TombaExpressCollector class.
+     */
     constructor() {
         super(TombaExpressCollector.CONFIG);
     }

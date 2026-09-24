@@ -32,6 +32,9 @@ export class AlaikoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AlaikoCollector class.
+     */
     constructor() {
         super(AlaikoCollector.CONFIG);
     }

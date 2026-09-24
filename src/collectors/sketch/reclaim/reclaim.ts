@@ -32,6 +32,9 @@ export class ReclaimCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ReclaimCollector class.
+     */
     constructor() {
         super(ReclaimCollector.CONFIG);
     }

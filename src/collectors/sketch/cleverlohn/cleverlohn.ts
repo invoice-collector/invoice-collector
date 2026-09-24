@@ -32,6 +32,9 @@ export class CleverlohnCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CleverlohnCollector class.
+     */
     constructor() {
         super(CleverlohnCollector.CONFIG);
     }

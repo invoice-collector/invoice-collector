@@ -32,6 +32,9 @@ export class MilesBusinessCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MilesBusinessCollector class.
+     */
     constructor() {
         super(MilesBusinessCollector.CONFIG);
     }

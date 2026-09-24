@@ -32,6 +32,9 @@ export class PapierkramCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PapierkramCollector class.
+     */
     constructor() {
         super(PapierkramCollector.CONFIG);
     }

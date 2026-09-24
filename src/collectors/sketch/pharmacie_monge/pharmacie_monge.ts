@@ -32,6 +32,9 @@ export class PharmacieMongeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PharmacieMongeCollector class.
+     */
     constructor() {
         super(PharmacieMongeCollector.CONFIG);
     }

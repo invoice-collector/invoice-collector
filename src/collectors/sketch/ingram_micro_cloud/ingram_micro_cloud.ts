@@ -32,6 +32,9 @@ export class IngramMicroCloudCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the IngramMicroCloudCollector class.
+     */
     constructor() {
         super(IngramMicroCloudCollector.CONFIG);
     }

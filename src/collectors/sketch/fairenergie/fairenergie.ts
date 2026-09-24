@@ -32,6 +32,9 @@ export class FairenergieCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FairenergieCollector class.
+     */
     constructor() {
         super(FairenergieCollector.CONFIG);
     }

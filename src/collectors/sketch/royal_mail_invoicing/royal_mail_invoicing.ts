@@ -32,6 +32,9 @@ export class RoyalMailInvoicingCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RoyalMailInvoicingCollector class.
+     */
     constructor() {
         super(RoyalMailInvoicingCollector.CONFIG);
     }

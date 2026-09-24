@@ -32,6 +32,9 @@ export class NuonNlCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NuonNlCollector class.
+     */
     constructor() {
         super(NuonNlCollector.CONFIG);
     }

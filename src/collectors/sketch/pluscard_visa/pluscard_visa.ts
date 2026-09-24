@@ -32,6 +32,9 @@ export class PluscardVisaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PluscardVisaCollector class.
+     */
     constructor() {
         super(PluscardVisaCollector.CONFIG);
     }

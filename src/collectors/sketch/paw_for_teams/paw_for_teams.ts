@@ -32,6 +32,9 @@ export class PawForTeamsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PawForTeamsCollector class.
+     */
     constructor() {
         super(PawForTeamsCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class DhgateCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DhgateCollector class.
+     */
     constructor() {
         super(DhgateCollector.CONFIG);
     }

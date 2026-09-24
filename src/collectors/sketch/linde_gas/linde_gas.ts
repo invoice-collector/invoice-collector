@@ -32,6 +32,9 @@ export class LindeGasCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LindeGasCollector class.
+     */
     constructor() {
         super(LindeGasCollector.CONFIG);
     }

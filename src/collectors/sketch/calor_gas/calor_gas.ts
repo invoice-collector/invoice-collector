@@ -32,6 +32,9 @@ export class CalorGasCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CalorGasCollector class.
+     */
     constructor() {
         super(CalorGasCollector.CONFIG);
     }

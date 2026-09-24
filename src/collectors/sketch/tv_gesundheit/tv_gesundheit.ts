@@ -32,6 +32,9 @@ export class TvGesundheitCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TvGesundheitCollector class.
+     */
     constructor() {
         super(TvGesundheitCollector.CONFIG);
     }

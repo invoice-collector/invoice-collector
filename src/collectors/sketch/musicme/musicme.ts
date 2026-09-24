@@ -32,6 +32,9 @@ export class MusicmeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MusicmeCollector class.
+     */
     constructor() {
         super(MusicmeCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class CopyscapeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CopyscapeCollector class.
+     */
     constructor() {
         super(CopyscapeCollector.CONFIG);
     }

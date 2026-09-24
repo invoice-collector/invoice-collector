@@ -32,6 +32,9 @@ export class NortheUserPortalCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NortheUserPortalCollector class.
+     */
     constructor() {
         super(NortheUserPortalCollector.CONFIG);
     }

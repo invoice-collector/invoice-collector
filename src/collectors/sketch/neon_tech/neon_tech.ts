@@ -32,6 +32,9 @@ export class NeonTechCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NeonTechCollector class.
+     */
     constructor() {
         super(NeonTechCollector.CONFIG);
     }

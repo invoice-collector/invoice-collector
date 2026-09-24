@@ -32,6 +32,9 @@ export class TheveaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TheveaCollector class.
+     */
     constructor() {
         super(TheveaCollector.CONFIG);
     }

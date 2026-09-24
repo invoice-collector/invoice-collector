@@ -32,6 +32,9 @@ export class LengowCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LengowCollector class.
+     */
     constructor() {
         super(LengowCollector.CONFIG);
     }

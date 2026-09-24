@@ -32,6 +32,9 @@ export class Wochenmarkt24Collector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Wochenmarkt24Collector class.
+     */
     constructor() {
         super(Wochenmarkt24Collector.CONFIG);
     }

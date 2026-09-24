@@ -32,6 +32,9 @@ export class HairfreeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HairfreeCollector class.
+     */
     constructor() {
         super(HairfreeCollector.CONFIG);
     }

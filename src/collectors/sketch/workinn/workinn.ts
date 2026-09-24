@@ -32,6 +32,9 @@ export class WorkinnCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WorkinnCollector class.
+     */
     constructor() {
         super(WorkinnCollector.CONFIG);
     }

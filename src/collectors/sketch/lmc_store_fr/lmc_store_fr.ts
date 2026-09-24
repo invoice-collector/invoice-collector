@@ -32,6 +32,9 @@ export class LmcStoreFrCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LmcStoreFrCollector class.
+     */
     constructor() {
         super(LmcStoreFrCollector.CONFIG);
     }

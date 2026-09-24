@@ -32,6 +32,9 @@ export class EllaBusinessPortalOsterreichischePostCollector extends SketchCollec
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EllaBusinessPortalOsterreichischePostCollector class.
+     */
     constructor() {
         super(EllaBusinessPortalOsterreichischePostCollector.CONFIG);
     }

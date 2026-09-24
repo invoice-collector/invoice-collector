@@ -32,6 +32,9 @@ export class PrimusCanadaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PrimusCanadaCollector class.
+     */
     constructor() {
         super(PrimusCanadaCollector.CONFIG);
     }

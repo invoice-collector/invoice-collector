@@ -32,6 +32,9 @@ export class KarmaBotCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KarmaBotCollector class.
+     */
     constructor() {
         super(KarmaBotCollector.CONFIG);
     }

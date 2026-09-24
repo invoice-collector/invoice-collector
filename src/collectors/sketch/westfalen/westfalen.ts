@@ -32,6 +32,9 @@ export class WestfalenCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WestfalenCollector class.
+     */
     constructor() {
         super(WestfalenCollector.CONFIG);
     }

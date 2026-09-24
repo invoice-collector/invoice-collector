@@ -32,6 +32,9 @@ export class GeorgAtCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GeorgAtCollector class.
+     */
     constructor() {
         super(GeorgAtCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class CityOfArlingtonTxCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CityOfArlingtonTxCollector class.
+     */
     constructor() {
         super(CityOfArlingtonTxCollector.CONFIG);
     }

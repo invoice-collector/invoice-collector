@@ -32,6 +32,9 @@ export class HostwindsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HostwindsCollector class.
+     */
     constructor() {
         super(HostwindsCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class CityOfSacramentoUtilitiesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CityOfSacramentoUtilitiesCollector class.
+     */
     constructor() {
         super(CityOfSacramentoUtilitiesCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class AgentyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AgentyCollector class.
+     */
     constructor() {
         super(AgentyCollector.CONFIG);
     }

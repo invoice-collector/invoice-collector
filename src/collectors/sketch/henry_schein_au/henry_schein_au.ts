@@ -32,6 +32,9 @@ export class HenryScheinAuCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HenryScheinAuCollector class.
+     */
     constructor() {
         super(HenryScheinAuCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class GridIsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GridIsCollector class.
+     */
     constructor() {
         super(GridIsCollector.CONFIG);
     }

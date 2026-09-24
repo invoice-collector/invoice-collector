@@ -32,6 +32,9 @@ export class SharedProxyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SharedProxyCollector class.
+     */
     constructor() {
         super(SharedProxyCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class KifdomCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KifdomCollector class.
+     */
     constructor() {
         super(KifdomCollector.CONFIG);
     }

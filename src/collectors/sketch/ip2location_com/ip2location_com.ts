@@ -32,6 +32,9 @@ export class Ip2locationComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Ip2locationComCollector class.
+     */
     constructor() {
         super(Ip2locationComCollector.CONFIG);
     }

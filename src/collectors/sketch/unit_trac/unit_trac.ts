@@ -32,6 +32,9 @@ export class UnitTracCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the UnitTracCollector class.
+     */
     constructor() {
         super(UnitTracCollector.CONFIG);
     }

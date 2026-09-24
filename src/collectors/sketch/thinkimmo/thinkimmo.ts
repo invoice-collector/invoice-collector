@@ -32,6 +32,9 @@ export class ThinkimmoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ThinkimmoCollector class.
+     */
     constructor() {
         super(ThinkimmoCollector.CONFIG);
     }

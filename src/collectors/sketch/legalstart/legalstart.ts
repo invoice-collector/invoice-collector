@@ -32,6 +32,9 @@ export class LegalstartCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LegalstartCollector class.
+     */
     constructor() {
         super(LegalstartCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class AllianzEsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AllianzEsCollector class.
+     */
     constructor() {
         super(AllianzEsCollector.CONFIG);
     }

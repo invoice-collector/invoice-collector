@@ -32,6 +32,9 @@ export class HmdSoftwareAgCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HmdSoftwareAgCollector class.
+     */
     constructor() {
         super(HmdSoftwareAgCollector.CONFIG);
     }

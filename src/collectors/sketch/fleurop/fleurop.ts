@@ -32,6 +32,9 @@ export class FleuropCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FleuropCollector class.
+     */
     constructor() {
         super(FleuropCollector.CONFIG);
     }

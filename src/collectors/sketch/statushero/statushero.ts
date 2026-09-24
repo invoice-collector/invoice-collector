@@ -32,6 +32,9 @@ export class StatusheroCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StatusheroCollector class.
+     */
     constructor() {
         super(StatusheroCollector.CONFIG);
     }

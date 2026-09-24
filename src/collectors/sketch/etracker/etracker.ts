@@ -32,6 +32,9 @@ export class EtrackerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EtrackerCollector class.
+     */
     constructor() {
         super(EtrackerCollector.CONFIG);
     }

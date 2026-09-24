@@ -32,6 +32,9 @@ export class JaguarNetworkBusinessCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the JaguarNetworkBusinessCollector class.
+     */
     constructor() {
         super(JaguarNetworkBusinessCollector.CONFIG);
     }

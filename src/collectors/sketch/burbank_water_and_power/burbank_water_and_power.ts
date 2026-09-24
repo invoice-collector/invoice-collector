@@ -32,6 +32,9 @@ export class BurbankWaterAndPowerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BurbankWaterAndPowerCollector class.
+     */
     constructor() {
         super(BurbankWaterAndPowerCollector.CONFIG);
     }

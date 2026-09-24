@@ -32,6 +32,9 @@ export class VrboCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VrboCollector class.
+     */
     constructor() {
         super(VrboCollector.CONFIG);
     }

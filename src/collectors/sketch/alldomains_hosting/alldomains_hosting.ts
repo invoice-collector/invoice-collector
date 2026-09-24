@@ -32,6 +32,9 @@ export class AlldomainsHostingCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AlldomainsHostingCollector class.
+     */
     constructor() {
         super(AlldomainsHostingCollector.CONFIG);
     }

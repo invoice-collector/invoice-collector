@@ -32,6 +32,9 @@ export class OttoPartnerConnectCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OttoPartnerConnectCollector class.
+     */
     constructor() {
         super(OttoPartnerConnectCollector.CONFIG);
     }

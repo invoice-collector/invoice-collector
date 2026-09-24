@@ -32,6 +32,9 @@ export class TimifyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TimifyCollector class.
+     */
     constructor() {
         super(TimifyCollector.CONFIG);
     }

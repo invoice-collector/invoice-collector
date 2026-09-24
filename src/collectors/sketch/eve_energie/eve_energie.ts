@@ -32,6 +32,9 @@ export class EveEnergieCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EveEnergieCollector class.
+     */
     constructor() {
         super(EveEnergieCollector.CONFIG);
     }

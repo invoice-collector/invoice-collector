@@ -32,6 +32,9 @@ export class MydpdAtCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MydpdAtCollector class.
+     */
     constructor() {
         super(MydpdAtCollector.CONFIG);
     }

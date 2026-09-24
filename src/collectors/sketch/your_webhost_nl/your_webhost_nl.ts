@@ -32,6 +32,9 @@ export class YourWebhostNlCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the YourWebhostNlCollector class.
+     */
     constructor() {
         super(YourWebhostNlCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class CityOfTallahassyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CityOfTallahassyCollector class.
+     */
     constructor() {
         super(CityOfTallahassyCollector.CONFIG);
     }

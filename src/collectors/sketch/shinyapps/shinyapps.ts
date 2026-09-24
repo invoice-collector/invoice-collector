@@ -32,6 +32,9 @@ export class ShinyappsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ShinyappsCollector class.
+     */
     constructor() {
         super(ShinyappsCollector.CONFIG);
     }

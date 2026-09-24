@@ -32,6 +32,9 @@ export class ExpediaTaapCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ExpediaTaapCollector class.
+     */
     constructor() {
         super(ExpediaTaapCollector.CONFIG);
     }

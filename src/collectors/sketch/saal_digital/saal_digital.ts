@@ -32,6 +32,9 @@ export class SaalDigitalCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SaalDigitalCollector class.
+     */
     constructor() {
         super(SaalDigitalCollector.CONFIG);
     }

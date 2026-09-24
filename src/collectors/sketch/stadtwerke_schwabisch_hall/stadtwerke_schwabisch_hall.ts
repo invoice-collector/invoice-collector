@@ -32,6 +32,9 @@ export class StadtwerkeSchwabischHallCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StadtwerkeSchwabischHallCollector class.
+     */
     constructor() {
         super(StadtwerkeSchwabischHallCollector.CONFIG);
     }

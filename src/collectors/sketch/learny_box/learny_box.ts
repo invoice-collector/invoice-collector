@@ -32,6 +32,9 @@ export class LearnyBoxCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LearnyBoxCollector class.
+     */
     constructor() {
         super(LearnyBoxCollector.CONFIG);
     }

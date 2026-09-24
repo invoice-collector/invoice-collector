@@ -32,6 +32,9 @@ export class EnsoDatendiensteCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EnsoDatendiensteCollector class.
+     */
     constructor() {
         super(EnsoDatendiensteCollector.CONFIG);
     }

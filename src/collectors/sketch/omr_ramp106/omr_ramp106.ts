@@ -32,6 +32,9 @@ export class OmrRamp106Collector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OmrRamp106Collector class.
+     */
     constructor() {
         super(OmrRamp106Collector.CONFIG);
     }

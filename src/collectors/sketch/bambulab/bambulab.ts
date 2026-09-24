@@ -32,6 +32,9 @@ export class BambulabCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BambulabCollector class.
+     */
     constructor() {
         super(BambulabCollector.CONFIG);
     }

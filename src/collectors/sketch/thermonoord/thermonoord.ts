@@ -32,6 +32,9 @@ export class ThermonoordCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ThermonoordCollector class.
+     */
     constructor() {
         super(ThermonoordCollector.CONFIG);
     }

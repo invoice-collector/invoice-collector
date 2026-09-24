@@ -32,6 +32,9 @@ export class PingenCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PingenCollector class.
+     */
     constructor() {
         super(PingenCollector.CONFIG);
     }

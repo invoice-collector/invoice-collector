@@ -32,6 +32,9 @@ export class PseglinyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PseglinyCollector class.
+     */
     constructor() {
         super(PseglinyCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class GleamCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GleamCollector class.
+     */
     constructor() {
         super(GleamCollector.CONFIG);
     }

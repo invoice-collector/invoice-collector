@@ -32,6 +32,9 @@ export class GigasatServProcDeDadosLtdaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GigasatServProcDeDadosLtdaCollector class.
+     */
     constructor() {
         super(GigasatServProcDeDadosLtdaCollector.CONFIG);
     }

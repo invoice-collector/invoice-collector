@@ -32,6 +32,9 @@ export class EventimBusinessPortalCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EventimBusinessPortalCollector class.
+     */
     constructor() {
         super(EventimBusinessPortalCollector.CONFIG);
     }

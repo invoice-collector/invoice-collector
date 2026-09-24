@@ -32,6 +32,9 @@ export class SellxedCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SellxedCollector class.
+     */
     constructor() {
         super(SellxedCollector.CONFIG);
     }

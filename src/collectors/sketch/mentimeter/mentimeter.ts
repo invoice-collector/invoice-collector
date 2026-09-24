@@ -32,6 +32,9 @@ export class MentimeterCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MentimeterCollector class.
+     */
     constructor() {
         super(MentimeterCollector.CONFIG);
     }

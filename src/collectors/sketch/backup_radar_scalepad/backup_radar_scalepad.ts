@@ -32,6 +32,9 @@ export class BackupRadarScalepadCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BackupRadarScalepadCollector class.
+     */
     constructor() {
         super(BackupRadarScalepadCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class SquarelovinCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SquarelovinCollector class.
+     */
     constructor() {
         super(SquarelovinCollector.CONFIG);
     }

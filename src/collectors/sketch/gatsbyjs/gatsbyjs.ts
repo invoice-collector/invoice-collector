@@ -32,6 +32,9 @@ export class GatsbyjsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GatsbyjsCollector class.
+     */
     constructor() {
         super(GatsbyjsCollector.CONFIG);
     }

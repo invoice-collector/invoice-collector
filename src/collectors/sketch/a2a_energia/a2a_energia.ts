@@ -32,6 +32,9 @@ export class A2aEnergiaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the A2aEnergiaCollector class.
+     */
     constructor() {
         super(A2aEnergiaCollector.CONFIG);
     }

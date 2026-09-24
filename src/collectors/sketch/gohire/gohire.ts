@@ -32,6 +32,9 @@ export class GohireCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GohireCollector class.
+     */
     constructor() {
         super(GohireCollector.CONFIG);
     }

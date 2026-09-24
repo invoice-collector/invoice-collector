@@ -32,6 +32,9 @@ export class CloverCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CloverCollector class.
+     */
     constructor() {
         super(CloverCollector.CONFIG);
     }

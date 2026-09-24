@@ -32,6 +32,9 @@ export class ServcorpCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ServcorpCollector class.
+     */
     constructor() {
         super(ServcorpCollector.CONFIG);
     }

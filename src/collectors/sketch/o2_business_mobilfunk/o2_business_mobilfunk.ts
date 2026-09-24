@@ -32,6 +32,9 @@ export class O2BusinessMobilfunkCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the O2BusinessMobilfunkCollector class.
+     */
     constructor() {
         super(O2BusinessMobilfunkCollector.CONFIG);
     }

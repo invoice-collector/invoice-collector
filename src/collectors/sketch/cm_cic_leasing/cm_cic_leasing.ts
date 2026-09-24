@@ -32,6 +32,9 @@ export class CmCicLeasingCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CmCicLeasingCollector class.
+     */
     constructor() {
         super(CmCicLeasingCollector.CONFIG);
     }

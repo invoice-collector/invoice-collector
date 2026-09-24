@@ -32,6 +32,9 @@ export class AdbutlerSparklitCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AdbutlerSparklitCollector class.
+     */
     constructor() {
         super(AdbutlerSparklitCollector.CONFIG);
     }

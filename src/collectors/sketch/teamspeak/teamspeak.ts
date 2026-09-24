@@ -32,6 +32,9 @@ export class TeamspeakCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TeamspeakCollector class.
+     */
     constructor() {
         super(TeamspeakCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class SpartooCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SpartooCollector class.
+     */
     constructor() {
         super(SpartooCollector.CONFIG);
     }

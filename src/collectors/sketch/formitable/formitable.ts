@@ -32,6 +32,9 @@ export class FormitableCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FormitableCollector class.
+     */
     constructor() {
         super(FormitableCollector.CONFIG);
     }

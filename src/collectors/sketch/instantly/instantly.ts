@@ -32,6 +32,9 @@ export class InstantlyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the InstantlyCollector class.
+     */
     constructor() {
         super(InstantlyCollector.CONFIG);
     }

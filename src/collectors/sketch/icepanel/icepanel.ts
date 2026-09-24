@@ -32,6 +32,9 @@ export class IcepanelCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the IcepanelCollector class.
+     */
     constructor() {
         super(IcepanelCollector.CONFIG);
     }

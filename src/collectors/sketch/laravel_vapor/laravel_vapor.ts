@@ -32,6 +32,9 @@ export class LaravelVaporCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LaravelVaporCollector class.
+     */
     constructor() {
         super(LaravelVaporCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class DeeplCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DeeplCollector class.
+     */
     constructor() {
         super(DeeplCollector.CONFIG);
     }

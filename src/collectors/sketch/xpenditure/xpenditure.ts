@@ -32,6 +32,9 @@ export class XpenditureCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the XpenditureCollector class.
+     */
     constructor() {
         super(XpenditureCollector.CONFIG);
     }

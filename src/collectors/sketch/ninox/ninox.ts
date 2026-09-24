@@ -32,6 +32,9 @@ export class NinoxCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NinoxCollector class.
+     */
     constructor() {
         super(NinoxCollector.CONFIG);
     }

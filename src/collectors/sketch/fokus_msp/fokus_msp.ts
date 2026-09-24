@@ -32,6 +32,9 @@ export class FokusMspCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FokusMspCollector class.
+     */
     constructor() {
         super(FokusMspCollector.CONFIG);
     }

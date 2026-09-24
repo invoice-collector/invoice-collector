@@ -32,6 +32,9 @@ export class PvhOnlineBillingCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PvhOnlineBillingCollector class.
+     */
     constructor() {
         super(PvhOnlineBillingCollector.CONFIG);
     }

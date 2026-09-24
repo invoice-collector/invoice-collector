@@ -32,6 +32,9 @@ export class GeneraliAtCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GeneraliAtCollector class.
+     */
     constructor() {
         super(GeneraliAtCollector.CONFIG);
     }

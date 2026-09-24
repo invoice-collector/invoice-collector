@@ -32,6 +32,9 @@ export class CityOfLomaLindaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CityOfLomaLindaCollector class.
+     */
     constructor() {
         super(CityOfLomaLindaCollector.CONFIG);
     }

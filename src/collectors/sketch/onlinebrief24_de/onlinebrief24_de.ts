@@ -32,6 +32,9 @@ export class Onlinebrief24DeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Onlinebrief24DeCollector class.
+     */
     constructor() {
         super(Onlinebrief24DeCollector.CONFIG);
     }

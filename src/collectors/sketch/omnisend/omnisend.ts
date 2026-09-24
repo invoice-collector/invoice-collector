@@ -32,6 +32,9 @@ export class OmnisendCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OmnisendCollector class.
+     */
     constructor() {
         super(OmnisendCollector.CONFIG);
     }

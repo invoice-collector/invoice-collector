@@ -32,6 +32,9 @@ export class IisiiCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the IisiiCollector class.
+     */
     constructor() {
         super(IisiiCollector.CONFIG);
     }

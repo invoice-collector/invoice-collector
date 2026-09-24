@@ -32,6 +32,9 @@ export class RalphLaurenCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RalphLaurenCollector class.
+     */
     constructor() {
         super(RalphLaurenCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class ArmadoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ArmadoCollector class.
+     */
     constructor() {
         super(ArmadoCollector.CONFIG);
     }

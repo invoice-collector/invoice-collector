@@ -32,6 +32,9 @@ export class AirgasCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AirgasCollector class.
+     */
     constructor() {
         super(AirgasCollector.CONFIG);
     }

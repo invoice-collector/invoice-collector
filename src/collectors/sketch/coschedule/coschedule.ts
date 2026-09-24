@@ -32,6 +32,9 @@ export class CoscheduleCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CoscheduleCollector class.
+     */
     constructor() {
         super(CoscheduleCollector.CONFIG);
     }

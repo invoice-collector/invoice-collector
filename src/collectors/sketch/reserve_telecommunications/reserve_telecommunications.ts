@@ -32,6 +32,9 @@ export class ReserveTelecommunicationsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ReserveTelecommunicationsCollector class.
+     */
     constructor() {
         super(ReserveTelecommunicationsCollector.CONFIG);
     }

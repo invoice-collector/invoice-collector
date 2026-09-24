@@ -32,6 +32,9 @@ export class CamiegAvisDePaiementCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CamiegAvisDePaiementCollector class.
+     */
     constructor() {
         super(CamiegAvisDePaiementCollector.CONFIG);
     }

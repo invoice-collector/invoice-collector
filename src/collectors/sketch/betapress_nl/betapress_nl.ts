@@ -32,6 +32,9 @@ export class BetapressNlCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BetapressNlCollector class.
+     */
     constructor() {
         super(BetapressNlCollector.CONFIG);
     }

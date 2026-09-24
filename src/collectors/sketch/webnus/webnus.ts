@@ -32,6 +32,9 @@ export class WebnusCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WebnusCollector class.
+     */
     constructor() {
         super(WebnusCollector.CONFIG);
     }

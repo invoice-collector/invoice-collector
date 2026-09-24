@@ -32,6 +32,9 @@ export class ParfumsclubCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ParfumsclubCollector class.
+     */
     constructor() {
         super(ParfumsclubCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class SeoAiCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SeoAiCollector class.
+     */
     constructor() {
         super(SeoAiCollector.CONFIG);
     }

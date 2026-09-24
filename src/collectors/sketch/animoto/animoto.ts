@@ -32,6 +32,9 @@ export class AnimotoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AnimotoCollector class.
+     */
     constructor() {
         super(AnimotoCollector.CONFIG);
     }

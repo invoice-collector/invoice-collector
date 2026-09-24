@@ -32,6 +32,9 @@ export class UnitoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the UnitoCollector class.
+     */
     constructor() {
         super(UnitoCollector.CONFIG);
     }

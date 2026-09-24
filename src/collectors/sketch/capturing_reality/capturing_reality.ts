@@ -32,6 +32,9 @@ export class CapturingRealityCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CapturingRealityCollector class.
+     */
     constructor() {
         super(CapturingRealityCollector.CONFIG);
     }

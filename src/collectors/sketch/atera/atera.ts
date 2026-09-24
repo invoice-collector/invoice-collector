@@ -32,6 +32,9 @@ export class AteraCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AteraCollector class.
+     */
     constructor() {
         super(AteraCollector.CONFIG);
     }

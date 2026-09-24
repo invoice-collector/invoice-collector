@@ -32,6 +32,9 @@ export class CloudflareCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CloudflareCollector class.
+     */
     constructor() {
         super(CloudflareCollector.CONFIG);
     }

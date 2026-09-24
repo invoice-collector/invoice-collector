@@ -32,6 +32,9 @@ export class DxComDealextremeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DxComDealextremeCollector class.
+     */
     constructor() {
         super(DxComDealextremeCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class OpalKurierLogistikCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OpalKurierLogistikCollector class.
+     */
     constructor() {
         super(OpalKurierLogistikCollector.CONFIG);
     }

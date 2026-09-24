@@ -32,6 +32,9 @@ export class EverreachCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EverreachCollector class.
+     */
     constructor() {
         super(EverreachCollector.CONFIG);
     }

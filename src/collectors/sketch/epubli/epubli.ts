@@ -32,6 +32,9 @@ export class EpubliCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EpubliCollector class.
+     */
     constructor() {
         super(EpubliCollector.CONFIG);
     }

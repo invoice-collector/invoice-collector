@@ -32,6 +32,9 @@ export class VereinigteStadtwerkeLadecloudCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VereinigteStadtwerkeLadecloudCollector class.
+     */
     constructor() {
         super(VereinigteStadtwerkeLadecloudCollector.CONFIG);
     }

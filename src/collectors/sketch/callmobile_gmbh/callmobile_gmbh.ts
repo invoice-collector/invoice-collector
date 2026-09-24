@@ -32,6 +32,9 @@ export class CallmobileGmbhCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CallmobileGmbhCollector class.
+     */
     constructor() {
         super(CallmobileGmbhCollector.CONFIG);
     }

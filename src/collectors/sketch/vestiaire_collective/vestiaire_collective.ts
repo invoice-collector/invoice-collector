@@ -32,6 +32,9 @@ export class VestiaireCollectiveCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VestiaireCollectiveCollector class.
+     */
     constructor() {
         super(VestiaireCollectiveCollector.CONFIG);
     }

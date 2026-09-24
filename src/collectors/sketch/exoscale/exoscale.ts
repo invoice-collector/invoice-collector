@@ -32,6 +32,9 @@ export class ExoscaleCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ExoscaleCollector class.
+     */
     constructor() {
         super(ExoscaleCollector.CONFIG);
     }

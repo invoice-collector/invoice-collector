@@ -32,6 +32,9 @@ export class FcMotoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FcMotoCollector class.
+     */
     constructor() {
         super(FcMotoCollector.CONFIG);
     }

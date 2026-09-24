@@ -32,6 +32,9 @@ export class SeDomicilierCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SeDomicilierCollector class.
+     */
     constructor() {
         super(SeDomicilierCollector.CONFIG);
     }

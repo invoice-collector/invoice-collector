@@ -32,6 +32,9 @@ export class EleshopCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EleshopCollector class.
+     */
     constructor() {
         super(EleshopCollector.CONFIG);
     }

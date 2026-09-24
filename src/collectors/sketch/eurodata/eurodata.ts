@@ -32,6 +32,9 @@ export class EurodataCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EurodataCollector class.
+     */
     constructor() {
         super(EurodataCollector.CONFIG);
     }

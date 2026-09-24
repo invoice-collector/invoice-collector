@@ -32,6 +32,9 @@ export class RichardVinsAndSpiritueuxCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RichardVinsAndSpiritueuxCollector class.
+     */
     constructor() {
         super(RichardVinsAndSpiritueuxCollector.CONFIG);
     }

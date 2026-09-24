@@ -32,6 +32,9 @@ export class DeutscheTelekomBreitbandCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DeutscheTelekomBreitbandCollector class.
+     */
     constructor() {
         super(DeutscheTelekomBreitbandCollector.CONFIG);
     }

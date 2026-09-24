@@ -32,6 +32,9 @@ export class EinfachArchivCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EinfachArchivCollector class.
+     */
     constructor() {
         super(EinfachArchivCollector.CONFIG);
     }

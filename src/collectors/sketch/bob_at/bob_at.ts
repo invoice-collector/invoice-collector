@@ -32,6 +32,9 @@ export class BobAtCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BobAtCollector class.
+     */
     constructor() {
         super(BobAtCollector.CONFIG);
     }

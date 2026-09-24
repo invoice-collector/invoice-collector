@@ -32,6 +32,9 @@ export class MemberstackCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MemberstackCollector class.
+     */
     constructor() {
         super(MemberstackCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class AlternateCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AlternateCollector class.
+     */
     constructor() {
         super(AlternateCollector.CONFIG);
     }

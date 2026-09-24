@@ -32,6 +32,9 @@ export class FotografDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FotografDeCollector class.
+     */
     constructor() {
         super(FotografDeCollector.CONFIG);
     }

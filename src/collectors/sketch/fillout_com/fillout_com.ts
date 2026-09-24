@@ -32,6 +32,9 @@ export class FilloutComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FilloutComCollector class.
+     */
     constructor() {
         super(FilloutComCollector.CONFIG);
     }

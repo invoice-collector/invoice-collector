@@ -32,6 +32,9 @@ export class GrandAndToyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GrandAndToyCollector class.
+     */
     constructor() {
         super(GrandAndToyCollector.CONFIG);
     }

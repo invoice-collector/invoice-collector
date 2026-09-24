@@ -32,6 +32,9 @@ export class CmTelecomCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CmTelecomCollector class.
+     */
     constructor() {
         super(CmTelecomCollector.CONFIG);
     }

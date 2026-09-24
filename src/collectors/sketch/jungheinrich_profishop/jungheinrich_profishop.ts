@@ -32,6 +32,9 @@ export class JungheinrichProfishopCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the JungheinrichProfishopCollector class.
+     */
     constructor() {
         super(JungheinrichProfishopCollector.CONFIG);
     }

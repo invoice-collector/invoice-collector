@@ -32,6 +32,9 @@ export class MooCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MooCollector class.
+     */
     constructor() {
         super(MooCollector.CONFIG);
     }

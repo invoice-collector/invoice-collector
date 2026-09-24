@@ -32,6 +32,9 @@ export class DoodlyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DoodlyCollector class.
+     */
     constructor() {
         super(DoodlyCollector.CONFIG);
     }

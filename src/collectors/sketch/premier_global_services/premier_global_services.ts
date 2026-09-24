@@ -32,6 +32,9 @@ export class PremierGlobalServicesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PremierGlobalServicesCollector class.
+     */
     constructor() {
         super(PremierGlobalServicesCollector.CONFIG);
     }

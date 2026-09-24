@@ -32,6 +32,9 @@ export class Autoscout24HandlerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Autoscout24HandlerCollector class.
+     */
     constructor() {
         super(Autoscout24HandlerCollector.CONFIG);
     }

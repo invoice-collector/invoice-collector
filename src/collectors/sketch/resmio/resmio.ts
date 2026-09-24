@@ -32,6 +32,9 @@ export class ResmioCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ResmioCollector class.
+     */
     constructor() {
         super(ResmioCollector.CONFIG);
     }

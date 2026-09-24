@@ -32,6 +32,9 @@ export class M8mitCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the M8mitCollector class.
+     */
     constructor() {
         super(M8mitCollector.CONFIG);
     }

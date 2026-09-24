@@ -32,6 +32,9 @@ export class QualityLocaltionSystemhausCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the QualityLocaltionSystemhausCollector class.
+     */
     constructor() {
         super(QualityLocaltionSystemhausCollector.CONFIG);
     }

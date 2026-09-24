@@ -32,6 +32,9 @@ export class VinMalinCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VinMalinCollector class.
+     */
     constructor() {
         super(VinMalinCollector.CONFIG);
     }

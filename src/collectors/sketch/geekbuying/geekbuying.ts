@@ -32,6 +32,9 @@ export class GeekbuyingCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GeekbuyingCollector class.
+     */
     constructor() {
         super(GeekbuyingCollector.CONFIG);
     }

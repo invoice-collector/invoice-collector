@@ -32,6 +32,9 @@ export class Hi5ZentralloginCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Hi5ZentralloginCollector class.
+     */
     constructor() {
         super(Hi5ZentralloginCollector.CONFIG);
     }

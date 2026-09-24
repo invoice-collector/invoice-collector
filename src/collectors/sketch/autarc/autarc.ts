@@ -32,6 +32,9 @@ export class AutarcCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AutarcCollector class.
+     */
     constructor() {
         super(AutarcCollector.CONFIG);
     }

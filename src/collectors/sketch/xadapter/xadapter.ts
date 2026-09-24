@@ -32,6 +32,9 @@ export class XadapterCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the XadapterCollector class.
+     */
     constructor() {
         super(XadapterCollector.CONFIG);
     }

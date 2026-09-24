@@ -32,6 +32,9 @@ export class KabelbinderDiscountDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KabelbinderDiscountDeCollector class.
+     */
     constructor() {
         super(KabelbinderDiscountDeCollector.CONFIG);
     }

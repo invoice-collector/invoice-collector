@@ -32,6 +32,9 @@ export class CarsonCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CarsonCollector class.
+     */
     constructor() {
         super(CarsonCollector.CONFIG);
     }

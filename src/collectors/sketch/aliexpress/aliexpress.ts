@@ -32,6 +32,9 @@ export class AliexpressCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AliexpressCollector class.
+     */
     constructor() {
         super(AliexpressCollector.CONFIG);
     }

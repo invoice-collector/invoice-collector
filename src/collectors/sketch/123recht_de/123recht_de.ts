@@ -32,6 +32,9 @@ export class _123rechtDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the _123rechtDeCollector class.
+     */
     constructor() {
         super(_123rechtDeCollector.CONFIG);
     }

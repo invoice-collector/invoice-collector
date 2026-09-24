@@ -32,6 +32,9 @@ export class AtmosEnergyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AtmosEnergyCollector class.
+     */
     constructor() {
         super(AtmosEnergyCollector.CONFIG);
     }

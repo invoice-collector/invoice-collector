@@ -32,6 +32,9 @@ export class Best4tiresCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Best4tiresCollector class.
+     */
     constructor() {
         super(Best4tiresCollector.CONFIG);
     }

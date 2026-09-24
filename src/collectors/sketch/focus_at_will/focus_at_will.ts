@@ -32,6 +32,9 @@ export class FocusAtWillCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FocusAtWillCollector class.
+     */
     constructor() {
         super(FocusAtWillCollector.CONFIG);
     }

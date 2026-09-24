@@ -32,6 +32,9 @@ export class AssurupCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AssurupCollector class.
+     */
     constructor() {
         super(AssurupCollector.CONFIG);
     }

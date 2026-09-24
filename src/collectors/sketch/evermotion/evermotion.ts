@@ -32,6 +32,9 @@ export class EvermotionCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EvermotionCollector class.
+     */
     constructor() {
         super(EvermotionCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class InfocityRostockCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the InfocityRostockCollector class.
+     */
     constructor() {
         super(InfocityRostockCollector.CONFIG);
     }

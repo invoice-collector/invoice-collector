@@ -32,6 +32,9 @@ export class VrPaymentBelegserviceCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VrPaymentBelegserviceCollector class.
+     */
     constructor() {
         super(VrPaymentBelegserviceCollector.CONFIG);
     }

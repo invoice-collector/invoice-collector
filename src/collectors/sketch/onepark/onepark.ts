@@ -32,6 +32,9 @@ export class OneparkCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OneparkCollector class.
+     */
     constructor() {
         super(OneparkCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class AtlanticBroadbandCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AtlanticBroadbandCollector class.
+     */
     constructor() {
         super(AtlanticBroadbandCollector.CONFIG);
     }

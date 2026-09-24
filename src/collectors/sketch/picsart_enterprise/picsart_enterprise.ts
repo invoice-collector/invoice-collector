@@ -32,6 +32,9 @@ export class PicsartEnterpriseCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PicsartEnterpriseCollector class.
+     */
     constructor() {
         super(PicsartEnterpriseCollector.CONFIG);
     }

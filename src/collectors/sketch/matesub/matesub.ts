@@ -32,6 +32,9 @@ export class MatesubCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MatesubCollector class.
+     */
     constructor() {
         super(MatesubCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class AppsheetCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AppsheetCollector class.
+     */
     constructor() {
         super(AppsheetCollector.CONFIG);
     }

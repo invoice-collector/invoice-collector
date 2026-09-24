@@ -32,6 +32,9 @@ export class DashlaneCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DashlaneCollector class.
+     */
     constructor() {
         super(DashlaneCollector.CONFIG);
     }

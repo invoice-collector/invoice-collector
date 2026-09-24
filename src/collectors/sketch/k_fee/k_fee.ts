@@ -32,6 +32,9 @@ export class KFeeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KFeeCollector class.
+     */
     constructor() {
         super(KFeeCollector.CONFIG);
     }

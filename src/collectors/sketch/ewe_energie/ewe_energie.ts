@@ -32,6 +32,9 @@ export class EweEnergieCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EweEnergieCollector class.
+     */
     constructor() {
         super(EweEnergieCollector.CONFIG);
     }

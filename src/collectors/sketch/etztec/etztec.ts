@@ -32,6 +32,9 @@ export class EtztecCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EtztecCollector class.
+     */
     constructor() {
         super(EtztecCollector.CONFIG);
     }

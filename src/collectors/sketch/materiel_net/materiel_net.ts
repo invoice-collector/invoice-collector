@@ -32,6 +32,9 @@ export class MaterielNetCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MaterielNetCollector class.
+     */
     constructor() {
         super(MaterielNetCollector.CONFIG);
     }

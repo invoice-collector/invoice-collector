@@ -32,6 +32,9 @@ export class RackspaceWebmailLoginCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RackspaceWebmailLoginCollector class.
+     */
     constructor() {
         super(RackspaceWebmailLoginCollector.CONFIG);
     }

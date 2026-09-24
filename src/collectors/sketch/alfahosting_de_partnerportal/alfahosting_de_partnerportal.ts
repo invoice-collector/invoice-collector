@@ -32,6 +32,9 @@ export class AlfahostingDePartnerportalCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AlfahostingDePartnerportalCollector class.
+     */
     constructor() {
         super(AlfahostingDePartnerportalCollector.CONFIG);
     }

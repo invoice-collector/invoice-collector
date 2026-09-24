@@ -32,6 +32,9 @@ export class SnapdealCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SnapdealCollector class.
+     */
     constructor() {
         super(SnapdealCollector.CONFIG);
     }

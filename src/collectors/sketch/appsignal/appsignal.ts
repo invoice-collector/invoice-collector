@@ -32,6 +32,9 @@ export class AppsignalCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AppsignalCollector class.
+     */
     constructor() {
         super(AppsignalCollector.CONFIG);
     }

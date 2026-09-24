@@ -32,6 +32,9 @@ export class TeslafiCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TeslafiCollector class.
+     */
     constructor() {
         super(TeslafiCollector.CONFIG);
     }

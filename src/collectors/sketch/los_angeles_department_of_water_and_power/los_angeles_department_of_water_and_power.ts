@@ -32,6 +32,9 @@ export class LosAngelesDepartmentOfWaterAndPowerCollector extends SketchCollecto
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LosAngelesDepartmentOfWaterAndPowerCollector class.
+     */
     constructor() {
         super(LosAngelesDepartmentOfWaterAndPowerCollector.CONFIG);
     }

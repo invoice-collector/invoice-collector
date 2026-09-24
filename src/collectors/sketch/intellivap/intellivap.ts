@@ -32,6 +32,9 @@ export class IntellivapCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the IntellivapCollector class.
+     */
     constructor() {
         super(IntellivapCollector.CONFIG);
     }

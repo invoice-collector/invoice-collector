@@ -32,6 +32,9 @@ export class ProtectedShopsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ProtectedShopsCollector class.
+     */
     constructor() {
         super(ProtectedShopsCollector.CONFIG);
     }

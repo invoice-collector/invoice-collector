@@ -32,6 +32,9 @@ export class ChazeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ChazeCollector class.
+     */
     constructor() {
         super(ChazeCollector.CONFIG);
     }

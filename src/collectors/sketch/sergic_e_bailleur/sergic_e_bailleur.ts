@@ -32,6 +32,9 @@ export class SergicEBailleurCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SergicEBailleurCollector class.
+     */
     constructor() {
         super(SergicEBailleurCollector.CONFIG);
     }

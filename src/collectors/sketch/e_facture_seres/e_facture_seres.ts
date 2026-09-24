@@ -32,6 +32,9 @@ export class EFactureSeresCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EFactureSeresCollector class.
+     */
     constructor() {
         super(EFactureSeresCollector.CONFIG);
     }

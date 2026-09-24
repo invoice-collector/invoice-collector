@@ -32,6 +32,9 @@ export class BitriseCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BitriseCollector class.
+     */
     constructor() {
         super(BitriseCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class RentAGuideCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RentAGuideCollector class.
+     */
     constructor() {
         super(RentAGuideCollector.CONFIG);
     }

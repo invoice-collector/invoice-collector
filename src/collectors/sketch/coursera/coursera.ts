@@ -32,6 +32,9 @@ export class CourseraCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CourseraCollector class.
+     */
     constructor() {
         super(CourseraCollector.CONFIG);
     }

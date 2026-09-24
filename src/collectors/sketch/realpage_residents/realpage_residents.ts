@@ -32,6 +32,9 @@ export class RealpageResidentsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RealpageResidentsCollector class.
+     */
     constructor() {
         super(RealpageResidentsCollector.CONFIG);
     }

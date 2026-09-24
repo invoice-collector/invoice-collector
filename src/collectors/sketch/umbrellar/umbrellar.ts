@@ -32,6 +32,9 @@ export class UmbrellarCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the UmbrellarCollector class.
+     */
     constructor() {
         super(UmbrellarCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class BlendermarketCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BlendermarketCollector class.
+     */
     constructor() {
         super(BlendermarketCollector.CONFIG);
     }

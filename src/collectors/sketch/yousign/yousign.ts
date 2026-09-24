@@ -32,6 +32,9 @@ export class YousignCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the YousignCollector class.
+     */
     constructor() {
         super(YousignCollector.CONFIG);
     }

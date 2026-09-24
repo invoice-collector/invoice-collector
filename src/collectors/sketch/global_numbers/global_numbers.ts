@@ -32,6 +32,9 @@ export class GlobalNumbersCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GlobalNumbersCollector class.
+     */
     constructor() {
         super(GlobalNumbersCollector.CONFIG);
     }

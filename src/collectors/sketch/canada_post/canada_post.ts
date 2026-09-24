@@ -32,6 +32,9 @@ export class CanadaPostCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CanadaPostCollector class.
+     */
     constructor() {
         super(CanadaPostCollector.CONFIG);
     }

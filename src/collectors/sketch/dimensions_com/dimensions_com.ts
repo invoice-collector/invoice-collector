@@ -32,6 +32,9 @@ export class DimensionsComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DimensionsComCollector class.
+     */
     constructor() {
         super(DimensionsComCollector.CONFIG);
     }

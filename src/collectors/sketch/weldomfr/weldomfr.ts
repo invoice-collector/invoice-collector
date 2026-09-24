@@ -31,6 +31,9 @@ export class WeldomFrCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WeldomFrCollector class.
+     */
     constructor() {
         super(WeldomFrCollector.CONFIG);
     }

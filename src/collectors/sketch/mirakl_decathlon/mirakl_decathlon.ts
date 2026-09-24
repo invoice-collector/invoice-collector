@@ -32,6 +32,9 @@ export class MiraklDecathlonCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MiraklDecathlonCollector class.
+     */
     constructor() {
         super(MiraklDecathlonCollector.CONFIG);
     }

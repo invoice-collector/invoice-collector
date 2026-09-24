@@ -32,6 +32,9 @@ export class TeoWebCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TeoWebCollector class.
+     */
     constructor() {
         super(TeoWebCollector.CONFIG);
     }

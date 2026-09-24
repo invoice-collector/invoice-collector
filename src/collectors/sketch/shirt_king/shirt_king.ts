@@ -32,6 +32,9 @@ export class ShirtKingCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ShirtKingCollector class.
+     */
     constructor() {
         super(ShirtKingCollector.CONFIG);
     }

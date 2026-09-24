@@ -32,6 +32,9 @@ export class LaPlateformeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LaPlateformeCollector class.
+     */
     constructor() {
         super(LaPlateformeCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class IstockCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the IstockCollector class.
+     */
     constructor() {
         super(IstockCollector.CONFIG);
     }

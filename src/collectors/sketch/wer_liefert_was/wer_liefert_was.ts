@@ -32,6 +32,9 @@ export class WerLiefertWasCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WerLiefertWasCollector class.
+     */
     constructor() {
         super(WerLiefertWasCollector.CONFIG);
     }

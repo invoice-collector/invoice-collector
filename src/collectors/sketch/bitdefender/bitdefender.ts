@@ -32,6 +32,9 @@ export class BitdefenderCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BitdefenderCollector class.
+     */
     constructor() {
         super(BitdefenderCollector.CONFIG);
     }

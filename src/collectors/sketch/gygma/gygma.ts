@@ -32,6 +32,9 @@ export class GygmaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GygmaCollector class.
+     */
     constructor() {
         super(GygmaCollector.CONFIG);
     }

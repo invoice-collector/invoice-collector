@@ -32,6 +32,9 @@ export class TimeonePerformanceAdvertiserCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TimeonePerformanceAdvertiserCollector class.
+     */
     constructor() {
         super(TimeonePerformanceAdvertiserCollector.CONFIG);
     }

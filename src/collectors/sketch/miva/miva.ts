@@ -32,6 +32,9 @@ export class MivaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MivaCollector class.
+     */
     constructor() {
         super(MivaCollector.CONFIG);
     }

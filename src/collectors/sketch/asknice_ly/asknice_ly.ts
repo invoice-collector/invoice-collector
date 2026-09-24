@@ -32,6 +32,9 @@ export class AskniceLyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AskniceLyCollector class.
+     */
     constructor() {
         super(AskniceLyCollector.CONFIG);
     }

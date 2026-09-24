@@ -32,6 +32,9 @@ export class JvzooCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the JvzooCollector class.
+     */
     constructor() {
         super(JvzooCollector.CONFIG);
     }

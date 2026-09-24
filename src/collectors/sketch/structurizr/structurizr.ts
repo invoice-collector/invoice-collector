@@ -32,6 +32,9 @@ export class StructurizrCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StructurizrCollector class.
+     */
     constructor() {
         super(StructurizrCollector.CONFIG);
     }

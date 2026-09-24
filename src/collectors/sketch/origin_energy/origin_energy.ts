@@ -32,6 +32,9 @@ export class OriginEnergyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OriginEnergyCollector class.
+     */
     constructor() {
         super(OriginEnergyCollector.CONFIG);
     }

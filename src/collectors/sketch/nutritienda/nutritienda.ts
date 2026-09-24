@@ -32,6 +32,9 @@ export class NutritiendaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NutritiendaCollector class.
+     */
     constructor() {
         super(NutritiendaCollector.CONFIG);
     }

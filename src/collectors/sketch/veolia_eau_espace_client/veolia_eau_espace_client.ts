@@ -32,6 +32,9 @@ export class VeoliaEauEspaceClientCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VeoliaEauEspaceClientCollector class.
+     */
     constructor() {
         super(VeoliaEauEspaceClientCollector.CONFIG);
     }

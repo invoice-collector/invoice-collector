@@ -32,6 +32,9 @@ export class InnovationGroupCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the InnovationGroupCollector class.
+     */
     constructor() {
         super(InnovationGroupCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class MiraklBigbangCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MiraklBigbangCollector class.
+     */
     constructor() {
         super(MiraklBigbangCollector.CONFIG);
     }

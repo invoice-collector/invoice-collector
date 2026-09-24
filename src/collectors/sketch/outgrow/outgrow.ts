@@ -32,6 +32,9 @@ export class OutgrowCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OutgrowCollector class.
+     */
     constructor() {
         super(OutgrowCollector.CONFIG);
     }

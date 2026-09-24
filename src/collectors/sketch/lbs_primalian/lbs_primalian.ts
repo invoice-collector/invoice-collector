@@ -32,6 +32,9 @@ export class LbsPrimalianCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LbsPrimalianCollector class.
+     */
     constructor() {
         super(LbsPrimalianCollector.CONFIG);
     }

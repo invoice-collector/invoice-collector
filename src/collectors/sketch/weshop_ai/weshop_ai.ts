@@ -32,6 +32,9 @@ export class WeshopAiCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WeshopAiCollector class.
+     */
     constructor() {
         super(WeshopAiCollector.CONFIG);
     }

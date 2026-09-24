@@ -32,6 +32,9 @@ export class BnpLeasingSolutionsFineasyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BnpLeasingSolutionsFineasyCollector class.
+     */
     constructor() {
         super(BnpLeasingSolutionsFineasyCollector.CONFIG);
     }

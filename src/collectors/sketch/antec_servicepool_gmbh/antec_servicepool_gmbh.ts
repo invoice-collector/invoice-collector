@@ -32,6 +32,9 @@ export class AntecServicepoolGmbhCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AntecServicepoolGmbhCollector class.
+     */
     constructor() {
         super(AntecServicepoolGmbhCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class DatacakeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DatacakeCollector class.
+     */
     constructor() {
         super(DatacakeCollector.CONFIG);
     }

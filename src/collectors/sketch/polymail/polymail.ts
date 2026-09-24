@@ -32,6 +32,9 @@ export class PolymailCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PolymailCollector class.
+     */
     constructor() {
         super(PolymailCollector.CONFIG);
     }

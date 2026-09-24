@@ -32,6 +32,9 @@ export class OowvCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OowvCollector class.
+     */
     constructor() {
         super(OowvCollector.CONFIG);
     }

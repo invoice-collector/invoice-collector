@@ -32,6 +32,9 @@ export class ActivateByReclayCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ActivateByReclayCollector class.
+     */
     constructor() {
         super(ActivateByReclayCollector.CONFIG);
     }

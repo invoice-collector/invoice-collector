@@ -32,6 +32,9 @@ export class TopleftCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TopleftCollector class.
+     */
     constructor() {
         super(TopleftCollector.CONFIG);
     }

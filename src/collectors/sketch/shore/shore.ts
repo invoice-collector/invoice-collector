@@ -32,6 +32,9 @@ export class ShoreCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ShoreCollector class.
+     */
     constructor() {
         super(ShoreCollector.CONFIG);
     }

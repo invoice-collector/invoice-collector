@@ -32,6 +32,9 @@ export class MacstadiumCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MacstadiumCollector class.
+     */
     constructor() {
         super(MacstadiumCollector.CONFIG);
     }

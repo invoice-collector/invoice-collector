@@ -32,6 +32,9 @@ export class InfocallerInfofaxCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the InfocallerInfofaxCollector class.
+     */
     constructor() {
         super(InfocallerInfofaxCollector.CONFIG);
     }

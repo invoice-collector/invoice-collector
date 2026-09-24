@@ -32,6 +32,9 @@ export class DslmobilCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DslmobilCollector class.
+     */
     constructor() {
         super(DslmobilCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class CityOfSignalHillCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CityOfSignalHillCollector class.
+     */
     constructor() {
         super(CityOfSignalHillCollector.CONFIG);
     }

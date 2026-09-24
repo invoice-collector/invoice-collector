@@ -32,6 +32,9 @@ export class NordzuckerAgriportalCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NordzuckerAgriportalCollector class.
+     */
     constructor() {
         super(NordzuckerAgriportalCollector.CONFIG);
     }

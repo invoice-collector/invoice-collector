@@ -32,6 +32,9 @@ export class JenjiCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the JenjiCollector class.
+     */
     constructor() {
         super(JenjiCollector.CONFIG);
     }

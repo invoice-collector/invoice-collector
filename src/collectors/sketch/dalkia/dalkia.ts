@@ -31,6 +31,9 @@ export class DalkiaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DalkiaCollector class.
+     */
     constructor() {
         super(DalkiaCollector.CONFIG);
     }

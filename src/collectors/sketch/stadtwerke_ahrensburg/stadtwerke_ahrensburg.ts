@@ -32,6 +32,9 @@ export class StadtwerkeAhrensburgCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StadtwerkeAhrensburgCollector class.
+     */
     constructor() {
         super(StadtwerkeAhrensburgCollector.CONFIG);
     }

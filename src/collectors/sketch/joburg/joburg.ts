@@ -32,6 +32,9 @@ export class JoburgCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the JoburgCollector class.
+     */
     constructor() {
         super(JoburgCollector.CONFIG);
     }

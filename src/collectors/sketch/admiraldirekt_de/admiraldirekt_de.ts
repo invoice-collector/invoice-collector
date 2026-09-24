@@ -32,6 +32,9 @@ export class AdmiraldirektDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AdmiraldirektDeCollector class.
+     */
     constructor() {
         super(AdmiraldirektDeCollector.CONFIG);
     }

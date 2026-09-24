@@ -32,6 +32,9 @@ export class NeotouchByQuadientCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NeotouchByQuadientCollector class.
+     */
     constructor() {
         super(NeotouchByQuadientCollector.CONFIG);
     }

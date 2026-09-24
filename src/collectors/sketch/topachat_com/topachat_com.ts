@@ -32,6 +32,9 @@ export class TopachatComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TopachatComCollector class.
+     */
     constructor() {
         super(TopachatComCollector.CONFIG);
     }

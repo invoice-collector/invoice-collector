@@ -32,6 +32,9 @@ export class BloombergCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BloombergCollector class.
+     */
     constructor() {
         super(BloombergCollector.CONFIG);
     }

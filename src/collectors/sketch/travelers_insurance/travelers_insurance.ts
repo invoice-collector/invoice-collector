@@ -32,6 +32,9 @@ export class TravelersInsuranceCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TravelersInsuranceCollector class.
+     */
     constructor() {
         super(TravelersInsuranceCollector.CONFIG);
     }

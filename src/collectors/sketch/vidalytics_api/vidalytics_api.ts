@@ -32,6 +32,9 @@ export class VidalyticsApiCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VidalyticsApiCollector class.
+     */
     constructor() {
         super(VidalyticsApiCollector.CONFIG);
     }

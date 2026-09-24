@@ -32,6 +32,9 @@ export class FreestylelibreDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FreestylelibreDeCollector class.
+     */
     constructor() {
         super(FreestylelibreDeCollector.CONFIG);
     }

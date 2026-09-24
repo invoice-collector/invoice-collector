@@ -32,6 +32,9 @@ export class BliskCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BliskCollector class.
+     */
     constructor() {
         super(BliskCollector.CONFIG);
     }

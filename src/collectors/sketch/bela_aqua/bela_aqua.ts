@@ -32,6 +32,9 @@ export class BelaAquaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BelaAquaCollector class.
+     */
     constructor() {
         super(BelaAquaCollector.CONFIG);
     }

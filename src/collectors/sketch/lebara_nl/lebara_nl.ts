@@ -32,6 +32,9 @@ export class LebaraNlCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LebaraNlCollector class.
+     */
     constructor() {
         super(LebaraNlCollector.CONFIG);
     }

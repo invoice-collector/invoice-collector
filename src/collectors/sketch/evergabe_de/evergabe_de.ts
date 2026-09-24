@@ -32,6 +32,9 @@ export class EvergabeDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EvergabeDeCollector class.
+     */
     constructor() {
         super(EvergabeDeCollector.CONFIG);
     }

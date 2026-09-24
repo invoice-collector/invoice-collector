@@ -32,6 +32,9 @@ export class OntarioMunicipalUtilitiesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OntarioMunicipalUtilitiesCollector class.
+     */
     constructor() {
         super(OntarioMunicipalUtilitiesCollector.CONFIG);
     }

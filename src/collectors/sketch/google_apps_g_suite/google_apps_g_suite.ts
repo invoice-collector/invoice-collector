@@ -32,6 +32,9 @@ export class GoogleAppsGSuiteCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GoogleAppsGSuiteCollector class.
+     */
     constructor() {
         super(GoogleAppsGSuiteCollector.CONFIG);
     }

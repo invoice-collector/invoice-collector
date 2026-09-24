@@ -32,6 +32,9 @@ export class ResurfaceCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ResurfaceCollector class.
+     */
     constructor() {
         super(ResurfaceCollector.CONFIG);
     }

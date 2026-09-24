@@ -32,6 +32,9 @@ export class YarraValleyWaterCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the YarraValleyWaterCollector class.
+     */
     constructor() {
         super(YarraValleyWaterCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class DuoSecurityCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DuoSecurityCollector class.
+     */
     constructor() {
         super(DuoSecurityCollector.CONFIG);
     }

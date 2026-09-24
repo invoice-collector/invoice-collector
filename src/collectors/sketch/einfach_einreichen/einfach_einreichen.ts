@@ -32,6 +32,9 @@ export class EinfachEinreichenCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EinfachEinreichenCollector class.
+     */
     constructor() {
         super(EinfachEinreichenCollector.CONFIG);
     }

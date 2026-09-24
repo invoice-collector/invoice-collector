@@ -32,6 +32,9 @@ export class CloudradIoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CloudradIoCollector class.
+     */
     constructor() {
         super(CloudradIoCollector.CONFIG);
     }

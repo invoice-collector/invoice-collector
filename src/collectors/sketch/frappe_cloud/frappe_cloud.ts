@@ -32,6 +32,9 @@ export class FrappeCloudCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FrappeCloudCollector class.
+     */
     constructor() {
         super(FrappeCloudCollector.CONFIG);
     }

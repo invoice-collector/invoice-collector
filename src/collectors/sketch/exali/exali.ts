@@ -32,6 +32,9 @@ export class ExaliCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ExaliCollector class.
+     */
     constructor() {
         super(ExaliCollector.CONFIG);
     }

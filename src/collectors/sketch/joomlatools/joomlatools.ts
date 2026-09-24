@@ -32,6 +32,9 @@ export class JoomlatoolsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the JoomlatoolsCollector class.
+     */
     constructor() {
         super(JoomlatoolsCollector.CONFIG);
     }

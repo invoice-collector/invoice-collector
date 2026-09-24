@@ -32,6 +32,9 @@ export class IubendaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the IubendaCollector class.
+     */
     constructor() {
         super(IubendaCollector.CONFIG);
     }

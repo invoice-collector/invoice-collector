@@ -32,6 +32,9 @@ export class InternetvistaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the InternetvistaCollector class.
+     */
     constructor() {
         super(InternetvistaCollector.CONFIG);
     }

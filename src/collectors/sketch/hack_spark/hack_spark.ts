@@ -32,6 +32,9 @@ export class HackSparkCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HackSparkCollector class.
+     */
     constructor() {
         super(HackSparkCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class BremerSteuerInstitutEVCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BremerSteuerInstitutEVCollector class.
+     */
     constructor() {
         super(BremerSteuerInstitutEVCollector.CONFIG);
     }

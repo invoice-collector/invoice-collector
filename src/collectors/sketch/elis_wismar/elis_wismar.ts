@@ -32,6 +32,9 @@ export class ElisWismarCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ElisWismarCollector class.
+     */
     constructor() {
         super(ElisWismarCollector.CONFIG);
     }

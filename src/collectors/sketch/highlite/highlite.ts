@@ -32,6 +32,9 @@ export class HighliteCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HighliteCollector class.
+     */
     constructor() {
         super(HighliteCollector.CONFIG);
     }

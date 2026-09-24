@@ -32,6 +32,9 @@ export class SyncBlueCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SyncBlueCollector class.
+     */
     constructor() {
         super(SyncBlueCollector.CONFIG);
     }

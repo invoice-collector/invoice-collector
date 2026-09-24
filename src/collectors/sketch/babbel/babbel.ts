@@ -32,6 +32,9 @@ export class BabbelCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BabbelCollector class.
+     */
     constructor() {
         super(BabbelCollector.CONFIG);
     }

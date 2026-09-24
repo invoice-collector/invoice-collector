@@ -32,6 +32,9 @@ export class WorldFuelServiceCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WorldFuelServiceCollector class.
+     */
     constructor() {
         super(WorldFuelServiceCollector.CONFIG);
     }

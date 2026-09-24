@@ -32,6 +32,9 @@ export class UsenextCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the UsenextCollector class.
+     */
     constructor() {
         super(UsenextCollector.CONFIG);
     }

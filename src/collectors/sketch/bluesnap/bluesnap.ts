@@ -32,6 +32,9 @@ export class BluesnapCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BluesnapCollector class.
+     */
     constructor() {
         super(BluesnapCollector.CONFIG);
     }

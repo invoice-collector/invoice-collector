@@ -32,6 +32,9 @@ export class HubicCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HubicCollector class.
+     */
     constructor() {
         super(HubicCollector.CONFIG);
     }

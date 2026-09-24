@@ -32,6 +32,9 @@ export class FairfaxWaterCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FairfaxWaterCollector class.
+     */
     constructor() {
         super(FairfaxWaterCollector.CONFIG);
     }

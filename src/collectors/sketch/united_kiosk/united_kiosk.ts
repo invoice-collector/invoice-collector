@@ -32,6 +32,9 @@ export class UnitedKioskCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the UnitedKioskCollector class.
+     */
     constructor() {
         super(UnitedKioskCollector.CONFIG);
     }

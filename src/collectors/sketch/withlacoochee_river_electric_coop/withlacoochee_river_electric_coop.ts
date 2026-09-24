@@ -32,6 +32,9 @@ export class WithlacoocheeRiverElectricCoopCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WithlacoocheeRiverElectricCoopCollector class.
+     */
     constructor() {
         super(WithlacoocheeRiverElectricCoopCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class ThinkcellCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ThinkcellCollector class.
+     */
     constructor() {
         super(ThinkcellCollector.CONFIG);
     }

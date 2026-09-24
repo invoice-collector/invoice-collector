@@ -32,6 +32,9 @@ export class WebsequencediagramsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WebsequencediagramsCollector class.
+     */
     constructor() {
         super(WebsequencediagramsCollector.CONFIG);
     }

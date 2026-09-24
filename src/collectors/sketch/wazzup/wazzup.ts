@@ -32,6 +32,9 @@ export class WazzupCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WazzupCollector class.
+     */
     constructor() {
         super(WazzupCollector.CONFIG);
     }

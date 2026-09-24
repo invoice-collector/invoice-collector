@@ -32,6 +32,9 @@ export class SpendeskCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SpendeskCollector class.
+     */
     constructor() {
         super(SpendeskCollector.CONFIG);
     }

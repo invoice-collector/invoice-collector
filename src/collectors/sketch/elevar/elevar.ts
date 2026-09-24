@@ -32,6 +32,9 @@ export class ElevarCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ElevarCollector class.
+     */
     constructor() {
         super(ElevarCollector.CONFIG);
     }

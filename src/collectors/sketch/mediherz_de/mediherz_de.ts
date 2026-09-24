@@ -32,6 +32,9 @@ export class MediherzDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MediherzDeCollector class.
+     */
     constructor() {
         super(MediherzDeCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class SemaphoreCiCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SemaphoreCiCollector class.
+     */
     constructor() {
         super(SemaphoreCiCollector.CONFIG);
     }

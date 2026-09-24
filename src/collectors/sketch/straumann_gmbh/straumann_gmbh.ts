@@ -32,6 +32,9 @@ export class StraumannGmbhCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StraumannGmbhCollector class.
+     */
     constructor() {
         super(StraumannGmbhCollector.CONFIG);
     }

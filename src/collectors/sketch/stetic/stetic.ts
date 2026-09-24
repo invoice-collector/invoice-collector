@@ -32,6 +32,9 @@ export class SteticCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SteticCollector class.
+     */
     constructor() {
         super(SteticCollector.CONFIG);
     }

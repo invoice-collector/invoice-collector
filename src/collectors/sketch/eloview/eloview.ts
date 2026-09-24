@@ -32,6 +32,9 @@ export class EloviewCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EloviewCollector class.
+     */
     constructor() {
         super(EloviewCollector.CONFIG);
     }

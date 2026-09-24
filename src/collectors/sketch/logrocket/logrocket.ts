@@ -32,6 +32,9 @@ export class LogrocketCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LogrocketCollector class.
+     */
     constructor() {
         super(LogrocketCollector.CONFIG);
     }

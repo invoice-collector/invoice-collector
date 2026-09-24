@@ -32,6 +32,9 @@ export class GothaerMaklerportalCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GothaerMaklerportalCollector class.
+     */
     constructor() {
         super(GothaerMaklerportalCollector.CONFIG);
     }

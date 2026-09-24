@@ -32,6 +32,9 @@ export class QualitypoolCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the QualitypoolCollector class.
+     */
     constructor() {
         super(QualitypoolCollector.CONFIG);
     }

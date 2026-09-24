@@ -32,6 +32,9 @@ export class CelerosOnlineCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CelerosOnlineCollector class.
+     */
     constructor() {
         super(CelerosOnlineCollector.CONFIG);
     }

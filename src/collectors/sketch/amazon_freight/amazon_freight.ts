@@ -32,6 +32,9 @@ export class AmazonFreightCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AmazonFreightCollector class.
+     */
     constructor() {
         super(AmazonFreightCollector.CONFIG);
     }

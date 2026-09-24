@@ -32,6 +32,9 @@ export class DudaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DudaCollector class.
+     */
     constructor() {
         super(DudaCollector.CONFIG);
     }

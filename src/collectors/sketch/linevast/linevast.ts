@@ -32,6 +32,9 @@ export class LinevastCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LinevastCollector class.
+     */
     constructor() {
         super(LinevastCollector.CONFIG);
     }

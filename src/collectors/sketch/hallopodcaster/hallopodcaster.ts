@@ -32,6 +32,9 @@ export class HallopodcasterCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HallopodcasterCollector class.
+     */
     constructor() {
         super(HallopodcasterCollector.CONFIG);
     }

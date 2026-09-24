@@ -32,6 +32,9 @@ export class ShirtinatorCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ShirtinatorCollector class.
+     */
     constructor() {
         super(ShirtinatorCollector.CONFIG);
     }

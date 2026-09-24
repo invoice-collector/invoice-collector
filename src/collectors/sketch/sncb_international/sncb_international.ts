@@ -32,6 +32,9 @@ export class SncbInternationalCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SncbInternationalCollector class.
+     */
     constructor() {
         super(SncbInternationalCollector.CONFIG);
     }

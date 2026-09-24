@@ -32,6 +32,9 @@ export class HackerrankCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HackerrankCollector class.
+     */
     constructor() {
         super(HackerrankCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class NetbeatCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NetbeatCollector class.
+     */
     constructor() {
         super(NetbeatCollector.CONFIG);
     }

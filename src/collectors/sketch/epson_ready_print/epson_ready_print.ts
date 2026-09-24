@@ -32,6 +32,9 @@ export class EpsonReadyPrintCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EpsonReadyPrintCollector class.
+     */
     constructor() {
         super(EpsonReadyPrintCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class SegurioCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SegurioCollector class.
+     */
     constructor() {
         super(SegurioCollector.CONFIG);
     }

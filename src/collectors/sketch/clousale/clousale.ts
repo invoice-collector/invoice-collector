@@ -32,6 +32,9 @@ export class ClousaleCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ClousaleCollector class.
+     */
     constructor() {
         super(ClousaleCollector.CONFIG);
     }

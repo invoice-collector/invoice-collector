@@ -32,6 +32,9 @@ export class ForeplayCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ForeplayCollector class.
+     */
     constructor() {
         super(ForeplayCollector.CONFIG);
     }

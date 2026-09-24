@@ -32,6 +32,9 @@ export class HemTankstelleCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HemTankstelleCollector class.
+     */
     constructor() {
         super(HemTankstelleCollector.CONFIG);
     }

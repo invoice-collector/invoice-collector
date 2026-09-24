@@ -32,6 +32,9 @@ export class HotelSpiderCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HotelSpiderCollector class.
+     */
     constructor() {
         super(HotelSpiderCollector.CONFIG);
     }

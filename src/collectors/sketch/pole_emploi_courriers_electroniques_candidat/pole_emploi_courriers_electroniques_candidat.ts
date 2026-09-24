@@ -32,6 +32,9 @@ export class PoleEmploiCourriersElectroniquesCandidatCollector extends SketchCol
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PoleEmploiCourriersElectroniquesCandidatCollector class.
+     */
     constructor() {
         super(PoleEmploiCourriersElectroniquesCandidatCollector.CONFIG);
     }

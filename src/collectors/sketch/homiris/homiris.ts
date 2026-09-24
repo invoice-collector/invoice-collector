@@ -32,6 +32,9 @@ export class HomirisCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HomirisCollector class.
+     */
     constructor() {
         super(HomirisCollector.CONFIG);
     }

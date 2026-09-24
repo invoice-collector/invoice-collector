@@ -32,6 +32,9 @@ export class StackoverflowTeamsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StackoverflowTeamsCollector class.
+     */
     constructor() {
         super(StackoverflowTeamsCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class VivaloEspaceClientCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VivaloEspaceClientCollector class.
+     */
     constructor() {
         super(VivaloEspaceClientCollector.CONFIG);
     }

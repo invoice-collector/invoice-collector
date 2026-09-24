@@ -32,6 +32,9 @@ export class MorflaxCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MorflaxCollector class.
+     */
     constructor() {
         super(MorflaxCollector.CONFIG);
     }

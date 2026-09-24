@@ -32,6 +32,9 @@ export class McgrundrissCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the McgrundrissCollector class.
+     */
     constructor() {
         super(McgrundrissCollector.CONFIG);
     }

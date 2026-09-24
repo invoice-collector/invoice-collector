@@ -32,6 +32,9 @@ export class QrcodeStudioCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the QrcodeStudioCollector class.
+     */
     constructor() {
         super(QrcodeStudioCollector.CONFIG);
     }

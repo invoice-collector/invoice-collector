@@ -32,6 +32,9 @@ export class NetimComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NetimComCollector class.
+     */
     constructor() {
         super(NetimComCollector.CONFIG);
     }

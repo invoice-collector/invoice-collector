@@ -32,6 +32,9 @@ export class Tool4sellerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Tool4sellerCollector class.
+     */
     constructor() {
         super(Tool4sellerCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class LoisirsEducationEtCitoyenneteGrandSudEntrepriseCollector extends Sk
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LoisirsEducationEtCitoyenneteGrandSudEntrepriseCollector class.
+     */
     constructor() {
         super(LoisirsEducationEtCitoyenneteGrandSudEntrepriseCollector.CONFIG);
     }

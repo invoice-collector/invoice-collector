@@ -32,6 +32,9 @@ export class RetriumCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RetriumCollector class.
+     */
     constructor() {
         super(RetriumCollector.CONFIG);
     }

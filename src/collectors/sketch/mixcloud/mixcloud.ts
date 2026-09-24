@@ -32,6 +32,9 @@ export class MixcloudCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MixcloudCollector class.
+     */
     constructor() {
         super(MixcloudCollector.CONFIG);
     }

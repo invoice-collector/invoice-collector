@@ -32,6 +32,9 @@ export class MaryKayCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MaryKayCollector class.
+     */
     constructor() {
         super(MaryKayCollector.CONFIG);
     }

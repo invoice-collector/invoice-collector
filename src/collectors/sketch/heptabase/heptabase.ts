@@ -32,6 +32,9 @@ export class HeptabaseCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HeptabaseCollector class.
+     */
     constructor() {
         super(HeptabaseCollector.CONFIG);
     }

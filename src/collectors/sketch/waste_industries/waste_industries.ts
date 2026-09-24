@@ -32,6 +32,9 @@ export class WasteIndustriesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WasteIndustriesCollector class.
+     */
     constructor() {
         super(WasteIndustriesCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class OfficeEvolutionCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OfficeEvolutionCollector class.
+     */
     constructor() {
         super(OfficeEvolutionCollector.CONFIG);
     }

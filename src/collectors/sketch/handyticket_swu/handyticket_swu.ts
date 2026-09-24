@@ -32,6 +32,9 @@ export class HandyticketSwuCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HandyticketSwuCollector class.
+     */
     constructor() {
         super(HandyticketSwuCollector.CONFIG);
     }

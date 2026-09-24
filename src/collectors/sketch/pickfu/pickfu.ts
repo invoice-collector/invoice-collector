@@ -32,6 +32,9 @@ export class PickfuCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PickfuCollector class.
+     */
     constructor() {
         super(PickfuCollector.CONFIG);
     }

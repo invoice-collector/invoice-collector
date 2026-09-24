@@ -32,6 +32,9 @@ export class AcesDirectCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AcesDirectCollector class.
+     */
     constructor() {
         super(AcesDirectCollector.CONFIG);
     }

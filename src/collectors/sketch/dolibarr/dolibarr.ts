@@ -32,6 +32,9 @@ export class DolibarrCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DolibarrCollector class.
+     */
     constructor() {
         super(DolibarrCollector.CONFIG);
     }

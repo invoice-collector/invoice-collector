@@ -32,6 +32,9 @@ export class TicketpayEuropeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TicketpayEuropeCollector class.
+     */
     constructor() {
         super(TicketpayEuropeCollector.CONFIG);
     }

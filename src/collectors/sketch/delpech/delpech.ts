@@ -32,6 +32,9 @@ export class DelpechCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DelpechCollector class.
+     */
     constructor() {
         super(DelpechCollector.CONFIG);
     }

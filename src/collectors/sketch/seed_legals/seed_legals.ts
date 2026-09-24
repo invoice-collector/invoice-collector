@@ -32,6 +32,9 @@ export class SeedLegalsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SeedLegalsCollector class.
+     */
     constructor() {
         super(SeedLegalsCollector.CONFIG);
     }

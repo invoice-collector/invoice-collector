@@ -32,6 +32,9 @@ export class MuxCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MuxCollector class.
+     */
     constructor() {
         super(MuxCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class YellowImagesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the YellowImagesCollector class.
+     */
     constructor() {
         super(YellowImagesCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class CostaCoUkCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CostaCoUkCollector class.
+     */
     constructor() {
         super(CostaCoUkCollector.CONFIG);
     }

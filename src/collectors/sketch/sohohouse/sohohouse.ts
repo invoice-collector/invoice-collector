@@ -32,6 +32,9 @@ export class SohohouseCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SohohouseCollector class.
+     */
     constructor() {
         super(SohohouseCollector.CONFIG);
     }

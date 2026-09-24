@@ -32,6 +32,9 @@ export class StoriesDieBuchhandlungCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StoriesDieBuchhandlungCollector class.
+     */
     constructor() {
         super(StoriesDieBuchhandlungCollector.CONFIG);
     }

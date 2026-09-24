@@ -32,6 +32,9 @@ export class GDataCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GDataCollector class.
+     */
     constructor() {
         super(GDataCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class MutuelleVivinterEspaceEntrepriseCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MutuelleVivinterEspaceEntrepriseCollector class.
+     */
     constructor() {
         super(MutuelleVivinterEspaceEntrepriseCollector.CONFIG);
     }

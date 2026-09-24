@@ -32,6 +32,9 @@ export class FonciaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FonciaCollector class.
+     */
     constructor() {
         super(FonciaCollector.CONFIG);
     }

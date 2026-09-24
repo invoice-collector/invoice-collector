@@ -32,6 +32,9 @@ export class KnusprCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KnusprCollector class.
+     */
     constructor() {
         super(KnusprCollector.CONFIG);
     }

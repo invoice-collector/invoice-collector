@@ -32,6 +32,9 @@ export class BlogmissionAdvertiserCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BlogmissionAdvertiserCollector class.
+     */
     constructor() {
         super(BlogmissionAdvertiserCollector.CONFIG);
     }

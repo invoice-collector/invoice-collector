@@ -32,6 +32,9 @@ export class WelcomeToTheJungleCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WelcomeToTheJungleCollector class.
+     */
     constructor() {
         super(WelcomeToTheJungleCollector.CONFIG);
     }

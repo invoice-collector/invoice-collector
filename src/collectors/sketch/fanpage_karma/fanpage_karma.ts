@@ -32,6 +32,9 @@ export class FanpageKarmaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FanpageKarmaCollector class.
+     */
     constructor() {
         super(FanpageKarmaCollector.CONFIG);
     }

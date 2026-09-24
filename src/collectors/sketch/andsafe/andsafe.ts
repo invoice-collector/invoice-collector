@@ -32,6 +32,9 @@ export class AndsafeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AndsafeCollector class.
+     */
     constructor() {
         super(AndsafeCollector.CONFIG);
     }

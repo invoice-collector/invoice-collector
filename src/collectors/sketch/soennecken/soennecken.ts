@@ -32,6 +32,9 @@ export class SoenneckenCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SoenneckenCollector class.
+     */
     constructor() {
         super(SoenneckenCollector.CONFIG);
     }

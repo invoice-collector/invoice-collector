@@ -32,6 +32,9 @@ export class SalesviewerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SalesviewerCollector class.
+     */
     constructor() {
         super(SalesviewerCollector.CONFIG);
     }

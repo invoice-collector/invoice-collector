@@ -32,6 +32,9 @@ export class AdsectorCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AdsectorCollector class.
+     */
     constructor() {
         super(AdsectorCollector.CONFIG);
     }

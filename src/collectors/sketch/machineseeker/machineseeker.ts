@@ -32,6 +32,9 @@ export class MachineseekerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MachineseekerCollector class.
+     */
     constructor() {
         super(MachineseekerCollector.CONFIG);
     }

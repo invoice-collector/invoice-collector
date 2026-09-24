@@ -32,6 +32,9 @@ export class ScripeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ScripeCollector class.
+     */
     constructor() {
         super(ScripeCollector.CONFIG);
     }

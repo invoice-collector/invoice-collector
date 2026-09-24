@@ -32,6 +32,9 @@ export class PlanradarCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PlanradarCollector class.
+     */
     constructor() {
         super(PlanradarCollector.CONFIG);
     }

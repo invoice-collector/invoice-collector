@@ -32,6 +32,9 @@ export class TeslaBusinessCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TeslaBusinessCollector class.
+     */
     constructor() {
         super(TeslaBusinessCollector.CONFIG);
     }

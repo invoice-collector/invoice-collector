@@ -32,6 +32,9 @@ export class MacCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MacCollector class.
+     */
     constructor() {
         super(MacCollector.CONFIG);
     }

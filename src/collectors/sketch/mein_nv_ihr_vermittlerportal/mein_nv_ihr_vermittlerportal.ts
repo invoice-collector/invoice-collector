@@ -32,6 +32,9 @@ export class MeinNvIhrVermittlerportalCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MeinNvIhrVermittlerportalCollector class.
+     */
     constructor() {
         super(MeinNvIhrVermittlerportalCollector.CONFIG);
     }

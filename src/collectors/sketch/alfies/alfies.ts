@@ -32,6 +32,9 @@ export class AlfiesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AlfiesCollector class.
+     */
     constructor() {
         super(AlfiesCollector.CONFIG);
     }

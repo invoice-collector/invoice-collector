@@ -32,6 +32,9 @@ export class DocupipeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DocupipeCollector class.
+     */
     constructor() {
         super(DocupipeCollector.CONFIG);
     }

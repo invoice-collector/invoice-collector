@@ -32,6 +32,9 @@ export class FintechComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FintechComCollector class.
+     */
     constructor() {
         super(FintechComCollector.CONFIG);
     }

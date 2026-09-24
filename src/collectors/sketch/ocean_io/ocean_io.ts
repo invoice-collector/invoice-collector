@@ -32,6 +32,9 @@ export class OceanIoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OceanIoCollector class.
+     */
     constructor() {
         super(OceanIoCollector.CONFIG);
     }

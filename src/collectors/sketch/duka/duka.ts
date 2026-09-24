@@ -32,6 +32,9 @@ export class DukaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DukaCollector class.
+     */
     constructor() {
         super(DukaCollector.CONFIG);
     }

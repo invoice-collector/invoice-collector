@@ -32,6 +32,9 @@ export class LaBrigadeDeVeroCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LaBrigadeDeVeroCollector class.
+     */
     constructor() {
         super(LaBrigadeDeVeroCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class DebitoorCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DebitoorCollector class.
+     */
     constructor() {
         super(DebitoorCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class PurebikeFrCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PurebikeFrCollector class.
+     */
     constructor() {
         super(PurebikeFrCollector.CONFIG);
     }

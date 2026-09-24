@@ -32,6 +32,9 @@ export class VikingdirectNlCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VikingdirectNlCollector class.
+     */
     constructor() {
         super(VikingdirectNlCollector.CONFIG);
     }

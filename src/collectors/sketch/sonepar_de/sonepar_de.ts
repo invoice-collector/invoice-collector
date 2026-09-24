@@ -31,6 +31,9 @@ export class SoneparDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SoneparDeCollector class.
+     */
     constructor() {
         super(SoneparDeCollector.CONFIG);
     }

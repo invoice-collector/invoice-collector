@@ -32,6 +32,9 @@ export class CxlCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CxlCollector class.
+     */
     constructor() {
         super(CxlCollector.CONFIG);
     }

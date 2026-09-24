@@ -32,6 +32,9 @@ export class WpmlOrgCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WpmlOrgCollector class.
+     */
     constructor() {
         super(WpmlOrgCollector.CONFIG);
     }

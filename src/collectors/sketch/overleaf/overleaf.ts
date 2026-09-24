@@ -32,6 +32,9 @@ export class OverleafCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OverleafCollector class.
+     */
     constructor() {
         super(OverleafCollector.CONFIG);
     }

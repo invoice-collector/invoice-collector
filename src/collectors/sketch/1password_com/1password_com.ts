@@ -32,6 +32,9 @@ export class _1passwordComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the _1passwordComCollector class.
+     */
     constructor() {
         super(_1passwordComCollector.CONFIG);
     }

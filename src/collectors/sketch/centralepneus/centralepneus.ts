@@ -32,6 +32,9 @@ export class CentralepneusCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CentralepneusCollector class.
+     */
     constructor() {
         super(CentralepneusCollector.CONFIG);
     }

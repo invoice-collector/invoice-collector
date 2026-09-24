@@ -32,6 +32,9 @@ export class RelevanceAiCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RelevanceAiCollector class.
+     */
     constructor() {
         super(RelevanceAiCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class PixelfyMeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PixelfyMeCollector class.
+     */
     constructor() {
         super(PixelfyMeCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class EnelCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EnelCollector class.
+     */
     constructor() {
         super(EnelCollector.CONFIG);
     }

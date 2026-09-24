@@ -32,6 +32,9 @@ export class MutuelleHarmonieCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MutuelleHarmonieCollector class.
+     */
     constructor() {
         super(MutuelleHarmonieCollector.CONFIG);
     }

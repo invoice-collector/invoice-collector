@@ -32,6 +32,9 @@ export class ConfluenceTestCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ConfluenceTestCollector class.
+     */
     constructor() {
         super(ConfluenceTestCollector.CONFIG);
     }

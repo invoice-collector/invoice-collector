@@ -32,6 +32,9 @@ export class EbertlangCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EbertlangCollector class.
+     */
     constructor() {
         super(EbertlangCollector.CONFIG);
     }

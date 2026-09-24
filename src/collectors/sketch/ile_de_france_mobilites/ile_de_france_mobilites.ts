@@ -31,6 +31,9 @@ export class IleDeFranceMobilitesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the IleDeFranceMobilitesCollector class.
+     */
     constructor() {
         super(IleDeFranceMobilitesCollector.CONFIG);
     }

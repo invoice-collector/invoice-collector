@@ -32,6 +32,9 @@ export class LumaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LumaCollector class.
+     */
     constructor() {
         super(LumaCollector.CONFIG);
     }

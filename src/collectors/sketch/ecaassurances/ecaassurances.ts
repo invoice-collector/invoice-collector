@@ -32,6 +32,9 @@ export class EcaassurancesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EcaassurancesCollector class.
+     */
     constructor() {
         super(EcaassurancesCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class KuponaMediaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KuponaMediaCollector class.
+     */
     constructor() {
         super(KuponaMediaCollector.CONFIG);
     }

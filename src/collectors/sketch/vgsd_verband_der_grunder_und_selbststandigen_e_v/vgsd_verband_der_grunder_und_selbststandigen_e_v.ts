@@ -32,6 +32,9 @@ export class VgsdVerbandDerGrunderUndSelbststandigenEVCollector extends SketchCo
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VgsdVerbandDerGrunderUndSelbststandigenEVCollector class.
+     */
     constructor() {
         super(VgsdVerbandDerGrunderUndSelbststandigenEVCollector.CONFIG);
     }

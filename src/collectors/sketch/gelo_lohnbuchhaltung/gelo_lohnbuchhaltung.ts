@@ -32,6 +32,9 @@ export class GeloLohnbuchhaltungCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GeloLohnbuchhaltungCollector class.
+     */
     constructor() {
         super(GeloLohnbuchhaltungCollector.CONFIG);
     }

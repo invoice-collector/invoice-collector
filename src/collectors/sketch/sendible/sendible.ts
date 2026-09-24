@@ -32,6 +32,9 @@ export class SendibleCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SendibleCollector class.
+     */
     constructor() {
         super(SendibleCollector.CONFIG);
     }

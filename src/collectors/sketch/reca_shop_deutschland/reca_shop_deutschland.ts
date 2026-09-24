@@ -32,6 +32,9 @@ export class RecaShopDeutschlandCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RecaShopDeutschlandCollector class.
+     */
     constructor() {
         super(RecaShopDeutschlandCollector.CONFIG);
     }

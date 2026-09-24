@@ -32,6 +32,9 @@ export class SmartmobilDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SmartmobilDeCollector class.
+     */
     constructor() {
         super(SmartmobilDeCollector.CONFIG);
     }

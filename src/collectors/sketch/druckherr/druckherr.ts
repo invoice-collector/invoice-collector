@@ -32,6 +32,9 @@ export class DruckherrCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DruckherrCollector class.
+     */
     constructor() {
         super(DruckherrCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class DVelopPostboxCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DVelopPostboxCollector class.
+     */
     constructor() {
         super(DVelopPostboxCollector.CONFIG);
     }

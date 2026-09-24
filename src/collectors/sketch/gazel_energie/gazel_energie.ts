@@ -32,6 +32,9 @@ export class GazelEnergieCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GazelEnergieCollector class.
+     */
     constructor() {
         super(GazelEnergieCollector.CONFIG);
     }

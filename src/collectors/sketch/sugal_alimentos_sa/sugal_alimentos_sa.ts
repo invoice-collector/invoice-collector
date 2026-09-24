@@ -32,6 +32,9 @@ export class SugalAlimentosSaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SugalAlimentosSaCollector class.
+     */
     constructor() {
         super(SugalAlimentosSaCollector.CONFIG);
     }

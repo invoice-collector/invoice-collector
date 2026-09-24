@@ -32,6 +32,9 @@ export class PlusSimpleCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PlusSimpleCollector class.
+     */
     constructor() {
         super(PlusSimpleCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class ILovePdfCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ILovePdfCollector class.
+     */
     constructor() {
         super(ILovePdfCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class SynestyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SynestyCollector class.
+     */
     constructor() {
         super(SynestyCollector.CONFIG);
     }

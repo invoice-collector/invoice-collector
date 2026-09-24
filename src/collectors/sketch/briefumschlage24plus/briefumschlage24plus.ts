@@ -32,6 +32,9 @@ export class Briefumschlage24plusCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Briefumschlage24plusCollector class.
+     */
     constructor() {
         super(Briefumschlage24plusCollector.CONFIG);
     }

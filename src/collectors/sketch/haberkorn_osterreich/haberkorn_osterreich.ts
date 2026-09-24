@@ -32,6 +32,9 @@ export class HaberkornOsterreichCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HaberkornOsterreichCollector class.
+     */
     constructor() {
         super(HaberkornOsterreichCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class CybersimCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CybersimCollector class.
+     */
     constructor() {
         super(CybersimCollector.CONFIG);
     }

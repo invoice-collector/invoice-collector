@@ -32,6 +32,9 @@ export class VattenfallFranceGazCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VattenfallFranceGazCollector class.
+     */
     constructor() {
         super(VattenfallFranceGazCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class SteuerberaterakademieRheinlandPfalzCollector extends SketchCollecto
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SteuerberaterakademieRheinlandPfalzCollector class.
+     */
     constructor() {
         super(SteuerberaterakademieRheinlandPfalzCollector.CONFIG);
     }

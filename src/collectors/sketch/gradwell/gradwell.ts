@@ -32,6 +32,9 @@ export class GradwellCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GradwellCollector class.
+     */
     constructor() {
         super(GradwellCollector.CONFIG);
     }

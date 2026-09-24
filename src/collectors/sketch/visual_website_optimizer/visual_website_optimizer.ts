@@ -32,6 +32,9 @@ export class VisualWebsiteOptimizerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VisualWebsiteOptimizerCollector class.
+     */
     constructor() {
         super(VisualWebsiteOptimizerCollector.CONFIG);
     }

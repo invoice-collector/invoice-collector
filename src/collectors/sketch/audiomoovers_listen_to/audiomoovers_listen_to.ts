@@ -32,6 +32,9 @@ export class AudiomooversListenToCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AudiomooversListenToCollector class.
+     */
     constructor() {
         super(AudiomooversListenToCollector.CONFIG);
     }

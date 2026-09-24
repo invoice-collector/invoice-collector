@@ -32,6 +32,9 @@ export class AsinsellCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AsinsellCollector class.
+     */
     constructor() {
         super(AsinsellCollector.CONFIG);
     }

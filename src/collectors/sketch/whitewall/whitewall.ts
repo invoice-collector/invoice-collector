@@ -32,6 +32,9 @@ export class WhitewallCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WhitewallCollector class.
+     */
     constructor() {
         super(WhitewallCollector.CONFIG);
     }

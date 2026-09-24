@@ -32,6 +32,9 @@ export class TradetrackerAffiliatesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TradetrackerAffiliatesCollector class.
+     */
     constructor() {
         super(TradetrackerAffiliatesCollector.CONFIG);
     }

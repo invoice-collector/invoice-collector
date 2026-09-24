@@ -32,6 +32,9 @@ export class HolviCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HolviCollector class.
+     */
     constructor() {
         super(HolviCollector.CONFIG);
     }

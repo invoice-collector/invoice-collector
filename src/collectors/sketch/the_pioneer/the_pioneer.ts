@@ -32,6 +32,9 @@ export class ThePioneerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ThePioneerCollector class.
+     */
     constructor() {
         super(ThePioneerCollector.CONFIG);
     }

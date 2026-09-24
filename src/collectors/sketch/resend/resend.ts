@@ -32,6 +32,9 @@ export class ResendCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ResendCollector class.
+     */
     constructor() {
         super(ResendCollector.CONFIG);
     }

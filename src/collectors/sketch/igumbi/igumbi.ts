@@ -32,6 +32,9 @@ export class IgumbiCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the IgumbiCollector class.
+     */
     constructor() {
         super(IgumbiCollector.CONFIG);
     }

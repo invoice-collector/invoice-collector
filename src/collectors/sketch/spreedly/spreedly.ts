@@ -32,6 +32,9 @@ export class SpreedlyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SpreedlyCollector class.
+     */
     constructor() {
         super(SpreedlyCollector.CONFIG);
     }

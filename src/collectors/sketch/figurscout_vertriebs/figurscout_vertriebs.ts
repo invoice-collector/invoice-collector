@@ -32,6 +32,9 @@ export class FigurscoutVertriebsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FigurscoutVertriebsCollector class.
+     */
     constructor() {
         super(FigurscoutVertriebsCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class OkodorfBrodowinCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OkodorfBrodowinCollector class.
+     */
     constructor() {
         super(OkodorfBrodowinCollector.CONFIG);
     }

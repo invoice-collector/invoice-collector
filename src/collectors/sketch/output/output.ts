@@ -32,6 +32,9 @@ export class OutputCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OutputCollector class.
+     */
     constructor() {
         super(OutputCollector.CONFIG);
     }

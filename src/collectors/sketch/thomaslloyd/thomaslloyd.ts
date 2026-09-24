@@ -32,6 +32,9 @@ export class ThomaslloydCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ThomaslloydCollector class.
+     */
     constructor() {
         super(ThomaslloydCollector.CONFIG);
     }

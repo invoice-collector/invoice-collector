@@ -32,6 +32,9 @@ export class JochenHeilOnlineShopCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the JochenHeilOnlineShopCollector class.
+     */
     constructor() {
         super(JochenHeilOnlineShopCollector.CONFIG);
     }

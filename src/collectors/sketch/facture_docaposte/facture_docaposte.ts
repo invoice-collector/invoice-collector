@@ -32,6 +32,9 @@ export class FactureDocaposteCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FactureDocaposteCollector class.
+     */
     constructor() {
         super(FactureDocaposteCollector.CONFIG);
     }

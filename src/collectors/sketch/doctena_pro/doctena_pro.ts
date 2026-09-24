@@ -32,6 +32,9 @@ export class DoctenaProCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DoctenaProCollector class.
+     */
     constructor() {
         super(DoctenaProCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class StonlyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StonlyCollector class.
+     */
     constructor() {
         super(StonlyCollector.CONFIG);
     }

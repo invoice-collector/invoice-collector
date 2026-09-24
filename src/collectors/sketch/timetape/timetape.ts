@@ -32,6 +32,9 @@ export class TimetapeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TimetapeCollector class.
+     */
     constructor() {
         super(TimetapeCollector.CONFIG);
     }

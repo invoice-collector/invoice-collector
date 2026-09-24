@@ -32,6 +32,9 @@ export class WodupCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WodupCollector class.
+     */
     constructor() {
         super(WodupCollector.CONFIG);
     }

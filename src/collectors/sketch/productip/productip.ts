@@ -32,6 +32,9 @@ export class ProductipCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ProductipCollector class.
+     */
     constructor() {
         super(ProductipCollector.CONFIG);
     }

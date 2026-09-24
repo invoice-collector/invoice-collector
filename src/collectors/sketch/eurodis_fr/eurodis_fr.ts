@@ -32,6 +32,9 @@ export class EurodisFrCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EurodisFrCollector class.
+     */
     constructor() {
         super(EurodisFrCollector.CONFIG);
     }

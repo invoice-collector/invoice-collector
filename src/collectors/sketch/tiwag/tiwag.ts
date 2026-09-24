@@ -32,6 +32,9 @@ export class TiwagCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TiwagCollector class.
+     */
     constructor() {
         super(TiwagCollector.CONFIG);
     }

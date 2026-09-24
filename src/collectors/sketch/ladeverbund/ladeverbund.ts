@@ -32,6 +32,9 @@ export class LadeverbundCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LadeverbundCollector class.
+     */
     constructor() {
         super(LadeverbundCollector.CONFIG);
     }

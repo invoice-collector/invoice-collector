@@ -32,6 +32,9 @@ export class MacStorageCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MacStorageCollector class.
+     */
     constructor() {
         super(MacStorageCollector.CONFIG);
     }

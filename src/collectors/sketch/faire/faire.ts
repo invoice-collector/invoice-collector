@@ -32,6 +32,9 @@ export class FaireCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FaireCollector class.
+     */
     constructor() {
         super(FaireCollector.CONFIG);
     }

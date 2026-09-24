@@ -32,6 +32,9 @@ export class Site24x7Collector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Site24x7Collector class.
+     */
     constructor() {
         super(Site24x7Collector.CONFIG);
     }

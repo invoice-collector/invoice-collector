@@ -32,6 +32,9 @@ export class FatcowCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FatcowCollector class.
+     */
     constructor() {
         super(FatcowCollector.CONFIG);
     }

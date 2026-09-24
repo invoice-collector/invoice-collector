@@ -32,6 +32,9 @@ export class IncentiveMallByCadoozCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the IncentiveMallByCadoozCollector class.
+     */
     constructor() {
         super(IncentiveMallByCadoozCollector.CONFIG);
     }

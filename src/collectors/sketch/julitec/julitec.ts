@@ -32,6 +32,9 @@ export class JulitecCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the JulitecCollector class.
+     */
     constructor() {
         super(JulitecCollector.CONFIG);
     }

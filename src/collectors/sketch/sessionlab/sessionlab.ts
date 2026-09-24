@@ -32,6 +32,9 @@ export class SessionlabCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SessionlabCollector class.
+     */
     constructor() {
         super(SessionlabCollector.CONFIG);
     }

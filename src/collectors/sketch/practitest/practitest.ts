@@ -32,6 +32,9 @@ export class PractitestCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PractitestCollector class.
+     */
     constructor() {
         super(PractitestCollector.CONFIG);
     }

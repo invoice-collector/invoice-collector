@@ -32,6 +32,9 @@ export class ConcurCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ConcurCollector class.
+     */
     constructor() {
         super(ConcurCollector.CONFIG);
     }

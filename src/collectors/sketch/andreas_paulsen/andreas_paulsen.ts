@@ -32,6 +32,9 @@ export class AndreasPaulsenCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AndreasPaulsenCollector class.
+     */
     constructor() {
         super(AndreasPaulsenCollector.CONFIG);
     }

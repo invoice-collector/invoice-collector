@@ -32,6 +32,9 @@ export class PaulsenGruppeOnlinePortalCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PaulsenGruppeOnlinePortalCollector class.
+     */
     constructor() {
         super(PaulsenGruppeOnlinePortalCollector.CONFIG);
     }

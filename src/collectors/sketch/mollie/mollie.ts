@@ -32,6 +32,9 @@ export class MollieCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MollieCollector class.
+     */
     constructor() {
         super(MollieCollector.CONFIG);
     }

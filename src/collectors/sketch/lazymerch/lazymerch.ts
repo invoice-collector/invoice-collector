@@ -32,6 +32,9 @@ export class LazymerchCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LazymerchCollector class.
+     */
     constructor() {
         super(LazymerchCollector.CONFIG);
     }

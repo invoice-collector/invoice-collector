@@ -32,6 +32,9 @@ export class AnimaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AnimaCollector class.
+     */
     constructor() {
         super(AnimaCollector.CONFIG);
     }

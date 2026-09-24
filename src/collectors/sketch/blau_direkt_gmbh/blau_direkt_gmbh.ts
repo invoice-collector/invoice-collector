@@ -32,6 +32,9 @@ export class BlauDirektGmbhCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BlauDirektGmbhCollector class.
+     */
     constructor() {
         super(BlauDirektGmbhCollector.CONFIG);
     }

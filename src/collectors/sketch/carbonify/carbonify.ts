@@ -32,6 +32,9 @@ export class CarbonifyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CarbonifyCollector class.
+     */
     constructor() {
         super(CarbonifyCollector.CONFIG);
     }

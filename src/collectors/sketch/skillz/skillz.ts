@@ -32,6 +32,9 @@ export class SkillzCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SkillzCollector class.
+     */
     constructor() {
         super(SkillzCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class OrbytCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OrbytCollector class.
+     */
     constructor() {
         super(OrbytCollector.CONFIG);
     }

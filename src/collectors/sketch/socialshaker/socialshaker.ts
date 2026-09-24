@@ -32,6 +32,9 @@ export class SocialshakerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SocialshakerCollector class.
+     */
     constructor() {
         super(SocialshakerCollector.CONFIG);
     }

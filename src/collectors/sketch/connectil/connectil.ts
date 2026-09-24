@@ -32,6 +32,9 @@ export class ConnectilCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ConnectilCollector class.
+     */
     constructor() {
         super(ConnectilCollector.CONFIG);
     }

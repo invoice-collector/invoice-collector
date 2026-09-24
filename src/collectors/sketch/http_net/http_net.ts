@@ -32,6 +32,9 @@ export class HttpNetCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HttpNetCollector class.
+     */
     constructor() {
         super(HttpNetCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class ShipStationCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ShipStationCollector class.
+     */
     constructor() {
         super(ShipStationCollector.CONFIG);
     }

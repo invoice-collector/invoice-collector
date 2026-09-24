@@ -32,6 +32,9 @@ export class IdealoPartnerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the IdealoPartnerCollector class.
+     */
     constructor() {
         super(IdealoPartnerCollector.CONFIG);
     }

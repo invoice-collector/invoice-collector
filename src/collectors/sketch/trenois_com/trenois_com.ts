@@ -32,6 +32,9 @@ export class TrenoisComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TrenoisComCollector class.
+     */
     constructor() {
         super(TrenoisComCollector.CONFIG);
     }

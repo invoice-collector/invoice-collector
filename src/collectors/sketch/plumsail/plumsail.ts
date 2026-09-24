@@ -32,6 +32,9 @@ export class PlumsailCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PlumsailCollector class.
+     */
     constructor() {
         super(PlumsailCollector.CONFIG);
     }

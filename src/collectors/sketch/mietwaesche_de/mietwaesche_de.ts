@@ -32,6 +32,9 @@ export class MietwaescheDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MietwaescheDeCollector class.
+     */
     constructor() {
         super(MietwaescheDeCollector.CONFIG);
     }

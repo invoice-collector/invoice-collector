@@ -32,6 +32,9 @@ export class FrameIoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FrameIoCollector class.
+     */
     constructor() {
         super(FrameIoCollector.CONFIG);
     }

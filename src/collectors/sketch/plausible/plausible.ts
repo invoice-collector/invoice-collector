@@ -32,6 +32,9 @@ export class PlausibleCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PlausibleCollector class.
+     */
     constructor() {
         super(PlausibleCollector.CONFIG);
     }

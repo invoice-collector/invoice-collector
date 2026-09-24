@@ -32,6 +32,9 @@ export class BookNDriveCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BookNDriveCollector class.
+     */
     constructor() {
         super(BookNDriveCollector.CONFIG);
     }

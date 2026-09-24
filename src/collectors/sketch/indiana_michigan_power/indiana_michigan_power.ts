@@ -32,6 +32,9 @@ export class IndianaMichiganPowerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the IndianaMichiganPowerCollector class.
+     */
     constructor() {
         super(IndianaMichiganPowerCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class TomeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TomeCollector class.
+     */
     constructor() {
         super(TomeCollector.CONFIG);
     }

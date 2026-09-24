@@ -32,6 +32,9 @@ export class OttoPartnerprogrammCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OttoPartnerprogrammCollector class.
+     */
     constructor() {
         super(OttoPartnerprogrammCollector.CONFIG);
     }

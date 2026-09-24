@@ -32,6 +32,9 @@ export class EcomdataGmbhCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EcomdataGmbhCollector class.
+     */
     constructor() {
         super(EcomdataGmbhCollector.CONFIG);
     }

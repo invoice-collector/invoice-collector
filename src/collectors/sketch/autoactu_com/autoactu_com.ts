@@ -32,6 +32,9 @@ export class AutoactuComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AutoactuComCollector class.
+     */
     constructor() {
         super(AutoactuComCollector.CONFIG);
     }

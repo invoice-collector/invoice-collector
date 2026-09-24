@@ -32,6 +32,9 @@ export class SimplygreenCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SimplygreenCollector class.
+     */
     constructor() {
         super(SimplygreenCollector.CONFIG);
     }

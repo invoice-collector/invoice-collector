@@ -32,6 +32,9 @@ export class AlituCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AlituCollector class.
+     */
     constructor() {
         super(AlituCollector.CONFIG);
     }

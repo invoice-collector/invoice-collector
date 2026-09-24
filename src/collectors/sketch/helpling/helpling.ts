@@ -32,6 +32,9 @@ export class HelplingCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HelplingCollector class.
+     */
     constructor() {
         super(HelplingCollector.CONFIG);
     }

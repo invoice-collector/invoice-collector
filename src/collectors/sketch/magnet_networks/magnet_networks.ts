@@ -32,6 +32,9 @@ export class MagnetNetworksCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MagnetNetworksCollector class.
+     */
     constructor() {
         super(MagnetNetworksCollector.CONFIG);
     }

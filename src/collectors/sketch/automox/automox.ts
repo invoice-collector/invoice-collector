@@ -32,6 +32,9 @@ export class AutomoxCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AutomoxCollector class.
+     */
     constructor() {
         super(AutomoxCollector.CONFIG);
     }

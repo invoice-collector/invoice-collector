@@ -32,6 +32,9 @@ export class SignrequestCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SignrequestCollector class.
+     */
     constructor() {
         super(SignrequestCollector.CONFIG);
     }

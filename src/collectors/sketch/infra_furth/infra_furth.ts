@@ -32,6 +32,9 @@ export class InfraFurthCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the InfraFurthCollector class.
+     */
     constructor() {
         super(InfraFurthCollector.CONFIG);
     }

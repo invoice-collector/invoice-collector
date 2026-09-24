@@ -32,6 +32,9 @@ export class MyEeMobileAndBroadbandCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MyEeMobileAndBroadbandCollector class.
+     */
     constructor() {
         super(MyEeMobileAndBroadbandCollector.CONFIG);
     }

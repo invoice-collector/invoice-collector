@@ -32,6 +32,9 @@ export class GoodaccessCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GoodaccessCollector class.
+     */
     constructor() {
         super(GoodaccessCollector.CONFIG);
     }

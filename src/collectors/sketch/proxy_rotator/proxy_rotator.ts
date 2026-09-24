@@ -32,6 +32,9 @@ export class ProxyRotatorCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ProxyRotatorCollector class.
+     */
     constructor() {
         super(ProxyRotatorCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class AlltricksCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AlltricksCollector class.
+     */
     constructor() {
         super(AlltricksCollector.CONFIG);
     }

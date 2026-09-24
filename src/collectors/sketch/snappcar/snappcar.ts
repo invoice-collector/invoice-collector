@@ -32,6 +32,9 @@ export class SnappcarCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SnappcarCollector class.
+     */
     constructor() {
         super(SnappcarCollector.CONFIG);
     }

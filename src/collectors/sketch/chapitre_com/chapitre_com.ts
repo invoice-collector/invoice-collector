@@ -32,6 +32,9 @@ export class ChapitreComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ChapitreComCollector class.
+     */
     constructor() {
         super(ChapitreComCollector.CONFIG);
     }

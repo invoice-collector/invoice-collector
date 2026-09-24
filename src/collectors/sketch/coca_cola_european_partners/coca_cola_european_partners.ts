@@ -32,6 +32,9 @@ export class CocaColaEuropeanPartnersCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CocaColaEuropeanPartnersCollector class.
+     */
     constructor() {
         super(CocaColaEuropeanPartnersCollector.CONFIG);
     }

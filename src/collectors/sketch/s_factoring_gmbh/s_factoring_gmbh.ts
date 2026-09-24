@@ -32,6 +32,9 @@ export class SFactoringGmbhCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SFactoringGmbhCollector class.
+     */
     constructor() {
         super(SFactoringGmbhCollector.CONFIG);
     }

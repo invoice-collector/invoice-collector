@@ -32,6 +32,9 @@ export class TuritopCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TuritopCollector class.
+     */
     constructor() {
         super(TuritopCollector.CONFIG);
     }

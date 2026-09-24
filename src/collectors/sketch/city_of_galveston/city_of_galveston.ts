@@ -32,6 +32,9 @@ export class CityOfGalvestonCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CityOfGalvestonCollector class.
+     */
     constructor() {
         super(CityOfGalvestonCollector.CONFIG);
     }

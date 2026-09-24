@@ -32,6 +32,9 @@ export class MutuelleGsmcPersonnaliseCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MutuelleGsmcPersonnaliseCollector class.
+     */
     constructor() {
         super(MutuelleGsmcPersonnaliseCollector.CONFIG);
     }

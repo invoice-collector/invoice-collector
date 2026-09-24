@@ -32,6 +32,9 @@ export class FournirestoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FournirestoCollector class.
+     */
     constructor() {
         super(FournirestoCollector.CONFIG);
     }

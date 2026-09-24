@@ -32,6 +32,9 @@ export class BooksZohoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BooksZohoCollector class.
+     */
     constructor() {
         super(BooksZohoCollector.CONFIG);
     }

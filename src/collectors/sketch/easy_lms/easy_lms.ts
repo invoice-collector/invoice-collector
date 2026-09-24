@@ -32,6 +32,9 @@ export class EasyLmsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EasyLmsCollector class.
+     */
     constructor() {
         super(EasyLmsCollector.CONFIG);
     }

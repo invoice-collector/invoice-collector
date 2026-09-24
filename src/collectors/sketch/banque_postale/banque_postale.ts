@@ -32,6 +32,9 @@ export class BanquePostaleCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BanquePostaleCollector class.
+     */
     constructor() {
         super(BanquePostaleCollector.CONFIG);
     }

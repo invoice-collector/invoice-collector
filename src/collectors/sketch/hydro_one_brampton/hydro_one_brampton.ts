@@ -32,6 +32,9 @@ export class HydroOneBramptonCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HydroOneBramptonCollector class.
+     */
     constructor() {
         super(HydroOneBramptonCollector.CONFIG);
     }

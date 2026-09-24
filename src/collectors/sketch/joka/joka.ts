@@ -32,6 +32,9 @@ export class JokaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the JokaCollector class.
+     */
     constructor() {
         super(JokaCollector.CONFIG);
     }

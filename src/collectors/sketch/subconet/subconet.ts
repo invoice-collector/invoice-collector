@@ -32,6 +32,9 @@ export class SubconetCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SubconetCollector class.
+     */
     constructor() {
         super(SubconetCollector.CONFIG);
     }

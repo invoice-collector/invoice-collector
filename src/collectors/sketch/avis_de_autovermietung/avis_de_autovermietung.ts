@@ -32,6 +32,9 @@ export class AvisDeAutovermietungCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AvisDeAutovermietungCollector class.
+     */
     constructor() {
         super(AvisDeAutovermietungCollector.CONFIG);
     }

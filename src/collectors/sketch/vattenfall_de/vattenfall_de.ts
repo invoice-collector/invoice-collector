@@ -32,6 +32,9 @@ export class VattenfallDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VattenfallDeCollector class.
+     */
     constructor() {
         super(VattenfallDeCollector.CONFIG);
     }

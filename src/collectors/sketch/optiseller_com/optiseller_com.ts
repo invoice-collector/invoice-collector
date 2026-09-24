@@ -32,6 +32,9 @@ export class OptisellerComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OptisellerComCollector class.
+     */
     constructor() {
         super(OptisellerComCollector.CONFIG);
     }

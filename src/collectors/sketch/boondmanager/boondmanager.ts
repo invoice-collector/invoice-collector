@@ -32,6 +32,9 @@ export class BoondmanagerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BoondmanagerCollector class.
+     */
     constructor() {
         super(BoondmanagerCollector.CONFIG);
     }

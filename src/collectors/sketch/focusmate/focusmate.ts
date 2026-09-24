@@ -32,6 +32,9 @@ export class FocusmateCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FocusmateCollector class.
+     */
     constructor() {
         super(FocusmateCollector.CONFIG);
     }

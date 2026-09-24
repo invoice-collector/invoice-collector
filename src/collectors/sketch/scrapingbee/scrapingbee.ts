@@ -32,6 +32,9 @@ export class ScrapingbeeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ScrapingbeeCollector class.
+     */
     constructor() {
         super(ScrapingbeeCollector.CONFIG);
     }

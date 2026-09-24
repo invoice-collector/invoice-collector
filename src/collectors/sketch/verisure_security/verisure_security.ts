@@ -32,6 +32,9 @@ export class VerisureSecurityCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VerisureSecurityCollector class.
+     */
     constructor() {
         super(VerisureSecurityCollector.CONFIG);
     }

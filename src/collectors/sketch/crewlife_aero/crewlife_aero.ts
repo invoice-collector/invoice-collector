@@ -32,6 +32,9 @@ export class CrewlifeAeroCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CrewlifeAeroCollector class.
+     */
     constructor() {
         super(CrewlifeAeroCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class DerGrunePunktDualesSystemCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DerGrunePunktDualesSystemCollector class.
+     */
     constructor() {
         super(DerGrunePunktDualesSystemCollector.CONFIG);
     }

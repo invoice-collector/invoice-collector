@@ -32,6 +32,9 @@ export class MarketmanCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MarketmanCollector class.
+     */
     constructor() {
         super(MarketmanCollector.CONFIG);
     }

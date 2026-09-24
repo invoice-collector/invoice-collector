@@ -32,6 +32,9 @@ export class SocialMediaAkademieCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SocialMediaAkademieCollector class.
+     */
     constructor() {
         super(SocialMediaAkademieCollector.CONFIG);
     }

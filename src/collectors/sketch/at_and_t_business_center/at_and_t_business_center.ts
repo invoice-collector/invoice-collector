@@ -32,6 +32,9 @@ export class AtAndTBusinessCenterCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AtAndTBusinessCenterCollector class.
+     */
     constructor() {
         super(AtAndTBusinessCenterCollector.CONFIG);
     }

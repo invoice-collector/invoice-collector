@@ -32,6 +32,9 @@ export class VoiceflowCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VoiceflowCollector class.
+     */
     constructor() {
         super(VoiceflowCollector.CONFIG);
     }

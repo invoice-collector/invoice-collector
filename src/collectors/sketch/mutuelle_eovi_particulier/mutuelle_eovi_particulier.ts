@@ -32,6 +32,9 @@ export class MutuelleEoviParticulierCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MutuelleEoviParticulierCollector class.
+     */
     constructor() {
         super(MutuelleEoviParticulierCollector.CONFIG);
     }

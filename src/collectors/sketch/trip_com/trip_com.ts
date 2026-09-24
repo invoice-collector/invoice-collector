@@ -32,6 +32,9 @@ export class TripComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TripComCollector class.
+     */
     constructor() {
         super(TripComCollector.CONFIG);
     }

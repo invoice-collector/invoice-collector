@@ -32,6 +32,9 @@ export class CrossardImmobilierSyndicCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CrossardImmobilierSyndicCollector class.
+     */
     constructor() {
         super(CrossardImmobilierSyndicCollector.CONFIG);
     }

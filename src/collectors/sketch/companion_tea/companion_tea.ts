@@ -32,6 +32,9 @@ export class CompanionTeaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CompanionTeaCollector class.
+     */
     constructor() {
         super(CompanionTeaCollector.CONFIG);
     }

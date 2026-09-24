@@ -32,6 +32,9 @@ export class ProductboardCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ProductboardCollector class.
+     */
     constructor() {
         super(ProductboardCollector.CONFIG);
     }

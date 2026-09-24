@@ -32,6 +32,9 @@ export class NamebrightCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NamebrightCollector class.
+     */
     constructor() {
         super(NamebrightCollector.CONFIG);
     }

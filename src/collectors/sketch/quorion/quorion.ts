@@ -32,6 +32,9 @@ export class QuorionCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the QuorionCollector class.
+     */
     constructor() {
         super(QuorionCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class Baufi24PrivateNetworkBilthouseCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Baufi24PrivateNetworkBilthouseCollector class.
+     */
     constructor() {
         super(Baufi24PrivateNetworkBilthouseCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class WpeverestCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WpeverestCollector class.
+     */
     constructor() {
         super(WpeverestCollector.CONFIG);
     }

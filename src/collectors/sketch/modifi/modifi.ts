@@ -32,6 +32,9 @@ export class ModifiCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ModifiCollector class.
+     */
     constructor() {
         super(ModifiCollector.CONFIG);
     }

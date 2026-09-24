@@ -32,6 +32,9 @@ export class InexioDslCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the InexioDslCollector class.
+     */
     constructor() {
         super(InexioDslCollector.CONFIG);
     }

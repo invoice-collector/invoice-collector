@@ -32,6 +32,9 @@ export class HuntTelecomCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HuntTelecomCollector class.
+     */
     constructor() {
         super(HuntTelecomCollector.CONFIG);
     }

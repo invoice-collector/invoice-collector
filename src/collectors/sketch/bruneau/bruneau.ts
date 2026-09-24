@@ -32,6 +32,9 @@ export class BruneauCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BruneauCollector class.
+     */
     constructor() {
         super(BruneauCollector.CONFIG);
     }

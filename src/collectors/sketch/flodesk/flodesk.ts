@@ -32,6 +32,9 @@ export class FlodeskCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FlodeskCollector class.
+     */
     constructor() {
         super(FlodeskCollector.CONFIG);
     }

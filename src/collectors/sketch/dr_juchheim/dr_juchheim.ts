@@ -32,6 +32,9 @@ export class DrJuchheimCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DrJuchheimCollector class.
+     */
     constructor() {
         super(DrJuchheimCollector.CONFIG);
     }

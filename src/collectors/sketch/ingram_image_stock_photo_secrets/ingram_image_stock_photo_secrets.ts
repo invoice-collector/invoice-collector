@@ -32,6 +32,9 @@ export class IngramImageStockPhotoSecretsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the IngramImageStockPhotoSecretsCollector class.
+     */
     constructor() {
         super(IngramImageStockPhotoSecretsCollector.CONFIG);
     }

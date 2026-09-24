@@ -32,6 +32,9 @@ export class DashthisCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DashthisCollector class.
+     */
     constructor() {
         super(DashthisCollector.CONFIG);
     }

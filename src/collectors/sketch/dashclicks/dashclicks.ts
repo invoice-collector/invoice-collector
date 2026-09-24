@@ -32,6 +32,9 @@ export class DashclicksCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DashclicksCollector class.
+     */
     constructor() {
         super(DashclicksCollector.CONFIG);
     }

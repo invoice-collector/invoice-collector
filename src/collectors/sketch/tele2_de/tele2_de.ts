@@ -32,6 +32,9 @@ export class Tele2DeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Tele2DeCollector class.
+     */
     constructor() {
         super(Tele2DeCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class SagemailerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SagemailerCollector class.
+     */
     constructor() {
         super(SagemailerCollector.CONFIG);
     }

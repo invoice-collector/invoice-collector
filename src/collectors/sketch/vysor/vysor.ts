@@ -32,6 +32,9 @@ export class VysorCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VysorCollector class.
+     */
     constructor() {
         super(VysorCollector.CONFIG);
     }

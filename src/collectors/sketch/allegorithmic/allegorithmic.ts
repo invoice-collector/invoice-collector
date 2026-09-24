@@ -32,6 +32,9 @@ export class AllegorithmicCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AllegorithmicCollector class.
+     */
     constructor() {
         super(AllegorithmicCollector.CONFIG);
     }

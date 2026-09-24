@@ -32,6 +32,9 @@ export class AokCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AokCollector class.
+     */
     constructor() {
         super(AokCollector.CONFIG);
     }

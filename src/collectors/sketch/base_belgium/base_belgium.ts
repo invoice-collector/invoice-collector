@@ -32,6 +32,9 @@ export class BaseBelgiumCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BaseBelgiumCollector class.
+     */
     constructor() {
         super(BaseBelgiumCollector.CONFIG);
     }

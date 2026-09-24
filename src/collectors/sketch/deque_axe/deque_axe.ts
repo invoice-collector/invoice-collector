@@ -32,6 +32,9 @@ export class DequeAxeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DequeAxeCollector class.
+     */
     constructor() {
         super(DequeAxeCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class AvinodeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AvinodeCollector class.
+     */
     constructor() {
         super(AvinodeCollector.CONFIG);
     }

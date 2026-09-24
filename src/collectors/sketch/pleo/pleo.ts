@@ -32,6 +32,9 @@ export class PleoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PleoCollector class.
+     */
     constructor() {
         super(PleoCollector.CONFIG);
     }

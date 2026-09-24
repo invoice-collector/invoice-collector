@@ -32,6 +32,9 @@ export class EsbEnergieSudbayernMobilityCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EsbEnergieSudbayernMobilityCollector class.
+     */
     constructor() {
         super(EsbEnergieSudbayernMobilityCollector.CONFIG);
     }

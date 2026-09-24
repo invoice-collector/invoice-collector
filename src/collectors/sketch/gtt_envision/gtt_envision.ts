@@ -32,6 +32,9 @@ export class GttEnvisionCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GttEnvisionCollector class.
+     */
     constructor() {
         super(GttEnvisionCollector.CONFIG);
     }

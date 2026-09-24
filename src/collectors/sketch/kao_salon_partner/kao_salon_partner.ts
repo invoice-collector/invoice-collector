@@ -32,6 +32,9 @@ export class KaoSalonPartnerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KaoSalonPartnerCollector class.
+     */
     constructor() {
         super(KaoSalonPartnerCollector.CONFIG);
     }

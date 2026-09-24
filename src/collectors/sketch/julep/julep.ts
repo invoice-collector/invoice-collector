@@ -32,6 +32,9 @@ export class JulepCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the JulepCollector class.
+     */
     constructor() {
         super(JulepCollector.CONFIG);
     }

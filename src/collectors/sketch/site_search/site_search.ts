@@ -32,6 +32,9 @@ export class SiteSearchCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SiteSearchCollector class.
+     */
     constructor() {
         super(SiteSearchCollector.CONFIG);
     }

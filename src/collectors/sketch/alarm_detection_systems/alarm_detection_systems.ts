@@ -32,6 +32,9 @@ export class AlarmDetectionSystemsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AlarmDetectionSystemsCollector class.
+     */
     constructor() {
         super(AlarmDetectionSystemsCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class EasyroommateUkRoomgoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EasyroommateUkRoomgoCollector class.
+     */
     constructor() {
         super(EasyroommateUkRoomgoCollector.CONFIG);
     }

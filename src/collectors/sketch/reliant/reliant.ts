@@ -32,6 +32,9 @@ export class ReliantCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ReliantCollector class.
+     */
     constructor() {
         super(ReliantCollector.CONFIG);
     }

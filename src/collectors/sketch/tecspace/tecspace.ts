@@ -32,6 +32,9 @@ export class TecspaceCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TecspaceCollector class.
+     */
     constructor() {
         super(TecspaceCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class ApotalDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ApotalDeCollector class.
+     */
     constructor() {
         super(ApotalDeCollector.CONFIG);
     }

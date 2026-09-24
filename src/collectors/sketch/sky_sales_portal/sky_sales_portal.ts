@@ -32,6 +32,9 @@ export class SkySalesPortalCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SkySalesPortalCollector class.
+     */
     constructor() {
         super(SkySalesPortalCollector.CONFIG);
     }

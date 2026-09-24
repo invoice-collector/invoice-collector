@@ -32,6 +32,9 @@ export class WortAndBildServiceCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WortAndBildServiceCollector class.
+     */
     constructor() {
         super(WortAndBildServiceCollector.CONFIG);
     }

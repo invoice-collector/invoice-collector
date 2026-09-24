@@ -32,6 +32,9 @@ export class AudiencefulCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AudiencefulCollector class.
+     */
     constructor() {
         super(AudiencefulCollector.CONFIG);
     }

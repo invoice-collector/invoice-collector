@@ -32,6 +32,9 @@ export class YoodaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the YoodaCollector class.
+     */
     constructor() {
         super(YoodaCollector.CONFIG);
     }

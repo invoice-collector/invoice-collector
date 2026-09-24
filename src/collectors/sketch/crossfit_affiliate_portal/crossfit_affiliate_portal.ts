@@ -32,6 +32,9 @@ export class CrossfitAffiliatePortalCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CrossfitAffiliatePortalCollector class.
+     */
     constructor() {
         super(CrossfitAffiliatePortalCollector.CONFIG);
     }

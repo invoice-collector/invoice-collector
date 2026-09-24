@@ -32,6 +32,9 @@ export class LinkminkCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LinkminkCollector class.
+     */
     constructor() {
         super(LinkminkCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class CutDentalCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CutDentalCollector class.
+     */
     constructor() {
         super(CutDentalCollector.CONFIG);
     }

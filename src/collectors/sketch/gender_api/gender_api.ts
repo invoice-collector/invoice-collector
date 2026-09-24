@@ -32,6 +32,9 @@ export class GenderApiCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GenderApiCollector class.
+     */
     constructor() {
         super(GenderApiCollector.CONFIG);
     }

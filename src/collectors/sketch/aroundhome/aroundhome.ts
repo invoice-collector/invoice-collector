@@ -32,6 +32,9 @@ export class AroundhomeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AroundhomeCollector class.
+     */
     constructor() {
         super(AroundhomeCollector.CONFIG);
     }

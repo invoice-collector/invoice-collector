@@ -32,6 +32,9 @@ export class PipiadsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PipiadsCollector class.
+     */
     constructor() {
         super(PipiadsCollector.CONFIG);
     }

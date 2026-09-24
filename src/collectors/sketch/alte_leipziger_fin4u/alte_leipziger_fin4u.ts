@@ -32,6 +32,9 @@ export class AlteLeipzigerFin4uCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AlteLeipzigerFin4uCollector class.
+     */
     constructor() {
         super(AlteLeipzigerFin4uCollector.CONFIG);
     }

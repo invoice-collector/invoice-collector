@@ -32,6 +32,9 @@ export class LwcDrinksCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LwcDrinksCollector class.
+     */
     constructor() {
         super(LwcDrinksCollector.CONFIG);
     }

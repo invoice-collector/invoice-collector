@@ -32,6 +32,9 @@ export class SmartmockupsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SmartmockupsCollector class.
+     */
     constructor() {
         super(SmartmockupsCollector.CONFIG);
     }

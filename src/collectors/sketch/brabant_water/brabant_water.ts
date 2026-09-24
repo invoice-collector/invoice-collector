@@ -32,6 +32,9 @@ export class BrabantWaterCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BrabantWaterCollector class.
+     */
     constructor() {
         super(BrabantWaterCollector.CONFIG);
     }

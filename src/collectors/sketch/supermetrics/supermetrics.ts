@@ -32,6 +32,9 @@ export class SupermetricsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SupermetricsCollector class.
+     */
     constructor() {
         super(SupermetricsCollector.CONFIG);
     }

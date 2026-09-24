@@ -32,6 +32,9 @@ export class TricomaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TricomaCollector class.
+     */
     constructor() {
         super(TricomaCollector.CONFIG);
     }

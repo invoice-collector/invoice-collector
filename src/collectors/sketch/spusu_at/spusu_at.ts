@@ -32,6 +32,9 @@ export class SpusuAtCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SpusuAtCollector class.
+     */
     constructor() {
         super(SpusuAtCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class BaywaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BaywaCollector class.
+     */
     constructor() {
         super(BaywaCollector.CONFIG);
     }

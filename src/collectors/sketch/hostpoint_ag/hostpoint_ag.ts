@@ -32,6 +32,9 @@ export class HostpointAgCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HostpointAgCollector class.
+     */
     constructor() {
         super(HostpointAgCollector.CONFIG);
     }

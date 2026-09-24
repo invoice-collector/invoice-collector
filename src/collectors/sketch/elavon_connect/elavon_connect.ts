@@ -32,6 +32,9 @@ export class ElavonConnectCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ElavonConnectCollector class.
+     */
     constructor() {
         super(ElavonConnectCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class Xchangeb2bCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Xchangeb2bCollector class.
+     */
     constructor() {
         super(Xchangeb2bCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class NitropackCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NitropackCollector class.
+     */
     constructor() {
         super(NitropackCollector.CONFIG);
     }

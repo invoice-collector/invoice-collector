@@ -32,6 +32,9 @@ export class MagnalisterCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MagnalisterCollector class.
+     */
     constructor() {
         super(MagnalisterCollector.CONFIG);
     }

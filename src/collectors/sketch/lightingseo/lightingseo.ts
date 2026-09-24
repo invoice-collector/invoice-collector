@@ -32,6 +32,9 @@ export class LightingseoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LightingseoCollector class.
+     */
     constructor() {
         super(LightingseoCollector.CONFIG);
     }

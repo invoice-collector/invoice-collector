@@ -32,6 +32,9 @@ export class SlingCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SlingCollector class.
+     */
     constructor() {
         super(SlingCollector.CONFIG);
     }

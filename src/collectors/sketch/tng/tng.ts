@@ -32,6 +32,9 @@ export class TngCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TngCollector class.
+     */
     constructor() {
         super(TngCollector.CONFIG);
     }

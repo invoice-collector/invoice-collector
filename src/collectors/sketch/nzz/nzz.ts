@@ -32,6 +32,9 @@ export class NzzCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NzzCollector class.
+     */
     constructor() {
         super(NzzCollector.CONFIG);
     }

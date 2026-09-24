@@ -32,6 +32,9 @@ export class SostockedCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SostockedCollector class.
+     */
     constructor() {
         super(SostockedCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class LogentriesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LogentriesCollector class.
+     */
     constructor() {
         super(LogentriesCollector.CONFIG);
     }

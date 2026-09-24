@@ -32,6 +32,9 @@ export class ArchivizerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ArchivizerCollector class.
+     */
     constructor() {
         super(ArchivizerCollector.CONFIG);
     }

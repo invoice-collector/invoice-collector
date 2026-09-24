@@ -32,6 +32,9 @@ export class GertrudenhofCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GertrudenhofCollector class.
+     */
     constructor() {
         super(GertrudenhofCollector.CONFIG);
     }

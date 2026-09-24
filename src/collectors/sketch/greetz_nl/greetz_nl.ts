@@ -32,6 +32,9 @@ export class GreetzNlCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GreetzNlCollector class.
+     */
     constructor() {
         super(GreetzNlCollector.CONFIG);
     }

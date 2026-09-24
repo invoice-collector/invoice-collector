@@ -32,6 +32,9 @@ export class SslpointCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SslpointCollector class.
+     */
     constructor() {
         super(SslpointCollector.CONFIG);
     }

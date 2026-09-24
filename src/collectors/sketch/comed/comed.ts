@@ -32,6 +32,9 @@ export class ComedCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ComedCollector class.
+     */
     constructor() {
         super(ComedCollector.CONFIG);
     }

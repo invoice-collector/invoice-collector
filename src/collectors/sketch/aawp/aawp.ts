@@ -32,6 +32,9 @@ export class AawpCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AawpCollector class.
+     */
     constructor() {
         super(AawpCollector.CONFIG);
     }

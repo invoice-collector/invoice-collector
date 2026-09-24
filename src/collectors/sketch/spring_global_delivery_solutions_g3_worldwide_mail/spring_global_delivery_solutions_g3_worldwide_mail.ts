@@ -32,6 +32,9 @@ export class SpringGlobalDeliverySolutionsG3WorldwideMailCollector extends Sketc
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SpringGlobalDeliverySolutionsG3WorldwideMailCollector class.
+     */
     constructor() {
         super(SpringGlobalDeliverySolutionsG3WorldwideMailCollector.CONFIG);
     }

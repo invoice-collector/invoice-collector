@@ -32,6 +32,9 @@ export class SedoComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SedoComCollector class.
+     */
     constructor() {
         super(SedoComCollector.CONFIG);
     }

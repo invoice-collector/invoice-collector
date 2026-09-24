@@ -32,6 +32,9 @@ export class KatalonCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KatalonCollector class.
+     */
     constructor() {
         super(KatalonCollector.CONFIG);
     }

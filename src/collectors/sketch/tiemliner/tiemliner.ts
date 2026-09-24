@@ -32,6 +32,9 @@ export class TiemlinerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TiemlinerCollector class.
+     */
     constructor() {
         super(TiemlinerCollector.CONFIG);
     }

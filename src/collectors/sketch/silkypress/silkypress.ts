@@ -32,6 +32,9 @@ export class SilkypressCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SilkypressCollector class.
+     */
     constructor() {
         super(SilkypressCollector.CONFIG);
     }

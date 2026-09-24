@@ -32,6 +32,9 @@ export class ChrometaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ChrometaCollector class.
+     */
     constructor() {
         super(ChrometaCollector.CONFIG);
     }

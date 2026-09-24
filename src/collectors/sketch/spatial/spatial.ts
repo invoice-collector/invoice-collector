@@ -32,6 +32,9 @@ export class SpatialCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SpatialCollector class.
+     */
     constructor() {
         super(SpatialCollector.CONFIG);
     }

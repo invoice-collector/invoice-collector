@@ -32,6 +32,9 @@ export class EbueroAgCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EbueroAgCollector class.
+     */
     constructor() {
         super(EbueroAgCollector.CONFIG);
     }

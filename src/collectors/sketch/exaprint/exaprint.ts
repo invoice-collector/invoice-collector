@@ -32,6 +32,9 @@ export class ExaprintCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ExaprintCollector class.
+     */
     constructor() {
         super(ExaprintCollector.CONFIG);
     }

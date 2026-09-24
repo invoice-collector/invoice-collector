@@ -32,6 +32,9 @@ export class BauTechSolarenergieCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BauTechSolarenergieCollector class.
+     */
     constructor() {
         super(BauTechSolarenergieCollector.CONFIG);
     }

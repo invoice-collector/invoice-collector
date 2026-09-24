@@ -32,6 +32,9 @@ export class XAiCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the XAiCollector class.
+     */
     constructor() {
         super(XAiCollector.CONFIG);
     }

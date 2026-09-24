@@ -32,6 +32,9 @@ export class LoslebenCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LoslebenCollector class.
+     */
     constructor() {
         super(LoslebenCollector.CONFIG);
     }

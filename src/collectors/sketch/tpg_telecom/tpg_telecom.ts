@@ -32,6 +32,9 @@ export class TpgTelecomCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TpgTelecomCollector class.
+     */
     constructor() {
         super(TpgTelecomCollector.CONFIG);
     }

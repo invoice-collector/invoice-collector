@@ -32,6 +32,9 @@ export class CintasCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CintasCollector class.
+     */
     constructor() {
         super(CintasCollector.CONFIG);
     }

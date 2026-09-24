@@ -32,6 +32,9 @@ export class WalleeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WalleeCollector class.
+     */
     constructor() {
         super(WalleeCollector.CONFIG);
     }

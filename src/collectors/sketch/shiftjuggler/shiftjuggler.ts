@@ -32,6 +32,9 @@ export class ShiftjugglerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ShiftjugglerCollector class.
+     */
     constructor() {
         super(ShiftjugglerCollector.CONFIG);
     }

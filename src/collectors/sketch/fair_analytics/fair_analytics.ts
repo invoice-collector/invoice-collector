@@ -32,6 +32,9 @@ export class FairAnalyticsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FairAnalyticsCollector class.
+     */
     constructor() {
         super(FairAnalyticsCollector.CONFIG);
     }

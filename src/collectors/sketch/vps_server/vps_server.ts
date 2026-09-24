@@ -32,6 +32,9 @@ export class VpsServerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VpsServerCollector class.
+     */
     constructor() {
         super(VpsServerCollector.CONFIG);
     }

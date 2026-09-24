@@ -32,6 +32,9 @@ export class DphotoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DphotoCollector class.
+     */
     constructor() {
         super(DphotoCollector.CONFIG);
     }

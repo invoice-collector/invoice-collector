@@ -32,6 +32,9 @@ export class WaterPlusCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WaterPlusCollector class.
+     */
     constructor() {
         super(WaterPlusCollector.CONFIG);
     }

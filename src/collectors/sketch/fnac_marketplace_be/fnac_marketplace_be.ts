@@ -32,6 +32,9 @@ export class FnacMarketplaceBeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FnacMarketplaceBeCollector class.
+     */
     constructor() {
         super(FnacMarketplaceBeCollector.CONFIG);
     }

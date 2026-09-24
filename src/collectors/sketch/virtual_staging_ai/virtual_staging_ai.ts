@@ -32,6 +32,9 @@ export class VirtualStagingAiCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VirtualStagingAiCollector class.
+     */
     constructor() {
         super(VirtualStagingAiCollector.CONFIG);
     }

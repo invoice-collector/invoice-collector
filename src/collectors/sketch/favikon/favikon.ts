@@ -32,6 +32,9 @@ export class FavikonCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FavikonCollector class.
+     */
     constructor() {
         super(FavikonCollector.CONFIG);
     }

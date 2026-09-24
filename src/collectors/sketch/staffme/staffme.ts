@@ -32,6 +32,9 @@ export class StaffmeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StaffmeCollector class.
+     */
     constructor() {
         super(StaffmeCollector.CONFIG);
     }

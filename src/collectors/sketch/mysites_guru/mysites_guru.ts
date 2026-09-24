@@ -32,6 +32,9 @@ export class MysitesGuruCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MysitesGuruCollector class.
+     */
     constructor() {
         super(MysitesGuruCollector.CONFIG);
     }

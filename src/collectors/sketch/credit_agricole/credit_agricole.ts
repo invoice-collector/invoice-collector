@@ -32,6 +32,9 @@ export class CreditAgricoleCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CreditAgricoleCollector class.
+     */
     constructor() {
         super(CreditAgricoleCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class LinkedinAdsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LinkedinAdsCollector class.
+     */
     constructor() {
         super(LinkedinAdsCollector.CONFIG);
     }

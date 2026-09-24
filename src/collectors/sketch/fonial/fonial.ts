@@ -32,6 +32,9 @@ export class FonialCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FonialCollector class.
+     */
     constructor() {
         super(FonialCollector.CONFIG);
     }

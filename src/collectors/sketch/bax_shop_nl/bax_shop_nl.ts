@@ -32,6 +32,9 @@ export class BaxShopNlCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BaxShopNlCollector class.
+     */
     constructor() {
         super(BaxShopNlCollector.CONFIG);
     }

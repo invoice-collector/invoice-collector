@@ -32,6 +32,9 @@ export class RelumeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RelumeCollector class.
+     */
     constructor() {
         super(RelumeCollector.CONFIG);
     }

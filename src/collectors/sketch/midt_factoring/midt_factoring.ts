@@ -32,6 +32,9 @@ export class MidtFactoringCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MidtFactoringCollector class.
+     */
     constructor() {
         super(MidtFactoringCollector.CONFIG);
     }

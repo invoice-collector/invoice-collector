@@ -32,6 +32,9 @@ export class PaddleCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PaddleCollector class.
+     */
     constructor() {
         super(PaddleCollector.CONFIG);
     }

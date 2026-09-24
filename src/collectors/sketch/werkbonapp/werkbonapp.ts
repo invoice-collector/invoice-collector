@@ -32,6 +32,9 @@ export class WerkbonappCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WerkbonappCollector class.
+     */
     constructor() {
         super(WerkbonappCollector.CONFIG);
     }

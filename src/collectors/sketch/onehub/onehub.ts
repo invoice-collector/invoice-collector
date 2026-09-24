@@ -32,6 +32,9 @@ export class OnehubCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OnehubCollector class.
+     */
     constructor() {
         super(OnehubCollector.CONFIG);
     }

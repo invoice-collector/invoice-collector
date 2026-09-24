@@ -32,6 +32,9 @@ export class IpProjectsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the IpProjectsCollector class.
+     */
     constructor() {
         super(IpProjectsCollector.CONFIG);
     }

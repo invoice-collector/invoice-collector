@@ -32,6 +32,9 @@ export class DroomsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DroomsCollector class.
+     */
     constructor() {
         super(DroomsCollector.CONFIG);
     }

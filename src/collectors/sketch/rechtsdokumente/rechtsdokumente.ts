@@ -32,6 +32,9 @@ export class RechtsdokumenteCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RechtsdokumenteCollector class.
+     */
     constructor() {
         super(RechtsdokumenteCollector.CONFIG);
     }

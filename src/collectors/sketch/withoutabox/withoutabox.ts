@@ -32,6 +32,9 @@ export class WithoutaboxCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WithoutaboxCollector class.
+     */
     constructor() {
         super(WithoutaboxCollector.CONFIG);
     }

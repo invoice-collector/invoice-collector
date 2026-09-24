@@ -32,6 +32,9 @@ export class RescuetimeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RescuetimeCollector class.
+     */
     constructor() {
         super(RescuetimeCollector.CONFIG);
     }

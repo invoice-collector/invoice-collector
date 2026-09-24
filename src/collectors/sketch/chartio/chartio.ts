@@ -32,6 +32,9 @@ export class ChartioCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ChartioCollector class.
+     */
     constructor() {
         super(ChartioCollector.CONFIG);
     }

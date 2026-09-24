@@ -32,6 +32,9 @@ export class WwrWeWorkRemotelyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WwrWeWorkRemotelyCollector class.
+     */
     constructor() {
         super(WwrWeWorkRemotelyCollector.CONFIG);
     }

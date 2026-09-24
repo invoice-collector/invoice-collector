@@ -32,6 +32,9 @@ export class FtzAutodeleCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FtzAutodeleCollector class.
+     */
     constructor() {
         super(FtzAutodeleCollector.CONFIG);
     }

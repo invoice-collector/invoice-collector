@@ -32,6 +32,9 @@ export class DareboostCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DareboostCollector class.
+     */
     constructor() {
         super(DareboostCollector.CONFIG);
     }

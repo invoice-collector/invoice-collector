@@ -32,6 +32,9 @@ export class AccessoiresAsusCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AccessoiresAsusCollector class.
+     */
     constructor() {
         super(AccessoiresAsusCollector.CONFIG);
     }

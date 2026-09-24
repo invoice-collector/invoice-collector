@@ -32,6 +32,9 @@ export class CjdropshippingCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CjdropshippingCollector class.
+     */
     constructor() {
         super(CjdropshippingCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class PythonanywhereEuCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PythonanywhereEuCollector class.
+     */
     constructor() {
         super(PythonanywhereEuCollector.CONFIG);
     }

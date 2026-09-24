@@ -32,6 +32,9 @@ export class OrderbuddyNlCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OrderbuddyNlCollector class.
+     */
     constructor() {
         super(OrderbuddyNlCollector.CONFIG);
     }

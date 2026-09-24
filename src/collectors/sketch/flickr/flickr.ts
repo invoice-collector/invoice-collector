@@ -32,6 +32,9 @@ export class FlickrCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FlickrCollector class.
+     */
     constructor() {
         super(FlickrCollector.CONFIG);
     }

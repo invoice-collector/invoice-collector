@@ -32,6 +32,9 @@ export class ModeratorenwerkCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ModeratorenwerkCollector class.
+     */
     constructor() {
         super(ModeratorenwerkCollector.CONFIG);
     }

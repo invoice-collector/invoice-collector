@@ -32,6 +32,9 @@ export class VeedCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VeedCollector class.
+     */
     constructor() {
         super(VeedCollector.CONFIG);
     }

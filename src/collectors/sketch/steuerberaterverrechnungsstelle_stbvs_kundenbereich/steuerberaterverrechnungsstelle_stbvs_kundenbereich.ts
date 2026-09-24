@@ -32,6 +32,9 @@ export class SteuerberaterverrechnungsstelleStbvsKundenbereichCollector extends 
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SteuerberaterverrechnungsstelleStbvsKundenbereichCollector class.
+     */
     constructor() {
         super(SteuerberaterverrechnungsstelleStbvsKundenbereichCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class HyundaiDealerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HyundaiDealerCollector class.
+     */
     constructor() {
         super(HyundaiDealerCollector.CONFIG);
     }

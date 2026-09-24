@@ -32,6 +32,9 @@ export class DstvSaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DstvSaCollector class.
+     */
     constructor() {
         super(DstvSaCollector.CONFIG);
     }

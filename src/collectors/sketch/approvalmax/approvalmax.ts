@@ -32,6 +32,9 @@ export class ApprovalmaxCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ApprovalmaxCollector class.
+     */
     constructor() {
         super(ApprovalmaxCollector.CONFIG);
     }

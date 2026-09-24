@@ -32,6 +32,9 @@ export class PhotoshelterCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PhotoshelterCollector class.
+     */
     constructor() {
         super(PhotoshelterCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class LeTraderCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LeTraderCollector class.
+     */
     constructor() {
         super(LeTraderCollector.CONFIG);
     }

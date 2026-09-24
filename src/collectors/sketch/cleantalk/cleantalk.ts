@@ -32,6 +32,9 @@ export class CleantalkCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CleantalkCollector class.
+     */
     constructor() {
         super(CleantalkCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class HighmarkBlueCrossBlueShieldHealthInsuranceCollector extends SketchC
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HighmarkBlueCrossBlueShieldHealthInsuranceCollector class.
+     */
     constructor() {
         super(HighmarkBlueCrossBlueShieldHealthInsuranceCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class NordpassBusinessCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NordpassBusinessCollector class.
+     */
     constructor() {
         super(NordpassBusinessCollector.CONFIG);
     }

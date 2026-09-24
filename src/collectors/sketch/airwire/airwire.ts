@@ -32,6 +32,9 @@ export class AirwireCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AirwireCollector class.
+     */
     constructor() {
         super(AirwireCollector.CONFIG);
     }

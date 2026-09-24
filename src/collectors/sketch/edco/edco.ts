@@ -32,6 +32,9 @@ export class EdcoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EdcoCollector class.
+     */
     constructor() {
         super(EdcoCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class PrerenderIoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PrerenderIoCollector class.
+     */
     constructor() {
         super(PrerenderIoCollector.CONFIG);
     }

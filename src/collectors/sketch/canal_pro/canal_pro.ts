@@ -32,6 +32,9 @@ export class CanalProCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CanalProCollector class.
+     */
     constructor() {
         super(CanalProCollector.CONFIG);
     }

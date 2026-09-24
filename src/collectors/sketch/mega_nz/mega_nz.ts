@@ -32,6 +32,9 @@ export class MegaNzCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MegaNzCollector class.
+     */
     constructor() {
         super(MegaNzCollector.CONFIG);
     }

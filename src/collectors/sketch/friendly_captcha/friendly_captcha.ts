@@ -32,6 +32,9 @@ export class FriendlyCaptchaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FriendlyCaptchaCollector class.
+     */
     constructor() {
         super(FriendlyCaptchaCollector.CONFIG);
     }

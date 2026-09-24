@@ -32,6 +32,9 @@ export class DocsendCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DocsendCollector class.
+     */
     constructor() {
         super(DocsendCollector.CONFIG);
     }

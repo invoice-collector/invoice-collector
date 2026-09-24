@@ -32,6 +32,9 @@ export class SelfservicerepairCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SelfservicerepairCollector class.
+     */
     constructor() {
         super(SelfservicerepairCollector.CONFIG);
     }

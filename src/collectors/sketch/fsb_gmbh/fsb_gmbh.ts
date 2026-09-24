@@ -32,6 +32,9 @@ export class FsbGmbhCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FsbGmbhCollector class.
+     */
     constructor() {
         super(FsbGmbhCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class LeaddeskCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LeaddeskCollector class.
+     */
     constructor() {
         super(LeaddeskCollector.CONFIG);
     }

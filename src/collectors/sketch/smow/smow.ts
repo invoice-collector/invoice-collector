@@ -32,6 +32,9 @@ export class SmowCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SmowCollector class.
+     */
     constructor() {
         super(SmowCollector.CONFIG);
     }

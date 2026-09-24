@@ -32,6 +32,9 @@ export class CrustPizzaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CrustPizzaCollector class.
+     */
     constructor() {
         super(CrustPizzaCollector.CONFIG);
     }

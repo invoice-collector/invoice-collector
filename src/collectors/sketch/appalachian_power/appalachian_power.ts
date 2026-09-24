@@ -32,6 +32,9 @@ export class AppalachianPowerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AppalachianPowerCollector class.
+     */
     constructor() {
         super(AppalachianPowerCollector.CONFIG);
     }

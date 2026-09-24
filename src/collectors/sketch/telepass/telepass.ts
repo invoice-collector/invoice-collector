@@ -32,6 +32,9 @@ export class TelepassCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TelepassCollector class.
+     */
     constructor() {
         super(TelepassCollector.CONFIG);
     }

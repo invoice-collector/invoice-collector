@@ -32,6 +32,9 @@ export class PilotPrivateNetworkCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PilotPrivateNetworkCollector class.
+     */
     constructor() {
         super(PilotPrivateNetworkCollector.CONFIG);
     }

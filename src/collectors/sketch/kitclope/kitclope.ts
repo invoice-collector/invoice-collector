@@ -32,6 +32,9 @@ export class KitclopeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KitclopeCollector class.
+     */
     constructor() {
         super(KitclopeCollector.CONFIG);
     }

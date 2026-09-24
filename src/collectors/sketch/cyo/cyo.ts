@@ -32,6 +32,9 @@ export class CyoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CyoCollector class.
+     */
     constructor() {
         super(CyoCollector.CONFIG);
     }

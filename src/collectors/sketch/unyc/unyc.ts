@@ -32,6 +32,9 @@ export class UnycCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the UnycCollector class.
+     */
     constructor() {
         super(UnycCollector.CONFIG);
     }

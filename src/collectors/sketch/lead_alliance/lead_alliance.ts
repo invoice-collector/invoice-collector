@@ -32,6 +32,9 @@ export class LeadAllianceCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LeadAllianceCollector class.
+     */
     constructor() {
         super(LeadAllianceCollector.CONFIG);
     }

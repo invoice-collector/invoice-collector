@@ -32,6 +32,9 @@ export class BigbuyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BigbuyCollector class.
+     */
     constructor() {
         super(BigbuyCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class VspEmployerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VspEmployerCollector class.
+     */
     constructor() {
         super(VspEmployerCollector.CONFIG);
     }

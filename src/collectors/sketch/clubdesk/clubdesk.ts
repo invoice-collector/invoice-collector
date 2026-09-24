@@ -32,6 +32,9 @@ export class ClubdeskCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ClubdeskCollector class.
+     */
     constructor() {
         super(ClubdeskCollector.CONFIG);
     }

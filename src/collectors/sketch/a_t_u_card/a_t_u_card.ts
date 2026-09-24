@@ -32,6 +32,9 @@ export class ATUCardCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ATUCardCollector class.
+     */
     constructor() {
         super(ATUCardCollector.CONFIG);
     }

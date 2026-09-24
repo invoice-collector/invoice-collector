@@ -32,6 +32,9 @@ export class RenaultCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RenaultCollector class.
+     */
     constructor() {
         super(RenaultCollector.CONFIG);
     }

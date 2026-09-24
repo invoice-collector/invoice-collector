@@ -32,6 +32,9 @@ export class UrlboxCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the UrlboxCollector class.
+     */
     constructor() {
         super(UrlboxCollector.CONFIG);
     }

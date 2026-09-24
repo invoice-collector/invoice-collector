@@ -32,6 +32,9 @@ export class HomeCineSolutionsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HomeCineSolutionsCollector class.
+     */
     constructor() {
         super(HomeCineSolutionsCollector.CONFIG);
     }

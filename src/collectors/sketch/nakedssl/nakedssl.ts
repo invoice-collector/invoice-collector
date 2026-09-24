@@ -32,6 +32,9 @@ export class NakedsslCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NakedsslCollector class.
+     */
     constructor() {
         super(NakedsslCollector.CONFIG);
     }

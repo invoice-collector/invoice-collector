@@ -32,6 +32,9 @@ export class CoopervisionCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CoopervisionCollector class.
+     */
     constructor() {
         super(CoopervisionCollector.CONFIG);
     }

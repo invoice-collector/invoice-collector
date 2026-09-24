@@ -32,6 +32,9 @@ export class AllStarCardCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AllStarCardCollector class.
+     */
     constructor() {
         super(AllStarCardCollector.CONFIG);
     }

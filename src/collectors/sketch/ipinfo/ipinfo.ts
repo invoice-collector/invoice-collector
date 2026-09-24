@@ -32,6 +32,9 @@ export class IpinfoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the IpinfoCollector class.
+     */
     constructor() {
         super(IpinfoCollector.CONFIG);
     }

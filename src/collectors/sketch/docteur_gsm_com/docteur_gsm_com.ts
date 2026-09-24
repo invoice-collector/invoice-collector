@@ -32,6 +32,9 @@ export class DocteurGsmComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DocteurGsmComCollector class.
+     */
     constructor() {
         super(DocteurGsmComCollector.CONFIG);
     }

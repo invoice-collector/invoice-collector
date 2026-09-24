@@ -32,6 +32,9 @@ export class FastwebItCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FastwebItCollector class.
+     */
     constructor() {
         super(FastwebItCollector.CONFIG);
     }

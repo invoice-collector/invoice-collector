@@ -32,6 +32,9 @@ export class SoundtaxiCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SoundtaxiCollector class.
+     */
     constructor() {
         super(SoundtaxiCollector.CONFIG);
     }

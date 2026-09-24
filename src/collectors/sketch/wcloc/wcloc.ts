@@ -32,6 +32,9 @@ export class WclocCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WclocCollector class.
+     */
     constructor() {
         super(WclocCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class PinellasCountyUtilitiesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PinellasCountyUtilitiesCollector class.
+     */
     constructor() {
         super(PinellasCountyUtilitiesCollector.CONFIG);
     }

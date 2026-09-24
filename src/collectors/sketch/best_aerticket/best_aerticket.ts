@@ -32,6 +32,9 @@ export class BestAerticketCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BestAerticketCollector class.
+     */
     constructor() {
         super(BestAerticketCollector.CONFIG);
     }

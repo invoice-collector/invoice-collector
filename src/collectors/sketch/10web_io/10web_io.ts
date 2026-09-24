@@ -32,6 +32,9 @@ export class _10webIoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the _10webIoCollector class.
+     */
     constructor() {
         super(_10webIoCollector.CONFIG);
     }

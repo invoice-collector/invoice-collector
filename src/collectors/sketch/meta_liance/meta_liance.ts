@@ -32,6 +32,9 @@ export class MetaLianceCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MetaLianceCollector class.
+     */
     constructor() {
         super(MetaLianceCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class ServicepartnerOneCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ServicepartnerOneCollector class.
+     */
     constructor() {
         super(ServicepartnerOneCollector.CONFIG);
     }

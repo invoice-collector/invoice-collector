@@ -32,6 +32,9 @@ export class VceTrainingCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VceTrainingCollector class.
+     */
     constructor() {
         super(VceTrainingCollector.CONFIG);
     }

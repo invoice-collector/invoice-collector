@@ -32,6 +32,9 @@ export class WecandooArtisanFacturesDeCommissionCollector extends SketchCollecto
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WecandooArtisanFacturesDeCommissionCollector class.
+     */
     constructor() {
         super(WecandooArtisanFacturesDeCommissionCollector.CONFIG);
     }

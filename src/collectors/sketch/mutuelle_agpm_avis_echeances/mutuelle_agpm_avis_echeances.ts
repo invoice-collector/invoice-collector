@@ -32,6 +32,9 @@ export class MutuelleAgpmAvisEcheancesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MutuelleAgpmAvisEcheancesCollector class.
+     */
     constructor() {
         super(MutuelleAgpmAvisEcheancesCollector.CONFIG);
     }

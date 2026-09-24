@@ -32,6 +32,9 @@ export class NetaffiliationCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NetaffiliationCollector class.
+     */
     constructor() {
         super(NetaffiliationCollector.CONFIG);
     }

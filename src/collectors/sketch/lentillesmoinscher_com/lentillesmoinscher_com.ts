@@ -32,6 +32,9 @@ export class LentillesmoinscherComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LentillesmoinscherComCollector class.
+     */
     constructor() {
         super(LentillesmoinscherComCollector.CONFIG);
     }

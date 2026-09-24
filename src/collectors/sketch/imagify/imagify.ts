@@ -32,6 +32,9 @@ export class ImagifyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ImagifyCollector class.
+     */
     constructor() {
         super(ImagifyCollector.CONFIG);
     }

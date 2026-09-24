@@ -32,6 +32,9 @@ export class XeroxPartnerPortalCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the XeroxPartnerPortalCollector class.
+     */
     constructor() {
         super(XeroxPartnerPortalCollector.CONFIG);
     }

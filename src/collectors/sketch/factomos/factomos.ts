@@ -32,6 +32,9 @@ export class FactomosCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FactomosCollector class.
+     */
     constructor() {
         super(FactomosCollector.CONFIG);
     }

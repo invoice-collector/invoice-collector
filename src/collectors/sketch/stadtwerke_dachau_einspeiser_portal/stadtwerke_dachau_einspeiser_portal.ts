@@ -32,6 +32,9 @@ export class StadtwerkeDachauEinspeiserPortalCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StadtwerkeDachauEinspeiserPortalCollector class.
+     */
     constructor() {
         super(StadtwerkeDachauEinspeiserPortalCollector.CONFIG);
     }

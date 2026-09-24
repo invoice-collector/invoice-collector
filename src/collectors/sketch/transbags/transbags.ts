@@ -32,6 +32,9 @@ export class TransbagsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TransbagsCollector class.
+     */
     constructor() {
         super(TransbagsCollector.CONFIG);
     }

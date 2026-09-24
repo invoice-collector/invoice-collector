@@ -32,6 +32,9 @@ export class HeysummitCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HeysummitCollector class.
+     */
     constructor() {
         super(HeysummitCollector.CONFIG);
     }

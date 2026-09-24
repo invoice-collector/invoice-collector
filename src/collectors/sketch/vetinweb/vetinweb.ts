@@ -32,6 +32,9 @@ export class VetinwebCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VetinwebCollector class.
+     */
     constructor() {
         super(VetinwebCollector.CONFIG);
     }

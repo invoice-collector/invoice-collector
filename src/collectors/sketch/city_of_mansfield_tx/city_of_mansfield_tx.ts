@@ -32,6 +32,9 @@ export class CityOfMansfieldTxCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CityOfMansfieldTxCollector class.
+     */
     constructor() {
         super(CityOfMansfieldTxCollector.CONFIG);
     }

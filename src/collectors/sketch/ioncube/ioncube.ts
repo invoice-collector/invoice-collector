@@ -32,6 +32,9 @@ export class IoncubeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the IoncubeCollector class.
+     */
     constructor() {
         super(IoncubeCollector.CONFIG);
     }

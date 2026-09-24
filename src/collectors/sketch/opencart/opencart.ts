@@ -32,6 +32,9 @@ export class OpencartCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OpencartCollector class.
+     */
     constructor() {
         super(OpencartCollector.CONFIG);
     }

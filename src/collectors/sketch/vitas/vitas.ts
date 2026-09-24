@@ -32,6 +32,9 @@ export class VitasCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VitasCollector class.
+     */
     constructor() {
         super(VitasCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class DealguardianCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DealguardianCollector class.
+     */
     constructor() {
         super(DealguardianCollector.CONFIG);
     }

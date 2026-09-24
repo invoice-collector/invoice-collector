@@ -32,6 +32,9 @@ export class AsmtPreventionSanteCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AsmtPreventionSanteCollector class.
+     */
     constructor() {
         super(AsmtPreventionSanteCollector.CONFIG);
     }

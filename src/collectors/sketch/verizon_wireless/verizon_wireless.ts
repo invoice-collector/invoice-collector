@@ -32,6 +32,9 @@ export class VerizonWirelessCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VerizonWirelessCollector class.
+     */
     constructor() {
         super(VerizonWirelessCollector.CONFIG);
     }

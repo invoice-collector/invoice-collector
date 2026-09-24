@@ -32,6 +32,9 @@ export class AnswerThePublicCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AnswerThePublicCollector class.
+     */
     constructor() {
         super(AnswerThePublicCollector.CONFIG);
     }

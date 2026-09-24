@@ -32,6 +32,9 @@ export class SternkomCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SternkomCollector class.
+     */
     constructor() {
         super(SternkomCollector.CONFIG);
     }

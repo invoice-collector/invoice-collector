@@ -32,6 +32,9 @@ export class AbrechnungszentrumEmmendingenCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AbrechnungszentrumEmmendingenCollector class.
+     */
     constructor() {
         super(AbrechnungszentrumEmmendingenCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class AmenFrCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AmenFrCollector class.
+     */
     constructor() {
         super(AmenFrCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class PirschCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PirschCollector class.
+     */
     constructor() {
         super(PirschCollector.CONFIG);
     }

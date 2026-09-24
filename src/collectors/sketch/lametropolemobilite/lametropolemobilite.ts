@@ -31,6 +31,9 @@ export class LaMetropoleMobiliteCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LaMetropoleMobiliteCollector class.
+     */
     constructor() {
         super(LaMetropoleMobiliteCollector.CONFIG);
     }

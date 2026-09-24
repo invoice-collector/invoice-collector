@@ -32,6 +32,9 @@ export class PumpappCoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PumpappCoCollector class.
+     */
     constructor() {
         super(PumpappCoCollector.CONFIG);
     }

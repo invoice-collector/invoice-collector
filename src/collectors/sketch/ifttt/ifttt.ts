@@ -32,6 +32,9 @@ export class IftttCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the IftttCollector class.
+     */
     constructor() {
         super(IftttCollector.CONFIG);
     }

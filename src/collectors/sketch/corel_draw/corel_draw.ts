@@ -32,6 +32,9 @@ export class CorelDrawCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CorelDrawCollector class.
+     */
     constructor() {
         super(CorelDrawCollector.CONFIG);
     }

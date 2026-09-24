@@ -32,6 +32,9 @@ export class TranskriptorCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TranskriptorCollector class.
+     */
     constructor() {
         super(TranskriptorCollector.CONFIG);
     }

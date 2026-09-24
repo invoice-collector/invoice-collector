@@ -32,6 +32,9 @@ export class PreziCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PreziCollector class.
+     */
     constructor() {
         super(PreziCollector.CONFIG);
     }

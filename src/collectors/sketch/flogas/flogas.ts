@@ -32,6 +32,9 @@ export class FlogasCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FlogasCollector class.
+     */
     constructor() {
         super(FlogasCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class QaseCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the QaseCollector class.
+     */
     constructor() {
         super(QaseCollector.CONFIG);
     }

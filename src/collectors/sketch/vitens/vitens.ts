@@ -32,6 +32,9 @@ export class VitensCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VitensCollector class.
+     */
     constructor() {
         super(VitensCollector.CONFIG);
     }

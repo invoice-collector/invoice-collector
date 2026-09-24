@@ -32,6 +32,9 @@ export class CnmssRelevesMensuelsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CnmssRelevesMensuelsCollector class.
+     */
     constructor() {
         super(CnmssRelevesMensuelsCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class DiFmCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DiFmCollector class.
+     */
     constructor() {
         super(DiFmCollector.CONFIG);
     }

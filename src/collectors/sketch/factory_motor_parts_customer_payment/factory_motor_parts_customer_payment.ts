@@ -32,6 +32,9 @@ export class FactoryMotorPartsCustomerPaymentCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FactoryMotorPartsCustomerPaymentCollector class.
+     */
     constructor() {
         super(FactoryMotorPartsCustomerPaymentCollector.CONFIG);
     }

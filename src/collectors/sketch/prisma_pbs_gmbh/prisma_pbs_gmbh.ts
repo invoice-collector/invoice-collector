@@ -32,6 +32,9 @@ export class PrismaPbsGmbhCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PrismaPbsGmbhCollector class.
+     */
     constructor() {
         super(PrismaPbsGmbhCollector.CONFIG);
     }

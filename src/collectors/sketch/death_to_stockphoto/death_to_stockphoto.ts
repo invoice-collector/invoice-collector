@@ -32,6 +32,9 @@ export class DeathToStockphotoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DeathToStockphotoCollector class.
+     */
     constructor() {
         super(DeathToStockphotoCollector.CONFIG);
     }

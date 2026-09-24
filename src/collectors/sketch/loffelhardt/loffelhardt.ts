@@ -32,6 +32,9 @@ export class LoffelhardtCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LoffelhardtCollector class.
+     */
     constructor() {
         super(LoffelhardtCollector.CONFIG);
     }

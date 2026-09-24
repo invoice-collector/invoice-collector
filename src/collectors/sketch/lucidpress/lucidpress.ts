@@ -32,6 +32,9 @@ export class LucidpressCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LucidpressCollector class.
+     */
     constructor() {
         super(LucidpressCollector.CONFIG);
     }

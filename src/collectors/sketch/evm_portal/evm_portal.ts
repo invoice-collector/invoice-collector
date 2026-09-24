@@ -32,6 +32,9 @@ export class EvmPortalCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EvmPortalCollector class.
+     */
     constructor() {
         super(EvmPortalCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class PrincipalCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PrincipalCollector class.
+     */
     constructor() {
         super(PrincipalCollector.CONFIG);
     }

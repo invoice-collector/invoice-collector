@@ -32,6 +32,9 @@ export class H2proBerlinerWasserbetriebeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the H2proBerlinerWasserbetriebeCollector class.
+     */
     constructor() {
         super(H2proBerlinerWasserbetriebeCollector.CONFIG);
     }

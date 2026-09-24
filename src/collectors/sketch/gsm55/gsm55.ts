@@ -32,6 +32,9 @@ export class Gsm55Collector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Gsm55Collector class.
+     */
     constructor() {
         super(Gsm55Collector.CONFIG);
     }

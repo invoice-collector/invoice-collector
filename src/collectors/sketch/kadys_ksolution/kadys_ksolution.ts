@@ -32,6 +32,9 @@ export class KadysKsolutionCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KadysKsolutionCollector class.
+     */
     constructor() {
         super(KadysKsolutionCollector.CONFIG);
     }

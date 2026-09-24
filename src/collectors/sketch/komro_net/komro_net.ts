@@ -32,6 +32,9 @@ export class KomroNetCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KomroNetCollector class.
+     */
     constructor() {
         super(KomroNetCollector.CONFIG);
     }

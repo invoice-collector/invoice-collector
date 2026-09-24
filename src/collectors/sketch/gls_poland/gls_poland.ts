@@ -32,6 +32,9 @@ export class GlsPolandCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GlsPolandCollector class.
+     */
     constructor() {
         super(GlsPolandCollector.CONFIG);
     }

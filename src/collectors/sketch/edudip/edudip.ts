@@ -32,6 +32,9 @@ export class EdudipCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EdudipCollector class.
+     */
     constructor() {
         super(EdudipCollector.CONFIG);
     }

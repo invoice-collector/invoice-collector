@@ -32,6 +32,9 @@ export class NoIpCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NoIpCollector class.
+     */
     constructor() {
         super(NoIpCollector.CONFIG);
     }

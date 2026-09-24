@@ -32,6 +32,9 @@ export class SandroCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SandroCollector class.
+     */
     constructor() {
         super(SandroCollector.CONFIG);
     }

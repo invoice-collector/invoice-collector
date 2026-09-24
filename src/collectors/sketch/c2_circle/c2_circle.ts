@@ -32,6 +32,9 @@ export class C2CircleCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the C2CircleCollector class.
+     */
     constructor() {
         super(C2CircleCollector.CONFIG);
     }

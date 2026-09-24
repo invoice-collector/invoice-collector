@@ -32,6 +32,9 @@ export class ScpCanalDeProvenceCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ScpCanalDeProvenceCollector class.
+     */
     constructor() {
         super(ScpCanalDeProvenceCollector.CONFIG);
     }

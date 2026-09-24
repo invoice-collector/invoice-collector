@@ -32,6 +32,9 @@ export class CompanyhouseAgCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CompanyhouseAgCollector class.
+     */
     constructor() {
         super(CompanyhouseAgCollector.CONFIG);
     }

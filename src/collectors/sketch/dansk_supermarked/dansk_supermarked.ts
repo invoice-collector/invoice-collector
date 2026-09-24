@@ -32,6 +32,9 @@ export class DanskSupermarkedCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DanskSupermarkedCollector class.
+     */
     constructor() {
         super(DanskSupermarkedCollector.CONFIG);
     }

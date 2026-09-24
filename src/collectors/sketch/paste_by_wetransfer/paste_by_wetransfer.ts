@@ -32,6 +32,9 @@ export class PasteByWetransferCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PasteByWetransferCollector class.
+     */
     constructor() {
         super(PasteByWetransferCollector.CONFIG);
     }

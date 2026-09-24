@@ -32,6 +32,9 @@ export class BugherdCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BugherdCollector class.
+     */
     constructor() {
         super(BugherdCollector.CONFIG);
     }

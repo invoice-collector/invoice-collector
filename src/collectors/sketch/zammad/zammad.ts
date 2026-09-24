@@ -32,6 +32,9 @@ export class ZammadCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ZammadCollector class.
+     */
     constructor() {
         super(ZammadCollector.CONFIG);
     }

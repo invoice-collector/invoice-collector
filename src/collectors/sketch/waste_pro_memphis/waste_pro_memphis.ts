@@ -32,6 +32,9 @@ export class WasteProMemphisCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WasteProMemphisCollector class.
+     */
     constructor() {
         super(WasteProMemphisCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class ElwingCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ElwingCollector class.
+     */
     constructor() {
         super(ElwingCollector.CONFIG);
     }

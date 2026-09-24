@@ -32,6 +32,9 @@ export class PatreonCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PatreonCollector class.
+     */
     constructor() {
         super(PatreonCollector.CONFIG);
     }

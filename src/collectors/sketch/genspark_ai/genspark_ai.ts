@@ -32,6 +32,9 @@ export class GensparkAiCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GensparkAiCollector class.
+     */
     constructor() {
         super(GensparkAiCollector.CONFIG);
     }

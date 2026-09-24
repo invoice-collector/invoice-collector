@@ -32,6 +32,9 @@ export class MakroEsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MakroEsCollector class.
+     */
     constructor() {
         super(MakroEsCollector.CONFIG);
     }

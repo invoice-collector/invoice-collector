@@ -32,6 +32,9 @@ export class QuandooCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the QuandooCollector class.
+     */
     constructor() {
         super(QuandooCollector.CONFIG);
     }

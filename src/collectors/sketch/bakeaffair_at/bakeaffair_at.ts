@@ -32,6 +32,9 @@ export class BakeaffairAtCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BakeaffairAtCollector class.
+     */
     constructor() {
         super(BakeaffairAtCollector.CONFIG);
     }

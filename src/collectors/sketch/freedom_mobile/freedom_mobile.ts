@@ -32,6 +32,9 @@ export class FreedomMobileCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FreedomMobileCollector class.
+     */
     constructor() {
         super(FreedomMobileCollector.CONFIG);
     }

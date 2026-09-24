@@ -32,6 +32,9 @@ export class WebgoPartnersCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WebgoPartnersCollector class.
+     */
     constructor() {
         super(WebgoPartnersCollector.CONFIG);
     }

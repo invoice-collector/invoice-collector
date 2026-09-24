@@ -32,6 +32,9 @@ export class _24affiliatesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the _24affiliatesCollector class.
+     */
     constructor() {
         super(_24affiliatesCollector.CONFIG);
     }

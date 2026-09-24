@@ -32,6 +32,9 @@ export class M19Collector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the M19Collector class.
+     */
     constructor() {
         super(M19Collector.CONFIG);
     }

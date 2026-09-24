@@ -32,6 +32,9 @@ export class BoostingboxCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BoostingboxCollector class.
+     */
     constructor() {
         super(BoostingboxCollector.CONFIG);
     }

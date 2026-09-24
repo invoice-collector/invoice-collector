@@ -32,6 +32,9 @@ export class NeutrinoApiCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NeutrinoApiCollector class.
+     */
     constructor() {
         super(NeutrinoApiCollector.CONFIG);
     }

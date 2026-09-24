@@ -32,6 +32,9 @@ export class CodetwoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CodetwoCollector class.
+     */
     constructor() {
         super(CodetwoCollector.CONFIG);
     }

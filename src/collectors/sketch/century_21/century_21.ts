@@ -32,6 +32,9 @@ export class Century21Collector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Century21Collector class.
+     */
     constructor() {
         super(Century21Collector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class ClickskeksCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ClickskeksCollector class.
+     */
     constructor() {
         super(ClickskeksCollector.CONFIG);
     }

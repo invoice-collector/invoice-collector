@@ -32,6 +32,9 @@ export class MyTassimoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MyTassimoCollector class.
+     */
     constructor() {
         super(MyTassimoCollector.CONFIG);
     }

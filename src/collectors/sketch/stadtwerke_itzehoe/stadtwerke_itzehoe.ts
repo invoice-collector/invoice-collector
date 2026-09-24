@@ -32,6 +32,9 @@ export class StadtwerkeItzehoeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StadtwerkeItzehoeCollector class.
+     */
     constructor() {
         super(StadtwerkeItzehoeCollector.CONFIG);
     }

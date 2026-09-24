@@ -32,6 +32,9 @@ export class AdnCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AdnCollector class.
+     */
     constructor() {
         super(AdnCollector.CONFIG);
     }

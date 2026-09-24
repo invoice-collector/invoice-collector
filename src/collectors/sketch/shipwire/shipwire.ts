@@ -32,6 +32,9 @@ export class ShipwireCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ShipwireCollector class.
+     */
     constructor() {
         super(ShipwireCollector.CONFIG);
     }

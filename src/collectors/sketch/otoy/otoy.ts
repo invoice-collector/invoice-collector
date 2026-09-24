@@ -32,6 +32,9 @@ export class OtoyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OtoyCollector class.
+     */
     constructor() {
         super(OtoyCollector.CONFIG);
     }

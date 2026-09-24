@@ -32,6 +32,9 @@ export class LeadertelecomCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LeadertelecomCollector class.
+     */
     constructor() {
         super(LeadertelecomCollector.CONFIG);
     }

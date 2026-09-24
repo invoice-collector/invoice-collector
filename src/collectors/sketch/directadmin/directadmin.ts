@@ -32,6 +32,9 @@ export class DirectadminCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DirectadminCollector class.
+     */
     constructor() {
         super(DirectadminCollector.CONFIG);
     }

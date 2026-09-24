@@ -32,6 +32,9 @@ export class BikerSStoreCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BikerSStoreCollector class.
+     */
     constructor() {
         super(BikerSStoreCollector.CONFIG);
     }

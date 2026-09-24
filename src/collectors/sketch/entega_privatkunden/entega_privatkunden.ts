@@ -32,6 +32,9 @@ export class EntegaPrivatkundenCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EntegaPrivatkundenCollector class.
+     */
     constructor() {
         super(EntegaPrivatkundenCollector.CONFIG);
     }

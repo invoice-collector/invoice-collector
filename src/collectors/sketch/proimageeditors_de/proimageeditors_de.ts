@@ -32,6 +32,9 @@ export class ProimageeditorsDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ProimageeditorsDeCollector class.
+     */
     constructor() {
         super(ProimageeditorsDeCollector.CONFIG);
     }

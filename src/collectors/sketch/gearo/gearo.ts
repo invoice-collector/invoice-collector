@@ -32,6 +32,9 @@ export class GearoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GearoCollector class.
+     */
     constructor() {
         super(GearoCollector.CONFIG);
     }

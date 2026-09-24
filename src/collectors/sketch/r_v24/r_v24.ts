@@ -32,6 +32,9 @@ export class RV24Collector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RV24Collector class.
+     */
     constructor() {
         super(RV24Collector.CONFIG);
     }

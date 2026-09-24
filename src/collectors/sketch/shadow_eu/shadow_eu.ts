@@ -32,6 +32,9 @@ export class ShadowEuCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ShadowEuCollector class.
+     */
     constructor() {
         super(ShadowEuCollector.CONFIG);
     }

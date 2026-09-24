@@ -32,6 +32,9 @@ export class EkwateurProCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EkwateurProCollector class.
+     */
     constructor() {
         super(EkwateurProCollector.CONFIG);
     }

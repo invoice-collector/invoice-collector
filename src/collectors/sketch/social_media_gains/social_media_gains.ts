@@ -32,6 +32,9 @@ export class SocialMediaGainsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SocialMediaGainsCollector class.
+     */
     constructor() {
         super(SocialMediaGainsCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class RUOnCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RUOnCollector class.
+     */
     constructor() {
         super(RUOnCollector.CONFIG);
     }

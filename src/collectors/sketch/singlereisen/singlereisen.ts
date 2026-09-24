@@ -32,6 +32,9 @@ export class SinglereisenCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SinglereisenCollector class.
+     */
     constructor() {
         super(SinglereisenCollector.CONFIG);
     }

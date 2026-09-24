@@ -32,6 +32,9 @@ export class ReifenborseCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ReifenborseCollector class.
+     */
     constructor() {
         super(ReifenborseCollector.CONFIG);
     }

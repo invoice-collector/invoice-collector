@@ -32,6 +32,9 @@ export class OrgamaxCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OrgamaxCollector class.
+     */
     constructor() {
         super(OrgamaxCollector.CONFIG);
     }

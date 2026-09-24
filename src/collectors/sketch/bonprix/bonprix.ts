@@ -32,6 +32,9 @@ export class BonprixCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BonprixCollector class.
+     */
     constructor() {
         super(BonprixCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class LoquizCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LoquizCollector class.
+     */
     constructor() {
         super(LoquizCollector.CONFIG);
     }

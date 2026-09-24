@@ -32,6 +32,9 @@ export class QuayCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the QuayCollector class.
+     */
     constructor() {
         super(QuayCollector.CONFIG);
     }

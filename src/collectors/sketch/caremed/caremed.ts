@@ -32,6 +32,9 @@ export class CaremedCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CaremedCollector class.
+     */
     constructor() {
         super(CaremedCollector.CONFIG);
     }

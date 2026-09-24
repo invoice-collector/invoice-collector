@@ -32,6 +32,9 @@ export class LeadinfoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LeadinfoCollector class.
+     */
     constructor() {
         super(LeadinfoCollector.CONFIG);
     }

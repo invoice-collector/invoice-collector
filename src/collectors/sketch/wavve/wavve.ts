@@ -32,6 +32,9 @@ export class WavveCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WavveCollector class.
+     */
     constructor() {
         super(WavveCollector.CONFIG);
     }

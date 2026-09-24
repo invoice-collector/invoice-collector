@@ -32,6 +32,9 @@ export class KenjoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KenjoCollector class.
+     */
     constructor() {
         super(KenjoCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class HydroQuebecCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HydroQuebecCollector class.
+     */
     constructor() {
         super(HydroQuebecCollector.CONFIG);
     }

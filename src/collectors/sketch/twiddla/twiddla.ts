@@ -32,6 +32,9 @@ export class TwiddlaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TwiddlaCollector class.
+     */
     constructor() {
         super(TwiddlaCollector.CONFIG);
     }

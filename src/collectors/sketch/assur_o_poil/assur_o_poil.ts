@@ -32,6 +32,9 @@ export class AssurOPoilCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AssurOPoilCollector class.
+     */
     constructor() {
         super(AssurOPoilCollector.CONFIG);
     }

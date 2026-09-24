@@ -32,6 +32,9 @@ export class NorseenergyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NorseenergyCollector class.
+     */
     constructor() {
         super(NorseenergyCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class LeadEnforceCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LeadEnforceCollector class.
+     */
     constructor() {
         super(LeadEnforceCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class EnzuzoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EnzuzoCollector class.
+     */
     constructor() {
         super(EnzuzoCollector.CONFIG);
     }

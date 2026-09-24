@@ -32,6 +32,9 @@ export class MobauWirtzAndClassenCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MobauWirtzAndClassenCollector class.
+     */
     constructor() {
         super(MobauWirtzAndClassenCollector.CONFIG);
     }

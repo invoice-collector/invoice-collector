@@ -32,6 +32,9 @@ export class PerdooCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PerdooCollector class.
+     */
     constructor() {
         super(PerdooCollector.CONFIG);
     }

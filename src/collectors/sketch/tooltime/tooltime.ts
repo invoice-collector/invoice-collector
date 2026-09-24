@@ -32,6 +32,9 @@ export class TooltimeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TooltimeCollector class.
+     */
     constructor() {
         super(TooltimeCollector.CONFIG);
     }

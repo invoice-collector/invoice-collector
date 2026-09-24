@@ -32,6 +32,9 @@ export class VabUnifiedPostCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VabUnifiedPostCollector class.
+     */
     constructor() {
         super(VabUnifiedPostCollector.CONFIG);
     }

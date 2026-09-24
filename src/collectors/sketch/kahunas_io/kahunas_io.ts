@@ -32,6 +32,9 @@ export class KahunasIoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KahunasIoCollector class.
+     */
     constructor() {
         super(KahunasIoCollector.CONFIG);
     }

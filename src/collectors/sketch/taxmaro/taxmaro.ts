@@ -32,6 +32,9 @@ export class TaxmaroCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TaxmaroCollector class.
+     */
     constructor() {
         super(TaxmaroCollector.CONFIG);
     }

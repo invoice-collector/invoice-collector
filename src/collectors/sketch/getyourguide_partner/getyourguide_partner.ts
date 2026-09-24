@@ -32,6 +32,9 @@ export class GetyourguidePartnerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GetyourguidePartnerCollector class.
+     */
     constructor() {
         super(GetyourguidePartnerCollector.CONFIG);
     }

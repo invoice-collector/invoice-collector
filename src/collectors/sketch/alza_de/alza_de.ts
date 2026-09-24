@@ -32,6 +32,9 @@ export class AlzaDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AlzaDeCollector class.
+     */
     constructor() {
         super(AlzaDeCollector.CONFIG);
     }

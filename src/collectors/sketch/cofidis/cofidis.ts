@@ -32,6 +32,9 @@ export class CofidisCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CofidisCollector class.
+     */
     constructor() {
         super(CofidisCollector.CONFIG);
     }

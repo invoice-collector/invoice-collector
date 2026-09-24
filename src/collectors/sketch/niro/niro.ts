@@ -32,6 +32,9 @@ export class NiroCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NiroCollector class.
+     */
     constructor() {
         super(NiroCollector.CONFIG);
     }

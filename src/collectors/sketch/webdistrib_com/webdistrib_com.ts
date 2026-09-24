@@ -32,6 +32,9 @@ export class WebdistribComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WebdistribComCollector class.
+     */
     constructor() {
         super(WebdistribComCollector.CONFIG);
     }

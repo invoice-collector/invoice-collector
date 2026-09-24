@@ -32,6 +32,9 @@ export class VirginMobileCanadaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VirginMobileCanadaCollector class.
+     */
     constructor() {
         super(VirginMobileCanadaCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class UberspaceCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the UberspaceCollector class.
+     */
     constructor() {
         super(UberspaceCollector.CONFIG);
     }

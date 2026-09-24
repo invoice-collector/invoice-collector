@@ -32,6 +32,9 @@ export class GraphicstockCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GraphicstockCollector class.
+     */
     constructor() {
         super(GraphicstockCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class _99designsDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the _99designsDeCollector class.
+     */
     constructor() {
         super(_99designsDeCollector.CONFIG);
     }

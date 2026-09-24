@@ -32,6 +32,9 @@ export class AndorraTelecomCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AndorraTelecomCollector class.
+     */
     constructor() {
         super(AndorraTelecomCollector.CONFIG);
     }

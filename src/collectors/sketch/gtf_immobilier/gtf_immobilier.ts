@@ -32,6 +32,9 @@ export class GtfImmobilierCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GtfImmobilierCollector class.
+     */
     constructor() {
         super(GtfImmobilierCollector.CONFIG);
     }

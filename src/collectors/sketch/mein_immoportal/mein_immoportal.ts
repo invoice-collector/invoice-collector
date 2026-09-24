@@ -32,6 +32,9 @@ export class MeinImmoportalCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MeinImmoportalCollector class.
+     */
     constructor() {
         super(MeinImmoportalCollector.CONFIG);
     }

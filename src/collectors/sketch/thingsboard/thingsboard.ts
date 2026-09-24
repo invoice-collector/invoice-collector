@@ -32,6 +32,9 @@ export class ThingsboardCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ThingsboardCollector class.
+     */
     constructor() {
         super(ThingsboardCollector.CONFIG);
     }

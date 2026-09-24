@@ -32,6 +32,9 @@ export class TerapeakCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TerapeakCollector class.
+     */
     constructor() {
         super(TerapeakCollector.CONFIG);
     }

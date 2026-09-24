@@ -32,6 +32,9 @@ export class ColisexpatCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ColisexpatCollector class.
+     */
     constructor() {
         super(ColisexpatCollector.CONFIG);
     }

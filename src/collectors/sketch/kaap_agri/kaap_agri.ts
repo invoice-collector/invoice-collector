@@ -32,6 +32,9 @@ export class KaapAgriCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KaapAgriCollector class.
+     */
     constructor() {
         super(KaapAgriCollector.CONFIG);
     }

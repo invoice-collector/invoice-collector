@@ -31,6 +31,9 @@ export class RtmFrCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RtmFrCollector class.
+     */
     constructor() {
         super(RtmFrCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class AftermarketPlCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AftermarketPlCollector class.
+     */
     constructor() {
         super(AftermarketPlCollector.CONFIG);
     }

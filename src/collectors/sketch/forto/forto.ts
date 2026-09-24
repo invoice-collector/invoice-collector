@@ -32,6 +32,9 @@ export class FortoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FortoCollector class.
+     */
     constructor() {
         super(FortoCollector.CONFIG);
     }

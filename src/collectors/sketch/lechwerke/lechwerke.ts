@@ -32,6 +32,9 @@ export class LechwerkeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LechwerkeCollector class.
+     */
     constructor() {
         super(LechwerkeCollector.CONFIG);
     }

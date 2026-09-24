@@ -32,6 +32,9 @@ export class BeaumontCherryValleyWaterDistrictCollector extends SketchCollector 
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BeaumontCherryValleyWaterDistrictCollector class.
+     */
     constructor() {
         super(BeaumontCherryValleyWaterDistrictCollector.CONFIG);
     }

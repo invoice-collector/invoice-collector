@@ -32,6 +32,9 @@ export class VodafoneCoNzMobileCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VodafoneCoNzMobileCollector class.
+     */
     constructor() {
         super(VodafoneCoNzMobileCollector.CONFIG);
     }

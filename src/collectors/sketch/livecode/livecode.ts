@@ -32,6 +32,9 @@ export class LivecodeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LivecodeCollector class.
+     */
     constructor() {
         super(LivecodeCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class MybglCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MybglCollector class.
+     */
     constructor() {
         super(MybglCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class MovistarCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MovistarCollector class.
+     */
     constructor() {
         super(MovistarCollector.CONFIG);
     }

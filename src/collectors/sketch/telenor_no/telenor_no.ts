@@ -32,6 +32,9 @@ export class TelenorNoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TelenorNoCollector class.
+     */
     constructor() {
         super(TelenorNoCollector.CONFIG);
     }

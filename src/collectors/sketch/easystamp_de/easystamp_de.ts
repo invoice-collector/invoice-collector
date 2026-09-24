@@ -32,6 +32,9 @@ export class EasystampDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EasystampDeCollector class.
+     */
     constructor() {
         super(EasystampDeCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class TimetasticCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TimetasticCollector class.
+     */
     constructor() {
         super(TimetasticCollector.CONFIG);
     }

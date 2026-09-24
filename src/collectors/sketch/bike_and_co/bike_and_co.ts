@@ -32,6 +32,9 @@ export class BikeAndCoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BikeAndCoCollector class.
+     */
     constructor() {
         super(BikeAndCoCollector.CONFIG);
     }

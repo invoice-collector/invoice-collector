@@ -32,6 +32,9 @@ export class MeistertaskCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MeistertaskCollector class.
+     */
     constructor() {
         super(MeistertaskCollector.CONFIG);
     }

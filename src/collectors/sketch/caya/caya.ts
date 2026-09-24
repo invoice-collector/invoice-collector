@@ -32,6 +32,9 @@ export class CayaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CayaCollector class.
+     */
     constructor() {
         super(CayaCollector.CONFIG);
     }

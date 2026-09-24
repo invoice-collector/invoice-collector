@@ -32,6 +32,9 @@ export class DochubCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DochubCollector class.
+     */
     constructor() {
         super(DochubCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class PortokasseDeutschePostCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PortokasseDeutschePostCollector class.
+     */
     constructor() {
         super(PortokasseDeutschePostCollector.CONFIG);
     }

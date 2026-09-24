@@ -32,6 +32,9 @@ export class HeartinternetUkCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HeartinternetUkCollector class.
+     */
     constructor() {
         super(HeartinternetUkCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class KerlogCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KerlogCollector class.
+     */
     constructor() {
         super(KerlogCollector.CONFIG);
     }

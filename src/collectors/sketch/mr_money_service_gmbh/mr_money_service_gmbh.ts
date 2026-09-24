@@ -32,6 +32,9 @@ export class MrMoneyServiceGmbhCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MrMoneyServiceGmbhCollector class.
+     */
     constructor() {
         super(MrMoneyServiceGmbhCollector.CONFIG);
     }

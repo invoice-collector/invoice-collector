@@ -32,6 +32,9 @@ export class ZenparkCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ZenparkCollector class.
+     */
     constructor() {
         super(ZenparkCollector.CONFIG);
     }

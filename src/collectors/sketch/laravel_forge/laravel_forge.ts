@@ -32,6 +32,9 @@ export class LaravelForgeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LaravelForgeCollector class.
+     */
     constructor() {
         super(LaravelForgeCollector.CONFIG);
     }

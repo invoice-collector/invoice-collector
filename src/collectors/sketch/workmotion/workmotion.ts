@@ -32,6 +32,9 @@ export class WorkmotionCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WorkmotionCollector class.
+     */
     constructor() {
         super(WorkmotionCollector.CONFIG);
     }

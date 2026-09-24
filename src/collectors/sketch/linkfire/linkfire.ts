@@ -32,6 +32,9 @@ export class LinkfireCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LinkfireCollector class.
+     */
     constructor() {
         super(LinkfireCollector.CONFIG);
     }

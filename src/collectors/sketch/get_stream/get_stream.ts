@@ -32,6 +32,9 @@ export class GetStreamCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GetStreamCollector class.
+     */
     constructor() {
         super(GetStreamCollector.CONFIG);
     }

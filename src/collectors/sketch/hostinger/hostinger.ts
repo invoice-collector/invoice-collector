@@ -32,6 +32,9 @@ export class HostingerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HostingerCollector class.
+     */
     constructor() {
         super(HostingerCollector.CONFIG);
     }

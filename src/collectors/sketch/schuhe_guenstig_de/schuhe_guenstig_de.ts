@@ -32,6 +32,9 @@ export class SchuheGuenstigDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SchuheGuenstigDeCollector class.
+     */
     constructor() {
         super(SchuheGuenstigDeCollector.CONFIG);
     }

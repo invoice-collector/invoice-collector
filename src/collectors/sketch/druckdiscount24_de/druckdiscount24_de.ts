@@ -32,6 +32,9 @@ export class Druckdiscount24DeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Druckdiscount24DeCollector class.
+     */
     constructor() {
         super(Druckdiscount24DeCollector.CONFIG);
     }

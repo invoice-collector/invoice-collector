@@ -32,6 +32,9 @@ export class Gs1CanadaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Gs1CanadaCollector class.
+     */
     constructor() {
         super(Gs1CanadaCollector.CONFIG);
     }
