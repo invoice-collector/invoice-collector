@@ -10,9 +10,10 @@ import { I18n } from './i18n';
 // Configure express
 const app = express();
 // CSP is disabled because the EJS views (ui/ui.ejs, ui/oauth2.ejs) rely on inline scripts and
-// inline event handlers; enabling it as-is would break those pages. Other helmet protections
-// (X-Content-Type-Options, HSTS, Referrer-Policy, X-Frame-Options, ...) remain active.
-app.use(helmet({ contentSecurityPolicy: false }));
+// inline event handlers; enabling it as-is would break those pages. Frameguard is disabled because
+// ui.ejs/oauth2.ejs are designed to be embedded in a cross-origin iframe by customer sites. Other
+// helmet protections (X-Content-Type-Options, HSTS, Referrer-Policy, ...) remain active.
+app.use(helmet({ contentSecurityPolicy: false, frameguard: false }));
 app.use(express.json({ limit: '100kb' }));
 app.use(I18n.i18n.init);
 app.use('/views', express.static(path.join(__dirname, '..', 'views')));
