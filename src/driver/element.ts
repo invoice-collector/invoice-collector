@@ -54,7 +54,7 @@ export class Element {
 
     /**
      * Left clicks on the element.
-     * @param options The click options.
+     * @param options The left click options.
      * @param options.timeout The timeout for the click action. Default is {@link AbstractDriver.DEFAULT_TIMEOUT}.
      * @param options.delay The delay before the click action. Default is {@link AbstractDriver.DEFAULT_DELAY}.
      * @param options.navigation Whether to wait for navigation after the click. Default is `true`.
@@ -86,16 +86,19 @@ export class Element {
 
     /**
      * Middle clicks on the element.
+     * @param options The middle click options.
      * @param options.useFallbackMethod Whether to use the fallback method for middle click. Default is `false`.
      * @param options.timeout The timeout for the middle click action. Default is {@link AbstractDriver.DEFAULT_TIMEOUT}.
      */
-    async middleClick({
-        useFallbackMethod = false,
-        timeout = AbstractDriver.DEFAULT_TIMEOUT,
-    }: {
+    async middleClick(options: {
         useFallbackMethod?: boolean,
         timeout?: number,
     } = {}): Promise<void> {
+        const {
+            useFallbackMethod = false,
+            timeout = AbstractDriver.DEFAULT_TIMEOUT,
+        } = options;
+
         // If does not open in a new page by default
         if(!useFallbackMethod) {
             // Get number of opened pages before middle click
@@ -111,15 +114,20 @@ export class Element {
             // Get number of downloaded files after middle click
             const numberOfFilesAfter = (await this.driver.getDownloadedFiles(false)).length;
             // If no new page opened and no new file downloaded, set useFallbackMethod to true
-            useFallbackMethod = numberOfPagesAfter === numberOfPagesBefore && numberOfFilesAfter === numberOfFilesBefore;
-        }
-        // If need to open in a new page
-        if (useFallbackMethod) {
-            // Get current url
+            const shouldUseFallbackMethod = numberOfPagesAfter === numberOfPagesBefore && numberOfFilesAfter === numberOfFilesBefore;
+            if (shouldUseFallbackMethod) {
+                const currentUrl = this.driver.url();
+                await this.driver.newPage(currentUrl);
+                await this.driver.leftClick({
+                    selector: await this.cssSelector(),
+                    info: 'middle click',
+                }, {
+                    timeout,
+                });
+            }
+        } else {
             const currentUrl = this.driver.url();
-            // Open new page
             await this.driver.newPage(currentUrl);
-            // Click on the element again
             await this.driver.leftClick({
                 selector: await this.cssSelector(),
                 info: 'middle click',
@@ -132,25 +140,28 @@ export class Element {
     /**
      * Inputs text into the element, with options for retries, delays, and navigation handling.
      * @param text The text to input into the element.
+     * @param options The input options.
      * @param options.tries The number of attempts to input the text. Default is `5`.
      * @param options.timeout The timeout for each attempt. Default is {@link AbstractDriver.DEFAULT_TIMEOUT}.
      * @param options.delay The delay between each attempt. Default is {@link AbstractDriver.DEFAULT_DELAY}.
      * @param options.navigation Whether to wait for navigation after inputting the text. Default is `false`.
      * @param options.mouseHover Whether to hover the mouse over the element before inputting the text. Default is `false`.
      */
-    async inputText(text: string, {
-        tries = 5,
-        timeout = AbstractDriver.DEFAULT_TIMEOUT,
-        delay = AbstractDriver.DEFAULT_DELAY,
-        navigation = false,
-        mouseHover = false,
-    }: {
+    async inputText(text: string, options: {
         tries?: number,
         timeout?: number,
         delay?: number,
         navigation?: boolean,
         mouseHover?: boolean,
     } = {}): Promise<void> {
+        let {
+            tries = 5,
+            timeout = AbstractDriver.DEFAULT_TIMEOUT,
+            delay = AbstractDriver.DEFAULT_DELAY,
+            navigation = false,
+            mouseHover = false,
+        } = options;
+
         if (mouseHover) {
             await this.element.hover();
             await utils.delay(delay);
@@ -178,13 +189,19 @@ export class Element {
     /**
      * Selects a value from a dropdown element.
      * @param value The value to select in the dropdown.
-     * @param param1.delay The delay before and after selecting the value. Default is {@link AbstractDriver.DEFAULT_DELAY}.
-     * @param param1.mouseHover Whether to hover the mouse over the element before selecting the value. Default is `false`.
+     * @param options The dropdown selection options.
+     * @param options.delay The delay before and after selecting the value. Default is {@link AbstractDriver.DEFAULT_DELAY}.
+     * @param options.mouseHover Whether to hover the mouse over the element before selecting the value. Default is `false`.
      */
-    async dropdownSelect(value: string, {
-        delay = AbstractDriver.DEFAULT_DELAY,
-        mouseHover = false,
+    async dropdownSelect(value: string, options: {
+        delay?: number,
+        mouseHover?: boolean,
     } = {}): Promise<void> {
+        const {
+            delay = AbstractDriver.DEFAULT_DELAY,
+            mouseHover = false,
+        } = options;
+
         if (mouseHover) {
             await this.element.hover();
             await utils.delay(delay);
