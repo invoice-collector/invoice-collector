@@ -15,11 +15,11 @@ export type AllCustomerData = {
 } & Customer;
 
 export abstract class AbstractDatabase {
-    constructor() {
-        if (new.target === AbstractDatabase) {
-            throw new TypeError('Cannot construct AbstractDatabase instances directly');
-        }
-    }
+
+    /**
+     * Creates an instance of the abstract database class.
+     */
+    protected constructor() {}
 
     /**
      * Connects to the database.
