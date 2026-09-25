@@ -54,22 +54,25 @@ export class Element {
 
     /**
      * Left clicks on the element.
+     * @param options The click options.
      * @param options.timeout The timeout for the click action. Default is {@link AbstractDriver.DEFAULT_TIMEOUT}.
      * @param options.delay The delay before the click action. Default is {@link AbstractDriver.DEFAULT_DELAY}.
      * @param options.navigation Whether to wait for navigation after the click. Default is `true`.
      * @param options.mouseHover Whether to hover the mouse over the element before clicking. Default is `false`.
      */
-    async leftClick({
-        timeout = AbstractDriver.DEFAULT_TIMEOUT,
-        delay = AbstractDriver.DEFAULT_DELAY,
-        navigation = true,
-        mouseHover = false,
-    }: {
+    async leftClick(options: {
         timeout?: number,
         delay?: number,
         navigation?: boolean,
         mouseHover?: boolean,
     } = {}): Promise<void> {
+        const {
+            timeout = AbstractDriver.DEFAULT_TIMEOUT,
+            delay = AbstractDriver.DEFAULT_DELAY,
+            navigation = true,
+            mouseHover = false,
+        } = options;
+
         if (mouseHover) {
             await this.element.hover();
             await utils.delay(delay);
