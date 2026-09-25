@@ -54,16 +54,21 @@ export class Element {
 
     /**
      * Left clicks on the element.
-     * @param timeout The timeout for the click action. Default is {@link AbstractDriver.DEFAULT_TIMEOUT}.
-     * @param delay The delay before the click action. Default is {@link AbstractDriver.DEFAULT_DELAY}.
-     * @param navigation Whether to wait for navigation after the click. Default is `true`.
-     * @param mouseHover Whether to hover the mouse over the element before clicking. Default is `false`.
+     * @param options.timeout The timeout for the click action. Default is {@link AbstractDriver.DEFAULT_TIMEOUT}.
+     * @param options.delay The delay before the click action. Default is {@link AbstractDriver.DEFAULT_DELAY}.
+     * @param options.navigation Whether to wait for navigation after the click. Default is `true`.
+     * @param options.mouseHover Whether to hover the mouse over the element before clicking. Default is `false`.
      */
     async leftClick({
         timeout = AbstractDriver.DEFAULT_TIMEOUT,
         delay = AbstractDriver.DEFAULT_DELAY,
         navigation = true,
         mouseHover = false,
+    }: {
+        timeout?: number,
+        delay?: number,
+        navigation?: boolean,
+        mouseHover?: boolean,
     } = {}): Promise<void> {
         if (mouseHover) {
             await this.element.hover();
@@ -78,12 +83,15 @@ export class Element {
 
     /**
      * Middle clicks on the element.
-     * @param useFallbackMethod Whether to use the fallback method for middle click. Default is `false`.
-     * @param timeout The timeout for the middle click action. Default is {@link AbstractDriver.DEFAULT_TIMEOUT}.
+     * @param options.useFallbackMethod Whether to use the fallback method for middle click. Default is `false`.
+     * @param options.timeout The timeout for the middle click action. Default is {@link AbstractDriver.DEFAULT_TIMEOUT}.
      */
     async middleClick({
         useFallbackMethod = false,
         timeout = AbstractDriver.DEFAULT_TIMEOUT,
+    }: {
+        useFallbackMethod?: boolean,
+        timeout?: number,
     } = {}): Promise<void> {
         // If does not open in a new page by default
         if(!useFallbackMethod) {
@@ -121,11 +129,11 @@ export class Element {
     /**
      * Inputs text into the element, with options for retries, delays, and navigation handling.
      * @param text The text to input into the element.
-     * @param param1.tries The number of attempts to input the text. Default is `5`.
-     * @param param1.timeout The timeout for each attempt. Default is {@link AbstractDriver.DEFAULT_TIMEOUT}.
-     * @param param1.delay The delay between each attempt. Default is {@link AbstractDriver.DEFAULT_DELAY}.
-     * @param param1.navigation Whether to wait for navigation after inputting the text. Default is `false`.
-     * @param param1.mouseHover Whether to hover the mouse over the element before inputting the text. Default is `false`.
+     * @param options.tries The number of attempts to input the text. Default is `5`.
+     * @param options.timeout The timeout for each attempt. Default is {@link AbstractDriver.DEFAULT_TIMEOUT}.
+     * @param options.delay The delay between each attempt. Default is {@link AbstractDriver.DEFAULT_DELAY}.
+     * @param options.navigation Whether to wait for navigation after inputting the text. Default is `false`.
+     * @param options.mouseHover Whether to hover the mouse over the element before inputting the text. Default is `false`.
      */
     async inputText(text: string, {
         tries = 5,
@@ -133,6 +141,12 @@ export class Element {
         delay = AbstractDriver.DEFAULT_DELAY,
         navigation = false,
         mouseHover = false,
+    }: {
+        tries?: number,
+        timeout?: number,
+        delay?: number,
+        navigation?: boolean,
+        mouseHover?: boolean,
     } = {}): Promise<void> {
         if (mouseHover) {
             await this.element.hover();
@@ -200,6 +214,11 @@ export class Element {
      */
     async cssSelector(): Promise<string> {
         return await this.element.evaluate(element => {
+            /**
+             * Gets the CSS selector of the given element.
+             * @param element The element to get the CSS selector for.
+             * @returns The CSS selector of the given element.
+             */
             function getCssSelector(element): string {
                 if (element === document.body) {
                     return 'body';
