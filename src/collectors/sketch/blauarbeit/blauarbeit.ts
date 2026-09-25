@@ -32,6 +32,9 @@ export class BlauarbeitCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BlauarbeitCollector class.
+     */
     constructor() {
         super(BlauarbeitCollector.CONFIG);
     }

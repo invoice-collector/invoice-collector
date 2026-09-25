@@ -32,6 +32,9 @@ export class GohighlevelCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GohighlevelCollector class.
+     */
     constructor() {
         super(GohighlevelCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class JamedaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the JamedaCollector class.
+     */
     constructor() {
         super(JamedaCollector.CONFIG);
     }

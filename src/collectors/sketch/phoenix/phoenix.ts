@@ -32,6 +32,9 @@ export class PhoenixCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PhoenixCollector class.
+     */
     constructor() {
         super(PhoenixCollector.CONFIG);
     }

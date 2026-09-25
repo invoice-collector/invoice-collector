@@ -32,6 +32,9 @@ export class GevGrundeigentumerVersicherungCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GevGrundeigentumerVersicherungCollector class.
+     */
     constructor() {
         super(GevGrundeigentumerVersicherungCollector.CONFIG);
     }

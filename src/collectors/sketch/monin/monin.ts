@@ -32,6 +32,9 @@ export class MoninCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MoninCollector class.
+     */
     constructor() {
         super(MoninCollector.CONFIG);
     }

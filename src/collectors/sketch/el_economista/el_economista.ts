@@ -32,6 +32,9 @@ export class ElEconomistaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ElEconomistaCollector class.
+     */
     constructor() {
         super(ElEconomistaCollector.CONFIG);
     }

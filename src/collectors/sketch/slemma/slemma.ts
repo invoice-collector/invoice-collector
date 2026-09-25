@@ -32,6 +32,9 @@ export class SlemmaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SlemmaCollector class.
+     */
     constructor() {
         super(SlemmaCollector.CONFIG);
     }

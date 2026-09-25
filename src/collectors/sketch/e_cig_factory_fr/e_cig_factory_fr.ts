@@ -32,6 +32,9 @@ export class ECigFactoryFrCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ECigFactoryFrCollector class.
+     */
     constructor() {
         super(ECigFactoryFrCollector.CONFIG);
     }

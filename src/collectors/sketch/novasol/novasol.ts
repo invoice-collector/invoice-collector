@@ -32,6 +32,9 @@ export class NovasolCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NovasolCollector class.
+     */
     constructor() {
         super(NovasolCollector.CONFIG);
     }

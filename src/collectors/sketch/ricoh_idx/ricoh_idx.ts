@@ -32,6 +32,9 @@ export class RicohIdxCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RicohIdxCollector class.
+     */
     constructor() {
         super(RicohIdxCollector.CONFIG);
     }

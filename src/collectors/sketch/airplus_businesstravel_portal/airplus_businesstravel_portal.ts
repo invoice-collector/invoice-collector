@@ -32,6 +32,9 @@ export class AirplusBusinesstravelPortalCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AirplusBusinesstravelPortalCollector class.
+     */
     constructor() {
         super(AirplusBusinesstravelPortalCollector.CONFIG);
     }

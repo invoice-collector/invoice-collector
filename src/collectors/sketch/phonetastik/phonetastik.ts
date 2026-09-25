@@ -32,6 +32,9 @@ export class PhonetastikCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PhonetastikCollector class.
+     */
     constructor() {
         super(PhonetastikCollector.CONFIG);
     }

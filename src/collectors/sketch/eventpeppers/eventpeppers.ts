@@ -32,6 +32,9 @@ export class EventpeppersCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EventpeppersCollector class.
+     */
     constructor() {
         super(EventpeppersCollector.CONFIG);
     }

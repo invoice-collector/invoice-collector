@@ -32,6 +32,9 @@ export class ChurnbusterCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ChurnbusterCollector class.
+     */
     constructor() {
         super(ChurnbusterCollector.CONFIG);
     }

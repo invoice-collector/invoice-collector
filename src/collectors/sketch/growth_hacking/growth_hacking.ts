@@ -32,6 +32,9 @@ export class GrowthHackingCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GrowthHackingCollector class.
+     */
     constructor() {
         super(GrowthHackingCollector.CONFIG);
     }

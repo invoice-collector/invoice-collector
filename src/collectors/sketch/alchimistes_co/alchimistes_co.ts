@@ -31,6 +31,9 @@ export class AlchimistesCoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AlchimistesCoCollector class.
+     */
     constructor() {
         super(AlchimistesCoCollector.CONFIG);
     }

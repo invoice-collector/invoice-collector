@@ -32,6 +32,9 @@ export class EnercoopCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EnercoopCollector class.
+     */
     constructor() {
         super(EnercoopCollector.CONFIG);
     }

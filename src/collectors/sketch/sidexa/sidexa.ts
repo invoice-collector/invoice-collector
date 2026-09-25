@@ -32,6 +32,9 @@ export class SidexaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SidexaCollector class.
+     */
     constructor() {
         super(SidexaCollector.CONFIG);
     }

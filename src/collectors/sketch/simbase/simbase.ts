@@ -32,6 +32,9 @@ export class SimbaseCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SimbaseCollector class.
+     */
     constructor() {
         super(SimbaseCollector.CONFIG);
     }

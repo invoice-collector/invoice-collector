@@ -32,6 +32,9 @@ export class ClevvermailCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ClevvermailCollector class.
+     */
     constructor() {
         super(ClevvermailCollector.CONFIG);
     }

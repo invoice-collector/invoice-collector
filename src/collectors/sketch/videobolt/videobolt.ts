@@ -32,6 +32,9 @@ export class VideoboltCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VideoboltCollector class.
+     */
     constructor() {
         super(VideoboltCollector.CONFIG);
     }

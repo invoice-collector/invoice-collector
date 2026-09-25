@@ -32,6 +32,9 @@ export class AustraliaPostBusinessCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AustraliaPostBusinessCollector class.
+     */
     constructor() {
         super(AustraliaPostBusinessCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class FranceBarterCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FranceBarterCollector class.
+     */
     constructor() {
         super(FranceBarterCollector.CONFIG);
     }

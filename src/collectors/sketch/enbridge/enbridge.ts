@@ -32,6 +32,9 @@ export class EnbridgeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EnbridgeCollector class.
+     */
     constructor() {
         super(EnbridgeCollector.CONFIG);
     }

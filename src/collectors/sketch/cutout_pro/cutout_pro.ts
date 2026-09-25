@@ -32,6 +32,9 @@ export class CutoutProCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CutoutProCollector class.
+     */
     constructor() {
         super(CutoutProCollector.CONFIG);
     }

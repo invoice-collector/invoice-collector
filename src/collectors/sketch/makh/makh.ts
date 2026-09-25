@@ -32,6 +32,9 @@ export class MakhCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MakhCollector class.
+     */
     constructor() {
         super(MakhCollector.CONFIG);
     }

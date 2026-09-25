@@ -32,6 +32,9 @@ export class ApolloIoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ApolloIoCollector class.
+     */
     constructor() {
         super(ApolloIoCollector.CONFIG);
     }

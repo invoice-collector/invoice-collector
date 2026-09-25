@@ -32,6 +32,9 @@ export class HawaiianTelcomCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HawaiianTelcomCollector class.
+     */
     constructor() {
         super(HawaiianTelcomCollector.CONFIG);
     }

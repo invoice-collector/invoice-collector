@@ -32,6 +32,9 @@ export class Barn2Collector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Barn2Collector class.
+     */
     constructor() {
         super(Barn2Collector.CONFIG);
     }

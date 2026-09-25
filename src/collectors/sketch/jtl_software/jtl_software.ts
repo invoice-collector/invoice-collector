@@ -32,6 +32,9 @@ export class JtlSoftwareCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the JtlSoftwareCollector class.
+     */
     constructor() {
         super(JtlSoftwareCollector.CONFIG);
     }

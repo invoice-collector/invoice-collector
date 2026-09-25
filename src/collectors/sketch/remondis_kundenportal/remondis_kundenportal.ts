@@ -32,6 +32,9 @@ export class RemondisKundenportalCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RemondisKundenportalCollector class.
+     */
     constructor() {
         super(RemondisKundenportalCollector.CONFIG);
     }

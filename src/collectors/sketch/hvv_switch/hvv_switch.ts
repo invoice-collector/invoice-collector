@@ -32,6 +32,9 @@ export class HvvSwitchCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HvvSwitchCollector class.
+     */
     constructor() {
         super(HvvSwitchCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class VisseriefixationsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VisseriefixationsCollector class.
+     */
     constructor() {
         super(VisseriefixationsCollector.CONFIG);
     }

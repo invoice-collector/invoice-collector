@@ -32,6 +32,9 @@ export class PhilipsSpeechliveCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PhilipsSpeechliveCollector class.
+     */
     constructor() {
         super(PhilipsSpeechliveCollector.CONFIG);
     }

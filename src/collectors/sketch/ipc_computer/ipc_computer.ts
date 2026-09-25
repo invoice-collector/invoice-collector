@@ -32,6 +32,9 @@ export class IpcComputerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the IpcComputerCollector class.
+     */
     constructor() {
         super(IpcComputerCollector.CONFIG);
     }

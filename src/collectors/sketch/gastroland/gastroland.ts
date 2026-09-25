@@ -31,6 +31,9 @@ export class GastrolandCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GastrolandCollector class.
+     */
     constructor() {
         super(GastrolandCollector.CONFIG);
     }

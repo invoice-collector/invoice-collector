@@ -32,6 +32,9 @@ export class BbfBikesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BbfBikesCollector class.
+     */
     constructor() {
         super(BbfBikesCollector.CONFIG);
     }

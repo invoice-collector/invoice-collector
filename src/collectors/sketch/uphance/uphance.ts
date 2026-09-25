@@ -32,6 +32,9 @@ export class UphanceCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the UphanceCollector class.
+     */
     constructor() {
         super(UphanceCollector.CONFIG);
     }

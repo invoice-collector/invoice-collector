@@ -32,6 +32,9 @@ export class PolylangCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PolylangCollector class.
+     */
     constructor() {
         super(PolylangCollector.CONFIG);
     }

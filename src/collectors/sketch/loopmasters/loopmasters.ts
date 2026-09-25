@@ -32,6 +32,9 @@ export class LoopmastersCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LoopmastersCollector class.
+     */
     constructor() {
         super(LoopmastersCollector.CONFIG);
     }

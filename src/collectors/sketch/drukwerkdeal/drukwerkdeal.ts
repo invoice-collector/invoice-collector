@@ -32,6 +32,9 @@ export class DrukwerkdealCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DrukwerkdealCollector class.
+     */
     constructor() {
         super(DrukwerkdealCollector.CONFIG);
     }

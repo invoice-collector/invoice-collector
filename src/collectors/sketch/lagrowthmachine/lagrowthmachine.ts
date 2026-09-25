@@ -32,6 +32,9 @@ export class LagrowthmachineCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LagrowthmachineCollector class.
+     */
     constructor() {
         super(LagrowthmachineCollector.CONFIG);
     }

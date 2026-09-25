@@ -32,6 +32,9 @@ export class VuelingCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VuelingCollector class.
+     */
     constructor() {
         super(VuelingCollector.CONFIG);
     }

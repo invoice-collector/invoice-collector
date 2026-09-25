@@ -32,6 +32,9 @@ export class XavierAnalyticsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the XavierAnalyticsCollector class.
+     */
     constructor() {
         super(XavierAnalyticsCollector.CONFIG);
     }

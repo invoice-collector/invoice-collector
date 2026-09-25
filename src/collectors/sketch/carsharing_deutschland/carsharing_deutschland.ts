@@ -32,6 +32,9 @@ export class CarsharingDeutschlandCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CarsharingDeutschlandCollector class.
+     */
     constructor() {
         super(CarsharingDeutschlandCollector.CONFIG);
     }

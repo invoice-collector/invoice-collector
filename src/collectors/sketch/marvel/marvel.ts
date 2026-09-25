@@ -32,6 +32,9 @@ export class MarvelCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MarvelCollector class.
+     */
     constructor() {
         super(MarvelCollector.CONFIG);
     }

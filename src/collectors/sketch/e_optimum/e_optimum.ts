@@ -32,6 +32,9 @@ export class EOptimumCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EOptimumCollector class.
+     */
     constructor() {
         super(EOptimumCollector.CONFIG);
     }

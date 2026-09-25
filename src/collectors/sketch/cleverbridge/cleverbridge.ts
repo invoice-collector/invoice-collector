@@ -32,6 +32,9 @@ export class CleverbridgeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CleverbridgeCollector class.
+     */
     constructor() {
         super(CleverbridgeCollector.CONFIG);
     }

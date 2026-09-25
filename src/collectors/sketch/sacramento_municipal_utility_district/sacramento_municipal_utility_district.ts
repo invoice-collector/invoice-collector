@@ -32,6 +32,9 @@ export class SacramentoMunicipalUtilityDistrictCollector extends SketchCollector
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SacramentoMunicipalUtilityDistrictCollector class.
+     */
     constructor() {
         super(SacramentoMunicipalUtilityDistrictCollector.CONFIG);
     }

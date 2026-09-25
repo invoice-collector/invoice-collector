@@ -32,6 +32,9 @@ export class SocialintentsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SocialintentsCollector class.
+     */
     constructor() {
         super(SocialintentsCollector.CONFIG);
     }

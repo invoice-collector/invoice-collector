@@ -32,6 +32,9 @@ export class AnnaReckmannShopAdminCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AnnaReckmannShopAdminCollector class.
+     */
     constructor() {
         super(AnnaReckmannShopAdminCollector.CONFIG);
     }

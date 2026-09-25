@@ -32,6 +32,9 @@ export class YnabCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the YnabCollector class.
+     */
     constructor() {
         super(YnabCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class GelsenNetCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GelsenNetCollector class.
+     */
     constructor() {
         super(GelsenNetCollector.CONFIG);
     }

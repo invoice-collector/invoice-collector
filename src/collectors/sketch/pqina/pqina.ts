@@ -32,6 +32,9 @@ export class PqinaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PqinaCollector class.
+     */
     constructor() {
         super(PqinaCollector.CONFIG);
     }

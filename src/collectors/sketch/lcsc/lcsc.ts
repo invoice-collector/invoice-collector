@@ -32,6 +32,9 @@ export class LcscCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LcscCollector class.
+     */
     constructor() {
         super(LcscCollector.CONFIG);
     }

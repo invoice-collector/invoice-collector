@@ -32,6 +32,9 @@ export class SolitKapitalCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SolitKapitalCollector class.
+     */
     constructor() {
         super(SolitKapitalCollector.CONFIG);
     }

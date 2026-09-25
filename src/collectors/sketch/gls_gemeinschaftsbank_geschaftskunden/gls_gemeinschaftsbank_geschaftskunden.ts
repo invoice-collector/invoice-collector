@@ -32,6 +32,9 @@ export class GlsGemeinschaftsbankGeschaftskundenCollector extends SketchCollecto
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GlsGemeinschaftsbankGeschaftskundenCollector class.
+     */
     constructor() {
         super(GlsGemeinschaftsbankGeschaftskundenCollector.CONFIG);
     }

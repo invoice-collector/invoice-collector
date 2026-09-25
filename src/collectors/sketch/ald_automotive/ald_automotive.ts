@@ -32,6 +32,9 @@ export class AldAutomotiveCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AldAutomotiveCollector class.
+     */
     constructor() {
         super(AldAutomotiveCollector.CONFIG);
     }

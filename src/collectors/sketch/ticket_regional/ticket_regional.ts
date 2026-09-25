@@ -32,6 +32,9 @@ export class TicketRegionalCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TicketRegionalCollector class.
+     */
     constructor() {
         super(TicketRegionalCollector.CONFIG);
     }

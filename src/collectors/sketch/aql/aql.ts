@@ -32,6 +32,9 @@ export class AqlCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AqlCollector class.
+     */
     constructor() {
         super(AqlCollector.CONFIG);
     }

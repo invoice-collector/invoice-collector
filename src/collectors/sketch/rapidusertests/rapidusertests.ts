@@ -32,6 +32,9 @@ export class RapidusertestsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RapidusertestsCollector class.
+     */
     constructor() {
         super(RapidusertestsCollector.CONFIG);
     }

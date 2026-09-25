@@ -32,6 +32,9 @@ export class TokeetCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TokeetCollector class.
+     */
     constructor() {
         super(TokeetCollector.CONFIG);
     }

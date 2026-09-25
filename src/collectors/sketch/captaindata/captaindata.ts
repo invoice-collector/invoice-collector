@@ -32,6 +32,9 @@ export class CaptaindataCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CaptaindataCollector class.
+     */
     constructor() {
         super(CaptaindataCollector.CONFIG);
     }

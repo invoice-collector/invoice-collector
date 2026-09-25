@@ -32,6 +32,9 @@ export class UrbanSportsClubPartnerToolCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the UrbanSportsClubPartnerToolCollector class.
+     */
     constructor() {
         super(UrbanSportsClubPartnerToolCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class TrainlineBusinessCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TrainlineBusinessCollector class.
+     */
     constructor() {
         super(TrainlineBusinessCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class KubikesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KubikesCollector class.
+     */
     constructor() {
         super(KubikesCollector.CONFIG);
     }

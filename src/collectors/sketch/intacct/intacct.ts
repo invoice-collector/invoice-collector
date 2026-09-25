@@ -32,6 +32,9 @@ export class IntacctCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the IntacctCollector class.
+     */
     constructor() {
         super(IntacctCollector.CONFIG);
     }

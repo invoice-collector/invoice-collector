@@ -32,6 +32,9 @@ export class ProxiRetailsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ProxiRetailsCollector class.
+     */
     constructor() {
         super(ProxiRetailsCollector.CONFIG);
     }

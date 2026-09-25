@@ -32,6 +32,9 @@ export class AuchanFraisCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AuchanFraisCollector class.
+     */
     constructor() {
         super(AuchanFraisCollector.CONFIG);
     }

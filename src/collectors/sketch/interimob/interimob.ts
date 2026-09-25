@@ -32,6 +32,9 @@ export class InterimobCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the InterimobCollector class.
+     */
     constructor() {
         super(InterimobCollector.CONFIG);
     }

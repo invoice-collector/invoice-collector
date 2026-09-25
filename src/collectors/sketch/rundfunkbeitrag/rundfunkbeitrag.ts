@@ -32,6 +32,9 @@ export class RundfunkbeitragCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RundfunkbeitragCollector class.
+     */
     constructor() {
         super(RundfunkbeitragCollector.CONFIG);
     }

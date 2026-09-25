@@ -32,6 +32,9 @@ export class MitreLinenCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MitreLinenCollector class.
+     */
     constructor() {
         super(MitreLinenCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class ExtrudrCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ExtrudrCollector class.
+     */
     constructor() {
         super(ExtrudrCollector.CONFIG);
     }

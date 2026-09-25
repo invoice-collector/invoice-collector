@@ -32,6 +32,9 @@ export class G7FrCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the G7FrCollector class.
+     */
     constructor() {
         super(G7FrCollector.CONFIG);
     }

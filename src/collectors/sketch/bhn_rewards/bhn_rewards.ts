@@ -32,6 +32,9 @@ export class BhnRewardsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BhnRewardsCollector class.
+     */
     constructor() {
         super(BhnRewardsCollector.CONFIG);
     }

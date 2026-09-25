@@ -32,6 +32,9 @@ export class IevDkCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the IevDkCollector class.
+     */
     constructor() {
         super(IevDkCollector.CONFIG);
     }

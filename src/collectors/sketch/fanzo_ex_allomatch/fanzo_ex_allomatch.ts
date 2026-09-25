@@ -32,6 +32,9 @@ export class FanzoExAllomatchCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FanzoExAllomatchCollector class.
+     */
     constructor() {
         super(FanzoExAllomatchCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class CpxResearchCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CpxResearchCollector class.
+     */
     constructor() {
         super(CpxResearchCollector.CONFIG);
     }

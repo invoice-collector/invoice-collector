@@ -32,6 +32,9 @@ export class GebhardtBauzentrumCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GebhardtBauzentrumCollector class.
+     */
     constructor() {
         super(GebhardtBauzentrumCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class FormsAppCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FormsAppCollector class.
+     */
     constructor() {
         super(FormsAppCollector.CONFIG);
     }

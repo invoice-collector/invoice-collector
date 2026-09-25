@@ -32,6 +32,9 @@ export class NamesiloCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NamesiloCollector class.
+     */
     constructor() {
         super(NamesiloCollector.CONFIG);
     }

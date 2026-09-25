@@ -32,6 +32,9 @@ export class SeewebCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SeewebCollector class.
+     */
     constructor() {
         super(SeewebCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class BulksmsComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BulksmsComCollector class.
+     */
     constructor() {
         super(BulksmsComCollector.CONFIG);
     }

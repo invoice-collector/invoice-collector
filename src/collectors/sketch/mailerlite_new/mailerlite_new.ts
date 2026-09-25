@@ -32,6 +32,9 @@ export class MailerliteNewCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MailerliteNewCollector class.
+     */
     constructor() {
         super(MailerliteNewCollector.CONFIG);
     }

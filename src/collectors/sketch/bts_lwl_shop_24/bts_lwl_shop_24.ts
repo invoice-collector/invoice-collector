@@ -32,6 +32,9 @@ export class BtsLwlShop24Collector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BtsLwlShop24Collector class.
+     */
     constructor() {
         super(BtsLwlShop24Collector.CONFIG);
     }

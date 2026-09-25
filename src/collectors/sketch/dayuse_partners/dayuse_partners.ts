@@ -32,6 +32,9 @@ export class DayusePartnersCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DayusePartnersCollector class.
+     */
     constructor() {
         super(DayusePartnersCollector.CONFIG);
     }

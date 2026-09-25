@@ -32,6 +32,9 @@ export class LieferheldRestaurantPortalCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LieferheldRestaurantPortalCollector class.
+     */
     constructor() {
         super(LieferheldRestaurantPortalCollector.CONFIG);
     }

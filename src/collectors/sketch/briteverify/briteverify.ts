@@ -32,6 +32,9 @@ export class BriteverifyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BriteverifyCollector class.
+     */
     constructor() {
         super(BriteverifyCollector.CONFIG);
     }

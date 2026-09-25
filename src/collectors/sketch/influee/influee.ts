@@ -32,6 +32,9 @@ export class InflueeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the InflueeCollector class.
+     */
     constructor() {
         super(InflueeCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class ShipedgeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ShipedgeCollector class.
+     */
     constructor() {
         super(ShipedgeCollector.CONFIG);
     }

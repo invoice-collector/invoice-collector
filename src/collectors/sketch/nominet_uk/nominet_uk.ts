@@ -32,6 +32,9 @@ export class NominetUkCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NominetUkCollector class.
+     */
     constructor() {
         super(NominetUkCollector.CONFIG);
     }

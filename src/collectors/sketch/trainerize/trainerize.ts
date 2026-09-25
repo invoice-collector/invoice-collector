@@ -32,6 +32,9 @@ export class TrainerizeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TrainerizeCollector class.
+     */
     constructor() {
         super(TrainerizeCollector.CONFIG);
     }

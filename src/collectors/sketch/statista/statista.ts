@@ -32,6 +32,9 @@ export class StatistaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StatistaCollector class.
+     */
     constructor() {
         super(StatistaCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class Free2moveCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Free2moveCollector class.
+     */
     constructor() {
         super(Free2moveCollector.CONFIG);
     }

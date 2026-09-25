@@ -32,6 +32,9 @@ export class SavvycalCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SavvycalCollector class.
+     */
     constructor() {
         super(SavvycalCollector.CONFIG);
     }

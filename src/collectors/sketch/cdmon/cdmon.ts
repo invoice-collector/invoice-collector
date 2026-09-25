@@ -32,6 +32,9 @@ export class CdmonCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CdmonCollector class.
+     */
     constructor() {
         super(CdmonCollector.CONFIG);
     }

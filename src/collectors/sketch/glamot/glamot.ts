@@ -32,6 +32,9 @@ export class GlamotCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GlamotCollector class.
+     */
     constructor() {
         super(GlamotCollector.CONFIG);
     }

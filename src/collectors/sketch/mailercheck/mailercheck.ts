@@ -32,6 +32,9 @@ export class MailercheckCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MailercheckCollector class.
+     */
     constructor() {
         super(MailercheckCollector.CONFIG);
     }

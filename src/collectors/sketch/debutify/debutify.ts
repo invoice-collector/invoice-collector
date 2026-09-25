@@ -32,6 +32,9 @@ export class DebutifyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DebutifyCollector class.
+     */
     constructor() {
         super(DebutifyCollector.CONFIG);
     }

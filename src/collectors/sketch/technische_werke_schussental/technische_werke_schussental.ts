@@ -32,6 +32,9 @@ export class TechnischeWerkeSchussentalCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TechnischeWerkeSchussentalCollector class.
+     */
     constructor() {
         super(TechnischeWerkeSchussentalCollector.CONFIG);
     }

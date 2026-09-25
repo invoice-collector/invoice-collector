@@ -32,6 +32,9 @@ export class ZeitLohnCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ZeitLohnCollector class.
+     */
     constructor() {
         super(ZeitLohnCollector.CONFIG);
     }

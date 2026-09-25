@@ -32,6 +32,9 @@ export class FutalisCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FutalisCollector class.
+     */
     constructor() {
         super(FutalisCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class OneCareCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OneCareCollector class.
+     */
     constructor() {
         super(OneCareCollector.CONFIG);
     }

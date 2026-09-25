@@ -32,6 +32,9 @@ export class InforCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the InforCollector class.
+     */
     constructor() {
         super(InforCollector.CONFIG);
     }

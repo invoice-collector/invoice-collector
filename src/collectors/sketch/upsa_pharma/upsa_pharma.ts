@@ -32,6 +32,9 @@ export class UpsaPharmaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the UpsaPharmaCollector class.
+     */
     constructor() {
         super(UpsaPharmaCollector.CONFIG);
     }

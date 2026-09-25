@@ -32,6 +32,9 @@ export class Site5Collector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Site5Collector class.
+     */
     constructor() {
         super(Site5Collector.CONFIG);
     }

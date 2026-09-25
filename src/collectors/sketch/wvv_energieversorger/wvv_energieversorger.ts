@@ -32,6 +32,9 @@ export class WvvEnergieversorgerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WvvEnergieversorgerCollector class.
+     */
     constructor() {
         super(WvvEnergieversorgerCollector.CONFIG);
     }

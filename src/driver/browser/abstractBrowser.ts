@@ -31,6 +31,11 @@ export abstract class AbstractBrowser {
   static PARENT_DOWNLOAD_PATH = path.resolve(__dirname, '../../media/download');
   protected static instanceCounter = 0;
 
+  /**
+   * Gets the Puppeteer configuration for the specified locale.
+   * @param locale The locale to configure the browser for.
+   * @returns The Puppeteer configuration object for the specified locale.
+   */
   private getPuppeteerConfig(locale: string): Options {
       return {
           args: ['--start-maximized', `--lang=${locale}`, `--accept-lang=${locale}`],
@@ -65,19 +70,36 @@ export abstract class AbstractBrowser {
   protected wsid: string|undefined;
   protected _puppeteerBrowser: Browser|undefined;
 
+  /**
+   * Constructs a new instance of the AbstractBrowser class.
+   * @param ip The IP address of the browser instance.
+   * @param downloadPath The path where downloaded files will be stored.
+   */
   constructor(ip: string, downloadPath: string) {
     this.ip = ip;
     this.downloadPath = downloadPath;
   }
 
+  /**
+   * Gets the URL of the browser instance.
+   * @returns The URL of the browser instance if the port is defined, otherwise undefined.
+   */
   get url(): string|undefined {
       return this.port ? `http://${this.ip}:${this.port}` : undefined;
   }
 
+  /**
+   * Gets the WebSocket URL of the browser instance.
+   * @returns The WebSocket URL of the browser instance if the WebSocket ID is defined, otherwise undefined.
+   */
   get wsUrl(): string|undefined {
       return this.wsid ? `ws://${this.ip}:${this.port}/devtools/browser/${this.wsid}` : undefined;
   }
 
+  /**
+   * Gets the Puppeteer browser instance.
+   * @returns The Puppeteer browser instance.
+   */
   get puppeteerBrowser(): Browser {
     if (!this._puppeteerBrowser) {
       throw new Error('Browser is not connected. Please call connect() method first.');
@@ -85,6 +107,12 @@ export abstract class AbstractBrowser {
     return this._puppeteerBrowser;
   }
 
+  /**
+   * Connects to the browser with the specified locale and proxy settings.
+   * @param locale The locale to configure the browser for.
+   * @param proxy The proxy settings to use for the browser connection, or null if no proxy is used.
+   * @returns The page instance with cursor support after connecting to the browser.
+   */
   async connect(
     locale: string,
     proxy: Proxy | null,
@@ -189,11 +217,20 @@ export abstract class AbstractBrowser {
     return pageWithCursor;
   }
 
+  /**
+   * Launches the browser with the specified options.
+   * @param options The options to use when launching the browser.
+   * @returns The download path for the browser instance.
+   */
   abstract launch(options: any): Promise<string>;
-  abstract close(): Promise<void>;
 
   /**
-   * Get all the downloaded files in the download folder as base64 and remove them.
+   * Closes the browser instance.
+   */
+  abstract close(): Promise<void>;
+ 
+  /**
+   * Gets all the downloaded files in the download folder as base64 and remove them.
    * @param clean If true, the files will be removed from the download folder after being read. If false, the files will not be removed. Default is true.
    * @returns An array of base64 strings representing the downloaded files.
    */

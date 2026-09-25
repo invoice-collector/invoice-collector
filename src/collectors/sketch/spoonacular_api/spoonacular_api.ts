@@ -32,6 +32,9 @@ export class SpoonacularApiCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SpoonacularApiCollector class.
+     */
     constructor() {
         super(SpoonacularApiCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class BolComSellercentralCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BolComSellercentralCollector class.
+     */
     constructor() {
         super(BolComSellercentralCollector.CONFIG);
     }

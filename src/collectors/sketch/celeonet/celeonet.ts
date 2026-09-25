@@ -32,6 +32,9 @@ export class CeleonetCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CeleonetCollector class.
+     */
     constructor() {
         super(CeleonetCollector.CONFIG);
     }

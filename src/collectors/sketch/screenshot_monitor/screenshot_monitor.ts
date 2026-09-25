@@ -32,6 +32,9 @@ export class ScreenshotMonitorCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ScreenshotMonitorCollector class.
+     */
     constructor() {
         super(ScreenshotMonitorCollector.CONFIG);
     }

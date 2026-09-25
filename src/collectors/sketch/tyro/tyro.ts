@@ -32,6 +32,9 @@ export class TyroCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TyroCollector class.
+     */
     constructor() {
         super(TyroCollector.CONFIG);
     }

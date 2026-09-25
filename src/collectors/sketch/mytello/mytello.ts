@@ -32,6 +32,9 @@ export class MytelloCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MytelloCollector class.
+     */
     constructor() {
         super(MytelloCollector.CONFIG);
     }

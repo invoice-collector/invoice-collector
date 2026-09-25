@@ -32,6 +32,9 @@ export class FfnConnectCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FfnConnectCollector class.
+     */
     constructor() {
         super(FfnConnectCollector.CONFIG);
     }

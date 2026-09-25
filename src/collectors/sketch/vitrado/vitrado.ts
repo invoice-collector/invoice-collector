@@ -32,6 +32,9 @@ export class VitradoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VitradoCollector class.
+     */
     constructor() {
         super(VitradoCollector.CONFIG);
     }

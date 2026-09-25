@@ -32,6 +32,9 @@ export class WilhelmRinkCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WilhelmRinkCollector class.
+     */
     constructor() {
         super(WilhelmRinkCollector.CONFIG);
     }

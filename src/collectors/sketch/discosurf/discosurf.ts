@@ -32,6 +32,9 @@ export class DiscosurfCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DiscosurfCollector class.
+     */
     constructor() {
         super(DiscosurfCollector.CONFIG);
     }

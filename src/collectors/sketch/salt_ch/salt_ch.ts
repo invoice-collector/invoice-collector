@@ -32,6 +32,9 @@ export class SaltChCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SaltChCollector class.
+     */
     constructor() {
         super(SaltChCollector.CONFIG);
     }

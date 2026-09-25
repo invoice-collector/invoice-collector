@@ -32,6 +32,9 @@ export class FreighthubCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FreighthubCollector class.
+     */
     constructor() {
         super(FreighthubCollector.CONFIG);
     }

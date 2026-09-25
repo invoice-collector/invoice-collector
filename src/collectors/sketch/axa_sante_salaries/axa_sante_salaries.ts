@@ -32,6 +32,9 @@ export class AxaSanteSalariesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AxaSanteSalariesCollector class.
+     */
     constructor() {
         super(AxaSanteSalariesCollector.CONFIG);
     }

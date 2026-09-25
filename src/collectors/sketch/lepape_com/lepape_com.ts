@@ -32,6 +32,9 @@ export class LepapeComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LepapeComCollector class.
+     */
     constructor() {
         super(LepapeComCollector.CONFIG);
     }

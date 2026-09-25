@@ -32,6 +32,9 @@ export class PayfitFrCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PayfitFrCollector class.
+     */
     constructor() {
         super(PayfitFrCollector.CONFIG);
     }

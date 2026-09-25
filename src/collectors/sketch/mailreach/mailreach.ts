@@ -32,6 +32,9 @@ export class MailreachCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MailreachCollector class.
+     */
     constructor() {
         super(MailreachCollector.CONFIG);
     }

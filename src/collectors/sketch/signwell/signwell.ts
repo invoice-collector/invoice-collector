@@ -32,6 +32,9 @@ export class SignwellCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SignwellCollector class.
+     */
     constructor() {
         super(SignwellCollector.CONFIG);
     }

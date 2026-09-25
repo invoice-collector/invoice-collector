@@ -32,6 +32,9 @@ export class MAutodocCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MAutodocCollector class.
+     */
     constructor() {
         super(MAutodocCollector.CONFIG);
     }

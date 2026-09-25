@@ -32,6 +32,9 @@ export class MoreappCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MoreappCollector class.
+     */
     constructor() {
         super(MoreappCollector.CONFIG);
     }

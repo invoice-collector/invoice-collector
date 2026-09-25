@@ -32,6 +32,9 @@ export class OpsgenieCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OpsgenieCollector class.
+     */
     constructor() {
         super(OpsgenieCollector.CONFIG);
     }

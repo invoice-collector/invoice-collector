@@ -32,6 +32,9 @@ export class NiagaraCarwashCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NiagaraCarwashCollector class.
+     */
     constructor() {
         super(NiagaraCarwashCollector.CONFIG);
     }

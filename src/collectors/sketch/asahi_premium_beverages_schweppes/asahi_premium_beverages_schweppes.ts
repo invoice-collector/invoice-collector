@@ -32,6 +32,9 @@ export class AsahiPremiumBeveragesSchweppesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AsahiPremiumBeveragesSchweppesCollector class.
+     */
     constructor() {
         super(AsahiPremiumBeveragesSchweppesCollector.CONFIG);
     }

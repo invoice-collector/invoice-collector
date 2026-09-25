@@ -32,6 +32,9 @@ export class MerChargeportalCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MerChargeportalCollector class.
+     */
     constructor() {
         super(MerChargeportalCollector.CONFIG);
     }

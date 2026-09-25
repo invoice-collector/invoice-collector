@@ -32,6 +32,9 @@ export class UnbounceCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the UnbounceCollector class.
+     */
     constructor() {
         super(UnbounceCollector.CONFIG);
     }

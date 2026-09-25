@@ -32,6 +32,9 @@ export class WebexTeamsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WebexTeamsCollector class.
+     */
     constructor() {
         super(WebexTeamsCollector.CONFIG);
     }

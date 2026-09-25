@@ -32,6 +32,9 @@ export class CoffeecupAppCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CoffeecupAppCollector class.
+     */
     constructor() {
         super(CoffeecupAppCollector.CONFIG);
     }

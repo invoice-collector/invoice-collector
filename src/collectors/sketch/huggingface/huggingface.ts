@@ -32,6 +32,9 @@ export class HuggingfaceCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HuggingfaceCollector class.
+     */
     constructor() {
         super(HuggingfaceCollector.CONFIG);
     }

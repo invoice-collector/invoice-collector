@@ -32,6 +32,9 @@ export class CatholicAdNetAdvertiserCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CatholicAdNetAdvertiserCollector class.
+     */
     constructor() {
         super(CatholicAdNetAdvertiserCollector.CONFIG);
     }

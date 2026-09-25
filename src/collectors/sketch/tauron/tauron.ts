@@ -32,6 +32,9 @@ export class TauronCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TauronCollector class.
+     */
     constructor() {
         super(TauronCollector.CONFIG);
     }

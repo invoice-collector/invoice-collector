@@ -32,6 +32,9 @@ export class AdsimpleCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AdsimpleCollector class.
+     */
     constructor() {
         super(AdsimpleCollector.CONFIG);
     }

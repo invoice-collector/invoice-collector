@@ -32,6 +32,9 @@ export class OuestfranceImmoComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OuestfranceImmoComCollector class.
+     */
     constructor() {
         super(OuestfranceImmoComCollector.CONFIG);
     }

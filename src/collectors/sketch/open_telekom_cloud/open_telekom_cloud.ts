@@ -32,6 +32,9 @@ export class OpenTelekomCloudCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OpenTelekomCloudCollector class.
+     */
     constructor() {
         super(OpenTelekomCloudCollector.CONFIG);
     }

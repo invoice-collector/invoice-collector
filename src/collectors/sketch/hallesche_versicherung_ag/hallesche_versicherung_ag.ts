@@ -32,6 +32,9 @@ export class HallescheVersicherungAgCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HallescheVersicherungAgCollector class.
+     */
     constructor() {
         super(HallescheVersicherungAgCollector.CONFIG);
     }

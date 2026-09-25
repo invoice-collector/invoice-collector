@@ -32,6 +32,9 @@ export class MyadtHomesecurityCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MyadtHomesecurityCollector class.
+     */
     constructor() {
         super(MyadtHomesecurityCollector.CONFIG);
     }

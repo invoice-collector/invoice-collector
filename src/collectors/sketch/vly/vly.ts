@@ -32,6 +32,9 @@ export class VlyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VlyCollector class.
+     */
     constructor() {
         super(VlyCollector.CONFIG);
     }

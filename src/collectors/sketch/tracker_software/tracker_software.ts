@@ -32,6 +32,9 @@ export class TrackerSoftwareCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TrackerSoftwareCollector class.
+     */
     constructor() {
         super(TrackerSoftwareCollector.CONFIG);
     }

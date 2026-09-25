@@ -32,6 +32,9 @@ export class SufioCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SufioCollector class.
+     */
     constructor() {
         super(SufioCollector.CONFIG);
     }

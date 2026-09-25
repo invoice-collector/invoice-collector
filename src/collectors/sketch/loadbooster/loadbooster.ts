@@ -32,6 +32,9 @@ export class LoadboosterCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LoadboosterCollector class.
+     */
     constructor() {
         super(LoadboosterCollector.CONFIG);
     }

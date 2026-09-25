@@ -32,6 +32,9 @@ export class _42mattersCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the _42mattersCollector class.
+     */
     constructor() {
         super(_42mattersCollector.CONFIG);
     }

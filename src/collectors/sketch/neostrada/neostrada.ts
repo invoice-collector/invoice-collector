@@ -32,6 +32,9 @@ export class NeostradaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NeostradaCollector class.
+     */
     constructor() {
         super(NeostradaCollector.CONFIG);
     }

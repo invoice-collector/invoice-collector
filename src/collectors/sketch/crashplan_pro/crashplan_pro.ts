@@ -32,6 +32,9 @@ export class CrashplanProCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CrashplanProCollector class.
+     */
     constructor() {
         super(CrashplanProCollector.CONFIG);
     }

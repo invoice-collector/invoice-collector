@@ -32,6 +32,9 @@ export class AdverflyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AdverflyCollector class.
+     */
     constructor() {
         super(AdverflyCollector.CONFIG);
     }

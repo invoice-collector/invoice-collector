@@ -32,6 +32,9 @@ export class AppleBusinessManagerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AppleBusinessManagerCollector class.
+     */
     constructor() {
         super(AppleBusinessManagerCollector.CONFIG);
     }

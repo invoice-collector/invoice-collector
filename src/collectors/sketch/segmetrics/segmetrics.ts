@@ -32,6 +32,9 @@ export class SegmetricsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SegmetricsCollector class.
+     */
     constructor() {
         super(SegmetricsCollector.CONFIG);
     }

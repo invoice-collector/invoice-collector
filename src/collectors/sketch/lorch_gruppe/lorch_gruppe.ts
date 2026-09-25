@@ -32,6 +32,9 @@ export class LorchGruppeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LorchGruppeCollector class.
+     */
     constructor() {
         super(LorchGruppeCollector.CONFIG);
     }

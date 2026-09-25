@@ -32,6 +32,9 @@ export class SendyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SendyCollector class.
+     */
     constructor() {
         super(SendyCollector.CONFIG);
     }

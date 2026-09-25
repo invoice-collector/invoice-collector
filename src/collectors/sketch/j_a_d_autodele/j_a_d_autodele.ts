@@ -32,6 +32,9 @@ export class JADAutodeleCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the JADAutodeleCollector class.
+     */
     constructor() {
         super(JADAutodeleCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class InvedaNetCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the InvedaNetCollector class.
+     */
     constructor() {
         super(InvedaNetCollector.CONFIG);
     }

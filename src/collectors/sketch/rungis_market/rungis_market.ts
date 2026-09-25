@@ -32,6 +32,9 @@ export class RungisMarketCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RungisMarketCollector class.
+     */
     constructor() {
         super(RungisMarketCollector.CONFIG);
     }

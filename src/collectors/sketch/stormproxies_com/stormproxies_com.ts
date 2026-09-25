@@ -32,6 +32,9 @@ export class StormproxiesComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StormproxiesComCollector class.
+     */
     constructor() {
         super(StormproxiesComCollector.CONFIG);
     }

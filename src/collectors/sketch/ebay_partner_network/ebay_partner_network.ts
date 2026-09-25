@@ -32,6 +32,9 @@ export class EbayPartnerNetworkCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EbayPartnerNetworkCollector class.
+     */
     constructor() {
         super(EbayPartnerNetworkCollector.CONFIG);
     }

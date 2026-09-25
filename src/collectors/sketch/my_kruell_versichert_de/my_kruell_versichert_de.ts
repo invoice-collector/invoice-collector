@@ -32,6 +32,9 @@ export class MyKruellVersichertDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MyKruellVersichertDeCollector class.
+     */
     constructor() {
         super(MyKruellVersichertDeCollector.CONFIG);
     }

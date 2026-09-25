@@ -32,6 +32,9 @@ export class LinotypeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LinotypeCollector class.
+     */
     constructor() {
         super(LinotypeCollector.CONFIG);
     }

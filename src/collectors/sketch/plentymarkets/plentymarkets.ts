@@ -32,6 +32,9 @@ export class PlentymarketsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PlentymarketsCollector class.
+     */
     constructor() {
         super(PlentymarketsCollector.CONFIG);
     }

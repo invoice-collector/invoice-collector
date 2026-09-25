@@ -32,6 +32,9 @@ export class AppfiguresCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AppfiguresCollector class.
+     */
     constructor() {
         super(AppfiguresCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class ClassmarkerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ClassmarkerCollector class.
+     */
     constructor() {
         super(ClassmarkerCollector.CONFIG);
     }

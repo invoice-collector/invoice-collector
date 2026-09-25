@@ -32,6 +32,9 @@ export class LucidpicCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LucidpicCollector class.
+     */
     constructor() {
         super(LucidpicCollector.CONFIG);
     }

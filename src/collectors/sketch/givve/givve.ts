@@ -32,6 +32,9 @@ export class GivveCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GivveCollector class.
+     */
     constructor() {
         super(GivveCollector.CONFIG);
     }

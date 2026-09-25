@@ -32,6 +32,9 @@ export class MytweakCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MytweakCollector class.
+     */
     constructor() {
         super(MytweakCollector.CONFIG);
     }

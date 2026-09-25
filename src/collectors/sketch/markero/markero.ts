@@ -32,6 +32,9 @@ export class MarkeroCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MarkeroCollector class.
+     */
     constructor() {
         super(MarkeroCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class KohlSCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KohlSCollector class.
+     */
     constructor() {
         super(KohlSCollector.CONFIG);
     }

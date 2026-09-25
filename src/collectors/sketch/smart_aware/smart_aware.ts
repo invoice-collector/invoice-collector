@@ -32,6 +32,9 @@ export class SmartAwareCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SmartAwareCollector class.
+     */
     constructor() {
         super(SmartAwareCollector.CONFIG);
     }

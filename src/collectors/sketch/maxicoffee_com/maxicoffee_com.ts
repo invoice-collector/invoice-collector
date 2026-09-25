@@ -32,6 +32,9 @@ export class MaxicoffeeComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MaxicoffeeComCollector class.
+     */
     constructor() {
         super(MaxicoffeeComCollector.CONFIG);
     }

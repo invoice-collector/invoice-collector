@@ -32,6 +32,9 @@ export class ABSRechenzentrumCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ABSRechenzentrumCollector class.
+     */
     constructor() {
         super(ABSRechenzentrumCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class AmahousseComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AmahousseComCollector class.
+     */
     constructor() {
         super(AmahousseComCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class NaturstromCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NaturstromCollector class.
+     */
     constructor() {
         super(NaturstromCollector.CONFIG);
     }

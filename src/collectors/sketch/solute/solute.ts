@@ -32,6 +32,9 @@ export class SoluteCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SoluteCollector class.
+     */
     constructor() {
         super(SoluteCollector.CONFIG);
     }

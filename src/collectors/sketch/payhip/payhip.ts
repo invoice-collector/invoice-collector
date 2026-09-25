@@ -32,6 +32,9 @@ export class PayhipCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PayhipCollector class.
+     */
     constructor() {
         super(PayhipCollector.CONFIG);
     }

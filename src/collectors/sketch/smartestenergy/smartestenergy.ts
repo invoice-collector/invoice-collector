@@ -32,6 +32,9 @@ export class SmartestenergyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SmartestenergyCollector class.
+     */
     constructor() {
         super(SmartestenergyCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class ProductiveCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ProductiveCollector class.
+     */
     constructor() {
         super(ProductiveCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class BouwmaatCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BouwmaatCollector class.
+     */
     constructor() {
         super(BouwmaatCollector.CONFIG);
     }

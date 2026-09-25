@@ -32,6 +32,9 @@ export class Km3Collector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Km3Collector class.
+     */
     constructor() {
         super(Km3Collector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class VodafoneBusinessCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VodafoneBusinessCollector class.
+     */
     constructor() {
         super(VodafoneBusinessCollector.CONFIG);
     }

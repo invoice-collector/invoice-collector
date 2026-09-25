@@ -32,6 +32,9 @@ export class IdriveE2Collector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the IdriveE2Collector class.
+     */
     constructor() {
         super(IdriveE2Collector.CONFIG);
     }

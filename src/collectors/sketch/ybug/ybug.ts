@@ -32,6 +32,9 @@ export class YbugCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the YbugCollector class.
+     */
     constructor() {
         super(YbugCollector.CONFIG);
     }

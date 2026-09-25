@@ -32,6 +32,9 @@ export class ImpotsAvisEtDeclarationsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ImpotsAvisEtDeclarationsCollector class.
+     */
     constructor() {
         super(ImpotsAvisEtDeclarationsCollector.CONFIG);
     }

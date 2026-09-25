@@ -32,6 +32,9 @@ export class StandardsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StandardsCollector class.
+     */
     constructor() {
         super(StandardsCollector.CONFIG);
     }

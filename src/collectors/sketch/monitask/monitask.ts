@@ -32,6 +32,9 @@ export class MonitaskCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MonitaskCollector class.
+     */
     constructor() {
         super(MonitaskCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class StonegateGroupPubPartnersCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StonegateGroupPubPartnersCollector class.
+     */
     constructor() {
         super(StonegateGroupPubPartnersCollector.CONFIG);
     }

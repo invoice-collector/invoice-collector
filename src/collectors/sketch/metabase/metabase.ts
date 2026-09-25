@@ -32,6 +32,9 @@ export class MetabaseCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MetabaseCollector class.
+     */
     constructor() {
         super(MetabaseCollector.CONFIG);
     }

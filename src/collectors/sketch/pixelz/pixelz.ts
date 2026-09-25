@@ -32,6 +32,9 @@ export class PixelzCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PixelzCollector class.
+     */
     constructor() {
         super(PixelzCollector.CONFIG);
     }

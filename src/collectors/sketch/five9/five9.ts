@@ -32,6 +32,9 @@ export class Five9Collector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Five9Collector class.
+     */
     constructor() {
         super(Five9Collector.CONFIG);
     }

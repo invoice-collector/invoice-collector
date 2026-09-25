@@ -32,6 +32,9 @@ export class DocmorrisCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DocmorrisCollector class.
+     */
     constructor() {
         super(DocmorrisCollector.CONFIG);
     }

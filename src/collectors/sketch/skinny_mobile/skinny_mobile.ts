@@ -32,6 +32,9 @@ export class SkinnyMobileCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SkinnyMobileCollector class.
+     */
     constructor() {
         super(SkinnyMobileCollector.CONFIG);
     }

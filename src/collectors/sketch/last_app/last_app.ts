@@ -32,6 +32,9 @@ export class LastAppCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LastAppCollector class.
+     */
     constructor() {
         super(LastAppCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class MidamericanEnergyServicesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MidamericanEnergyServicesCollector class.
+     */
     constructor() {
         super(MidamericanEnergyServicesCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class MobileActionCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MobileActionCollector class.
+     */
     constructor() {
         super(MobileActionCollector.CONFIG);
     }

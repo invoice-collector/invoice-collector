@@ -32,6 +32,9 @@ export class HobbyAndFreizeitPartnerprogrammCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HobbyAndFreizeitPartnerprogrammCollector class.
+     */
     constructor() {
         super(HobbyAndFreizeitPartnerprogrammCollector.CONFIG);
     }

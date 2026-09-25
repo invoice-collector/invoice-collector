@@ -32,6 +32,9 @@ export class PoleEmploiAttestationFiscaleCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PoleEmploiAttestationFiscaleCollector class.
+     */
     constructor() {
         super(PoleEmploiAttestationFiscaleCollector.CONFIG);
     }

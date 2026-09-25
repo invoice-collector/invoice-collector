@@ -32,6 +32,9 @@ export class BaltimoreGasAndElectricCompanyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BaltimoreGasAndElectricCompanyCollector class.
+     */
     constructor() {
         super(BaltimoreGasAndElectricCompanyCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class BluehostCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BluehostCollector class.
+     */
     constructor() {
         super(BluehostCollector.CONFIG);
     }

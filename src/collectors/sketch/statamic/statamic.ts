@@ -32,6 +32,9 @@ export class StatamicCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StatamicCollector class.
+     */
     constructor() {
         super(StatamicCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class KanuberErdgasCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KanuberErdgasCollector class.
+     */
     constructor() {
         super(KanuberErdgasCollector.CONFIG);
     }

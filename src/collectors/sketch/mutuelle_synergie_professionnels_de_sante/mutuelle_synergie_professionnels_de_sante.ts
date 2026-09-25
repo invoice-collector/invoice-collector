@@ -32,6 +32,9 @@ export class MutuelleSynergieProfessionnelsDeSanteCollector extends SketchCollec
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MutuelleSynergieProfessionnelsDeSanteCollector class.
+     */
     constructor() {
         super(MutuelleSynergieProfessionnelsDeSanteCollector.CONFIG);
     }

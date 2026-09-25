@@ -32,6 +32,9 @@ export class EwgCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EwgCollector class.
+     */
     constructor() {
         super(EwgCollector.CONFIG);
     }

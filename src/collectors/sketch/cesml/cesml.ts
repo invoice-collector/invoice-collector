@@ -32,6 +32,9 @@ export class CesmlCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CesmlCollector class.
+     */
     constructor() {
         super(CesmlCollector.CONFIG);
     }

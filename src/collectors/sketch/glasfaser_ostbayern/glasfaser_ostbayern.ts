@@ -32,6 +32,9 @@ export class GlasfaserOstbayernCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GlasfaserOstbayernCollector class.
+     */
     constructor() {
         super(GlasfaserOstbayernCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class BeyondPricesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BeyondPricesCollector class.
+     */
     constructor() {
         super(BeyondPricesCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class HomeBySfrCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HomeBySfrCollector class.
+     */
     constructor() {
         super(HomeBySfrCollector.CONFIG);
     }

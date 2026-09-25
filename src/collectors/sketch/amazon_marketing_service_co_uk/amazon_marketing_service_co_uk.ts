@@ -32,6 +32,9 @@ export class AmazonMarketingServiceCoUkCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AmazonMarketingServiceCoUkCollector class.
+     */
     constructor() {
         super(AmazonMarketingServiceCoUkCollector.CONFIG);
     }

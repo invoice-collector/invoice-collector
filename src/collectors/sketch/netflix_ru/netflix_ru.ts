@@ -32,6 +32,9 @@ export class NetflixRuCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NetflixRuCollector class.
+     */
     constructor() {
         super(NetflixRuCollector.CONFIG);
     }

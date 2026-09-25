@@ -32,6 +32,9 @@ export class RolandCloudCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RolandCloudCollector class.
+     */
     constructor() {
         super(RolandCloudCollector.CONFIG);
     }

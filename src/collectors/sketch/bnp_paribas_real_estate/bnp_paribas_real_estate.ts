@@ -32,6 +32,9 @@ export class BnpParibasRealEstateCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BnpParibasRealEstateCollector class.
+     */
     constructor() {
         super(BnpParibasRealEstateCollector.CONFIG);
     }

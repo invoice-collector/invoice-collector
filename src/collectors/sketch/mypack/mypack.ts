@@ -32,6 +32,9 @@ export class MypackCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MypackCollector class.
+     */
     constructor() {
         super(MypackCollector.CONFIG);
     }

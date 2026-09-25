@@ -32,6 +32,9 @@ export class OnestaffCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OnestaffCollector class.
+     */
     constructor() {
         super(OnestaffCollector.CONFIG);
     }

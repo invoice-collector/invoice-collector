@@ -32,6 +32,9 @@ export class WuerthClourdServicesGmbhCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WuerthClourdServicesGmbhCollector class.
+     */
     constructor() {
         super(WuerthClourdServicesGmbhCollector.CONFIG);
     }

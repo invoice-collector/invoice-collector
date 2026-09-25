@@ -32,6 +32,9 @@ export class XOvoMedianetworksCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the XOvoMedianetworksCollector class.
+     */
     constructor() {
         super(XOvoMedianetworksCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class WaveappsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WaveappsCollector class.
+     */
     constructor() {
         super(WaveappsCollector.CONFIG);
     }

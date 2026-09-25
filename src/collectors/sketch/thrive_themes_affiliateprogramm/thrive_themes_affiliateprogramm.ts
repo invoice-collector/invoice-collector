@@ -32,6 +32,9 @@ export class ThriveThemesAffiliateprogrammCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ThriveThemesAffiliateprogrammCollector class.
+     */
     constructor() {
         super(ThriveThemesAffiliateprogrammCollector.CONFIG);
     }

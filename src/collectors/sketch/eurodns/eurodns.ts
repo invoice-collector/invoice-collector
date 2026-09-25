@@ -32,6 +32,9 @@ export class EurodnsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EurodnsCollector class.
+     */
     constructor() {
         super(EurodnsCollector.CONFIG);
     }

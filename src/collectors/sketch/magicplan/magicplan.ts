@@ -32,6 +32,9 @@ export class MagicplanCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MagicplanCollector class.
+     */
     constructor() {
         super(MagicplanCollector.CONFIG);
     }

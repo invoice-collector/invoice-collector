@@ -32,6 +32,9 @@ export class TerralinkNetworksCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TerralinkNetworksCollector class.
+     */
     constructor() {
         super(TerralinkNetworksCollector.CONFIG);
     }

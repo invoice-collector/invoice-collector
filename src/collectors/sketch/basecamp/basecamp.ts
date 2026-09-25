@@ -32,6 +32,9 @@ export class BasecampCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BasecampCollector class.
+     */
     constructor() {
         super(BasecampCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class ServeboltCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ServeboltCollector class.
+     */
     constructor() {
         super(ServeboltCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class LucidlinkCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LucidlinkCollector class.
+     */
     constructor() {
         super(LucidlinkCollector.CONFIG);
     }

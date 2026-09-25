@@ -32,6 +32,9 @@ export class TelecashVirtualTerminalCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TelecashVirtualTerminalCollector class.
+     */
     constructor() {
         super(TelecashVirtualTerminalCollector.CONFIG);
     }

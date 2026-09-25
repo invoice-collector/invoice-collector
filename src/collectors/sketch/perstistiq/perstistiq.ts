@@ -32,6 +32,9 @@ export class PerstistiqCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PerstistiqCollector class.
+     */
     constructor() {
         super(PerstistiqCollector.CONFIG);
     }

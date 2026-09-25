@@ -32,6 +32,9 @@ export class DAndHCanadaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DAndHCanadaCollector class.
+     */
     constructor() {
         super(DAndHCanadaCollector.CONFIG);
     }

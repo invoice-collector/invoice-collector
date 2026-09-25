@@ -32,6 +32,9 @@ export class Parcel2goCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Parcel2goCollector class.
+     */
     constructor() {
         super(Parcel2goCollector.CONFIG);
     }

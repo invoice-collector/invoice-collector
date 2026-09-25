@@ -32,6 +32,9 @@ export class LetterxpressCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LetterxpressCollector class.
+     */
     constructor() {
         super(LetterxpressCollector.CONFIG);
     }

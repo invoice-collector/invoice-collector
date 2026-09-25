@@ -32,6 +32,9 @@ export class MainovaPrivatkundenCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MainovaPrivatkundenCollector class.
+     */
     constructor() {
         super(MainovaPrivatkundenCollector.CONFIG);
     }

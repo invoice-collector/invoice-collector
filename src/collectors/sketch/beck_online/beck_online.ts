@@ -32,6 +32,9 @@ export class BeckOnlineCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BeckOnlineCollector class.
+     */
     constructor() {
         super(BeckOnlineCollector.CONFIG);
     }

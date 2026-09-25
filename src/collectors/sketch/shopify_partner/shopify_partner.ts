@@ -32,6 +32,9 @@ export class ShopifyPartnerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ShopifyPartnerCollector class.
+     */
     constructor() {
         super(ShopifyPartnerCollector.CONFIG);
     }

@@ -32,6 +32,11 @@ export class TokenManager {
         this.credentialOauth2States = {};
     }
 
+    /**
+     * Asserts that the given map has not exceeded the maximum allowed entries.
+     * @param map The map to check for capacity.
+     * @throws StatusError if the map has reached its maximum capacity.
+     */
     private assertCapacity(map: { [key: string]: string }): void {
         if (Object.keys(map).length >= TokenManager.MAX_ENTRIES_PER_MAP) {
             throw new StatusError('Too many active tokens. Please try again later.', 429);

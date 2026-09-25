@@ -32,6 +32,9 @@ export class RemoteComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RemoteComCollector class.
+     */
     constructor() {
         super(RemoteComCollector.CONFIG);
     }

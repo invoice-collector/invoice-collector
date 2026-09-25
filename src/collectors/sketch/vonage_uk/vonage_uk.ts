@@ -32,6 +32,9 @@ export class VonageUkCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VonageUkCollector class.
+     */
     constructor() {
         super(VonageUkCollector.CONFIG);
     }

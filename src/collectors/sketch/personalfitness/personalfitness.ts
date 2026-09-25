@@ -32,6 +32,9 @@ export class PersonalfitnessCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PersonalfitnessCollector class.
+     */
     constructor() {
         super(PersonalfitnessCollector.CONFIG);
     }

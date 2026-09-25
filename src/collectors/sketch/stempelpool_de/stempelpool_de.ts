@@ -32,6 +32,9 @@ export class StempelpoolDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StempelpoolDeCollector class.
+     */
     constructor() {
         super(StempelpoolDeCollector.CONFIG);
     }

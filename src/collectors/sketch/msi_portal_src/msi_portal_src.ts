@@ -32,6 +32,9 @@ export class MsiPortalSrcCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MsiPortalSrcCollector class.
+     */
     constructor() {
         super(MsiPortalSrcCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class Webmobil24DeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Webmobil24DeCollector class.
+     */
     constructor() {
         super(Webmobil24DeCollector.CONFIG);
     }

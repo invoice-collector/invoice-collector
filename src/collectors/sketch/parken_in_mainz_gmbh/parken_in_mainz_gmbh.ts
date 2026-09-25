@@ -32,6 +32,9 @@ export class ParkenInMainzGmbhCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ParkenInMainzGmbhCollector class.
+     */
     constructor() {
         super(ParkenInMainzGmbhCollector.CONFIG);
     }

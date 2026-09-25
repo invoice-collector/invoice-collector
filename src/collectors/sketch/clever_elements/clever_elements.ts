@@ -32,6 +32,9 @@ export class CleverElementsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CleverElementsCollector class.
+     */
     constructor() {
         super(CleverElementsCollector.CONFIG);
     }

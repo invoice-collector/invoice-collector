@@ -32,6 +32,9 @@ export class TlaFrischeserviceCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TlaFrischeserviceCollector class.
+     */
     constructor() {
         super(TlaFrischeserviceCollector.CONFIG);
     }

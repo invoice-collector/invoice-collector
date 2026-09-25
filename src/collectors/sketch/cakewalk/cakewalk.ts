@@ -32,6 +32,9 @@ export class CakewalkCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CakewalkCollector class.
+     */
     constructor() {
         super(CakewalkCollector.CONFIG);
     }

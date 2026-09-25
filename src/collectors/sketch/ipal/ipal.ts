@@ -32,6 +32,9 @@ export class IpalCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the IpalCollector class.
+     */
     constructor() {
         super(IpalCollector.CONFIG);
     }

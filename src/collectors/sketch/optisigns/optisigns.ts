@@ -32,6 +32,9 @@ export class OptisignsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OptisignsCollector class.
+     */
     constructor() {
         super(OptisignsCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class MaterielElectriqueCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MaterielElectriqueCollector class.
+     */
     constructor() {
         super(MaterielElectriqueCollector.CONFIG);
     }

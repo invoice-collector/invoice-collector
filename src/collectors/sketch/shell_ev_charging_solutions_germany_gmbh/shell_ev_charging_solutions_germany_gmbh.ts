@@ -32,6 +32,9 @@ export class ShellEvChargingSolutionsGermanyGmbhCollector extends SketchCollecto
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ShellEvChargingSolutionsGermanyGmbhCollector class.
+     */
     constructor() {
         super(ShellEvChargingSolutionsGermanyGmbhCollector.CONFIG);
     }

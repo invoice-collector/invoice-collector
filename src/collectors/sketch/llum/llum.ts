@@ -32,6 +32,9 @@ export class LlumCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LlumCollector class.
+     */
     constructor() {
         super(LlumCollector.CONFIG);
     }

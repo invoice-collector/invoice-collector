@@ -32,6 +32,9 @@ export class KlesiaMutuelleParticulierCentreDeGestionDeLyonCollector extends Ske
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KlesiaMutuelleParticulierCentreDeGestionDeLyonCollector class.
+     */
     constructor() {
         super(KlesiaMutuelleParticulierCentreDeGestionDeLyonCollector.CONFIG);
     }

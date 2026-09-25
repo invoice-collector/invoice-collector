@@ -32,6 +32,9 @@ export class TerraformCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TerraformCollector class.
+     */
     constructor() {
         super(TerraformCollector.CONFIG);
     }

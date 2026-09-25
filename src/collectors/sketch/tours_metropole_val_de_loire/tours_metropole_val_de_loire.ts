@@ -32,6 +32,9 @@ export class ToursMetropoleValDeLoireCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ToursMetropoleValDeLoireCollector class.
+     */
     constructor() {
         super(ToursMetropoleValDeLoireCollector.CONFIG);
     }

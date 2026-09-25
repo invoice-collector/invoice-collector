@@ -32,6 +32,9 @@ export class SundayNaturalCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SundayNaturalCollector class.
+     */
     constructor() {
         super(SundayNaturalCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class TlhpCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TlhpCollector class.
+     */
     constructor() {
         super(TlhpCollector.CONFIG);
     }

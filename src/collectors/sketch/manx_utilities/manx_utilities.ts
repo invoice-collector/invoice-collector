@@ -32,6 +32,9 @@ export class ManxUtilitiesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ManxUtilitiesCollector class.
+     */
     constructor() {
         super(ManxUtilitiesCollector.CONFIG);
     }

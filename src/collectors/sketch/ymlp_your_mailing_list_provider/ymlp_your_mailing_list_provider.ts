@@ -32,6 +32,9 @@ export class YmlpYourMailingListProviderCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the YmlpYourMailingListProviderCollector class.
+     */
     constructor() {
         super(YmlpYourMailingListProviderCollector.CONFIG);
     }

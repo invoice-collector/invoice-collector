@@ -32,6 +32,9 @@ export class TravantoFerienwohnungenGmbhCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TravantoFerienwohnungenGmbhCollector class.
+     */
     constructor() {
         super(TravantoFerienwohnungenGmbhCollector.CONFIG);
     }

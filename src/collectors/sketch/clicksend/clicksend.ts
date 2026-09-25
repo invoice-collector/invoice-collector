@@ -32,6 +32,9 @@ export class ClicksendCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ClicksendCollector class.
+     */
     constructor() {
         super(ClicksendCollector.CONFIG);
     }

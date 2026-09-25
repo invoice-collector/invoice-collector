@@ -32,6 +32,9 @@ export class WizzairComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WizzairComCollector class.
+     */
     constructor() {
         super(WizzairComCollector.CONFIG);
     }

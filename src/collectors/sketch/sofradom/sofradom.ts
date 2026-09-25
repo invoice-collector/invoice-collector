@@ -32,6 +32,9 @@ export class SofradomCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SofradomCollector class.
+     */
     constructor() {
         super(SofradomCollector.CONFIG);
     }

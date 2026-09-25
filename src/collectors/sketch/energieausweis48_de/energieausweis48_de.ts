@@ -32,6 +32,9 @@ export class Energieausweis48DeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Energieausweis48DeCollector class.
+     */
     constructor() {
         super(Energieausweis48DeCollector.CONFIG);
     }

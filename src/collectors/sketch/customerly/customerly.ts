@@ -32,6 +32,9 @@ export class CustomerlyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CustomerlyCollector class.
+     */
     constructor() {
         super(CustomerlyCollector.CONFIG);
     }

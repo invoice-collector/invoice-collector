@@ -32,6 +32,9 @@ export class PtispCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PtispCollector class.
+     */
     constructor() {
         super(PtispCollector.CONFIG);
     }

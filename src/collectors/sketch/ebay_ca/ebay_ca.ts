@@ -32,6 +32,9 @@ export class EbayCaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EbayCaCollector class.
+     */
     constructor() {
         super(EbayCaCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class LOrleannaiseDesEauxCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LOrleannaiseDesEauxCollector class.
+     */
     constructor() {
         super(LOrleannaiseDesEauxCollector.CONFIG);
     }

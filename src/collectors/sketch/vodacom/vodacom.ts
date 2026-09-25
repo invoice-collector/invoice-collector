@@ -32,6 +32,9 @@ export class VodacomCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VodacomCollector class.
+     */
     constructor() {
         super(VodacomCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class SubaruPartnersCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SubaruPartnersCollector class.
+     */
     constructor() {
         super(SubaruPartnersCollector.CONFIG);
     }

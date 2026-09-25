@@ -32,6 +32,9 @@ export class GeotargetingwpCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GeotargetingwpCollector class.
+     */
     constructor() {
         super(GeotargetingwpCollector.CONFIG);
     }

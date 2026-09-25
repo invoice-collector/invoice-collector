@@ -32,6 +32,9 @@ export class MossCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MossCollector class.
+     */
     constructor() {
         super(MossCollector.CONFIG);
     }

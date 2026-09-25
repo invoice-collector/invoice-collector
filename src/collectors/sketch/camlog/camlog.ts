@@ -32,6 +32,9 @@ export class CamlogCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CamlogCollector class.
+     */
     constructor() {
         super(CamlogCollector.CONFIG);
     }

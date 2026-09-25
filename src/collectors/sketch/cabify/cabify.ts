@@ -32,6 +32,9 @@ export class CabifyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CabifyCollector class.
+     */
     constructor() {
         super(CabifyCollector.CONFIG);
     }

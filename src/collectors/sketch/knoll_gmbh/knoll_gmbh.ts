@@ -32,6 +32,9 @@ export class KnollGmbhCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KnollGmbhCollector class.
+     */
     constructor() {
         super(KnollGmbhCollector.CONFIG);
     }

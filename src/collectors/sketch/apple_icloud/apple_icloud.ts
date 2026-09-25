@@ -31,6 +31,9 @@ export class AppleIcloudCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AppleIcloudCollector class.
+     */
     constructor() {
         super(AppleIcloudCollector.CONFIG);
     }

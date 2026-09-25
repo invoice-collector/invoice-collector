@@ -32,6 +32,9 @@ export class BbxMarketplaceCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BbxMarketplaceCollector class.
+     */
     constructor() {
         super(BbxMarketplaceCollector.CONFIG);
     }

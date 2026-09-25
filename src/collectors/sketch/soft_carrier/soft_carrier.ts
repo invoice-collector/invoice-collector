@@ -32,6 +32,9 @@ export class SoftCarrierCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SoftCarrierCollector class.
+     */
     constructor() {
         super(SoftCarrierCollector.CONFIG);
     }

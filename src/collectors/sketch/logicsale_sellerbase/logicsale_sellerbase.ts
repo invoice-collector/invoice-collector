@@ -32,6 +32,9 @@ export class LogicsaleSellerbaseCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LogicsaleSellerbaseCollector class.
+     */
     constructor() {
         super(LogicsaleSellerbaseCollector.CONFIG);
     }

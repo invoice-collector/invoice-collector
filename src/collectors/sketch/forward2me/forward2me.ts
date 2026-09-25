@@ -32,6 +32,9 @@ export class Forward2meCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Forward2meCollector class.
+     */
     constructor() {
         super(Forward2meCollector.CONFIG);
     }

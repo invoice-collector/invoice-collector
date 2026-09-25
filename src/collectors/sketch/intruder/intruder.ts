@@ -32,6 +32,9 @@ export class IntruderCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the IntruderCollector class.
+     */
     constructor() {
         super(IntruderCollector.CONFIG);
     }

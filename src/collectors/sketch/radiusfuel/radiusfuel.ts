@@ -31,6 +31,9 @@ export class RadiusFuelCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RadiusFuelCollector class.
+     */
     constructor() {
         super(RadiusFuelCollector.CONFIG);
     }

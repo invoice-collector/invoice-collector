@@ -32,6 +32,9 @@ export class RogersCommunicationsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RogersCommunicationsCollector class.
+     */
     constructor() {
         super(RogersCommunicationsCollector.CONFIG);
     }

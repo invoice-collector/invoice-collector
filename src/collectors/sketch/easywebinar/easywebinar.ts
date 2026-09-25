@@ -32,6 +32,9 @@ export class EasywebinarCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EasywebinarCollector class.
+     */
     constructor() {
         super(EasywebinarCollector.CONFIG);
     }

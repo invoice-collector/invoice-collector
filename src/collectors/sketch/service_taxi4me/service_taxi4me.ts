@@ -32,6 +32,9 @@ export class ServiceTaxi4meCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ServiceTaxi4meCollector class.
+     */
     constructor() {
         super(ServiceTaxi4meCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class WillyTelCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WillyTelCollector class.
+     */
     constructor() {
         super(WillyTelCollector.CONFIG);
     }

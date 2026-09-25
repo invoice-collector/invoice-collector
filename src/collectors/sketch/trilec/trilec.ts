@@ -32,6 +32,9 @@ export class TrilecCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TrilecCollector class.
+     */
     constructor() {
         super(TrilecCollector.CONFIG);
     }

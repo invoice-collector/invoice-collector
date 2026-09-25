@@ -32,6 +32,9 @@ export class WebmergeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WebmergeCollector class.
+     */
     constructor() {
         super(WebmergeCollector.CONFIG);
     }

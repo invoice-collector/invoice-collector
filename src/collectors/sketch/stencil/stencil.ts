@@ -32,6 +32,9 @@ export class StencilCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StencilCollector class.
+     */
     constructor() {
         super(StencilCollector.CONFIG);
     }

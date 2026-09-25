@@ -32,6 +32,9 @@ export class SegenSolarGmbhCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SegenSolarGmbhCollector class.
+     */
     constructor() {
         super(SegenSolarGmbhCollector.CONFIG);
     }

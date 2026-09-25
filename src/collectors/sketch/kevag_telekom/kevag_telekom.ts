@@ -32,6 +32,9 @@ export class KevagTelekomCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KevagTelekomCollector class.
+     */
     constructor() {
         super(KevagTelekomCollector.CONFIG);
     }

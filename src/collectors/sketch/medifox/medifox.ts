@@ -32,6 +32,9 @@ export class MedifoxCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MedifoxCollector class.
+     */
     constructor() {
         super(MedifoxCollector.CONFIG);
     }

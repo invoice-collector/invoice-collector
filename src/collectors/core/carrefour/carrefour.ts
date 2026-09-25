@@ -37,16 +37,25 @@ export class CarrefourCollector extends LinearWebCollector {
         state: CollectorState.ACTIVE,
     };
 
+    /**
+     * Constructs a new instance of the CarrefourCollector class.
+     */
     constructor() {
         super(CarrefourCollector.CONFIG);
     }
 
+    /**
+     * @inheritdoc
+     */
     async needLogin(driver: AbstractDriver): Promise<boolean> {
         // Wait for captcha to be successful
         await driver.waitForCloudflareTurnstile();
         return await super.needLogin(driver);
     }
 
+    /**
+     * @inheritdoc
+     */
     async login(driver: AbstractDriver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
         // Wait for captcha to be successful
         await driver.waitForCloudflareTurnstile();
@@ -65,6 +74,9 @@ export class CarrefourCollector extends LinearWebCollector {
         }
     }
 
+    /**
+     * @inheritdoc
+     */
     async needTwofa(driver: AbstractDriver): Promise<string | void> {
         // Check if 2FA is required
         const two_factor_auth = await driver.getElement(CarrefourSelectors.CONTAINER_2FA_INSTRUCTIONS, { raiseException: false, timeout: 2000 });
@@ -73,6 +85,9 @@ export class CarrefourCollector extends LinearWebCollector {
         }
     }
 
+    /**
+     * @inheritdoc
+     */
     async twofa(driver: AbstractDriver, params: any, twofa_promise: TwofaPromise, webSocketServer: WebSocketServer): Promise<string | void> {
         // Check if too much attempts
         const twofa_too_much = await driver.getElement(CarrefourSelectors.CONTAINER_2FA_ALERT, { raiseException: false, timeout: 1000 });
@@ -103,11 +118,17 @@ export class CarrefourCollector extends LinearWebCollector {
         }
     }
 
+    /**
+     * @inheritdoc
+     */
     async navigate(driver: AbstractDriver): Promise<void> {
         // Refuse cookies
         await driver.leftClick(CarrefourSelectors.BUTTON_REFUSE_COOKIES, { raiseException: false, timeout: 10000});
     }
 
+    /**
+     * @inheritdoc
+     */
     async forEachPage(driver: AbstractDriver, next: () => void): Promise<void> {
         // Get years elements
         const numberOfYears = (await driver.getElements(CarrefourSelectors.OPTION_YEARS)).length;
@@ -122,14 +143,23 @@ export class CarrefourCollector extends LinearWebCollector {
         }
     }
 
+    /**
+     * @inheritdoc
+     */
     async isEmpty(driver: AbstractDriver): Promise<boolean>{
         return await driver.getElement(CarrefourSelectors.CONTAINER_NO_ORDERS, { raiseException: false, timeout: 100 }) !== null;
     }
-             
+
+    /**
+     * @inheritdoc
+     */
     async getInvoices(driver: AbstractDriver): Promise<Element[]> {
         return await driver.getElements(CarrefourSelectors.CONTAINER_ORDER);
     }
 
+    /**
+     * @inheritdoc
+     */
     async data(driver: AbstractDriver, element: Element): Promise<Invoice | null> {
         const downloadButton = await element.getElement(CarrefourSelectors.CONTAINER_LINK);
         const order_link = await element.getAttribute(CarrefourSelectors.CONTAINER_LINK, 'href');
@@ -157,6 +187,9 @@ export class CarrefourCollector extends LinearWebCollector {
         };
     }
 
+    /**
+     * @inheritdoc
+     */
     async download(driver: AbstractDriver, invoice: Invoice): Promise<string[]> {
         return [await this.download_link(driver, invoice.link)];
     }

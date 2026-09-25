@@ -32,6 +32,9 @@ export class ZenefitsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ZenefitsCollector class.
+     */
     constructor() {
         super(ZenefitsCollector.CONFIG);
     }

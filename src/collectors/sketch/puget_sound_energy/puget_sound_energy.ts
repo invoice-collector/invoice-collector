@@ -32,6 +32,9 @@ export class PugetSoundEnergyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PugetSoundEnergyCollector class.
+     */
     constructor() {
         super(PugetSoundEnergyCollector.CONFIG);
     }

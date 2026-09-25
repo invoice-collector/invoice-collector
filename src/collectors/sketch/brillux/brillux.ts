@@ -32,6 +32,9 @@ export class BrilluxCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BrilluxCollector class.
+     */
     constructor() {
         super(BrilluxCollector.CONFIG);
     }

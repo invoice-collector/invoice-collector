@@ -32,6 +32,9 @@ export class RwwRheinischWestfalischeWasserwerksgesellschaftMbhCollector extends
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RwwRheinischWestfalischeWasserwerksgesellschaftMbhCollector class.
+     */
     constructor() {
         super(RwwRheinischWestfalischeWasserwerksgesellschaftMbhCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class WolseleyCanadaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WolseleyCanadaCollector class.
+     */
     constructor() {
         super(WolseleyCanadaCollector.CONFIG);
     }

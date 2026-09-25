@@ -32,6 +32,9 @@ export class LeasedirectCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LeasedirectCollector class.
+     */
     constructor() {
         super(LeasedirectCollector.CONFIG);
     }

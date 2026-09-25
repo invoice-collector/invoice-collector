@@ -32,6 +32,9 @@ export class EnersourceCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EnersourceCollector class.
+     */
     constructor() {
         super(EnersourceCollector.CONFIG);
     }

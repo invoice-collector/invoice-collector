@@ -32,6 +32,9 @@ export class CicAvisDePrelevementsDomiciliesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CicAvisDePrelevementsDomiciliesCollector class.
+     */
     constructor() {
         super(CicAvisDePrelevementsDomiciliesCollector.CONFIG);
     }

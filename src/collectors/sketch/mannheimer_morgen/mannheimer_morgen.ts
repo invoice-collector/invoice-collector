@@ -32,6 +32,9 @@ export class MannheimerMorgenCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MannheimerMorgenCollector class.
+     */
     constructor() {
         super(MannheimerMorgenCollector.CONFIG);
     }

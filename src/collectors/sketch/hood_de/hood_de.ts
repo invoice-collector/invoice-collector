@@ -32,6 +32,9 @@ export class HoodDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HoodDeCollector class.
+     */
     constructor() {
         super(HoodDeCollector.CONFIG);
     }

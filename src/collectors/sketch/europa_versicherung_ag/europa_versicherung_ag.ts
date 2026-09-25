@@ -32,6 +32,9 @@ export class EuropaVersicherungAgCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EuropaVersicherungAgCollector class.
+     */
     constructor() {
         super(EuropaVersicherungAgCollector.CONFIG);
     }

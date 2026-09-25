@@ -32,6 +32,9 @@ export class KippUndGrunhoffCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KippUndGrunhoffCollector class.
+     */
     constructor() {
         super(KippUndGrunhoffCollector.CONFIG);
     }

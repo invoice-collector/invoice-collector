@@ -32,6 +32,9 @@ export class DartyboxCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DartyboxCollector class.
+     */
     constructor() {
         super(DartyboxCollector.CONFIG);
     }

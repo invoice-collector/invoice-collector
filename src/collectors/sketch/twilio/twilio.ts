@@ -32,6 +32,9 @@ export class TwilioCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TwilioCollector class.
+     */
     constructor() {
         super(TwilioCollector.CONFIG);
     }

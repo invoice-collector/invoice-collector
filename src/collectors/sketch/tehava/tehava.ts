@@ -32,6 +32,9 @@ export class TehavaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TehavaCollector class.
+     */
     constructor() {
         super(TehavaCollector.CONFIG);
     }

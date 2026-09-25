@@ -32,6 +32,9 @@ export class GrosshandelHartlElektroCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GrosshandelHartlElektroCollector class.
+     */
     constructor() {
         super(GrosshandelHartlElektroCollector.CONFIG);
     }

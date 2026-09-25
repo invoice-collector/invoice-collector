@@ -32,6 +32,9 @@ export class DaxonBalsamikFrCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DaxonBalsamikFrCollector class.
+     */
     constructor() {
         super(DaxonBalsamikFrCollector.CONFIG);
     }

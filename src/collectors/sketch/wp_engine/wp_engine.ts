@@ -32,6 +32,9 @@ export class WpEngineCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WpEngineCollector class.
+     */
     constructor() {
         super(WpEngineCollector.CONFIG);
     }

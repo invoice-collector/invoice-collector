@@ -32,6 +32,9 @@ export class CaptainaCoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CaptainaCoCollector class.
+     */
     constructor() {
         super(CaptainaCoCollector.CONFIG);
     }

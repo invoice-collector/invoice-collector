@@ -32,6 +32,9 @@ export class DieBayrischeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DieBayrischeCollector class.
+     */
     constructor() {
         super(DieBayrischeCollector.CONFIG);
     }

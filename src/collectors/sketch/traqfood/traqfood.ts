@@ -32,6 +32,9 @@ export class TraqfoodCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TraqfoodCollector class.
+     */
     constructor() {
         super(TraqfoodCollector.CONFIG);
     }

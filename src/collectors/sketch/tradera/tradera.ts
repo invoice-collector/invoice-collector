@@ -32,6 +32,9 @@ export class TraderaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TraderaCollector class.
+     */
     constructor() {
         super(TraderaCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class IspSystemCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the IspSystemCollector class.
+     */
     constructor() {
         super(IspSystemCollector.CONFIG);
     }

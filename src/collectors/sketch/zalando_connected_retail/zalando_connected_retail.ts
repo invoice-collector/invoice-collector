@@ -32,6 +32,9 @@ export class ZalandoConnectedRetailCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ZalandoConnectedRetailCollector class.
+     */
     constructor() {
         super(ZalandoConnectedRetailCollector.CONFIG);
     }

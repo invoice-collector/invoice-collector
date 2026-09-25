@@ -32,6 +32,9 @@ export class RecupPartnerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RecupPartnerCollector class.
+     */
     constructor() {
         super(RecupPartnerCollector.CONFIG);
     }

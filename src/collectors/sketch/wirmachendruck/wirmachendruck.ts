@@ -32,6 +32,9 @@ export class WirmachendruckCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WirmachendruckCollector class.
+     */
     constructor() {
         super(WirmachendruckCollector.CONFIG);
     }

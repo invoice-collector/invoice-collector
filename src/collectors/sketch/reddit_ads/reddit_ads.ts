@@ -32,6 +32,9 @@ export class RedditAdsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RedditAdsCollector class.
+     */
     constructor() {
         super(RedditAdsCollector.CONFIG);
     }

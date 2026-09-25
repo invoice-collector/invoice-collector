@@ -32,6 +32,9 @@ export class TopviewCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TopviewCollector class.
+     */
     constructor() {
         super(TopviewCollector.CONFIG);
     }

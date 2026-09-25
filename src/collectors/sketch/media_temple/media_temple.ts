@@ -32,6 +32,9 @@ export class MediaTempleCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MediaTempleCollector class.
+     */
     constructor() {
         super(MediaTempleCollector.CONFIG);
     }

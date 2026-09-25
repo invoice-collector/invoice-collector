@@ -32,6 +32,9 @@ export class PingdomCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PingdomCollector class.
+     */
     constructor() {
         super(PingdomCollector.CONFIG);
     }

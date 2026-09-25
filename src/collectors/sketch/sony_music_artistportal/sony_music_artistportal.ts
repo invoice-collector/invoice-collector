@@ -32,6 +32,9 @@ export class SonyMusicArtistportalCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SonyMusicArtistportalCollector class.
+     */
     constructor() {
         super(SonyMusicArtistportalCollector.CONFIG);
     }

@@ -31,6 +31,9 @@ export class PointEFrCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PointEFrCollector class.
+     */
     constructor() {
         super(PointEFrCollector.CONFIG);
     }

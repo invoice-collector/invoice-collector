@@ -32,6 +32,9 @@ export class EsaguCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EsaguCollector class.
+     */
     constructor() {
         super(EsaguCollector.CONFIG);
     }

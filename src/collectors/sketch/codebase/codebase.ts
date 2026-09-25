@@ -32,6 +32,9 @@ export class CodebaseCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CodebaseCollector class.
+     */
     constructor() {
         super(CodebaseCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class WebinarisCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WebinarisCollector class.
+     */
     constructor() {
         super(WebinarisCollector.CONFIG);
     }

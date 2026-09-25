@@ -32,6 +32,9 @@ export class SentryCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SentryCollector class.
+     */
     constructor() {
         super(SentryCollector.CONFIG);
     }

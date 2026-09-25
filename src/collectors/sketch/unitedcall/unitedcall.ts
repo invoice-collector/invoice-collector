@@ -32,6 +32,9 @@ export class UnitedcallCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the UnitedcallCollector class.
+     */
     constructor() {
         super(UnitedcallCollector.CONFIG);
     }

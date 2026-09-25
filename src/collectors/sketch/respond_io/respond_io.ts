@@ -32,6 +32,9 @@ export class RespondIoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RespondIoCollector class.
+     */
     constructor() {
         super(RespondIoCollector.CONFIG);
     }

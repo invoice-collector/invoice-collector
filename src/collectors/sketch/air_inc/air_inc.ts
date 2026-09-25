@@ -32,6 +32,9 @@ export class AirIncCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AirIncCollector class.
+     */
     constructor() {
         super(AirIncCollector.CONFIG);
     }

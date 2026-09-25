@@ -32,12 +32,18 @@ export class Server {
     billTask: BillTask;
     httpServer: any;
 
+    /**
+     * Constructs a new Server instance.
+     */
     constructor() {
         this.tokenManager = new TokenManager();
         this.collectTask = new CollectTask();
         this.billTask = new BillTask();
 	}
 
+    /**
+     * Starts the server by loading collectors, connecting to the database and secret manager, and starting background tasks.
+     */
     async start(){
         // Load all collectors
         await CollectorLoader.load();
@@ -66,7 +72,11 @@ export class Server {
 
     // ---------- GENERAL ENDPOINTS ----------
 
-    // PING
+    /**
+     * Ping the service dependencies to check their health status.
+     * @param bearer The bearer token used for authentication.
+     * @returns An object indicating the health status of the analytics server, database, and secret manager.
+     */
     public async get_ping(
         bearer: string | undefined,
     ): Promise<{
@@ -102,6 +112,11 @@ export class Server {
     }
 
     // TOKEN AUTHENTICATION
+    /**
+     * Returns a UI page for the user to add credentials.
+     * @param token The token used for authentication.
+     * @returns An object containing the collectors, locale, and theme for the UI page.
+     */
     public async get_ui(token: any): Promise<{
         collectors: Config[],
         locale: string,
@@ -129,6 +144,14 @@ export class Server {
     }
 
     // TOKEN AUTHENTICATION
+    /**
+     * Submits feedback from the user to the analytics server.
+     * Authentication can be done using either the bearer token or the token parameter.
+     * @param bearer The bearer token used for authentication.
+     * @param token The token used for authentication.
+     * @param type The type of feedback (e.g., bug report, feature request).
+     * @param message The feedback message provided by the user.
+     */
     public async post_feedback(
         bearer: string | undefined,
         token: any,
@@ -160,6 +183,12 @@ export class Server {
     // ---------- LOGIN/SIGNUP/RESET ENDPOINTS ----------
 
     // NO AUTHENTICATION
+    /**
+     * Login a customer or user and return a session bearer token.
+     * @param email The email of the customer or user attempting to log in.
+     * @param password The password of the customer or user attempting to log in.
+     * @returns An object containing the session bearer token and the type of user ('customer' or 'user').
+     */
     public async post_login(
         email: string | undefined,
         password: string | undefined,
@@ -212,6 +241,14 @@ export class Server {
     }
 
     // NO AUTHENTICATION
+    /**
+     * Sign up a new customer or user.
+     * @param email The email of the customer or user signing up.
+     * @param name The name of the customer or user signing up.
+     * @param cid The company ID associated with the customer or user.
+     * @param locale The locale of the customer or user.
+     * @param inviteId The invite ID used for user signups.
+     */
     public async post_signup(
         email: string | undefined,
         name: string | undefined,
@@ -311,6 +348,10 @@ export class Server {
     }
 
     // NO AUTHENTICATION
+    /**
+     * Initiates the password reset process for a customer or user based on the provided email.
+     * @param email The email of the customer or user requesting a password reset.
+     */
     public async post_forgot(
         email: string | undefined,
     ): Promise<void> {
@@ -345,6 +386,11 @@ export class Server {
     }
 
     // RESET TOKEN AUTHENTICATION
+    /**
+     * Resets the password for a customer or user using the provided reset token and new password.
+     * @param resetToken The reset token received by the customer or user.
+     * @param password The new password to set for the customer or user.
+     */
     public async post_reset(
         resetToken: any,
         password: string,
@@ -421,6 +467,11 @@ export class Server {
     // ---------- CUSTOMER ENDPOINTS ----------
 
     // BEARER AUTHENTICATION
+    /**
+     * Get the details of the customer based on the provided bearer token.
+     * @param bearer The bearer token of the customer.
+     * @returns The details of the customer.
+     */
     public async get_customer(bearer: string | undefined): Promise<{
         id: string,
         email: string,
@@ -460,6 +511,19 @@ export class Server {
     }
 
     // BEARER AUTHENTICATION
+    /**
+     * Update the details of the customer.
+     * @param bearer The bearer token of the customer.
+     * @param name The new name of the customer. Won't update if undefined.
+     * @param remoteId The new remote ID of the customer. Won't update if undefined.
+     * @param cid The new CID of the customer. Won't update if undefined.
+     * @param theme The new theme of the customer. Won't update if undefined.
+     * @param subscribedCollectors The new list of subscribed collectors for the customer. Won't update if undefined.
+     * @param isSubscribedToAll Whether the customer is subscribed to all collectors. Won't update if undefined.
+     * @param authenticationMethod The new authentication method of the customer. Won't update if undefined.
+     * @param displaySketchCollectors Whether to display sketch collectors for the customer. Won't update if undefined.
+     * @returns The updated details of the customer.
+     */
     public async put_customer(
         bearer: string | undefined,
         name: string | undefined,
@@ -548,6 +612,11 @@ export class Server {
     }
 
     // BEARER AUTHENTICATION
+    /**
+     * Generates a new API bearer token for the customer associated with the provided bearer.
+     * @param bearer The current bearer token of the customer.
+     * @returns The newly generated API bearer token for the customer.
+     */
     public async post_customer_bearer(bearer: string | undefined): Promise<{
         bearer: string
     }> {
@@ -570,6 +639,12 @@ export class Server {
         return { bearer: newBearer };
     }
 
+    // BEARER AUTHENTICATION
+    /**
+     * Get the statistics for the customer.
+     * @param bearer The current bearer token of the customer.
+     * @returns The statistics of the customer.
+     */
     public async getCustomerStats(bearer: string | undefined): Promise<CustomerStats>{
         // Get customer from bearer
         const customer = await this.tokenManager.getCustomerFromBearer(bearer);
@@ -582,6 +657,11 @@ export class Server {
     // ---------- USER ENDPOINTS ----------
 
     // BEARER AUTHENTICATION
+    /**
+     * Get the list of users associated with the customer.
+     * @param bearer The current bearer token of the customer.
+     * @returns The list of users associated with the customer.
+     */
     public async get_users(bearer: string | undefined): Promise<{
         id: string,
         customer_id: string,
@@ -626,6 +706,15 @@ export class Server {
     }
 
     // BEARER AUTHENTICATION
+    /**
+     * Creates a new user associated with the customer.
+     * Do not create it if a user with the same remote ID already exists.
+     * @param bearer The current bearer token of the customer.
+     * @param remote_id The remote ID of the new user.
+     * @param locale The locale of the new user.
+     * @param ip The IP address of the new user.
+     * @returns The newly created user along with its statistics.
+     */
     public async post_user(
         bearer: string | undefined,
         remote_id: string | undefined,
@@ -749,6 +838,12 @@ export class Server {
     }
 
     // BEARER AUTHENTICATION
+    /**
+     * Gets the details of a specific user associated with the customer.
+     * @param bearer The current bearer token of the customer.
+     * @param user_id The ID of the user to retrieve.
+     * @returns The details of the specified user along with its statistics.
+     */
     public async get_user(bearer: string | undefined, user_id: string): Promise<{
         id: string,
         customer_id: string,
@@ -795,6 +890,16 @@ export class Server {
     }
 
     // BEARER AUTHENTICATION
+    /**
+     * Updates the details of a specific user associated with the customer.
+     * @param bearer The current bearer token of the customer.
+     * @param user_id The ID of the user to update.
+     * @param remote_id The new remote ID of the user.
+     * @param name The new name of the user.
+     * @param cid The new Company ID of the user.
+     * @param locale The new locale of the user.
+     * @returns The updated details of the specified user along with its statistics.
+     */
     public async put_user(
         bearer: string | undefined,
         user_id: string,
@@ -885,7 +990,12 @@ export class Server {
 
 
     // BEARER AUTHENTICATION
-    public async delete_user(bearer: string | undefined, user_id: string) {
+    /**
+     * Deletes a specific user associated with the customer.
+     * @param bearer The current bearer token of the customer.
+     * @param user_id The ID of the user to delete.
+     */
+    public async delete_user(bearer: string | undefined, user_id: string): Promise<void> {
         // Get customer from bearer
         const customer = await this.tokenManager.getCustomerFromBearer(bearer);
 
@@ -912,6 +1022,13 @@ export class Server {
     // ---------- CREDENTIAL ENDPOINTS ----------
 
     // TOKEN AUTHENTICATION
+    /**
+     * Retrieves the credentials of a specific user associated with the customer.
+     * @param bearer The current bearer token of the customer.
+     * @param user_id The ID of the user whose credentials are to be retrieved.
+     * @param token The token used for authentication.
+     * @returns The list of credentials associated with the specified user.
+     */
     public async get_credentials(
         bearer: string | undefined,
         user_id: string,
@@ -975,6 +1092,16 @@ export class Server {
     }
 
     // TOKEN AUTHENTICATION
+    /**
+     * Creates a new credential for the specified user associated with the customer.
+     * @param bearer The current bearer token of the customer.
+     * @param user_id The ID of the user for whom the credential is to be created.
+     * @param token The token used for authentication.
+     * @param collector_id The ID of the collector for which the credential is being created.
+     * @param params The parameters required for creating the credential.
+     * @param download_from_timestamp The timestamp from which to start downloading invoices.
+     * @returns The details of the newly created credential.
+     */
     public async post_credential(
         bearer: string | undefined,
         user_id: string,
@@ -1075,7 +1202,7 @@ export class Server {
                 localStorage: null,
             });
 
-            // Create secret in Secure Storage
+            // Create secret in Secret Manager
             await secret.commit();
 
             // Create credential
@@ -1140,6 +1267,14 @@ export class Server {
     }
 
     // TOKEN AUTHENTICATION
+    /**
+     * Get a specific credential for the user associated with the customer.
+     * @param bearer The current bearer token of the customer.
+     * @param user_id The ID of the user whose credential is to be retrieved.
+     * @param token The token used for authentication.
+     * @param id The ID of the credential to retrieve.
+     * @returns The details of the specified credential.
+     */
     public async get_credential(
         bearer: string | undefined,
         user_id: string,
@@ -1212,6 +1347,13 @@ export class Server {
     }
 
     // TOKEN AUTHENTICATION
+    /**
+     * Delete a specific credential for the user associated with the customer.
+     * @param bearer The current bearer token of the customer.
+     * @param user_id The ID of the user whose credential is to be deleted.
+     * @param token The token used for authentication.
+     * @param id The ID of the credential to delete.
+     */
     public async delete_credential(
         bearer: string | undefined,
         user_id: string,
@@ -1245,6 +1387,15 @@ export class Server {
     }
 
     // TOKEN AUTHENTICATION
+    /**
+     * Submit a 2FA code for a specific credential of the user associated with the customer.
+     * @deprecated This method is deprecated and will be removed when customers migrates to websockets.
+     * @param bearer The current bearer token of the customer.
+     * @param user_id The ID of the user for whom the 2FA is being posted.
+     * @param token The token used for authentication.
+     * @param credential_id The ID of the credential for which the 2FA code is being posted.
+     * @param code The 2FA code to be submitted.
+     */
     public async post_credential_2fa(
         bearer: string | undefined,
         user_id: string,
@@ -1290,6 +1441,13 @@ export class Server {
     }
 
     // TOKEN AUTHENTICATION
+    /**
+     * Submit an OAuth2 authorization code for a specific credential and retrieve the user's locale and theme settings.
+     * This is the endpoint to which Oauth2 app must redirect to.
+     * @param oauth2State The OAuth2 state associated with the credential.
+     * @param code The OAuth2 authorization code to be submitted.
+     * @returns An object containing the locale and theme settings for the user.
+     */
     public async get_credential_oauth2(
         oauth2State: any,
         code: any,
@@ -1326,6 +1484,15 @@ export class Server {
     }
 
     // BEARER AUTHENTICATION
+    /**
+     * Initiate the collection process for a specific credential of the user associated with the customer.
+     * Authenticate with the provided bearer or token.
+     * @param bearer The current bearer token of the customer.
+     * @param user_id The ID of the user for whom the collection is being initiated.
+     * @param token The token used for authentication.
+     * @param credential_id The ID of the credential for which the collection is being initiated.
+     * @returns An object containing the WebSocket path for the collection process.
+     */
     public async post_credential_collect(
         bearer: string | undefined,
         user_id: string,
@@ -1399,6 +1566,15 @@ export class Server {
     // ---------- COLLECTOR ENDPOINTS ----------
 
     // BEARER AUTHENTICATION
+    /**
+     * Retrieve the list of collectors available to the customer based on their subscription and locale.
+     * If bearer or token is provided, only the customer's subscribed collectors will be returned.
+     * Otherwise, all collectors will be returned.
+     * @param bearer The current bearer token of the customer.
+     * @param token The token used for authentication.
+     * @param locale The locale for which the collectors should be retrieved.
+     * @returns A list of collector configurations available to the customer.
+     */
     public async get_collectors(
         bearer: string | undefined,
         token: any,
@@ -1446,6 +1622,11 @@ export class Server {
     // ---------- CALLBACKS ENDPOINTS ----------
 
     // BEARER AUTHENTICATION
+    /**
+     * Gets the list of callbacks associated with the customer.
+     * @param bearer The current bearer token of the customer.
+     * @returns A list of callback configurations associated with the customer.
+     */
     public async get_callbacks(
         bearer: string | undefined,
     ): Promise<{
@@ -1477,6 +1658,13 @@ export class Server {
     }
 
     // BEARER AUTHENTICATION
+    /**
+     * Creates a callback for the customer with the specified integration and parameters.
+     * @param bearer The current bearer token of the customer.
+     * @param integration_id The ID of the integration for which the callback is being created or updated.
+     * @param params The parameters required for the callback.
+     * @returns The created callback configuration.
+     */
     public async post_callback(
         bearer: string | undefined,
         integration_id: string | undefined,
@@ -1539,7 +1727,7 @@ export class Server {
             localStorage: null,
         });
 
-        // Create secret in Secure Storage
+        // Create secret in Secret Manager
         await secret.commit();
 
         // Create new callback
@@ -1572,6 +1760,13 @@ export class Server {
     }
 
     // BEARER AUTHENTICATION
+    /**
+     * Update the automatic export setting for a specific callback associated with the customer.
+     * @param bearer The current bearer token of the customer.
+     * @param callback_id The ID of the callback to update.
+     * @param automaticExport The new value for the automatic export setting.
+     * @returns The updated callback configuration.
+     */
     public async put_callback(
         bearer: string | undefined,
         callback_id: string,
@@ -1630,6 +1825,11 @@ export class Server {
     }
 
     // BEARER AUTHENTICATION
+    /**
+     * Deletes a specific callback associated with the customer.
+     * @param bearer The current bearer token of the customer.
+     * @param callback_id The ID of the callback to delete.
+     */
     public async delete_callback(
         bearer: string | undefined,
         callback_id: string,
@@ -1651,6 +1851,12 @@ export class Server {
     }
 
     // BEARER AUTHENTICATION
+    /**
+     * Sends a test payload to a specific callback associated with the customer.
+     * @param bearer The current bearer token of the customer.
+     * @param callbackId The ID of the callback to send the test payload to.
+     * @param type The type of test payload to send (e.g., "invoice" or "notification_disconnected").
+     */
     public async get_callback_test(
         bearer: string | undefined,
         callbackId: string,
@@ -1697,6 +1903,11 @@ export class Server {
     // ---------- INTEGRATIONS ENDPOINTS ----------
 
     // NO AUTHENTICATION
+    /**
+     * Get the list of available integrations.
+     * @param locale The locale to use for translating integration information.
+     * @returns A list of available integrations, translated to the specified locale.
+     */
     public async get_integrations(locale: any): Promise<IntegrationConfig[]> {
         // Check if locale field is missing
         if(!locale || typeof locale !== 'string') {
@@ -1716,6 +1927,11 @@ export class Server {
 
     // ---------- PRIVATE METHODS ----------
 
+    /**
+     * Resets the password for a user and returns the reset token.
+     * @param user The user for whom to reset the password.
+     * @returns The reset token for the user's password.
+     */
     private async handleUserResetPassword(user: User): Promise<string> {
         // Generate reset token
         const resetToken = this.tokenManager.createUserResetToken(user.id);
@@ -1727,6 +1943,11 @@ export class Server {
         return resetToken;
     }
 
+    /**
+     * Resets the password for a customer and returns the reset token.
+     * @param customer The customer for whom to reset the password.
+     * @returns The reset token for the customer's password.
+     */
     private async handleCustomerResetPassword(customer: Customer): Promise<string> {
         // Generate reset token
         const resetToken = this.tokenManager.createCustomerResetToken(customer.id);

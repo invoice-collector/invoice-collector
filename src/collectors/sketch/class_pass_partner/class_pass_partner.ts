@@ -32,6 +32,9 @@ export class ClassPassPartnerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ClassPassPartnerCollector class.
+     */
     constructor() {
         super(ClassPassPartnerCollector.CONFIG);
     }

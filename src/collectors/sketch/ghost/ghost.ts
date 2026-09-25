@@ -32,6 +32,9 @@ export class GhostCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GhostCollector class.
+     */
     constructor() {
         super(GhostCollector.CONFIG);
     }

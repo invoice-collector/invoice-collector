@@ -32,6 +32,9 @@ export class ManfreddoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ManfreddoCollector class.
+     */
     constructor() {
         super(ManfreddoCollector.CONFIG);
     }

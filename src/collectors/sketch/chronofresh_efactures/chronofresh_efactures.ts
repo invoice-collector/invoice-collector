@@ -32,6 +32,9 @@ export class ChronofreshEfacturesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ChronofreshEfacturesCollector class.
+     */
     constructor() {
         super(ChronofreshEfacturesCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class KickresumeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KickresumeCollector class.
+     */
     constructor() {
         super(KickresumeCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class PipelinedealsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PipelinedealsCollector class.
+     */
     constructor() {
         super(PipelinedealsCollector.CONFIG);
     }

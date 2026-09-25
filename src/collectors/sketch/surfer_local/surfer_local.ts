@@ -32,6 +32,9 @@ export class SurferLocalCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SurferLocalCollector class.
+     */
     constructor() {
         super(SurferLocalCollector.CONFIG);
     }

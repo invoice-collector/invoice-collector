@@ -32,6 +32,9 @@ export class Smartpart4youCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Smartpart4youCollector class.
+     */
     constructor() {
         super(Smartpart4youCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class SellfyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SellfyCollector class.
+     */
     constructor() {
         super(SellfyCollector.CONFIG);
     }

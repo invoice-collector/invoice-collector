@@ -32,6 +32,9 @@ export class Dirs21Collector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Dirs21Collector class.
+     */
     constructor() {
         super(Dirs21Collector.CONFIG);
     }

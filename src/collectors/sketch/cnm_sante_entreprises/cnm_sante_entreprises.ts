@@ -32,6 +32,9 @@ export class CnmSanteEntreprisesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CnmSanteEntreprisesCollector class.
+     */
     constructor() {
         super(CnmSanteEntreprisesCollector.CONFIG);
     }

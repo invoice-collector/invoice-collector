@@ -32,6 +32,9 @@ export class WistiaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WistiaCollector class.
+     */
     constructor() {
         super(WistiaCollector.CONFIG);
     }

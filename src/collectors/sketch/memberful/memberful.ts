@@ -32,6 +32,9 @@ export class MemberfulCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MemberfulCollector class.
+     */
     constructor() {
         super(MemberfulCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class ViktorNussbaumerBestesFurKucheUndGastlichkeitGmbhAndCoKgCollector e
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ViktorNussbaumerBestesFurKucheUndGastlichkeitGmbhAndCoKgCollector class.
+     */
     constructor() {
         super(ViktorNussbaumerBestesFurKucheUndGastlichkeitGmbhAndCoKgCollector.CONFIG);
     }

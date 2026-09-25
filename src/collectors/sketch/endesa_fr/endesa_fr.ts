@@ -32,6 +32,9 @@ export class EndesaFrCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EndesaFrCollector class.
+     */
     constructor() {
         super(EndesaFrCollector.CONFIG);
     }

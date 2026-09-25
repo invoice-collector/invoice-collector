@@ -32,6 +32,9 @@ export class PharmaMallCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PharmaMallCollector class.
+     */
     constructor() {
         super(PharmaMallCollector.CONFIG);
     }

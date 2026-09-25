@@ -32,6 +32,9 @@ export class MagicrecycleComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MagicrecycleComCollector class.
+     */
     constructor() {
         super(MagicrecycleComCollector.CONFIG);
     }

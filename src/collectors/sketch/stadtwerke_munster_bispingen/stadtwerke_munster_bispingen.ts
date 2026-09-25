@@ -32,6 +32,9 @@ export class StadtwerkeMunsterBispingenCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StadtwerkeMunsterBispingenCollector class.
+     */
     constructor() {
         super(StadtwerkeMunsterBispingenCollector.CONFIG);
     }

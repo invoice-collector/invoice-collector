@@ -32,6 +32,9 @@ export class BcRemoteCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BcRemoteCollector class.
+     */
     constructor() {
         super(BcRemoteCollector.CONFIG);
     }

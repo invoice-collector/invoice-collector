@@ -32,6 +32,9 @@ export class InvoizCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the InvoizCollector class.
+     */
     constructor() {
         super(InvoizCollector.CONFIG);
     }

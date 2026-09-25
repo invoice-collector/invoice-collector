@@ -32,6 +32,9 @@ export class VattenfallGoInChargeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VattenfallGoInChargeCollector class.
+     */
     constructor() {
         super(VattenfallGoInChargeCollector.CONFIG);
     }

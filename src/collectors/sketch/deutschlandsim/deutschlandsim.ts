@@ -32,6 +32,9 @@ export class DeutschlandsimCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DeutschlandsimCollector class.
+     */
     constructor() {
         super(DeutschlandsimCollector.CONFIG);
     }

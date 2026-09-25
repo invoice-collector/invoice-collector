@@ -32,6 +32,9 @@ export class InstawpCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the InstawpCollector class.
+     */
     constructor() {
         super(InstawpCollector.CONFIG);
     }

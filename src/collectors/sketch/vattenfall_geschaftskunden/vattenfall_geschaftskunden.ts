@@ -32,6 +32,9 @@ export class VattenfallGeschaftskundenCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VattenfallGeschaftskundenCollector class.
+     */
     constructor() {
         super(VattenfallGeschaftskundenCollector.CONFIG);
     }

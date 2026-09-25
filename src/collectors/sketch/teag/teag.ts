@@ -32,6 +32,9 @@ export class TeagCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TeagCollector class.
+     */
     constructor() {
         super(TeagCollector.CONFIG);
     }

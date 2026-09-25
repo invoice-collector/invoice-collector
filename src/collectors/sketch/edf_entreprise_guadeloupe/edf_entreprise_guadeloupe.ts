@@ -32,6 +32,9 @@ export class EdfEntrepriseGuadeloupeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EdfEntrepriseGuadeloupeCollector class.
+     */
     constructor() {
         super(EdfEntrepriseGuadeloupeCollector.CONFIG);
     }

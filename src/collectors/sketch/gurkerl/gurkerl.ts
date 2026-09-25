@@ -32,6 +32,9 @@ export class GurkerlCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GurkerlCollector class.
+     */
     constructor() {
         super(GurkerlCollector.CONFIG);
     }

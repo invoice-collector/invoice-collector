@@ -32,6 +32,9 @@ export class FinancialReviewAustraliaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FinancialReviewAustraliaCollector class.
+     */
     constructor() {
         super(FinancialReviewAustraliaCollector.CONFIG);
     }

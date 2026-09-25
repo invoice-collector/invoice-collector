@@ -32,6 +32,9 @@ export class DynamicOooCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DynamicOooCollector class.
+     */
     constructor() {
         super(DynamicOooCollector.CONFIG);
     }

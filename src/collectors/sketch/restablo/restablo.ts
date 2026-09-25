@@ -32,6 +32,9 @@ export class RestabloCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RestabloCollector class.
+     */
     constructor() {
         super(RestabloCollector.CONFIG);
     }

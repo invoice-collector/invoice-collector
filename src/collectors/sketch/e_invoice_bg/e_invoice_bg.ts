@@ -32,6 +32,9 @@ export class EInvoiceBgCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EInvoiceBgCollector class.
+     */
     constructor() {
         super(EInvoiceBgCollector.CONFIG);
     }

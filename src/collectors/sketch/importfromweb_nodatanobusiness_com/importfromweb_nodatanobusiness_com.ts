@@ -32,6 +32,9 @@ export class ImportfromwebNodatanobusinessComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ImportfromwebNodatanobusinessComCollector class.
+     */
     constructor() {
         super(ImportfromwebNodatanobusinessComCollector.CONFIG);
     }

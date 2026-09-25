@@ -32,6 +32,9 @@ export class CominCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CominCollector class.
+     */
     constructor() {
         super(CominCollector.CONFIG);
     }

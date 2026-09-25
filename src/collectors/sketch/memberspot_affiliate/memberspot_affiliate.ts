@@ -32,6 +32,9 @@ export class MemberspotAffiliateCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MemberspotAffiliateCollector class.
+     */
     constructor() {
         super(MemberspotAffiliateCollector.CONFIG);
     }

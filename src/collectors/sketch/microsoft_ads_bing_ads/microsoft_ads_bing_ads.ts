@@ -32,6 +32,9 @@ export class MicrosoftAdsBingAdsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MicrosoftAdsBingAdsCollector class.
+     */
     constructor() {
         super(MicrosoftAdsBingAdsCollector.CONFIG);
     }

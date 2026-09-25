@@ -32,6 +32,9 @@ export class SupercheckBonitatCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SupercheckBonitatCollector class.
+     */
     constructor() {
         super(SupercheckBonitatCollector.CONFIG);
     }

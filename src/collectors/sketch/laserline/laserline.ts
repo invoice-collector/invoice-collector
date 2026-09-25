@@ -32,6 +32,9 @@ export class LaserlineCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LaserlineCollector class.
+     */
     constructor() {
         super(LaserlineCollector.CONFIG);
     }

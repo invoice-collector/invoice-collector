@@ -32,6 +32,9 @@ export class RentabloCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RentabloCollector class.
+     */
     constructor() {
         super(RentabloCollector.CONFIG);
     }

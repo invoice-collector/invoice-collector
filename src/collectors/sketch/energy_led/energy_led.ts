@@ -32,6 +32,9 @@ export class EnergyLedCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EnergyLedCollector class.
+     */
     constructor() {
         super(EnergyLedCollector.CONFIG);
     }

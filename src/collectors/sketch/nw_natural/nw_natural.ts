@@ -32,6 +32,9 @@ export class NwNaturalCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NwNaturalCollector class.
+     */
     constructor() {
         super(NwNaturalCollector.CONFIG);
     }

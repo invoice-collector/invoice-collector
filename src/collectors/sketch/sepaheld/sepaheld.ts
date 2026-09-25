@@ -32,6 +32,9 @@ export class SepaheldCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SepaheldCollector class.
+     */
     constructor() {
         super(SepaheldCollector.CONFIG);
     }

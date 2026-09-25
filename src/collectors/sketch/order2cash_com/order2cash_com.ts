@@ -32,6 +32,9 @@ export class Order2cashComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Order2cashComCollector class.
+     */
     constructor() {
         super(Order2cashComCollector.CONFIG);
     }

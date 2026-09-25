@@ -32,6 +32,9 @@ export class FinanzcheckAffiliateCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FinanzcheckAffiliateCollector class.
+     */
     constructor() {
         super(FinanzcheckAffiliateCollector.CONFIG);
     }

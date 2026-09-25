@@ -32,6 +32,9 @@ export class MerchInformerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MerchInformerCollector class.
+     */
     constructor() {
         super(MerchInformerCollector.CONFIG);
     }

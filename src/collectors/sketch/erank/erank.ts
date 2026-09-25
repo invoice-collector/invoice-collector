@@ -32,6 +32,9 @@ export class ErankCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ErankCollector class.
+     */
     constructor() {
         super(ErankCollector.CONFIG);
     }

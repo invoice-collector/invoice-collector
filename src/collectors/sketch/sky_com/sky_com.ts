@@ -32,6 +32,9 @@ export class SkyComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SkyComCollector class.
+     */
     constructor() {
         super(SkyComCollector.CONFIG);
     }

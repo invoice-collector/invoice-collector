@@ -32,6 +32,9 @@ export class PdxConnectCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PdxConnectCollector class.
+     */
     constructor() {
         super(PdxConnectCollector.CONFIG);
     }

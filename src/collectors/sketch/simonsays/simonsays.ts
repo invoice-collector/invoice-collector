@@ -32,6 +32,9 @@ export class SimonsaysCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SimonsaysCollector class.
+     */
     constructor() {
         super(SimonsaysCollector.CONFIG);
     }

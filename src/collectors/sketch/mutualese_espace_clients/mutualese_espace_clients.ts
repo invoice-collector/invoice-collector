@@ -32,6 +32,9 @@ export class MutualeseEspaceClientsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MutualeseEspaceClientsCollector class.
+     */
     constructor() {
         super(MutualeseEspaceClientsCollector.CONFIG);
     }

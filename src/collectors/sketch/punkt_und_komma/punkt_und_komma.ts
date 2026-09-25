@@ -32,6 +32,9 @@ export class PunktUndKommaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PunktUndKommaCollector class.
+     */
     constructor() {
         super(PunktUndKommaCollector.CONFIG);
     }

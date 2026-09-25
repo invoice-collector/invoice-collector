@@ -32,6 +32,9 @@ export class OnvistaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OnvistaCollector class.
+     */
     constructor() {
         super(OnvistaCollector.CONFIG);
     }

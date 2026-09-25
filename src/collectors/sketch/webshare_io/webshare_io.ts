@@ -32,6 +32,9 @@ export class WebshareIoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WebshareIoCollector class.
+     */
     constructor() {
         super(WebshareIoCollector.CONFIG);
     }

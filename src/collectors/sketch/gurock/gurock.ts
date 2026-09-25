@@ -32,6 +32,9 @@ export class GurockCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GurockCollector class.
+     */
     constructor() {
         super(GurockCollector.CONFIG);
     }

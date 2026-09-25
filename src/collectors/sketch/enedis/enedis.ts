@@ -32,6 +32,9 @@ export class EnedisCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EnedisCollector class.
+     */
     constructor() {
         super(EnedisCollector.CONFIG);
     }

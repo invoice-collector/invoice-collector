@@ -32,6 +32,9 @@ export class DeinestadtklebtCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DeinestadtklebtCollector class.
+     */
     constructor() {
         super(DeinestadtklebtCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class InterMaklerNetCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the InterMaklerNetCollector class.
+     */
     constructor() {
         super(InterMaklerNetCollector.CONFIG);
     }

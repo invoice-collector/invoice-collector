@@ -32,6 +32,9 @@ export class SiewertAndKauCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SiewertAndKauCollector class.
+     */
     constructor() {
         super(SiewertAndKauCollector.CONFIG);
     }

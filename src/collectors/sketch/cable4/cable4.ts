@@ -32,6 +32,9 @@ export class Cable4Collector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Cable4Collector class.
+     */
     constructor() {
         super(Cable4Collector.CONFIG);
     }

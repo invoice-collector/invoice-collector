@@ -32,6 +32,9 @@ export class LocalyticsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LocalyticsCollector class.
+     */
     constructor() {
         super(LocalyticsCollector.CONFIG);
     }

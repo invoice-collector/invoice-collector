@@ -32,6 +32,9 @@ export class MetricsToolsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MetricsToolsCollector class.
+     */
     constructor() {
         super(MetricsToolsCollector.CONFIG);
     }

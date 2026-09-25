@@ -32,6 +32,9 @@ export class AdgoalCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AdgoalCollector class.
+     */
     constructor() {
         super(AdgoalCollector.CONFIG);
     }

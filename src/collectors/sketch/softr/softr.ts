@@ -32,6 +32,9 @@ export class SoftrCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SoftrCollector class.
+     */
     constructor() {
         super(SoftrCollector.CONFIG);
     }

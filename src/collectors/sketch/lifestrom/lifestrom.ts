@@ -32,6 +32,9 @@ export class LifestromCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LifestromCollector class.
+     */
     constructor() {
         super(LifestromCollector.CONFIG);
     }

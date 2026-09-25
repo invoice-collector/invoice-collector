@@ -32,6 +32,9 @@ export class SnapfishCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SnapfishCollector class.
+     */
     constructor() {
         super(SnapfishCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class DistrokidCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DistrokidCollector class.
+     */
     constructor() {
         super(DistrokidCollector.CONFIG);
     }

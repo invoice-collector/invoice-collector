@@ -32,6 +32,9 @@ export class SystemsoftOnlineAbrechnungCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SystemsoftOnlineAbrechnungCollector class.
+     */
     constructor() {
         super(SystemsoftOnlineAbrechnungCollector.CONFIG);
     }

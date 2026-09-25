@@ -32,6 +32,9 @@ export class SellerlegendCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SellerlegendCollector class.
+     */
     constructor() {
         super(SellerlegendCollector.CONFIG);
     }

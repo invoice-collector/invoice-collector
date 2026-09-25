@@ -32,6 +32,9 @@ export class PhantomBusterCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PhantomBusterCollector class.
+     */
     constructor() {
         super(PhantomBusterCollector.CONFIG);
     }

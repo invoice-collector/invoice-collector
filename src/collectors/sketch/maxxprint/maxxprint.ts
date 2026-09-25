@@ -32,6 +32,9 @@ export class MaxxprintCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MaxxprintCollector class.
+     */
     constructor() {
         super(MaxxprintCollector.CONFIG);
     }

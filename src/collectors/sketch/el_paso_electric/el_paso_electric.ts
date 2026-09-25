@@ -32,6 +32,9 @@ export class ElPasoElectricCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ElPasoElectricCollector class.
+     */
     constructor() {
         super(ElPasoElectricCollector.CONFIG);
     }

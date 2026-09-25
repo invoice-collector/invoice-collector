@@ -32,6 +32,9 @@ export class TrustindexCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TrustindexCollector class.
+     */
     constructor() {
         super(TrustindexCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class EauDesCollinesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EauDesCollinesCollector class.
+     */
     constructor() {
         super(EauDesCollinesCollector.CONFIG);
     }

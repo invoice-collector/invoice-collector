@@ -32,6 +32,9 @@ export class DiscacCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DiscacCollector class.
+     */
     constructor() {
         super(DiscacCollector.CONFIG);
     }

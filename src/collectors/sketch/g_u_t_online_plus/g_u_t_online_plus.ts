@@ -32,6 +32,9 @@ export class GUTOnlinePlusCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GUTOnlinePlusCollector class.
+     */
     constructor() {
         super(GUTOnlinePlusCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class FreeagentCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FreeagentCollector class.
+     */
     constructor() {
         super(FreeagentCollector.CONFIG);
     }

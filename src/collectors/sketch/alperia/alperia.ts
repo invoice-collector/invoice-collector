@@ -32,6 +32,9 @@ export class AlperiaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AlperiaCollector class.
+     */
     constructor() {
         super(AlperiaCollector.CONFIG);
     }

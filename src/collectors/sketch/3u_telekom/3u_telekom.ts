@@ -32,6 +32,9 @@ export class _3uTelekomCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the _3uTelekomCollector class.
+     */
     constructor() {
         super(_3uTelekomCollector.CONFIG);
     }

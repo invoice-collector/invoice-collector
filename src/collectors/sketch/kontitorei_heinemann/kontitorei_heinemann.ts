@@ -32,6 +32,9 @@ export class KontitoreiHeinemannCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KontitoreiHeinemannCollector class.
+     */
     constructor() {
         super(KontitoreiHeinemannCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class NafiCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NafiCollector class.
+     */
     constructor() {
         super(NafiCollector.CONFIG);
     }

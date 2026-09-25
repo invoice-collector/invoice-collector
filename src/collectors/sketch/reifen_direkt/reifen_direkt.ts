@@ -32,6 +32,9 @@ export class ReifenDirektCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ReifenDirektCollector class.
+     */
     constructor() {
         super(ReifenDirektCollector.CONFIG);
     }

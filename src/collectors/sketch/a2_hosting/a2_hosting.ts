@@ -32,6 +32,9 @@ export class A2HostingCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the A2HostingCollector class.
+     */
     constructor() {
         super(A2HostingCollector.CONFIG);
     }

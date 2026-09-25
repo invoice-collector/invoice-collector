@@ -32,6 +32,9 @@ export class TaubenreutherCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TaubenreutherCollector class.
+     */
     constructor() {
         super(TaubenreutherCollector.CONFIG);
     }

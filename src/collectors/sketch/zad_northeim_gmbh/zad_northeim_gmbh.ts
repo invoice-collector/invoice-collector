@@ -32,6 +32,9 @@ export class ZadNortheimGmbhCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ZadNortheimGmbhCollector class.
+     */
     constructor() {
         super(ZadNortheimGmbhCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class HeinrichKippWerkGermanyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HeinrichKippWerkGermanyCollector class.
+     */
     constructor() {
         super(HeinrichKippWerkGermanyCollector.CONFIG);
     }

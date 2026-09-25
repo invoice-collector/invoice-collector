@@ -32,6 +32,9 @@ export class NosCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NosCollector class.
+     */
     constructor() {
         super(NosCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class FosterAcademyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FosterAcademyCollector class.
+     */
     constructor() {
         super(FosterAcademyCollector.CONFIG);
     }

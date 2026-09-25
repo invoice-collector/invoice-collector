@@ -32,6 +32,9 @@ export class RaidboxesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RaidboxesCollector class.
+     */
     constructor() {
         super(RaidboxesCollector.CONFIG);
     }

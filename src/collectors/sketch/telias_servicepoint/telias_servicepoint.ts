@@ -32,6 +32,9 @@ export class TeliasServicepointCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TeliasServicepointCollector class.
+     */
     constructor() {
         super(TeliasServicepointCollector.CONFIG);
     }

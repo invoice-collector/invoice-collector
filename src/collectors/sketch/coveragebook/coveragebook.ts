@@ -32,6 +32,9 @@ export class CoveragebookCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CoveragebookCollector class.
+     */
     constructor() {
         super(CoveragebookCollector.CONFIG);
     }

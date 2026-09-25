@@ -32,6 +32,9 @@ export class MysunriseCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MysunriseCollector class.
+     */
     constructor() {
         super(MysunriseCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class SecurepointCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SecurepointCollector class.
+     */
     constructor() {
         super(SecurepointCollector.CONFIG);
     }

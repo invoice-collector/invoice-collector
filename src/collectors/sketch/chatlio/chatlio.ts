@@ -32,6 +32,9 @@ export class ChatlioCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ChatlioCollector class.
+     */
     constructor() {
         super(ChatlioCollector.CONFIG);
     }

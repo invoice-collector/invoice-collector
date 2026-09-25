@@ -32,6 +32,9 @@ export class PluxeeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PluxeeCollector class.
+     */
     constructor() {
         super(PluxeeCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class BeehiveCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BeehiveCollector class.
+     */
     constructor() {
         super(BeehiveCollector.CONFIG);
     }

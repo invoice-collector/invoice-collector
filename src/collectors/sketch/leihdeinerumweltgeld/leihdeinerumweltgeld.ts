@@ -32,6 +32,9 @@ export class LeihdeinerumweltgeldCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LeihdeinerumweltgeldCollector class.
+     */
     constructor() {
         super(LeihdeinerumweltgeldCollector.CONFIG);
     }

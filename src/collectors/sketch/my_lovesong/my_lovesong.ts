@@ -32,6 +32,9 @@ export class MyLovesongCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MyLovesongCollector class.
+     */
     constructor() {
         super(MyLovesongCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class HerokuCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HerokuCollector class.
+     */
     constructor() {
         super(HerokuCollector.CONFIG);
     }

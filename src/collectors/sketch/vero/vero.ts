@@ -32,6 +32,9 @@ export class VeroCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VeroCollector class.
+     */
     constructor() {
         super(VeroCollector.CONFIG);
     }

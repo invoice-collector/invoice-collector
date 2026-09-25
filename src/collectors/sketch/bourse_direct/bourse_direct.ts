@@ -32,6 +32,9 @@ export class BourseDirectCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BourseDirectCollector class.
+     */
     constructor() {
         super(BourseDirectCollector.CONFIG);
     }

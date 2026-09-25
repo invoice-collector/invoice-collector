@@ -32,6 +32,9 @@ export class YumpuCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the YumpuCollector class.
+     */
     constructor() {
         super(YumpuCollector.CONFIG);
     }

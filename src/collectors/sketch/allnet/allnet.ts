@@ -32,6 +32,9 @@ export class AllnetCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AllnetCollector class.
+     */
     constructor() {
         super(AllnetCollector.CONFIG);
     }

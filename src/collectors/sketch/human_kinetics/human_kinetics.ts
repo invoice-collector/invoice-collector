@@ -32,6 +32,9 @@ export class HumanKineticsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HumanKineticsCollector class.
+     */
     constructor() {
         super(HumanKineticsCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class CurroMedCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CurroMedCollector class.
+     */
     constructor() {
         super(CurroMedCollector.CONFIG);
     }

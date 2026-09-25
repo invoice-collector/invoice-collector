@@ -32,6 +32,9 @@ export class JantyFranceCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the JantyFranceCollector class.
+     */
     constructor() {
         super(JantyFranceCollector.CONFIG);
     }

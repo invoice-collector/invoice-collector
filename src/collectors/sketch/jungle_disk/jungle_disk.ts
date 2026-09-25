@@ -32,6 +32,9 @@ export class JungleDiskCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the JungleDiskCollector class.
+     */
     constructor() {
         super(JungleDiskCollector.CONFIG);
     }

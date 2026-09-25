@@ -32,6 +32,9 @@ export class WellsFargoCopierMyaccountsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WellsFargoCopierMyaccountsCollector class.
+     */
     constructor() {
         super(WellsFargoCopierMyaccountsCollector.CONFIG);
     }

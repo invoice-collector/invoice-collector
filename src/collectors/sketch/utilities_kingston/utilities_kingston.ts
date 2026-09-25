@@ -32,6 +32,9 @@ export class UtilitiesKingstonCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the UtilitiesKingstonCollector class.
+     */
     constructor() {
         super(UtilitiesKingstonCollector.CONFIG);
     }

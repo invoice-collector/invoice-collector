@@ -18,10 +18,22 @@ export class I18n {
         cookie: 'lang',
     });
 
+    /**
+     * Gets the translation for the specified phrase in the given locale.
+     * @param phrase The phrase to be translated.
+     * @param locale The locale in which to translate the phrase.
+     * @returns The translated phrase.
+     */
     static get(phrase: string | undefined, locale: string): string {
         return  I18n.i18n.__({ phrase, locale });
     }
 
+    /**
+     * Translates a state into the specified locale.
+     * @param state The state object containing the title and message to be translated.
+     * @param locale The locale in which to translate the state.
+     * @returns The translated state object.
+     */
     static translateState(state: State, locale: string): State {
         // Translate the state title and message
         state.title = I18n.get(state.title, locale);
@@ -29,6 +41,12 @@ export class I18n {
         return state;
     }
 
+    /**
+     * Translates a collector configuration into the specified locale.
+     * @param config The collector configuration to be translated.
+     * @param locale The locale in which to translate the collector configuration.
+     * @returns The translated collector configuration.
+     */
     static translateCollector(config: Config, locale: string): Config {
         const name: string = I18n.get(config.name, locale);
         const description: string = I18n.get(config.description, locale);
@@ -49,7 +67,12 @@ export class I18n {
             params,
         };
     }
-    
+    /**
+     * Translates an integration configuration into the specified locale.
+     * @param integration The integration configuration to be translated.
+     * @param locale The locale in which to translate the integration configuration.
+     * @returns The translated integration configuration.
+     */
     static translateIntegration(integration: IntegrationConfig, locale: string): IntegrationConfig {
         const name: string = I18n.get(integration.name, locale);
         const description: string = I18n.get(integration.description, locale);

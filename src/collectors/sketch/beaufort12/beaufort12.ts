@@ -32,6 +32,9 @@ export class Beaufort12Collector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Beaufort12Collector class.
+     */
     constructor() {
         super(Beaufort12Collector.CONFIG);
     }

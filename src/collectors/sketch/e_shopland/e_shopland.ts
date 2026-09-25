@@ -32,6 +32,9 @@ export class EShoplandCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EShoplandCollector class.
+     */
     constructor() {
         super(EShoplandCollector.CONFIG);
     }

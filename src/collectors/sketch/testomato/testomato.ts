@@ -32,6 +32,9 @@ export class TestomatoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TestomatoCollector class.
+     */
     constructor() {
         super(TestomatoCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class MailflossCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MailflossCollector class.
+     */
     constructor() {
         super(MailflossCollector.CONFIG);
     }

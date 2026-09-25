@@ -32,6 +32,9 @@ export class AdtvAllgemeinerDeutscherTanzlehrerVerbandCollector extends SketchCo
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AdtvAllgemeinerDeutscherTanzlehrerVerbandCollector class.
+     */
     constructor() {
         super(AdtvAllgemeinerDeutscherTanzlehrerVerbandCollector.CONFIG);
     }

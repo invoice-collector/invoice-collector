@@ -32,6 +32,9 @@ export class DruckerwolkeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DruckerwolkeCollector class.
+     */
     constructor() {
         super(DruckerwolkeCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class SalesourceCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SalesourceCollector class.
+     */
     constructor() {
         super(SalesourceCollector.CONFIG);
     }

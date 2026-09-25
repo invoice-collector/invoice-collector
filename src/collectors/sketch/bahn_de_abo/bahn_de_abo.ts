@@ -32,6 +32,9 @@ export class BahnDeAboCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BahnDeAboCollector class.
+     */
     constructor() {
         super(BahnDeAboCollector.CONFIG);
     }

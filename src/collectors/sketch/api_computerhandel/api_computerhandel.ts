@@ -32,6 +32,9 @@ export class ApiComputerhandelCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ApiComputerhandelCollector class.
+     */
     constructor() {
         super(ApiComputerhandelCollector.CONFIG);
     }

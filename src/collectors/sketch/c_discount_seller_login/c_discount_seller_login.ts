@@ -32,6 +32,9 @@ export class CDiscountSellerLoginCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CDiscountSellerLoginCollector class.
+     */
     constructor() {
         super(CDiscountSellerLoginCollector.CONFIG);
     }

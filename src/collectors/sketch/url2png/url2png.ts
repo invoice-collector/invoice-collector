@@ -32,6 +32,9 @@ export class Url2pngCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Url2pngCollector class.
+     */
     constructor() {
         super(Url2pngCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class RepaDeutschlandGmbhCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RepaDeutschlandGmbhCollector class.
+     */
     constructor() {
         super(RepaDeutschlandGmbhCollector.CONFIG);
     }

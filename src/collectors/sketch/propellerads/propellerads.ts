@@ -32,6 +32,9 @@ export class PropelleradsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PropelleradsCollector class.
+     */
     constructor() {
         super(PropelleradsCollector.CONFIG);
     }

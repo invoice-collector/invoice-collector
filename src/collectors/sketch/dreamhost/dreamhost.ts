@@ -32,6 +32,9 @@ export class DreamhostCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DreamhostCollector class.
+     */
     constructor() {
         super(DreamhostCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class RelayAppCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RelayAppCollector class.
+     */
     constructor() {
         super(RelayAppCollector.CONFIG);
     }

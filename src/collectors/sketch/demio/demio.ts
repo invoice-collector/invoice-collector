@@ -32,6 +32,9 @@ export class DemioCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DemioCollector class.
+     */
     constructor() {
         super(DemioCollector.CONFIG);
     }

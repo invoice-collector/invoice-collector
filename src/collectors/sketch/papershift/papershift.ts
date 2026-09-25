@@ -32,6 +32,9 @@ export class PapershiftCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PapershiftCollector class.
+     */
     constructor() {
         super(PapershiftCollector.CONFIG);
     }

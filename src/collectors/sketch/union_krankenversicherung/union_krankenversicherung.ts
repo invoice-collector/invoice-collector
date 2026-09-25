@@ -32,6 +32,9 @@ export class UnionKrankenversicherungCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the UnionKrankenversicherungCollector class.
+     */
     constructor() {
         super(UnionKrankenversicherungCollector.CONFIG);
     }

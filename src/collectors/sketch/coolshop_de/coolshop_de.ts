@@ -32,6 +32,9 @@ export class CoolshopDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CoolshopDeCollector class.
+     */
     constructor() {
         super(CoolshopDeCollector.CONFIG);
     }

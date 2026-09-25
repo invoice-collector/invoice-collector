@@ -32,6 +32,9 @@ export class KomsaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KomsaCollector class.
+     */
     constructor() {
         super(KomsaCollector.CONFIG);
     }

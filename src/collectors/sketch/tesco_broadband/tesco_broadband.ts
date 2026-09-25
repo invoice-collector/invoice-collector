@@ -32,6 +32,9 @@ export class TescoBroadbandCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TescoBroadbandCollector class.
+     */
     constructor() {
         super(TescoBroadbandCollector.CONFIG);
     }

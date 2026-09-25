@@ -32,6 +32,9 @@ export class OfriCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OfriCollector class.
+     */
     constructor() {
         super(OfriCollector.CONFIG);
     }

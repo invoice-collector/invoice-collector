@@ -32,6 +32,9 @@ export class ReviewtrackersCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ReviewtrackersCollector class.
+     */
     constructor() {
         super(ReviewtrackersCollector.CONFIG);
     }

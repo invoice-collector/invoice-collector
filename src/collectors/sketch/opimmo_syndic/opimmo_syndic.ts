@@ -32,6 +32,9 @@ export class OpimmoSyndicCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OpimmoSyndicCollector class.
+     */
     constructor() {
         super(OpimmoSyndicCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class MyTelcomCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MyTelcomCollector class.
+     */
     constructor() {
         super(MyTelcomCollector.CONFIG);
     }

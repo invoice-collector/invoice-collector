@@ -32,6 +32,9 @@ export class TransgourmetAtCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TransgourmetAtCollector class.
+     */
     constructor() {
         super(TransgourmetAtCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class TopiCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TopiCollector class.
+     */
     constructor() {
         super(TopiCollector.CONFIG);
     }

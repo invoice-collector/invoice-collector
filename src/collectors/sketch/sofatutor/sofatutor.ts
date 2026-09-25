@@ -32,6 +32,9 @@ export class SofatutorCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SofatutorCollector class.
+     */
     constructor() {
         super(SofatutorCollector.CONFIG);
     }

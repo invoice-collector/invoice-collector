@@ -32,6 +32,9 @@ export class WewashCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WewashCollector class.
+     */
     constructor() {
         super(WewashCollector.CONFIG);
     }

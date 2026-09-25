@@ -32,6 +32,9 @@ export class EzoicCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EzoicCollector class.
+     */
     constructor() {
         super(EzoicCollector.CONFIG);
     }

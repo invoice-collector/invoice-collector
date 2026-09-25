@@ -32,6 +32,9 @@ export class ActindoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ActindoCollector class.
+     */
     constructor() {
         super(ActindoCollector.CONFIG);
     }

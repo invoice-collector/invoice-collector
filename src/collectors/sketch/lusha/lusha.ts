@@ -32,6 +32,9 @@ export class LushaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LushaCollector class.
+     */
     constructor() {
         super(LushaCollector.CONFIG);
     }

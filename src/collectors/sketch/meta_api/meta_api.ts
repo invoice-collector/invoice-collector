@@ -32,6 +32,9 @@ export class MetaApiCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MetaApiCollector class.
+     */
     constructor() {
         super(MetaApiCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class ViewegerSoftwareSuperadminCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ViewegerSoftwareSuperadminCollector class.
+     */
     constructor() {
         super(ViewegerSoftwareSuperadminCollector.CONFIG);
     }

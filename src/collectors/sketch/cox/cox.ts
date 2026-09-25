@@ -32,6 +32,9 @@ export class CoxCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CoxCollector class.
+     */
     constructor() {
         super(CoxCollector.CONFIG);
     }

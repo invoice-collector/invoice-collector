@@ -32,6 +32,9 @@ export class GoogleAdmobCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GoogleAdmobCollector class.
+     */
     constructor() {
         super(GoogleAdmobCollector.CONFIG);
     }

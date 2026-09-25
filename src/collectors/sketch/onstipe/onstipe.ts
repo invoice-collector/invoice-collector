@@ -32,6 +32,9 @@ export class OnstipeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OnstipeCollector class.
+     */
     constructor() {
         super(OnstipeCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class HkrWeltCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HkrWeltCollector class.
+     */
     constructor() {
         super(HkrWeltCollector.CONFIG);
     }

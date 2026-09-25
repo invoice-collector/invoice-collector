@@ -32,6 +32,9 @@ export class StadtwerkeHannoverEnercityCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StadtwerkeHannoverEnercityCollector class.
+     */
     constructor() {
         super(StadtwerkeHannoverEnercityCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class IkkDieInnovationskasseCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the IkkDieInnovationskasseCollector class.
+     */
     constructor() {
         super(IkkDieInnovationskasseCollector.CONFIG);
     }

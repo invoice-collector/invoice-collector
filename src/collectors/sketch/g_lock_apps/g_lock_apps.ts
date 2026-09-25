@@ -32,6 +32,9 @@ export class GLockAppsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GLockAppsCollector class.
+     */
     constructor() {
         super(GLockAppsCollector.CONFIG);
     }

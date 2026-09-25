@@ -32,6 +32,9 @@ export class GartenbauversicherungCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GartenbauversicherungCollector class.
+     */
     constructor() {
         super(GartenbauversicherungCollector.CONFIG);
     }

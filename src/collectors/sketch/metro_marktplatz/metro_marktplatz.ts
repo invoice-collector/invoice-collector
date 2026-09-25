@@ -32,6 +32,9 @@ export class MetroMarktplatzCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MetroMarktplatzCollector class.
+     */
     constructor() {
         super(MetroMarktplatzCollector.CONFIG);
     }

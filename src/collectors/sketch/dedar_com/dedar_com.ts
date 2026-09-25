@@ -32,6 +32,9 @@ export class DedarComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DedarComCollector class.
+     */
     constructor() {
         super(DedarComCollector.CONFIG);
     }

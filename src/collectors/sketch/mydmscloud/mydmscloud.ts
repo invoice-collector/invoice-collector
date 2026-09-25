@@ -32,6 +32,9 @@ export class MydmscloudCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MydmscloudCollector class.
+     */
     constructor() {
         super(MydmscloudCollector.CONFIG);
     }

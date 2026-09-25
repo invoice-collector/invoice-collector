@@ -32,6 +32,9 @@ export class UseberryCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the UseberryCollector class.
+     */
     constructor() {
         super(UseberryCollector.CONFIG);
     }

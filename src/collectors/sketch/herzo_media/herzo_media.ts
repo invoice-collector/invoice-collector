@@ -32,6 +32,9 @@ export class HerzoMediaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HerzoMediaCollector class.
+     */
     constructor() {
         super(HerzoMediaCollector.CONFIG);
     }

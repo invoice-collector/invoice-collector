@@ -32,6 +32,9 @@ export class SextantMonetiqueEspaceClientCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SextantMonetiqueEspaceClientCollector class.
+     */
     constructor() {
         super(SextantMonetiqueEspaceClientCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class InlineManualCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the InlineManualCollector class.
+     */
     constructor() {
         super(InlineManualCollector.CONFIG);
     }

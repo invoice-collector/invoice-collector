@@ -32,6 +32,9 @@ export class ReallySimplePluginsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ReallySimplePluginsCollector class.
+     */
     constructor() {
         super(ReallySimplePluginsCollector.CONFIG);
     }

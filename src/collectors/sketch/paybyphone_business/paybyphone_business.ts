@@ -32,6 +32,9 @@ export class PaybyphoneBusinessCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PaybyphoneBusinessCollector class.
+     */
     constructor() {
         super(PaybyphoneBusinessCollector.CONFIG);
     }

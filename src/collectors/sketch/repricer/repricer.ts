@@ -32,6 +32,9 @@ export class RepricerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RepricerCollector class.
+     */
     constructor() {
         super(RepricerCollector.CONFIG);
     }

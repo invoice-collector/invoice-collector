@@ -32,6 +32,9 @@ export class AushaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AushaCollector class.
+     */
     constructor() {
         super(AushaCollector.CONFIG);
     }

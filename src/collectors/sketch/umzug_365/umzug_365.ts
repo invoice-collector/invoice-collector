@@ -32,6 +32,9 @@ export class Umzug365Collector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Umzug365Collector class.
+     */
     constructor() {
         super(Umzug365Collector.CONFIG);
     }

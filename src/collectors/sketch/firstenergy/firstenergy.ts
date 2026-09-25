@@ -32,6 +32,9 @@ export class FirstenergyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FirstenergyCollector class.
+     */
     constructor() {
         super(FirstenergyCollector.CONFIG);
     }

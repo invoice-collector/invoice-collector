@@ -32,6 +32,9 @@ export class CdfolieCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CdfolieCollector class.
+     */
     constructor() {
         super(CdfolieCollector.CONFIG);
     }

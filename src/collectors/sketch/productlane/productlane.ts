@@ -32,6 +32,9 @@ export class ProductlaneCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ProductlaneCollector class.
+     */
     constructor() {
         super(ProductlaneCollector.CONFIG);
     }

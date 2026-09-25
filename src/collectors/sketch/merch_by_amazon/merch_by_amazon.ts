@@ -32,6 +32,9 @@ export class MerchByAmazonCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MerchByAmazonCollector class.
+     */
     constructor() {
         super(MerchByAmazonCollector.CONFIG);
     }

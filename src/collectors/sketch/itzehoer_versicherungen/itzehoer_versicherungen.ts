@@ -32,6 +32,9 @@ export class ItzehoerVersicherungenCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ItzehoerVersicherungenCollector class.
+     */
     constructor() {
         super(ItzehoerVersicherungenCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class SoniaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SoniaCollector class.
+     */
     constructor() {
         super(SoniaCollector.CONFIG);
     }

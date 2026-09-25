@@ -32,6 +32,9 @@ export class J2GlobalEfaxServicesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the J2GlobalEfaxServicesCollector class.
+     */
     constructor() {
         super(J2GlobalEfaxServicesCollector.CONFIG);
     }

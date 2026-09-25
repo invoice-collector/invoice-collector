@@ -32,6 +32,9 @@ export class LanoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LanoCollector class.
+     */
     constructor() {
         super(LanoCollector.CONFIG);
     }

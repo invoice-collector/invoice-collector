@@ -32,6 +32,9 @@ export class NaturgyGasCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NaturgyGasCollector class.
+     */
     constructor() {
         super(NaturgyGasCollector.CONFIG);
     }

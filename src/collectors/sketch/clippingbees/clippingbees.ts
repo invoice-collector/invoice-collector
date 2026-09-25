@@ -32,6 +32,9 @@ export class ClippingbeesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ClippingbeesCollector class.
+     */
     constructor() {
         super(ClippingbeesCollector.CONFIG);
     }

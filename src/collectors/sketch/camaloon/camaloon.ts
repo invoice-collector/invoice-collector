@@ -32,6 +32,9 @@ export class CamaloonCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CamaloonCollector class.
+     */
     constructor() {
         super(CamaloonCollector.CONFIG);
     }

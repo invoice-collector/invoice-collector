@@ -32,6 +32,9 @@ export class MisterhorseCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MisterhorseCollector class.
+     */
     constructor() {
         super(MisterhorseCollector.CONFIG);
     }

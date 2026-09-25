@@ -31,6 +31,9 @@ export class HiscoxCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HiscoxCollector class.
+     */
     constructor() {
         super(HiscoxCollector.CONFIG);
     }

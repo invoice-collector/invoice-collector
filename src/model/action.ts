@@ -21,6 +21,12 @@ export enum ActionEnum  {
 
 export abstract class Action<Context, Result> {
 
+    /**
+     * Builds an Action instance from a plain object.
+     * @param obj The plain object representing the action.
+     * @returns An instance of the corresponding Action subclass.
+     * @throws An error if the object does not correspond to a known action.
+     */
     static fromObject(obj: any): Action<any, any> {
         switch (obj.action) {
             case ActionEnum.LEFT_CLICK:
@@ -46,6 +52,12 @@ export abstract class Action<Context, Result> {
         }
     }
 
+    /**
+     * Performs a sequence of actions in the given context.
+     * @param actions The sequence of actions to perform.
+     * @param context The context in which to perform the actions.
+     * @returns The result of the first action that produces a result, or undefined if no result is produced.
+     */
     static async performActions(actions: Action<any, any>[], context: any): Promise<any> {
         for(const action of actions) {
             const result = await action.perform(context);
@@ -62,6 +74,14 @@ export abstract class Action<Context, Result> {
     args: any;
     cssSelector?: string;
 
+    /**
+     * Constructs an instance of the Action class.
+     * @param action The type of action.
+     * @param description A description of the action.
+     * @param location The location where the action is to be performed.
+     * @param args The arguments required for the action.
+     * @param cssSelector The CSS selector to locate the element for the action, if applicable.
+     */
     constructor(action: ActionEnum, description: string, location: string, args: any, cssSelector?: string) {
         this.action = action;
         this.description = description;
@@ -70,6 +90,11 @@ export abstract class Action<Context, Result> {
         this.cssSelector = cssSelector;
     }
 
+    /**
+     * Gets the element corresponding to the action's CSS selector using the provided driver.
+     * @param driver The driver used to locate the element.
+     * @returns The element corresponding to the action's CSS selector.
+     */
     protected async getElement(driver: AbstractDriver): Promise<Element> {
         let element: Element | null;
         // If we have cssSelector, use it
@@ -92,6 +117,11 @@ export abstract class Action<Context, Result> {
         return element;
     }
 
+    /**
+     * Performs the action in the given context.
+     * @param context The context in which to perform the action.
+     * @returns The result of performing the action.
+     */
     async perform(context: Context): Promise<Result> {
         try {
             return await this._perform(context);
@@ -106,7 +136,17 @@ export abstract class Action<Context, Result> {
         }
     }
 
+    /**
+     * Performs the action in the given context.
+     * @param context The context in which to perform the action.
+     * @returns The result of performing the action.
+     */
     abstract _perform(context: Context): Promise<Result>;
+
+    /**
+     * Returns a string representation of the action.
+     * @returns A string describing the action.
+     */
     abstract toString(): string;
 }
 
@@ -117,6 +157,13 @@ export type LeftClickContext = {
 
 export class LeftClickAction extends Action<LeftClickContext, void> {
 
+    /**
+     * Constructs a new LeftClickAction.
+     * @param description A description of the action.
+     * @param location The location where the action is performed.
+     * @param args Additional arguments for the action.
+     * @param cssSelector The CSS selector used to locate the element (optional).
+     */
     constructor(description: string, location: string, args: any, cssSelector?: string) {
         // args should have 'navigation' field
         if(!args.hasOwnProperty('navigation')) {
@@ -126,6 +173,9 @@ export class LeftClickAction extends Action<LeftClickContext, void> {
         super(ActionEnum.LEFT_CLICK, description, location, args, cssSelector);
     }
 
+    /**
+     * @inheritdoc
+     */
     async _perform(context: LeftClickContext): Promise<void> {
         if(context.element) {
             // Perform left click on provided element
@@ -142,6 +192,9 @@ export class LeftClickAction extends Action<LeftClickContext, void> {
         }
     }
 
+    /**
+     * @inheritdoc
+     */
     toString(): string {
         return `Left click on ${this.description}`;
     }
@@ -153,10 +206,21 @@ export type MiddleClickContext = {
 }
 
 export class MiddleClickAction extends Action<MiddleClickContext, void> {
+
+    /**
+     * Constructs a new MiddleClickAction.
+     * @param description A description of the action.
+     * @param location The location where the action is performed.
+     * @param args Additional arguments for the action.
+     * @param cssSelector The CSS selector used to locate the element (optional).
+     */
     constructor(description: string, location: string, args: any, cssSelector?: string) {
         super(ActionEnum.MIDDLE_CLICK, description, location, args, cssSelector);
     }
 
+    /**
+     * @inheritdoc
+     */
     async _perform(context: MiddleClickContext): Promise<void> {
         const element: Element = context.element || await this.getElement(context.driver);
         
@@ -170,6 +234,9 @@ export class MiddleClickAction extends Action<MiddleClickContext, void> {
         context.element = undefined;
     }
 
+    /**
+     * @inheritdoc
+     */
     toString(): string {
         return `Middle click on ${this.description}`;
     }
@@ -181,6 +248,14 @@ export type InputTextContext = {
 }
 
 export class InputTextAction extends Action<InputTextContext, void> {
+
+    /**
+     * Constructs a new InputTextAction.
+     * @param description A description of the action.
+     * @param location The location where the action is performed.
+     * @param args Additional arguments for the action.
+     * @param cssSelector The CSS selector used to locate the element (optional).
+     */
     constructor(description: string, location: string, args: any, cssSelector?: string) {
         // args should have 'text' field
         if(!args.hasOwnProperty('text')) {
@@ -194,6 +269,9 @@ export class InputTextAction extends Action<InputTextContext, void> {
         super(ActionEnum.INPUT_TEXT, description, location, args, cssSelector);
     }
 
+    /**
+     * @inheritdoc
+     */
     async _perform(context: InputTextContext): Promise<void> {
         // If parameter exists
         if(!context.params.hasOwnProperty(this.args.text)) {
@@ -206,6 +284,9 @@ export class InputTextAction extends Action<InputTextContext, void> {
             }, context.params[this.args.text], this.args);
     }
 
+    /**
+     * @inheritdoc
+     */
     toString(): string {
         return `Input ${this.args.text} into field ${this.description}`;
     }
@@ -216,6 +297,14 @@ export type GetTextContentContext = {
 }
 
 export class GetTextContentAction extends Action<GetTextContentContext, string> {
+
+    /**
+     * Constructs a new GetTextContentAction.
+     * @param description A description of the action.
+     * @param location The location where the action is performed.
+     * @param args Additional arguments for the action.
+     * @param cssSelector The CSS selector used to locate the element (optional).
+     */
     constructor(description: string, location: string, args: any, cssSelector?: string) {
         // args should have 'default' field
         if(!args.hasOwnProperty('default')) {
@@ -229,11 +318,17 @@ export class GetTextContentAction extends Action<GetTextContentContext, string> 
         super(ActionEnum.GET_TEXT_CONTENT, description, location, args, cssSelector);
     }
 
+    /**
+     * @inheritdoc
+     */
     async _perform(context: GetTextContentContext): Promise<string> {
         const element: Element = await this.getElement(context.driver);
         return await element.textContent(this.args.default);
     }
 
+    /**
+     * @inheritdoc
+     */
     toString(): string {
         return `Get text content from field ${this.description}`;
     }
@@ -246,6 +341,14 @@ export type InputTwofaContext = {
 }
 
 export class InputTwofaAction extends Action<InputTwofaContext, void> {
+
+    /**
+     * Constructs a new InputTwofaAction.
+     * @param description A description of the action.
+     * @param location The location where the action is performed.
+     * @param args Additional arguments for the action.
+     * @param cssSelector The CSS selector used to locate the element (optional).
+     */
     constructor(description: string, location: string, args: any, cssSelector?: string) {
         // Check if cssSelector is provided
         if (!cssSelector) {
@@ -254,6 +357,9 @@ export class InputTwofaAction extends Action<InputTwofaContext, void> {
         super(ActionEnum.INPUT_2FA_CODE, description, location, args, cssSelector);
     }
 
+    /**
+     * @inheritdoc
+     */
     async _perform(context: InputTwofaContext): Promise<void> {
         // Get 2fa code
         const code = await Promise.race([context.twofaPromise.code(), context.webSocketServer.getTwofa()]);
@@ -262,6 +368,9 @@ export class InputTwofaAction extends Action<InputTwofaContext, void> {
         await element.inputText(code, this.args);
     }
 
+    /**
+     * @inheritdoc
+     */
     toString(): string {
         return `Input 2fa code into field ${this.description}`;
     }
@@ -272,6 +381,14 @@ export type GetTwofaInstructionsContext = {
 }
 
 export class GetTwofaInstructionsAction extends Action<GetTwofaInstructionsContext, string | void> {
+
+    /**
+     * Constructs a new GetTwofaInstructionsAction.
+     * @param description A description of the action.
+     * @param location The location where the action is performed.
+     * @param args Additional arguments for the action.
+     * @param cssSelector The CSS selector used to locate the element (optional).
+     */
     constructor(description: string, location: string, args: any, cssSelector?: string) {
         // args should have 'default' field
         if(!args.hasOwnProperty('default')) {
@@ -285,6 +402,9 @@ export class GetTwofaInstructionsAction extends Action<GetTwofaInstructionsConte
         super(ActionEnum.GET_TWOFA_INSTRUCTIONS, description, location, args, cssSelector);
     }
 
+    /**
+     * @inheritdoc
+     */
     async _perform(context: GetTwofaInstructionsContext): Promise<string | void> {
         try {
             const element: Element = await this.getElement(context.driver);
@@ -297,6 +417,9 @@ export class GetTwofaInstructionsAction extends Action<GetTwofaInstructionsConte
         }
     }
 
+    /**
+     * @inheritdoc
+     */
     toString(): string {
         return `Get 2fa instructions text ${this.description}`;
     }
@@ -307,6 +430,14 @@ export type GetInvoicesContext = {
 }
 
 export class GetInvoicesAction extends Action<GetInvoicesContext, Element[]> {
+
+    /**
+     * Constructs a new GetInvoicesAction.
+     * @param description A description of the action.
+     * @param location The location where the action is performed.
+     * @param args Additional arguments for the action.
+     * @param cssSelector The CSS selector used to locate the element (optional).
+     */
     constructor(description: string, location: string, args: any, cssSelector?: string) {
         // Check if cssSelector is provided
         if (!cssSelector) {
@@ -315,6 +446,9 @@ export class GetInvoicesAction extends Action<GetInvoicesContext, Element[]> {
         super(ActionEnum.GET_INVOICES, description, location, args, cssSelector);
     }
 
+    /**
+     * @inheritdoc
+     */
     async _perform(context: GetInvoicesContext): Promise<Element[]> {
         return await context.driver.getElements({
             selector: this.cssSelector,
@@ -322,6 +456,9 @@ export class GetInvoicesAction extends Action<GetInvoicesContext, Element[]> {
         });
     }
 
+    /**
+     * @inheritdoc
+     */
     toString(): string {
         return 'Get invoices elements';
     }
@@ -333,6 +470,14 @@ export type ExtractInvoiceDataContext = {
 }
 
 export class ExtractInvoiceDataAction extends Action<ExtractInvoiceDataContext, Invoice> {
+
+    /**
+     * Constructs a new ExtractInvoiceDataAction.
+     * @param description A description of the action.
+     * @param location The location where the action is performed.
+     * @param args Additional arguments for the action.
+     * @param cssSelector The CSS selector used to locate the element (optional).
+     */
     constructor(description: string, location: string, args: any, cssSelector?: string) {
         // args should have 'least id' or 'amount' fields
         if(!args.hasOwnProperty('id') && !args.hasOwnProperty('amount')) {
@@ -350,6 +495,9 @@ export class ExtractInvoiceDataAction extends Action<ExtractInvoiceDataContext, 
         super(ActionEnum.EXTRACT_INVOICE_DATA, description, location, args, cssSelector);
     }
 
+    /**
+     * @inheritdoc
+     */
     async _perform(context: ExtractInvoiceDataContext): Promise<Invoice> {
         const link = await context.driver.url();
         const date = await context.element.getAttribute({selector: this.args.date.cssSelector, info: 'date'}, this.args.date.attribute || 'textContent');
@@ -384,6 +532,9 @@ export class ExtractInvoiceDataAction extends Action<ExtractInvoiceDataContext, 
         };
     }
 
+    /**
+     * @inheritdoc
+     */
     toString(): string {
         return 'Extract invoice data';
     }
@@ -394,6 +545,14 @@ export type RaiseErrorContext = {
 }
 
 export class RaiseErrorIfDisplayed extends Action<RaiseErrorContext, void> {
+
+    /**
+     * Constructs a new RaiseErrorIfDisplayed action.
+     * @param description A description of the action.
+     * @param location The location where the action is performed.
+     * @param args Additional arguments for the action.
+     * @param cssSelector The CSS selector used to locate the element (optional).
+     */
     constructor(description: string, location: string, args: any, cssSelector?: string) {
         // args should have 'default' field
         if(!args.hasOwnProperty('default')) {
@@ -406,6 +565,9 @@ export class RaiseErrorIfDisplayed extends Action<RaiseErrorContext, void> {
         super(ActionEnum.RAISE_ERROR_IF_DISPLAYED, description, location, args, cssSelector);
     }
 
+    /**
+     * @inheritdoc
+     */
     async _perform(context: RaiseErrorContext): Promise<void> {
         // Get element from cssSelector
         const element = await context.driver.getElement({
@@ -421,7 +583,10 @@ export class RaiseErrorIfDisplayed extends Action<RaiseErrorContext, void> {
         }
     }
 
+    /**
+     * @inheritdoc
+     */
     toString(): string {
-        return 'Extract invoice data';
+        return 'Raise error if displayed';
     }
 }

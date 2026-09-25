@@ -32,6 +32,9 @@ export class LOpinionCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LOpinionCollector class.
+     */
     constructor() {
         super(LOpinionCollector.CONFIG);
     }

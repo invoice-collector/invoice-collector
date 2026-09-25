@@ -32,6 +32,9 @@ export class DacorCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DacorCollector class.
+     */
     constructor() {
         super(DacorCollector.CONFIG);
     }

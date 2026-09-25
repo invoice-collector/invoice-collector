@@ -32,6 +32,9 @@ export class StrelixCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StrelixCollector class.
+     */
     constructor() {
         super(StrelixCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class FluiduiComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FluiduiComCollector class.
+     */
     constructor() {
         super(FluiduiComCollector.CONFIG);
     }

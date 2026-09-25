@@ -32,6 +32,9 @@ export class SalzburgAgCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SalzburgAgCollector class.
+     */
     constructor() {
         super(SalzburgAgCollector.CONFIG);
     }

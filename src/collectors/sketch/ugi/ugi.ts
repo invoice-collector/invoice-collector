@@ -32,6 +32,9 @@ export class UgiCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the UgiCollector class.
+     */
     constructor() {
         super(UgiCollector.CONFIG);
     }

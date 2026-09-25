@@ -32,6 +32,9 @@ export class MailjetCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MailjetCollector class.
+     */
     constructor() {
         super(MailjetCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class LuminatiCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LuminatiCollector class.
+     */
     constructor() {
         super(LuminatiCollector.CONFIG);
     }

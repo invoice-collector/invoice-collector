@@ -32,6 +32,9 @@ export class LightspeedhqCoUkCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LightspeedhqCoUkCollector class.
+     */
     constructor() {
         super(LightspeedhqCoUkCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class EmbaleoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EmbaleoCollector class.
+     */
     constructor() {
         super(EmbaleoCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class SellerinvestigatorsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SellerinvestigatorsCollector class.
+     */
     constructor() {
         super(SellerinvestigatorsCollector.CONFIG);
     }

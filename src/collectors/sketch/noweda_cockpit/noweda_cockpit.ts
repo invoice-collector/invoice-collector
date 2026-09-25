@@ -32,6 +32,9 @@ export class NowedaCockpitCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NowedaCockpitCollector class.
+     */
     constructor() {
         super(NowedaCockpitCollector.CONFIG);
     }

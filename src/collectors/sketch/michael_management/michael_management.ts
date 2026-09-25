@@ -32,6 +32,9 @@ export class MichaelManagementCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MichaelManagementCollector class.
+     */
     constructor() {
         super(MichaelManagementCollector.CONFIG);
     }

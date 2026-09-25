@@ -32,6 +32,9 @@ export class EtepeteteCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EtepeteteCollector class.
+     */
     constructor() {
         super(EtepeteteCollector.CONFIG);
     }

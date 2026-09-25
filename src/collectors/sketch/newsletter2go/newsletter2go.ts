@@ -32,6 +32,9 @@ export class Newsletter2goCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Newsletter2goCollector class.
+     */
     constructor() {
         super(Newsletter2goCollector.CONFIG);
     }

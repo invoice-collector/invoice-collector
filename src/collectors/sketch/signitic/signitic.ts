@@ -32,6 +32,9 @@ export class SigniticCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SigniticCollector class.
+     */
     constructor() {
         super(SigniticCollector.CONFIG);
     }

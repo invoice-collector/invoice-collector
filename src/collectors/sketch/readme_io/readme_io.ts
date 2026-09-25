@@ -32,6 +32,9 @@ export class ReadmeIoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ReadmeIoCollector class.
+     */
     constructor() {
         super(ReadmeIoCollector.CONFIG);
     }

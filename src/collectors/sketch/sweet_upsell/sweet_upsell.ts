@@ -32,6 +32,9 @@ export class SweetUpsellCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SweetUpsellCollector class.
+     */
     constructor() {
         super(SweetUpsellCollector.CONFIG);
     }

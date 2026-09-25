@@ -32,6 +32,9 @@ export class ZerobounceCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ZerobounceCollector class.
+     */
     constructor() {
         super(ZerobounceCollector.CONFIG);
     }

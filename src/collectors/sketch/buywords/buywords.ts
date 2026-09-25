@@ -32,6 +32,9 @@ export class BuywordsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BuywordsCollector class.
+     */
     constructor() {
         super(BuywordsCollector.CONFIG);
     }

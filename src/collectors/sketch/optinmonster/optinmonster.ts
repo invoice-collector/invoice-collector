@@ -32,6 +32,9 @@ export class OptinmonsterCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OptinmonsterCollector class.
+     */
     constructor() {
         super(OptinmonsterCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class ViessmannCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ViessmannCollector class.
+     */
     constructor() {
         super(ViessmannCollector.CONFIG);
     }

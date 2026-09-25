@@ -32,6 +32,9 @@ export class EvoswitchCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EvoswitchCollector class.
+     */
     constructor() {
         super(EvoswitchCollector.CONFIG);
     }

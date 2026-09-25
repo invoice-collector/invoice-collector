@@ -32,6 +32,9 @@ export class RemediaHomoeopathieCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RemediaHomoeopathieCollector class.
+     */
     constructor() {
         super(RemediaHomoeopathieCollector.CONFIG);
     }

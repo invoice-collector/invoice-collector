@@ -56,10 +56,22 @@ export const MicrosoftOauth2Selectors = {
 
 export class MicrosoftOauth2 {
 
+    /**
+     * Checks if the current page requires Microsoft OAuth2 login.
+     * @param driver The driver instance used to interact with the web page.
+     * @returns A boolean indicating whether the login page is displayed.
+     */
     static check(driver: AbstractDriver): boolean {
         return driver.url().includes('login.live.com/oauth2');
     }
 
+    /**
+     * Performs the Microsoft OAuth2 login process.
+     * @param driver The driver instance used to interact with the web page.
+     * @param params The login parameters, including email and password.
+     * @param webSocketServer The WebSocket server instance for communication, if any.
+     * @returns A string containing an error message if login fails, or void if successful.
+     */
     static async login(driver: AbstractDriver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
         if(MicrosoftOauth2.check(driver)) {
             // Display other authentication methods if the button is displayed
@@ -92,6 +104,11 @@ export class MicrosoftOauth2 {
         }
     }
 
+    /**
+     * Performs the two-factor authentication (2FA) process for Microsoft OAuth2.
+     * @param driver The driver instance used to interact with the web page.
+     * @returns A string containing the 2FA instructions if 2FA is required, or void otherwise.
+     */
     static async needTwofa(driver: AbstractDriver): Promise<string | void> {
         if(MicrosoftOauth2.check(driver)) {
             // Click send notification button
@@ -103,6 +120,14 @@ export class MicrosoftOauth2 {
         }
     }
 
+    /**
+     * Performs the two-factor authentication (2FA) process for Microsoft OAuth2.
+     * @param driver The driver instance used to interact with the web page.
+     * @param params The login parameters, including email and password.
+     * @param twofa_promise The promise that resolves with the 2FA code.
+     * @param webSocketServer The WebSocket server instance for communication, if any.
+     * @returns A string containing an error message if 2FA fails, or void if successful.
+     */
     static async twofa(driver: AbstractDriver, params: any, twofa_promise: TwofaPromise, webSocketServer: WebSocketServer): Promise<string | void> {
         if(MicrosoftOauth2.check(driver)) {
             // Get code from UI

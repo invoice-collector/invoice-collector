@@ -32,6 +32,9 @@ export class MachDuDasCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MachDuDasCollector class.
+     */
     constructor() {
         super(MachDuDasCollector.CONFIG);
     }

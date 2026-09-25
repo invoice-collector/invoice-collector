@@ -32,6 +32,9 @@ export class MetricoolCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MetricoolCollector class.
+     */
     constructor() {
         super(MetricoolCollector.CONFIG);
     }

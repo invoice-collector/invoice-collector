@@ -32,6 +32,9 @@ export class TracklyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TracklyCollector class.
+     */
     constructor() {
         super(TracklyCollector.CONFIG);
     }

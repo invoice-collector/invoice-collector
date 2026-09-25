@@ -32,6 +32,9 @@ export class DmcaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DmcaCollector class.
+     */
     constructor() {
         super(DmcaCollector.CONFIG);
     }

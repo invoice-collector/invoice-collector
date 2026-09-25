@@ -32,6 +32,9 @@ export class TanatCoffeeKawaProCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TanatCoffeeKawaProCollector class.
+     */
     constructor() {
         super(TanatCoffeeKawaProCollector.CONFIG);
     }

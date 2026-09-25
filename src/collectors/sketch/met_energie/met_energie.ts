@@ -32,6 +32,9 @@ export class MetEnergieCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MetEnergieCollector class.
+     */
     constructor() {
         super(MetEnergieCollector.CONFIG);
     }

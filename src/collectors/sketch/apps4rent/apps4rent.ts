@@ -32,6 +32,9 @@ export class Apps4rentCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Apps4rentCollector class.
+     */
     constructor() {
         super(Apps4rentCollector.CONFIG);
     }

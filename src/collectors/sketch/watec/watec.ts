@@ -32,6 +32,9 @@ export class WatecCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WatecCollector class.
+     */
     constructor() {
         super(WatecCollector.CONFIG);
     }

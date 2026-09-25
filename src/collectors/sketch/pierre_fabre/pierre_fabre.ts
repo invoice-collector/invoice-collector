@@ -32,6 +32,9 @@ export class PierreFabreCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PierreFabreCollector class.
+     */
     constructor() {
         super(PierreFabreCollector.CONFIG);
     }

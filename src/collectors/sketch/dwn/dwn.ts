@@ -32,6 +32,9 @@ export class DwnCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DwnCollector class.
+     */
     constructor() {
         super(DwnCollector.CONFIG);
     }

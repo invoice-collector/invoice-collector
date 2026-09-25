@@ -32,6 +32,9 @@ export class GruGainesvilleRegionalUtilitiesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GruGainesvilleRegionalUtilitiesCollector class.
+     */
     constructor() {
         super(GruGainesvilleRegionalUtilitiesCollector.CONFIG);
     }

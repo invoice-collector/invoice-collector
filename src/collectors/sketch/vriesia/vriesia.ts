@@ -32,6 +32,9 @@ export class VriesiaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VriesiaCollector class.
+     */
     constructor() {
         super(VriesiaCollector.CONFIG);
     }

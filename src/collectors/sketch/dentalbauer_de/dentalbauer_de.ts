@@ -32,6 +32,9 @@ export class DentalbauerDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DentalbauerDeCollector class.
+     */
     constructor() {
         super(DentalbauerDeCollector.CONFIG);
     }

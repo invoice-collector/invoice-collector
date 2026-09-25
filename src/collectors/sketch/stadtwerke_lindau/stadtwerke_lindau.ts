@@ -32,6 +32,9 @@ export class StadtwerkeLindauCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StadtwerkeLindauCollector class.
+     */
     constructor() {
         super(StadtwerkeLindauCollector.CONFIG);
     }

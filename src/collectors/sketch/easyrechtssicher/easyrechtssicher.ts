@@ -32,6 +32,9 @@ export class EasyrechtssicherCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EasyrechtssicherCollector class.
+     */
     constructor() {
         super(EasyrechtssicherCollector.CONFIG);
     }

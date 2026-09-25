@@ -32,6 +32,9 @@ export class NexudusCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NexudusCollector class.
+     */
     constructor() {
         super(NexudusCollector.CONFIG);
     }

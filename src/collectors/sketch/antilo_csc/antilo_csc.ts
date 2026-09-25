@@ -32,6 +32,9 @@ export class AntiloCscCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AntiloCscCollector class.
+     */
     constructor() {
         super(AntiloCscCollector.CONFIG);
     }

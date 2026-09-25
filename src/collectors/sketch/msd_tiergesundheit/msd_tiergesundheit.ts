@@ -32,6 +32,9 @@ export class MsdTiergesundheitCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MsdTiergesundheitCollector class.
+     */
     constructor() {
         super(MsdTiergesundheitCollector.CONFIG);
     }

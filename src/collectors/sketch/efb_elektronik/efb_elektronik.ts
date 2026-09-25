@@ -32,6 +32,9 @@ export class EfbElektronikCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EfbElektronikCollector class.
+     */
     constructor() {
         super(EfbElektronikCollector.CONFIG);
     }

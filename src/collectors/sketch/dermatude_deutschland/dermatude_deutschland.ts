@@ -32,6 +32,9 @@ export class DermatudeDeutschlandCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DermatudeDeutschlandCollector class.
+     */
     constructor() {
         super(DermatudeDeutschlandCollector.CONFIG);
     }

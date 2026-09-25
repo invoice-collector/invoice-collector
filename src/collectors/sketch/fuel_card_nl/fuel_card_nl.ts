@@ -32,6 +32,9 @@ export class FuelCardNlCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FuelCardNlCollector class.
+     */
     constructor() {
         super(FuelCardNlCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class PivasoftCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PivasoftCollector class.
+     */
     constructor() {
         super(PivasoftCollector.CONFIG);
     }

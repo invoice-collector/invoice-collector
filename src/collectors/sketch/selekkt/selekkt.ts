@@ -32,6 +32,9 @@ export class SelekktCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SelekktCollector class.
+     */
     constructor() {
         super(SelekktCollector.CONFIG);
     }

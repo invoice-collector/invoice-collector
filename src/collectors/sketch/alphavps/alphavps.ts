@@ -32,6 +32,9 @@ export class AlphavpsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AlphavpsCollector class.
+     */
     constructor() {
         super(AlphavpsCollector.CONFIG);
     }

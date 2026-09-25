@@ -32,6 +32,9 @@ export class StadtwerkAmSeeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StadtwerkAmSeeCollector class.
+     */
     constructor() {
         super(StadtwerkAmSeeCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class RepublicServicesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RepublicServicesCollector class.
+     */
     constructor() {
         super(RepublicServicesCollector.CONFIG);
     }

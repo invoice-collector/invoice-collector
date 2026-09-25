@@ -32,6 +32,9 @@ export class DatahawkCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DatahawkCollector class.
+     */
     constructor() {
         super(DatahawkCollector.CONFIG);
     }

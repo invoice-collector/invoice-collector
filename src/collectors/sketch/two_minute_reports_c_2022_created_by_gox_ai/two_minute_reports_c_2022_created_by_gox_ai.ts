@@ -32,6 +32,9 @@ export class TwoMinuteReportsC2022CreatedByGoxAiCollector extends SketchCollecto
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TwoMinuteReportsC2022CreatedByGoxAiCollector class.
+     */
     constructor() {
         super(TwoMinuteReportsC2022CreatedByGoxAiCollector.CONFIG);
     }

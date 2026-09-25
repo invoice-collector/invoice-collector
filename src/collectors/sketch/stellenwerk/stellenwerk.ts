@@ -32,6 +32,9 @@ export class StellenwerkCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StellenwerkCollector class.
+     */
     constructor() {
         super(StellenwerkCollector.CONFIG);
     }

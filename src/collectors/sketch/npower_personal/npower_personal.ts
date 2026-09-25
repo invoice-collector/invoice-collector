@@ -32,6 +32,9 @@ export class NpowerPersonalCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NpowerPersonalCollector class.
+     */
     constructor() {
         super(NpowerPersonalCollector.CONFIG);
     }

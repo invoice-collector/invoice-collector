@@ -32,6 +32,9 @@ export class UizardCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the UizardCollector class.
+     */
     constructor() {
         super(UizardCollector.CONFIG);
     }

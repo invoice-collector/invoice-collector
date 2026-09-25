@@ -32,6 +32,9 @@ export class AzurtemCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AzurtemCollector class.
+     */
     constructor() {
         super(AzurtemCollector.CONFIG);
     }

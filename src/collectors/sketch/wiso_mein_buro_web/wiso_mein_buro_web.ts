@@ -32,6 +32,9 @@ export class WisoMeinBuroWebCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WisoMeinBuroWebCollector class.
+     */
     constructor() {
         super(WisoMeinBuroWebCollector.CONFIG);
     }

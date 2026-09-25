@@ -32,6 +32,9 @@ export class HenryScheinMedicalGmbhCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HenryScheinMedicalGmbhCollector class.
+     */
     constructor() {
         super(HenryScheinMedicalGmbhCollector.CONFIG);
     }

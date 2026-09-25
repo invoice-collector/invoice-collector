@@ -32,6 +32,9 @@ export class AppSmartCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AppSmartCollector class.
+     */
     constructor() {
         super(AppSmartCollector.CONFIG);
     }

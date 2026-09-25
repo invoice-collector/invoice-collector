@@ -32,6 +32,9 @@ export class _4dslDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the _4dslDeCollector class.
+     */
     constructor() {
         super(_4dslDeCollector.CONFIG);
     }

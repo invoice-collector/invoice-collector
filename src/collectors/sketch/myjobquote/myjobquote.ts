@@ -32,6 +32,9 @@ export class MyjobquoteCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MyjobquoteCollector class.
+     */
     constructor() {
         super(MyjobquoteCollector.CONFIG);
     }

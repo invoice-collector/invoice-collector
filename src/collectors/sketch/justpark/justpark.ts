@@ -32,6 +32,9 @@ export class JustparkCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the JustparkCollector class.
+     */
     constructor() {
         super(JustparkCollector.CONFIG);
     }

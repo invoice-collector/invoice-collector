@@ -32,6 +32,9 @@ export class OutsetaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OutsetaCollector class.
+     */
     constructor() {
         super(OutsetaCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class SklumCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SklumCollector class.
+     */
     constructor() {
         super(SklumCollector.CONFIG);
     }

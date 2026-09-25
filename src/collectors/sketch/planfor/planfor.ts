@@ -32,6 +32,9 @@ export class PlanforCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PlanforCollector class.
+     */
     constructor() {
         super(PlanforCollector.CONFIG);
     }

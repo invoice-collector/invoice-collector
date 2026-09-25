@@ -32,6 +32,9 @@ export class AfiniaByIahorroCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AfiniaByIahorroCollector class.
+     */
     constructor() {
         super(AfiniaByIahorroCollector.CONFIG);
     }

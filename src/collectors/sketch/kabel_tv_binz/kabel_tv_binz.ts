@@ -32,6 +32,9 @@ export class KabelTvBinzCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KabelTvBinzCollector class.
+     */
     constructor() {
         super(KabelTvBinzCollector.CONFIG);
     }

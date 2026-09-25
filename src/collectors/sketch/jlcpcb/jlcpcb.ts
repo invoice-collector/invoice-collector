@@ -32,6 +32,9 @@ export class JlcpcbCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the JlcpcbCollector class.
+     */
     constructor() {
         super(JlcpcbCollector.CONFIG);
     }

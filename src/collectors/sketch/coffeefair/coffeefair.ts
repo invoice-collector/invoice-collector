@@ -32,6 +32,9 @@ export class CoffeefairCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CoffeefairCollector class.
+     */
     constructor() {
         super(CoffeefairCollector.CONFIG);
     }

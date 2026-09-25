@@ -32,6 +32,9 @@ export class KcmKeywebCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KcmKeywebCollector class.
+     */
     constructor() {
         super(KcmKeywebCollector.CONFIG);
     }

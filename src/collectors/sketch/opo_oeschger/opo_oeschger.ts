@@ -32,6 +32,9 @@ export class OpoOeschgerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OpoOeschgerCollector class.
+     */
     constructor() {
         super(OpoOeschgerCollector.CONFIG);
     }

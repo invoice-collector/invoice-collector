@@ -32,6 +32,9 @@ export class PaymentEvolutionPayevoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PaymentEvolutionPayevoCollector class.
+     */
     constructor() {
         super(PaymentEvolutionPayevoCollector.CONFIG);
     }

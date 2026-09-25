@@ -32,6 +32,9 @@ export class ZeplugCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ZeplugCollector class.
+     */
     constructor() {
         super(ZeplugCollector.CONFIG);
     }

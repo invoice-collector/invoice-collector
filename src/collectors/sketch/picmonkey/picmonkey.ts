@@ -32,6 +32,9 @@ export class PicmonkeyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PicmonkeyCollector class.
+     */
     constructor() {
         super(PicmonkeyCollector.CONFIG);
     }

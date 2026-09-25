@@ -32,6 +32,9 @@ export class StadtwerkeWaldkirchCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StadtwerkeWaldkirchCollector class.
+     */
     constructor() {
         super(StadtwerkeWaldkirchCollector.CONFIG);
     }

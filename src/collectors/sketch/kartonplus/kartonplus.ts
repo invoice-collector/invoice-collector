@@ -32,6 +32,9 @@ export class KartonplusCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KartonplusCollector class.
+     */
     constructor() {
         super(KartonplusCollector.CONFIG);
     }

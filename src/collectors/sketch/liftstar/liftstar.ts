@@ -32,6 +32,9 @@ export class LiftstarCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LiftstarCollector class.
+     */
     constructor() {
         super(LiftstarCollector.CONFIG);
     }

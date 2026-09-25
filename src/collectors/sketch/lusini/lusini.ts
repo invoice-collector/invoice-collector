@@ -32,6 +32,9 @@ export class LusiniCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LusiniCollector class.
+     */
     constructor() {
         super(LusiniCollector.CONFIG);
     }

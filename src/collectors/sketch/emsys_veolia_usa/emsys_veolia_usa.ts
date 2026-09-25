@@ -32,6 +32,9 @@ export class EmsysVeoliaUsaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EmsysVeoliaUsaCollector class.
+     */
     constructor() {
         super(EmsysVeoliaUsaCollector.CONFIG);
     }

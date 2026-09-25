@@ -32,6 +32,9 @@ export class BacklinkedCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BacklinkedCollector class.
+     */
     constructor() {
         super(BacklinkedCollector.CONFIG);
     }

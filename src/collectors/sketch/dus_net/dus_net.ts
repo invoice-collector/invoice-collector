@@ -32,6 +32,9 @@ export class DusNetCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DusNetCollector class.
+     */
     constructor() {
         super(DusNetCollector.CONFIG);
     }

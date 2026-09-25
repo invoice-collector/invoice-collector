@@ -21,6 +21,9 @@ export class OxylabsCollector extends EmailCollector {
         state: CollectorState.ACTIVE,
     };
 
+    /**
+     * Constructs a new instance of the OxylabsCollector class.
+     */
     constructor() {
         super(OxylabsCollector.CONFIG);
     }

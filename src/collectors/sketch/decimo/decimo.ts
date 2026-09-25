@@ -32,6 +32,9 @@ export class DecimoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DecimoCollector class.
+     */
     constructor() {
         super(DecimoCollector.CONFIG);
     }

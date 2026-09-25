@@ -32,6 +32,9 @@ export class RadiusvelocityCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RadiusvelocityCollector class.
+     */
     constructor() {
         super(RadiusvelocityCollector.CONFIG);
     }

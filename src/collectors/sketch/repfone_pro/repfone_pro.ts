@@ -32,6 +32,9 @@ export class RepfoneProCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RepfoneProCollector class.
+     */
     constructor() {
         super(RepfoneProCollector.CONFIG);
     }

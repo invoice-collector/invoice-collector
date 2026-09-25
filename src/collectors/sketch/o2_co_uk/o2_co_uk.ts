@@ -32,6 +32,9 @@ export class O2CoUkCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the O2CoUkCollector class.
+     */
     constructor() {
         super(O2CoUkCollector.CONFIG);
     }

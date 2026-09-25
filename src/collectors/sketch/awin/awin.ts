@@ -32,6 +32,9 @@ export class AwinCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AwinCollector class.
+     */
     constructor() {
         super(AwinCollector.CONFIG);
     }

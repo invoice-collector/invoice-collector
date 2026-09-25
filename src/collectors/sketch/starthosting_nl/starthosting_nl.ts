@@ -32,6 +32,9 @@ export class StarthostingNlCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StarthostingNlCollector class.
+     */
     constructor() {
         super(StarthostingNlCollector.CONFIG);
     }

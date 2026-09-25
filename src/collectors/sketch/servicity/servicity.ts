@@ -32,6 +32,9 @@ export class ServicityCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ServicityCollector class.
+     */
     constructor() {
         super(ServicityCollector.CONFIG);
     }

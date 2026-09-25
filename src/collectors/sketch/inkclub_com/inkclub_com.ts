@@ -32,6 +32,9 @@ export class InkclubComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the InkclubComCollector class.
+     */
     constructor() {
         super(InkclubComCollector.CONFIG);
     }

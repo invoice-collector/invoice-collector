@@ -32,6 +32,9 @@ export class Tc30Collector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Tc30Collector class.
+     */
     constructor() {
         super(Tc30Collector.CONFIG);
     }

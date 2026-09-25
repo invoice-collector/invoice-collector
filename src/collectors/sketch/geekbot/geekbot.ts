@@ -32,6 +32,9 @@ export class GeekbotCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GeekbotCollector class.
+     */
     constructor() {
         super(GeekbotCollector.CONFIG);
     }

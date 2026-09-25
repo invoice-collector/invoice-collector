@@ -32,6 +32,9 @@ export class TimeonePerformancePublisherCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TimeonePerformancePublisherCollector class.
+     */
     constructor() {
         super(TimeonePerformancePublisherCollector.CONFIG);
     }

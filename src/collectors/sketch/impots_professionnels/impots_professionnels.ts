@@ -32,6 +32,9 @@ export class ImpotsProfessionnelsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ImpotsProfessionnelsCollector class.
+     */
     constructor() {
         super(ImpotsProfessionnelsCollector.CONFIG);
     }

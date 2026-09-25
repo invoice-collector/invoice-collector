@@ -32,6 +32,9 @@ export class AgemiCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AgemiCollector class.
+     */
     constructor() {
         super(AgemiCollector.CONFIG);
     }

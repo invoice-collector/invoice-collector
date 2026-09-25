@@ -32,6 +32,9 @@ export class SvsEnergieCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SvsEnergieCollector class.
+     */
     constructor() {
         super(SvsEnergieCollector.CONFIG);
     }

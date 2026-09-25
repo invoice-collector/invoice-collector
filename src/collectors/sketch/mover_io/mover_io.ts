@@ -32,6 +32,9 @@ export class MoverIoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MoverIoCollector class.
+     */
     constructor() {
         super(MoverIoCollector.CONFIG);
     }

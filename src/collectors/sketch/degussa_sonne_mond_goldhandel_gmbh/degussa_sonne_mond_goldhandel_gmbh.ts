@@ -32,6 +32,9 @@ export class DegussaSonneMondGoldhandelGmbhCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DegussaSonneMondGoldhandelGmbhCollector class.
+     */
     constructor() {
         super(DegussaSonneMondGoldhandelGmbhCollector.CONFIG);
     }

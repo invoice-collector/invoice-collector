@@ -32,6 +32,9 @@ export class DoorbirdCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DoorbirdCollector class.
+     */
     constructor() {
         super(DoorbirdCollector.CONFIG);
     }

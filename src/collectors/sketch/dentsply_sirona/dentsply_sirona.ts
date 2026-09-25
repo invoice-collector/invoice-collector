@@ -32,6 +32,9 @@ export class DentsplySironaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DentsplySironaCollector class.
+     */
     constructor() {
         super(DentsplySironaCollector.CONFIG);
     }

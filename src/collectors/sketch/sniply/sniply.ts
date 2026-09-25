@@ -32,6 +32,9 @@ export class SniplyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SniplyCollector class.
+     */
     constructor() {
         super(SniplyCollector.CONFIG);
     }

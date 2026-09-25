@@ -32,6 +32,9 @@ export class AutoteileweltHandlerShopCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AutoteileweltHandlerShopCollector class.
+     */
     constructor() {
         super(AutoteileweltHandlerShopCollector.CONFIG);
     }

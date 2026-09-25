@@ -32,6 +32,9 @@ export class HhvCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HhvCollector class.
+     */
     constructor() {
         super(HhvCollector.CONFIG);
     }

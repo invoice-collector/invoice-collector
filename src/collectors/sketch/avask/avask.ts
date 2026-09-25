@@ -32,6 +32,9 @@ export class AvaskCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AvaskCollector class.
+     */
     constructor() {
         super(AvaskCollector.CONFIG);
     }

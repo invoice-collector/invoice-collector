@@ -32,6 +32,9 @@ export class TessolCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TessolCollector class.
+     */
     constructor() {
         super(TessolCollector.CONFIG);
     }

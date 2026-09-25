@@ -32,6 +32,9 @@ export class NovaScotiaPowerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NovaScotiaPowerCollector class.
+     */
     constructor() {
         super(NovaScotiaPowerCollector.CONFIG);
     }

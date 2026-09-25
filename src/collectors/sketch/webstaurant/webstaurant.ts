@@ -32,6 +32,9 @@ export class WebstaurantCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WebstaurantCollector class.
+     */
     constructor() {
         super(WebstaurantCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class DieEnergieCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DieEnergieCollector class.
+     */
     constructor() {
         super(DieEnergieCollector.CONFIG);
     }

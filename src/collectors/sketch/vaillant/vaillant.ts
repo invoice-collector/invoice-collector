@@ -32,6 +32,9 @@ export class VaillantCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VaillantCollector class.
+     */
     constructor() {
         super(VaillantCollector.CONFIG);
     }

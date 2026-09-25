@@ -32,6 +32,9 @@ export class ClipchampCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ClipchampCollector class.
+     */
     constructor() {
         super(ClipchampCollector.CONFIG);
     }

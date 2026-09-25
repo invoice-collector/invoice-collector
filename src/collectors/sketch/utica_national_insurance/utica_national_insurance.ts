@@ -32,6 +32,9 @@ export class UticaNationalInsuranceCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the UticaNationalInsuranceCollector class.
+     */
     constructor() {
         super(UticaNationalInsuranceCollector.CONFIG);
     }

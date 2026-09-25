@@ -32,6 +32,9 @@ export class GrenkebankDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GrenkebankDeCollector class.
+     */
     constructor() {
         super(GrenkebankDeCollector.CONFIG);
     }

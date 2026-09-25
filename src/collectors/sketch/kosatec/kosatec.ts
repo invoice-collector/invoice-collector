@@ -32,6 +32,9 @@ export class KosatecCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KosatecCollector class.
+     */
     constructor() {
         super(KosatecCollector.CONFIG);
     }

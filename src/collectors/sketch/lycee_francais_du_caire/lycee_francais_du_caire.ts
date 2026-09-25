@@ -32,6 +32,9 @@ export class LyceeFrancaisDuCaireCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LyceeFrancaisDuCaireCollector class.
+     */
     constructor() {
         super(LyceeFrancaisDuCaireCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class CreolineCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CreolineCollector class.
+     */
     constructor() {
         super(CreolineCollector.CONFIG);
     }

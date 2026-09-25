@@ -32,6 +32,9 @@ export class AdamHallCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AdamHallCollector class.
+     */
     constructor() {
         super(AdamHallCollector.CONFIG);
     }

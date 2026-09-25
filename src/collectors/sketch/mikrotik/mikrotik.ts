@@ -32,6 +32,9 @@ export class MikrotikCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MikrotikCollector class.
+     */
     constructor() {
         super(MikrotikCollector.CONFIG);
     }

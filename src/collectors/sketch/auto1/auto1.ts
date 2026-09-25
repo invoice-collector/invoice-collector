@@ -32,6 +32,9 @@ export class Auto1Collector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Auto1Collector class.
+     */
     constructor() {
         super(Auto1Collector.CONFIG);
     }

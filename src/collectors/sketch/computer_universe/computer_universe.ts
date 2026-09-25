@@ -32,6 +32,9 @@ export class ComputerUniverseCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ComputerUniverseCollector class.
+     */
     constructor() {
         super(ComputerUniverseCollector.CONFIG);
     }

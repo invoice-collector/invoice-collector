@@ -32,6 +32,9 @@ export class NewYorkTimesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NewYorkTimesCollector class.
+     */
     constructor() {
         super(NewYorkTimesCollector.CONFIG);
     }

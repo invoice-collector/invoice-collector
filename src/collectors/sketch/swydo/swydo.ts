@@ -32,6 +32,9 @@ export class SwydoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SwydoCollector class.
+     */
     constructor() {
         super(SwydoCollector.CONFIG);
     }

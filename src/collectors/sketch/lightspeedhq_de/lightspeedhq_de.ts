@@ -32,6 +32,9 @@ export class LightspeedhqDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LightspeedhqDeCollector class.
+     */
     constructor() {
         super(LightspeedhqDeCollector.CONFIG);
     }

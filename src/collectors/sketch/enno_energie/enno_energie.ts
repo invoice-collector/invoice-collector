@@ -32,6 +32,9 @@ export class EnnoEnergieCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EnnoEnergieCollector class.
+     */
     constructor() {
         super(EnnoEnergieCollector.CONFIG);
     }

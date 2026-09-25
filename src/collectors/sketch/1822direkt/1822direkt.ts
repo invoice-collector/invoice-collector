@@ -32,6 +32,9 @@ export class _1822direktCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the _1822direktCollector class.
+     */
     constructor() {
         super(_1822direktCollector.CONFIG);
     }

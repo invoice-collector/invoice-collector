@@ -32,6 +32,9 @@ export class YayCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the YayCollector class.
+     */
     constructor() {
         super(YayCollector.CONFIG);
     }

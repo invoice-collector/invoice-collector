@@ -32,6 +32,9 @@ export class JubleIoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the JubleIoCollector class.
+     */
     constructor() {
         super(JubleIoCollector.CONFIG);
     }

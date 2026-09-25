@@ -32,6 +32,9 @@ export class AdlanticCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AdlanticCollector class.
+     */
     constructor() {
         super(AdlanticCollector.CONFIG);
     }

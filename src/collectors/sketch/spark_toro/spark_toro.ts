@@ -32,6 +32,9 @@ export class SparkToroCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SparkToroCollector class.
+     */
     constructor() {
         super(SparkToroCollector.CONFIG);
     }

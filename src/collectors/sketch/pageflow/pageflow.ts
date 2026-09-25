@@ -32,6 +32,9 @@ export class PageflowCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PageflowCollector class.
+     */
     constructor() {
         super(PageflowCollector.CONFIG);
     }

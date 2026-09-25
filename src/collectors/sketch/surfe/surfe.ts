@@ -32,6 +32,9 @@ export class SurfeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SurfeCollector class.
+     */
     constructor() {
         super(SurfeCollector.CONFIG);
     }

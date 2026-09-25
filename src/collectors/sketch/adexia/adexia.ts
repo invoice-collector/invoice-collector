@@ -32,6 +32,9 @@ export class AdexiaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AdexiaCollector class.
+     */
     constructor() {
         super(AdexiaCollector.CONFIG);
     }

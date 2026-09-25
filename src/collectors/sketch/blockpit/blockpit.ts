@@ -32,6 +32,9 @@ export class BlockpitCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BlockpitCollector class.
+     */
     constructor() {
         super(BlockpitCollector.CONFIG);
     }

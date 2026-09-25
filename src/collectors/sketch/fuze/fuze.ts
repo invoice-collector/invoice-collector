@@ -32,6 +32,9 @@ export class FuzeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FuzeCollector class.
+     */
     constructor() {
         super(FuzeCollector.CONFIG);
     }

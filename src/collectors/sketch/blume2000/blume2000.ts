@@ -32,6 +32,9 @@ export class Blume2000Collector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Blume2000Collector class.
+     */
     constructor() {
         super(Blume2000Collector.CONFIG);
     }

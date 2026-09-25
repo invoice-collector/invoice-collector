@@ -32,6 +32,9 @@ export class WishpondCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WishpondCollector class.
+     */
     constructor() {
         super(WishpondCollector.CONFIG);
     }

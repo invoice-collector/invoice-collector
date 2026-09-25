@@ -31,6 +31,9 @@ export class BoliaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BoliaCollector class.
+     */
     constructor() {
         super(BoliaCollector.CONFIG);
     }

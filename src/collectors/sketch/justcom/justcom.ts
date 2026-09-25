@@ -32,6 +32,9 @@ export class JustcomCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the JustcomCollector class.
+     */
     constructor() {
         super(JustcomCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class MatyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MatyCollector class.
+     */
     constructor() {
         super(MatyCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class NexiuCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NexiuCollector class.
+     */
     constructor() {
         super(NexiuCollector.CONFIG);
     }

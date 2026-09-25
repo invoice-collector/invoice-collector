@@ -32,6 +32,9 @@ export class EtoroPartnersCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EtoroPartnersCollector class.
+     */
     constructor() {
         super(EtoroPartnersCollector.CONFIG);
     }

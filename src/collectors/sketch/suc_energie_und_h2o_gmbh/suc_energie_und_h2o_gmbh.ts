@@ -32,6 +32,9 @@ export class SucEnergieUndH2oGmbhCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SucEnergieUndH2oGmbhCollector class.
+     */
     constructor() {
         super(SucEnergieUndH2oGmbhCollector.CONFIG);
     }

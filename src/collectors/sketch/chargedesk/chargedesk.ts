@@ -32,6 +32,9 @@ export class ChargedeskCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ChargedeskCollector class.
+     */
     constructor() {
         super(ChargedeskCollector.CONFIG);
     }

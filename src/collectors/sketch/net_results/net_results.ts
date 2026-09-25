@@ -32,6 +32,9 @@ export class NetResultsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NetResultsCollector class.
+     */
     constructor() {
         super(NetResultsCollector.CONFIG);
     }

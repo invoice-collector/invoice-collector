@@ -32,6 +32,9 @@ export class E3dCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the E3dCollector class.
+     */
     constructor() {
         super(E3dCollector.CONFIG);
     }

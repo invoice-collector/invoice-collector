@@ -32,6 +32,9 @@ export class EdfEntrepriseGuyaneCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EdfEntrepriseGuyaneCollector class.
+     */
     constructor() {
         super(EdfEntrepriseGuyaneCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class CobelsaEasypayCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CobelsaEasypayCollector class.
+     */
     constructor() {
         super(CobelsaEasypayCollector.CONFIG);
     }

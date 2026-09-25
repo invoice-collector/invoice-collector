@@ -32,6 +32,9 @@ export class KindergardenChargesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KindergardenChargesCollector class.
+     */
     constructor() {
         super(KindergardenChargesCollector.CONFIG);
     }

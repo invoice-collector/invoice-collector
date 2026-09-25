@@ -32,6 +32,9 @@ export class FreshserviceCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FreshserviceCollector class.
+     */
     constructor() {
         super(FreshserviceCollector.CONFIG);
     }

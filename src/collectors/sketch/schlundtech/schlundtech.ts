@@ -32,6 +32,9 @@ export class SchlundtechCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SchlundtechCollector class.
+     */
     constructor() {
         super(SchlundtechCollector.CONFIG);
     }

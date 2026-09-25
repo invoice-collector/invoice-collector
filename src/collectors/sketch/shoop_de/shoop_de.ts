@@ -32,6 +32,9 @@ export class ShoopDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ShoopDeCollector class.
+     */
     constructor() {
         super(ShoopDeCollector.CONFIG);
     }

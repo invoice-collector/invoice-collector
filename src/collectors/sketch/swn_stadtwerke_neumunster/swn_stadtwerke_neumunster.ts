@@ -32,6 +32,9 @@ export class SwnStadtwerkeNeumunsterCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SwnStadtwerkeNeumunsterCollector class.
+     */
     constructor() {
         super(SwnStadtwerkeNeumunsterCollector.CONFIG);
     }

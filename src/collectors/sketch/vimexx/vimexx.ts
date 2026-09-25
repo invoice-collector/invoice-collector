@@ -32,6 +32,9 @@ export class VimexxCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VimexxCollector class.
+     */
     constructor() {
         super(VimexxCollector.CONFIG);
     }

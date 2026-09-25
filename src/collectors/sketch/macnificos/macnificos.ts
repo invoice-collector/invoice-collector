@@ -32,6 +32,9 @@ export class MacnificosCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MacnificosCollector class.
+     */
     constructor() {
         super(MacnificosCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class PromptmetheusCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PromptmetheusCollector class.
+     */
     constructor() {
         super(PromptmetheusCollector.CONFIG);
     }

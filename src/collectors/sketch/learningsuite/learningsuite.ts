@@ -32,6 +32,9 @@ export class LearningsuiteCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LearningsuiteCollector class.
+     */
     constructor() {
         super(LearningsuiteCollector.CONFIG);
     }

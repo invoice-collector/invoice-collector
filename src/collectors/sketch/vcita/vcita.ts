@@ -32,6 +32,9 @@ export class VcitaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VcitaCollector class.
+     */
     constructor() {
         super(VcitaCollector.CONFIG);
     }

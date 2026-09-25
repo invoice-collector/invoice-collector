@@ -32,6 +32,9 @@ export class VodafoneRechnungenCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VodafoneRechnungenCollector class.
+     */
     constructor() {
         super(VodafoneRechnungenCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class OrthegCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OrthegCollector class.
+     */
     constructor() {
         super(OrthegCollector.CONFIG);
     }

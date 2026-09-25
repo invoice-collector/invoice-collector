@@ -32,6 +32,9 @@ export class M2mMobilCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the M2mMobilCollector class.
+     */
     constructor() {
         super(M2mMobilCollector.CONFIG);
     }

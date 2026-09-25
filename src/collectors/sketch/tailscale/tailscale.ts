@@ -32,6 +32,9 @@ export class TailscaleCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TailscaleCollector class.
+     */
     constructor() {
         super(TailscaleCollector.CONFIG);
     }

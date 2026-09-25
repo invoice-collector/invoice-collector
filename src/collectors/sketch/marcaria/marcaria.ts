@@ -32,6 +32,9 @@ export class MarcariaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MarcariaCollector class.
+     */
     constructor() {
         super(MarcariaCollector.CONFIG);
     }

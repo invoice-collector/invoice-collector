@@ -32,6 +32,9 @@ export class InterdiscountChCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the InterdiscountChCollector class.
+     */
     constructor() {
         super(InterdiscountChCollector.CONFIG);
     }

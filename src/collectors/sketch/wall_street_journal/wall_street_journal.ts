@@ -32,6 +32,9 @@ export class WallStreetJournalCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WallStreetJournalCollector class.
+     */
     constructor() {
         super(WallStreetJournalCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class CheapticketsSchweizCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CheapticketsSchweizCollector class.
+     */
     constructor() {
         super(CheapticketsSchweizCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class SyscoCanadaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SyscoCanadaCollector class.
+     */
     constructor() {
         super(SyscoCanadaCollector.CONFIG);
     }

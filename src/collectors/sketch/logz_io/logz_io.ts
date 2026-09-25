@@ -32,6 +32,9 @@ export class LogzIoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LogzIoCollector class.
+     */
     constructor() {
         super(LogzIoCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class ElectricIrelandCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ElectricIrelandCollector class.
+     */
     constructor() {
         super(ElectricIrelandCollector.CONFIG);
     }

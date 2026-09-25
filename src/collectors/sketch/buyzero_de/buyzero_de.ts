@@ -32,6 +32,9 @@ export class BuyzeroDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BuyzeroDeCollector class.
+     */
     constructor() {
         super(BuyzeroDeCollector.CONFIG);
     }

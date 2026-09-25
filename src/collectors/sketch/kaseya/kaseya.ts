@@ -32,6 +32,9 @@ export class KaseyaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KaseyaCollector class.
+     */
     constructor() {
         super(KaseyaCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class SucuriCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SucuriCollector class.
+     */
     constructor() {
         super(SucuriCollector.CONFIG);
     }

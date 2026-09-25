@@ -32,6 +32,9 @@ export class BlubrryCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BlubrryCollector class.
+     */
     constructor() {
         super(BlubrryCollector.CONFIG);
     }

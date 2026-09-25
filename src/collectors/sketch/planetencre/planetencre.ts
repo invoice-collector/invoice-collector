@@ -32,6 +32,9 @@ export class PlanetencreCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PlanetencreCollector class.
+     */
     constructor() {
         super(PlanetencreCollector.CONFIG);
     }

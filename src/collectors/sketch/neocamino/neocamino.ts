@@ -32,6 +32,9 @@ export class NeocaminoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NeocaminoCollector class.
+     */
     constructor() {
         super(NeocaminoCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class WurzburgerVersicherungVermittlerportalCollector extends SketchColle
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WurzburgerVersicherungVermittlerportalCollector class.
+     */
     constructor() {
         super(WurzburgerVersicherungVermittlerportalCollector.CONFIG);
     }

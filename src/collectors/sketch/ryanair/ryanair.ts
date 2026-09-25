@@ -32,6 +32,9 @@ export class RyanairCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RyanairCollector class.
+     */
     constructor() {
         super(RyanairCollector.CONFIG);
     }

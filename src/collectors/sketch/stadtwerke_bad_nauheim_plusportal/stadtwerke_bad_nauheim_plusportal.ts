@@ -32,6 +32,9 @@ export class StadtwerkeBadNauheimPlusportalCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StadtwerkeBadNauheimPlusportalCollector class.
+     */
     constructor() {
         super(StadtwerkeBadNauheimPlusportalCollector.CONFIG);
     }

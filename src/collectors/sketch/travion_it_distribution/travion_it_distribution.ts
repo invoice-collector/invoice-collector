@@ -32,6 +32,9 @@ export class TravionItDistributionCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TravionItDistributionCollector class.
+     */
     constructor() {
         super(TravionItDistributionCollector.CONFIG);
     }

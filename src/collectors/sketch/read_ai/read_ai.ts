@@ -32,6 +32,9 @@ export class ReadAiCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ReadAiCollector class.
+     */
     constructor() {
         super(ReadAiCollector.CONFIG);
     }

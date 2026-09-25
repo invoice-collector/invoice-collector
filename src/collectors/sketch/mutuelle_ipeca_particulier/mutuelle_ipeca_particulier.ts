@@ -32,6 +32,9 @@ export class MutuelleIpecaParticulierCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MutuelleIpecaParticulierCollector class.
+     */
     constructor() {
         super(MutuelleIpecaParticulierCollector.CONFIG);
     }

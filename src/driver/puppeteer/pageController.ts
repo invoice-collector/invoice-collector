@@ -19,15 +19,21 @@ export interface PageControllerOptions {
     abstractBrowser?: AbstractBrowser
 }
 
-export async function pageController({
-    browser,
-    page,
-    proxy,
-    turnstile,
-    killProcess = false,
-    locale,
-    abstractBrowser,
-}: PageControllerOptions): Promise<PageWithCursor> {
+/**
+ * Controls the behavior of a Puppeteer page, including handling captchas, setting locale, and managing proxy authentication.
+ * @param options The options for controlling the page, including browser, page, proxy, turnstile, killProcess, locale, and abstractBrowser.
+ * @returns The page instance with cursor support after controlling the page.
+ */
+export async function pageController(options: PageControllerOptions): Promise<PageWithCursor> {
+    const {
+        browser,
+        page,
+        proxy,
+        turnstile,
+        killProcess = false,
+        locale,
+        abstractBrowser,
+    } = options;
 
     let solveStatus = turnstile;
 
@@ -42,7 +48,10 @@ export async function pageController({
         }
     });
 
-    async function captchaSolver() {
+    /**
+     * Solves captchas continuously while the solveStatus is true.
+     */
+    async function captchaSolver(): Promise<void> {
         while (solveStatus) {
             await solveCaptchas({ page }).catch(() => { });
             await new Promise(r => setTimeout(r, 5000));

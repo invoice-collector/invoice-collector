@@ -32,6 +32,9 @@ export class CityOfVancouverPermitsAndLicencesCollector extends SketchCollector 
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CityOfVancouverPermitsAndLicencesCollector class.
+     */
     constructor() {
         super(CityOfVancouverPermitsAndLicencesCollector.CONFIG);
     }

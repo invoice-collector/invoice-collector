@@ -32,6 +32,9 @@ export class LuudooCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LuudooCollector class.
+     */
     constructor() {
         super(LuudooCollector.CONFIG);
     }

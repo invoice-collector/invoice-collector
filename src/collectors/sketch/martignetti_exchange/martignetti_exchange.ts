@@ -32,6 +32,9 @@ export class MartignettiExchangeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MartignettiExchangeCollector class.
+     */
     constructor() {
         super(MartignettiExchangeCollector.CONFIG);
     }

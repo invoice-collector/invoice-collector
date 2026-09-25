@@ -32,6 +32,9 @@ export class LokalesMarkethingCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LokalesMarkethingCollector class.
+     */
     constructor() {
         super(LokalesMarkethingCollector.CONFIG);
     }

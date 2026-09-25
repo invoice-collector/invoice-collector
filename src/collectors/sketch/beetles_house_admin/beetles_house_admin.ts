@@ -32,6 +32,9 @@ export class BeetlesHouseAdminCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BeetlesHouseAdminCollector class.
+     */
     constructor() {
         super(BeetlesHouseAdminCollector.CONFIG);
     }

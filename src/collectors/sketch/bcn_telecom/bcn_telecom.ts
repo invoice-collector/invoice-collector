@@ -32,6 +32,9 @@ export class BcnTelecomCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BcnTelecomCollector class.
+     */
     constructor() {
         super(BcnTelecomCollector.CONFIG);
     }

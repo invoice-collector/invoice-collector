@@ -32,6 +32,9 @@ export class DigitPhotoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DigitPhotoCollector class.
+     */
     constructor() {
         super(DigitPhotoCollector.CONFIG);
     }

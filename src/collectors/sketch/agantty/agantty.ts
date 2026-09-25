@@ -32,6 +32,9 @@ export class AganttyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AganttyCollector class.
+     */
     constructor() {
         super(AganttyCollector.CONFIG);
     }

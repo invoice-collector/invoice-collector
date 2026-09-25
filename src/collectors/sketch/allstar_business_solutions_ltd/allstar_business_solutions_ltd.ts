@@ -32,6 +32,9 @@ export class AllstarBusinessSolutionsLtdCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AllstarBusinessSolutionsLtdCollector class.
+     */
     constructor() {
         super(AllstarBusinessSolutionsLtdCollector.CONFIG);
     }

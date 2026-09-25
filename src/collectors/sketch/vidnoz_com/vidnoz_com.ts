@@ -32,6 +32,9 @@ export class VidnozComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VidnozComCollector class.
+     */
     constructor() {
         super(VidnozComCollector.CONFIG);
     }

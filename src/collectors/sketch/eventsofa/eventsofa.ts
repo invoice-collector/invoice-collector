@@ -32,6 +32,9 @@ export class EventsofaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EventsofaCollector class.
+     */
     constructor() {
         super(EventsofaCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class CherchonsComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CherchonsComCollector class.
+     */
     constructor() {
         super(CherchonsComCollector.CONFIG);
     }

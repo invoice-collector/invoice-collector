@@ -32,6 +32,9 @@ export class FedaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FedaCollector class.
+     */
     constructor() {
         super(FedaCollector.CONFIG);
     }

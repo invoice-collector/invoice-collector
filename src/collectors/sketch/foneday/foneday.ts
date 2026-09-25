@@ -32,6 +32,9 @@ export class FonedayCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FonedayCollector class.
+     */
     constructor() {
         super(FonedayCollector.CONFIG);
     }

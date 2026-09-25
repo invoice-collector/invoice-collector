@@ -32,6 +32,9 @@ export class SvsSozialversicherungFurSelbststandigeInOsterreichCollector extends
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SvsSozialversicherungFurSelbststandigeInOsterreichCollector class.
+     */
     constructor() {
         super(SvsSozialversicherungFurSelbststandigeInOsterreichCollector.CONFIG);
     }

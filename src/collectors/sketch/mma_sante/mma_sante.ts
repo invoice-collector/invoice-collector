@@ -32,6 +32,9 @@ export class MmaSanteCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MmaSanteCollector class.
+     */
     constructor() {
         super(MmaSanteCollector.CONFIG);
     }

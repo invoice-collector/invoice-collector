@@ -32,6 +32,9 @@ export class MapslyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MapslyCollector class.
+     */
     constructor() {
         super(MapslyCollector.CONFIG);
     }

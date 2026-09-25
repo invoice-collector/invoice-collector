@@ -32,6 +32,9 @@ export class WhenIWorkCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WhenIWorkCollector class.
+     */
     constructor() {
         super(WhenIWorkCollector.CONFIG);
     }

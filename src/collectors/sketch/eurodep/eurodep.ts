@@ -32,6 +32,9 @@ export class EurodepCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EurodepCollector class.
+     */
     constructor() {
         super(EurodepCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class WerbenUndVerkaufenCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WerbenUndVerkaufenCollector class.
+     */
     constructor() {
         super(WerbenUndVerkaufenCollector.CONFIG);
     }

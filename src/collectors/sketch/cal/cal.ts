@@ -32,6 +32,9 @@ export class CalCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CalCollector class.
+     */
     constructor() {
         super(CalCollector.CONFIG);
     }

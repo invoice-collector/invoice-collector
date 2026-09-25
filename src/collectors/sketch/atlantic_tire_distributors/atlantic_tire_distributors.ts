@@ -32,6 +32,9 @@ export class AtlanticTireDistributorsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AtlanticTireDistributorsCollector class.
+     */
     constructor() {
         super(AtlanticTireDistributorsCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class BurlingtonHydroCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BurlingtonHydroCollector class.
+     */
     constructor() {
         super(BurlingtonHydroCollector.CONFIG);
     }

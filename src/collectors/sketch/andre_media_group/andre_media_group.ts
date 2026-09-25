@@ -32,6 +32,9 @@ export class AndreMediaGroupCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AndreMediaGroupCollector class.
+     */
     constructor() {
         super(AndreMediaGroupCollector.CONFIG);
     }

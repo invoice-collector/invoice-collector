@@ -32,6 +32,9 @@ export class _24adsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the _24adsCollector class.
+     */
     constructor() {
         super(_24adsCollector.CONFIG);
     }

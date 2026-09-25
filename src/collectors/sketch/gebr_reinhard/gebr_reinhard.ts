@@ -32,6 +32,9 @@ export class GebrReinhardCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GebrReinhardCollector class.
+     */
     constructor() {
         super(GebrReinhardCollector.CONFIG);
     }

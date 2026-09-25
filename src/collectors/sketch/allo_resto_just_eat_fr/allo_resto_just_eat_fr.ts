@@ -32,6 +32,9 @@ export class AlloRestoJustEatFrCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AlloRestoJustEatFrCollector class.
+     */
     constructor() {
         super(AlloRestoJustEatFrCollector.CONFIG);
     }

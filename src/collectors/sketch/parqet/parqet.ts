@@ -32,6 +32,9 @@ export class ParqetCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ParqetCollector class.
+     */
     constructor() {
         super(ParqetCollector.CONFIG);
     }

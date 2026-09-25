@@ -32,6 +32,9 @@ export class PartooCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PartooCollector class.
+     */
     constructor() {
         super(PartooCollector.CONFIG);
     }

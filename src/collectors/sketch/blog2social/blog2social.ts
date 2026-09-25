@@ -32,6 +32,9 @@ export class Blog2socialCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Blog2socialCollector class.
+     */
     constructor() {
         super(Blog2socialCollector.CONFIG);
     }

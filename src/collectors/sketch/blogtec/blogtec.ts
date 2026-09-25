@@ -32,6 +32,9 @@ export class BlogtecCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BlogtecCollector class.
+     */
     constructor() {
         super(BlogtecCollector.CONFIG);
     }

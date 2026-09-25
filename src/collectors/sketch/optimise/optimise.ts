@@ -32,6 +32,9 @@ export class OptimiseCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OptimiseCollector class.
+     */
     constructor() {
         super(OptimiseCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class TollcollectCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TollcollectCollector class.
+     */
     constructor() {
         super(TollcollectCollector.CONFIG);
     }

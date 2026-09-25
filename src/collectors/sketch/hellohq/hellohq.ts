@@ -32,6 +32,9 @@ export class HellohqCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HellohqCollector class.
+     */
     constructor() {
         super(HellohqCollector.CONFIG);
     }

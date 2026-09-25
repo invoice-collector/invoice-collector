@@ -32,6 +32,9 @@ export class ContegoFactoringCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ContegoFactoringCollector class.
+     */
     constructor() {
         super(ContegoFactoringCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class MeetingroomappCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MeetingroomappCollector class.
+     */
     constructor() {
         super(MeetingroomappCollector.CONFIG);
     }

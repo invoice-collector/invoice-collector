@@ -32,6 +32,9 @@ export class GammaAppCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GammaAppCollector class.
+     */
     constructor() {
         super(GammaAppCollector.CONFIG);
     }

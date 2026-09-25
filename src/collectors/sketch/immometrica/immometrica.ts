@@ -32,6 +32,9 @@ export class ImmometricaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ImmometricaCollector class.
+     */
     constructor() {
         super(ImmometricaCollector.CONFIG);
     }

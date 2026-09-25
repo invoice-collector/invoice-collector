@@ -32,6 +32,9 @@ export class CrazylisterCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CrazylisterCollector class.
+     */
     constructor() {
         super(CrazylisterCollector.CONFIG);
     }

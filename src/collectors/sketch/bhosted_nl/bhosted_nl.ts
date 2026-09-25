@@ -32,6 +32,9 @@ export class BhostedNlCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BhostedNlCollector class.
+     */
     constructor() {
         super(BhostedNlCollector.CONFIG);
     }

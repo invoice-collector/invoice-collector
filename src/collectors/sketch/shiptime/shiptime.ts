@@ -32,6 +32,9 @@ export class ShiptimeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ShiptimeCollector class.
+     */
     constructor() {
         super(ShiptimeCollector.CONFIG);
     }

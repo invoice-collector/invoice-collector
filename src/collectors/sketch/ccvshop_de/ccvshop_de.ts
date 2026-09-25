@@ -32,6 +32,9 @@ export class CcvshopDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CcvshopDeCollector class.
+     */
     constructor() {
         super(CcvshopDeCollector.CONFIG);
     }

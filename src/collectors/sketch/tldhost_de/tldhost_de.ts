@@ -32,6 +32,9 @@ export class TldhostDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TldhostDeCollector class.
+     */
     constructor() {
         super(TldhostDeCollector.CONFIG);
     }

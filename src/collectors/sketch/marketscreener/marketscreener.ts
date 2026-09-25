@@ -32,6 +32,9 @@ export class MarketscreenerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MarketscreenerCollector class.
+     */
     constructor() {
         super(MarketscreenerCollector.CONFIG);
     }

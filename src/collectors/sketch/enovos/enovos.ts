@@ -32,6 +32,9 @@ export class EnovosCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EnovosCollector class.
+     */
     constructor() {
         super(EnovosCollector.CONFIG);
     }

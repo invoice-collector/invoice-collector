@@ -32,6 +32,9 @@ export class RiversidePublicUtilitesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RiversidePublicUtilitesCollector class.
+     */
     constructor() {
         super(RiversidePublicUtilitesCollector.CONFIG);
     }

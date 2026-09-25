@@ -32,6 +32,9 @@ export class StarlinkCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StarlinkCollector class.
+     */
     constructor() {
         super(StarlinkCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class NordentaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NordentaCollector class.
+     */
     constructor() {
         super(NordentaCollector.CONFIG);
     }

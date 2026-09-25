@@ -32,6 +32,9 @@ export class UnifiCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the UnifiCollector class.
+     */
     constructor() {
         super(UnifiCollector.CONFIG);
     }

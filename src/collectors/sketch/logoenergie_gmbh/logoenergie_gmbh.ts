@@ -32,6 +32,9 @@ export class LogoenergieGmbhCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LogoenergieGmbhCollector class.
+     */
     constructor() {
         super(LogoenergieGmbhCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class DeutscheTelekomBusinessServicePortalCollector extends SketchCollect
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DeutscheTelekomBusinessServicePortalCollector class.
+     */
     constructor() {
         super(DeutscheTelekomBusinessServicePortalCollector.CONFIG);
     }

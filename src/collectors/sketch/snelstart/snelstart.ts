@@ -32,6 +32,9 @@ export class SnelstartCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SnelstartCollector class.
+     */
     constructor() {
         super(SnelstartCollector.CONFIG);
     }

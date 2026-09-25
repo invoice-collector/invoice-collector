@@ -32,6 +32,9 @@ export class TransglobalExpressUkCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TransglobalExpressUkCollector class.
+     */
     constructor() {
         super(TransglobalExpressUkCollector.CONFIG);
     }

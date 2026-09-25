@@ -32,6 +32,9 @@ export class TvNowCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TvNowCollector class.
+     */
     constructor() {
         super(TvNowCollector.CONFIG);
     }

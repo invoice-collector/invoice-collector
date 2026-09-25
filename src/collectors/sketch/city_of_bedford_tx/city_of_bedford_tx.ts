@@ -32,6 +32,9 @@ export class CityOfBedfordTxCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CityOfBedfordTxCollector class.
+     */
     constructor() {
         super(CityOfBedfordTxCollector.CONFIG);
     }

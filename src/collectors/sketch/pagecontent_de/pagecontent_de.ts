@@ -32,6 +32,9 @@ export class PagecontentDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PagecontentDeCollector class.
+     */
     constructor() {
         super(PagecontentDeCollector.CONFIG);
     }

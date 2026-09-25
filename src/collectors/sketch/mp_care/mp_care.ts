@@ -32,6 +32,9 @@ export class MpCareCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MpCareCollector class.
+     */
     constructor() {
         super(MpCareCollector.CONFIG);
     }

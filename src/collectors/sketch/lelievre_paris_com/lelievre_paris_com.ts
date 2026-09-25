@@ -32,6 +32,9 @@ export class LelievreParisComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LelievreParisComCollector class.
+     */
     constructor() {
         super(LelievreParisComCollector.CONFIG);
     }

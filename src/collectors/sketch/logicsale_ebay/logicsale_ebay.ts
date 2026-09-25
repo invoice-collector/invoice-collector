@@ -32,6 +32,9 @@ export class LogicsaleEbayCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LogicsaleEbayCollector class.
+     */
     constructor() {
         super(LogicsaleEbayCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class EhostCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EhostCollector class.
+     */
     constructor() {
         super(EhostCollector.CONFIG);
     }

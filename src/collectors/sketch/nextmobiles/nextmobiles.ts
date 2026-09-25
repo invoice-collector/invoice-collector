@@ -32,6 +32,9 @@ export class NextmobilesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NextmobilesCollector class.
+     */
     constructor() {
         super(NextmobilesCollector.CONFIG);
     }

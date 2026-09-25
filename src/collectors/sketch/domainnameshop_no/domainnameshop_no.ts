@@ -32,6 +32,9 @@ export class DomainnameshopNoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DomainnameshopNoCollector class.
+     */
     constructor() {
         super(DomainnameshopNoCollector.CONFIG);
     }

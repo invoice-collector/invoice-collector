@@ -32,6 +32,9 @@ export class RestreamIoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RestreamIoCollector class.
+     */
     constructor() {
         super(RestreamIoCollector.CONFIG);
     }

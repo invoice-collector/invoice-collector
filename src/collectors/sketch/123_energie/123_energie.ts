@@ -32,6 +32,9 @@ export class _123EnergieCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the _123EnergieCollector class.
+     */
     constructor() {
         super(_123EnergieCollector.CONFIG);
     }

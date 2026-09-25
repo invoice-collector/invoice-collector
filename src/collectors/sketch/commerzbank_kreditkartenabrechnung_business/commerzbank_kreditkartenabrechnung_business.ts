@@ -32,6 +32,9 @@ export class CommerzbankKreditkartenabrechnungBusinessCollector extends SketchCo
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CommerzbankKreditkartenabrechnungBusinessCollector class.
+     */
     constructor() {
         super(CommerzbankKreditkartenabrechnungBusinessCollector.CONFIG);
     }

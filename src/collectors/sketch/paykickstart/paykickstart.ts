@@ -32,6 +32,9 @@ export class PaykickstartCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PaykickstartCollector class.
+     */
     constructor() {
         super(PaykickstartCollector.CONFIG);
     }

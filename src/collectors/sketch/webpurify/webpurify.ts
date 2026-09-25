@@ -32,6 +32,9 @@ export class WebpurifyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WebpurifyCollector class.
+     */
     constructor() {
         super(WebpurifyCollector.CONFIG);
     }

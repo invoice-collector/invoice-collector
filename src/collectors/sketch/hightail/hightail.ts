@@ -32,6 +32,9 @@ export class HightailCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HightailCollector class.
+     */
     constructor() {
         super(HightailCollector.CONFIG);
     }

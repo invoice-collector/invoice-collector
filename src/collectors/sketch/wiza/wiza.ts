@@ -32,6 +32,9 @@ export class WizaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WizaCollector class.
+     */
     constructor() {
         super(WizaCollector.CONFIG);
     }

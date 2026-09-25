@@ -32,6 +32,9 @@ export class SatellicCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SatellicCollector class.
+     */
     constructor() {
         super(SatellicCollector.CONFIG);
     }

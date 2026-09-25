@@ -32,6 +32,9 @@ export class EncolineCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EncolineCollector class.
+     */
     constructor() {
         super(EncolineCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class BillomatCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BillomatCollector class.
+     */
     constructor() {
         super(BillomatCollector.CONFIG);
     }

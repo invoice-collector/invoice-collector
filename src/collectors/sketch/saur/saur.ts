@@ -32,6 +32,9 @@ export class SaurCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SaurCollector class.
+     */
     constructor() {
         super(SaurCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class OtaraGmbhCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OtaraGmbhCollector class.
+     */
     constructor() {
         super(OtaraGmbhCollector.CONFIG);
     }

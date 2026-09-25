@@ -32,6 +32,9 @@ export class AfoneMobileCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AfoneMobileCollector class.
+     */
     constructor() {
         super(AfoneMobileCollector.CONFIG);
     }

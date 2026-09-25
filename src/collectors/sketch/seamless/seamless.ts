@@ -32,6 +32,9 @@ export class SeamlessCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SeamlessCollector class.
+     */
     constructor() {
         super(SeamlessCollector.CONFIG);
     }

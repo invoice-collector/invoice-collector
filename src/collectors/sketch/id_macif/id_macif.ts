@@ -32,6 +32,9 @@ export class IdMacifCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the IdMacifCollector class.
+     */
     constructor() {
         super(IdMacifCollector.CONFIG);
     }

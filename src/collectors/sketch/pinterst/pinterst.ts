@@ -32,6 +32,9 @@ export class PinterstCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PinterstCollector class.
+     */
     constructor() {
         super(PinterstCollector.CONFIG);
     }

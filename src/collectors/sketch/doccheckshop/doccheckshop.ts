@@ -32,6 +32,9 @@ export class DoccheckshopCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DoccheckshopCollector class.
+     */
     constructor() {
         super(DoccheckshopCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class LeaseplanNlCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LeaseplanNlCollector class.
+     */
     constructor() {
         super(LeaseplanNlCollector.CONFIG);
     }

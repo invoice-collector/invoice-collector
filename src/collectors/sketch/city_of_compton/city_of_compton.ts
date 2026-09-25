@@ -32,6 +32,9 @@ export class CityOfComptonCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CityOfComptonCollector class.
+     */
     constructor() {
         super(CityOfComptonCollector.CONFIG);
     }

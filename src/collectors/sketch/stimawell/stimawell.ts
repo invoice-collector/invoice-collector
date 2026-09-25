@@ -32,6 +32,9 @@ export class StimawellCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StimawellCollector class.
+     */
     constructor() {
         super(StimawellCollector.CONFIG);
     }

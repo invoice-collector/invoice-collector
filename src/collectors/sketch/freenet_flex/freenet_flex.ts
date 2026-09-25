@@ -32,6 +32,9 @@ export class FreenetFlexCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FreenetFlexCollector class.
+     */
     constructor() {
         super(FreenetFlexCollector.CONFIG);
     }

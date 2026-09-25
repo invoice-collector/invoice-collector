@@ -32,6 +32,9 @@ export class PriseDeNiceCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PriseDeNiceCollector class.
+     */
     constructor() {
         super(PriseDeNiceCollector.CONFIG);
     }

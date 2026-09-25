@@ -32,6 +32,9 @@ export class OrthoDepotCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OrthoDepotCollector class.
+     */
     constructor() {
         super(OrthoDepotCollector.CONFIG);
     }

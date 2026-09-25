@@ -32,6 +32,9 @@ export class WestnetzCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WestnetzCollector class.
+     */
     constructor() {
         super(WestnetzCollector.CONFIG);
     }

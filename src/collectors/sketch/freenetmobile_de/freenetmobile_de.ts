@@ -32,6 +32,9 @@ export class FreenetmobileDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FreenetmobileDeCollector class.
+     */
     constructor() {
         super(FreenetmobileDeCollector.CONFIG);
     }

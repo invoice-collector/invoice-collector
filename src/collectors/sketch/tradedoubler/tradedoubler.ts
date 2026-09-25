@@ -32,6 +32,9 @@ export class TradedoublerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TradedoublerCollector class.
+     */
     constructor() {
         super(TradedoublerCollector.CONFIG);
     }

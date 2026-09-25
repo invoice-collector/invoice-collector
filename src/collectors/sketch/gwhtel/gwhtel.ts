@@ -32,6 +32,9 @@ export class GwhtelCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GwhtelCollector class.
+     */
     constructor() {
         super(GwhtelCollector.CONFIG);
     }

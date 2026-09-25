@@ -32,6 +32,9 @@ export class FlaschenpostDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FlaschenpostDeCollector class.
+     */
     constructor() {
         super(FlaschenpostDeCollector.CONFIG);
     }

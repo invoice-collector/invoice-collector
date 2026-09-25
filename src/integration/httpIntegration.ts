@@ -23,10 +23,20 @@ export class HttpIntegration extends AbstractIntegration {
     static DEFAULT_RETRIES: number = 3;
     static DEFAULT_DELAY_BETWEEN_RETRIES: number = 10000; // 10 seconds
     
+    /**
+     * Constructs an instance of the HTTP integration.
+     * @param secret The secrets for the integration.
+     */
     constructor(secret: Secret) {
         super(HttpIntegration.CONFIG, secret);
     }
 
+    /**
+     * Sends an HTTP request to the specified URL with the given data, retrying on failure.
+     * @param url The URL to send the HTTP request to.
+     * @param data The data to be sent in the HTTP request body.
+     * @param maxRetries The maximum number of retry attempts in case of failure.
+     */
     private async sendRequest(
         url: string,
         data: object,
@@ -65,6 +75,9 @@ export class HttpIntegration extends AbstractIntegration {
         throw lastError;
     }
 
+    /**
+     * @inheritdoc
+     */
     async sendInvoice(collector: Config, remote_id: string, invoice: CompleteInvoice): Promise<void> {
         // Get params from secret
         const secretParams = await this.secret.getParams();
@@ -93,6 +106,9 @@ export class HttpIntegration extends AbstractIntegration {
         console.log(`Callback ${secretParams.url} successfully reached, invoice sent`);
     }
 
+    /**
+     * @inheritdoc
+     */
     async sendNotificationDisconnected(collector: Config, credential_id: string,  user_id: string, remote_id: string): Promise<void> {
         // Get params from secret
         const secretParams = await this.secret.getParams();

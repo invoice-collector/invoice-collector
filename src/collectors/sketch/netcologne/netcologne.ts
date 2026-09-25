@@ -32,6 +32,9 @@ export class NetcologneCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NetcologneCollector class.
+     */
     constructor() {
         super(NetcologneCollector.CONFIG);
     }

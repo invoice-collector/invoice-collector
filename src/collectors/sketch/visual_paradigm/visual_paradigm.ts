@@ -32,6 +32,9 @@ export class VisualParadigmCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VisualParadigmCollector class.
+     */
     constructor() {
         super(VisualParadigmCollector.CONFIG);
     }

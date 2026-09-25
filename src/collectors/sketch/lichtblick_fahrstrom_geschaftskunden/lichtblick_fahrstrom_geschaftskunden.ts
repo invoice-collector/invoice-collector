@@ -32,6 +32,9 @@ export class LichtblickFahrstromGeschaftskundenCollector extends SketchCollector
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LichtblickFahrstromGeschaftskundenCollector class.
+     */
     constructor() {
         super(LichtblickFahrstromGeschaftskundenCollector.CONFIG);
     }

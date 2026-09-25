@@ -32,6 +32,9 @@ export class LogmeinCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LogmeinCollector class.
+     */
     constructor() {
         super(LogmeinCollector.CONFIG);
     }

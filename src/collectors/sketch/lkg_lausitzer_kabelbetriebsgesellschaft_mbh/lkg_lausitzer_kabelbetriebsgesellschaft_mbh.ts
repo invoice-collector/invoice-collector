@@ -32,6 +32,9 @@ export class LkgLausitzerKabelbetriebsgesellschaftMbhCollector extends SketchCol
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LkgLausitzerKabelbetriebsgesellschaftMbhCollector class.
+     */
     constructor() {
         super(LkgLausitzerKabelbetriebsgesellschaftMbhCollector.CONFIG);
     }

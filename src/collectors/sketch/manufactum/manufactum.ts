@@ -32,6 +32,9 @@ export class ManufactumCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ManufactumCollector class.
+     */
     constructor() {
         super(ManufactumCollector.CONFIG);
     }

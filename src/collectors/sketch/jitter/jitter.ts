@@ -32,6 +32,9 @@ export class JitterCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the JitterCollector class.
+     */
     constructor() {
         super(JitterCollector.CONFIG);
     }

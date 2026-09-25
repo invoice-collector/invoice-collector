@@ -32,6 +32,9 @@ export class PhraseappCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PhraseappCollector class.
+     */
     constructor() {
         super(PhraseappCollector.CONFIG);
     }

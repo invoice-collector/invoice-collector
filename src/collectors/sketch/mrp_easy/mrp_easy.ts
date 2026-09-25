@@ -32,6 +32,9 @@ export class MrpEasyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MrpEasyCollector class.
+     */
     constructor() {
         super(MrpEasyCollector.CONFIG);
     }

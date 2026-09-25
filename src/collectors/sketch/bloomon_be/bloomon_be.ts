@@ -32,6 +32,9 @@ export class BloomonBeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BloomonBeCollector class.
+     */
     constructor() {
         super(BloomonBeCollector.CONFIG);
     }

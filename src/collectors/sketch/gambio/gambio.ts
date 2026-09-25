@@ -32,6 +32,9 @@ export class GambioCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GambioCollector class.
+     */
     constructor() {
         super(GambioCollector.CONFIG);
     }

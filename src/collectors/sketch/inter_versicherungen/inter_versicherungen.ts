@@ -32,6 +32,9 @@ export class InterVersicherungenCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the InterVersicherungenCollector class.
+     */
     constructor() {
         super(InterVersicherungenCollector.CONFIG);
     }

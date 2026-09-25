@@ -32,6 +32,9 @@ export class AirtelCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AirtelCollector class.
+     */
     constructor() {
         super(AirtelCollector.CONFIG);
     }

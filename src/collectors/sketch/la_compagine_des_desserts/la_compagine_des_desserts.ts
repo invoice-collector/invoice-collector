@@ -32,6 +32,9 @@ export class LaCompagineDesDessertsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LaCompagineDesDessertsCollector class.
+     */
     constructor() {
         super(LaCompagineDesDessertsCollector.CONFIG);
     }

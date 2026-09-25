@@ -32,6 +32,9 @@ export class LaboratorieLcsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LaboratorieLcsCollector class.
+     */
     constructor() {
         super(LaboratorieLcsCollector.CONFIG);
     }

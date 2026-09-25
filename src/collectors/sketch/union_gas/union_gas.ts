@@ -32,6 +32,9 @@ export class UnionGasCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the UnionGasCollector class.
+     */
     constructor() {
         super(UnionGasCollector.CONFIG);
     }

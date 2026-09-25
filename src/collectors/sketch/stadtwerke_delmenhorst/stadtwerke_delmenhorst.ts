@@ -32,6 +32,9 @@ export class StadtwerkeDelmenhorstCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StadtwerkeDelmenhorstCollector class.
+     */
     constructor() {
         super(StadtwerkeDelmenhorstCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class SmartleadAiCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SmartleadAiCollector class.
+     */
     constructor() {
         super(SmartleadAiCollector.CONFIG);
     }

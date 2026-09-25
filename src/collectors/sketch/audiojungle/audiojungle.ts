@@ -32,6 +32,9 @@ export class AudiojungleCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AudiojungleCollector class.
+     */
     constructor() {
         super(AudiojungleCollector.CONFIG);
     }

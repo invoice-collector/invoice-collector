@@ -32,6 +32,9 @@ export class TubesiftCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TubesiftCollector class.
+     */
     constructor() {
         super(TubesiftCollector.CONFIG);
     }

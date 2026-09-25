@@ -32,6 +32,9 @@ export class KalenderDigitalCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KalenderDigitalCollector class.
+     */
     constructor() {
         super(KalenderDigitalCollector.CONFIG);
     }

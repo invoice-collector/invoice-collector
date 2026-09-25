@@ -32,6 +32,9 @@ export class DnsMadeEasyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DnsMadeEasyCollector class.
+     */
     constructor() {
         super(DnsMadeEasyCollector.CONFIG);
     }

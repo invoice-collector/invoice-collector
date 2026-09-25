@@ -32,6 +32,9 @@ export class CristalUnionCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CristalUnionCollector class.
+     */
     constructor() {
         super(CristalUnionCollector.CONFIG);
     }

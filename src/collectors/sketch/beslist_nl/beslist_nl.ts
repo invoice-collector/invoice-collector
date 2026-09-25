@@ -32,6 +32,9 @@ export class BeslistNlCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BeslistNlCollector class.
+     */
     constructor() {
         super(BeslistNlCollector.CONFIG);
     }

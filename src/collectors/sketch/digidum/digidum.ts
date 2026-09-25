@@ -32,6 +32,9 @@ export class DigidumCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DigidumCollector class.
+     */
     constructor() {
         super(DigidumCollector.CONFIG);
     }

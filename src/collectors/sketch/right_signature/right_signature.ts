@@ -32,6 +32,9 @@ export class RightSignatureCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RightSignatureCollector class.
+     */
     constructor() {
         super(RightSignatureCollector.CONFIG);
     }

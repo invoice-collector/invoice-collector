@@ -32,6 +32,9 @@ export class FlitsmeisterCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FlitsmeisterCollector class.
+     */
     constructor() {
         super(FlitsmeisterCollector.CONFIG);
     }

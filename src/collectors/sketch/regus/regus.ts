@@ -32,6 +32,9 @@ export class RegusCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RegusCollector class.
+     */
     constructor() {
         super(RegusCollector.CONFIG);
     }

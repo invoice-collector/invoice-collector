@@ -32,6 +32,9 @@ export class FactoryWorksGmbhBerlinCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FactoryWorksGmbhBerlinCollector class.
+     */
     constructor() {
         super(FactoryWorksGmbhBerlinCollector.CONFIG);
     }

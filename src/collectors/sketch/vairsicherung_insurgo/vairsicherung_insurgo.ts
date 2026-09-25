@@ -32,6 +32,9 @@ export class VairsicherungInsurgoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VairsicherungInsurgoCollector class.
+     */
     constructor() {
         super(VairsicherungInsurgoCollector.CONFIG);
     }

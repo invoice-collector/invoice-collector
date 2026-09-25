@@ -32,6 +32,9 @@ export class CreatlrCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CreatlrCollector class.
+     */
     constructor() {
         super(CreatlrCollector.CONFIG);
     }

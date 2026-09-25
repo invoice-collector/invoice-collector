@@ -32,6 +32,9 @@ export class MailtimersCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MailtimersCollector class.
+     */
     constructor() {
         super(MailtimersCollector.CONFIG);
     }

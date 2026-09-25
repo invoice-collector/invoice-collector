@@ -32,6 +32,9 @@ export class MouseflowCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MouseflowCollector class.
+     */
     constructor() {
         super(MouseflowCollector.CONFIG);
     }

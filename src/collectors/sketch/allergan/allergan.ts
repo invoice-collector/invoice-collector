@@ -32,6 +32,9 @@ export class AllerganCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AllerganCollector class.
+     */
     constructor() {
         super(AllerganCollector.CONFIG);
     }

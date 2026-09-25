@@ -32,6 +32,9 @@ export class MeineVrmCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MeineVrmCollector class.
+     */
     constructor() {
         super(MeineVrmCollector.CONFIG);
     }

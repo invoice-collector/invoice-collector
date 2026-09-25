@@ -32,6 +32,9 @@ export class UxcamCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the UxcamCollector class.
+     */
     constructor() {
         super(UxcamCollector.CONFIG);
     }

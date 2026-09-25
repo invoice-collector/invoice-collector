@@ -32,6 +32,9 @@ export class SproutvideoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SproutvideoCollector class.
+     */
     constructor() {
         super(SproutvideoCollector.CONFIG);
     }

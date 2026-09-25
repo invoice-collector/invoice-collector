@@ -32,6 +32,9 @@ export class KundenmeisterCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KundenmeisterCollector class.
+     */
     constructor() {
         super(KundenmeisterCollector.CONFIG);
     }

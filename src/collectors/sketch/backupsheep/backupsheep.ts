@@ -32,6 +32,9 @@ export class BackupsheepCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BackupsheepCollector class.
+     */
     constructor() {
         super(BackupsheepCollector.CONFIG);
     }

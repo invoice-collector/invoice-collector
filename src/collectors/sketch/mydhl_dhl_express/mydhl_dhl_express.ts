@@ -32,6 +32,9 @@ export class MydhlDhlExpressCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MydhlDhlExpressCollector class.
+     */
     constructor() {
         super(MydhlDhlExpressCollector.CONFIG);
     }

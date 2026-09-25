@@ -32,6 +32,9 @@ export class GardboisCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GardboisCollector class.
+     */
     constructor() {
         super(GardboisCollector.CONFIG);
     }

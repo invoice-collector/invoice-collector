@@ -32,6 +32,9 @@ export class MeentzenCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MeentzenCollector class.
+     */
     constructor() {
         super(MeentzenCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class IceniumCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the IceniumCollector class.
+     */
     constructor() {
         super(IceniumCollector.CONFIG);
     }

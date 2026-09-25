@@ -32,6 +32,9 @@ export class WowCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WowCollector class.
+     */
     constructor() {
         super(WowCollector.CONFIG);
     }

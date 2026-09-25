@@ -32,6 +32,9 @@ export class KlaviyoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KlaviyoCollector class.
+     */
     constructor() {
         super(KlaviyoCollector.CONFIG);
     }

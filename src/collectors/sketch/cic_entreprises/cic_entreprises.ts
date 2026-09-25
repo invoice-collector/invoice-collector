@@ -32,6 +32,9 @@ export class CicEntreprisesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CicEntreprisesCollector class.
+     */
     constructor() {
         super(CicEntreprisesCollector.CONFIG);
     }

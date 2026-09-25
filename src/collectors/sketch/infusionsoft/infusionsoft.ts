@@ -32,6 +32,9 @@ export class InfusionsoftCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the InfusionsoftCollector class.
+     */
     constructor() {
         super(InfusionsoftCollector.CONFIG);
     }

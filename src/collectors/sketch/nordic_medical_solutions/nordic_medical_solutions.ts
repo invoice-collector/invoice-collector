@@ -32,6 +32,9 @@ export class NordicMedicalSolutionsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NordicMedicalSolutionsCollector class.
+     */
     constructor() {
         super(NordicMedicalSolutionsCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class PdffillerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PdffillerCollector class.
+     */
     constructor() {
         super(PdffillerCollector.CONFIG);
     }

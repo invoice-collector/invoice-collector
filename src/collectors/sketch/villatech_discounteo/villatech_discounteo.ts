@@ -32,6 +32,9 @@ export class VillatechDiscounteoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VillatechDiscounteoCollector class.
+     */
     constructor() {
         super(VillatechDiscounteoCollector.CONFIG);
     }

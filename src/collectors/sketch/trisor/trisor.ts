@@ -32,6 +32,9 @@ export class TrisorCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TrisorCollector class.
+     */
     constructor() {
         super(TrisorCollector.CONFIG);
     }

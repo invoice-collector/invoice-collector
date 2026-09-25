@@ -32,6 +32,9 @@ export class BouncerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BouncerCollector class.
+     */
     constructor() {
         super(BouncerCollector.CONFIG);
     }

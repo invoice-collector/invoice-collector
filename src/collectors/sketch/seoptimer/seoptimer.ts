@@ -32,6 +32,9 @@ export class SeoptimerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SeoptimerCollector class.
+     */
     constructor() {
         super(SeoptimerCollector.CONFIG);
     }

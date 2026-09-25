@@ -32,6 +32,9 @@ export class FleurametzCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FleurametzCollector class.
+     */
     constructor() {
         super(FleurametzCollector.CONFIG);
     }

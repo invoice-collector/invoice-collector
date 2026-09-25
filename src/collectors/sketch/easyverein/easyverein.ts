@@ -32,6 +32,9 @@ export class EasyvereinCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EasyvereinCollector class.
+     */
     constructor() {
         super(EasyvereinCollector.CONFIG);
     }

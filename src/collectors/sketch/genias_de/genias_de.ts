@@ -32,6 +32,9 @@ export class GeniasDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GeniasDeCollector class.
+     */
     constructor() {
         super(GeniasDeCollector.CONFIG);
     }

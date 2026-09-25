@@ -32,6 +32,9 @@ export class HeficedCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HeficedCollector class.
+     */
     constructor() {
         super(HeficedCollector.CONFIG);
     }

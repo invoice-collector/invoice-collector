@@ -32,6 +32,9 @@ export class EnergieDIciCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EnergieDIciCollector class.
+     */
     constructor() {
         super(EnergieDIciCollector.CONFIG);
     }

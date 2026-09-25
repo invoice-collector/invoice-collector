@@ -32,6 +32,9 @@ export class Brand24Collector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Brand24Collector class.
+     */
     constructor() {
         super(Brand24Collector.CONFIG);
     }

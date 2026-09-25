@@ -32,6 +32,9 @@ export class BlokkerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BlokkerCollector class.
+     */
     constructor() {
         super(BlokkerCollector.CONFIG);
     }

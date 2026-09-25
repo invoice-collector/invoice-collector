@@ -32,6 +32,9 @@ export class WinworkerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WinworkerCollector class.
+     */
     constructor() {
         super(WinworkerCollector.CONFIG);
     }

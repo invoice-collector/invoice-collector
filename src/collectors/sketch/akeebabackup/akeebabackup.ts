@@ -32,6 +32,9 @@ export class AkeebabackupCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AkeebabackupCollector class.
+     */
     constructor() {
         super(AkeebabackupCollector.CONFIG);
     }

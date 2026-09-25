@@ -32,6 +32,9 @@ export class TidalCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TidalCollector class.
+     */
     constructor() {
         super(TidalCollector.CONFIG);
     }

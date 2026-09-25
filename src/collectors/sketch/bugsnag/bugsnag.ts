@@ -32,6 +32,9 @@ export class BugsnagCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BugsnagCollector class.
+     */
     constructor() {
         super(BugsnagCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class EnbwCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EnbwCollector class.
+     */
     constructor() {
         super(EnbwCollector.CONFIG);
     }

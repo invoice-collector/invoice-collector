@@ -32,6 +32,9 @@ export class WaveInvoicingCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WaveInvoicingCollector class.
+     */
     constructor() {
         super(WaveInvoicingCollector.CONFIG);
     }

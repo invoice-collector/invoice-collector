@@ -32,6 +32,9 @@ export class TwitterCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TwitterCollector class.
+     */
     constructor() {
         super(TwitterCollector.CONFIG);
     }

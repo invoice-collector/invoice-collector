@@ -32,6 +32,9 @@ export class SoundsonlineCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SoundsonlineCollector class.
+     */
     constructor() {
         super(SoundsonlineCollector.CONFIG);
     }

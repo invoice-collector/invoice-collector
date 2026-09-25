@@ -32,6 +32,9 @@ export class GStarRawCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GStarRawCollector class.
+     */
     constructor() {
         super(GStarRawCollector.CONFIG);
     }

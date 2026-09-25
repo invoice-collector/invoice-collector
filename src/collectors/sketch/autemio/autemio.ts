@@ -32,6 +32,9 @@ export class AutemioCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AutemioCollector class.
+     */
     constructor() {
         super(AutemioCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class Mql5MarktCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Mql5MarktCollector class.
+     */
     constructor() {
         super(Mql5MarktCollector.CONFIG);
     }

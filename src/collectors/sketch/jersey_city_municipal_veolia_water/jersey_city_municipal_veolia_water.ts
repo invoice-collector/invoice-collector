@@ -32,6 +32,9 @@ export class JerseyCityMunicipalVeoliaWaterCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the JerseyCityMunicipalVeoliaWaterCollector class.
+     */
     constructor() {
         super(JerseyCityMunicipalVeoliaWaterCollector.CONFIG);
     }

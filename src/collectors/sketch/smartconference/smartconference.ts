@@ -32,6 +32,9 @@ export class SmartconferenceCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SmartconferenceCollector class.
+     */
     constructor() {
         super(SmartconferenceCollector.CONFIG);
     }

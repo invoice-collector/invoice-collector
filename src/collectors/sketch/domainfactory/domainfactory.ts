@@ -32,6 +32,9 @@ export class DomainfactoryCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DomainfactoryCollector class.
+     */
     constructor() {
         super(DomainfactoryCollector.CONFIG);
     }

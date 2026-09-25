@@ -32,6 +32,9 @@ export class SofliteCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SofliteCollector class.
+     */
     constructor() {
         super(SofliteCollector.CONFIG);
     }

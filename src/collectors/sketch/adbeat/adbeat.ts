@@ -32,6 +32,9 @@ export class AdbeatCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AdbeatCollector class.
+     */
     constructor() {
         super(AdbeatCollector.CONFIG);
     }

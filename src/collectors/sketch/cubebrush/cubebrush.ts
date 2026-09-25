@@ -32,6 +32,9 @@ export class CubebrushCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CubebrushCollector class.
+     */
     constructor() {
         super(CubebrushCollector.CONFIG);
     }

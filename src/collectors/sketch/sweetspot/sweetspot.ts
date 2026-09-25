@@ -32,6 +32,9 @@ export class SweetspotCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SweetspotCollector class.
+     */
     constructor() {
         super(SweetspotCollector.CONFIG);
     }

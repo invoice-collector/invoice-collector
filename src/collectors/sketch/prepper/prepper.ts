@@ -32,6 +32,9 @@ export class PrepperCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PrepperCollector class.
+     */
     constructor() {
         super(PrepperCollector.CONFIG);
     }

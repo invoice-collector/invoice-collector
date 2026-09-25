@@ -32,6 +32,9 @@ export class GreenEnergyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GreenEnergyCollector class.
+     */
     constructor() {
         super(GreenEnergyCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class StuartCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StuartCollector class.
+     */
     constructor() {
         super(StuartCollector.CONFIG);
     }

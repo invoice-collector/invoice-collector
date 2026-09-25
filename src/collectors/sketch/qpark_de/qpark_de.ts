@@ -32,6 +32,9 @@ export class QparkDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the QparkDeCollector class.
+     */
     constructor() {
         super(QparkDeCollector.CONFIG);
     }

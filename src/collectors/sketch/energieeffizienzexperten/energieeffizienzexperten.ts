@@ -32,6 +32,9 @@ export class EnergieeffizienzexpertenCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EnergieeffizienzexpertenCollector class.
+     */
     constructor() {
         super(EnergieeffizienzexpertenCollector.CONFIG);
     }

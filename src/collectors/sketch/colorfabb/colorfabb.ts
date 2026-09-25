@@ -32,6 +32,9 @@ export class ColorfabbCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ColorfabbCollector class.
+     */
     constructor() {
         super(ColorfabbCollector.CONFIG);
     }

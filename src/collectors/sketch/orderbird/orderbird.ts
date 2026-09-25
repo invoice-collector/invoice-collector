@@ -32,6 +32,9 @@ export class OrderbirdCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OrderbirdCollector class.
+     */
     constructor() {
         super(OrderbirdCollector.CONFIG);
     }

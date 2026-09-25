@@ -32,6 +32,9 @@ export class InsydiumLtdCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the InsydiumLtdCollector class.
+     */
     constructor() {
         super(InsydiumLtdCollector.CONFIG);
     }

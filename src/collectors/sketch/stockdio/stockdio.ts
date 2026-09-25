@@ -32,6 +32,9 @@ export class StockdioCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StockdioCollector class.
+     */
     constructor() {
         super(StockdioCollector.CONFIG);
     }

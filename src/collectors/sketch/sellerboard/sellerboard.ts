@@ -32,6 +32,9 @@ export class SellerboardCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SellerboardCollector class.
+     */
     constructor() {
         super(SellerboardCollector.CONFIG);
     }

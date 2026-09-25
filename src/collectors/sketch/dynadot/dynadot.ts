@@ -32,6 +32,9 @@ export class DynadotCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DynadotCollector class.
+     */
     constructor() {
         super(DynadotCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class BavelVoxelgroupNetCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BavelVoxelgroupNetCollector class.
+     */
     constructor() {
         super(BavelVoxelgroupNetCollector.CONFIG);
     }

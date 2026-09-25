@@ -32,6 +32,9 @@ export class ColoauCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ColoauCollector class.
+     */
     constructor() {
         super(ColoauCollector.CONFIG);
     }

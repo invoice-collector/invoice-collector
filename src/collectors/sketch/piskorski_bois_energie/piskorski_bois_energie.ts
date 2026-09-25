@@ -32,6 +32,9 @@ export class PiskorskiBoisEnergieCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PiskorskiBoisEnergieCollector class.
+     */
     constructor() {
         super(PiskorskiBoisEnergieCollector.CONFIG);
     }

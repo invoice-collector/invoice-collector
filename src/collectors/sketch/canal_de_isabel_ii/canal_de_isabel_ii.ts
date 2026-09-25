@@ -32,6 +32,9 @@ export class CanalDeIsabelIiCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CanalDeIsabelIiCollector class.
+     */
     constructor() {
         super(CanalDeIsabelIiCollector.CONFIG);
     }

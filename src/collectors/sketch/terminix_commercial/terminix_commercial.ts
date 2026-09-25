@@ -32,6 +32,9 @@ export class TerminixCommercialCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TerminixCommercialCollector class.
+     */
     constructor() {
         super(TerminixCommercialCollector.CONFIG);
     }

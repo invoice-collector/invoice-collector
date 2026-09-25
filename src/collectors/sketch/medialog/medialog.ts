@@ -32,6 +32,9 @@ export class MedialogCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MedialogCollector class.
+     */
     constructor() {
         super(MedialogCollector.CONFIG);
     }

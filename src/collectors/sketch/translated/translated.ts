@@ -32,6 +32,9 @@ export class TranslatedCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TranslatedCollector class.
+     */
     constructor() {
         super(TranslatedCollector.CONFIG);
     }

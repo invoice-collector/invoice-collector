@@ -32,6 +32,9 @@ export class SidnCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SidnCollector class.
+     */
     constructor() {
         super(SidnCollector.CONFIG);
     }

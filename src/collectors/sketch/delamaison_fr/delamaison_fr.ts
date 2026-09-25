@@ -32,6 +32,9 @@ export class DelamaisonFrCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DelamaisonFrCollector class.
+     */
     constructor() {
         super(DelamaisonFrCollector.CONFIG);
     }

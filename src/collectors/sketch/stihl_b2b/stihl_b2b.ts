@@ -32,6 +32,9 @@ export class StihlB2bCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StihlB2bCollector class.
+     */
     constructor() {
         super(StihlB2bCollector.CONFIG);
     }

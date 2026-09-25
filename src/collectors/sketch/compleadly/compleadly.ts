@@ -32,6 +32,9 @@ export class CompleadlyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CompleadlyCollector class.
+     */
     constructor() {
         super(CompleadlyCollector.CONFIG);
     }

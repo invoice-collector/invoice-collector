@@ -32,6 +32,9 @@ export class TelekomServicePortalCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TelekomServicePortalCollector class.
+     */
     constructor() {
         super(TelekomServicePortalCollector.CONFIG);
     }

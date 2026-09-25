@@ -32,6 +32,9 @@ export class JamfNowCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the JamfNowCollector class.
+     */
     constructor() {
         super(JamfNowCollector.CONFIG);
     }

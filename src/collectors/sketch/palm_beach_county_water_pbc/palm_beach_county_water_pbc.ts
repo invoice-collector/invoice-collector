@@ -32,6 +32,9 @@ export class PalmBeachCountyWaterPbcCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PalmBeachCountyWaterPbcCollector class.
+     */
     constructor() {
         super(PalmBeachCountyWaterPbcCollector.CONFIG);
     }

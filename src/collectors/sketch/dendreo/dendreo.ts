@@ -32,6 +32,9 @@ export class DendreoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DendreoCollector class.
+     */
     constructor() {
         super(DendreoCollector.CONFIG);
     }

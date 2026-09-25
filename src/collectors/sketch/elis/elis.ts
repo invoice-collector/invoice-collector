@@ -32,6 +32,9 @@ export class ElisCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ElisCollector class.
+     */
     constructor() {
         super(ElisCollector.CONFIG);
     }

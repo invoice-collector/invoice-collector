@@ -32,6 +32,9 @@ export class HueberCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HueberCollector class.
+     */
     constructor() {
         super(HueberCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class StadtwerkeSpeyerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StadtwerkeSpeyerCollector class.
+     */
     constructor() {
         super(StadtwerkeSpeyerCollector.CONFIG);
     }

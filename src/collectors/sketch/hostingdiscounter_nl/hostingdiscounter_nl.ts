@@ -32,6 +32,9 @@ export class HostingdiscounterNlCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HostingdiscounterNlCollector class.
+     */
     constructor() {
         super(HostingdiscounterNlCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class CollmexCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CollmexCollector class.
+     */
     constructor() {
         super(CollmexCollector.CONFIG);
     }

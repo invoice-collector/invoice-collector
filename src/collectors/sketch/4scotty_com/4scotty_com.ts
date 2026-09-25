@@ -32,6 +32,9 @@ export class _4scottyComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the _4scottyComCollector class.
+     */
     constructor() {
         super(_4scottyComCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class VoicetradingCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VoicetradingCollector class.
+     */
     constructor() {
         super(VoicetradingCollector.CONFIG);
     }

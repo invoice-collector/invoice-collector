@@ -32,6 +32,9 @@ export class TradebyteCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TradebyteCollector class.
+     */
     constructor() {
         super(TradebyteCollector.CONFIG);
     }

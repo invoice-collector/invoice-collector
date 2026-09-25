@@ -32,6 +32,9 @@ export class GeniuslinkCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GeniuslinkCollector class.
+     */
     constructor() {
         super(GeniuslinkCollector.CONFIG);
     }

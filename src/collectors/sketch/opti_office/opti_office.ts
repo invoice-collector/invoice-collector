@@ -32,6 +32,9 @@ export class OptiOfficeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OptiOfficeCollector class.
+     */
     constructor() {
         super(OptiOfficeCollector.CONFIG);
     }

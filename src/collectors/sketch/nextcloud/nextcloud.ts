@@ -32,6 +32,9 @@ export class NextcloudCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NextcloudCollector class.
+     */
     constructor() {
         super(NextcloudCollector.CONFIG);
     }

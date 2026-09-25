@@ -32,6 +32,9 @@ export class DieZaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DieZaCollector class.
+     */
     constructor() {
         super(DieZaCollector.CONFIG);
     }

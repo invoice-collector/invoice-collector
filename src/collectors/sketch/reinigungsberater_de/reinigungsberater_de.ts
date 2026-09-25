@@ -32,6 +32,9 @@ export class ReinigungsberaterDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ReinigungsberaterDeCollector class.
+     */
     constructor() {
         super(ReinigungsberaterDeCollector.CONFIG);
     }

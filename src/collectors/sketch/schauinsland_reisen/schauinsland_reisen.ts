@@ -32,6 +32,9 @@ export class SchauinslandReisenCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SchauinslandReisenCollector class.
+     */
     constructor() {
         super(SchauinslandReisenCollector.CONFIG);
     }

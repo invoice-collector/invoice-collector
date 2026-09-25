@@ -32,6 +32,9 @@ export class IllyShopCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the IllyShopCollector class.
+     */
     constructor() {
         super(IllyShopCollector.CONFIG);
     }

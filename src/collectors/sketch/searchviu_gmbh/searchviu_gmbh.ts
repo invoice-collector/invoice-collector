@@ -32,6 +32,9 @@ export class SearchviuGmbhCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SearchviuGmbhCollector class.
+     */
     constructor() {
         super(SearchviuGmbhCollector.CONFIG);
     }

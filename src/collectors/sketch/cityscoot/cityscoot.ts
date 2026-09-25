@@ -32,6 +32,9 @@ export class CityscootCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CityscootCollector class.
+     */
     constructor() {
         super(CityscootCollector.CONFIG);
     }

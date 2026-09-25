@@ -32,6 +32,9 @@ export class WordpressCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WordpressCollector class.
+     */
     constructor() {
         super(WordpressCollector.CONFIG);
     }

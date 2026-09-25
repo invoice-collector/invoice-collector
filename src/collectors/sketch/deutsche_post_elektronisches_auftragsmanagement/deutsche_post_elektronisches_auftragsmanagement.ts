@@ -32,6 +32,9 @@ export class DeutschePostElektronischesAuftragsmanagementCollector extends Sketc
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DeutschePostElektronischesAuftragsmanagementCollector class.
+     */
     constructor() {
         super(DeutschePostElektronischesAuftragsmanagementCollector.CONFIG);
     }

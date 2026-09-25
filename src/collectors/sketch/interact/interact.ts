@@ -32,6 +32,9 @@ export class InteractCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the InteractCollector class.
+     */
     constructor() {
         super(InteractCollector.CONFIG);
     }

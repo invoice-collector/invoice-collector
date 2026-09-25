@@ -32,6 +32,9 @@ export class KantoorartikelenNlCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KantoorartikelenNlCollector class.
+     */
     constructor() {
         super(KantoorartikelenNlCollector.CONFIG);
     }

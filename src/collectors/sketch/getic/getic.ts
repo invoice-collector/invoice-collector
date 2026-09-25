@@ -32,6 +32,9 @@ export class GeticCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GeticCollector class.
+     */
     constructor() {
         super(GeticCollector.CONFIG);
     }

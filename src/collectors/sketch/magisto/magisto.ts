@@ -32,6 +32,9 @@ export class MagistoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MagistoCollector class.
+     */
     constructor() {
         super(MagistoCollector.CONFIG);
     }

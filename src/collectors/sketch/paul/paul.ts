@@ -31,6 +31,9 @@ export class PaulCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PaulCollector class.
+     */
     constructor() {
         super(PaulCollector.CONFIG);
     }

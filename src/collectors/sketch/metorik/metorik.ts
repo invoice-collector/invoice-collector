@@ -32,6 +32,9 @@ export class MetorikCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MetorikCollector class.
+     */
     constructor() {
         super(MetorikCollector.CONFIG);
     }

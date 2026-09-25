@@ -32,6 +32,9 @@ export class EqologyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EqologyCollector class.
+     */
     constructor() {
         super(EqologyCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class BohlsenerMuhleCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BohlsenerMuhleCollector class.
+     */
     constructor() {
         super(BohlsenerMuhleCollector.CONFIG);
     }

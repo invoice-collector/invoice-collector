@@ -32,6 +32,9 @@ export class SnapaddyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SnapaddyCollector class.
+     */
     constructor() {
         super(SnapaddyCollector.CONFIG);
     }

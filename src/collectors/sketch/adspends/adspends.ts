@@ -32,6 +32,9 @@ export class AdspendsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AdspendsCollector class.
+     */
     constructor() {
         super(AdspendsCollector.CONFIG);
     }

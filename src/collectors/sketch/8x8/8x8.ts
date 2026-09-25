@@ -32,6 +32,9 @@ export class _8x8Collector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the _8x8Collector class.
+     */
     constructor() {
         super(_8x8Collector.CONFIG);
     }

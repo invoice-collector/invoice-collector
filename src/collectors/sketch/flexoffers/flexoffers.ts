@@ -32,6 +32,9 @@ export class FlexoffersCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FlexoffersCollector class.
+     */
     constructor() {
         super(FlexoffersCollector.CONFIG);
     }

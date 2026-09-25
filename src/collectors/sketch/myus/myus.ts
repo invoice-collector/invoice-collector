@@ -32,6 +32,9 @@ export class MyusCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MyusCollector class.
+     */
     constructor() {
         super(MyusCollector.CONFIG);
     }

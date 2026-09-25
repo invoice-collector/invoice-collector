@@ -32,6 +32,9 @@ export class KelkooCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KelkooCollector class.
+     */
     constructor() {
         super(KelkooCollector.CONFIG);
     }

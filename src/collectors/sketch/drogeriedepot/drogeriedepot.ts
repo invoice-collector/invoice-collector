@@ -32,6 +32,9 @@ export class DrogeriedepotCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DrogeriedepotCollector class.
+     */
     constructor() {
         super(DrogeriedepotCollector.CONFIG);
     }

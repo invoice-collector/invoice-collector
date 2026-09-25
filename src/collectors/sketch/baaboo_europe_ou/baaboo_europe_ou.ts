@@ -32,6 +32,9 @@ export class BaabooEuropeOuCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BaabooEuropeOuCollector class.
+     */
     constructor() {
         super(BaabooEuropeOuCollector.CONFIG);
     }

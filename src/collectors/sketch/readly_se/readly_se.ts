@@ -32,6 +32,9 @@ export class ReadlySeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ReadlySeCollector class.
+     */
     constructor() {
         super(ReadlySeCollector.CONFIG);
     }

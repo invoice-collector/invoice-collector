@@ -32,6 +32,9 @@ export class TrainualCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TrainualCollector class.
+     */
     constructor() {
         super(TrainualCollector.CONFIG);
     }

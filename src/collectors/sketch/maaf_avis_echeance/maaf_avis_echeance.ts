@@ -32,6 +32,9 @@ export class MaafAvisEcheanceCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MaafAvisEcheanceCollector class.
+     */
     constructor() {
         super(MaafAvisEcheanceCollector.CONFIG);
     }

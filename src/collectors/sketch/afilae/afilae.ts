@@ -32,6 +32,9 @@ export class AfilaeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AfilaeCollector class.
+     */
     constructor() {
         super(AfilaeCollector.CONFIG);
     }

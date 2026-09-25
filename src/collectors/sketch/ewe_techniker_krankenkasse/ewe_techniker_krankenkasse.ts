@@ -32,6 +32,9 @@ export class EweTechnikerKrankenkasseCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EweTechnikerKrankenkasseCollector class.
+     */
     constructor() {
         super(EweTechnikerKrankenkasseCollector.CONFIG);
     }

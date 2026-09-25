@@ -32,6 +32,9 @@ export class SdgAndECollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SdgAndECollector class.
+     */
     constructor() {
         super(SdgAndECollector.CONFIG);
     }

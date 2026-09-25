@@ -32,6 +32,9 @@ export class BSCardServicePortalCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BSCardServicePortalCollector class.
+     */
     constructor() {
         super(BSCardServicePortalCollector.CONFIG);
     }

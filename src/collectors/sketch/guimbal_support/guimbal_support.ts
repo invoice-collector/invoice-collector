@@ -32,6 +32,9 @@ export class GuimbalSupportCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GuimbalSupportCollector class.
+     */
     constructor() {
         super(GuimbalSupportCollector.CONFIG);
     }

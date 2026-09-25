@@ -32,6 +32,9 @@ export class LubeckTravelDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LubeckTravelDeCollector class.
+     */
     constructor() {
         super(LubeckTravelDeCollector.CONFIG);
     }

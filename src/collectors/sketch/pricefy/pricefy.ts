@@ -32,6 +32,9 @@ export class PricefyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PricefyCollector class.
+     */
     constructor() {
         super(PricefyCollector.CONFIG);
     }

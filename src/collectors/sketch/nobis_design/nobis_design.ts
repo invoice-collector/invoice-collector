@@ -32,6 +32,9 @@ export class NobisDesignCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NobisDesignCollector class.
+     */
     constructor() {
         super(NobisDesignCollector.CONFIG);
     }

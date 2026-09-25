@@ -32,6 +32,9 @@ export class EbayKleinanzeigenCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EbayKleinanzeigenCollector class.
+     */
     constructor() {
         super(EbayKleinanzeigenCollector.CONFIG);
     }

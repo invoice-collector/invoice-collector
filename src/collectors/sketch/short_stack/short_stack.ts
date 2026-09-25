@@ -32,6 +32,9 @@ export class ShortStackCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ShortStackCollector class.
+     */
     constructor() {
         super(ShortStackCollector.CONFIG);
     }

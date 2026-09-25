@@ -32,6 +32,9 @@ export class RedGiantCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RedGiantCollector class.
+     */
     constructor() {
         super(RedGiantCollector.CONFIG);
     }

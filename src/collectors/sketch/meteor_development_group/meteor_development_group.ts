@@ -32,6 +32,9 @@ export class MeteorDevelopmentGroupCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MeteorDevelopmentGroupCollector class.
+     */
     constructor() {
         super(MeteorDevelopmentGroupCollector.CONFIG);
     }

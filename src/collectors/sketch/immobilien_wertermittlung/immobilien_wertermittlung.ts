@@ -32,6 +32,9 @@ export class ImmobilienWertermittlungCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ImmobilienWertermittlungCollector class.
+     */
     constructor() {
         super(ImmobilienWertermittlungCollector.CONFIG);
     }

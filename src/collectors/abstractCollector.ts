@@ -95,7 +95,9 @@ export abstract class AbstractCollector<C extends Config> {
     /**
      * Resolve the authentication method to use for a collect, based on the customer preference
      * and the collector authentication method.
-     * Returns null if the customer preference and the collector are strictly incompatible.
+     * @param customerAuthenticationMethod The authentication method preferred by the customer.
+     * @param config The configuration of the collector.
+     * @returns null if the customer preference and the collector are strictly incompatible.
      */
     static resolveAuthenticationMethod(
         customerAuthenticationMethod: CustomerAuthenticationMethod,
@@ -144,6 +146,12 @@ export abstract class AbstractCollector<C extends Config> {
         }
     }
 
+    /**
+     * Updates the collector parameters based on the resolved authentication method.
+     * @param customerAuthenticationMethod The authentication method preferred by the customer.
+     * @param config The configuration of the collector.
+     * @returns A boolean indicating whether interactive login should be used.
+     */
     static updateCollectorParams(customerAuthenticationMethod: CustomerAuthenticationMethod, config: Config): boolean {
         // Resolve the authentication method to use for this collector
         const resolvedAuthenticationMethod = AbstractCollector.resolveAuthenticationMethod(customerAuthenticationMethod, config);
@@ -159,10 +167,19 @@ export abstract class AbstractCollector<C extends Config> {
 
     config: C;
 
+    /**
+     * Constructs a new instance of the collector with the specified configuration.
+     * @param config The configuration of the collector.
+     */
     constructor(config: C) {
         this.config = config;
     }
 
+    /**
+     * Downloads the direct link of the specified invoice as a base64-encoded string.
+     * @param invoice The invoice object containing the direct link to download.
+     * @returns The base64-encoded content of the invoice's direct link.
+     */
     async download_direct_link(invoice: Invoice): Promise<string> {
         if (!invoice.link) {
             throw new Error('Field `link` is missing in the invoice object.');
@@ -179,6 +196,18 @@ export abstract class AbstractCollector<C extends Config> {
 
     //NOT IMPLEMENTED
 
+    /**
+     * Collects new invoices based on the provided parameters.
+     * @param state The current state of the collector.
+     * @param webSocketServer The WebSocket server instance for real-time communication, or undefined if not available.
+     * @param secret The secret used for authentication or encryption.
+     * @param download_from_timestamp The timestamp from which to start downloading new invoices.
+     * @param previousInvoices The list of previously collected invoices.
+     * @param locale The locale to use for translating messages or content.
+     * @param location The location context for the invoice collection.
+     * @param customerAuthenticationMethod The authentication method preferred by the customer.
+     * @param providers The list of credential providers available for the collection.
+     */
     abstract collect_new_invoices(
         state: State,
         webSocketServer: WebSocketServer | undefined,

@@ -32,6 +32,9 @@ export class MygetCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MygetCollector class.
+     */
     constructor() {
         super(MygetCollector.CONFIG);
     }

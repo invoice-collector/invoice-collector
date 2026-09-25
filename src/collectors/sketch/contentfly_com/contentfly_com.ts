@@ -32,6 +32,9 @@ export class ContentflyComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ContentflyComCollector class.
+     */
     constructor() {
         super(ContentflyComCollector.CONFIG);
     }

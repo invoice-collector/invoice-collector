@@ -32,6 +32,9 @@ export class MkbBrandstofCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MkbBrandstofCollector class.
+     */
     constructor() {
         super(MkbBrandstofCollector.CONFIG);
     }

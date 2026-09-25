@@ -32,6 +32,9 @@ export class XperityPartnersCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the XperityPartnersCollector class.
+     */
     constructor() {
         super(XperityPartnersCollector.CONFIG);
     }

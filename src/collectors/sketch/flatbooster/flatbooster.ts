@@ -32,6 +32,9 @@ export class FlatboosterCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FlatboosterCollector class.
+     */
     constructor() {
         super(FlatboosterCollector.CONFIG);
     }

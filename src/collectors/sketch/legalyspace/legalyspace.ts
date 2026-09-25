@@ -32,6 +32,9 @@ export class LegalyspaceCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LegalyspaceCollector class.
+     */
     constructor() {
         super(LegalyspaceCollector.CONFIG);
     }

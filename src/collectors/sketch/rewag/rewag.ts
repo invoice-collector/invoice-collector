@@ -32,6 +32,9 @@ export class RewagCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RewagCollector class.
+     */
     constructor() {
         super(RewagCollector.CONFIG);
     }

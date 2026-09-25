@@ -32,6 +32,9 @@ export class InkassofortCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the InkassofortCollector class.
+     */
     constructor() {
         super(InkassofortCollector.CONFIG);
     }

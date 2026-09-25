@@ -32,6 +32,9 @@ export class HikeordersCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HikeordersCollector class.
+     */
     constructor() {
         super(HikeordersCollector.CONFIG);
     }

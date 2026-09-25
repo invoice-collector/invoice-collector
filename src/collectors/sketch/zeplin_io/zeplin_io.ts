@@ -32,6 +32,9 @@ export class ZeplinIoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ZeplinIoCollector class.
+     */
     constructor() {
         super(ZeplinIoCollector.CONFIG);
     }

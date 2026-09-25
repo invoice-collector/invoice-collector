@@ -32,6 +32,9 @@ export class WienerNetzeServiceCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WienerNetzeServiceCollector class.
+     */
     constructor() {
         super(WienerNetzeServiceCollector.CONFIG);
     }

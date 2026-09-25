@@ -32,6 +32,9 @@ export class HitaskCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HitaskCollector class.
+     */
     constructor() {
         super(HitaskCollector.CONFIG);
     }

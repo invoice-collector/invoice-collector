@@ -31,6 +31,9 @@ export class IdNumeriqueCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the IdNumeriqueCollector class.
+     */
     constructor() {
         super(IdNumeriqueCollector.CONFIG);
     }

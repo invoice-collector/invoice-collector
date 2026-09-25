@@ -32,6 +32,9 @@ export class AntagonistCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AntagonistCollector class.
+     */
     constructor() {
         super(AntagonistCollector.CONFIG);
     }

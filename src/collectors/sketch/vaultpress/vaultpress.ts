@@ -32,6 +32,9 @@ export class VaultpressCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VaultpressCollector class.
+     */
     constructor() {
         super(VaultpressCollector.CONFIG);
     }

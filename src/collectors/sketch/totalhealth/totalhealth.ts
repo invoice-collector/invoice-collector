@@ -32,6 +32,9 @@ export class TotalhealthCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TotalhealthCollector class.
+     */
     constructor() {
         super(TotalhealthCollector.CONFIG);
     }

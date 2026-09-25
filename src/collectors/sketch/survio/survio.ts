@@ -32,6 +32,9 @@ export class SurvioCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SurvioCollector class.
+     */
     constructor() {
         super(SurvioCollector.CONFIG);
     }

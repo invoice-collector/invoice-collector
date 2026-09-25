@@ -32,6 +32,9 @@ export class InfogreffeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the InfogreffeCollector class.
+     */
     constructor() {
         super(InfogreffeCollector.CONFIG);
     }

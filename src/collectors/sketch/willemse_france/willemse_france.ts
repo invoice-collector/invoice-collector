@@ -32,6 +32,9 @@ export class WillemseFranceCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WillemseFranceCollector class.
+     */
     constructor() {
         super(WillemseFranceCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class TechdataCanadaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TechdataCanadaCollector class.
+     */
     constructor() {
         super(TechdataCanadaCollector.CONFIG);
     }

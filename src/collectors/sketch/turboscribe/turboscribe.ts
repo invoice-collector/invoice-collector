@@ -32,6 +32,9 @@ export class TurboscribeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TurboscribeCollector class.
+     */
     constructor() {
         super(TurboscribeCollector.CONFIG);
     }

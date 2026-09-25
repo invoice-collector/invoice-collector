@@ -32,6 +32,9 @@ export class DekolightCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DekolightCollector class.
+     */
     constructor() {
         super(DekolightCollector.CONFIG);
     }

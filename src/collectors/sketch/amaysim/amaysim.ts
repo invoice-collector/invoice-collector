@@ -32,6 +32,9 @@ export class AmaysimCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AmaysimCollector class.
+     */
     constructor() {
         super(AmaysimCollector.CONFIG);
     }

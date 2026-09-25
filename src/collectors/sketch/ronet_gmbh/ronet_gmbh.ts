@@ -32,6 +32,9 @@ export class RonetGmbhCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RonetGmbhCollector class.
+     */
     constructor() {
         super(RonetGmbhCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class EedomusCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EedomusCollector class.
+     */
     constructor() {
         super(EedomusCollector.CONFIG);
     }

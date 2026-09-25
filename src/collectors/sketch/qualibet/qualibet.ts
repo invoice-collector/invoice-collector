@@ -32,6 +32,9 @@ export class QualibetCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the QualibetCollector class.
+     */
     constructor() {
         super(QualibetCollector.CONFIG);
     }

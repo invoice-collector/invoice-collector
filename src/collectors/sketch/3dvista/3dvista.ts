@@ -32,6 +32,9 @@ export class _3dvistaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the _3dvistaCollector class.
+     */
     constructor() {
         super(_3dvistaCollector.CONFIG);
     }

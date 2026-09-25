@@ -32,6 +32,9 @@ export class GetaroundCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GetaroundCollector class.
+     */
     constructor() {
         super(GetaroundCollector.CONFIG);
     }

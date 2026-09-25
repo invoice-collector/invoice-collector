@@ -32,6 +32,9 @@ export class McsharkCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the McsharkCollector class.
+     */
     constructor() {
         super(McsharkCollector.CONFIG);
     }

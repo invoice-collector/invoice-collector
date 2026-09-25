@@ -32,6 +32,9 @@ export class HillwoodCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HillwoodCollector class.
+     */
     constructor() {
         super(HillwoodCollector.CONFIG);
     }

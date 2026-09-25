@@ -32,6 +32,9 @@ export class DrewagCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DrewagCollector class.
+     */
     constructor() {
         super(DrewagCollector.CONFIG);
     }

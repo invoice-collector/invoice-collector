@@ -32,6 +32,9 @@ export class LinguiseCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LinguiseCollector class.
+     */
     constructor() {
         super(LinguiseCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class MyrabenCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MyrabenCollector class.
+     */
     constructor() {
         super(MyrabenCollector.CONFIG);
     }

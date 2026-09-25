@@ -32,6 +32,9 @@ export class LaVapotiereCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LaVapotiereCollector class.
+     */
     constructor() {
         super(LaVapotiereCollector.CONFIG);
     }

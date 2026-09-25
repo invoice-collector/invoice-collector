@@ -32,6 +32,9 @@ export class PakkelabelsDkCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PakkelabelsDkCollector class.
+     */
     constructor() {
         super(PakkelabelsDkCollector.CONFIG);
     }

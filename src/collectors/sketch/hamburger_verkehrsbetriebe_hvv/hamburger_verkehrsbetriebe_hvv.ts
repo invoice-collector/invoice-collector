@@ -32,6 +32,9 @@ export class HamburgerVerkehrsbetriebeHvvCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HamburgerVerkehrsbetriebeHvvCollector class.
+     */
     constructor() {
         super(HamburgerVerkehrsbetriebeHvvCollector.CONFIG);
     }

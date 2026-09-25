@@ -32,6 +32,9 @@ export class AllianceHealthcareDeutschlandCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AllianceHealthcareDeutschlandCollector class.
+     */
     constructor() {
         super(AllianceHealthcareDeutschlandCollector.CONFIG);
     }

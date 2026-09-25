@@ -32,6 +32,9 @@ export class MarketcircleCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MarketcircleCollector class.
+     */
     constructor() {
         super(MarketcircleCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class FinanzpartnernetzCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FinanzpartnernetzCollector class.
+     */
     constructor() {
         super(FinanzpartnernetzCollector.CONFIG);
     }

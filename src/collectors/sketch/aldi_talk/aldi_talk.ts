@@ -32,6 +32,9 @@ export class AldiTalkCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AldiTalkCollector class.
+     */
     constructor() {
         super(AldiTalkCollector.CONFIG);
     }

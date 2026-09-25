@@ -32,6 +32,9 @@ export class VenteUniqueComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VenteUniqueComCollector class.
+     */
     constructor() {
         super(VenteUniqueComCollector.CONFIG);
     }

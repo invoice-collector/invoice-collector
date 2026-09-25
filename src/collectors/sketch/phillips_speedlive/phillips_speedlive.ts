@@ -32,6 +32,9 @@ export class PhillipsSpeedliveCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PhillipsSpeedliveCollector class.
+     */
     constructor() {
         super(PhillipsSpeedliveCollector.CONFIG);
     }

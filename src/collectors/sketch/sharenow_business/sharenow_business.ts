@@ -32,6 +32,9 @@ export class SharenowBusinessCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SharenowBusinessCollector class.
+     */
     constructor() {
         super(SharenowBusinessCollector.CONFIG);
     }

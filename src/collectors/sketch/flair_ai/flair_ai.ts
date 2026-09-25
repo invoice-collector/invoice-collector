@@ -32,6 +32,9 @@ export class FlairAiCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FlairAiCollector class.
+     */
     constructor() {
         super(FlairAiCollector.CONFIG);
     }

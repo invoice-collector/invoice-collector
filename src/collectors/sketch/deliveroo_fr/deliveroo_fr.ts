@@ -32,6 +32,9 @@ export class DeliverooFrCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DeliverooFrCollector class.
+     */
     constructor() {
         super(DeliverooFrCollector.CONFIG);
     }

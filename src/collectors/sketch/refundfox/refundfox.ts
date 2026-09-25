@@ -32,6 +32,9 @@ export class RefundfoxCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RefundfoxCollector class.
+     */
     constructor() {
         super(RefundfoxCollector.CONFIG);
     }

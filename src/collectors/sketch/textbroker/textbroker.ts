@@ -32,6 +32,9 @@ export class TextbrokerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TextbrokerCollector class.
+     */
     constructor() {
         super(TextbrokerCollector.CONFIG);
     }

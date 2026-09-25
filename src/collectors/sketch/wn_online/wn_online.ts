@@ -32,6 +32,9 @@ export class WnOnlineCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WnOnlineCollector class.
+     */
     constructor() {
         super(WnOnlineCollector.CONFIG);
     }

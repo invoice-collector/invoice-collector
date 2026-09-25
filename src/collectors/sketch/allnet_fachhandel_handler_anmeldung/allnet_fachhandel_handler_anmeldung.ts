@@ -32,6 +32,9 @@ export class AllnetFachhandelHandlerAnmeldungCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AllnetFachhandelHandlerAnmeldungCollector class.
+     */
     constructor() {
         super(AllnetFachhandelHandlerAnmeldungCollector.CONFIG);
     }

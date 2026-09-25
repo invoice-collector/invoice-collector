@@ -32,6 +32,9 @@ export class GastrodigitalCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GastrodigitalCollector class.
+     */
     constructor() {
         super(GastrodigitalCollector.CONFIG);
     }

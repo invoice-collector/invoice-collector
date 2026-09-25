@@ -32,6 +32,9 @@ export class KahootCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KahootCollector class.
+     */
     constructor() {
         super(KahootCollector.CONFIG);
     }

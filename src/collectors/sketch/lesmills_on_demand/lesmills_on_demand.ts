@@ -32,6 +32,9 @@ export class LesmillsOnDemandCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LesmillsOnDemandCollector class.
+     */
     constructor() {
         super(LesmillsOnDemandCollector.CONFIG);
     }

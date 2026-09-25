@@ -32,6 +32,9 @@ export class ClosteComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ClosteComCollector class.
+     */
     constructor() {
         super(ClosteComCollector.CONFIG);
     }

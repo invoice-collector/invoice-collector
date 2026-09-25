@@ -32,6 +32,9 @@ export class DouglasCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DouglasCollector class.
+     */
     constructor() {
         super(DouglasCollector.CONFIG);
     }

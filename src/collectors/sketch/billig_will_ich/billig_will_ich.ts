@@ -32,6 +32,9 @@ export class BilligWillIchCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BilligWillIchCollector class.
+     */
     constructor() {
         super(BilligWillIchCollector.CONFIG);
     }

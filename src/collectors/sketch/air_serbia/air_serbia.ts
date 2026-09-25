@@ -32,6 +32,9 @@ export class AirSerbiaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AirSerbiaCollector class.
+     */
     constructor() {
         super(AirSerbiaCollector.CONFIG);
     }

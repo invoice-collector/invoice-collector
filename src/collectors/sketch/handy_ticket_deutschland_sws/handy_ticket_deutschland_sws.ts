@@ -32,6 +32,9 @@ export class HandyTicketDeutschlandSwsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HandyTicketDeutschlandSwsCollector class.
+     */
     constructor() {
         super(HandyTicketDeutschlandSwsCollector.CONFIG);
     }

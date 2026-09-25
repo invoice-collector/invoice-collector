@@ -32,6 +32,9 @@ export class MarktplaatsNlCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MarktplaatsNlCollector class.
+     */
     constructor() {
         super(MarktplaatsNlCollector.CONFIG);
     }

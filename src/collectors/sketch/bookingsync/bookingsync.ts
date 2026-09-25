@@ -32,6 +32,9 @@ export class BookingsyncCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BookingsyncCollector class.
+     */
     constructor() {
         super(BookingsyncCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class WordfenceCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WordfenceCollector class.
+     */
     constructor() {
         super(WordfenceCollector.CONFIG);
     }

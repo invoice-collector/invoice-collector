@@ -32,6 +32,9 @@ export class PortalGoldgasCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PortalGoldgasCollector class.
+     */
     constructor() {
         super(PortalGoldgasCollector.CONFIG);
     }

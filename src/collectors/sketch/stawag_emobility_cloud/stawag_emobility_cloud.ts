@@ -32,6 +32,9 @@ export class StawagEmobilityCloudCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StawagEmobilityCloudCollector class.
+     */
     constructor() {
         super(StawagEmobilityCloudCollector.CONFIG);
     }

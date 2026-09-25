@@ -32,6 +32,9 @@ export class CarteQualiteVieCourbevoieCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CarteQualiteVieCourbevoieCollector class.
+     */
     constructor() {
         super(CarteQualiteVieCourbevoieCollector.CONFIG);
     }

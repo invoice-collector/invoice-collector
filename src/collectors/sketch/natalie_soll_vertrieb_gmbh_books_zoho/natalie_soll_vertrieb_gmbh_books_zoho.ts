@@ -32,6 +32,9 @@ export class NatalieSollVertriebGmbhBooksZohoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NatalieSollVertriebGmbhBooksZohoCollector class.
+     */
     constructor() {
         super(NatalieSollVertriebGmbhBooksZohoCollector.CONFIG);
     }

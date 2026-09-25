@@ -32,6 +32,9 @@ export class EasymarketingCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EasymarketingCollector class.
+     */
     constructor() {
         super(EasymarketingCollector.CONFIG);
     }

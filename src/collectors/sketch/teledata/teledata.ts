@@ -32,6 +32,9 @@ export class TeledataCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TeledataCollector class.
+     */
     constructor() {
         super(TeledataCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class MeeroCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MeeroCollector class.
+     */
     constructor() {
         super(MeeroCollector.CONFIG);
     }

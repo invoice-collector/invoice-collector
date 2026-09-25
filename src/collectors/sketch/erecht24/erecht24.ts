@@ -32,6 +32,9 @@ export class Erecht24Collector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Erecht24Collector class.
+     */
     constructor() {
         super(Erecht24Collector.CONFIG);
     }

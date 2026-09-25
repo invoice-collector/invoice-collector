@@ -32,6 +32,9 @@ export class TrafficstarsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TrafficstarsCollector class.
+     */
     constructor() {
         super(TrafficstarsCollector.CONFIG);
     }

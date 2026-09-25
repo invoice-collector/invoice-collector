@@ -32,6 +32,9 @@ export class IngramerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the IngramerCollector class.
+     */
     constructor() {
         super(IngramerCollector.CONFIG);
     }

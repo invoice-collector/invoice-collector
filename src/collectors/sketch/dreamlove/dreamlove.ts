@@ -32,6 +32,9 @@ export class DreamloveCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DreamloveCollector class.
+     */
     constructor() {
         super(DreamloveCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class ExchangeratesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ExchangeratesCollector class.
+     */
     constructor() {
         super(ExchangeratesCollector.CONFIG);
     }

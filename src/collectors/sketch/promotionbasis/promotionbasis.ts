@@ -32,6 +32,9 @@ export class PromotionbasisCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PromotionbasisCollector class.
+     */
     constructor() {
         super(PromotionbasisCollector.CONFIG);
     }

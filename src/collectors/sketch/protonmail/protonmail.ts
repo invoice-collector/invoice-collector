@@ -32,6 +32,9 @@ export class ProtonmailCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ProtonmailCollector class.
+     */
     constructor() {
         super(ProtonmailCollector.CONFIG);
     }

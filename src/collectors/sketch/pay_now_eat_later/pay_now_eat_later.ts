@@ -32,6 +32,9 @@ export class PayNowEatLaterCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PayNowEatLaterCollector class.
+     */
     constructor() {
         super(PayNowEatLaterCollector.CONFIG);
     }

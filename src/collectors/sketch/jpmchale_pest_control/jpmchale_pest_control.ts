@@ -32,6 +32,9 @@ export class JpmchalePestControlCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the JpmchalePestControlCollector class.
+     */
     constructor() {
         super(JpmchalePestControlCollector.CONFIG);
     }

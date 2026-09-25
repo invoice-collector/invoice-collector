@@ -32,6 +32,9 @@ export class CockatooCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CockatooCollector class.
+     */
     constructor() {
         super(CockatooCollector.CONFIG);
     }

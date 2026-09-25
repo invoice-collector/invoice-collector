@@ -32,6 +32,9 @@ export class VidaxlB2bCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VidaxlB2bCollector class.
+     */
     constructor() {
         super(VidaxlB2bCollector.CONFIG);
     }

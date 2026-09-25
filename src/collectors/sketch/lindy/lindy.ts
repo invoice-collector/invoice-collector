@@ -32,6 +32,9 @@ export class LindyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LindyCollector class.
+     */
     constructor() {
         super(LindyCollector.CONFIG);
     }

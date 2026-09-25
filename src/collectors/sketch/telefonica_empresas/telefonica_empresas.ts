@@ -32,6 +32,9 @@ export class TelefonicaEmpresasCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TelefonicaEmpresasCollector class.
+     */
     constructor() {
         super(TelefonicaEmpresasCollector.CONFIG);
     }

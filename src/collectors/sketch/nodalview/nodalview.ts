@@ -32,6 +32,9 @@ export class NodalviewCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NodalviewCollector class.
+     */
     constructor() {
         super(NodalviewCollector.CONFIG);
     }

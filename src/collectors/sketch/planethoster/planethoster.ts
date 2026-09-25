@@ -32,6 +32,9 @@ export class PlanethosterCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PlanethosterCollector class.
+     */
     constructor() {
         super(PlanethosterCollector.CONFIG);
     }

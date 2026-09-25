@@ -32,6 +32,9 @@ export class UpcChCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the UpcChCollector class.
+     */
     constructor() {
         super(UpcChCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class BqoolCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BqoolCollector class.
+     */
     constructor() {
         super(BqoolCollector.CONFIG);
     }

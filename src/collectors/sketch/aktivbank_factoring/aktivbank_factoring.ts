@@ -32,6 +32,9 @@ export class AktivbankFactoringCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AktivbankFactoringCollector class.
+     */
     constructor() {
         super(AktivbankFactoringCollector.CONFIG);
     }

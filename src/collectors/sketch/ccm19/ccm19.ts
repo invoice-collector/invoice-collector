@@ -32,6 +32,9 @@ export class Ccm19Collector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Ccm19Collector class.
+     */
     constructor() {
         super(Ccm19Collector.CONFIG);
     }

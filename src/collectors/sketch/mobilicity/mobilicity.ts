@@ -32,6 +32,9 @@ export class MobilicityCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MobilicityCollector class.
+     */
     constructor() {
         super(MobilicityCollector.CONFIG);
     }

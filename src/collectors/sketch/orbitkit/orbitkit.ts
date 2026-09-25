@@ -32,6 +32,9 @@ export class OrbitkitCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OrbitkitCollector class.
+     */
     constructor() {
         super(OrbitkitCollector.CONFIG);
     }

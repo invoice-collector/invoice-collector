@@ -32,6 +32,9 @@ export class VegaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VegaCollector class.
+     */
     constructor() {
         super(VegaCollector.CONFIG);
     }

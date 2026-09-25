@@ -32,6 +32,9 @@ export class Flotten24DeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Flotten24DeCollector class.
+     */
     constructor() {
         super(Flotten24DeCollector.CONFIG);
     }

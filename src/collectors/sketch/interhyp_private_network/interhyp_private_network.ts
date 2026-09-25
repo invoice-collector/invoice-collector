@@ -32,6 +32,9 @@ export class InterhypPrivateNetworkCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the InterhypPrivateNetworkCollector class.
+     */
     constructor() {
         super(InterhypPrivateNetworkCollector.CONFIG);
     }

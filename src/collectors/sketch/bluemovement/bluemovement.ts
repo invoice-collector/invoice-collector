@@ -32,6 +32,9 @@ export class BluemovementCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BluemovementCollector class.
+     */
     constructor() {
         super(BluemovementCollector.CONFIG);
     }

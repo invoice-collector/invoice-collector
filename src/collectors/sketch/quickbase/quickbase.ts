@@ -32,6 +32,9 @@ export class QuickbaseCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the QuickbaseCollector class.
+     */
     constructor() {
         super(QuickbaseCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class GrasshopperCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GrasshopperCollector class.
+     */
     constructor() {
         super(GrasshopperCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class EmailOnAcidApiCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EmailOnAcidApiCollector class.
+     */
     constructor() {
         super(EmailOnAcidApiCollector.CONFIG);
     }

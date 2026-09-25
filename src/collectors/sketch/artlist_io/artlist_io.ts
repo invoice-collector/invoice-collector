@@ -32,6 +32,9 @@ export class ArtlistIoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ArtlistIoCollector class.
+     */
     constructor() {
         super(ArtlistIoCollector.CONFIG);
     }

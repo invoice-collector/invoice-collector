@@ -32,6 +32,9 @@ export class AnnyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AnnyCollector class.
+     */
     constructor() {
         super(AnnyCollector.CONFIG);
     }

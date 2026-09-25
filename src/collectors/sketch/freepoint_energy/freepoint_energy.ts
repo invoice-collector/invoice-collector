@@ -32,6 +32,9 @@ export class FreepointEnergyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FreepointEnergyCollector class.
+     */
     constructor() {
         super(FreepointEnergyCollector.CONFIG);
     }

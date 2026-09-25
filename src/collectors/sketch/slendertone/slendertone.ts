@@ -32,6 +32,9 @@ export class SlendertoneCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SlendertoneCollector class.
+     */
     constructor() {
         super(SlendertoneCollector.CONFIG);
     }

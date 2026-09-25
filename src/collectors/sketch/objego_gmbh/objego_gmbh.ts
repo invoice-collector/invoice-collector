@@ -32,6 +32,9 @@ export class ObjegoGmbhCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ObjegoGmbhCollector class.
+     */
     constructor() {
         super(ObjegoGmbhCollector.CONFIG);
     }

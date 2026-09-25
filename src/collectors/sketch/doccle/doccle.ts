@@ -32,6 +32,9 @@ export class DoccleCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DoccleCollector class.
+     */
     constructor() {
         super(DoccleCollector.CONFIG);
     }

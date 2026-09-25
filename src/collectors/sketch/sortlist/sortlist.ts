@@ -32,6 +32,9 @@ export class SortlistCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SortlistCollector class.
+     */
     constructor() {
         super(SortlistCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class EurosenderCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EurosenderCollector class.
+     */
     constructor() {
         super(EurosenderCollector.CONFIG);
     }

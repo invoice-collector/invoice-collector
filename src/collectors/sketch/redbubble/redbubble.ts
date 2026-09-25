@@ -32,6 +32,9 @@ export class RedbubbleCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RedbubbleCollector class.
+     */
     constructor() {
         super(RedbubbleCollector.CONFIG);
     }

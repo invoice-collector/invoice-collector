@@ -32,6 +32,9 @@ export class MetanetCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MetanetCollector class.
+     */
     constructor() {
         super(MetanetCollector.CONFIG);
     }

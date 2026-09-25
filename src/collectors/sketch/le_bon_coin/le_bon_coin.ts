@@ -32,6 +32,9 @@ export class LeBonCoinCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LeBonCoinCollector class.
+     */
     constructor() {
         super(LeBonCoinCollector.CONFIG);
     }

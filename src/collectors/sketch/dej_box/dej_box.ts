@@ -32,6 +32,9 @@ export class DejBoxCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DejBoxCollector class.
+     */
     constructor() {
         super(DejBoxCollector.CONFIG);
     }

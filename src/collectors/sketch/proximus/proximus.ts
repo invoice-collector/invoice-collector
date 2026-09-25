@@ -32,6 +32,9 @@ export class ProximusCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ProximusCollector class.
+     */
     constructor() {
         super(ProximusCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class AdtractionMarketingCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AdtractionMarketingCollector class.
+     */
     constructor() {
         super(AdtractionMarketingCollector.CONFIG);
     }

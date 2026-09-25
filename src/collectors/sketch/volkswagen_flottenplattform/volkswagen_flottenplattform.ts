@@ -32,6 +32,9 @@ export class VolkswagenFlottenplattformCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VolkswagenFlottenplattformCollector class.
+     */
     constructor() {
         super(VolkswagenFlottenplattformCollector.CONFIG);
     }

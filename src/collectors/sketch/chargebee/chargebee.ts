@@ -32,6 +32,9 @@ export class ChargebeeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ChargebeeCollector class.
+     */
     constructor() {
         super(ChargebeeCollector.CONFIG);
     }

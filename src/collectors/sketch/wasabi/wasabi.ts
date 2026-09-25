@@ -32,6 +32,9 @@ export class WasabiCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WasabiCollector class.
+     */
     constructor() {
         super(WasabiCollector.CONFIG);
     }

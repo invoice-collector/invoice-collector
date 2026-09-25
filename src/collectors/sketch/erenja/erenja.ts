@@ -32,6 +32,9 @@ export class ErenjaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ErenjaCollector class.
+     */
     constructor() {
         super(ErenjaCollector.CONFIG);
     }

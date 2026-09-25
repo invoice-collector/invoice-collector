@@ -32,6 +32,9 @@ export class BluefaxCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BluefaxCollector class.
+     */
     constructor() {
         super(BluefaxCollector.CONFIG);
     }

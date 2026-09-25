@@ -32,6 +32,9 @@ export class VisibleVcCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VisibleVcCollector class.
+     */
     constructor() {
         super(VisibleVcCollector.CONFIG);
     }

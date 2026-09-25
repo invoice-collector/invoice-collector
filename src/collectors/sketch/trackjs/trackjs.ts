@@ -32,6 +32,9 @@ export class TrackjsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TrackjsCollector class.
+     */
     constructor() {
         super(TrackjsCollector.CONFIG);
     }

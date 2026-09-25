@@ -32,6 +32,9 @@ export class SchlauComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SchlauComCollector class.
+     */
     constructor() {
         super(SchlauComCollector.CONFIG);
     }

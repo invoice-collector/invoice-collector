@@ -32,6 +32,9 @@ export class FkAutomotiveCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FkAutomotiveCollector class.
+     */
     constructor() {
         super(FkAutomotiveCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class WmfCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WmfCollector class.
+     */
     constructor() {
         super(WmfCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class CircleKGermanyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CircleKGermanyCollector class.
+     */
     constructor() {
         super(CircleKGermanyCollector.CONFIG);
     }

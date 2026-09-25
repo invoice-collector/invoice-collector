@@ -32,6 +32,9 @@ export class MutuelleServyrHeliumCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MutuelleServyrHeliumCollector class.
+     */
     constructor() {
         super(MutuelleServyrHeliumCollector.CONFIG);
     }

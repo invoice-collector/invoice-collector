@@ -32,6 +32,9 @@ export class SimpleInvoicesIncCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SimpleInvoicesIncCollector class.
+     */
     constructor() {
         super(SimpleInvoicesIncCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class ElectroDepotCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ElectroDepotCollector class.
+     */
     constructor() {
         super(ElectroDepotCollector.CONFIG);
     }

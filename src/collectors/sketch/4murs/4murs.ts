@@ -32,6 +32,9 @@ export class _4mursCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the _4mursCollector class.
+     */
     constructor() {
         super(_4mursCollector.CONFIG);
     }

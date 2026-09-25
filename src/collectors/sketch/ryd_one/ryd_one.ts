@@ -32,6 +32,9 @@ export class RydOneCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RydOneCollector class.
+     */
     constructor() {
         super(RydOneCollector.CONFIG);
     }

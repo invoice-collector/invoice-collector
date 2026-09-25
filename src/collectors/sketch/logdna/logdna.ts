@@ -32,6 +32,9 @@ export class LogdnaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LogdnaCollector class.
+     */
     constructor() {
         super(LogdnaCollector.CONFIG);
     }

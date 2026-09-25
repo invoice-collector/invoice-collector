@@ -31,6 +31,9 @@ export class EuralisCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EuralisCollector class.
+     */
     constructor() {
         super(EuralisCollector.CONFIG);
     }

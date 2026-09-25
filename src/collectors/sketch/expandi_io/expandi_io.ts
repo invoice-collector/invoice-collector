@@ -32,6 +32,9 @@ export class ExpandiIoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ExpandiIoCollector class.
+     */
     constructor() {
         super(ExpandiIoCollector.CONFIG);
     }

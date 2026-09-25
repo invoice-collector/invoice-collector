@@ -32,6 +32,9 @@ export class AmericanDreamCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AmericanDreamCollector class.
+     */
     constructor() {
         super(AmericanDreamCollector.CONFIG);
     }

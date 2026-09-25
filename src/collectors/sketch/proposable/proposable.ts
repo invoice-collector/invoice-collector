@@ -32,6 +32,9 @@ export class ProposableCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ProposableCollector class.
+     */
     constructor() {
         super(ProposableCollector.CONFIG);
     }

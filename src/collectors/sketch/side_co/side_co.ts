@@ -32,6 +32,9 @@ export class SideCoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SideCoCollector class.
+     */
     constructor() {
         super(SideCoCollector.CONFIG);
     }

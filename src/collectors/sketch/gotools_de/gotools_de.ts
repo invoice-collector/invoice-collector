@@ -32,6 +32,9 @@ export class GotoolsDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GotoolsDeCollector class.
+     */
     constructor() {
         super(GotoolsDeCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class NetcolgoneGeschaftskundenCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NetcolgoneGeschaftskundenCollector class.
+     */
     constructor() {
         super(NetcolgoneGeschaftskundenCollector.CONFIG);
     }

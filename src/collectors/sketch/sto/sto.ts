@@ -32,6 +32,9 @@ export class StoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StoCollector class.
+     */
     constructor() {
         super(StoCollector.CONFIG);
     }

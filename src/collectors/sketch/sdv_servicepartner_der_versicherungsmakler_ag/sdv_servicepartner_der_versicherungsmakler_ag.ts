@@ -32,6 +32,9 @@ export class SdvServicepartnerDerVersicherungsmaklerAgCollector extends SketchCo
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SdvServicepartnerDerVersicherungsmaklerAgCollector class.
+     */
     constructor() {
         super(SdvServicepartnerDerVersicherungsmaklerAgCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class TelerikByProgressCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TelerikByProgressCollector class.
+     */
     constructor() {
         super(TelerikByProgressCollector.CONFIG);
     }

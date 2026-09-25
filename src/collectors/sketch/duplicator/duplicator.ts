@@ -32,6 +32,9 @@ export class DuplicatorCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DuplicatorCollector class.
+     */
     constructor() {
         super(DuplicatorCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class _1euroComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the _1euroComCollector class.
+     */
     constructor() {
         super(_1euroComCollector.CONFIG);
     }

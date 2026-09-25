@@ -32,6 +32,9 @@ export class NextendwebCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NextendwebCollector class.
+     */
     constructor() {
         super(NextendwebCollector.CONFIG);
     }

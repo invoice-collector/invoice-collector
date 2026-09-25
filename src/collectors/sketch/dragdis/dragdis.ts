@@ -32,6 +32,9 @@ export class DragdisCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DragdisCollector class.
+     */
     constructor() {
         super(DragdisCollector.CONFIG);
     }

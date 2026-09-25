@@ -32,6 +32,9 @@ export class MadeInDesignCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MadeInDesignCollector class.
+     */
     constructor() {
         super(MadeInDesignCollector.CONFIG);
     }

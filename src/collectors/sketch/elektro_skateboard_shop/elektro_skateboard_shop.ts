@@ -32,6 +32,9 @@ export class ElektroSkateboardShopCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ElektroSkateboardShopCollector class.
+     */
     constructor() {
         super(ElektroSkateboardShopCollector.CONFIG);
     }

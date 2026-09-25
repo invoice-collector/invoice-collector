@@ -32,6 +32,9 @@ export class ConbrIoFilesharingCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ConbrIoFilesharingCollector class.
+     */
     constructor() {
         super(ConbrIoFilesharingCollector.CONFIG);
     }

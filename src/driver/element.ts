@@ -8,6 +8,11 @@ export class Element {
     element: ElementHandle;
     driver: AbstractDriver;
 
+    /**
+     * Constructs a new instance of the Element class.
+     * @param element The ElementHandle associated with this element.
+     * @param driver The AbstractDriver instance associated with this element.
+     */
     constructor(element: ElementHandle, driver: AbstractDriver) {
         this.element = element;
         this.driver = driver;
@@ -16,7 +21,7 @@ export class Element {
     /**
      * Retrieves the associated element.
      *
-     * @returns A promise that resolves to the ElementHandle of the associated element, or null if the element is not found.
+     * @returns The ElementHandle of the associated element, or null if the element is not found.
      */
     async getElement(selector: any, options?: { raiseException?: true }): Promise<Element>;
     async getElement(selector: any, options: { raiseException: false }): Promise<Element | null>;
@@ -40,19 +45,34 @@ export class Element {
     /**
      * Retrieves the text content of the associated element.
      *
-     * @param _default - A default string value.
-     * @returns A promise that resolves to the text content of the element, or the default value if the element's text content is null.
+     * @param _default A default string value.
+     * @returns The text content of the element, or the default value if the element's text content is null.
      */
     async textContent(_default: string): Promise<string> {
         return await this.element.evaluate(el => el.textContent) || _default;
     }
 
-    async leftClick({
-        timeout = AbstractDriver.DEFAULT_TIMEOUT,
-        delay = AbstractDriver.DEFAULT_DELAY,
-        navigation = true,
-        mouseHover = false,
+    /**
+     * Left clicks on the element.
+     * @param options The left click options.
+     * @param options.timeout The timeout for the click action. Default is {@link AbstractDriver.DEFAULT_TIMEOUT}.
+     * @param options.delay The delay before the click action. Default is {@link AbstractDriver.DEFAULT_DELAY}.
+     * @param options.navigation Whether to wait for navigation after the click. Default is `true`.
+     * @param options.mouseHover Whether to hover the mouse over the element before clicking. Default is `false`.
+     */
+    async leftClick(options: {
+        timeout?: number,
+        delay?: number,
+        navigation?: boolean,
+        mouseHover?: boolean,
     } = {}): Promise<void> {
+        const {
+            timeout = AbstractDriver.DEFAULT_TIMEOUT,
+            delay = AbstractDriver.DEFAULT_DELAY,
+            navigation = true,
+            mouseHover = false,
+        } = options;
+
         if (mouseHover) {
             await this.element.hover();
             await utils.delay(delay);
@@ -64,10 +84,21 @@ export class Element {
         }
     }
 
-    async middleClick({
-        useFallbackMethod = false,
-        timeout = AbstractDriver.DEFAULT_TIMEOUT,
+    /**
+     * Middle clicks on the element.
+     * @param options The middle click options.
+     * @param options.useFallbackMethod Whether to use the fallback method for middle click. Default is `false`.
+     * @param options.timeout The timeout for the middle click action. Default is {@link AbstractDriver.DEFAULT_TIMEOUT}.
+     */
+    async middleClick(options: {
+        useFallbackMethod?: boolean,
+        timeout?: number,
     } = {}): Promise<void> {
+        const {
+            useFallbackMethod = false,
+            timeout = AbstractDriver.DEFAULT_TIMEOUT,
+        } = options;
+
         // If does not open in a new page by default
         if(!useFallbackMethod) {
             // Get number of opened pages before middle click
@@ -83,15 +114,20 @@ export class Element {
             // Get number of downloaded files after middle click
             const numberOfFilesAfter = (await this.driver.getDownloadedFiles(false)).length;
             // If no new page opened and no new file downloaded, set useFallbackMethod to true
-            useFallbackMethod = numberOfPagesAfter === numberOfPagesBefore && numberOfFilesAfter === numberOfFilesBefore;
-        }
-        // If need to open in a new page
-        if (useFallbackMethod) {
-            // Get current url
+            const shouldUseFallbackMethod = numberOfPagesAfter === numberOfPagesBefore && numberOfFilesAfter === numberOfFilesBefore;
+            if (shouldUseFallbackMethod) {
+                const currentUrl = this.driver.url();
+                await this.driver.newPage(currentUrl);
+                await this.driver.leftClick({
+                    selector: await this.cssSelector(),
+                    info: 'middle click',
+                }, {
+                    timeout,
+                });
+            }
+        } else {
             const currentUrl = this.driver.url();
-            // Open new page
             await this.driver.newPage(currentUrl);
-            // Click on the element again
             await this.driver.leftClick({
                 selector: await this.cssSelector(),
                 info: 'middle click',
@@ -101,13 +137,31 @@ export class Element {
         }
     }
 
-    async inputText(text: string, {
-        tries = 5,
-        timeout = AbstractDriver.DEFAULT_TIMEOUT,
-        delay = AbstractDriver.DEFAULT_DELAY,
-        navigation = false,
-        mouseHover = false,
+    /**
+     * Inputs text into the element, with options for retries, delays, and navigation handling.
+     * @param text The text to input into the element.
+     * @param options The input options.
+     * @param options.tries The number of attempts to input the text. Default is `5`.
+     * @param options.timeout The timeout for each attempt. Default is {@link AbstractDriver.DEFAULT_TIMEOUT}.
+     * @param options.delay The delay between each attempt. Default is {@link AbstractDriver.DEFAULT_DELAY}.
+     * @param options.navigation Whether to wait for navigation after inputting the text. Default is `false`.
+     * @param options.mouseHover Whether to hover the mouse over the element before inputting the text. Default is `false`.
+     */
+    async inputText(text: string, options: {
+        tries?: number,
+        timeout?: number,
+        delay?: number,
+        navigation?: boolean,
+        mouseHover?: boolean,
     } = {}): Promise<void> {
+        let {
+            tries = 5,
+            timeout = AbstractDriver.DEFAULT_TIMEOUT,
+            delay = AbstractDriver.DEFAULT_DELAY,
+            navigation = false,
+            mouseHover = false,
+        } = options;
+
         if (mouseHover) {
             await this.element.hover();
             await utils.delay(delay);
@@ -132,10 +186,22 @@ export class Element {
         }
     }
 
-    async dropdownSelect(value: string, {
-        delay = AbstractDriver.DEFAULT_DELAY,
-        mouseHover = false,
+    /**
+     * Selects a value from a dropdown element.
+     * @param value The value to select in the dropdown.
+     * @param options The dropdown selection options.
+     * @param options.delay The delay before and after selecting the value. Default is {@link AbstractDriver.DEFAULT_DELAY}.
+     * @param options.mouseHover Whether to hover the mouse over the element before selecting the value. Default is `false`.
+     */
+    async dropdownSelect(value: string, options: {
+        delay?: number,
+        mouseHover?: boolean,
     } = {}): Promise<void> {
+        const {
+            delay = AbstractDriver.DEFAULT_DELAY,
+            mouseHover = false,
+        } = options;
+
         if (mouseHover) {
             await this.element.hover();
             await utils.delay(delay);
@@ -144,16 +210,35 @@ export class Element {
         await utils.delay(delay);
     }
 
+    /**
+     * Gets the value of the specified attribute from the element matching the selector.
+     * @param selector The selector of the element to get the attribute from.
+     * @param attribute The name of the attribute to retrieve.
+     * @returns The value of the specified attribute, or the property value if the attribute is not present.
+     */
     async getAttribute(selector, attribute: string): Promise<string> {
         return await this.element.$eval(selector.selector, (element, attr) => element.getAttribute(attr) ?? element[attr], attribute);
     }
 
+    /**
+     * Gets the inner HTML content of the element.
+     * @returns The inner HTML content of the element.
+     */
     async innerHTML(): Promise<string> {
         return this.element.evaluate(el => el.innerHTML);
     }
 
+    /**
+     * Gets the CSS selector of the element.
+     * @returns The CSS selector of the element.
+     */
     async cssSelector(): Promise<string> {
         return await this.element.evaluate(element => {
+            /**
+             * Gets the CSS selector of the given element.
+             * @param element The element to get the CSS selector for.
+             * @returns The CSS selector of the given element.
+             */
             function getCssSelector(element): string {
                 if (element === document.body) {
                     return 'body';
@@ -183,10 +268,18 @@ export class Element {
         });
     }
 
+    /**
+     * Gets the tag name of the element in lowercase.
+     * @returns The tag name of the element in lowercase.
+     */
     async tagName(): Promise<string> {
         return await this.element.evaluate(el => el.tagName.toLowerCase());
     }
 
+    /**
+     * Checks if the element is clickable.
+     * @returns `true` if the element is clickable, otherwise `false`.
+     */
     async isClickable(): Promise<boolean> {
         const [isVisible, isDisabled] = await Promise.all([
             this.element.isVisible(),

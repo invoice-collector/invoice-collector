@@ -32,6 +32,9 @@ export class LitespeedCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LitespeedCollector class.
+     */
     constructor() {
         super(LitespeedCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class BrandnoozCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BrandnoozCollector class.
+     */
     constructor() {
         super(BrandnoozCollector.CONFIG);
     }

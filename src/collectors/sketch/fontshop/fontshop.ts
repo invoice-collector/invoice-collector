@@ -32,6 +32,9 @@ export class FontshopCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FontshopCollector class.
+     */
     constructor() {
         super(FontshopCollector.CONFIG);
     }

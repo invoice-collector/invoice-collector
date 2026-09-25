@@ -32,6 +32,9 @@ export class LaregioneCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LaregioneCollector class.
+     */
     constructor() {
         super(LaregioneCollector.CONFIG);
     }

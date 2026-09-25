@@ -32,6 +32,9 @@ export class Mparts24Collector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Mparts24Collector class.
+     */
     constructor() {
         super(Mparts24Collector.CONFIG);
     }

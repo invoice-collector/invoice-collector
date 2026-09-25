@@ -31,6 +31,9 @@ export class InwxCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the InwxCollector class.
+     */
     constructor() {
         super(InwxCollector.CONFIG);
     }

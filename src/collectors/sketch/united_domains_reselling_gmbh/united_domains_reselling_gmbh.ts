@@ -32,6 +32,9 @@ export class UnitedDomainsResellingGmbhCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the UnitedDomainsResellingGmbhCollector class.
+     */
     constructor() {
         super(UnitedDomainsResellingGmbhCollector.CONFIG);
     }

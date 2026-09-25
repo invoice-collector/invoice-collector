@@ -32,6 +32,9 @@ export class YategoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the YategoCollector class.
+     */
     constructor() {
         super(YategoCollector.CONFIG);
     }

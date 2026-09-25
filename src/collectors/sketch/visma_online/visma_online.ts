@@ -32,6 +32,9 @@ export class VismaOnlineCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VismaOnlineCollector class.
+     */
     constructor() {
         super(VismaOnlineCollector.CONFIG);
     }

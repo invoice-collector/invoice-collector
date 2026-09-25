@@ -32,6 +32,9 @@ export class OnepageGmbhCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OnepageGmbhCollector class.
+     */
     constructor() {
         super(OnepageGmbhCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class WbMasonCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WbMasonCollector class.
+     */
     constructor() {
         super(WbMasonCollector.CONFIG);
     }

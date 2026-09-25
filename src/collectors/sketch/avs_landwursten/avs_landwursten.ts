@@ -32,6 +32,9 @@ export class AvsLandwurstenCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AvsLandwurstenCollector class.
+     */
     constructor() {
         super(AvsLandwurstenCollector.CONFIG);
     }

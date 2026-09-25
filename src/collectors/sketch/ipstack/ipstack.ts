@@ -32,6 +32,9 @@ export class IpstackCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the IpstackCollector class.
+     */
     constructor() {
         super(IpstackCollector.CONFIG);
     }

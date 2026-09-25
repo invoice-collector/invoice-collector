@@ -32,6 +32,9 @@ export class SeobilityCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SeobilityCollector class.
+     */
     constructor() {
         super(SeobilityCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class PhotonEngineCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PhotonEngineCollector class.
+     */
     constructor() {
         super(PhotonEngineCollector.CONFIG);
     }

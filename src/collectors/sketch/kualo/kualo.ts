@@ -32,6 +32,9 @@ export class KualoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KualoCollector class.
+     */
     constructor() {
         super(KualoCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class OpenvpnIncCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OpenvpnIncCollector class.
+     */
     constructor() {
         super(OpenvpnIncCollector.CONFIG);
     }

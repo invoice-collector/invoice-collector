@@ -32,6 +32,9 @@ export class VideoCopilotCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VideoCopilotCollector class.
+     */
     constructor() {
         super(VideoCopilotCollector.CONFIG);
     }

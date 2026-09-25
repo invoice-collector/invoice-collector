@@ -32,6 +32,9 @@ export class Dsw21Collector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Dsw21Collector class.
+     */
     constructor() {
         super(Dsw21Collector.CONFIG);
     }

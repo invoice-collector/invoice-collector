@@ -32,6 +32,9 @@ export class WaveDistributionCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WaveDistributionCollector class.
+     */
     constructor() {
         super(WaveDistributionCollector.CONFIG);
     }

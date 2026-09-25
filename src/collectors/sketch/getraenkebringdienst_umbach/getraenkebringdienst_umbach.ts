@@ -32,6 +32,9 @@ export class GetraenkebringdienstUmbachCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GetraenkebringdienstUmbachCollector class.
+     */
     constructor() {
         super(GetraenkebringdienstUmbachCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class MyfitecoSalairesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MyfitecoSalairesCollector class.
+     */
     constructor() {
         super(MyfitecoSalairesCollector.CONFIG);
     }

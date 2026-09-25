@@ -32,6 +32,9 @@ export class QuokaDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the QuokaDeCollector class.
+     */
     constructor() {
         super(QuokaDeCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class VerisanaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VerisanaCollector class.
+     */
     constructor() {
         super(VerisanaCollector.CONFIG);
     }

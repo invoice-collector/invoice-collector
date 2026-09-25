@@ -32,6 +32,9 @@ export class MultikurierCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MultikurierCollector class.
+     */
     constructor() {
         super(MultikurierCollector.CONFIG);
     }

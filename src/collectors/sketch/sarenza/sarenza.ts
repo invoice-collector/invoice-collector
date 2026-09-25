@@ -32,6 +32,9 @@ export class SarenzaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SarenzaCollector class.
+     */
     constructor() {
         super(SarenzaCollector.CONFIG);
     }

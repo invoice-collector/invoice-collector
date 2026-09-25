@@ -32,6 +32,9 @@ export class TravisCiCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TravisCiCollector class.
+     */
     constructor() {
         super(TravisCiCollector.CONFIG);
     }

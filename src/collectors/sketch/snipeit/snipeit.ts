@@ -32,6 +32,9 @@ export class SnipeitCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SnipeitCollector class.
+     */
     constructor() {
         super(SnipeitCollector.CONFIG);
     }

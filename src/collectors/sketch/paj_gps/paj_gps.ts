@@ -32,6 +32,9 @@ export class PajGpsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PajGpsCollector class.
+     */
     constructor() {
         super(PajGpsCollector.CONFIG);
     }

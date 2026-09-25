@@ -31,6 +31,9 @@ export class FacebookCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FacebookCollector class.
+     */
     constructor() {
         super(FacebookCollector.CONFIG);
     }

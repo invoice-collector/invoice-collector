@@ -32,6 +32,9 @@ export class VeloDeVilleCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VeloDeVilleCollector class.
+     */
     constructor() {
         super(VeloDeVilleCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class FreightosCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FreightosCollector class.
+     */
     constructor() {
         super(FreightosCollector.CONFIG);
     }

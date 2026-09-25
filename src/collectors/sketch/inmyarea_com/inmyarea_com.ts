@@ -32,6 +32,9 @@ export class InmyareaComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the InmyareaComCollector class.
+     */
     constructor() {
         super(InmyareaComCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class RealDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RealDeCollector class.
+     */
     constructor() {
         super(RealDeCollector.CONFIG);
     }

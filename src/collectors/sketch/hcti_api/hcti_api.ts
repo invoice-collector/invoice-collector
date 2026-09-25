@@ -32,6 +32,9 @@ export class HctiApiCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HctiApiCollector class.
+     */
     constructor() {
         super(HctiApiCollector.CONFIG);
     }

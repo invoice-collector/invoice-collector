@@ -32,6 +32,9 @@ export class CenterdeviceCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CenterdeviceCollector class.
+     */
     constructor() {
         super(CenterdeviceCollector.CONFIG);
     }

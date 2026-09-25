@@ -32,6 +32,9 @@ export class EquidamCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EquidamCollector class.
+     */
     constructor() {
         super(EquidamCollector.CONFIG);
     }

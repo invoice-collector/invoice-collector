@@ -32,6 +32,9 @@ export class BsrBerlinerStadtreinigungCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BsrBerlinerStadtreinigungCollector class.
+     */
     constructor() {
         super(BsrBerlinerStadtreinigungCollector.CONFIG);
     }

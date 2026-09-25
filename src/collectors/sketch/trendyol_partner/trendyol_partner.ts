@@ -32,6 +32,9 @@ export class TrendyolPartnerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TrendyolPartnerCollector class.
+     */
     constructor() {
         super(TrendyolPartnerCollector.CONFIG);
     }

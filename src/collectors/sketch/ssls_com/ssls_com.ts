@@ -32,6 +32,9 @@ export class SslsComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SslsComCollector class.
+     */
     constructor() {
         super(SslsComCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class WonderLegalCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WonderLegalCollector class.
+     */
     constructor() {
         super(WonderLegalCollector.CONFIG);
     }

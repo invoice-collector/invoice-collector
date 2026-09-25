@@ -32,6 +32,9 @@ export class AppfollowCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AppfollowCollector class.
+     */
     constructor() {
         super(AppfollowCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class DomotzEuropeLimitedCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DomotzEuropeLimitedCollector class.
+     */
     constructor() {
         super(DomotzEuropeLimitedCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class Q8Collector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Q8Collector class.
+     */
     constructor() {
         super(Q8Collector.CONFIG);
     }

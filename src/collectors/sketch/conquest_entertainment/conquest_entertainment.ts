@@ -32,6 +32,9 @@ export class ConquestEntertainmentCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ConquestEntertainmentCollector class.
+     */
     constructor() {
         super(ConquestEntertainmentCollector.CONFIG);
     }

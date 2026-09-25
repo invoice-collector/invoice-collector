@@ -32,6 +32,9 @@ export class HydrosolutionCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HydrosolutionCollector class.
+     */
     constructor() {
         super(HydrosolutionCollector.CONFIG);
     }

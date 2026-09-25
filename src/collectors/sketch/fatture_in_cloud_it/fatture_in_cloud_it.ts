@@ -32,6 +32,9 @@ export class FattureInCloudItCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FattureInCloudItCollector class.
+     */
     constructor() {
         super(FattureInCloudItCollector.CONFIG);
     }

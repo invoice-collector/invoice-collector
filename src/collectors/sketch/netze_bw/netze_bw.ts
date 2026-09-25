@@ -32,6 +32,9 @@ export class NetzeBwCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NetzeBwCollector class.
+     */
     constructor() {
         super(NetzeBwCollector.CONFIG);
     }

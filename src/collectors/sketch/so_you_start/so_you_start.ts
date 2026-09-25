@@ -32,6 +32,9 @@ export class SoYouStartCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SoYouStartCollector class.
+     */
     constructor() {
         super(SoYouStartCollector.CONFIG);
     }

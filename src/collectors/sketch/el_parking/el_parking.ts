@@ -32,6 +32,9 @@ export class ElParkingCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ElParkingCollector class.
+     */
     constructor() {
         super(ElParkingCollector.CONFIG);
     }

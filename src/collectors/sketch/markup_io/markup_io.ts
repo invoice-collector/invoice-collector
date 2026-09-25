@@ -32,6 +32,9 @@ export class MarkupIoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MarkupIoCollector class.
+     */
     constructor() {
         super(MarkupIoCollector.CONFIG);
     }

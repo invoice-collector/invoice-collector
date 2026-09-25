@@ -32,6 +32,9 @@ export class SimetraCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SimetraCollector class.
+     */
     constructor() {
         super(SimetraCollector.CONFIG);
     }

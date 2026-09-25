@@ -32,6 +32,9 @@ export class EclincherCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EclincherCollector class.
+     */
     constructor() {
         super(EclincherCollector.CONFIG);
     }

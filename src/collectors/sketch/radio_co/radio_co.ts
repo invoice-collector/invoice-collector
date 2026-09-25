@@ -32,6 +32,9 @@ export class RadioCoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RadioCoCollector class.
+     */
     constructor() {
         super(RadioCoCollector.CONFIG);
     }

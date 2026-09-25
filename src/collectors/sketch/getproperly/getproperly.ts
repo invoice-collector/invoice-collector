@@ -32,6 +32,9 @@ export class GetproperlyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GetproperlyCollector class.
+     */
     constructor() {
         super(GetproperlyCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class MvvCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MvvCollector class.
+     */
     constructor() {
         super(MvvCollector.CONFIG);
     }

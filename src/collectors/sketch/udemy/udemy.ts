@@ -32,6 +32,9 @@ export class UdemyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the UdemyCollector class.
+     */
     constructor() {
         super(UdemyCollector.CONFIG);
     }

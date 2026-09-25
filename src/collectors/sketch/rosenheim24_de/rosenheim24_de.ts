@@ -32,6 +32,9 @@ export class Rosenheim24DeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Rosenheim24DeCollector class.
+     */
     constructor() {
         super(Rosenheim24DeCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class GlesysCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GlesysCollector class.
+     */
     constructor() {
         super(GlesysCollector.CONFIG);
     }

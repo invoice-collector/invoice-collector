@@ -32,6 +32,9 @@ export class KreiswerkeMainKinzigCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KreiswerkeMainKinzigCollector class.
+     */
     constructor() {
         super(KreiswerkeMainKinzigCollector.CONFIG);
     }

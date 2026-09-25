@@ -32,6 +32,9 @@ export class ShopMobilezoneHandelCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ShopMobilezoneHandelCollector class.
+     */
     constructor() {
         super(ShopMobilezoneHandelCollector.CONFIG);
     }

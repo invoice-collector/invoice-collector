@@ -32,6 +32,9 @@ export class PendingSystemsCubeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PendingSystemsCubeCollector class.
+     */
     constructor() {
         super(PendingSystemsCubeCollector.CONFIG);
     }

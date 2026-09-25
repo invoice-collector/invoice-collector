@@ -32,6 +32,9 @@ export class ProtechCustomerCareCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ProtechCustomerCareCollector class.
+     */
     constructor() {
         super(ProtechCustomerCareCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class _21runCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the _21runCollector class.
+     */
     constructor() {
         super(_21runCollector.CONFIG);
     }

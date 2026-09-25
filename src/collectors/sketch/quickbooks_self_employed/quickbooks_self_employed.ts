@@ -32,6 +32,9 @@ export class QuickbooksSelfEmployedCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the QuickbooksSelfEmployedCollector class.
+     */
     constructor() {
         super(QuickbooksSelfEmployedCollector.CONFIG);
     }

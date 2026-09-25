@@ -32,6 +32,9 @@ export class TiptransCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TiptransCollector class.
+     */
     constructor() {
         super(TiptransCollector.CONFIG);
     }

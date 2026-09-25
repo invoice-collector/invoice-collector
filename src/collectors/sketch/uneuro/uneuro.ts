@@ -32,6 +32,9 @@ export class UneuroCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the UneuroCollector class.
+     */
     constructor() {
         super(UneuroCollector.CONFIG);
     }

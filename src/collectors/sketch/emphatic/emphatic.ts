@@ -32,6 +32,9 @@ export class EmphaticCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EmphaticCollector class.
+     */
     constructor() {
         super(EmphaticCollector.CONFIG);
     }

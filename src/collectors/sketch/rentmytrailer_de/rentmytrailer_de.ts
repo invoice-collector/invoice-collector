@@ -32,6 +32,9 @@ export class RentmytrailerDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RentmytrailerDeCollector class.
+     */
     constructor() {
         super(RentmytrailerDeCollector.CONFIG);
     }

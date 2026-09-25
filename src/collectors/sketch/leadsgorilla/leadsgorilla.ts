@@ -32,6 +32,9 @@ export class LeadsgorillaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LeadsgorillaCollector class.
+     */
     constructor() {
         super(LeadsgorillaCollector.CONFIG);
     }

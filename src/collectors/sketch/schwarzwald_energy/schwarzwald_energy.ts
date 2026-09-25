@@ -32,6 +32,9 @@ export class SchwarzwaldEnergyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SchwarzwaldEnergyCollector class.
+     */
     constructor() {
         super(SchwarzwaldEnergyCollector.CONFIG);
     }

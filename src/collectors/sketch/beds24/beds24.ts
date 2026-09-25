@@ -32,6 +32,9 @@ export class Beds24Collector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Beds24Collector class.
+     */
     constructor() {
         super(Beds24Collector.CONFIG);
     }

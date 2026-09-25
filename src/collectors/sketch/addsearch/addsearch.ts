@@ -32,6 +32,9 @@ export class AddsearchCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AddsearchCollector class.
+     */
     constructor() {
         super(AddsearchCollector.CONFIG);
     }

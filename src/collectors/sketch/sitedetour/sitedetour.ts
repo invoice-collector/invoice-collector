@@ -32,6 +32,9 @@ export class SitedetourCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SitedetourCollector class.
+     */
     constructor() {
         super(SitedetourCollector.CONFIG);
     }

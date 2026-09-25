@@ -32,6 +32,9 @@ export class BayerischeIngenieurekammerBauCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BayerischeIngenieurekammerBauCollector class.
+     */
     constructor() {
         super(BayerischeIngenieurekammerBauCollector.CONFIG);
     }

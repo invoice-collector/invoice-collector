@@ -32,6 +32,9 @@ export class FlutterflowCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FlutterflowCollector class.
+     */
     constructor() {
         super(FlutterflowCollector.CONFIG);
     }

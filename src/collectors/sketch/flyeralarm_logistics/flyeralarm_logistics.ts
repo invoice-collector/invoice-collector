@@ -32,6 +32,9 @@ export class FlyeralarmLogisticsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FlyeralarmLogisticsCollector class.
+     */
     constructor() {
         super(FlyeralarmLogisticsCollector.CONFIG);
     }

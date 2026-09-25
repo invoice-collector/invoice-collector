@@ -32,6 +32,9 @@ export class PathwaySolutionsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PathwaySolutionsCollector class.
+     */
     constructor() {
         super(PathwaySolutionsCollector.CONFIG);
     }

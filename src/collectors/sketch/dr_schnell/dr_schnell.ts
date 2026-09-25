@@ -32,6 +32,9 @@ export class DrSchnellCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DrSchnellCollector class.
+     */
     constructor() {
         super(DrSchnellCollector.CONFIG);
     }

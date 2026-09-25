@@ -32,6 +32,9 @@ export class HexnodeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HexnodeCollector class.
+     */
     constructor() {
         super(HexnodeCollector.CONFIG);
     }

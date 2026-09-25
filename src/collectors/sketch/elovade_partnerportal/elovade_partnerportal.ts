@@ -32,6 +32,9 @@ export class ElovadePartnerportalCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ElovadePartnerportalCollector class.
+     */
     constructor() {
         super(ElovadePartnerportalCollector.CONFIG);
     }

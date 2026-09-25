@@ -31,6 +31,9 @@ export class PicotyGazCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PicotyGazCollector class.
+     */
     constructor() {
         super(PicotyGazCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class AglEnergyOnlineCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AglEnergyOnlineCollector class.
+     */
     constructor() {
         super(AglEnergyOnlineCollector.CONFIG);
     }

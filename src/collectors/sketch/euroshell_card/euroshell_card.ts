@@ -32,6 +32,9 @@ export class EuroshellCardCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EuroshellCardCollector class.
+     */
     constructor() {
         super(EuroshellCardCollector.CONFIG);
     }

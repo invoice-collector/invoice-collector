@@ -32,6 +32,9 @@ export class EasyliveIoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EasyliveIoCollector class.
+     */
     constructor() {
         super(EasyliveIoCollector.CONFIG);
     }

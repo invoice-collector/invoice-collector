@@ -32,6 +32,9 @@ export class SmartRxAlliadisCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SmartRxAlliadisCollector class.
+     */
     constructor() {
         super(SmartRxAlliadisCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class FixschaltenCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FixschaltenCollector class.
+     */
     constructor() {
         super(FixschaltenCollector.CONFIG);
     }

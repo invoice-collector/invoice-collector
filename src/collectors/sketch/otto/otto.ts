@@ -32,6 +32,9 @@ export class OttoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OttoCollector class.
+     */
     constructor() {
         super(OttoCollector.CONFIG);
     }

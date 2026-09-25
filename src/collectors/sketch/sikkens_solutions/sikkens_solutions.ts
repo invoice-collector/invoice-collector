@@ -31,6 +31,9 @@ export class SikkensSolutionsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SikkensSolutionsCollector class.
+     */
     constructor() {
         super(SikkensSolutionsCollector.CONFIG);
     }

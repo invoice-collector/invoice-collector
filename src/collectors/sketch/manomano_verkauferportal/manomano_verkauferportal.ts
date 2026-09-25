@@ -32,6 +32,9 @@ export class ManomanoVerkauferportalCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ManomanoVerkauferportalCollector class.
+     */
     constructor() {
         super(ManomanoVerkauferportalCollector.CONFIG);
     }

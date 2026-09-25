@@ -32,6 +32,9 @@ export class SliDoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SliDoCollector class.
+     */
     constructor() {
         super(SliDoCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class BritishCouncilEnglishOnlineCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BritishCouncilEnglishOnlineCollector class.
+     */
     constructor() {
         super(BritishCouncilEnglishOnlineCollector.CONFIG);
     }

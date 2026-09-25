@@ -32,6 +32,9 @@ export class WarmboxCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WarmboxCollector class.
+     */
     constructor() {
         super(WarmboxCollector.CONFIG);
     }

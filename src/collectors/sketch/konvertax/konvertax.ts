@@ -32,6 +32,9 @@ export class KonvertaxCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KonvertaxCollector class.
+     */
     constructor() {
         super(KonvertaxCollector.CONFIG);
     }

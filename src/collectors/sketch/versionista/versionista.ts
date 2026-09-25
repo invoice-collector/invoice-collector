@@ -32,6 +32,9 @@ export class VersionistaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VersionistaCollector class.
+     */
     constructor() {
         super(VersionistaCollector.CONFIG);
     }

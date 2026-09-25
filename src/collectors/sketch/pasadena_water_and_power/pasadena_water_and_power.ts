@@ -32,6 +32,9 @@ export class PasadenaWaterAndPowerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PasadenaWaterAndPowerCollector class.
+     */
     constructor() {
         super(PasadenaWaterAndPowerCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class FloatScheduleCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FloatScheduleCollector class.
+     */
     constructor() {
         super(FloatScheduleCollector.CONFIG);
     }

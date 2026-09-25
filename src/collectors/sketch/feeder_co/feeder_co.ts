@@ -32,6 +32,9 @@ export class FeederCoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FeederCoCollector class.
+     */
     constructor() {
         super(FeederCoCollector.CONFIG);
     }

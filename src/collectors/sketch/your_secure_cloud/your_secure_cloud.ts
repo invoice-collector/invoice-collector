@@ -32,6 +32,9 @@ export class YourSecureCloudCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the YourSecureCloudCollector class.
+     */
     constructor() {
         super(YourSecureCloudCollector.CONFIG);
     }

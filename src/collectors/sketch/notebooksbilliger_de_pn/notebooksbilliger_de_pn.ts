@@ -32,6 +32,9 @@ export class NotebooksbilligerDePnCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NotebooksbilligerDePnCollector class.
+     */
     constructor() {
         super(NotebooksbilligerDePnCollector.CONFIG);
     }

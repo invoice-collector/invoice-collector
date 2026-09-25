@@ -32,6 +32,9 @@ export class SitesauceCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SitesauceCollector class.
+     */
     constructor() {
         super(SitesauceCollector.CONFIG);
     }

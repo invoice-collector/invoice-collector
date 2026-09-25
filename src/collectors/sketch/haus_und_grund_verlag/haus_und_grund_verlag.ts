@@ -32,6 +32,9 @@ export class HausUndGrundVerlagCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HausUndGrundVerlagCollector class.
+     */
     constructor() {
         super(HausUndGrundVerlagCollector.CONFIG);
     }

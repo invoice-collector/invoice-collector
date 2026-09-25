@@ -32,6 +32,9 @@ export class BilendoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BilendoCollector class.
+     */
     constructor() {
         super(BilendoCollector.CONFIG);
     }

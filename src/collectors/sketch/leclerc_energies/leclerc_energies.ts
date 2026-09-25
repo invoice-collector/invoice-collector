@@ -32,6 +32,9 @@ export class LeclercEnergiesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LeclercEnergiesCollector class.
+     */
     constructor() {
         super(LeclercEnergiesCollector.CONFIG);
     }

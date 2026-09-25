@@ -32,6 +32,9 @@ export class XelMediaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the XelMediaCollector class.
+     */
     constructor() {
         super(XelMediaCollector.CONFIG);
     }

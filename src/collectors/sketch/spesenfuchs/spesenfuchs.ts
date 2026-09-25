@@ -32,6 +32,9 @@ export class SpesenfuchsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SpesenfuchsCollector class.
+     */
     constructor() {
         super(SpesenfuchsCollector.CONFIG);
     }

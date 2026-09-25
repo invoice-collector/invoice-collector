@@ -32,6 +32,9 @@ export class NiftyquoterCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NiftyquoterCollector class.
+     */
     constructor() {
         super(NiftyquoterCollector.CONFIG);
     }

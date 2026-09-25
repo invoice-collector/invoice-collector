@@ -32,6 +32,9 @@ export class TicktickCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TicktickCollector class.
+     */
     constructor() {
         super(TicktickCollector.CONFIG);
     }

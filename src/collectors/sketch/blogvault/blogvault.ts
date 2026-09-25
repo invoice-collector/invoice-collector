@@ -32,6 +32,9 @@ export class BlogvaultCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BlogvaultCollector class.
+     */
     constructor() {
         super(BlogvaultCollector.CONFIG);
     }

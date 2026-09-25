@@ -32,6 +32,9 @@ export class OutrankingCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OutrankingCollector class.
+     */
     constructor() {
         super(OutrankingCollector.CONFIG);
     }

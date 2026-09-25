@@ -32,6 +32,9 @@ export class MonsieurTelecommandeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MonsieurTelecommandeCollector class.
+     */
     constructor() {
         super(MonsieurTelecommandeCollector.CONFIG);
     }

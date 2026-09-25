@@ -32,6 +32,9 @@ export class FigmaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FigmaCollector class.
+     */
     constructor() {
         super(FigmaCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class MicrosoftAzureCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MicrosoftAzureCollector class.
+     */
     constructor() {
         super(MicrosoftAzureCollector.CONFIG);
     }

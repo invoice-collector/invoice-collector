@@ -32,6 +32,9 @@ export class GmassCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GmassCollector class.
+     */
     constructor() {
         super(GmassCollector.CONFIG);
     }

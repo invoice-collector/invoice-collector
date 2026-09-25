@@ -32,6 +32,9 @@ export class IgraalCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the IgraalCollector class.
+     */
     constructor() {
         super(IgraalCollector.CONFIG);
     }

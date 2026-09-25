@@ -32,6 +32,9 @@ export class WebgainsPublisherCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WebgainsPublisherCollector class.
+     */
     constructor() {
         super(WebgainsPublisherCollector.CONFIG);
     }

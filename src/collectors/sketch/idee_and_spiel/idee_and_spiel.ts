@@ -32,6 +32,9 @@ export class IdeeAndSpielCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the IdeeAndSpielCollector class.
+     */
     constructor() {
         super(IdeeAndSpielCollector.CONFIG);
     }

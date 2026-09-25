@@ -32,6 +32,9 @@ export class CommerzbankFirmenkundenCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CommerzbankFirmenkundenCollector class.
+     */
     constructor() {
         super(CommerzbankFirmenkundenCollector.CONFIG);
     }

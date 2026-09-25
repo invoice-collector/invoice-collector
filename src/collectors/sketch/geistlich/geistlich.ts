@@ -32,6 +32,9 @@ export class GeistlichCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GeistlichCollector class.
+     */
     constructor() {
         super(GeistlichCollector.CONFIG);
     }

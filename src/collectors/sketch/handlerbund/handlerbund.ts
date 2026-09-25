@@ -32,6 +32,9 @@ export class HandlerbundCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HandlerbundCollector class.
+     */
     constructor() {
         super(HandlerbundCollector.CONFIG);
     }

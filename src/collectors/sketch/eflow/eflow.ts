@@ -32,6 +32,9 @@ export class EflowCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EflowCollector class.
+     */
     constructor() {
         super(EflowCollector.CONFIG);
     }

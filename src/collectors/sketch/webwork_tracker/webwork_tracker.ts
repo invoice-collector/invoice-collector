@@ -32,6 +32,9 @@ export class WebworkTrackerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WebworkTrackerCollector class.
+     */
     constructor() {
         super(WebworkTrackerCollector.CONFIG);
     }

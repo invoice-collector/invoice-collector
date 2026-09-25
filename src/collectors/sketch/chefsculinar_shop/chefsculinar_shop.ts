@@ -32,6 +32,9 @@ export class ChefsculinarShopCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ChefsculinarShopCollector class.
+     */
     constructor() {
         super(ChefsculinarShopCollector.CONFIG);
     }

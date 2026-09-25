@@ -32,6 +32,9 @@ export class Hosting2goNlCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Hosting2goNlCollector class.
+     */
     constructor() {
         super(Hosting2goNlCollector.CONFIG);
     }

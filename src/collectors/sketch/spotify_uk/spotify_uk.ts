@@ -32,6 +32,9 @@ export class SpotifyUkCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SpotifyUkCollector class.
+     */
     constructor() {
         super(SpotifyUkCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class YourfoneCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the YourfoneCollector class.
+     */
     constructor() {
         super(YourfoneCollector.CONFIG);
     }

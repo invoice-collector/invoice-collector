@@ -32,6 +32,9 @@ export class SgAutorepondeurCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SgAutorepondeurCollector class.
+     */
     constructor() {
         super(SgAutorepondeurCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class BerkshireHathawayHomestateCompaniesCollector extends SketchCollecto
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BerkshireHathawayHomestateCompaniesCollector class.
+     */
     constructor() {
         super(BerkshireHathawayHomestateCompaniesCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class DesignmodoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DesignmodoCollector class.
+     */
     constructor() {
         super(DesignmodoCollector.CONFIG);
     }

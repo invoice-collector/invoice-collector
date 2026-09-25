@@ -32,6 +32,9 @@ export class MeetergoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MeetergoCollector class.
+     */
     constructor() {
         super(MeetergoCollector.CONFIG);
     }

@@ -31,6 +31,9 @@ export class TemuCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TemuCollector class.
+     */
     constructor() {
         super(TemuCollector.CONFIG);
     }

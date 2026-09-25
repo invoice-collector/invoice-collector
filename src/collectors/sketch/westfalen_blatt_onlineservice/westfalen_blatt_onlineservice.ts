@@ -32,6 +32,9 @@ export class WestfalenBlattOnlineserviceCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WestfalenBlattOnlineserviceCollector class.
+     */
     constructor() {
         super(WestfalenBlattOnlineserviceCollector.CONFIG);
     }

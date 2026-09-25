@@ -32,6 +32,9 @@ export class AlliantCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AlliantCollector class.
+     */
     constructor() {
         super(AlliantCollector.CONFIG);
     }

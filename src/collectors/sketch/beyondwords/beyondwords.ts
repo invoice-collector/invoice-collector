@@ -32,6 +32,9 @@ export class BeyondwordsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BeyondwordsCollector class.
+     */
     constructor() {
         super(BeyondwordsCollector.CONFIG);
     }

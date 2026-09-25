@@ -32,6 +32,9 @@ export class BoxtalCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BoxtalCollector class.
+     */
     constructor() {
         super(BoxtalCollector.CONFIG);
     }

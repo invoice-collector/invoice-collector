@@ -32,6 +32,9 @@ export class TripadvisorDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TripadvisorDeCollector class.
+     */
     constructor() {
         super(TripadvisorDeCollector.CONFIG);
     }

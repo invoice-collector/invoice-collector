@@ -32,6 +32,9 @@ export class EnvoyerIoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EnvoyerIoCollector class.
+     */
     constructor() {
         super(EnvoyerIoCollector.CONFIG);
     }

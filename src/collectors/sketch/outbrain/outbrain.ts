@@ -32,6 +32,9 @@ export class OutbrainCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OutbrainCollector class.
+     */
     constructor() {
         super(OutbrainCollector.CONFIG);
     }

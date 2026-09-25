@@ -32,6 +32,9 @@ export class MonalbumphotoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MonalbumphotoCollector class.
+     */
     constructor() {
         super(MonalbumphotoCollector.CONFIG);
     }

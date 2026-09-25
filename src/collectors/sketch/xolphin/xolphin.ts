@@ -32,6 +32,9 @@ export class XolphinCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the XolphinCollector class.
+     */
     constructor() {
         super(XolphinCollector.CONFIG);
     }

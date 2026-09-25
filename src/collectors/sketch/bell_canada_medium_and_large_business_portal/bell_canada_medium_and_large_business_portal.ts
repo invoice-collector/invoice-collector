@@ -32,6 +32,9 @@ export class BellCanadaMediumAndLargeBusinessPortalCollector extends SketchColle
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BellCanadaMediumAndLargeBusinessPortalCollector class.
+     */
     constructor() {
         super(BellCanadaMediumAndLargeBusinessPortalCollector.CONFIG);
     }

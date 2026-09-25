@@ -32,6 +32,9 @@ export class SerifEuropeLtdCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SerifEuropeLtdCollector class.
+     */
     constructor() {
         super(SerifEuropeLtdCollector.CONFIG);
     }

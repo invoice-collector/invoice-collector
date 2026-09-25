@@ -32,6 +32,9 @@ export class FoxyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FoxyCollector class.
+     */
     constructor() {
         super(FoxyCollector.CONFIG);
     }

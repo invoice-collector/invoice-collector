@@ -32,6 +32,9 @@ export class VrBankLahnDillEgCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VrBankLahnDillEgCollector class.
+     */
     constructor() {
         super(VrBankLahnDillEgCollector.CONFIG);
     }

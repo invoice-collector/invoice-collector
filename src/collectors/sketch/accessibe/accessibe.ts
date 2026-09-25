@@ -32,6 +32,9 @@ export class AccessibeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AccessibeCollector class.
+     */
     constructor() {
         super(AccessibeCollector.CONFIG);
     }

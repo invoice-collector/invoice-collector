@@ -32,6 +32,9 @@ export class PortaKosmetikCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PortaKosmetikCollector class.
+     */
     constructor() {
         super(PortaKosmetikCollector.CONFIG);
     }

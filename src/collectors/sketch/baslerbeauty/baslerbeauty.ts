@@ -32,6 +32,9 @@ export class BaslerbeautyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BaslerbeautyCollector class.
+     */
     constructor() {
         super(BaslerbeautyCollector.CONFIG);
     }

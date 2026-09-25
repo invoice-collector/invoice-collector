@@ -32,6 +32,9 @@ export class ClockodoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ClockodoCollector class.
+     */
     constructor() {
         super(ClockodoCollector.CONFIG);
     }

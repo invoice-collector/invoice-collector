@@ -32,6 +32,9 @@ export class AswoShopDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AswoShopDeCollector class.
+     */
     constructor() {
         super(AswoShopDeCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class SteagEnergyServicesGmbhCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SteagEnergyServicesGmbhCollector class.
+     */
     constructor() {
         super(SteagEnergyServicesGmbhCollector.CONFIG);
     }

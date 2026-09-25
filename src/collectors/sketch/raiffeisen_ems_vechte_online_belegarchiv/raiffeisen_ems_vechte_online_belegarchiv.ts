@@ -32,6 +32,9 @@ export class RaiffeisenEmsVechteOnlineBelegarchivCollector extends SketchCollect
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RaiffeisenEmsVechteOnlineBelegarchivCollector class.
+     */
     constructor() {
         super(RaiffeisenEmsVechteOnlineBelegarchivCollector.CONFIG);
     }

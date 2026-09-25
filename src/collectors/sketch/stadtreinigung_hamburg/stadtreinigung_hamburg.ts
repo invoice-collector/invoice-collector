@@ -32,6 +32,9 @@ export class StadtreinigungHamburgCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StadtreinigungHamburgCollector class.
+     */
     constructor() {
         super(StadtreinigungHamburgCollector.CONFIG);
     }

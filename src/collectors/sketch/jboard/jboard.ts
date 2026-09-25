@@ -32,6 +32,9 @@ export class JboardCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the JboardCollector class.
+     */
     constructor() {
         super(JboardCollector.CONFIG);
     }

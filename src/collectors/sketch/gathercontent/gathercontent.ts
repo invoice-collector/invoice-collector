@@ -32,6 +32,9 @@ export class GathercontentCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GathercontentCollector class.
+     */
     constructor() {
         super(GathercontentCollector.CONFIG);
     }

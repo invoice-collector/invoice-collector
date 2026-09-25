@@ -32,6 +32,9 @@ export class NutrilizeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NutrilizeCollector class.
+     */
     constructor() {
         super(NutrilizeCollector.CONFIG);
     }

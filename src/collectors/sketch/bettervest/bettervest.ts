@@ -32,6 +32,9 @@ export class BettervestCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BettervestCollector class.
+     */
     constructor() {
         super(BettervestCollector.CONFIG);
     }

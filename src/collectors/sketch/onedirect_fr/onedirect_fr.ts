@@ -32,6 +32,9 @@ export class OnedirectFrCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OnedirectFrCollector class.
+     */
     constructor() {
         super(OnedirectFrCollector.CONFIG);
     }

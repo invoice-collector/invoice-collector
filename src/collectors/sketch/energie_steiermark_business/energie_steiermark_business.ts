@@ -32,6 +32,9 @@ export class EnergieSteiermarkBusinessCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EnergieSteiermarkBusinessCollector class.
+     */
     constructor() {
         super(EnergieSteiermarkBusinessCollector.CONFIG);
     }

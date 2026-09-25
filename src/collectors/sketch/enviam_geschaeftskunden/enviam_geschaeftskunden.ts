@@ -32,6 +32,9 @@ export class EnviamGeschaeftskundenCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EnviamGeschaeftskundenCollector class.
+     */
     constructor() {
         super(EnviamGeschaeftskundenCollector.CONFIG);
     }

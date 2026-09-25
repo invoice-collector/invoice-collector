@@ -32,6 +32,9 @@ export class LeConservateurCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LeConservateurCollector class.
+     */
     constructor() {
         super(LeConservateurCollector.CONFIG);
     }

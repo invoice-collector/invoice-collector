@@ -32,6 +32,9 @@ export class StadtwerkeElmshornCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StadtwerkeElmshornCollector class.
+     */
     constructor() {
         super(StadtwerkeElmshornCollector.CONFIG);
     }

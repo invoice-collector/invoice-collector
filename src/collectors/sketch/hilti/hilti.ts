@@ -32,6 +32,9 @@ export class HiltiCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HiltiCollector class.
+     */
     constructor() {
         super(HiltiCollector.CONFIG);
     }

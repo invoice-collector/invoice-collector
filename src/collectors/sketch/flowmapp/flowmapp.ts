@@ -32,6 +32,9 @@ export class FlowmappCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FlowmappCollector class.
+     */
     constructor() {
         super(FlowmappCollector.CONFIG);
     }

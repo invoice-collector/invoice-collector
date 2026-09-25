@@ -32,6 +32,9 @@ export class TntEinvoicingCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TntEinvoicingCollector class.
+     */
     constructor() {
         super(TntEinvoicingCollector.CONFIG);
     }

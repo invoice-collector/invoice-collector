@@ -32,6 +32,9 @@ export class EonHungariaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EonHungariaCollector class.
+     */
     constructor() {
         super(EonHungariaCollector.CONFIG);
     }

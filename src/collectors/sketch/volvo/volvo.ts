@@ -32,6 +32,9 @@ export class VolvoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VolvoCollector class.
+     */
     constructor() {
         super(VolvoCollector.CONFIG);
     }

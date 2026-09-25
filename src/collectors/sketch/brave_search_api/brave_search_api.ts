@@ -32,6 +32,9 @@ export class BraveSearchApiCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BraveSearchApiCollector class.
+     */
     constructor() {
         super(BraveSearchApiCollector.CONFIG);
     }

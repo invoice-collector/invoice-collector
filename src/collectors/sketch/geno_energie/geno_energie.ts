@@ -32,6 +32,9 @@ export class GenoEnergieCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GenoEnergieCollector class.
+     */
     constructor() {
         super(GenoEnergieCollector.CONFIG);
     }

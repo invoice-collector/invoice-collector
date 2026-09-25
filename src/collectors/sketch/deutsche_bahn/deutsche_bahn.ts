@@ -32,6 +32,9 @@ export class DeutscheBahnCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DeutscheBahnCollector class.
+     */
     constructor() {
         super(DeutscheBahnCollector.CONFIG);
     }

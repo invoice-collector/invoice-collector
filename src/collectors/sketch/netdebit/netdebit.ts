@@ -32,6 +32,9 @@ export class NetdebitCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NetdebitCollector class.
+     */
     constructor() {
         super(NetdebitCollector.CONFIG);
     }

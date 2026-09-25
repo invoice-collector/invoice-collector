@@ -32,6 +32,9 @@ export class OvzCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OvzCollector class.
+     */
     constructor() {
         super(OvzCollector.CONFIG);
     }

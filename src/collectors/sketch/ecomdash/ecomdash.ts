@@ -32,6 +32,9 @@ export class EcomdashCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EcomdashCollector class.
+     */
     constructor() {
         super(EcomdashCollector.CONFIG);
     }

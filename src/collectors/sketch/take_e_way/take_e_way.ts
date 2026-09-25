@@ -32,6 +32,9 @@ export class TakeEWayCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TakeEWayCollector class.
+     */
     constructor() {
         super(TakeEWayCollector.CONFIG);
     }

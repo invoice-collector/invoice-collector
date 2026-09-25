@@ -32,6 +32,9 @@ export class HolzspielereiCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HolzspielereiCollector class.
+     */
     constructor() {
         super(HolzspielereiCollector.CONFIG);
     }

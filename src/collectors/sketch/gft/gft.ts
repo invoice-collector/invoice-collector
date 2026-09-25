@@ -32,6 +32,9 @@ export class GftCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GftCollector class.
+     */
     constructor() {
         super(GftCollector.CONFIG);
     }

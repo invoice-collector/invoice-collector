@@ -32,6 +32,9 @@ export class StatuspageCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StatuspageCollector class.
+     */
     constructor() {
         super(StatuspageCollector.CONFIG);
     }

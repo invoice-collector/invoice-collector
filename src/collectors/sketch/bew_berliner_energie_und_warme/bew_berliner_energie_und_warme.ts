@@ -32,6 +32,9 @@ export class BewBerlinerEnergieUndWarmeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BewBerlinerEnergieUndWarmeCollector class.
+     */
     constructor() {
         super(BewBerlinerEnergieUndWarmeCollector.CONFIG);
     }

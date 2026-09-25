@@ -32,6 +32,9 @@ export class StadtwerkeWedelCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StadtwerkeWedelCollector class.
+     */
     constructor() {
         super(StadtwerkeWedelCollector.CONFIG);
     }

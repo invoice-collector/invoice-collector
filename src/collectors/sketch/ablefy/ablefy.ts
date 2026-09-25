@@ -32,6 +32,9 @@ export class AblefyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AblefyCollector class.
+     */
     constructor() {
         super(AblefyCollector.CONFIG);
     }

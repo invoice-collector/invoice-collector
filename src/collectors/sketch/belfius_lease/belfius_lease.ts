@@ -32,6 +32,9 @@ export class BelfiusLeaseCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BelfiusLeaseCollector class.
+     */
     constructor() {
         super(BelfiusLeaseCollector.CONFIG);
     }

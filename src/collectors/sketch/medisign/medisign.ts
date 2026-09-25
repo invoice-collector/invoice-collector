@@ -32,6 +32,9 @@ export class MedisignCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MedisignCollector class.
+     */
     constructor() {
         super(MedisignCollector.CONFIG);
     }

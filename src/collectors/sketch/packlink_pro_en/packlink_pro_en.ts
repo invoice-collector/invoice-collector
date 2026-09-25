@@ -32,6 +32,9 @@ export class PacklinkProEnCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PacklinkProEnCollector class.
+     */
     constructor() {
         super(PacklinkProEnCollector.CONFIG);
     }

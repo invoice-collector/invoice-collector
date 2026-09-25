@@ -32,6 +32,9 @@ export class BoldenCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BoldenCollector class.
+     */
     constructor() {
         super(BoldenCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class GoodbarberCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GoodbarberCollector class.
+     */
     constructor() {
         super(GoodbarberCollector.CONFIG);
     }

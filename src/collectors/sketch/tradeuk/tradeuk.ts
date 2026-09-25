@@ -32,6 +32,9 @@ export class TradeukCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TradeukCollector class.
+     */
     constructor() {
         super(TradeukCollector.CONFIG);
     }

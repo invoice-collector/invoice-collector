@@ -32,6 +32,9 @@ export class AcademyOceanCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AcademyOceanCollector class.
+     */
     constructor() {
         super(AcademyOceanCollector.CONFIG);
     }

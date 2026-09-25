@@ -32,6 +32,9 @@ export class DerTheaterVerlagCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DerTheaterVerlagCollector class.
+     */
     constructor() {
         super(DerTheaterVerlagCollector.CONFIG);
     }

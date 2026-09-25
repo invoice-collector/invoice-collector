@@ -32,6 +32,9 @@ export class LebensmittelLeckerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LebensmittelLeckerCollector class.
+     */
     constructor() {
         super(LebensmittelLeckerCollector.CONFIG);
     }

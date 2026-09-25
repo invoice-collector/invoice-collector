@@ -32,6 +32,9 @@ export class AibvSaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AibvSaCollector class.
+     */
     constructor() {
         super(AibvSaCollector.CONFIG);
     }

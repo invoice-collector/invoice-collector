@@ -32,6 +32,9 @@ export class BtBusinessCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BtBusinessCollector class.
+     */
     constructor() {
         super(BtBusinessCollector.CONFIG);
     }

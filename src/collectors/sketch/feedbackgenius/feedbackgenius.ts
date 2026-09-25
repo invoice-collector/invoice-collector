@@ -32,6 +32,9 @@ export class FeedbackgeniusCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FeedbackgeniusCollector class.
+     */
     constructor() {
         super(FeedbackgeniusCollector.CONFIG);
     }

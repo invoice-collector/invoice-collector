@@ -32,6 +32,9 @@ export class EinfachReisekostenCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EinfachReisekostenCollector class.
+     */
     constructor() {
         super(EinfachReisekostenCollector.CONFIG);
     }

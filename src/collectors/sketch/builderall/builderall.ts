@@ -32,6 +32,9 @@ export class BuilderallCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BuilderallCollector class.
+     */
     constructor() {
         super(BuilderallCollector.CONFIG);
     }

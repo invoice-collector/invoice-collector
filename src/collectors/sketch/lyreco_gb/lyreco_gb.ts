@@ -32,6 +32,9 @@ export class LyrecoGbCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LyrecoGbCollector class.
+     */
     constructor() {
         super(LyrecoGbCollector.CONFIG);
     }

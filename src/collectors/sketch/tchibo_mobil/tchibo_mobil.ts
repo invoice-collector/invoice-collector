@@ -32,6 +32,9 @@ export class TchiboMobilCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TchiboMobilCollector class.
+     */
     constructor() {
         super(TchiboMobilCollector.CONFIG);
     }

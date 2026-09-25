@@ -32,6 +32,9 @@ export class TeamdriveCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TeamdriveCollector class.
+     */
     constructor() {
         super(TeamdriveCollector.CONFIG);
     }

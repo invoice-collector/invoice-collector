@@ -32,6 +32,9 @@ export class IxtemMotoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the IxtemMotoCollector class.
+     */
     constructor() {
         super(IxtemMotoCollector.CONFIG);
     }

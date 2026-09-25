@@ -33,10 +33,16 @@ export class AirbnbHostCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AirbnbHostCollector class.
+     */
     constructor() {
         super(AirbnbHostCollector.CONFIG);
     }
-    
+
+    /**
+     * @inheritdoc
+     */
     async needLogin(driver: AbstractDriver): Promise<boolean> {
         return this.config.entryUrl === undefined || driver.url().includes('/login');
     }

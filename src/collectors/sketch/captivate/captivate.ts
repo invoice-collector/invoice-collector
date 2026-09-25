@@ -32,6 +32,9 @@ export class CaptivateCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CaptivateCollector class.
+     */
     constructor() {
         super(CaptivateCollector.CONFIG);
     }

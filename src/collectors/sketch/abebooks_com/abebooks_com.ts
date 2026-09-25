@@ -32,6 +32,9 @@ export class AbebooksComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AbebooksComCollector class.
+     */
     constructor() {
         super(AbebooksComCollector.CONFIG);
     }

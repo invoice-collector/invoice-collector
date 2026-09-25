@@ -32,6 +32,9 @@ export class SpryngSmsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SpryngSmsCollector class.
+     */
     constructor() {
         super(SpryngSmsCollector.CONFIG);
     }

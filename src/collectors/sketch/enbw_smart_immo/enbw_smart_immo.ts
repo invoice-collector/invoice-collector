@@ -32,6 +32,9 @@ export class EnbwSmartImmoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EnbwSmartImmoCollector class.
+     */
     constructor() {
         super(EnbwSmartImmoCollector.CONFIG);
     }

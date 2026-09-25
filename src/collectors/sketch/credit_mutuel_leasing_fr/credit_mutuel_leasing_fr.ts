@@ -32,6 +32,9 @@ export class CreditMutuelLeasingFrCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CreditMutuelLeasingFrCollector class.
+     */
     constructor() {
         super(CreditMutuelLeasingFrCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class AvuNetzCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AvuNetzCollector class.
+     */
     constructor() {
         super(AvuNetzCollector.CONFIG);
     }

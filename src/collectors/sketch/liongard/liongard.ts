@@ -32,6 +32,9 @@ export class LiongardCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LiongardCollector class.
+     */
     constructor() {
         super(LiongardCollector.CONFIG);
     }

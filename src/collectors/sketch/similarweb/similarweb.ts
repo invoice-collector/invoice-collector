@@ -32,6 +32,9 @@ export class SimilarwebCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SimilarwebCollector class.
+     */
     constructor() {
         super(SimilarwebCollector.CONFIG);
     }

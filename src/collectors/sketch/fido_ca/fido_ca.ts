@@ -32,6 +32,9 @@ export class FidoCaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FidoCaCollector class.
+     */
     constructor() {
         super(FidoCaCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class PhysicaladdressComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PhysicaladdressComCollector class.
+     */
     constructor() {
         super(PhysicaladdressComCollector.CONFIG);
     }

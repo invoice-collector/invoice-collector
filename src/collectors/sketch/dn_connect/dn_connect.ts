@@ -32,6 +32,9 @@ export class DnConnectCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DnConnectCollector class.
+     */
     constructor() {
         super(DnConnectCollector.CONFIG);
     }

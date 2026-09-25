@@ -32,6 +32,9 @@ export class BaseCrmCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BaseCrmCollector class.
+     */
     constructor() {
         super(BaseCrmCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class DontaliaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DontaliaCollector class.
+     */
     constructor() {
         super(DontaliaCollector.CONFIG);
     }

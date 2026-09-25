@@ -32,6 +32,9 @@ export class PortalLeebMotorCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PortalLeebMotorCollector class.
+     */
     constructor() {
         super(PortalLeebMotorCollector.CONFIG);
     }

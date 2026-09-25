@@ -32,6 +32,9 @@ export class SwelloCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SwelloCollector class.
+     */
     constructor() {
         super(SwelloCollector.CONFIG);
     }

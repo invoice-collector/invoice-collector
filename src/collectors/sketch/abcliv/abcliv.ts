@@ -32,6 +32,9 @@ export class AbclivCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AbclivCollector class.
+     */
     constructor() {
         super(AbclivCollector.CONFIG);
     }

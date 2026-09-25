@@ -32,6 +32,9 @@ export class VeoprintCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VeoprintCollector class.
+     */
     constructor() {
         super(VeoprintCollector.CONFIG);
     }

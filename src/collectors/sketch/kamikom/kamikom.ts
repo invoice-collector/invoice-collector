@@ -32,6 +32,9 @@ export class KamikomCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KamikomCollector class.
+     */
     constructor() {
         super(KamikomCollector.CONFIG);
     }

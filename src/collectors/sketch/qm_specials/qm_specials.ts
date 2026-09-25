@@ -32,6 +32,9 @@ export class QmSpecialsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the QmSpecialsCollector class.
+     */
     constructor() {
         super(QmSpecialsCollector.CONFIG);
     }

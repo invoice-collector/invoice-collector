@@ -32,6 +32,9 @@ export class DiffyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DiffyCollector class.
+     */
     constructor() {
         super(DiffyCollector.CONFIG);
     }

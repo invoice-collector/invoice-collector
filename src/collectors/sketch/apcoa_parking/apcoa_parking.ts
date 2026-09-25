@@ -32,6 +32,9 @@ export class ApcoaParkingCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ApcoaParkingCollector class.
+     */
     constructor() {
         super(ApcoaParkingCollector.CONFIG);
     }

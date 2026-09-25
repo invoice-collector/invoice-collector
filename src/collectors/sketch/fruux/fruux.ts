@@ -32,6 +32,9 @@ export class FruuxCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FruuxCollector class.
+     */
     constructor() {
         super(FruuxCollector.CONFIG);
     }

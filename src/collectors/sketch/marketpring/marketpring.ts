@@ -32,6 +32,9 @@ export class MarketpringCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MarketpringCollector class.
+     */
     constructor() {
         super(MarketpringCollector.CONFIG);
     }

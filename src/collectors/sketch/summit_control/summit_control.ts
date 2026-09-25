@@ -32,6 +32,9 @@ export class SummitControlCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SummitControlCollector class.
+     */
     constructor() {
         super(SummitControlCollector.CONFIG);
     }

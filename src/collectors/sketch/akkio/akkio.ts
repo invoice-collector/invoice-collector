@@ -32,6 +32,9 @@ export class AkkioCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AkkioCollector class.
+     */
     constructor() {
         super(AkkioCollector.CONFIG);
     }

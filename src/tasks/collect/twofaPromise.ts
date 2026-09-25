@@ -15,6 +15,10 @@ export class TwofaPromise{
     collector: AbstractCollector<Config> | null = null;
     state : State | null = null;
 
+    /**
+     * Constructs an instance of the TwofaPromise class, initializing the promises for instructions and 2FA code.
+     * @deprecated This class is deprecated and will be removed as soon as customers switch to websockets integration.
+     */
     constructor() {
         // Instructions promise
         let instructionsResolve;
@@ -31,18 +35,35 @@ export class TwofaPromise{
         this.codeResolve = codeResolve;
     }
 
+    /**
+     * Sets the instructions for the 2FA process to be displayed to the user.
+     * @param instructions The instructions for the 2FA process.
+     */
     async setInstructions(instructions: string): Promise<void> {
         this.instructionsResolve(utils.trim(instructions));
     }
 
+    /**
+     * Gets the instructions for the 2FA process to be displayed to the user.
+     * @returns The instructions for the 2FA process.
+     */
     async instructions(): Promise<string> {
         return await this.instrcutionsPromise;
     }
 
+    /**
+     * Sets the 2FA code provided by the user.
+     * @param code The 2FA code.
+     */
     async setCode(code: string): Promise<void> {
         this.codeResolve(code);
     }
 
+    /**
+     * Gets the 2FA code, waiting for the user to provide it or timing out after a specified duration.
+     * @param instruction Optional instruction to update the state with.
+     * @returns The 2FA code provided by the user.
+     */
     async code(instruction?: string): Promise<string> {
         // Set state if instruction
         if (instruction) {

@@ -32,6 +32,9 @@ export class CapitalAreaAccessoryDistributorsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CapitalAreaAccessoryDistributorsCollector class.
+     */
     constructor() {
         super(CapitalAreaAccessoryDistributorsCollector.CONFIG);
     }

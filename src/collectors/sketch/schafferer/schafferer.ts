@@ -32,6 +32,9 @@ export class SchaffererCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SchaffererCollector class.
+     */
     constructor() {
         super(SchaffererCollector.CONFIG);
     }

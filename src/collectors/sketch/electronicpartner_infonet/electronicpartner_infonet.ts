@@ -32,6 +32,9 @@ export class ElectronicpartnerInfonetCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ElectronicpartnerInfonetCollector class.
+     */
     constructor() {
         super(ElectronicpartnerInfonetCollector.CONFIG);
     }

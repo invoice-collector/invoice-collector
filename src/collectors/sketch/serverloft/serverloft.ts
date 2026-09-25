@@ -32,6 +32,9 @@ export class ServerloftCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ServerloftCollector class.
+     */
     constructor() {
         super(ServerloftCollector.CONFIG);
     }

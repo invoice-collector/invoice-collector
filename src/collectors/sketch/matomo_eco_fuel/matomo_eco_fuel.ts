@@ -32,6 +32,9 @@ export class MatomoEcoFuelCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MatomoEcoFuelCollector class.
+     */
     constructor() {
         super(MatomoEcoFuelCollector.CONFIG);
     }

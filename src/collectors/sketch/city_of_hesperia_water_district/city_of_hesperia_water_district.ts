@@ -32,6 +32,9 @@ export class CityOfHesperiaWaterDistrictCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CityOfHesperiaWaterDistrictCollector class.
+     */
     constructor() {
         super(CityOfHesperiaWaterDistrictCollector.CONFIG);
     }

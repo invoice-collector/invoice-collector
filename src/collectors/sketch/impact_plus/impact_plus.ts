@@ -32,6 +32,9 @@ export class ImpactPlusCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ImpactPlusCollector class.
+     */
     constructor() {
         super(ImpactPlusCollector.CONFIG);
     }

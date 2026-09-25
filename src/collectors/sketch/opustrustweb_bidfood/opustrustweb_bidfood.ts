@@ -32,6 +32,9 @@ export class OpustrustwebBidfoodCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OpustrustwebBidfoodCollector class.
+     */
     constructor() {
         super(OpustrustwebBidfoodCollector.CONFIG);
     }

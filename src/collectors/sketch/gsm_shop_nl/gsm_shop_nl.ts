@@ -32,6 +32,9 @@ export class GsmShopNlCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GsmShopNlCollector class.
+     */
     constructor() {
         super(GsmShopNlCollector.CONFIG);
     }

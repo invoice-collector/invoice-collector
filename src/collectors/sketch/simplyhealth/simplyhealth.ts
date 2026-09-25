@@ -32,6 +32,9 @@ export class SimplyhealthCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SimplyhealthCollector class.
+     */
     constructor() {
         super(SimplyhealthCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class WintGlobalGmbhCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WintGlobalGmbhCollector class.
+     */
     constructor() {
         super(WintGlobalGmbhCollector.CONFIG);
     }

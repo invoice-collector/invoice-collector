@@ -32,6 +32,9 @@ export class AutopartnerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AutopartnerCollector class.
+     */
     constructor() {
         super(AutopartnerCollector.CONFIG);
     }

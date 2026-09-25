@@ -32,6 +32,9 @@ export class AvouryCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AvouryCollector class.
+     */
     constructor() {
         super(AvouryCollector.CONFIG);
     }

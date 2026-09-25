@@ -32,6 +32,9 @@ export class PersonioCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PersonioCollector class.
+     */
     constructor() {
         super(PersonioCollector.CONFIG);
     }

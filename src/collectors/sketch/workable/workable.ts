@@ -32,6 +32,9 @@ export class WorkableCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WorkableCollector class.
+     */
     constructor() {
         super(WorkableCollector.CONFIG);
     }

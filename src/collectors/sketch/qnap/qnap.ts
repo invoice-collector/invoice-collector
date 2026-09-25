@@ -32,6 +32,9 @@ export class QnapCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the QnapCollector class.
+     */
     constructor() {
         super(QnapCollector.CONFIG);
     }

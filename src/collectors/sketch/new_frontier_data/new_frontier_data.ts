@@ -32,6 +32,9 @@ export class NewFrontierDataCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NewFrontierDataCollector class.
+     */
     constructor() {
         super(NewFrontierDataCollector.CONFIG);
     }

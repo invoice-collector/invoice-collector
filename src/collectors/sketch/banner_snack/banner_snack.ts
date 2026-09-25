@@ -32,6 +32,9 @@ export class BannerSnackCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BannerSnackCollector class.
+     */
     constructor() {
         super(BannerSnackCollector.CONFIG);
     }

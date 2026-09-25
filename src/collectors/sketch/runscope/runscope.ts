@@ -32,6 +32,9 @@ export class RunscopeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RunscopeCollector class.
+     */
     constructor() {
         super(RunscopeCollector.CONFIG);
     }

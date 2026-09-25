@@ -32,6 +32,9 @@ export class SandozFrCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SandozFrCollector class.
+     */
     constructor() {
         super(SandozFrCollector.CONFIG);
     }

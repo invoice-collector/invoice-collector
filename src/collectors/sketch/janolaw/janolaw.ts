@@ -32,6 +32,9 @@ export class JanolawCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the JanolawCollector class.
+     */
     constructor() {
         super(JanolawCollector.CONFIG);
     }

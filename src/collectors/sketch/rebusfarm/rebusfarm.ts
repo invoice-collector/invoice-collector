@@ -32,6 +32,9 @@ export class RebusfarmCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RebusfarmCollector class.
+     */
     constructor() {
         super(RebusfarmCollector.CONFIG);
     }

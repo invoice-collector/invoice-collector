@@ -32,6 +32,9 @@ export class TunnelbearCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TunnelbearCollector class.
+     */
     constructor() {
         super(TunnelbearCollector.CONFIG);
     }

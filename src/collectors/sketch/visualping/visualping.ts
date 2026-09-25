@@ -32,6 +32,9 @@ export class VisualpingCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VisualpingCollector class.
+     */
     constructor() {
         super(VisualpingCollector.CONFIG);
     }

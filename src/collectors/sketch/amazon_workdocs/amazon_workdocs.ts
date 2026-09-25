@@ -32,6 +32,9 @@ export class AmazonWorkdocsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AmazonWorkdocsCollector class.
+     */
     constructor() {
         super(AmazonWorkdocsCollector.CONFIG);
     }

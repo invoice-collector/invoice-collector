@@ -32,6 +32,9 @@ export class SageUkCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SageUkCollector class.
+     */
     constructor() {
         super(SageUkCollector.CONFIG);
     }

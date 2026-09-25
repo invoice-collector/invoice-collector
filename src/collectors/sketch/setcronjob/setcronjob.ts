@@ -32,6 +32,9 @@ export class SetcronjobCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SetcronjobCollector class.
+     */
     constructor() {
         super(SetcronjobCollector.CONFIG);
     }

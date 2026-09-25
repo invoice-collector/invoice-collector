@@ -32,6 +32,9 @@ export class LockboxCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LockboxCollector class.
+     */
     constructor() {
         super(LockboxCollector.CONFIG);
     }

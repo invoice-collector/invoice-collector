@@ -32,6 +32,9 @@ export class StotaxSelectCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StotaxSelectCollector class.
+     */
     constructor() {
         super(StotaxSelectCollector.CONFIG);
     }

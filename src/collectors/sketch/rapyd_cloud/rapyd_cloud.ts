@@ -32,6 +32,9 @@ export class RapydCloudCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RapydCloudCollector class.
+     */
     constructor() {
         super(RapydCloudCollector.CONFIG);
     }

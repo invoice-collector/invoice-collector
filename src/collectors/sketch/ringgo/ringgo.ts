@@ -32,6 +32,9 @@ export class RinggoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RinggoCollector class.
+     */
     constructor() {
         super(RinggoCollector.CONFIG);
     }

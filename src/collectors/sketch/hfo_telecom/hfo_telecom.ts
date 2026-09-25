@@ -32,6 +32,9 @@ export class HfoTelecomCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HfoTelecomCollector class.
+     */
     constructor() {
         super(HfoTelecomCollector.CONFIG);
     }

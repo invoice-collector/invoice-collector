@@ -32,6 +32,9 @@ export class HoekCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HoekCollector class.
+     */
     constructor() {
         super(HoekCollector.CONFIG);
     }

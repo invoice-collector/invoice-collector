@@ -32,6 +32,9 @@ export class CityOfGroverBeachCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CityOfGroverBeachCollector class.
+     */
     constructor() {
         super(CityOfGroverBeachCollector.CONFIG);
     }

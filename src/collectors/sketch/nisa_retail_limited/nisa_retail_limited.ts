@@ -32,6 +32,9 @@ export class NisaRetailLimitedCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NisaRetailLimitedCollector class.
+     */
     constructor() {
         super(NisaRetailLimitedCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class ArtsmartAiCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ArtsmartAiCollector class.
+     */
     constructor() {
         super(ArtsmartAiCollector.CONFIG);
     }

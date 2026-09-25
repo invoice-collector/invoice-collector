@@ -32,6 +32,9 @@ export class AetkaCommunikationCenterCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AetkaCommunikationCenterCollector class.
+     */
     constructor() {
         super(AetkaCommunikationCenterCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class SignalStartCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SignalStartCollector class.
+     */
     constructor() {
         super(SignalStartCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class FulcrumCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FulcrumCollector class.
+     */
     constructor() {
         super(FulcrumCollector.CONFIG);
     }

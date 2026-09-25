@@ -32,6 +32,9 @@ export class WexVelocityCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WexVelocityCollector class.
+     */
     constructor() {
         super(WexVelocityCollector.CONFIG);
     }

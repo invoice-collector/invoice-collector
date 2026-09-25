@@ -32,6 +32,9 @@ export class BazarChicCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BazarChicCollector class.
+     */
     constructor() {
         super(BazarChicCollector.CONFIG);
     }

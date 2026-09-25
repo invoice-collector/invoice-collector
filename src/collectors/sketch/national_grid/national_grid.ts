@@ -32,6 +32,9 @@ export class NationalGridCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NationalGridCollector class.
+     */
     constructor() {
         super(NationalGridCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class DuveCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DuveCollector class.
+     */
     constructor() {
         super(DuveCollector.CONFIG);
     }

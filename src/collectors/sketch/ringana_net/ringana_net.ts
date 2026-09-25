@@ -32,6 +32,9 @@ export class RinganaNetCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RinganaNetCollector class.
+     */
     constructor() {
         super(RinganaNetCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class SnaptradeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SnaptradeCollector class.
+     */
     constructor() {
         super(SnaptradeCollector.CONFIG);
     }

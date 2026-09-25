@@ -32,6 +32,9 @@ export class HirerightCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HirerightCollector class.
+     */
     constructor() {
         super(HirerightCollector.CONFIG);
     }

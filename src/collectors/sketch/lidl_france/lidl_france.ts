@@ -32,6 +32,9 @@ export class LidlFranceCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LidlFranceCollector class.
+     */
     constructor() {
         super(LidlFranceCollector.CONFIG);
     }

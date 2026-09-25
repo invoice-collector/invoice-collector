@@ -32,6 +32,9 @@ export class SasktelCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SasktelCollector class.
+     */
     constructor() {
         super(SasktelCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class HitenergieCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HitenergieCollector class.
+     */
     constructor() {
         super(HitenergieCollector.CONFIG);
     }

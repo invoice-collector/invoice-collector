@@ -32,6 +32,9 @@ export class UnrealCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the UnrealCollector class.
+     */
     constructor() {
         super(UnrealCollector.CONFIG);
     }

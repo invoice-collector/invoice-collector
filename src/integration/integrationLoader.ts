@@ -24,10 +24,19 @@ const INTEGRATIONS: {
 };
 
 export class IntegrationLoader {
+    /**
+     * Gets all available integration configurations.
+     * @returns An array of all available integration configurations.
+     */
     public static getAll(): IntegrationConfig[] {
         return Object.values(INTEGRATIONS);
     }
 
+    /**
+     * Gets the integration configuration for the specified integration name.
+     * @param name The name of the integration.
+     * @returns The integration configuration for the specified integration name.
+     */
     static get(name: string): IntegrationConfig  {
         // Check if integration exists
         if(!INTEGRATIONS.hasOwnProperty(name)) {

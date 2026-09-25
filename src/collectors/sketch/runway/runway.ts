@@ -32,6 +32,9 @@ export class RunwayCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RunwayCollector class.
+     */
     constructor() {
         super(RunwayCollector.CONFIG);
     }

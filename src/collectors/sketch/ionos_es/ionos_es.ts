@@ -32,6 +32,9 @@ export class IonosEsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the IonosEsCollector class.
+     */
     constructor() {
         super(IonosEsCollector.CONFIG);
     }

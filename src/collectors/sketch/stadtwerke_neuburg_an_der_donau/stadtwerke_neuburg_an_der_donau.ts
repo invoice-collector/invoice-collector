@@ -32,6 +32,9 @@ export class StadtwerkeNeuburgAnDerDonauCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StadtwerkeNeuburgAnDerDonauCollector class.
+     */
     constructor() {
         super(StadtwerkeNeuburgAnDerDonauCollector.CONFIG);
     }

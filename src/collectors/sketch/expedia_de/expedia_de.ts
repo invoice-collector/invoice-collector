@@ -32,6 +32,9 @@ export class ExpediaDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ExpediaDeCollector class.
+     */
     constructor() {
         super(ExpediaDeCollector.CONFIG);
     }

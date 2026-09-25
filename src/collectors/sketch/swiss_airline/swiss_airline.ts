@@ -32,6 +32,9 @@ export class SwissAirlineCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SwissAirlineCollector class.
+     */
     constructor() {
         super(SwissAirlineCollector.CONFIG);
     }

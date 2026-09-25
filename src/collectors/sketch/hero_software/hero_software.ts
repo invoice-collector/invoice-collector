@@ -32,6 +32,9 @@ export class HeroSoftwareCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HeroSoftwareCollector class.
+     */
     constructor() {
         super(HeroSoftwareCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class InstapageCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the InstapageCollector class.
+     */
     constructor() {
         super(InstapageCollector.CONFIG);
     }

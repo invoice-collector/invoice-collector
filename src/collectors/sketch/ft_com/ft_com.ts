@@ -32,6 +32,9 @@ export class FtComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FtComCollector class.
+     */
     constructor() {
         super(FtComCollector.CONFIG);
     }

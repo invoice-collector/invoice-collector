@@ -32,6 +32,9 @@ export class PeoplesGasCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PeoplesGasCollector class.
+     */
     constructor() {
         super(PeoplesGasCollector.CONFIG);
     }

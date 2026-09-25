@@ -32,6 +32,9 @@ export class StrettaMusicCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StrettaMusicCollector class.
+     */
     constructor() {
         super(StrettaMusicCollector.CONFIG);
     }

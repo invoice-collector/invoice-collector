@@ -32,6 +32,9 @@ export class WecandooCommissionsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WecandooCommissionsCollector class.
+     */
     constructor() {
         super(WecandooCommissionsCollector.CONFIG);
     }

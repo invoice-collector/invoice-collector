@@ -32,6 +32,9 @@ export class CoppenrathB2bCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CoppenrathB2bCollector class.
+     */
     constructor() {
         super(CoppenrathB2bCollector.CONFIG);
     }

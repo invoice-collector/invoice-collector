@@ -32,6 +32,9 @@ export class NavanComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NavanComCollector class.
+     */
     constructor() {
         super(NavanComCollector.CONFIG);
     }

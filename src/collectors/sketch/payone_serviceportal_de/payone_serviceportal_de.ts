@@ -32,6 +32,9 @@ export class PayoneServiceportalDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PayoneServiceportalDeCollector class.
+     */
     constructor() {
         super(PayoneServiceportalDeCollector.CONFIG);
     }

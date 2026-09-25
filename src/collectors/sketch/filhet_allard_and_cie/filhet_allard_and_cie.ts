@@ -32,6 +32,9 @@ export class FilhetAllardAndCieCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FilhetAllardAndCieCollector class.
+     */
     constructor() {
         super(FilhetAllardAndCieCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class BraintreeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BraintreeCollector class.
+     */
     constructor() {
         super(BraintreeCollector.CONFIG);
     }

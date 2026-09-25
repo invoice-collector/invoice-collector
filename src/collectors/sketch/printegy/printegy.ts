@@ -32,6 +32,9 @@ export class PrintegyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PrintegyCollector class.
+     */
     constructor() {
         super(PrintegyCollector.CONFIG);
     }

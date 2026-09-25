@@ -32,6 +32,9 @@ export class OpenDriveCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OpenDriveCollector class.
+     */
     constructor() {
         super(OpenDriveCollector.CONFIG);
     }

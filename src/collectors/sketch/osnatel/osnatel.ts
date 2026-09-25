@@ -32,6 +32,9 @@ export class OsnatelCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OsnatelCollector class.
+     */
     constructor() {
         super(OsnatelCollector.CONFIG);
     }

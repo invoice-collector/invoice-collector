@@ -32,6 +32,9 @@ export class TapfiliateCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TapfiliateCollector class.
+     */
     constructor() {
         super(TapfiliateCollector.CONFIG);
     }

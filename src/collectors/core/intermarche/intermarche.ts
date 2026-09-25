@@ -37,10 +37,16 @@ export class IntermarcheCollector extends LinearWebCollector {
         state: CollectorState.DEVELOPMENT,
     };
 
+    /**
+     * Constructs a new instance of the IntermarcheCollector class.
+     */
     constructor() {
         super(IntermarcheCollector.CONFIG);
     }
 
+    /**
+     * @inheritdoc
+     */
     async login(driver: AbstractDriver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
         // Wait for Datadome captcha
         await driver.waitForDatadomeCaptcha();
@@ -84,26 +90,41 @@ export class IntermarcheCollector extends LinearWebCollector {
         }
     }
 
+    /**
+     * @inheritdoc
+     */
     async navigate(driver: AbstractDriver): Promise<void> {
         // Close cookies banner if exists
         await driver.leftClick(IntermarcheSelectors.BUTTON_REFUSE_COOKIES, { raiseException: false, timeout: 5000});
     }
 
+    /**
+     * @inheritdoc
+     */
     async isEmpty(driver: AbstractDriver): Promise<boolean> {
         // Wait for panel commandes to be loaded
         await driver.getElement(IntermarcheSelectors.CONTAINER_PANEL_COMMANDES);
         // Check if empty basket container exists
         return await driver.getElement(IntermarcheSelectors.CONTAINER_EMPTY_BASKET, { raiseException: false, timeout: 100 }) !== null;
     }
-     
+
+    /**
+     * @inheritdoc
+     */
     async getInvoices(driver: AbstractDriver): Promise<Element[]> {
         throw new UnfinishedCollectorError(this);
     }
 
+    /**
+     * @inheritdoc
+     */
     async data(driver: AbstractDriver, element: Element): Promise<Invoice | null> {
         throw new UnfinishedCollectorError(this);
     }
 
+    /**
+     * @inheritdoc
+     */
     async download(driver: AbstractDriver, invoice: Invoice): Promise<string[]> {
         throw new UnfinishedCollectorError(this);
     }

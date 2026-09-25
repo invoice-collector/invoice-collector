@@ -32,6 +32,9 @@ export class KartonaraCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KartonaraCollector class.
+     */
     constructor() {
         super(KartonaraCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class VendCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VendCollector class.
+     */
     constructor() {
         super(VendCollector.CONFIG);
     }

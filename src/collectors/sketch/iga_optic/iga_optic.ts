@@ -32,6 +32,9 @@ export class IgaOpticCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the IgaOpticCollector class.
+     */
     constructor() {
         super(IgaOpticCollector.CONFIG);
     }

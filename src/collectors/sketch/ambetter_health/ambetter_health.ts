@@ -32,6 +32,9 @@ export class AmbetterHealthCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AmbetterHealthCollector class.
+     */
     constructor() {
         super(AmbetterHealthCollector.CONFIG);
     }

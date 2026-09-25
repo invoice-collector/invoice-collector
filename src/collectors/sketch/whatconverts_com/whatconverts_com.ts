@@ -32,6 +32,9 @@ export class WhatconvertsComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WhatconvertsComCollector class.
+     */
     constructor() {
         super(WhatconvertsComCollector.CONFIG);
     }

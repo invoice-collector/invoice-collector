@@ -32,6 +32,9 @@ export class HamburgerAbendblattCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HamburgerAbendblattCollector class.
+     */
     constructor() {
         super(HamburgerAbendblattCollector.CONFIG);
     }

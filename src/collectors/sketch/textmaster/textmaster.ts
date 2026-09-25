@@ -32,6 +32,9 @@ export class TextmasterCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TextmasterCollector class.
+     */
     constructor() {
         super(TextmasterCollector.CONFIG);
     }

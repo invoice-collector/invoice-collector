@@ -32,6 +32,9 @@ export class LohnbotCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LohnbotCollector class.
+     */
     constructor() {
         super(LohnbotCollector.CONFIG);
     }

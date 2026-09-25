@@ -32,6 +32,9 @@ export class NevercodeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NevercodeCollector class.
+     */
     constructor() {
         super(NevercodeCollector.CONFIG);
     }

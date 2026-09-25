@@ -32,6 +32,9 @@ export class TicketmasterFrCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TicketmasterFrCollector class.
+     */
     constructor() {
         super(TicketmasterFrCollector.CONFIG);
     }

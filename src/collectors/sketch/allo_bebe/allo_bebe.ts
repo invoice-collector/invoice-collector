@@ -32,6 +32,9 @@ export class AlloBebeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AlloBebeCollector class.
+     */
     constructor() {
         super(AlloBebeCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class GainCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GainCollector class.
+     */
     constructor() {
         super(GainCollector.CONFIG);
     }

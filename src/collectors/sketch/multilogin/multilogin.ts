@@ -32,6 +32,9 @@ export class MultiloginCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MultiloginCollector class.
+     */
     constructor() {
         super(MultiloginCollector.CONFIG);
     }

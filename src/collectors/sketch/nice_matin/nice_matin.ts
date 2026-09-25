@@ -32,6 +32,9 @@ export class NiceMatinCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NiceMatinCollector class.
+     */
     constructor() {
         super(NiceMatinCollector.CONFIG);
     }

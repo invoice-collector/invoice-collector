@@ -32,6 +32,9 @@ export class InteractiveBrokersCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the InteractiveBrokersCollector class.
+     */
     constructor() {
         super(InteractiveBrokersCollector.CONFIG);
     }

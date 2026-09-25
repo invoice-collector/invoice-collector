@@ -32,6 +32,9 @@ export class ProfesionalHostingCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ProfesionalHostingCollector class.
+     */
     constructor() {
         super(ProfesionalHostingCollector.CONFIG);
     }

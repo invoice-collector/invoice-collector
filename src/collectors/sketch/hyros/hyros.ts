@@ -32,6 +32,9 @@ export class HyrosCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HyrosCollector class.
+     */
     constructor() {
         super(HyrosCollector.CONFIG);
     }

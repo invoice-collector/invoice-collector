@@ -32,6 +32,9 @@ export class HappyScribeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HappyScribeCollector class.
+     */
     constructor() {
         super(HappyScribeCollector.CONFIG);
     }

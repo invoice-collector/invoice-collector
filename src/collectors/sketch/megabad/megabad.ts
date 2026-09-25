@@ -32,6 +32,9 @@ export class MegabadCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MegabadCollector class.
+     */
     constructor() {
         super(MegabadCollector.CONFIG);
     }

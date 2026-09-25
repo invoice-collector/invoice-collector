@@ -32,6 +32,9 @@ export class FreikomDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FreikomDeCollector class.
+     */
     constructor() {
         super(FreikomDeCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class Cash4lessCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Cash4lessCollector class.
+     */
     constructor() {
         super(Cash4lessCollector.CONFIG);
     }

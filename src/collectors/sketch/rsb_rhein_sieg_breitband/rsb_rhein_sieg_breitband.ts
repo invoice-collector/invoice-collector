@@ -32,6 +32,9 @@ export class RsbRheinSiegBreitbandCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RsbRheinSiegBreitbandCollector class.
+     */
     constructor() {
         super(RsbRheinSiegBreitbandCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class KurpfalztelCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KurpfalztelCollector class.
+     */
     constructor() {
         super(KurpfalztelCollector.CONFIG);
     }

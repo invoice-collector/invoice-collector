@@ -32,6 +32,9 @@ export class EtikettDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EtikettDeCollector class.
+     */
     constructor() {
         super(EtikettDeCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class TunesatCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TunesatCollector class.
+     */
     constructor() {
         super(TunesatCollector.CONFIG);
     }

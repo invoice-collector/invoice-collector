@@ -32,6 +32,9 @@ export class RevisitorsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RevisitorsCollector class.
+     */
     constructor() {
         super(RevisitorsCollector.CONFIG);
     }

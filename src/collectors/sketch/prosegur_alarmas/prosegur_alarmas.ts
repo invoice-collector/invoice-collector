@@ -32,6 +32,9 @@ export class ProsegurAlarmasCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ProsegurAlarmasCollector class.
+     */
     constructor() {
         super(ProsegurAlarmasCollector.CONFIG);
     }

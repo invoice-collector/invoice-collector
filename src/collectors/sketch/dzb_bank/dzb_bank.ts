@@ -32,6 +32,9 @@ export class DzbBankCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DzbBankCollector class.
+     */
     constructor() {
         super(DzbBankCollector.CONFIG);
     }

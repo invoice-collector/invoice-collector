@@ -32,6 +32,9 @@ export class ConradBizGeschaftskundenCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ConradBizGeschaftskundenCollector class.
+     */
     constructor() {
         super(ConradBizGeschaftskundenCollector.CONFIG);
     }

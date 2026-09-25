@@ -32,6 +32,9 @@ export class EbookDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EbookDeCollector class.
+     */
     constructor() {
         super(EbookDeCollector.CONFIG);
     }

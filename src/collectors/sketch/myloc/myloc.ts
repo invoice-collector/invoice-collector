@@ -32,6 +32,9 @@ export class MylocCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MylocCollector class.
+     */
     constructor() {
         super(MylocCollector.CONFIG);
     }

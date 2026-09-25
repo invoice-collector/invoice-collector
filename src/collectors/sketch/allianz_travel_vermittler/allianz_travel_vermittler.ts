@@ -32,6 +32,9 @@ export class AllianzTravelVermittlerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AllianzTravelVermittlerCollector class.
+     */
     constructor() {
         super(AllianzTravelVermittlerCollector.CONFIG);
     }

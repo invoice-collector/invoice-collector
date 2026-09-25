@@ -32,6 +32,9 @@ export class StadtwerkeMunchenGeschaftskundenportalCollector extends SketchColle
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StadtwerkeMunchenGeschaftskundenportalCollector class.
+     */
     constructor() {
         super(StadtwerkeMunchenGeschaftskundenportalCollector.CONFIG);
     }

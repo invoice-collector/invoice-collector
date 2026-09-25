@@ -32,6 +32,9 @@ export class CustomerIoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CustomerIoCollector class.
+     */
     constructor() {
         super(CustomerIoCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class ZepAflexioCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ZepAflexioCollector class.
+     */
     constructor() {
         super(ZepAflexioCollector.CONFIG);
     }

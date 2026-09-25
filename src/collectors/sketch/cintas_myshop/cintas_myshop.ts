@@ -32,6 +32,9 @@ export class CintasMyshopCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CintasMyshopCollector class.
+     */
     constructor() {
         super(CintasMyshopCollector.CONFIG);
     }

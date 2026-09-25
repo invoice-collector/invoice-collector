@@ -32,6 +32,9 @@ export class SurfsharkCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SurfsharkCollector class.
+     */
     constructor() {
         super(SurfsharkCollector.CONFIG);
     }

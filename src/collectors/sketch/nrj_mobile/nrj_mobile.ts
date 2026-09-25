@@ -32,6 +32,9 @@ export class NrjMobileCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NrjMobileCollector class.
+     */
     constructor() {
         super(NrjMobileCollector.CONFIG);
     }

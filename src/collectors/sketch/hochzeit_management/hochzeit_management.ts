@@ -32,6 +32,9 @@ export class HochzeitManagementCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HochzeitManagementCollector class.
+     */
     constructor() {
         super(HochzeitManagementCollector.CONFIG);
     }

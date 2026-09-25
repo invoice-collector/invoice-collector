@@ -32,6 +32,9 @@ export class HotelsAndCarsByPointsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HotelsAndCarsByPointsCollector class.
+     */
     constructor() {
         super(HotelsAndCarsByPointsCollector.CONFIG);
     }

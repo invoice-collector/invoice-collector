@@ -32,6 +32,9 @@ export class RemotepcCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RemotepcCollector class.
+     */
     constructor() {
         super(RemotepcCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class GsmplazaNlCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GsmplazaNlCollector class.
+     */
     constructor() {
         super(GsmplazaNlCollector.CONFIG);
     }

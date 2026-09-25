@@ -18,11 +18,20 @@ export class Credential {
     static ONE_DAY_MS: number = 86400000;
     static ONE_WEEK_MS: number = 604800000;
 
+    /**
+     * Finds a credential by its ID.
+     * @param id The ID of the credential to find.
+     * @returns The credential with the specified ID, or null if not found.
+     */
     static async fromId(id: string): Promise<Credential | null> {
         // Get customer from bearer
         return await DatabaseFactory.getDatabase().getCredential(id);
     }
 
+    /**
+     * Gets the IDs of credentials that need to be collected.
+     * @returns An array of credential IDs that are ready for collection.
+     */
     static async getCredentialsIdToCollect(): Promise<string[]> {
         return await DatabaseFactory.getDatabase().getCredentialsIdToCollect();
     }
@@ -39,6 +48,19 @@ export class Credential {
     invoices: ModelInvoice[];
     state: State;
 
+    /**
+     * Constructs a new instance of the Credential class.
+     * @param user_id The ID of the user associated with the credential.
+     * @param collector_id The ID of the collector associated with the credential.
+     * @param note A note associated with the credential.
+     * @param secret_id The ID of the secret associated with the credential.
+     * @param create_timestamp The timestamp when the credential was created.
+     * @param download_from_timestamp The timestamp from which to start downloading invoices.
+     * @param last_collect_timestamp The timestamp of the last collection.
+     * @param next_collect_timestamp The timestamp of the next planned collection.
+     * @param invoices The list of invoices associated with the credential.
+     * @param state The state of the credential.
+     */
     constructor(
         user_id: string,
         collector_id: string,
@@ -64,6 +86,10 @@ export class Credential {
         this.state = state;
     }
 
+    /**
+     * Gets the user the credential belongs to.
+     * @returns The user the credential belongs to.
+     */
     async getUser(): Promise<User> {
         const user = await DatabaseFactory.getDatabase().getUser(this.user_id);
     
@@ -74,19 +100,31 @@ export class Credential {
         return user;
     }
 
+    /**
+     * Gets the secret associated with the credential.
+     * @returns The secret associated with the credential.
+     */
     getSecret(): Secret {
         const secret = new Secret(`${this.id}_${this.user_id}_${this.collector_id}`);
         secret.id = this.secret_id;
         return secret;
     }
 
+    /**
+     * Deletes the credential and its associated secret from the database and secret manager.
+     */
     async delete() {
-        // Delete secret from Secure Storage
+        // Delete secret from Secret Manager
         await SecretManagerFactory.getSecretManager().deleteSecret(this.secret_id);
         // Delete credential from database
         await DatabaseFactory.getDatabase().deleteCredential(this.user_id, this.id);
     }
 
+    /**
+     * Commits the current state of the credential to the database.
+     * Creates a new credential entry if it does not already exist.
+     * Updates the existing entry otherwise.
+     */
     async commit() {
         if (this.id) {
             // Update existing credential
@@ -98,6 +136,10 @@ export class Credential {
         }
     }
 
+    /**
+     * Computes the next collection timestamp for the credential based on the historical invoice collection data.
+     * @param maxDelayBetweenCollect The maximum allowed delay between collections in milliseconds.
+     */
     computeNextCollect(maxDelayBetweenCollect: number) {
         // If not in error
         if (!this.state.isError()) {
@@ -148,7 +190,11 @@ export class Credential {
         }
     }
 
-    addInvoice(invoice: CompleteInvoice) {
+    /**
+     * Adds a new invoice to the credential's invoice list.
+     * @param invoice The invoice to be added to the credential's invoice list.
+     */
+    addInvoice(invoice: CompleteInvoice): void {
         this.invoices.push({
             id: invoice.id,
             timestamp: invoice.timestamp,
@@ -157,7 +203,10 @@ export class Credential {
         });
     }
 
-    sortInvoices() {
+    /**
+     * Sorts the credential's invoice list by the timestamp of each invoice in ascending order.
+     */
+    sortInvoices(): void {
         // Order invoices by timestamp
         this.invoices.sort((a, b) => a.timestamp - b.timestamp);
     }

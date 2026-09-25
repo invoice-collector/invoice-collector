@@ -32,6 +32,9 @@ export class MutuelleMnhCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MutuelleMnhCollector class.
+     */
     constructor() {
         super(MutuelleMnhCollector.CONFIG);
     }

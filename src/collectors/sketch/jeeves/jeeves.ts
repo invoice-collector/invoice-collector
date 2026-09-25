@@ -32,6 +32,9 @@ export class JeevesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the JeevesCollector class.
+     */
     constructor() {
         super(JeevesCollector.CONFIG);
     }

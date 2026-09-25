@@ -32,6 +32,9 @@ export class IlekCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the IlekCollector class.
+     */
     constructor() {
         super(IlekCollector.CONFIG);
     }

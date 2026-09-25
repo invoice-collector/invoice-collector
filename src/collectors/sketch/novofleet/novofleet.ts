@@ -32,6 +32,9 @@ export class NovofleetCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NovofleetCollector class.
+     */
     constructor() {
         super(NovofleetCollector.CONFIG);
     }

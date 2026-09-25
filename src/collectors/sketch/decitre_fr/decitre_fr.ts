@@ -32,6 +32,9 @@ export class DecitreFrCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DecitreFrCollector class.
+     */
     constructor() {
         super(DecitreFrCollector.CONFIG);
     }

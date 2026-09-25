@@ -32,6 +32,9 @@ export class XmindCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the XmindCollector class.
+     */
     constructor() {
         super(XmindCollector.CONFIG);
     }

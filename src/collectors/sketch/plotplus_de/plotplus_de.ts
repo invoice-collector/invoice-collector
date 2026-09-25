@@ -32,6 +32,9 @@ export class PlotplusDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PlotplusDeCollector class.
+     */
     constructor() {
         super(PlotplusDeCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class Lekkerland24Collector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Lekkerland24Collector class.
+     */
     constructor() {
         super(Lekkerland24Collector.CONFIG);
     }

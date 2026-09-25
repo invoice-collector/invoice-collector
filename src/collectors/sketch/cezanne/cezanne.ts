@@ -32,6 +32,9 @@ export class CezanneCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CezanneCollector class.
+     */
     constructor() {
         super(CezanneCollector.CONFIG);
     }

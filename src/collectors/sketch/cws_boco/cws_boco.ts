@@ -32,6 +32,9 @@ export class CwsBocoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CwsBocoCollector class.
+     */
     constructor() {
         super(CwsBocoCollector.CONFIG);
     }

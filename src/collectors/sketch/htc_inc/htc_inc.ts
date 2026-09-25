@@ -32,6 +32,9 @@ export class HtcIncCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HtcIncCollector class.
+     */
     constructor() {
         super(HtcIncCollector.CONFIG);
     }

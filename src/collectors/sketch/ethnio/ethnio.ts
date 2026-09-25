@@ -32,6 +32,9 @@ export class EthnioCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EthnioCollector class.
+     */
     constructor() {
         super(EthnioCollector.CONFIG);
     }

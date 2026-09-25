@@ -32,6 +32,9 @@ export class SslComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SslComCollector class.
+     */
     constructor() {
         super(SslComCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class UncadeauComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the UncadeauComCollector class.
+     */
     constructor() {
         super(UncadeauComCollector.CONFIG);
     }

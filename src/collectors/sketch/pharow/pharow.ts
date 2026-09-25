@@ -32,6 +32,9 @@ export class PharowCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PharowCollector class.
+     */
     constructor() {
         super(PharowCollector.CONFIG);
     }

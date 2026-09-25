@@ -32,6 +32,9 @@ export class OrdioCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OrdioCollector class.
+     */
     constructor() {
         super(OrdioCollector.CONFIG);
     }

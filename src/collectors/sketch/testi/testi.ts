@@ -32,6 +32,9 @@ export class TestiCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TestiCollector class.
+     */
     constructor() {
         super(TestiCollector.CONFIG);
     }

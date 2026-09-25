@@ -32,6 +32,9 @@ export class NexityCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NexityCollector class.
+     */
     constructor() {
         super(NexityCollector.CONFIG);
     }

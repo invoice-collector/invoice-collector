@@ -32,6 +32,9 @@ export class JexcelProCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the JexcelProCollector class.
+     */
     constructor() {
         super(JexcelProCollector.CONFIG);
     }

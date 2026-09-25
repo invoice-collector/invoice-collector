@@ -32,6 +32,9 @@ export class PointdnsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PointdnsCollector class.
+     */
     constructor() {
         super(PointdnsCollector.CONFIG);
     }

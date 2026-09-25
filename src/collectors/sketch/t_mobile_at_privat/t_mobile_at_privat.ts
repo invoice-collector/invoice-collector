@@ -32,6 +32,9 @@ export class TMobileAtPrivatCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TMobileAtPrivatCollector class.
+     */
     constructor() {
         super(TMobileAtPrivatCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class MobilcomDebitelCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MobilcomDebitelCollector class.
+     */
     constructor() {
         super(MobilcomDebitelCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class RheinwerkCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RheinwerkCollector class.
+     */
     constructor() {
         super(RheinwerkCollector.CONFIG);
     }

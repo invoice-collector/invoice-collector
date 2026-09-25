@@ -32,6 +32,9 @@ export class MutuelleAvilogCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MutuelleAvilogCollector class.
+     */
     constructor() {
         super(MutuelleAvilogCollector.CONFIG);
     }

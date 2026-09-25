@@ -32,6 +32,9 @@ export class SlaaskCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SlaaskCollector class.
+     */
     constructor() {
         super(SlaaskCollector.CONFIG);
     }

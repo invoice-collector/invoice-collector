@@ -32,6 +32,9 @@ export class EWieEinfachCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EWieEinfachCollector class.
+     */
     constructor() {
         super(EWieEinfachCollector.CONFIG);
     }

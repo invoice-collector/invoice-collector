@@ -32,6 +32,9 @@ export class TreeNationAsblCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TreeNationAsblCollector class.
+     */
     constructor() {
         super(TreeNationAsblCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class TixforgigsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TixforgigsCollector class.
+     */
     constructor() {
         super(TixforgigsCollector.CONFIG);
     }

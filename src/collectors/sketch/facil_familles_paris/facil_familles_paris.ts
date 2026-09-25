@@ -32,6 +32,9 @@ export class FacilFamillesParisCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FacilFamillesParisCollector class.
+     */
     constructor() {
         super(FacilFamillesParisCollector.CONFIG);
     }

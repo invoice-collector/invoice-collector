@@ -32,6 +32,9 @@ export class SaveEnergiesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SaveEnergiesCollector class.
+     */
     constructor() {
         super(SaveEnergiesCollector.CONFIG);
     }

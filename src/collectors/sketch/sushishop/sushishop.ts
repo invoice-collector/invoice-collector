@@ -32,6 +32,9 @@ export class SushishopCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SushishopCollector class.
+     */
     constructor() {
         super(SushishopCollector.CONFIG);
     }

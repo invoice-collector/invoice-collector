@@ -32,6 +32,9 @@ export class FlibcoComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FlibcoComCollector class.
+     */
     constructor() {
         super(FlibcoComCollector.CONFIG);
     }

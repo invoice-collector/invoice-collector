@@ -32,6 +32,9 @@ export class PrintoclockCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PrintoclockCollector class.
+     */
     constructor() {
         super(PrintoclockCollector.CONFIG);
     }

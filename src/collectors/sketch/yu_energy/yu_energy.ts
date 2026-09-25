@@ -32,6 +32,9 @@ export class YuEnergyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the YuEnergyCollector class.
+     */
     constructor() {
         super(YuEnergyCollector.CONFIG);
     }

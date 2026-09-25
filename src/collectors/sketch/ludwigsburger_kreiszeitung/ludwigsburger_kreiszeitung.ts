@@ -32,6 +32,9 @@ export class LudwigsburgerKreiszeitungCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LudwigsburgerKreiszeitungCollector class.
+     */
     constructor() {
         super(LudwigsburgerKreiszeitungCollector.CONFIG);
     }

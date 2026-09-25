@@ -32,6 +32,9 @@ export class NativeformsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NativeformsCollector class.
+     */
     constructor() {
         super(NativeformsCollector.CONFIG);
     }

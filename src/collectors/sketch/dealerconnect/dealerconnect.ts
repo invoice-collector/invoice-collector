@@ -32,6 +32,9 @@ export class DealerconnectCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DealerconnectCollector class.
+     */
     constructor() {
         super(DealerconnectCollector.CONFIG);
     }

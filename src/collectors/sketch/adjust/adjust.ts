@@ -32,6 +32,9 @@ export class AdjustCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AdjustCollector class.
+     */
     constructor() {
         super(AdjustCollector.CONFIG);
     }

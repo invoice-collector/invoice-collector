@@ -32,6 +32,9 @@ export class Ahi33PulsepreventionCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Ahi33PulsepreventionCollector class.
+     */
     constructor() {
         super(Ahi33PulsepreventionCollector.CONFIG);
     }

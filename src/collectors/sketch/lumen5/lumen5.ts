@@ -32,6 +32,9 @@ export class Lumen5Collector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Lumen5Collector class.
+     */
     constructor() {
         super(Lumen5Collector.CONFIG);
     }

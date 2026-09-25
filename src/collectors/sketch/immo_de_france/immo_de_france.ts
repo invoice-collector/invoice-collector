@@ -32,6 +32,9 @@ export class ImmoDeFranceCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ImmoDeFranceCollector class.
+     */
     constructor() {
         super(ImmoDeFranceCollector.CONFIG);
     }

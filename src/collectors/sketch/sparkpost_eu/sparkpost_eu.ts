@@ -32,6 +32,9 @@ export class SparkpostEuCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SparkpostEuCollector class.
+     */
     constructor() {
         super(SparkpostEuCollector.CONFIG);
     }

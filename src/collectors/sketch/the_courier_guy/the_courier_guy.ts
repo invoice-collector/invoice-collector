@@ -32,6 +32,9 @@ export class TheCourierGuyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TheCourierGuyCollector class.
+     */
     constructor() {
         super(TheCourierGuyCollector.CONFIG);
     }

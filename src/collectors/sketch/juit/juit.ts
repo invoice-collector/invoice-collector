@@ -32,6 +32,9 @@ export class JuitCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the JuitCollector class.
+     */
     constructor() {
         super(JuitCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class GrammarlyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GrammarlyCollector class.
+     */
     constructor() {
         super(GrammarlyCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class SalarioCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SalarioCollector class.
+     */
     constructor() {
         super(SalarioCollector.CONFIG);
     }

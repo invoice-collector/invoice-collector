@@ -32,6 +32,9 @@ export class ProgressiveInsuranceCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ProgressiveInsuranceCollector class.
+     */
     constructor() {
         super(ProgressiveInsuranceCollector.CONFIG);
     }

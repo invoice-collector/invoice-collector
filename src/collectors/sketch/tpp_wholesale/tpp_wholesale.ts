@@ -32,6 +32,9 @@ export class TppWholesaleCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TppWholesaleCollector class.
+     */
     constructor() {
         super(TppWholesaleCollector.CONFIG);
     }

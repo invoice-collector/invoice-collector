@@ -32,6 +32,9 @@ export class LubeckerNachrichtenCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LubeckerNachrichtenCollector class.
+     */
     constructor() {
         super(LubeckerNachrichtenCollector.CONFIG);
     }

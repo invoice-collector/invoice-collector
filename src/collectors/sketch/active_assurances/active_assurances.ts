@@ -32,6 +32,9 @@ export class ActiveAssurancesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ActiveAssurancesCollector class.
+     */
     constructor() {
         super(ActiveAssurancesCollector.CONFIG);
     }

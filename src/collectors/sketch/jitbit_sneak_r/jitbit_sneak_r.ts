@@ -32,6 +32,9 @@ export class JitbitSneakRCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the JitbitSneakRCollector class.
+     */
     constructor() {
         super(JitbitSneakRCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class KashflowConnectCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KashflowConnectCollector class.
+     */
     constructor() {
         super(KashflowConnectCollector.CONFIG);
     }

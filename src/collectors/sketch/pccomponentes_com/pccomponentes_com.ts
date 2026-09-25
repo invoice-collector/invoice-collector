@@ -32,6 +32,9 @@ export class PccomponentesComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PccomponentesComCollector class.
+     */
     constructor() {
         super(PccomponentesComCollector.CONFIG);
     }

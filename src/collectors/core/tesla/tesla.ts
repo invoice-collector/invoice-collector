@@ -27,6 +27,9 @@ export class TeslaCollector extends ApiCollector {
         state: CollectorState.ACTIVE,
     };
 
+    /**
+     * Constructs a new instance of the TeslaCollector class.
+     */
     constructor() {
         super(TeslaCollector.CONFIG);
     }

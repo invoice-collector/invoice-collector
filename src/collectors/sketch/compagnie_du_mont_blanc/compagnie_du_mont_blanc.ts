@@ -32,6 +32,9 @@ export class CompagnieDuMontBlancCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CompagnieDuMontBlancCollector class.
+     */
     constructor() {
         super(CompagnieDuMontBlancCollector.CONFIG);
     }

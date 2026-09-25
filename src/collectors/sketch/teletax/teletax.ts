@@ -32,6 +32,9 @@ export class TeletaxCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TeletaxCollector class.
+     */
     constructor() {
         super(TeletaxCollector.CONFIG);
     }

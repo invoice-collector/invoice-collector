@@ -32,6 +32,9 @@ export class ScrybsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ScrybsCollector class.
+     */
     constructor() {
         super(ScrybsCollector.CONFIG);
     }

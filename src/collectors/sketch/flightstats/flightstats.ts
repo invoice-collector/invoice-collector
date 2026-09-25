@@ -32,6 +32,9 @@ export class FlightstatsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FlightstatsCollector class.
+     */
     constructor() {
         super(FlightstatsCollector.CONFIG);
     }

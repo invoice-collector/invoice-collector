@@ -32,6 +32,9 @@ export class StoreboxCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StoreboxCollector class.
+     */
     constructor() {
         super(StoreboxCollector.CONFIG);
     }

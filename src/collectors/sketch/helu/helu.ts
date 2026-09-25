@@ -32,6 +32,9 @@ export class HeluCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HeluCollector class.
+     */
     constructor() {
         super(HeluCollector.CONFIG);
     }

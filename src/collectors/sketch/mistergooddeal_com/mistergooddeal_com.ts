@@ -32,6 +32,9 @@ export class MistergooddealComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MistergooddealComCollector class.
+     */
     constructor() {
         super(MistergooddealComCollector.CONFIG);
     }

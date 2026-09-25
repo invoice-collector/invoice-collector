@@ -32,6 +32,9 @@ export class FynkCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FynkCollector class.
+     */
     constructor() {
         super(FynkCollector.CONFIG);
     }

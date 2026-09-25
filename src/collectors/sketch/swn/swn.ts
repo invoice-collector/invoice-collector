@@ -32,6 +32,9 @@ export class SwnCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SwnCollector class.
+     */
     constructor() {
         super(SwnCollector.CONFIG);
     }

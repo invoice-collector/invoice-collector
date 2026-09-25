@@ -32,6 +32,9 @@ export class MyalconCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MyalconCollector class.
+     */
     constructor() {
         super(MyalconCollector.CONFIG);
     }

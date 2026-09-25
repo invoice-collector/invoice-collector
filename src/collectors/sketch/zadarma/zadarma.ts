@@ -32,6 +32,9 @@ export class ZadarmaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ZadarmaCollector class.
+     */
     constructor() {
         super(ZadarmaCollector.CONFIG);
     }

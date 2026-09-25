@@ -32,6 +32,9 @@ export class SarsZaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SarsZaCollector class.
+     */
     constructor() {
         super(SarsZaCollector.CONFIG);
     }

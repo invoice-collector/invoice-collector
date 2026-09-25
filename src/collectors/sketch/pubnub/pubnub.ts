@@ -32,6 +32,9 @@ export class PubnubCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PubnubCollector class.
+     */
     constructor() {
         super(PubnubCollector.CONFIG);
     }

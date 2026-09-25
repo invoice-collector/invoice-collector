@@ -32,6 +32,9 @@ export class CoopCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CoopCollector class.
+     */
     constructor() {
         super(CoopCollector.CONFIG);
     }

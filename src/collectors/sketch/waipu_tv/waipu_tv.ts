@@ -32,6 +32,9 @@ export class WaipuTvCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WaipuTvCollector class.
+     */
     constructor() {
         super(WaipuTvCollector.CONFIG);
     }

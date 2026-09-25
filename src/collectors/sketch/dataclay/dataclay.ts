@@ -32,6 +32,9 @@ export class DataclayCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DataclayCollector class.
+     */
     constructor() {
         super(DataclayCollector.CONFIG);
     }

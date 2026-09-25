@@ -32,6 +32,9 @@ export class HubrisCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HubrisCollector class.
+     */
     constructor() {
         super(HubrisCollector.CONFIG);
     }

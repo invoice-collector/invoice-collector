@@ -32,6 +32,9 @@ export class ShiparoundCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ShiparoundCollector class.
+     */
     constructor() {
         super(ShiparoundCollector.CONFIG);
     }

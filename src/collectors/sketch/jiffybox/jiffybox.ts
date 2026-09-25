@@ -32,6 +32,9 @@ export class JiffyboxCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the JiffyboxCollector class.
+     */
     constructor() {
         super(JiffyboxCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class Kaffee24Collector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Kaffee24Collector class.
+     */
     constructor() {
         super(Kaffee24Collector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class EvpassCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EvpassCollector class.
+     */
     constructor() {
         super(EvpassCollector.CONFIG);
     }

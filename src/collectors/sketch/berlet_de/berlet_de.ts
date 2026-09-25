@@ -32,6 +32,9 @@ export class BerletDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BerletDeCollector class.
+     */
     constructor() {
         super(BerletDeCollector.CONFIG);
     }

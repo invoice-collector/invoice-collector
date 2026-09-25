@@ -32,6 +32,9 @@ export class FaserfreundeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FaserfreundeCollector class.
+     */
     constructor() {
         super(FaserfreundeCollector.CONFIG);
     }

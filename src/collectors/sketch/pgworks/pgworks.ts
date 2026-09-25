@@ -32,6 +32,9 @@ export class PgworksCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PgworksCollector class.
+     */
     constructor() {
         super(PgworksCollector.CONFIG);
     }

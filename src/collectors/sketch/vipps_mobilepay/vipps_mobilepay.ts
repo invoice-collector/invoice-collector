@@ -32,6 +32,9 @@ export class VippsMobilepayCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VippsMobilepayCollector class.
+     */
     constructor() {
         super(VippsMobilepayCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class MintshostPlCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MintshostPlCollector class.
+     */
     constructor() {
         super(MintshostPlCollector.CONFIG);
     }

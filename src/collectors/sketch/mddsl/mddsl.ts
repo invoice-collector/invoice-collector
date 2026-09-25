@@ -32,6 +32,9 @@ export class MddslCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MddslCollector class.
+     */
     constructor() {
         super(MddslCollector.CONFIG);
     }

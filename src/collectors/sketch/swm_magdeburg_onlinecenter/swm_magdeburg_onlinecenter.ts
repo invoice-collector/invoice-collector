@@ -32,6 +32,9 @@ export class SwmMagdeburgOnlinecenterCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SwmMagdeburgOnlinecenterCollector class.
+     */
     constructor() {
         super(SwmMagdeburgOnlinecenterCollector.CONFIG);
     }

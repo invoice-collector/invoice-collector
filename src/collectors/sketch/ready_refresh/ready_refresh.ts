@@ -32,6 +32,9 @@ export class ReadyRefreshCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ReadyRefreshCollector class.
+     */
     constructor() {
         super(ReadyRefreshCollector.CONFIG);
     }

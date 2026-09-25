@@ -32,6 +32,9 @@ export class MatthiesAutoteileCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MatthiesAutoteileCollector class.
+     */
     constructor() {
         super(MatthiesAutoteileCollector.CONFIG);
     }

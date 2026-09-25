@@ -32,6 +32,9 @@ export class StorebuddyDkCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StorebuddyDkCollector class.
+     */
     constructor() {
         super(StorebuddyDkCollector.CONFIG);
     }

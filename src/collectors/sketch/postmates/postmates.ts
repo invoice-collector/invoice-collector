@@ -32,6 +32,9 @@ export class PostmatesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PostmatesCollector class.
+     */
     constructor() {
         super(PostmatesCollector.CONFIG);
     }

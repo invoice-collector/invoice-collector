@@ -32,6 +32,9 @@ export class TurnoverbnbCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TurnoverbnbCollector class.
+     */
     constructor() {
         super(TurnoverbnbCollector.CONFIG);
     }

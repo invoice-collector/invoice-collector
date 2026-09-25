@@ -32,6 +32,9 @@ export class AmalytixCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AmalytixCollector class.
+     */
     constructor() {
         super(AmalytixCollector.CONFIG);
     }

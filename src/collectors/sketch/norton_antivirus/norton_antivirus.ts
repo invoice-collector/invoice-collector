@@ -32,6 +32,9 @@ export class NortonAntivirusCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NortonAntivirusCollector class.
+     */
     constructor() {
         super(NortonAntivirusCollector.CONFIG);
     }

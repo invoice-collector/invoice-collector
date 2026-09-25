@@ -32,6 +32,9 @@ export class DatananasCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DatananasCollector class.
+     */
     constructor() {
         super(DatananasCollector.CONFIG);
     }

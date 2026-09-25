@@ -32,6 +32,9 @@ export class MultiInvestSachwertGmbhCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MultiInvestSachwertGmbhCollector class.
+     */
     constructor() {
         super(MultiInvestSachwertGmbhCollector.CONFIG);
     }

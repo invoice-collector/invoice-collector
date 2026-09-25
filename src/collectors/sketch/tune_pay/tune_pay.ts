@@ -32,6 +32,9 @@ export class TunePayCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TunePayCollector class.
+     */
     constructor() {
         super(TunePayCollector.CONFIG);
     }

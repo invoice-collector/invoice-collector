@@ -32,6 +32,9 @@ export class UnielektroCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the UnielektroCollector class.
+     */
     constructor() {
         super(UnielektroCollector.CONFIG);
     }

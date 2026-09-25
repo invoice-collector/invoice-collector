@@ -32,6 +32,9 @@ export class NuclinoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NuclinoCollector class.
+     */
     constructor() {
         super(NuclinoCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class OpenexchangeratesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OpenexchangeratesCollector class.
+     */
     constructor() {
         super(OpenexchangeratesCollector.CONFIG);
     }

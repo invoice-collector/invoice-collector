@@ -32,6 +32,9 @@ export class IziviaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the IziviaCollector class.
+     */
     constructor() {
         super(IziviaCollector.CONFIG);
     }

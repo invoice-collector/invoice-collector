@@ -32,6 +32,9 @@ export class CloudimageIoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CloudimageIoCollector class.
+     */
     constructor() {
         super(CloudimageIoCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class LivestormCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LivestormCollector class.
+     */
     constructor() {
         super(LivestormCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class Lead2chatCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Lead2chatCollector class.
+     */
     constructor() {
         super(Lead2chatCollector.CONFIG);
     }

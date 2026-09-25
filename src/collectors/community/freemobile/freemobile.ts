@@ -38,14 +38,23 @@ export class FreeMobileCollector extends LinearWebCollector {
         state: CollectorState.ACTIVE,
     };
 
+    /**
+     * Constructs a new instance of the FreeMobileCollector class.
+     */
     constructor() {
         super(FreeMobileCollector.CONFIG);
     }
 
+    /**
+     * @inheritdoc
+     */
     async needLogin(driver: AbstractDriver): Promise<boolean> {
         return driver.url().includes('login') || driver.url().includes('otp');
     }
 
+    /**
+     * @inheritdoc
+     */
     async login(driver: AbstractDriver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
         // Input id and password
         await driver.inputText(FreeMobileSelectors.FIELD_IDENTIFIER, params.id);
@@ -61,6 +70,9 @@ export class FreeMobileCollector extends LinearWebCollector {
         }
     }
 
+    /**
+     * @inheritdoc
+     */
     async needTwofa(driver: AbstractDriver): Promise<string | void> {
         // Check if 2FA is required
         const twofaInstructions = await driver.getElement(FreeMobileSelectors.CONTAINER_2FA_INSTRUCTIONS, { raiseException: false, timeout: 2000 });
@@ -69,6 +81,9 @@ export class FreeMobileCollector extends LinearWebCollector {
         }
     }
 
+    /**
+     * @inheritdoc
+     */
     async twofa(driver: AbstractDriver, params: any, twofa_promise: TwofaPromise, webSocketServer: WebSocketServer): Promise<string | void> {
         // Check if too much attempts
         const twofa_too_much = await driver.getElement(FreeMobileSelectors.CONTAINER_2FA_ALERT, { raiseException: false, timeout: 1000 });
@@ -100,11 +115,17 @@ export class FreeMobileCollector extends LinearWebCollector {
         }
     }
 
+    /**
+     * @inheritdoc
+     */
     async navigate(driver: AbstractDriver): Promise<void>{
         // Show invoices
         await driver.leftClick(FreeMobileSelectors.BUTTON_SHOW_INVOICES, { navigation: false });
     }
 
+    /**
+     * @inheritdoc
+     */
     async forEachPage(driver: AbstractDriver, next: () => Promise<void>): Promise<void> {
         // Show more invoices while possible
         await driver.leftClick(FreeMobileSelectors.BUTTON_MORE_INVOICES, { raiseException: false, timeout: 1000, navigation: false });
@@ -113,11 +134,17 @@ export class FreeMobileCollector extends LinearWebCollector {
         // Collect invoices
         await next();
     }
-    
+
+    /**
+     * @inheritdoc
+     */
     async getInvoices(driver: AbstractDriver): Promise<Element[]> {
         return await driver.getElements(FreeMobileSelectors.CONTAINER_INVOICES);
     }
 
+    /**
+     * @inheritdoc
+     */
     async data(driver: AbstractDriver, element: Element): Promise<Invoice | null>{
         const downloadButton = await element.getElement(FreeMobileSelectors.CONTAINER_INVOICE_LINK);
         const link = await element.getAttribute(FreeMobileSelectors.CONTAINER_INVOICE_LINK, 'href');
@@ -140,6 +167,9 @@ export class FreeMobileCollector extends LinearWebCollector {
         };
     }
 
+    /**
+     * @inheritdoc
+     */
     async download(driver: AbstractDriver, invoice: Invoice): Promise<string[]> {
         return [await this.download_link(driver, invoice.link)];
     }

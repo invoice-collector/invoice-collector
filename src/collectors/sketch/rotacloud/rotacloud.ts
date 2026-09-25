@@ -32,6 +32,9 @@ export class RotacloudCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RotacloudCollector class.
+     */
     constructor() {
         super(RotacloudCollector.CONFIG);
     }

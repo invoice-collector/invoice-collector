@@ -32,6 +32,9 @@ export class Pix4dCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Pix4dCollector class.
+     */
     constructor() {
         super(Pix4dCollector.CONFIG);
     }

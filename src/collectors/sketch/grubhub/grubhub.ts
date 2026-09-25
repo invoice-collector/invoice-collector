@@ -32,6 +32,9 @@ export class GrubhubCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GrubhubCollector class.
+     */
     constructor() {
         super(GrubhubCollector.CONFIG);
     }

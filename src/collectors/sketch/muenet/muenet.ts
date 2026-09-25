@@ -32,6 +32,9 @@ export class MuenetCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MuenetCollector class.
+     */
     constructor() {
         super(MuenetCollector.CONFIG);
     }

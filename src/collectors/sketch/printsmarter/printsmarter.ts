@@ -32,6 +32,9 @@ export class PrintsmarterCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PrintsmarterCollector class.
+     */
     constructor() {
         super(PrintsmarterCollector.CONFIG);
     }

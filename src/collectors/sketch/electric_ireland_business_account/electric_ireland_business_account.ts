@@ -32,6 +32,9 @@ export class ElectricIrelandBusinessAccountCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ElectricIrelandBusinessAccountCollector class.
+     */
     constructor() {
         super(ElectricIrelandBusinessAccountCollector.CONFIG);
     }

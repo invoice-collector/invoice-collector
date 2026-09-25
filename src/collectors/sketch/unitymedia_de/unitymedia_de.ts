@@ -32,6 +32,9 @@ export class UnitymediaDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the UnitymediaDeCollector class.
+     */
     constructor() {
         super(UnitymediaDeCollector.CONFIG);
     }

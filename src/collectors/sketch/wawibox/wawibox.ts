@@ -32,6 +32,9 @@ export class WawiboxCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WawiboxCollector class.
+     */
     constructor() {
         super(WawiboxCollector.CONFIG);
     }

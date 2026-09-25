@@ -32,6 +32,9 @@ export class DatadogCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DatadogCollector class.
+     */
     constructor() {
         super(DatadogCollector.CONFIG);
     }

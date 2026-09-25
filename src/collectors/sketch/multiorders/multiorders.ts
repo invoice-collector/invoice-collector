@@ -32,6 +32,9 @@ export class MultiordersCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MultiordersCollector class.
+     */
     constructor() {
         super(MultiordersCollector.CONFIG);
     }

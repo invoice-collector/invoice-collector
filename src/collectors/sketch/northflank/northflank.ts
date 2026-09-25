@@ -32,6 +32,9 @@ export class NorthflankCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NorthflankCollector class.
+     */
     constructor() {
         super(NorthflankCollector.CONFIG);
     }

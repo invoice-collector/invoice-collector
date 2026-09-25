@@ -32,6 +32,9 @@ export class PrimefashionadsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PrimefashionadsCollector class.
+     */
     constructor() {
         super(PrimefashionadsCollector.CONFIG);
     }

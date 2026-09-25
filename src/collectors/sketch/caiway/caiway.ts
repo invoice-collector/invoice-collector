@@ -32,6 +32,9 @@ export class CaiwayCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CaiwayCollector class.
+     */
     constructor() {
         super(CaiwayCollector.CONFIG);
     }

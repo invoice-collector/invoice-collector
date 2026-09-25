@@ -32,6 +32,9 @@ export class AldiOnlineShopCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AldiOnlineShopCollector class.
+     */
     constructor() {
         super(AldiOnlineShopCollector.CONFIG);
     }

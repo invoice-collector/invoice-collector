@@ -32,6 +32,9 @@ export class FashionNetworkCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FashionNetworkCollector class.
+     */
     constructor() {
         super(FashionNetworkCollector.CONFIG);
     }

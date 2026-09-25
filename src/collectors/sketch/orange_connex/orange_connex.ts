@@ -32,6 +32,9 @@ export class OrangeConnexCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OrangeConnexCollector class.
+     */
     constructor() {
         super(OrangeConnexCollector.CONFIG);
     }

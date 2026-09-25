@@ -32,6 +32,9 @@ export class GfsSeekerEcmCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GfsSeekerEcmCollector class.
+     */
     constructor() {
         super(GfsSeekerEcmCollector.CONFIG);
     }

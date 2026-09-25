@@ -32,6 +32,9 @@ export class CongstarCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CongstarCollector class.
+     */
     constructor() {
         super(CongstarCollector.CONFIG);
     }

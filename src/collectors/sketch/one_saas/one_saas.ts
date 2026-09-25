@@ -32,6 +32,9 @@ export class OneSaasCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OneSaasCollector class.
+     */
     constructor() {
         super(OneSaasCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class StadtischeWerkeKasselCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StadtischeWerkeKasselCollector class.
+     */
     constructor() {
         super(StadtischeWerkeKasselCollector.CONFIG);
     }

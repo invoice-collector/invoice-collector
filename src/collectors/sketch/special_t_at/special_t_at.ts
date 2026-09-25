@@ -32,6 +32,9 @@ export class SpecialTAtCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SpecialTAtCollector class.
+     */
     constructor() {
         super(SpecialTAtCollector.CONFIG);
     }

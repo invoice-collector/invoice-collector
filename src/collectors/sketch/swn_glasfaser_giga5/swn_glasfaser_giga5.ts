@@ -32,6 +32,9 @@ export class SwnGlasfaserGiga5Collector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SwnGlasfaserGiga5Collector class.
+     */
     constructor() {
         super(SwnGlasfaserGiga5Collector.CONFIG);
     }

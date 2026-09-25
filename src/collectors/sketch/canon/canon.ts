@@ -32,6 +32,9 @@ export class CanonCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CanonCollector class.
+     */
     constructor() {
         super(CanonCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class WorkplaceByFacebookCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WorkplaceByFacebookCollector class.
+     */
     constructor() {
         super(WorkplaceByFacebookCollector.CONFIG);
     }

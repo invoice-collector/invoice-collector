@@ -32,6 +32,9 @@ export class TopolIoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TopolIoCollector class.
+     */
     constructor() {
         super(TopolIoCollector.CONFIG);
     }

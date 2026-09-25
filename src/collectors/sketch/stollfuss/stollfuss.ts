@@ -32,6 +32,9 @@ export class StollfussCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StollfussCollector class.
+     */
     constructor() {
         super(StollfussCollector.CONFIG);
     }

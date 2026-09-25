@@ -32,6 +32,9 @@ export class NounProjectCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NounProjectCollector class.
+     */
     constructor() {
         super(NounProjectCollector.CONFIG);
     }

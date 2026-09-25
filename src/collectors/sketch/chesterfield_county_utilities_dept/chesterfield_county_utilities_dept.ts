@@ -32,6 +32,9 @@ export class ChesterfieldCountyUtilitiesDeptCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ChesterfieldCountyUtilitiesDeptCollector class.
+     */
     constructor() {
         super(ChesterfieldCountyUtilitiesDeptCollector.CONFIG);
     }

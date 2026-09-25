@@ -32,6 +32,9 @@ export class BullfrogPowerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BullfrogPowerCollector class.
+     */
     constructor() {
         super(BullfrogPowerCollector.CONFIG);
     }

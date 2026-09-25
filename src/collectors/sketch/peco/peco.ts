@@ -32,6 +32,9 @@ export class PecoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PecoCollector class.
+     */
     constructor() {
         super(PecoCollector.CONFIG);
     }

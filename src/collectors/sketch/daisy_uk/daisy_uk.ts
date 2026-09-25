@@ -32,6 +32,9 @@ export class DaisyUkCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DaisyUkCollector class.
+     */
     constructor() {
         super(DaisyUkCollector.CONFIG);
     }

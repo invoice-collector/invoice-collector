@@ -32,6 +32,9 @@ export class WirtschaftswocheCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WirtschaftswocheCollector class.
+     */
     constructor() {
         super(WirtschaftswocheCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class SheetgoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SheetgoCollector class.
+     */
     constructor() {
         super(SheetgoCollector.CONFIG);
     }

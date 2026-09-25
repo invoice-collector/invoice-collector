@@ -32,6 +32,9 @@ export class GetinternetDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GetinternetDeCollector class.
+     */
     constructor() {
         super(GetinternetDeCollector.CONFIG);
     }

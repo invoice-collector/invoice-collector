@@ -32,6 +32,9 @@ export class SstrnCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SstrnCollector class.
+     */
     constructor() {
         super(SstrnCollector.CONFIG);
     }

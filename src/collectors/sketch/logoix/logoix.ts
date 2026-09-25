@@ -32,6 +32,9 @@ export class LogoixCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LogoixCollector class.
+     */
     constructor() {
         super(LogoixCollector.CONFIG);
     }

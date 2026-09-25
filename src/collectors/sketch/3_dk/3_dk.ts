@@ -32,6 +32,9 @@ export class _3DkCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the _3DkCollector class.
+     */
     constructor() {
         super(_3DkCollector.CONFIG);
     }

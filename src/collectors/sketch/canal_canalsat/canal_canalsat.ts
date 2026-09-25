@@ -32,6 +32,9 @@ export class CanalCanalsatCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CanalCanalsatCollector class.
+     */
     constructor() {
         super(CanalCanalsatCollector.CONFIG);
     }

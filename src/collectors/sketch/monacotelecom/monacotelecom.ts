@@ -32,6 +32,9 @@ export class MonacotelecomCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MonacotelecomCollector class.
+     */
     constructor() {
         super(MonacotelecomCollector.CONFIG);
     }

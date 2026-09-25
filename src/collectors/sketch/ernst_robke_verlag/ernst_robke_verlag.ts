@@ -32,6 +32,9 @@ export class ErnstRobkeVerlagCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ErnstRobkeVerlagCollector class.
+     */
     constructor() {
         super(ErnstRobkeVerlagCollector.CONFIG);
     }

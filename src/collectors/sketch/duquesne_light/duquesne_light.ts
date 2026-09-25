@@ -32,6 +32,9 @@ export class DuquesneLightCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DuquesneLightCollector class.
+     */
     constructor() {
         super(DuquesneLightCollector.CONFIG);
     }

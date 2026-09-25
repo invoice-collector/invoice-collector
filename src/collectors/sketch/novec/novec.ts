@@ -32,6 +32,9 @@ export class NovecCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NovecCollector class.
+     */
     constructor() {
         super(NovecCollector.CONFIG);
     }

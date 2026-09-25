@@ -32,6 +32,9 @@ export class CloudsaleCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CloudsaleCollector class.
+     */
     constructor() {
         super(CloudsaleCollector.CONFIG);
     }

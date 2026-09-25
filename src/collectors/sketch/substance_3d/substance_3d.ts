@@ -32,6 +32,9 @@ export class Substance3dCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Substance3dCollector class.
+     */
     constructor() {
         super(Substance3dCollector.CONFIG);
     }

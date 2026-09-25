@@ -32,6 +32,9 @@ export class _7travelCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the _7travelCollector class.
+     */
     constructor() {
         super(_7travelCollector.CONFIG);
     }

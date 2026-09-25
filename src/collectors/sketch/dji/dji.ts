@@ -32,6 +32,9 @@ export class DjiCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DjiCollector class.
+     */
     constructor() {
         super(DjiCollector.CONFIG);
     }

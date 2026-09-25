@@ -32,6 +32,9 @@ export class StadtwerkeEinbeckCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StadtwerkeEinbeckCollector class.
+     */
     constructor() {
         super(StadtwerkeEinbeckCollector.CONFIG);
     }

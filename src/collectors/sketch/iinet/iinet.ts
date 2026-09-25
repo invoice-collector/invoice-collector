@@ -32,6 +32,9 @@ export class IinetCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the IinetCollector class.
+     */
     constructor() {
         super(IinetCollector.CONFIG);
     }

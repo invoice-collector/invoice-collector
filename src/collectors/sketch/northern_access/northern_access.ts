@@ -32,6 +32,9 @@ export class NorthernAccessCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NorthernAccessCollector class.
+     */
     constructor() {
         super(NorthernAccessCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class JKonigCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the JKonigCollector class.
+     */
     constructor() {
         super(JKonigCollector.CONFIG);
     }

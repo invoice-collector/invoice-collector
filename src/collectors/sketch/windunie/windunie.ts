@@ -32,6 +32,9 @@ export class WindunieCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WindunieCollector class.
+     */
     constructor() {
         super(WindunieCollector.CONFIG);
     }

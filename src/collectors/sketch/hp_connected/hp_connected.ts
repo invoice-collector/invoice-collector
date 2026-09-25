@@ -32,6 +32,9 @@ export class HpConnectedCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HpConnectedCollector class.
+     */
     constructor() {
         super(HpConnectedCollector.CONFIG);
     }

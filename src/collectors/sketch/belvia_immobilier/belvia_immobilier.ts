@@ -32,6 +32,9 @@ export class BelviaImmobilierCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BelviaImmobilierCollector class.
+     */
     constructor() {
         super(BelviaImmobilierCollector.CONFIG);
     }

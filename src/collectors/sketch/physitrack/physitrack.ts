@@ -32,6 +32,9 @@ export class PhysitrackCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PhysitrackCollector class.
+     */
     constructor() {
         super(PhysitrackCollector.CONFIG);
     }

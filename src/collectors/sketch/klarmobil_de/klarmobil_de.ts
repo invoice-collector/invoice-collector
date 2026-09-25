@@ -32,6 +32,9 @@ export class KlarmobilDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KlarmobilDeCollector class.
+     */
     constructor() {
         super(KlarmobilDeCollector.CONFIG);
     }

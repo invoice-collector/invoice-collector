@@ -32,6 +32,9 @@ export class UsersnapCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the UsersnapCollector class.
+     */
     constructor() {
         super(UsersnapCollector.CONFIG);
     }

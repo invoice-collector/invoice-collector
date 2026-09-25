@@ -32,6 +32,9 @@ export class OrttoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OrttoCollector class.
+     */
     constructor() {
         super(OrttoCollector.CONFIG);
     }

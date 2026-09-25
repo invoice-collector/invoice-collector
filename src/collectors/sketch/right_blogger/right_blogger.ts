@@ -32,6 +32,9 @@ export class RightBloggerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RightBloggerCollector class.
+     */
     constructor() {
         super(RightBloggerCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class ExamproCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ExamproCollector class.
+     */
     constructor() {
         super(ExamproCollector.CONFIG);
     }

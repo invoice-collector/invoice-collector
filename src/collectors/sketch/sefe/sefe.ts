@@ -32,6 +32,9 @@ export class SefeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SefeCollector class.
+     */
     constructor() {
         super(SefeCollector.CONFIG);
     }

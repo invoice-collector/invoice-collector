@@ -32,6 +32,9 @@ export class UpcAtCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the UpcAtCollector class.
+     */
     constructor() {
         super(UpcAtCollector.CONFIG);
     }

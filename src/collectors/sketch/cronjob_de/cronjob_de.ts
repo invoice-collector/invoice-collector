@@ -32,6 +32,9 @@ export class CronjobDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CronjobDeCollector class.
+     */
     constructor() {
         super(CronjobDeCollector.CONFIG);
     }

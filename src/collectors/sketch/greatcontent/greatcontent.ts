@@ -32,6 +32,9 @@ export class GreatcontentCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GreatcontentCollector class.
+     */
     constructor() {
         super(GreatcontentCollector.CONFIG);
     }

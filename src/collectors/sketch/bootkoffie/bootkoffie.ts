@@ -32,6 +32,9 @@ export class BootkoffieCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BootkoffieCollector class.
+     */
     constructor() {
         super(BootkoffieCollector.CONFIG);
     }

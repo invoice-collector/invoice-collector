@@ -32,6 +32,9 @@ export class DruckAtCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DruckAtCollector class.
+     */
     constructor() {
         super(DruckAtCollector.CONFIG);
     }

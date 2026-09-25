@@ -32,6 +32,9 @@ export class A25Collector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the A25Collector class.
+     */
     constructor() {
         super(A25Collector.CONFIG);
     }

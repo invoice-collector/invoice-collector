@@ -32,6 +32,9 @@ export class LuckyorangeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LuckyorangeCollector class.
+     */
     constructor() {
         super(LuckyorangeCollector.CONFIG);
     }

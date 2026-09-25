@@ -32,6 +32,9 @@ export class SpliceCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SpliceCollector class.
+     */
     constructor() {
         super(SpliceCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class FlipsnackCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FlipsnackCollector class.
+     */
     constructor() {
         super(FlipsnackCollector.CONFIG);
     }

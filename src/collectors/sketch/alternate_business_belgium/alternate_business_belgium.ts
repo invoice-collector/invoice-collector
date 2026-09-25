@@ -32,6 +32,9 @@ export class AlternateBusinessBelgiumCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AlternateBusinessBelgiumCollector class.
+     */
     constructor() {
         super(AlternateBusinessBelgiumCollector.CONFIG);
     }

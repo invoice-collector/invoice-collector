@@ -32,6 +32,9 @@ export class EOnHighspeedInternetCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EOnHighspeedInternetCollector class.
+     */
     constructor() {
         super(EOnHighspeedInternetCollector.CONFIG);
     }

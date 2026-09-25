@@ -31,6 +31,9 @@ export class DolceGustoFrCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DolceGustoFrCollector class.
+     */
     constructor() {
         super(DolceGustoFrCollector.CONFIG);
     }

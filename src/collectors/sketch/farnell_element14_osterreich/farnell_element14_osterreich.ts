@@ -32,6 +32,9 @@ export class FarnellElement14OsterreichCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FarnellElement14OsterreichCollector class.
+     */
     constructor() {
         super(FarnellElement14OsterreichCollector.CONFIG);
     }

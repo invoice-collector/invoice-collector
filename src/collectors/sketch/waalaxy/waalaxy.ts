@@ -32,6 +32,9 @@ export class WaalaxyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WaalaxyCollector class.
+     */
     constructor() {
         super(WaalaxyCollector.CONFIG);
     }

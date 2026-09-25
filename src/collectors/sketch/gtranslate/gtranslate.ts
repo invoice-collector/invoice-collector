@@ -32,6 +32,9 @@ export class GtranslateCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GtranslateCollector class.
+     */
     constructor() {
         super(GtranslateCollector.CONFIG);
     }

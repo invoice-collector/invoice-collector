@@ -32,6 +32,9 @@ export class MckessonMedicalCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MckessonMedicalCollector class.
+     */
     constructor() {
         super(MckessonMedicalCollector.CONFIG);
     }

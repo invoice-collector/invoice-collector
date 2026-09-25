@@ -32,6 +32,9 @@ export class QuadernoIoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the QuadernoIoCollector class.
+     */
     constructor() {
         super(QuadernoIoCollector.CONFIG);
     }

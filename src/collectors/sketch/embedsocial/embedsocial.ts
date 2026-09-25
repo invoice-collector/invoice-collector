@@ -32,6 +32,9 @@ export class EmbedsocialCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EmbedsocialCollector class.
+     */
     constructor() {
         super(EmbedsocialCollector.CONFIG);
     }

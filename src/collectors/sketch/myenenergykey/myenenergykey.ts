@@ -32,6 +32,9 @@ export class MyenenergykeyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MyenenergykeyCollector class.
+     */
     constructor() {
         super(MyenenergykeyCollector.CONFIG);
     }

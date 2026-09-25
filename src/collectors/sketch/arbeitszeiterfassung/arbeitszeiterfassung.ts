@@ -32,6 +32,9 @@ export class ArbeitszeiterfassungCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ArbeitszeiterfassungCollector class.
+     */
     constructor() {
         super(ArbeitszeiterfassungCollector.CONFIG);
     }

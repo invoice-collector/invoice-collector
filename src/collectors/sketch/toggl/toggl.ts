@@ -32,6 +32,9 @@ export class TogglCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TogglCollector class.
+     */
     constructor() {
         super(TogglCollector.CONFIG);
     }

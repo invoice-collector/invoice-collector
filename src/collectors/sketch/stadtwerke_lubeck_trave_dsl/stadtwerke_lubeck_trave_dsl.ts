@@ -32,6 +32,9 @@ export class StadtwerkeLubeckTraveDslCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StadtwerkeLubeckTraveDslCollector class.
+     */
     constructor() {
         super(StadtwerkeLubeckTraveDslCollector.CONFIG);
     }

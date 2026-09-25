@@ -32,6 +32,9 @@ export class KeywordToolCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KeywordToolCollector class.
+     */
     constructor() {
         super(KeywordToolCollector.CONFIG);
     }

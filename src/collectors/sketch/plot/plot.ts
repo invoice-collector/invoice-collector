@@ -32,6 +32,9 @@ export class PlotCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PlotCollector class.
+     */
     constructor() {
         super(PlotCollector.CONFIG);
     }

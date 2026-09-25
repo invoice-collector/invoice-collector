@@ -32,6 +32,9 @@ export class PhonemondoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PhonemondoCollector class.
+     */
     constructor() {
         super(PhonemondoCollector.CONFIG);
     }

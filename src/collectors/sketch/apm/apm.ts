@@ -32,6 +32,9 @@ export class ApmCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ApmCollector class.
+     */
     constructor() {
         super(ApmCollector.CONFIG);
     }

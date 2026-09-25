@@ -32,6 +32,9 @@ export class TelusPartnersChannelCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TelusPartnersChannelCollector class.
+     */
     constructor() {
         super(TelusPartnersChannelCollector.CONFIG);
     }

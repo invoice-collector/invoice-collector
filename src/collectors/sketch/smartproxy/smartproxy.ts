@@ -32,6 +32,9 @@ export class SmartproxyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SmartproxyCollector class.
+     */
     constructor() {
         super(SmartproxyCollector.CONFIG);
     }

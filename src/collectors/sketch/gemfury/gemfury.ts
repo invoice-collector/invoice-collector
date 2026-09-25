@@ -32,6 +32,9 @@ export class GemfuryCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GemfuryCollector class.
+     */
     constructor() {
         super(GemfuryCollector.CONFIG);
     }

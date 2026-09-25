@@ -32,6 +32,9 @@ export class FotoshareCloudCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FotoshareCloudCollector class.
+     */
     constructor() {
         super(FotoshareCloudCollector.CONFIG);
     }

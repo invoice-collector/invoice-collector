@@ -32,6 +32,9 @@ export class ScalableCapitalAffiliateProgrammCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ScalableCapitalAffiliateProgrammCollector class.
+     */
     constructor() {
         super(ScalableCapitalAffiliateProgrammCollector.CONFIG);
     }

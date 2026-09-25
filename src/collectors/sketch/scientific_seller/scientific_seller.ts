@@ -32,6 +32,9 @@ export class ScientificSellerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ScientificSellerCollector class.
+     */
     constructor() {
         super(ScientificSellerCollector.CONFIG);
     }

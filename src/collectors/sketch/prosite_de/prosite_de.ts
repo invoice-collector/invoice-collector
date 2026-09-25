@@ -32,6 +32,9 @@ export class PrositeDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PrositeDeCollector class.
+     */
     constructor() {
         super(PrositeDeCollector.CONFIG);
     }

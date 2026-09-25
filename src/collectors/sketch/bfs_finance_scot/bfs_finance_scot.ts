@@ -32,6 +32,9 @@ export class BfsFinanceScotCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BfsFinanceScotCollector class.
+     */
     constructor() {
         super(BfsFinanceScotCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class OpteoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OpteoCollector class.
+     */
     constructor() {
         super(OpteoCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class LeclercDriveCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LeclercDriveCollector class.
+     */
     constructor() {
         super(LeclercDriveCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class MultitankcardNlCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MultitankcardNlCollector class.
+     */
     constructor() {
         super(MultitankcardNlCollector.CONFIG);
     }

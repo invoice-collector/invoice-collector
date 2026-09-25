@@ -32,6 +32,9 @@ export class WibuCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WibuCollector class.
+     */
     constructor() {
         super(WibuCollector.CONFIG);
     }

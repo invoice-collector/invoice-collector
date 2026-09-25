@@ -32,6 +32,9 @@ export class ErentoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ErentoCollector class.
+     */
     constructor() {
         super(ErentoCollector.CONFIG);
     }

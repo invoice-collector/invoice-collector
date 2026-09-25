@@ -32,6 +32,9 @@ export class KalaydoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KalaydoCollector class.
+     */
     constructor() {
         super(KalaydoCollector.CONFIG);
     }

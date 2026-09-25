@@ -32,6 +32,9 @@ export class BeholdCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BeholdCollector class.
+     */
     constructor() {
         super(BeholdCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class LandenCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LandenCollector class.
+     */
     constructor() {
         super(LandenCollector.CONFIG);
     }

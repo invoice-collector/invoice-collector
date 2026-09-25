@@ -32,6 +32,9 @@ export class ClickoutilCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ClickoutilCollector class.
+     */
     constructor() {
         super(ClickoutilCollector.CONFIG);
     }

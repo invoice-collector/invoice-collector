@@ -32,6 +32,9 @@ export class CLeMobileCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CLeMobileCollector class.
+     */
     constructor() {
         super(CLeMobileCollector.CONFIG);
     }

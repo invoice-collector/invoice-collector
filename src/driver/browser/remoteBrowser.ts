@@ -4,6 +4,10 @@ import path from 'path';
 
 export class RemoteBrowser extends AbstractBrowser {
 
+    /**
+     * Gets the download path for the remote browser instance.
+     * @returns The resolved download path as a string.
+     */
     private static getDownloadPath(): string {
         AbstractBrowser.instanceCounter += 1;
         return path.join('download', String(AbstractBrowser.instanceCounter));
@@ -11,11 +15,17 @@ export class RemoteBrowser extends AbstractBrowser {
 
     server_port: number;
 
+    /**
+     * Constructs a new instance of the RemoteBrowser class.
+     */
     constructor() {
         super(utils.getEnvVar('REMOTE_CHROME_IP'), RemoteBrowser.getDownloadPath());
         this.server_port = parseInt(utils.getEnvVar('REMOTE_CHROME_PORT'));
     }
 
+    /**
+     * @inheritdoc
+     */
     async launch(options: any): Promise<string> {
         // Define download folder
         options.prefs = options.prefs || {};
@@ -50,6 +60,9 @@ export class RemoteBrowser extends AbstractBrowser {
         return json.downloadPath;
     }
 
+    /**
+     * @inheritdoc
+     */
     async close() {
         this.puppeteerBrowser.close();
         this.port = undefined;
@@ -57,6 +70,9 @@ export class RemoteBrowser extends AbstractBrowser {
         console.log('Remote Chrome closed');
     }
     
+    /**
+     * @inheritdoc
+     */
     async getDownloadedFiles(clean: boolean): Promise<string[]> {
         const endpoint: string = `http://${this.ip}:${this.server_port}/files/${this.wsid}?clean=${clean}`;
         let response: Response;

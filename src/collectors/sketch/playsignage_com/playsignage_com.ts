@@ -32,6 +32,9 @@ export class PlaysignageComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PlaysignageComCollector class.
+     */
     constructor() {
         super(PlaysignageComCollector.CONFIG);
     }

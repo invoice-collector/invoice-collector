@@ -32,6 +32,9 @@ export class DomotiqueStoreCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DomotiqueStoreCollector class.
+     */
     constructor() {
         super(DomotiqueStoreCollector.CONFIG);
     }

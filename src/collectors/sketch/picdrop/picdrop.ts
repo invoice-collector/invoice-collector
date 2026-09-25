@@ -32,6 +32,9 @@ export class PicdropCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PicdropCollector class.
+     */
     constructor() {
         super(PicdropCollector.CONFIG);
     }

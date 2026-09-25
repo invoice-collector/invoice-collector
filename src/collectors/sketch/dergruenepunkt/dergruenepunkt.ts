@@ -32,6 +32,9 @@ export class DergruenepunktCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DergruenepunktCollector class.
+     */
     constructor() {
         super(DergruenepunktCollector.CONFIG);
     }

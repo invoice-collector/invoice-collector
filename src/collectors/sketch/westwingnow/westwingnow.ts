@@ -32,6 +32,9 @@ export class WestwingnowCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WestwingnowCollector class.
+     */
     constructor() {
         super(WestwingnowCollector.CONFIG);
     }

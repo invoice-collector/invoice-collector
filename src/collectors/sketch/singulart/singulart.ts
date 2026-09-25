@@ -32,6 +32,9 @@ export class SingulartCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SingulartCollector class.
+     */
     constructor() {
         super(SingulartCollector.CONFIG);
     }

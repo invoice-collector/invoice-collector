@@ -32,6 +32,9 @@ export class NnsendCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NnsendCollector class.
+     */
     constructor() {
         super(NnsendCollector.CONFIG);
     }

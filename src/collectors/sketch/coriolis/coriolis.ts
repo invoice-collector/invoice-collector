@@ -31,6 +31,9 @@ export class CoriolisCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CoriolisCollector class.
+     */
     constructor() {
         super(CoriolisCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class RentmanCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RentmanCollector class.
+     */
     constructor() {
         super(RentmanCollector.CONFIG);
     }

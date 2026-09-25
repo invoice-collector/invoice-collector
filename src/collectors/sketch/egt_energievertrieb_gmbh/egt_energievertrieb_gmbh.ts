@@ -32,6 +32,9 @@ export class EgtEnergievertriebGmbhCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EgtEnergievertriebGmbhCollector class.
+     */
     constructor() {
         super(EgtEnergievertriebGmbhCollector.CONFIG);
     }

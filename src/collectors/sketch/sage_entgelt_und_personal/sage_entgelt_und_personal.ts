@@ -32,6 +32,9 @@ export class SageEntgeltUndPersonalCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SageEntgeltUndPersonalCollector class.
+     */
     constructor() {
         super(SageEntgeltUndPersonalCollector.CONFIG);
     }

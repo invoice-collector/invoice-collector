@@ -32,6 +32,9 @@ export class RegionetSchweinfurtCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RegionetSchweinfurtCollector class.
+     */
     constructor() {
         super(RegionetSchweinfurtCollector.CONFIG);
     }

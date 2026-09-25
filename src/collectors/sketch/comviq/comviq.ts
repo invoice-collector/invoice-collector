@@ -32,6 +32,9 @@ export class ComviqCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ComviqCollector class.
+     */
     constructor() {
         super(ComviqCollector.CONFIG);
     }

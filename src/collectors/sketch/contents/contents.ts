@@ -32,6 +32,9 @@ export class ContentsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ContentsCollector class.
+     */
     constructor() {
         super(ContentsCollector.CONFIG);
     }

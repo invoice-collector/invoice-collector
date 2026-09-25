@@ -32,6 +32,9 @@ export class WittenbergNetDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WittenbergNetDeCollector class.
+     */
     constructor() {
         super(WittenbergNetDeCollector.CONFIG);
     }

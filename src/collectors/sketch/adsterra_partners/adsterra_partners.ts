@@ -32,6 +32,9 @@ export class AdsterraPartnersCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AdsterraPartnersCollector class.
+     */
     constructor() {
         super(AdsterraPartnersCollector.CONFIG);
     }

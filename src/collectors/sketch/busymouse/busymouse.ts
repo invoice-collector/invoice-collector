@@ -32,6 +32,9 @@ export class BusymouseCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BusymouseCollector class.
+     */
     constructor() {
         super(BusymouseCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class SpamdrainCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SpamdrainCollector class.
+     */
     constructor() {
         super(SpamdrainCollector.CONFIG);
     }

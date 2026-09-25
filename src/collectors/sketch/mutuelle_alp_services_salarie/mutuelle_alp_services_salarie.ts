@@ -32,6 +32,9 @@ export class MutuelleAlpServicesSalarieCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MutuelleAlpServicesSalarieCollector class.
+     */
     constructor() {
         super(MutuelleAlpServicesSalarieCollector.CONFIG);
     }

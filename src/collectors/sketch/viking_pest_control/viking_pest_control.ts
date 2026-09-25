@@ -32,6 +32,9 @@ export class VikingPestControlCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VikingPestControlCollector class.
+     */
     constructor() {
         super(VikingPestControlCollector.CONFIG);
     }

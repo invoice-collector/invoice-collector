@@ -32,6 +32,9 @@ export class RedditCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RedditCollector class.
+     */
     constructor() {
         super(RedditCollector.CONFIG);
     }

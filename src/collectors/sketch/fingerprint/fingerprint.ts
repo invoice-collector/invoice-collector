@@ -32,6 +32,9 @@ export class FingerprintCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FingerprintCollector class.
+     */
     constructor() {
         super(FingerprintCollector.CONFIG);
     }

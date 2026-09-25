@@ -32,6 +32,9 @@ export class StatkraftDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StatkraftDeCollector class.
+     */
     constructor() {
         super(StatkraftDeCollector.CONFIG);
     }

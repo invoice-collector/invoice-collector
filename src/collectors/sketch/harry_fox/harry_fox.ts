@@ -32,6 +32,9 @@ export class HarryFoxCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HarryFoxCollector class.
+     */
     constructor() {
         super(HarryFoxCollector.CONFIG);
     }

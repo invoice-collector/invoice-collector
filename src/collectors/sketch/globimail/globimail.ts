@@ -32,6 +32,9 @@ export class GlobimailCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GlobimailCollector class.
+     */
     constructor() {
         super(GlobimailCollector.CONFIG);
     }
