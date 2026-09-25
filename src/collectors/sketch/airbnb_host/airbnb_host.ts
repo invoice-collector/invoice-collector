@@ -39,7 +39,10 @@ export class AirbnbHostCollector extends SketchCollector {
     constructor() {
         super(AirbnbHostCollector.CONFIG);
     }
-    
+
+    /**
+     * @inheritdoc
+     */
     async needLogin(driver: AbstractDriver): Promise<boolean> {
         return this.config.entryUrl === undefined || driver.url().includes('/login');
     }
