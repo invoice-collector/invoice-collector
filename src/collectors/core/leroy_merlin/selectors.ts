@@ -95,4 +95,8 @@ export const LeroyMerlinSelectors = {
         selector: '.mc-notification__content .mc-notification__message',
         info: 'download error container',
     },
+    CONTAINER_ORDER_CANCELED: {
+        selector: 'p.item-info__delivery-state > span.icon-state-error',
+        info: 'order canceled container',
+    }
 };
