@@ -1,6 +1,6 @@
 import { AbstractCollector, CompleteInvoice, Config } from '../../collectors/abstractCollector';
 import { CollectorLoader } from '../../collectors/collectorLoader';
-import { AuthenticationError, RemoveError, DisconnectedError, LoggableError, MaintenanceError, NoInvoiceFoundError, PartialCollectError } from '../../error';
+import { AuthenticationError, RemoveError, DisconnectedError, LoggableError, NoInvoiceFoundError, PartialCollectError } from '../../error';
 import { Credential } from '../../model/credential';
 import { Callback } from '../../model/callback';
 import { State } from '../../model/state';
@@ -237,21 +237,6 @@ export class Collect {
                     // Set credential and secret to null to avoid committing deleted credential and secret in finally block
                     credential = null;
                     secret = null;
-                }
-            }
-            else if (err instanceof MaintenanceError) {
-                console.warn(`Invoice collection for credential ${this.credential_id} has failed: ${err.message}`);
-                // If credential exists
-                if (credential) {
-                    // Update credential
-                    credential.state.update(State._0_UNKNOWN);
-                    this.webSocketServer?.sendState(State._0_UNKNOWN);
-
-                    // Update last collect
-                    credential.last_collect_timestamp = Date.now();
-
-                    // Schedule next collect in 1 day
-                    credential.next_collect_timestamp = credential.last_collect_timestamp + Credential.ONE_DAY_MS;
                 }
             }
             else {

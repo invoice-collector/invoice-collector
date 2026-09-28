@@ -114,23 +114,6 @@ export class CollectorError extends Error {
     }
 }
 
-export class MaintenanceError extends CollectorError {
-
-    /**
-     * Constructs a new MaintenanceError instance.
-     * @param collector The collector instance associated with the error.
-     * @param opts Additional options for the error.
-     */
-    constructor(collector: AbstractCollector<Config>, opts = {}) {
-        super(
-            'The website is in maintenance. Wait a moment and try again.',
-            collector,
-            opts,
-        );
-        this.name = this.constructor.name;
-    }
-}
-
 export class AuthenticationError extends CollectorError {
 
     /**
