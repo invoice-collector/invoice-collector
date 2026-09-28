@@ -205,6 +205,14 @@ export class LoggableError extends CollectorError {
         this.source_code = '';
         this.screenshot = { data: '', width: 0, height: 0 };
     }
+
+    /**
+     * Checks whether the error has an associated screenshot.
+     * @returns `true` if the error has an associated screenshot, `false` otherwise.
+     */
+    hasScreenshot(): boolean {
+        return this.screenshot && this.screenshot.data !== '';
+    }
 }
 
 export class ElementNotFoundError extends LoggableError {
