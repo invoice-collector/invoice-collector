@@ -11,7 +11,7 @@ export class FreeCollector extends LinearWebCollector {
         id: 'free',
         name: 'Free',
         description: 'i18n.collectors.free.description',
-        version: '11',
+        version: '12',
         website: 'https://www.free.fr',
         logo: 'https://upload.wikimedia.org/wikipedia/commons/5/52/Free_logo.svg',
         type: CollectorType.WEB,
@@ -84,7 +84,7 @@ export class FreeCollector extends LinearWebCollector {
      */
     async data(driver: AbstractDriver, element: Element): Promise<Invoice> {
         const downloadButton = await element.getElement(FreeSelectors.BUTTON_DOWNLOAD);
-        const link = await element.getAttribute(FreeSelectors.BUTTON_DOWNLOAD, 'href');
+        const link = await driver.origin() + '/' + await element.getAttribute(FreeSelectors.BUTTON_DOWNLOAD, 'href');
         const amount = await element.getAttribute(FreeSelectors.CONTAINER_AMOUNT, 'textContent');
 
         const search_params = new URLSearchParams(link);
