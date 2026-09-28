@@ -56,7 +56,7 @@ export const AmazonSelectors = {
         info: '2fa method button',
     }, 
     CONTAINER_2FA_INSTRUCTIONS: {
-        selector: '#auth-mfa-form p, #channelDetailsForOtp span',
+        selector: '#auth-mfa-form p, #channelDetailsForOtp span, #auth-mfa-form div .cvf-whatsapp-context-container',
         info: '2fa instructions container',
     },
     FIELD_2FA_CODE: {

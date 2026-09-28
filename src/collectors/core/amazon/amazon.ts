@@ -17,7 +17,7 @@ export class AmazonCollector extends LinearWebCollector {
         id: 'amazon',
         name: 'Amazon (.fr)',
         description: 'i18n.collectors.amazon.description',
-        version: '41',
+        version: '42',
         website: 'https://www.amazon.fr',
         logo: 'https://upload.wikimedia.org/wikipedia/commons/4/4a/Amazon_icon.svg',
         type: CollectorType.WEB,
@@ -143,9 +143,12 @@ export class AmazonCollector extends LinearWebCollector {
         await driver.leftClick(AmazonSelectors.BUTTON_2FA_METHOD, { raiseException: false, timeout: 1000 });
 
         // Check if 2FA is required
-        const twofa_instruction = await driver.getElement(AmazonSelectors.CONTAINER_2FA_INSTRUCTIONS, { raiseException: false, timeout: 1000 });
-        if (twofa_instruction) {
-            return await twofa_instruction.textContent('i18n.collectors.all.2fa.instruction');
+        const twofa_instructions = await driver.getElements(AmazonSelectors.CONTAINER_2FA_INSTRUCTIONS, { raiseException: false, timeout: 1000 });
+        if (twofa_instructions.length > 0) {
+            const finalInstructions = (await Promise.all(twofa_instructions.map(async instruction => await instruction.textContent(''))))
+                .map(text => text.trim())
+                .join(' ');
+            return finalInstructions || 'i18n.collectors.all.2fa.instruction';
         }
     }
 
