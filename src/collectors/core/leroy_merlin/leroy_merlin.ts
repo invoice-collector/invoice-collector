@@ -13,7 +13,7 @@ export class LeroyMerlinCollector extends LinearWebCollector {
         id: 'leroy_merlin',
         name: 'Leroy Merlin',
         description: 'i18n.collectors.leroy_merlin.description',
-        version: '22',
+        version: '23',
         website: 'https://www.leroymerlin.fr',
         logo: 'https://upload.wikimedia.org/wikipedia/commons/a/a4/Leroy_Merlin_-_logo_%28France%2C_1995-%29.svg',
         type: CollectorType.WEB,
@@ -173,8 +173,14 @@ export class LeroyMerlinCollector extends LinearWebCollector {
         // Open details in a new page
         await invoice.downloadButton.middleClick();
 
+        // If order has been canceled, return empty array
+        const canceled = await driver.getElement(LeroyMerlinSelectors.CONTAINER_ORDER_CANCELED, { raiseException: false, timeout: 1000 });
+        if (canceled) {
+            return [];
+        }
+
         // Click on download invoices
-        const downloadInvoicesButton = await driver.leftClick(LeroyMerlinSelectors.BUTTON_DOWNLOAD_INVOICES, { navigation: false, raiseException: false, timeout: 1000 });
+        const downloadInvoicesButton = await driver.leftClick(LeroyMerlinSelectors.BUTTON_DOWNLOAD_INVOICES, { navigation: false, raiseException: false, timeout: 100 });
         // If button is not visible, click on the regular download button
         if (!downloadInvoicesButton) {
             await driver.leftClick(LeroyMerlinSelectors.BUTTON_DOWNLOAD, { navigation: false });
