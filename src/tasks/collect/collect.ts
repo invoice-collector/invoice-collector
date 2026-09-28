@@ -1,7 +1,8 @@
-import { AbstractCollector, Config } from '../../collectors/abstractCollector';
+import { AbstractCollector, CompleteInvoice, Config } from '../../collectors/abstractCollector';
 import { CollectorLoader } from '../../collectors/collectorLoader';
-import { AuthenticationError, RemoveError, DisconnectedError, LoggableError, MaintenanceError, NoInvoiceFoundError } from '../../error';
+import { AuthenticationError, RemoveError, DisconnectedError, LoggableError, MaintenanceError, NoInvoiceFoundError, PartialCollectError } from '../../error';
 import { Credential } from '../../model/credential';
+import { Callback } from '../../model/callback';
 import { State } from '../../model/state';
 import { Customer } from '../../model/customer';
 import { User } from '../../model/user';
@@ -40,6 +41,7 @@ export class Collect {
         let secret: Secret|null = null;
         let collector: AbstractCollector<Config>|null = null;
         let customer: Customer|null = null;
+        let callbacksWithAutomaticExport: Callback[] = [];
 
         try {
             // Get credential from credential_id
@@ -61,8 +63,8 @@ export class Collect {
             customer = await user.getCustomer();
 
             // Get customer callbacks
-            const callbacksWithAutomaticExport = (await customer.getCallbacks()).filter(cb => cb.automaticExport);
-        
+            callbacksWithAutomaticExport = (await customer.getCallbacks()).filter(cb => cb.automaticExport);
+
             // If customer has at least one callback with automatic export enabled
             if (callbacksWithAutomaticExport.length > 0) {
 
@@ -105,42 +107,7 @@ export class Collect {
                 console.log(`Found ${credential.invoices.length + newInvoices.length} invoices during collect and ${newInvoices.length} new`);
                 console.log(`Invoice collection for credential ${this.credential_id} succeed`);
 
-                // If at least one new invoice has been downloaded
-                if(newInvoices.length > 0) {
-                    // Get previous invoices hash
-                    const previousInvoicesHash = credential.invoices.map(inv => inv.hash);
-
-                    // Loop through invoices
-                    for (const [index, invoice] of newInvoices.entries()) {
-                        // If data downloaded and invoice is more recent than the download_from_timestamp
-                        if (invoice.data && credential.download_from_timestamp <= invoice.timestamp && !previousInvoicesHash.includes(invoice.hash)) {
-
-                            try {
-                                // Send invoice for each callback with automaticExport set to true
-                                for (const callback of callbacksWithAutomaticExport) {
-                                    console.log(`Sending invoice ${index + 1}/${newInvoices.length} (${invoice.id}) to callback ${callback.getIntegration().config.name}`);
-                                    await callback.sendInvoice(collector.config, user.remote_id, invoice);
-                                }
-
-                                // Add invoice to credential only if callback successfully reached
-                                credential.addInvoice(invoice);
-
-                                // Wait 1 second between each callback to avoid overwhelming the callback server
-                                await utils.delay(1000);
-                            } catch (error) {
-                                console.error(error);
-                            }
-                        }
-                        else {
-                            console.log(`Adding invoice ${index + 1}/${newInvoices.length} (${invoice.id}) to credential without sending to callback`);
-                            // Add invoice to credential
-                            credential.addInvoice(invoice);
-                        }
-                    }
-
-                    // Sort invoices
-                    credential.sortInvoices();
-                }
+                await this.processNewInvoices(credential, collector, user, callbacksWithAutomaticExport, newInvoices);
 
                 // Set progress step to done
                 credential.state.update(State._7_DONE);
@@ -175,6 +142,28 @@ export class Collect {
                     credential.last_collect_timestamp = Date.now();
 
                     // Schedule next collect in 1 day
+                    credential.next_collect_timestamp = credential.last_collect_timestamp + Credential.ONE_DAY_MS;
+                }
+            }
+            // If some invoices failed to download but others succeeded
+            else if (err instanceof PartialCollectError) {
+                console.error(`Invoice collection for credential ${this.credential_id} partially failed: ${err.message}`);
+                err.errors.forEach(e => {
+                    console.error(e);
+                    AnalyticsFactory.getInstance().logError(customer?.email || '', user?.remote_id || '', e);
+                });
+
+                if (credential && user && collector) {
+                    console.log(`Found ${credential.invoices.length + err.invoices.length} invoices during collect and ${err.invoices.length} new`);
+                    await this.processNewInvoices(credential, collector, user, callbacksWithAutomaticExport, err.invoices);
+
+                    credential.state.update(State._0_UNKNOWN);
+                    this.webSocketServer?.sendState(State._0_UNKNOWN);
+
+                    // Update last collect
+                    credential.last_collect_timestamp = Date.now();
+
+                    // Retry failed downloads in 1 day
                     credential.next_collect_timestamp = credential.last_collect_timestamp + Credential.ONE_DAY_MS;
                 }
             }
@@ -288,5 +277,53 @@ export class Collect {
                 await secret?.commit();
             }
         }
+    }
+
+    /**
+     * Sends new invoices to the automatic export callbacks and adds them to the credential.
+     * @param credential The credential to add the invoices to.
+     * @param collector The collector that collected the invoices.
+     * @param user The user owning the credential.
+     * @param callbacks The callbacks with automatic export enabled.
+     * @param newInvoices The newly collected invoices.
+     */
+    private async processNewInvoices(
+        credential: Credential,
+        collector: AbstractCollector<Config>,
+        user: User,
+        callbacks: Callback[],
+        newInvoices: CompleteInvoice[],
+    ): Promise<void> {
+        if (newInvoices.length === 0) {
+            return;
+        }
+
+        const previousInvoicesHash = credential.invoices.map(inv => inv.hash);
+
+        for (const [index, invoice] of newInvoices.entries()) {
+            // If data downloaded and invoice is more recent than the download_from_timestamp
+            if (invoice.data && credential.download_from_timestamp <= invoice.timestamp && !previousInvoicesHash.includes(invoice.hash)) {
+                try {
+                    for (const callback of callbacks) {
+                        console.log(`Sending invoice ${index + 1}/${newInvoices.length} (${invoice.id}) to callback ${callback.getIntegration().config.name}`);
+                        await callback.sendInvoice(collector.config, user.remote_id, invoice);
+                    }
+
+                    // Add invoice to credential only if callback successfully reached
+                    credential.addInvoice(invoice);
+
+                    // Wait 1 second between each callback to avoid overwhelming the callback server
+                    await utils.delay(1000);
+                } catch (error) {
+                    console.error(error);
+                }
+            }
+            else {
+                console.log(`Adding invoice ${index + 1}/${newInvoices.length} (${invoice.id}) to credential without sending to callback`);
+                credential.addInvoice(invoice);
+            }
+        }
+
+        credential.sortInvoices();
     }
 }

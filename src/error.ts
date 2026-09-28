@@ -1,4 +1,4 @@
-import { Config, AbstractCollector } from './collectors/abstractCollector';
+import { Config, AbstractCollector, CompleteInvoice } from './collectors/abstractCollector';
 import { Screenshot } from './driver/abstractDriver';
 
 /**
@@ -266,6 +266,32 @@ export class NoInvoiceFoundError extends LoggableError {
             opts,
         );
         this.name = this.constructor.name;
+    }
+}
+
+export class PartialCollectError extends LoggableError {
+    invoices: CompleteInvoice[];
+    errors: LoggableError[];
+
+    /**
+     * Constructs a new PartialCollectError instance, raised when some invoices failed to download while others succeeded.
+     * @param invoices The invoices collected despite the errors.
+     * @param errors The errors raised while downloading the failed invoices.
+     * @param collector The collector instance associated with the error.
+     * @param opts Additional options for the error.
+     */
+    constructor(invoices: CompleteInvoice[], errors: LoggableError[], collector: AbstractCollector<Config>, opts = {}) {
+        super(
+            `${errors.length} invoice(s) failed to download: ${errors.map(e => e.message).join(' | ')}`,
+            collector,
+            { cause: errors[0], ...opts },
+        );
+        this.name = this.constructor.name;
+        this.invoices = invoices;
+        this.errors = errors;
+        this.url = errors[0]?.url || '';
+        this.source_code = errors[0]?.source_code || '';
+        this.screenshot = errors[0]?.screenshot || this.screenshot;
     }
 }
 
