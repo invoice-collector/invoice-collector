@@ -32,6 +32,9 @@ export class UsepastelCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the UsepastelCollector class.
+     */
     constructor() {
         super(UsepastelCollector.CONFIG);
     }

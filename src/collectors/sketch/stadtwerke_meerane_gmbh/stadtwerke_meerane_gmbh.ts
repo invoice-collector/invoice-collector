@@ -32,6 +32,9 @@ export class StadtwerkeMeeraneGmbhCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StadtwerkeMeeraneGmbhCollector class.
+     */
     constructor() {
         super(StadtwerkeMeeraneGmbhCollector.CONFIG);
     }

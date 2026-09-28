@@ -32,6 +32,9 @@ export class MyAutobidDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MyAutobidDeCollector class.
+     */
     constructor() {
         super(MyAutobidDeCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class VolkswagenWeChargeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VolkswagenWeChargeCollector class.
+     */
     constructor() {
         super(VolkswagenWeChargeCollector.CONFIG);
     }

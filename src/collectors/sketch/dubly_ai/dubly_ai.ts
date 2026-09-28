@@ -32,6 +32,9 @@ export class DublyAiCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DublyAiCollector class.
+     */
     constructor() {
         super(DublyAiCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class _1click2DslCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the _1click2DslCollector class.
+     */
     constructor() {
         super(_1click2DslCollector.CONFIG);
     }

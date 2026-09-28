@@ -32,6 +32,9 @@ export class ContoraAgCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ContoraAgCollector class.
+     */
     constructor() {
         super(ContoraAgCollector.CONFIG);
     }

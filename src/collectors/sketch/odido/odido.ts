@@ -32,6 +32,9 @@ export class OdidoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OdidoCollector class.
+     */
     constructor() {
         super(OdidoCollector.CONFIG);
     }

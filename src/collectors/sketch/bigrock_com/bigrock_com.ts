@@ -32,6 +32,9 @@ export class BigrockCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BigrockCollector class.
+     */
     constructor() {
         super(BigrockCollector.CONFIG);
     }

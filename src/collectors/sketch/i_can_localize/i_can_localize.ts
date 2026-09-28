@@ -32,6 +32,9 @@ export class ICanLocalizeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ICanLocalizeCollector class.
+     */
     constructor() {
         super(ICanLocalizeCollector.CONFIG);
     }

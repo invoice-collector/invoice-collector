@@ -32,6 +32,9 @@ export class BiteablePtyLtdCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BiteablePtyLtdCollector class.
+     */
     constructor() {
         super(BiteablePtyLtdCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class MotogamaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MotogamaCollector class.
+     */
     constructor() {
         super(MotogamaCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class LibsynCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LibsynCollector class.
+     */
     constructor() {
         super(LibsynCollector.CONFIG);
     }

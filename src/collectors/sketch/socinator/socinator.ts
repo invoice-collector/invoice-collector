@@ -32,6 +32,9 @@ export class SocinatorCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SocinatorCollector class.
+     */
     constructor() {
         super(SocinatorCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class HandlerschutzCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HandlerschutzCollector class.
+     */
     constructor() {
         super(HandlerschutzCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class CallrailCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CallrailCollector class.
+     */
     constructor() {
         super(CallrailCollector.CONFIG);
     }

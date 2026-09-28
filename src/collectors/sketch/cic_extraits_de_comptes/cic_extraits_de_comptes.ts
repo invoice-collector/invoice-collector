@@ -32,6 +32,9 @@ export class CicExtraitsDeComptesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CicExtraitsDeComptesCollector class.
+     */
     constructor() {
         super(CicExtraitsDeComptesCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class ArthurOnlineCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ArthurOnlineCollector class.
+     */
     constructor() {
         super(ArthurOnlineCollector.CONFIG);
     }

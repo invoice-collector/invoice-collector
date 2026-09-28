@@ -32,6 +32,9 @@ export class PhpFriendsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PhpFriendsCollector class.
+     */
     constructor() {
         super(PhpFriendsCollector.CONFIG);
     }

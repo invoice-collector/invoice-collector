@@ -32,6 +32,9 @@ export class CaneiProtectControlCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CaneiProtectControlCollector class.
+     */
     constructor() {
         super(CaneiProtectControlCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class MesquiteTxCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MesquiteTxCollector class.
+     */
     constructor() {
         super(MesquiteTxCollector.CONFIG);
     }

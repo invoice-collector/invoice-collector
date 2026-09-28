@@ -32,6 +32,9 @@ export class PluginAllianceCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PluginAllianceCollector class.
+     */
     constructor() {
         super(PluginAllianceCollector.CONFIG);
     }

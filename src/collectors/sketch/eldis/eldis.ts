@@ -32,6 +32,9 @@ export class EldisCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EldisCollector class.
+     */
     constructor() {
         super(EldisCollector.CONFIG);
     }

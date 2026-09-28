@@ -32,6 +32,9 @@ export class InmacWstoreCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the InmacWstoreCollector class.
+     */
     constructor() {
         super(InmacWstoreCollector.CONFIG);
     }

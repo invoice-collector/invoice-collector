@@ -32,6 +32,9 @@ export class NorthdataCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NorthdataCollector class.
+     */
     constructor() {
         super(NorthdataCollector.CONFIG);
     }

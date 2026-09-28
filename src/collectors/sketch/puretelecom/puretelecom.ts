@@ -32,6 +32,9 @@ export class PuretelecomCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PuretelecomCollector class.
+     */
     constructor() {
         super(PuretelecomCollector.CONFIG);
     }

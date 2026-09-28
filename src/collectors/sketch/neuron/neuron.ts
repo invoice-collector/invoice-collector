@@ -32,6 +32,9 @@ export class NeuronCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NeuronCollector class.
+     */
     constructor() {
         super(NeuronCollector.CONFIG);
     }

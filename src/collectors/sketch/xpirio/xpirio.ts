@@ -32,6 +32,9 @@ export class XpirioCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the XpirioCollector class.
+     */
     constructor() {
         super(XpirioCollector.CONFIG);
     }

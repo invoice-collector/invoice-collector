@@ -32,6 +32,9 @@ export class EgymCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EgymCollector class.
+     */
     constructor() {
         super(EgymCollector.CONFIG);
     }

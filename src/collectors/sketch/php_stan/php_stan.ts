@@ -32,6 +32,9 @@ export class PhpStanCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PhpStanCollector class.
+     */
     constructor() {
         super(PhpStanCollector.CONFIG);
     }

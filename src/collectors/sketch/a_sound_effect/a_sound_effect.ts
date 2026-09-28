@@ -32,6 +32,9 @@ export class ASoundEffectCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ASoundEffectCollector class.
+     */
     constructor() {
         super(ASoundEffectCollector.CONFIG);
     }

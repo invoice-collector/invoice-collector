@@ -32,6 +32,9 @@ export class ZeltyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ZeltyCollector class.
+     */
     constructor() {
         super(ZeltyCollector.CONFIG);
     }

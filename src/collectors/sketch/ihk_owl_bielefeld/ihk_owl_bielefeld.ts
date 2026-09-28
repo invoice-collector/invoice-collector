@@ -32,6 +32,9 @@ export class IhkOwlBielefeldCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the IhkOwlBielefeldCollector class.
+     */
     constructor() {
         super(IhkOwlBielefeldCollector.CONFIG);
     }

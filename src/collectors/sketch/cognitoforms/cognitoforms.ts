@@ -32,6 +32,9 @@ export class CognitoformsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CognitoformsCollector class.
+     */
     constructor() {
         super(CognitoformsCollector.CONFIG);
     }

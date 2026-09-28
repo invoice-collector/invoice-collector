@@ -32,6 +32,9 @@ export class AralCardkomfortCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AralCardkomfortCollector class.
+     */
     constructor() {
         super(AralCardkomfortCollector.CONFIG);
     }

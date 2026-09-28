@@ -32,6 +32,9 @@ export class MonicaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MonicaCollector class.
+     */
     constructor() {
         super(MonicaCollector.CONFIG);
     }

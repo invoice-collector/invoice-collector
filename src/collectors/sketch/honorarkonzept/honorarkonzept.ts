@@ -32,6 +32,9 @@ export class HonorarkonzeptCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HonorarkonzeptCollector class.
+     */
     constructor() {
         super(HonorarkonzeptCollector.CONFIG);
     }

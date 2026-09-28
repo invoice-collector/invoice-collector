@@ -32,6 +32,9 @@ export class ManychatCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ManychatCollector class.
+     */
     constructor() {
         super(ManychatCollector.CONFIG);
     }

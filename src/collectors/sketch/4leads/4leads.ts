@@ -32,6 +32,9 @@ export class _4leadsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the _4leadsCollector class.
+     */
     constructor() {
         super(_4leadsCollector.CONFIG);
     }

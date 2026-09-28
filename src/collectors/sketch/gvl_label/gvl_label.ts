@@ -32,6 +32,9 @@ export class GvlLabelCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GvlLabelCollector class.
+     */
     constructor() {
         super(GvlLabelCollector.CONFIG);
     }

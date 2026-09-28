@@ -32,6 +32,9 @@ export class SchenkerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SchenkerCollector class.
+     */
     constructor() {
         super(SchenkerCollector.CONFIG);
     }

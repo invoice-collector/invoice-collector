@@ -32,6 +32,9 @@ export class JarltechCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the JarltechCollector class.
+     */
     constructor() {
         super(JarltechCollector.CONFIG);
     }

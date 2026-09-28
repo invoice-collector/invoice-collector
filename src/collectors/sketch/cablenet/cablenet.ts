@@ -32,6 +32,9 @@ export class CablenetCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CablenetCollector class.
+     */
     constructor() {
         super(CablenetCollector.CONFIG);
     }

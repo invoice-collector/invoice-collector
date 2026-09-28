@@ -32,6 +32,9 @@ export class WhatrunswhereCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WhatrunswhereCollector class.
+     */
     constructor() {
         super(WhatrunswhereCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class SeliaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SeliaCollector class.
+     */
     constructor() {
         super(SeliaCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class FdjFranceCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FdjFranceCollector class.
+     */
     constructor() {
         super(FdjFranceCollector.CONFIG);
     }

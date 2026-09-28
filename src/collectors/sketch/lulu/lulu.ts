@@ -32,6 +32,9 @@ export class LuluCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LuluCollector class.
+     */
     constructor() {
         super(LuluCollector.CONFIG);
     }

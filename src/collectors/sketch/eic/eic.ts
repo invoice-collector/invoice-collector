@@ -32,6 +32,9 @@ export class EicCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EicCollector class.
+     */
     constructor() {
         super(EicCollector.CONFIG);
     }

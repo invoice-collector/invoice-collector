@@ -32,6 +32,9 @@ export class UdmediaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the UdmediaCollector class.
+     */
     constructor() {
         super(UdmediaCollector.CONFIG);
     }

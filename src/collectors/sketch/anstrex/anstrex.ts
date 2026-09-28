@@ -32,6 +32,9 @@ export class AnstrexCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AnstrexCollector class.
+     */
     constructor() {
         super(AnstrexCollector.CONFIG);
     }

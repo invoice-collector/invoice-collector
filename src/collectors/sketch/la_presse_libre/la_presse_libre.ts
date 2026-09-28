@@ -32,6 +32,9 @@ export class LaPresseLibreCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LaPresseLibreCollector class.
+     */
     constructor() {
         super(LaPresseLibreCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class PixiesetCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PixiesetCollector class.
+     */
     constructor() {
         super(PixiesetCollector.CONFIG);
     }

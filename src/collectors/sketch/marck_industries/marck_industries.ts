@@ -32,6 +32,9 @@ export class MarckIndustriesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MarckIndustriesCollector class.
+     */
     constructor() {
         super(MarckIndustriesCollector.CONFIG);
     }

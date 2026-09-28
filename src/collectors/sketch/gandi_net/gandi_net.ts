@@ -32,6 +32,9 @@ export class GandiNetCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GandiNetCollector class.
+     */
     constructor() {
         super(GandiNetCollector.CONFIG);
     }

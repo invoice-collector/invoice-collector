@@ -32,6 +32,9 @@ export class ScreenActorsGuildCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ScreenActorsGuildCollector class.
+     */
     constructor() {
         super(ScreenActorsGuildCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class LyonnaiseDesEauxCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LyonnaiseDesEauxCollector class.
+     */
     constructor() {
         super(LyonnaiseDesEauxCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class NudgifyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NudgifyCollector class.
+     */
     constructor() {
         super(NudgifyCollector.CONFIG);
     }

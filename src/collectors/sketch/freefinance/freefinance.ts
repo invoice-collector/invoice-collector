@@ -32,6 +32,9 @@ export class FreefinanceCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FreefinanceCollector class.
+     */
     constructor() {
         super(FreefinanceCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class SixtCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SixtCollector class.
+     */
     constructor() {
         super(SixtCollector.CONFIG);
     }

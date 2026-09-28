@@ -32,6 +32,9 @@ export class EPlusCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EPlusCollector class.
+     */
     constructor() {
         super(EPlusCollector.CONFIG);
     }

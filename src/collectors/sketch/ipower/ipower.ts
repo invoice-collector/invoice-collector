@@ -32,6 +32,9 @@ export class IpowerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the IpowerCollector class.
+     */
     constructor() {
         super(IpowerCollector.CONFIG);
     }

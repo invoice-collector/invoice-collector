@@ -32,6 +32,9 @@ export class StaplesPreferredCanadaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StaplesPreferredCanadaCollector class.
+     */
     constructor() {
         super(StaplesPreferredCanadaCollector.CONFIG);
     }

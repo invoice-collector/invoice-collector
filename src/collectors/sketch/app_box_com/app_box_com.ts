@@ -32,6 +32,9 @@ export class AppBoxComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AppBoxComCollector class.
+     */
     constructor() {
         super(AppBoxComCollector.CONFIG);
     }

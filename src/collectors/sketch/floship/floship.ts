@@ -32,6 +32,9 @@ export class FloshipCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FloshipCollector class.
+     */
     constructor() {
         super(FloshipCollector.CONFIG);
     }

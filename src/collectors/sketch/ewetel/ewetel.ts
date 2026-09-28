@@ -32,6 +32,9 @@ export class EwetelCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EwetelCollector class.
+     */
     constructor() {
         super(EwetelCollector.CONFIG);
     }

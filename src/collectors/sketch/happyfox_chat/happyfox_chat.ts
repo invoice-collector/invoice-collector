@@ -32,6 +32,9 @@ export class HappyfoxChatCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HappyfoxChatCollector class.
+     */
     constructor() {
         super(HappyfoxChatCollector.CONFIG);
     }

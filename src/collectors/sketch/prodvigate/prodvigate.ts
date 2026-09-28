@@ -32,6 +32,9 @@ export class ProdvigateCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ProdvigateCollector class.
+     */
     constructor() {
         super(ProdvigateCollector.CONFIG);
     }

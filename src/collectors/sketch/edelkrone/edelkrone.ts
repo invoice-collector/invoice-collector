@@ -32,6 +32,9 @@ export class EdelkroneCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EdelkroneCollector class.
+     */
     constructor() {
         super(EdelkroneCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class SendwithusCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SendwithusCollector class.
+     */
     constructor() {
         super(SendwithusCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class BellenNlCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BellenNlCollector class.
+     */
     constructor() {
         super(BellenNlCollector.CONFIG);
     }

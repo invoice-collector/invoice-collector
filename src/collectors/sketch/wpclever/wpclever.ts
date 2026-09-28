@@ -32,6 +32,9 @@ export class WpcleverCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WpcleverCollector class.
+     */
     constructor() {
         super(WpcleverCollector.CONFIG);
     }

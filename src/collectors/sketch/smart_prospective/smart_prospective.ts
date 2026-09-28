@@ -32,6 +32,9 @@ export class SmartProspectiveCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SmartProspectiveCollector class.
+     */
     constructor() {
         super(SmartProspectiveCollector.CONFIG);
     }

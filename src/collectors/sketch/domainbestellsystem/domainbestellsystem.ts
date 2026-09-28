@@ -32,6 +32,9 @@ export class DomainbestellsystemCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DomainbestellsystemCollector class.
+     */
     constructor() {
         super(DomainbestellsystemCollector.CONFIG);
     }

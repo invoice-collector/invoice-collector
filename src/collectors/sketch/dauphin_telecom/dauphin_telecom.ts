@@ -32,6 +32,9 @@ export class DauphinTelecomCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DauphinTelecomCollector class.
+     */
     constructor() {
         super(DauphinTelecomCollector.CONFIG);
     }

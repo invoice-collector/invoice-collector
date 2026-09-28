@@ -32,6 +32,9 @@ export class HubPlannerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HubPlannerCollector class.
+     */
     constructor() {
         super(HubPlannerCollector.CONFIG);
     }

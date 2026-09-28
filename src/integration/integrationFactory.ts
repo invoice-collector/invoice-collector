@@ -10,7 +10,14 @@ import { MegIntegration } from './megIntegration';
 import { HttpIntegration } from './httpIntegration';
 import { FileSystemIntegration } from './fileSystemIntegration';
 
-class IntegrationFactory {
+export class IntegrationFactory {
+
+    /**
+     * Gets an instance of the integration corresponding to the given ID.
+     * @param id The ID of the integration.
+     * @param secret The secrets for the integration.
+     * @returns An instance of the corresponding integration.
+     */
     static getIntegration(id: string, secret: Secret): AbstractIntegration {
         switch (id) {
             case 'sage':
@@ -36,5 +43,3 @@ class IntegrationFactory {
         }
     }
 }
-
-export { IntegrationFactory };

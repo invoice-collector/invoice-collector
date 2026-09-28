@@ -32,6 +32,9 @@ export class BytescaleCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BytescaleCollector class.
+     */
     constructor() {
         super(BytescaleCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class QuicktalkCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the QuicktalkCollector class.
+     */
     constructor() {
         super(QuicktalkCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class BilikCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BilikCollector class.
+     */
     constructor() {
         super(BilikCollector.CONFIG);
     }

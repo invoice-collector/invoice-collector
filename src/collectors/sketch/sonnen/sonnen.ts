@@ -32,6 +32,9 @@ export class SonnenCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SonnenCollector class.
+     */
     constructor() {
         super(SonnenCollector.CONFIG);
     }

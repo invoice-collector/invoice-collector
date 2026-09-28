@@ -32,6 +32,9 @@ export class SmavaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SmavaCollector class.
+     */
     constructor() {
         super(SmavaCollector.CONFIG);
     }

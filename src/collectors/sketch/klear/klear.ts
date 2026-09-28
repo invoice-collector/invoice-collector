@@ -32,6 +32,9 @@ export class KlearCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KlearCollector class.
+     */
     constructor() {
         super(KlearCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class VentoryoneCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VentoryoneCollector class.
+     */
     constructor() {
         super(VentoryoneCollector.CONFIG);
     }

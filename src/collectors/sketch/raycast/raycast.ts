@@ -32,6 +32,9 @@ export class RaycastCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RaycastCollector class.
+     */
     constructor() {
         super(RaycastCollector.CONFIG);
     }

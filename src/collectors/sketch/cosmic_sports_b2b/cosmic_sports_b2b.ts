@@ -32,6 +32,9 @@ export class CosmicSportsB2bCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CosmicSportsB2bCollector class.
+     */
     constructor() {
         super(CosmicSportsB2bCollector.CONFIG);
     }

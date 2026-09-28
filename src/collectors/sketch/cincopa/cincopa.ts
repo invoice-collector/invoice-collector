@@ -32,6 +32,9 @@ export class CincopaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CincopaCollector class.
+     */
     constructor() {
         super(CincopaCollector.CONFIG);
     }

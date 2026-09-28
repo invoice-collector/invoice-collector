@@ -32,6 +32,9 @@ export class FastdomainCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FastdomainCollector class.
+     */
     constructor() {
         super(FastdomainCollector.CONFIG);
     }

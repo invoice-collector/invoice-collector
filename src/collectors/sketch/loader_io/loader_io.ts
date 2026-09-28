@@ -32,6 +32,9 @@ export class LoaderIoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LoaderIoCollector class.
+     */
     constructor() {
         super(LoaderIoCollector.CONFIG);
     }

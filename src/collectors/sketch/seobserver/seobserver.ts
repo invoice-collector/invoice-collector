@@ -32,6 +32,9 @@ export class SeobserverCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SeobserverCollector class.
+     */
     constructor() {
         super(SeobserverCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class RisoCooperationGmbhCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RisoCooperationGmbhCollector class.
+     */
     constructor() {
         super(RisoCooperationGmbhCollector.CONFIG);
     }

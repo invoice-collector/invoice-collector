@@ -32,6 +32,9 @@ export class RolserBoutiqueCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RolserBoutiqueCollector class.
+     */
     constructor() {
         super(RolserBoutiqueCollector.CONFIG);
     }

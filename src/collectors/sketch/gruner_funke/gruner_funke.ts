@@ -32,6 +32,9 @@ export class GrunerFunkeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GrunerFunkeCollector class.
+     */
     constructor() {
         super(GrunerFunkeCollector.CONFIG);
     }

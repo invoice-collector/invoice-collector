@@ -32,6 +32,9 @@ export class IngetourCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the IngetourCollector class.
+     */
     constructor() {
         super(IngetourCollector.CONFIG);
     }

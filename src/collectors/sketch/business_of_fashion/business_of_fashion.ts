@@ -32,6 +32,9 @@ export class BusinessOfFashionCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BusinessOfFashionCollector class.
+     */
     constructor() {
         super(BusinessOfFashionCollector.CONFIG);
     }

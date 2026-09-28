@@ -32,6 +32,9 @@ export class SwpSudwestPresseCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SwpSudwestPresseCollector class.
+     */
     constructor() {
         super(SwpSudwestPresseCollector.CONFIG);
     }

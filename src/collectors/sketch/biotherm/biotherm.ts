@@ -32,6 +32,9 @@ export class BiothermCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BiothermCollector class.
+     */
     constructor() {
         super(BiothermCollector.CONFIG);
     }

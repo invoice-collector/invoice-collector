@@ -32,6 +32,9 @@ export class MotionTmPartnerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MotionTmPartnerCollector class.
+     */
     constructor() {
         super(MotionTmPartnerCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class MiagCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MiagCollector class.
+     */
     constructor() {
         super(MiagCollector.CONFIG);
     }

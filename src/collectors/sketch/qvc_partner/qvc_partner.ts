@@ -32,6 +32,9 @@ export class QvcPartnerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the QvcPartnerCollector class.
+     */
     constructor() {
         super(QvcPartnerCollector.CONFIG);
     }

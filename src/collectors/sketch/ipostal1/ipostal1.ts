@@ -32,6 +32,9 @@ export class Ipostal1Collector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Ipostal1Collector class.
+     */
     constructor() {
         super(Ipostal1Collector.CONFIG);
     }

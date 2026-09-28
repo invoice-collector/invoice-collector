@@ -32,6 +32,9 @@ export class ChargemapCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ChargemapCollector class.
+     */
     constructor() {
         super(ChargemapCollector.CONFIG);
     }

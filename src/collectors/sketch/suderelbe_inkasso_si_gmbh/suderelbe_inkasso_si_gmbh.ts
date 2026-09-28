@@ -32,6 +32,9 @@ export class SuderelbeInkassoSiGmbhCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SuderelbeInkassoSiGmbhCollector class.
+     */
     constructor() {
         super(SuderelbeInkassoSiGmbhCollector.CONFIG);
     }

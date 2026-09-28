@@ -32,6 +32,9 @@ export class DeliverooRestaurantsPartnersCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DeliverooRestaurantsPartnersCollector class.
+     */
     constructor() {
         super(DeliverooRestaurantsPartnersCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class KursolinoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KursolinoCollector class.
+     */
     constructor() {
         super(KursolinoCollector.CONFIG);
     }

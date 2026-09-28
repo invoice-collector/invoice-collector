@@ -32,6 +32,9 @@ export class VmFarmsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VmFarmsCollector class.
+     */
     constructor() {
         super(VmFarmsCollector.CONFIG);
     }

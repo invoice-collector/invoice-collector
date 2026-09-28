@@ -32,6 +32,9 @@ export class BrainstormForceCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BrainstormForceCollector class.
+     */
     constructor() {
         super(BrainstormForceCollector.CONFIG);
     }

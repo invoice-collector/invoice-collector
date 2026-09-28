@@ -16,8 +16,10 @@ export class WebSocketServerManager {
     private wss: Server | null = null;
     private handlers: Map<string, WebSocketServer> = new Map();
 
-    private constructor() {}
-
+    /**
+     * Gets the singleton instance of the WebSocketServerManager.
+     * @returns The singleton instance of the WebSocketServerManager.
+     */
     public static getInstance(): WebSocketServerManager {
         if (!WebSocketServerManager.instance) {
             WebSocketServerManager.instance = new WebSocketServerManager();
@@ -25,7 +27,16 @@ export class WebSocketServerManager {
         return WebSocketServerManager.instance;
     }
 
-    public initialize(httpServer: http.Server) {
+    /**
+     * Private constructor to enforce the singleton pattern.
+     */
+    private constructor() {}
+
+    /**
+     * Initializes the WebSocket server manager with the given HTTP server.
+     * @param httpServer The HTTP server to attach the WebSocket server to.
+     */
+    public initialize(httpServer: http.Server): void {
         if (this.wss) {
             return; // Already initialized
         }
@@ -48,15 +59,27 @@ export class WebSocketServerManager {
         });
     }
 
-    public registerHandler(path: string, handler: WebSocketServer) {
+    /**
+     * Registers a WebSocket server handler for the specified path.
+     * @param path The path to register the handler for.
+     * @param handler The WebSocket server handler to register.
+     */
+    public registerHandler(path: string, handler: WebSocketServer): void {
         this.handlers.set(path, handler);
     }
 
-    public unregisterHandler(path: string) {
+    /**
+     * Unregisters a WebSocket server handler for the specified path.
+     * @param path The path to unregister the handler for.
+     */
+    public unregisterHandler(path: string): void {
         this.handlers.delete(path);
     }
 
-    public close() {
+    /**
+     * Closes the WebSocket server manager and clears all registered handlers.
+     */
+    public close(): void {
         // Clear all handlers
         this.handlers.clear();
         this.wss?.close();
@@ -86,6 +109,13 @@ export class WebSocketServer extends EventEmitter {
     public onText: ((event: MessageText) => void) | undefined;
     public onInteractive: ((event: MessageInteractive) => void) | undefined;
 
+    /**
+     * Constructs a new WebSocket server instance.
+     * @param httpServer The HTTP server to attach the WebSocket server to.
+     * @param locale The locale of the client in order to translate messages appropriately.
+     * @param collector The collector instance associated with the WebSocket server.
+     * @param oauth2State The OAuth2 state for the WebSocket server.
+     */
     constructor(httpServer: http.Server, locale: string, collector: AbstractCollector<Config>, oauth2State: string) {
         super();
         this.path = `${WebSocketServer.PATH}${utils.generate_token()}`;
@@ -99,12 +129,20 @@ export class WebSocketServer extends EventEmitter {
         this.twofa_promise = new TwofaPromise();
     }
 
+    /**
+     * Starts the WebSocket server and registers its handler with the manager.
+     * @returns The path of the WebSocket server the client should connect to.
+     */
     public start(): string {
         // Register this handler with the manager
         WebSocketServerManager.getInstance().registerHandler(this.path, this);
         return this.path;
     }
 
+    /**
+     * Handles a new WebSocket connection.
+     * @param ws The WebSocket connection instance.
+     */
     public handleConnection(ws: WebSocket) {
         console.log(`WebSocket connection established on ${this.path}`);
         this.ws = ws;
@@ -178,12 +216,20 @@ export class WebSocketServer extends EventEmitter {
         });
     }
 
+    /**
+     * Closes the WebSocket connection managed by this server instance.
+     */
     public close() {
         // Close the WebSocket connection if open
         this.ws?.close();
         this.ws = null;
     }
 
+    /**
+     * Sends a message through the WebSocket connection, optionally persisting it if the connection is not open.
+     * @param message The message to send through the WebSocket connection.
+     * @param persist Whether to persist the message if the WebSocket connection is not open. The message will be stored in the message queue and sent once the connection is re-established.
+     */
     private sendMessage(message: AbstractMessage, persist: boolean) {
         if (this.ws && this.ws.readyState === WebSocket.OPEN) {
             this.ws.send(JSON.stringify(message));
@@ -192,6 +238,12 @@ export class WebSocketServer extends EventEmitter {
         }
     }
 
+    /**
+     * Sends a screenshot message through the WebSocket connection.
+     * @param screenshot The screenshot image data as a base64-encoded string.
+     * @param width The width of the screenshot image.
+     * @param height The height of the screenshot image.
+     */
     public sendScreenshot(screenshot: string, width: number, height: number) {
         const message: MessageScreenshot = {
             type: 'screenshot',
@@ -202,6 +254,11 @@ export class WebSocketServer extends EventEmitter {
         this.sendMessage(message, false);
     }
 
+    /**
+     * Sends the state of the collection through the WebSocket connection.
+     * @param state The state object containing the state information.
+     * @param stateMessage An optional message associated with the state to be displayed to the user.
+     */
     public sendState(state: State, stateMessage?: string) {
         state.message = stateMessage ? utils.trim(stateMessage) : state.message;
 
@@ -216,6 +273,10 @@ export class WebSocketServer extends EventEmitter {
         this.sendMessage(message, true);
     }
 
+    /**
+     * Sends an interactive open message through the WebSocket connection.
+     * @param instructions The instructions to be displayed to the user.
+     */
     public sendInteractiveOpen(instructions: string) {
         const message: MessageInteractive = {
             type: 'interactive',
@@ -225,6 +286,12 @@ export class WebSocketServer extends EventEmitter {
         this.sendMessage(message, true);
     }
 
+    /**
+     * Sends an OAuth2 message through the WebSocket connection and waits for the OAuth2 code provided by the user.
+     * @param url The URL to be used for the OAuth2 authentication.
+     * @param iframe A boolean indicating whether the OAuth2 flow should be displayed in an iframe.
+     * @returns The OAuth2 code provided by the user.
+     */
     public async sendOauth2(url: string, iframe: boolean): Promise<string> {
         const message: MessageOauth2 = {
             type: 'oauth2',
@@ -242,6 +309,11 @@ export class WebSocketServer extends EventEmitter {
         });
     }
 
+    /**
+     * Sends a request for the two-factor authentication (2FA) code through the WebSocket connection and waits for the user to provide it.
+     * @param instructions Optional instructions to be displayed to the user regarding the 2FA process.
+     * @returns The 2FA code provided by the user.
+     */
     public getTwofa(instructions?: string): Promise<string> {
         // If instructions are provided, send new state with instructions to user
         if (instructions) {

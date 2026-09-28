@@ -32,6 +32,9 @@ export class GlipCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GlipCollector class.
+     */
     constructor() {
         super(GlipCollector.CONFIG);
     }

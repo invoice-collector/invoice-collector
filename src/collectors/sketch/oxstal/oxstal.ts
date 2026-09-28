@@ -31,6 +31,9 @@ export class OxstalCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OxstalCollector class.
+     */
     constructor() {
         super(OxstalCollector.CONFIG);
     }

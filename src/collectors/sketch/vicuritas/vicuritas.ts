@@ -32,6 +32,9 @@ export class VicuritasCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VicuritasCollector class.
+     */
     constructor() {
         super(VicuritasCollector.CONFIG);
     }

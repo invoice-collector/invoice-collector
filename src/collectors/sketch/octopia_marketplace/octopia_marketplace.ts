@@ -32,6 +32,9 @@ export class OctopiaMarketplaceCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OctopiaMarketplaceCollector class.
+     */
     constructor() {
         super(OctopiaMarketplaceCollector.CONFIG);
     }

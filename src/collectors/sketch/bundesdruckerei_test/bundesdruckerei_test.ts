@@ -32,6 +32,9 @@ export class BundesdruckereiTestCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BundesdruckereiTestCollector class.
+     */
     constructor() {
         super(BundesdruckereiTestCollector.CONFIG);
     }

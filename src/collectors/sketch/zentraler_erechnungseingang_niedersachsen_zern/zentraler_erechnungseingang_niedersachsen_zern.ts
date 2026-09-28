@@ -32,6 +32,9 @@ export class ZentralerErechnungseingangNiedersachsenZernCollector extends Sketch
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ZentralerErechnungseingangNiedersachsenZernCollector class.
+     */
     constructor() {
         super(ZentralerErechnungseingangNiedersachsenZernCollector.CONFIG);
     }

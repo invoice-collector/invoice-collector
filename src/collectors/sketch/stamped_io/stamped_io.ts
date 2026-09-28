@@ -32,6 +32,9 @@ export class StampedIoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StampedIoCollector class.
+     */
     constructor() {
         super(StampedIoCollector.CONFIG);
     }

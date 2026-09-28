@@ -32,6 +32,9 @@ export class ShophunterCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ShophunterCollector class.
+     */
     constructor() {
         super(ShophunterCollector.CONFIG);
     }

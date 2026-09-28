@@ -32,6 +32,9 @@ export class OnlinejobsPhCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OnlinejobsPhCollector class.
+     */
     constructor() {
         super(OnlinejobsPhCollector.CONFIG);
     }

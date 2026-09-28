@@ -32,6 +32,9 @@ export class BadenovaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BadenovaCollector class.
+     */
     constructor() {
         super(BadenovaCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class SunsamaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SunsamaCollector class.
+     */
     constructor() {
         super(SunsamaCollector.CONFIG);
     }

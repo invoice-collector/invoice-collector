@@ -32,6 +32,9 @@ export class SkeddaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SkeddaCollector class.
+     */
     constructor() {
         super(SkeddaCollector.CONFIG);
     }

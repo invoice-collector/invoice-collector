@@ -32,6 +32,9 @@ export class ProbonioCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ProbonioCollector class.
+     */
     constructor() {
         super(ProbonioCollector.CONFIG);
     }

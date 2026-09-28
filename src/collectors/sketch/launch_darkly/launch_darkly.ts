@@ -32,6 +32,9 @@ export class LaunchDarklyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LaunchDarklyCollector class.
+     */
     constructor() {
         super(LaunchDarklyCollector.CONFIG);
     }

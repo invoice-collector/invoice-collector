@@ -32,6 +32,9 @@ export class SpeeklyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SpeeklyCollector class.
+     */
     constructor() {
         super(SpeeklyCollector.CONFIG);
     }

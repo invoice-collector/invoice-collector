@@ -32,6 +32,9 @@ export class GumtreeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GumtreeCollector class.
+     */
     constructor() {
         super(GumtreeCollector.CONFIG);
     }

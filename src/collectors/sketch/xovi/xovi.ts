@@ -32,6 +32,9 @@ export class XoviCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the XoviCollector class.
+     */
     constructor() {
         super(XoviCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class RapidFlyerPromoFlyerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RapidFlyerPromoFlyerCollector class.
+     */
     constructor() {
         super(RapidFlyerPromoFlyerCollector.CONFIG);
     }

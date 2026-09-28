@@ -32,6 +32,9 @@ export class NaturmilchhofGartetalCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NaturmilchhofGartetalCollector class.
+     */
     constructor() {
         super(NaturmilchhofGartetalCollector.CONFIG);
     }

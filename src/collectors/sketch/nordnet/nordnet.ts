@@ -32,6 +32,9 @@ export class NordnetCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NordnetCollector class.
+     */
     constructor() {
         super(NordnetCollector.CONFIG);
     }

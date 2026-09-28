@@ -32,6 +32,9 @@ export class InterparcelAuCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the InterparcelAuCollector class.
+     */
     constructor() {
         super(InterparcelAuCollector.CONFIG);
     }

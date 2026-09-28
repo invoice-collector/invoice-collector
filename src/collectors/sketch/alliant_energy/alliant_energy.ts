@@ -32,6 +32,9 @@ export class AlliantEnergyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AlliantEnergyCollector class.
+     */
     constructor() {
         super(AlliantEnergyCollector.CONFIG);
     }

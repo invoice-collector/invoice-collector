@@ -32,6 +32,9 @@ export class PepBoysFleetServicesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PepBoysFleetServicesCollector class.
+     */
     constructor() {
         super(PepBoysFleetServicesCollector.CONFIG);
     }

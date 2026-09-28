@@ -32,6 +32,9 @@ export class PagerangersCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PagerangersCollector class.
+     */
     constructor() {
         super(PagerangersCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class LabelresizerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LabelresizerCollector class.
+     */
     constructor() {
         super(LabelresizerCollector.CONFIG);
     }

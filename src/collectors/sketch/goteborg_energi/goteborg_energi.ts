@@ -32,6 +32,9 @@ export class GoteborgEnergiCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GoteborgEnergiCollector class.
+     */
     constructor() {
         super(GoteborgEnergiCollector.CONFIG);
     }

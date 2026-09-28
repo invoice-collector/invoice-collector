@@ -32,6 +32,9 @@ export class ConitparkCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ConitparkCollector class.
+     */
     constructor() {
         super(ConitparkCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class AltonetzCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AltonetzCollector class.
+     */
     constructor() {
         super(AltonetzCollector.CONFIG);
     }

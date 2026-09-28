@@ -32,6 +32,9 @@ export class GerepGestionCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GerepGestionCollector class.
+     */
     constructor() {
         super(GerepGestionCollector.CONFIG);
     }

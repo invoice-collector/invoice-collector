@@ -32,6 +32,9 @@ export class ParkingpayCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ParkingpayCollector class.
+     */
     constructor() {
         super(ParkingpayCollector.CONFIG);
     }

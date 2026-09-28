@@ -32,6 +32,9 @@ export class SectigoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SectigoCollector class.
+     */
     constructor() {
         super(SectigoCollector.CONFIG);
     }

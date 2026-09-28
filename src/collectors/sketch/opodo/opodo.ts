@@ -32,6 +32,9 @@ export class OpodoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OpodoCollector class.
+     */
     constructor() {
         super(OpodoCollector.CONFIG);
     }

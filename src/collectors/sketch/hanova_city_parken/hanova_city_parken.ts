@@ -32,6 +32,9 @@ export class HanovaCityParkenCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HanovaCityParkenCollector class.
+     */
     constructor() {
         super(HanovaCityParkenCollector.CONFIG);
     }

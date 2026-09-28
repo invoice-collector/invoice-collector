@@ -32,6 +32,9 @@ export class DomainssaubilligDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DomainssaubilligDeCollector class.
+     */
     constructor() {
         super(DomainssaubilligDeCollector.CONFIG);
     }

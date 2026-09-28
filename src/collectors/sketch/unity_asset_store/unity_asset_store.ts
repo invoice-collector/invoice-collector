@@ -32,6 +32,9 @@ export class UnityAssetStoreCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the UnityAssetStoreCollector class.
+     */
     constructor() {
         super(UnityAssetStoreCollector.CONFIG);
     }

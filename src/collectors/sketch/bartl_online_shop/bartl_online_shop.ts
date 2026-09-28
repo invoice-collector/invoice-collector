@@ -32,6 +32,9 @@ export class BartlOnlineShopCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BartlOnlineShopCollector class.
+     */
     constructor() {
         super(BartlOnlineShopCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class NatureEtDecouvertesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NatureEtDecouvertesCollector class.
+     */
     constructor() {
         super(NatureEtDecouvertesCollector.CONFIG);
     }

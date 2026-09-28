@@ -32,6 +32,9 @@ export class SoftguideCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SoftguideCollector class.
+     */
     constructor() {
         super(SoftguideCollector.CONFIG);
     }

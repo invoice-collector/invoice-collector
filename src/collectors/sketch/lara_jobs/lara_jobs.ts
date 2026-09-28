@@ -32,6 +32,9 @@ export class LaraJobsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LaraJobsCollector class.
+     */
     constructor() {
         super(LaraJobsCollector.CONFIG);
     }

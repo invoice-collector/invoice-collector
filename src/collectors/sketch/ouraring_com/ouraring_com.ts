@@ -32,6 +32,9 @@ export class OuraringComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OuraringComCollector class.
+     */
     constructor() {
         super(OuraringComCollector.CONFIG);
     }

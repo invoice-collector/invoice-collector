@@ -32,6 +32,9 @@ export class RaindropCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RaindropCollector class.
+     */
     constructor() {
         super(RaindropCollector.CONFIG);
     }

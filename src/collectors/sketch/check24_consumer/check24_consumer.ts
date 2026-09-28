@@ -32,6 +32,9 @@ export class Check24ConsumerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Check24ConsumerCollector class.
+     */
     constructor() {
         super(Check24ConsumerCollector.CONFIG);
     }

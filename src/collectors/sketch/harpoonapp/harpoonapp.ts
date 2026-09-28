@@ -32,6 +32,9 @@ export class HarpoonappCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HarpoonappCollector class.
+     */
     constructor() {
         super(HarpoonappCollector.CONFIG);
     }

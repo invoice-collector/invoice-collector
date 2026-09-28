@@ -31,6 +31,9 @@ export class BurgerKingCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BurgerKingCollector class.
+     */
     constructor() {
         super(BurgerKingCollector.CONFIG);
     }

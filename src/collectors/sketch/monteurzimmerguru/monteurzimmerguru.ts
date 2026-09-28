@@ -32,6 +32,9 @@ export class MonteurzimmerguruCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MonteurzimmerguruCollector class.
+     */
     constructor() {
         super(MonteurzimmerguruCollector.CONFIG);
     }

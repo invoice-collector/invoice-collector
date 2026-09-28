@@ -32,6 +32,9 @@ export class ReicheltElektronikCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ReicheltElektronikCollector class.
+     */
     constructor() {
         super(ReicheltElektronikCollector.CONFIG);
     }

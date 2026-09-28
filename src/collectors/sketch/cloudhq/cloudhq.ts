@@ -32,6 +32,9 @@ export class CloudhqCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CloudhqCollector class.
+     */
     constructor() {
         super(CloudhqCollector.CONFIG);
     }

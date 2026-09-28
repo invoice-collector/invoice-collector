@@ -32,6 +32,9 @@ export class TheNavigatorCompanyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TheNavigatorCompanyCollector class.
+     */
     constructor() {
         super(TheNavigatorCompanyCollector.CONFIG);
     }

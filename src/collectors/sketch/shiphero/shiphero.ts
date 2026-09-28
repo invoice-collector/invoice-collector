@@ -32,6 +32,9 @@ export class ShipheroCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ShipheroCollector class.
+     */
     constructor() {
         super(ShipheroCollector.CONFIG);
     }

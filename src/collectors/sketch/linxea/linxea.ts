@@ -32,6 +32,9 @@ export class LinxeaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LinxeaCollector class.
+     */
     constructor() {
         super(LinxeaCollector.CONFIG);
     }

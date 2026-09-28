@@ -32,6 +32,9 @@ export class HeavenhrCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HeavenhrCollector class.
+     */
     constructor() {
         super(HeavenhrCollector.CONFIG);
     }

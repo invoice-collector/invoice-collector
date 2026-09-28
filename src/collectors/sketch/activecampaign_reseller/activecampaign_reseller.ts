@@ -32,6 +32,9 @@ export class ActivecampaignResellerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ActivecampaignResellerCollector class.
+     */
     constructor() {
         super(ActivecampaignResellerCollector.CONFIG);
     }

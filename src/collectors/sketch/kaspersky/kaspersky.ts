@@ -32,6 +32,9 @@ export class KasperskyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KasperskyCollector class.
+     */
     constructor() {
         super(KasperskyCollector.CONFIG);
     }

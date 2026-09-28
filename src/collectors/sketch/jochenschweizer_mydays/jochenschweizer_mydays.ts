@@ -32,6 +32,9 @@ export class JochenschweizerMydaysCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the JochenschweizerMydaysCollector class.
+     */
     constructor() {
         super(JochenschweizerMydaysCollector.CONFIG);
     }

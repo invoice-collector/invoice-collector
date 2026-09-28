@@ -32,6 +32,9 @@ export class TeschInkassoFinanceCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TeschInkassoFinanceCollector class.
+     */
     constructor() {
         super(TeschInkassoFinanceCollector.CONFIG);
     }

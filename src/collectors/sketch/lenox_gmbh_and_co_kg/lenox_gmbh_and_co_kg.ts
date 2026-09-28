@@ -32,6 +32,9 @@ export class LenoxGmbhAndCoKgCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LenoxGmbhAndCoKgCollector class.
+     */
     constructor() {
         super(LenoxGmbhAndCoKgCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class PerpetuaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PerpetuaCollector class.
+     */
     constructor() {
         super(PerpetuaCollector.CONFIG);
     }

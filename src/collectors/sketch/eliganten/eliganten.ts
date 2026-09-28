@@ -32,6 +32,9 @@ export class EligantenCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EligantenCollector class.
+     */
     constructor() {
         super(EligantenCollector.CONFIG);
     }

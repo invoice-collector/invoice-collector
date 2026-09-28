@@ -32,6 +32,9 @@ export class _12connectCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the _12connectCollector class.
+     */
     constructor() {
         super(_12connectCollector.CONFIG);
     }

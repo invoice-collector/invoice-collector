@@ -32,6 +32,9 @@ export class EverbillCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EverbillCollector class.
+     */
     constructor() {
         super(EverbillCollector.CONFIG);
     }

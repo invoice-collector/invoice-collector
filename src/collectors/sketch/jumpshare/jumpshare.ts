@@ -32,6 +32,9 @@ export class JumpshareCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the JumpshareCollector class.
+     */
     constructor() {
         super(JumpshareCollector.CONFIG);
     }

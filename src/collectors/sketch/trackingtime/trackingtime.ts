@@ -32,6 +32,9 @@ export class TrackingtimeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TrackingtimeCollector class.
+     */
     constructor() {
         super(TrackingtimeCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class AzertyNlCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AzertyNlCollector class.
+     */
     constructor() {
         super(AzertyNlCollector.CONFIG);
     }

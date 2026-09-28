@@ -32,6 +32,9 @@ export class SouthernCaliforniaEdisonCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SouthernCaliforniaEdisonCollector class.
+     */
     constructor() {
         super(SouthernCaliforniaEdisonCollector.CONFIG);
     }

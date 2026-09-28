@@ -32,6 +32,9 @@ export class FidorBankCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FidorBankCollector class.
+     */
     constructor() {
         super(FidorBankCollector.CONFIG);
     }

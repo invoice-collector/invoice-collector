@@ -32,6 +32,9 @@ export class SerifAiCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SerifAiCollector class.
+     */
     constructor() {
         super(SerifAiCollector.CONFIG);
     }

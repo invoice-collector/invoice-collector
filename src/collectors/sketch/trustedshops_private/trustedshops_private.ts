@@ -32,6 +32,9 @@ export class TrustedshopsPrivateCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TrustedshopsPrivateCollector class.
+     */
     constructor() {
         super(TrustedshopsPrivateCollector.CONFIG);
     }

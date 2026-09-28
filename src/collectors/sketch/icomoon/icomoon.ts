@@ -32,6 +32,9 @@ export class IcomoonCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the IcomoonCollector class.
+     */
     constructor() {
         super(IcomoonCollector.CONFIG);
     }

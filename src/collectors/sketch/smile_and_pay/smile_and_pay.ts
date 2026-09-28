@@ -32,6 +32,9 @@ export class SmileAndPayCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SmileAndPayCollector class.
+     */
     constructor() {
         super(SmileAndPayCollector.CONFIG);
     }

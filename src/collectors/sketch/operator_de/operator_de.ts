@@ -32,6 +32,9 @@ export class OperatorDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OperatorDeCollector class.
+     */
     constructor() {
         super(OperatorDeCollector.CONFIG);
     }

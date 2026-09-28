@@ -32,6 +32,9 @@ export class KoodoMobileCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KoodoMobileCollector class.
+     */
     constructor() {
         super(KoodoMobileCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class WeeklyUpdateCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WeeklyUpdateCollector class.
+     */
     constructor() {
         super(WeeklyUpdateCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class PageoptimzerProCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PageoptimzerProCollector class.
+     */
     constructor() {
         super(PageoptimzerProCollector.CONFIG);
     }

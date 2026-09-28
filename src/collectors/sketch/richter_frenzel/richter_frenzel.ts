@@ -32,6 +32,9 @@ export class RichterFrenzelCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RichterFrenzelCollector class.
+     */
     constructor() {
         super(RichterFrenzelCollector.CONFIG);
     }

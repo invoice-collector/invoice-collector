@@ -32,6 +32,9 @@ export class MaingauMobilfunkCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MaingauMobilfunkCollector class.
+     */
     constructor() {
         super(MaingauMobilfunkCollector.CONFIG);
     }

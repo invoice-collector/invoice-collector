@@ -32,6 +32,9 @@ export class AmundiEpargneEntrepriseCompagnieCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AmundiEpargneEntrepriseCompagnieCollector class.
+     */
     constructor() {
         super(AmundiEpargneEntrepriseCompagnieCollector.CONFIG);
     }

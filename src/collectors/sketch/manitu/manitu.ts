@@ -32,6 +32,9 @@ export class ManituCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ManituCollector class.
+     */
     constructor() {
         super(ManituCollector.CONFIG);
     }

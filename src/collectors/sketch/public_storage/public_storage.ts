@@ -32,6 +32,9 @@ export class PublicStorageCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PublicStorageCollector class.
+     */
     constructor() {
         super(PublicStorageCollector.CONFIG);
     }

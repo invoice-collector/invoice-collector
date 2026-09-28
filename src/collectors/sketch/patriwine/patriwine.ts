@@ -32,6 +32,9 @@ export class PatriwineCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PatriwineCollector class.
+     */
     constructor() {
         super(PatriwineCollector.CONFIG);
     }

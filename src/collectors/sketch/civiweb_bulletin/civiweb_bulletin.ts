@@ -32,6 +32,9 @@ export class CiviwebBulletinCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CiviwebBulletinCollector class.
+     */
     constructor() {
         super(CiviwebBulletinCollector.CONFIG);
     }

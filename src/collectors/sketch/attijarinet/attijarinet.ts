@@ -32,6 +32,9 @@ export class AttijarinetCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AttijarinetCollector class.
+     */
     constructor() {
         super(AttijarinetCollector.CONFIG);
     }

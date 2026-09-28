@@ -32,6 +32,9 @@ export class WunderlabelCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WunderlabelCollector class.
+     */
     constructor() {
         super(WunderlabelCollector.CONFIG);
     }

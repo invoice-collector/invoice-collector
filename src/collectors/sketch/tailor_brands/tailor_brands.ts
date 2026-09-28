@@ -32,6 +32,9 @@ export class TailorBrandsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TailorBrandsCollector class.
+     */
     constructor() {
         super(TailorBrandsCollector.CONFIG);
     }

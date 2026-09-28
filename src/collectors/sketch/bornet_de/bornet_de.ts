@@ -32,6 +32,9 @@ export class BornetDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BornetDeCollector class.
+     */
     constructor() {
         super(BornetDeCollector.CONFIG);
     }

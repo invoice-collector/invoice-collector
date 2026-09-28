@@ -32,6 +32,9 @@ export class PreviewAppCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PreviewAppCollector class.
+     */
     constructor() {
         super(PreviewAppCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class MainmetallCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MainmetallCollector class.
+     */
     constructor() {
         super(MainmetallCollector.CONFIG);
     }

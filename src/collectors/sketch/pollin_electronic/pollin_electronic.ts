@@ -32,6 +32,9 @@ export class PollinElectronicCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PollinElectronicCollector class.
+     */
     constructor() {
         super(PollinElectronicCollector.CONFIG);
     }

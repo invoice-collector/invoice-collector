@@ -32,6 +32,9 @@ export class SupermavenAiCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SupermavenAiCollector class.
+     */
     constructor() {
         super(SupermavenAiCollector.CONFIG);
     }

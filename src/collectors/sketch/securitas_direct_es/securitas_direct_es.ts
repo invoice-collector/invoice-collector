@@ -32,6 +32,9 @@ export class SecuritasDirectEsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SecuritasDirectEsCollector class.
+     */
     constructor() {
         super(SecuritasDirectEsCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class AtmosfairCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AtmosfairCollector class.
+     */
     constructor() {
         super(AtmosfairCollector.CONFIG);
     }

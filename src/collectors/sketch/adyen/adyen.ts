@@ -32,6 +32,9 @@ export class AdyenCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AdyenCollector class.
+     */
     constructor() {
         super(AdyenCollector.CONFIG);
     }

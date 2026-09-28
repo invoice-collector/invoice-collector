@@ -32,6 +32,9 @@ export class EniFrCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EniFrCollector class.
+     */
     constructor() {
         super(EniFrCollector.CONFIG);
     }

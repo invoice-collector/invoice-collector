@@ -32,6 +32,9 @@ export class PrevenoPadoaEmployerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PrevenoPadoaEmployerCollector class.
+     */
     constructor() {
         super(PrevenoPadoaEmployerCollector.CONFIG);
     }

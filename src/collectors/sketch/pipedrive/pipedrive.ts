@@ -32,6 +32,9 @@ export class PipedriveCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PipedriveCollector class.
+     */
     constructor() {
         super(PipedriveCollector.CONFIG);
     }

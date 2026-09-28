@@ -32,6 +32,9 @@ export class RankMathCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RankMathCollector class.
+     */
     constructor() {
         super(RankMathCollector.CONFIG);
     }

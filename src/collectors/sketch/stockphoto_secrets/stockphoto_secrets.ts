@@ -32,6 +32,9 @@ export class StockphotoSecretsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StockphotoSecretsCollector class.
+     */
     constructor() {
         super(StockphotoSecretsCollector.CONFIG);
     }

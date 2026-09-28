@@ -32,6 +32,9 @@ export class IonityCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the IonityCollector class.
+     */
     constructor() {
         super(IonityCollector.CONFIG);
     }

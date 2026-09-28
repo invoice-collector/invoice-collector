@@ -32,6 +32,9 @@ export class BreakoutClipsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BreakoutClipsCollector class.
+     */
     constructor() {
         super(BreakoutClipsCollector.CONFIG);
     }

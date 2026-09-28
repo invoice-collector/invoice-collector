@@ -32,6 +32,9 @@ export class O2HomeServicesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the O2HomeServicesCollector class.
+     */
     constructor() {
         super(O2HomeServicesCollector.CONFIG);
     }

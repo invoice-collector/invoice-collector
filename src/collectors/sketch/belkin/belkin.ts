@@ -32,6 +32,9 @@ export class BelkinCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BelkinCollector class.
+     */
     constructor() {
         super(BelkinCollector.CONFIG);
     }

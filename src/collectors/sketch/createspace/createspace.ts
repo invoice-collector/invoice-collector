@@ -32,6 +32,9 @@ export class CreatespaceCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CreatespaceCollector class.
+     */
     constructor() {
         super(CreatespaceCollector.CONFIG);
     }

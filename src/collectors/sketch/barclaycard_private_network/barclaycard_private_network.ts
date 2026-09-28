@@ -32,6 +32,9 @@ export class BarclaycardPrivateNetworkCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BarclaycardPrivateNetworkCollector class.
+     */
     constructor() {
         super(BarclaycardPrivateNetworkCollector.CONFIG);
     }

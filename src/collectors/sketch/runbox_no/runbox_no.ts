@@ -32,6 +32,9 @@ export class RunboxNoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RunboxNoCollector class.
+     */
     constructor() {
         super(RunboxNoCollector.CONFIG);
     }

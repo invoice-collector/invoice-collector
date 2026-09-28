@@ -32,6 +32,9 @@ export class JivochatCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the JivochatCollector class.
+     */
     constructor() {
         super(JivochatCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class MutuelleDuSoleilProfessionnelsDeSanteCollector extends SketchCollec
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MutuelleDuSoleilProfessionnelsDeSanteCollector class.
+     */
     constructor() {
         super(MutuelleDuSoleilProfessionnelsDeSanteCollector.CONFIG);
     }

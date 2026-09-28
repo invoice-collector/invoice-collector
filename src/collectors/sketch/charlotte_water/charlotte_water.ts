@@ -32,6 +32,9 @@ export class CharlotteWaterCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CharlotteWaterCollector class.
+     */
     constructor() {
         super(CharlotteWaterCollector.CONFIG);
     }

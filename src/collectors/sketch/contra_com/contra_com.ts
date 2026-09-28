@@ -32,6 +32,9 @@ export class ContraComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ContraComCollector class.
+     */
     constructor() {
         super(ContraComCollector.CONFIG);
     }

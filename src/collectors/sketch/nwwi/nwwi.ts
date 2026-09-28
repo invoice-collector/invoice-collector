@@ -32,6 +32,9 @@ export class NwwiCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NwwiCollector class.
+     */
     constructor() {
         super(NwwiCollector.CONFIG);
     }

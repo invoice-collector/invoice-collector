@@ -32,6 +32,9 @@ export class ConnectwiseCustomerPortalColohouseCollector extends SketchCollector
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ConnectwiseCustomerPortalColohouseCollector class.
+     */
     constructor() {
         super(ConnectwiseCustomerPortalColohouseCollector.CONFIG);
     }

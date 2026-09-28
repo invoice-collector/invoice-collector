@@ -32,6 +32,9 @@ export class AirtimeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AirtimeCollector class.
+     */
     constructor() {
         super(AirtimeCollector.CONFIG);
     }

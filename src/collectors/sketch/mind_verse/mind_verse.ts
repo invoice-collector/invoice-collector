@@ -32,6 +32,9 @@ export class MindVerseCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MindVerseCollector class.
+     */
     constructor() {
         super(MindVerseCollector.CONFIG);
     }

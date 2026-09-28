@@ -32,6 +32,9 @@ export class OrderDeskCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OrderDeskCollector class.
+     */
     constructor() {
         super(OrderDeskCollector.CONFIG);
     }

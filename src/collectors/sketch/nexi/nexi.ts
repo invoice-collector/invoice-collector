@@ -32,6 +32,9 @@ export class NexiCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NexiCollector class.
+     */
     constructor() {
         super(NexiCollector.CONFIG);
     }

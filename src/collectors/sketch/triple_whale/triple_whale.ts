@@ -32,6 +32,9 @@ export class TripleWhaleCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TripleWhaleCollector class.
+     */
     constructor() {
         super(TripleWhaleCollector.CONFIG);
     }

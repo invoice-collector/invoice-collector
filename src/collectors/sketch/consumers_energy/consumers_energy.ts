@@ -32,6 +32,9 @@ export class ConsumersEnergyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ConsumersEnergyCollector class.
+     */
     constructor() {
         super(ConsumersEnergyCollector.CONFIG);
     }

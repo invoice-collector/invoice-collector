@@ -32,6 +32,9 @@ export class ProfihostCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ProfihostCollector class.
+     */
     constructor() {
         super(ProfihostCollector.CONFIG);
     }

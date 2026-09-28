@@ -32,6 +32,9 @@ export class SoftaculousCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SoftaculousCollector class.
+     */
     constructor() {
         super(SoftaculousCollector.CONFIG);
     }

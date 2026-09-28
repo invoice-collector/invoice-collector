@@ -32,6 +32,9 @@ export class World4youCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the World4youCollector class.
+     */
     constructor() {
         super(World4youCollector.CONFIG);
     }

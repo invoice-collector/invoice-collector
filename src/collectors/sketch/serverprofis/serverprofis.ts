@@ -32,6 +32,9 @@ export class ServerprofisCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ServerprofisCollector class.
+     */
     constructor() {
         super(ServerprofisCollector.CONFIG);
     }

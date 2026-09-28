@@ -32,6 +32,9 @@ export class MasterpagesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MasterpagesCollector class.
+     */
     constructor() {
         super(MasterpagesCollector.CONFIG);
     }

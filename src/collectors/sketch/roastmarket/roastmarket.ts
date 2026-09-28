@@ -32,6 +32,9 @@ export class RoastmarketCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RoastmarketCollector class.
+     */
     constructor() {
         super(RoastmarketCollector.CONFIG);
     }

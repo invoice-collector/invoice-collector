@@ -32,6 +32,9 @@ export class SaasDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SaasDeCollector class.
+     */
     constructor() {
         super(SaasDeCollector.CONFIG);
     }

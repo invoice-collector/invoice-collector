@@ -32,6 +32,9 @@ export class HoverCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HoverCollector class.
+     */
     constructor() {
         super(HoverCollector.CONFIG);
     }

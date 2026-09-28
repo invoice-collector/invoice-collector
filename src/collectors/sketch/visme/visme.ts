@@ -32,6 +32,9 @@ export class VismeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VismeCollector class.
+     */
     constructor() {
         super(VismeCollector.CONFIG);
     }

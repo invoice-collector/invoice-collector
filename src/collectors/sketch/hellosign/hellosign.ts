@@ -32,6 +32,9 @@ export class HellosignCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HellosignCollector class.
+     */
     constructor() {
         super(HellosignCollector.CONFIG);
     }

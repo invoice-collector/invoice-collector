@@ -32,6 +32,9 @@ export class EwagkamenzCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EwagkamenzCollector class.
+     */
     constructor() {
         super(EwagkamenzCollector.CONFIG);
     }

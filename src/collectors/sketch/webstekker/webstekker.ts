@@ -32,6 +32,9 @@ export class WebstekkerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WebstekkerCollector class.
+     */
     constructor() {
         super(WebstekkerCollector.CONFIG);
     }

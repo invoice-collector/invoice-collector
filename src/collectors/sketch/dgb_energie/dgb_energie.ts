@@ -32,6 +32,9 @@ export class DgbEnergieCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DgbEnergieCollector class.
+     */
     constructor() {
         super(DgbEnergieCollector.CONFIG);
     }

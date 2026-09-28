@@ -32,6 +32,9 @@ export class AladomCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AladomCollector class.
+     */
     constructor() {
         super(AladomCollector.CONFIG);
     }

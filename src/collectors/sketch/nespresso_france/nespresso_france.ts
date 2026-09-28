@@ -32,6 +32,9 @@ export class NespressoFranceCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NespressoFranceCollector class.
+     */
     constructor() {
         super(NespressoFranceCollector.CONFIG);
     }

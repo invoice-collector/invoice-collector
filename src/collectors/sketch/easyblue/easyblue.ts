@@ -32,6 +32,9 @@ export class EasyblueCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EasyblueCollector class.
+     */
     constructor() {
         super(EasyblueCollector.CONFIG);
     }

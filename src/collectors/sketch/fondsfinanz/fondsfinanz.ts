@@ -32,6 +32,9 @@ export class FondsfinanzCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FondsfinanzCollector class.
+     */
     constructor() {
         super(FondsfinanzCollector.CONFIG);
     }

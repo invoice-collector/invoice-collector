@@ -32,6 +32,9 @@ export class CergyVisCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CergyVisCollector class.
+     */
     constructor() {
         super(CergyVisCollector.CONFIG);
     }

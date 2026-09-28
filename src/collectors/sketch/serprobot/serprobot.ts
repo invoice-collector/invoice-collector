@@ -32,6 +32,9 @@ export class SerprobotCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SerprobotCollector class.
+     */
     constructor() {
         super(SerprobotCollector.CONFIG);
     }

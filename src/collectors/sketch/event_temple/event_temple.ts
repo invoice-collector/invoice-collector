@@ -32,6 +32,9 @@ export class EventTempleCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EventTempleCollector class.
+     */
     constructor() {
         super(EventTempleCollector.CONFIG);
     }

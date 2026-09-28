@@ -32,6 +32,9 @@ export class _404worksCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the _404worksCollector class.
+     */
     constructor() {
         super(_404worksCollector.CONFIG);
     }

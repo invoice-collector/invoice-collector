@@ -32,6 +32,9 @@ export class BeanstalkCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BeanstalkCollector class.
+     */
     constructor() {
         super(BeanstalkCollector.CONFIG);
     }

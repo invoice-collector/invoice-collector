@@ -32,6 +32,9 @@ export class AbcfinanceCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AbcfinanceCollector class.
+     */
     constructor() {
         super(AbcfinanceCollector.CONFIG);
     }

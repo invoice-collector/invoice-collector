@@ -32,6 +32,9 @@ export class JibbleCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the JibbleCollector class.
+     */
     constructor() {
         super(JibbleCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class AlwaysdataCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AlwaysdataCollector class.
+     */
     constructor() {
         super(AlwaysdataCollector.CONFIG);
     }

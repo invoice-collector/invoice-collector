@@ -32,6 +32,9 @@ export class EauDeGaronneCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EauDeGaronneCollector class.
+     */
     constructor() {
         super(EauDeGaronneCollector.CONFIG);
     }

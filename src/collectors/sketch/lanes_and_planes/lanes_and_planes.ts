@@ -32,6 +32,9 @@ export class LanesAndPlanesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LanesAndPlanesCollector class.
+     */
     constructor() {
         super(LanesAndPlanesCollector.CONFIG);
     }

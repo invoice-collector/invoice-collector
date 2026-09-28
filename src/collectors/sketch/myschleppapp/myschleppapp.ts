@@ -32,6 +32,9 @@ export class MyschleppappCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MyschleppappCollector class.
+     */
     constructor() {
         super(MyschleppappCollector.CONFIG);
     }

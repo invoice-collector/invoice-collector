@@ -32,6 +32,9 @@ export class FlickCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FlickCollector class.
+     */
     constructor() {
         super(FlickCollector.CONFIG);
     }

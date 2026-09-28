@@ -32,6 +32,9 @@ export class TrebonoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TrebonoCollector class.
+     */
     constructor() {
         super(TrebonoCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class EgesaZookaufCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EgesaZookaufCollector class.
+     */
     constructor() {
         super(EgesaZookaufCollector.CONFIG);
     }

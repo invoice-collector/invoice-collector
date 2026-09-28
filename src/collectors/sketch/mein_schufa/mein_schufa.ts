@@ -32,6 +32,9 @@ export class MeinSchufaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MeinSchufaCollector class.
+     */
     constructor() {
         super(MeinSchufaCollector.CONFIG);
     }

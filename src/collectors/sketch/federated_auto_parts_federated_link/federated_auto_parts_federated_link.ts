@@ -32,6 +32,9 @@ export class FederatedAutoPartsFederatedLinkCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FederatedAutoPartsFederatedLinkCollector class.
+     */
     constructor() {
         super(FederatedAutoPartsFederatedLinkCollector.CONFIG);
     }

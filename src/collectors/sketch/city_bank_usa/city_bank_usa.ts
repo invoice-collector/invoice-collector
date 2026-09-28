@@ -32,6 +32,9 @@ export class CityBankUsaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CityBankUsaCollector class.
+     */
     constructor() {
         super(CityBankUsaCollector.CONFIG);
     }

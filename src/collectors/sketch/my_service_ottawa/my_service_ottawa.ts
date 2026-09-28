@@ -32,6 +32,9 @@ export class MyServiceOttawaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MyServiceOttawaCollector class.
+     */
     constructor() {
         super(MyServiceOttawaCollector.CONFIG);
     }

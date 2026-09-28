@@ -32,6 +32,9 @@ export class CityOfAirdrieCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CityOfAirdrieCollector class.
+     */
     constructor() {
         super(CityOfAirdrieCollector.CONFIG);
     }

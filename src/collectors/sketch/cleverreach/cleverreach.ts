@@ -32,6 +32,9 @@ export class CleverreachCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CleverreachCollector class.
+     */
     constructor() {
         super(CleverreachCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class ProductHeroCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ProductHeroCollector class.
+     */
     constructor() {
         super(ProductHeroCollector.CONFIG);
     }

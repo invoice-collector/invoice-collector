@@ -32,6 +32,9 @@ export class ConnectsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ConnectsCollector class.
+     */
     constructor() {
         super(ConnectsCollector.CONFIG);
     }

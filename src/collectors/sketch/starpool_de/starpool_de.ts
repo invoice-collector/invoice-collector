@@ -32,6 +32,9 @@ export class StarpoolDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StarpoolDeCollector class.
+     */
     constructor() {
         super(StarpoolDeCollector.CONFIG);
     }

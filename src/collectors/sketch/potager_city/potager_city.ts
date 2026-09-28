@@ -32,6 +32,9 @@ export class PotagerCityCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PotagerCityCollector class.
+     */
     constructor() {
         super(PotagerCityCollector.CONFIG);
     }

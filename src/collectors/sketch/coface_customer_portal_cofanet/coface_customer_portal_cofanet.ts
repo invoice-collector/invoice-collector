@@ -32,6 +32,9 @@ export class CofaceCustomerPortalCofanetCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CofaceCustomerPortalCofanetCollector class.
+     */
     constructor() {
         super(CofaceCustomerPortalCofanetCollector.CONFIG);
     }

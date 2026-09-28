@@ -32,6 +32,9 @@ export class NetregistryCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NetregistryCollector class.
+     */
     constructor() {
         super(NetregistryCollector.CONFIG);
     }

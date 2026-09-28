@@ -32,6 +32,9 @@ export class PfizerFrCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PfizerFrCollector class.
+     */
     constructor() {
         super(PfizerFrCollector.CONFIG);
     }

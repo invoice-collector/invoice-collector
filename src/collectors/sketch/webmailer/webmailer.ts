@@ -32,6 +32,9 @@ export class WebmailerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WebmailerCollector class.
+     */
     constructor() {
         super(WebmailerCollector.CONFIG);
     }

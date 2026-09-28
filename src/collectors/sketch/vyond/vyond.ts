@@ -32,6 +32,9 @@ export class VyondCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VyondCollector class.
+     */
     constructor() {
         super(VyondCollector.CONFIG);
     }

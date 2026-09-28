@@ -32,6 +32,9 @@ export class AcronisCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AcronisCollector class.
+     */
     constructor() {
         super(AcronisCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class AdcrowdCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AdcrowdCollector class.
+     */
     constructor() {
         super(AdcrowdCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class MonsterzeugCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MonsterzeugCollector class.
+     */
     constructor() {
         super(MonsterzeugCollector.CONFIG);
     }

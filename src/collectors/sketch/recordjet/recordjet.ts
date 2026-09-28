@@ -32,6 +32,9 @@ export class RecordjetCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RecordjetCollector class.
+     */
     constructor() {
         super(RecordjetCollector.CONFIG);
     }

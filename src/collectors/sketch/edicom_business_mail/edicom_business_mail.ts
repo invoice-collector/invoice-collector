@@ -32,6 +32,9 @@ export class EdicomBusinessMailCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EdicomBusinessMailCollector class.
+     */
     constructor() {
         super(EdicomBusinessMailCollector.CONFIG);
     }

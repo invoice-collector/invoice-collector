@@ -32,6 +32,9 @@ export class DatenschutzGeneratorSchwenkeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DatenschutzGeneratorSchwenkeCollector class.
+     */
     constructor() {
         super(DatenschutzGeneratorSchwenkeCollector.CONFIG);
     }

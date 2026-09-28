@@ -32,6 +32,9 @@ export class PaperlessCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PaperlessCollector class.
+     */
     constructor() {
         super(PaperlessCollector.CONFIG);
     }

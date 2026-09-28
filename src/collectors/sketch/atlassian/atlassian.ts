@@ -32,6 +32,9 @@ export class AtlassianCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AtlassianCollector class.
+     */
     constructor() {
         super(AtlassianCollector.CONFIG);
     }

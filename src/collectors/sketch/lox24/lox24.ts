@@ -32,6 +32,9 @@ export class Lox24Collector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Lox24Collector class.
+     */
     constructor() {
         super(Lox24Collector.CONFIG);
     }

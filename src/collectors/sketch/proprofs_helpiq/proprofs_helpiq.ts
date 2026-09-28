@@ -32,6 +32,9 @@ export class ProprofsHelpiqCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ProprofsHelpiqCollector class.
+     */
     constructor() {
         super(ProprofsHelpiqCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class Cram101Collector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Cram101Collector class.
+     */
     constructor() {
         super(Cram101Collector.CONFIG);
     }

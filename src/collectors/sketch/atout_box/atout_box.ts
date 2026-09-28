@@ -32,6 +32,9 @@ export class AtoutBoxCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AtoutBoxCollector class.
+     */
     constructor() {
         super(AtoutBoxCollector.CONFIG);
     }

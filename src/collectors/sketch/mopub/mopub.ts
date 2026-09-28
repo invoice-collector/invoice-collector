@@ -32,6 +32,9 @@ export class MopubCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MopubCollector class.
+     */
     constructor() {
         super(MopubCollector.CONFIG);
     }

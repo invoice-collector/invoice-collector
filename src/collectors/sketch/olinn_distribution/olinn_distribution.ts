@@ -32,6 +32,9 @@ export class OlinnDistributionCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OlinnDistributionCollector class.
+     */
     constructor() {
         super(OlinnDistributionCollector.CONFIG);
     }

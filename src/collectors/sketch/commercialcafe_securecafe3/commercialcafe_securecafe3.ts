@@ -32,6 +32,9 @@ export class CommercialcafeSecurecafe3Collector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CommercialcafeSecurecafe3Collector class.
+     */
     constructor() {
         super(CommercialcafeSecurecafe3Collector.CONFIG);
     }

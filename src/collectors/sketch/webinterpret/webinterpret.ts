@@ -32,6 +32,9 @@ export class WebinterpretCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WebinterpretCollector class.
+     */
     constructor() {
         super(WebinterpretCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class RapidsslonlineCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RapidsslonlineCollector class.
+     */
     constructor() {
         super(RapidsslonlineCollector.CONFIG);
     }

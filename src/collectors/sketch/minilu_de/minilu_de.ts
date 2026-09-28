@@ -32,6 +32,9 @@ export class MiniluDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MiniluDeCollector class.
+     */
     constructor() {
         super(MiniluDeCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class PepipostCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PepipostCollector class.
+     */
     constructor() {
         super(PepipostCollector.CONFIG);
     }

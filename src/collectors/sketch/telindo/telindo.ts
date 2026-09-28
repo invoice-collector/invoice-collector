@@ -32,6 +32,9 @@ export class TelindoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TelindoCollector class.
+     */
     constructor() {
         super(TelindoCollector.CONFIG);
     }

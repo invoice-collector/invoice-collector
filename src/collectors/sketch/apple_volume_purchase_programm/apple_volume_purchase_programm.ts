@@ -32,6 +32,9 @@ export class AppleVolumePurchaseProgrammCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AppleVolumePurchaseProgrammCollector class.
+     */
     constructor() {
         super(AppleVolumePurchaseProgrammCollector.CONFIG);
     }

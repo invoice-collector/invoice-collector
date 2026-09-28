@@ -32,6 +32,9 @@ export class KlesiaEspaceRetraiteEntrepriseCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KlesiaEspaceRetraiteEntrepriseCollector class.
+     */
     constructor() {
         super(KlesiaEspaceRetraiteEntrepriseCollector.CONFIG);
     }

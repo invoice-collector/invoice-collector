@@ -32,6 +32,9 @@ export class RepliconCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RepliconCollector class.
+     */
     constructor() {
         super(RepliconCollector.CONFIG);
     }

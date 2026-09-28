@@ -32,6 +32,9 @@ export class SurveygizmoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SurveygizmoCollector class.
+     */
     constructor() {
         super(SurveygizmoCollector.CONFIG);
     }

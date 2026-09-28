@@ -32,6 +32,9 @@ export class RydooCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RydooCollector class.
+     */
     constructor() {
         super(RydooCollector.CONFIG);
     }

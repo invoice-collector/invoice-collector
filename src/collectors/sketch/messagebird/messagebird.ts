@@ -32,6 +32,9 @@ export class MessagebirdCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MessagebirdCollector class.
+     */
     constructor() {
         super(MessagebirdCollector.CONFIG);
     }

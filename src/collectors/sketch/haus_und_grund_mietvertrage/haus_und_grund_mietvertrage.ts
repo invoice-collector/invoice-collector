@@ -32,6 +32,9 @@ export class HausUndGrundMietvertrageCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HausUndGrundMietvertrageCollector class.
+     */
     constructor() {
         super(HausUndGrundMietvertrageCollector.CONFIG);
     }

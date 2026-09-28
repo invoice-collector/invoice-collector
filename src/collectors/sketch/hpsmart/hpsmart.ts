@@ -32,6 +32,9 @@ export class HpsmartCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HpsmartCollector class.
+     */
     constructor() {
         super(HpsmartCollector.CONFIG);
     }

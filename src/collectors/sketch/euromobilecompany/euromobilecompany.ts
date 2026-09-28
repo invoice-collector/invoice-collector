@@ -32,6 +32,9 @@ export class EuromobilecompanyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EuromobilecompanyCollector class.
+     */
     constructor() {
         super(EuromobilecompanyCollector.CONFIG);
     }

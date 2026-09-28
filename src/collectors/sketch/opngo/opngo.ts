@@ -32,6 +32,9 @@ export class OpngoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OpngoCollector class.
+     */
     constructor() {
         super(OpngoCollector.CONFIG);
     }

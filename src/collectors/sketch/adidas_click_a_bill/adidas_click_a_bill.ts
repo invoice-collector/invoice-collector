@@ -32,6 +32,9 @@ export class AdidasClickABillCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AdidasClickABillCollector class.
+     */
     constructor() {
         super(AdidasClickABillCollector.CONFIG);
     }

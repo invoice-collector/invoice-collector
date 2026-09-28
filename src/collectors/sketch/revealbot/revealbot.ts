@@ -32,6 +32,9 @@ export class RevealbotCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RevealbotCollector class.
+     */
     constructor() {
         super(RevealbotCollector.CONFIG);
     }

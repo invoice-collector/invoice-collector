@@ -32,6 +32,9 @@ export class LaBorneBleueCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LaBorneBleueCollector class.
+     */
     constructor() {
         super(LaBorneBleueCollector.CONFIG);
     }

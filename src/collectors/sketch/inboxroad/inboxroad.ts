@@ -32,6 +32,9 @@ export class InboxroadCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the InboxroadCollector class.
+     */
     constructor() {
         super(InboxroadCollector.CONFIG);
     }

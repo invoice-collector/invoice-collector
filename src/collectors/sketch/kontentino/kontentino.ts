@@ -32,6 +32,9 @@ export class KontentinoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KontentinoCollector class.
+     */
     constructor() {
         super(KontentinoCollector.CONFIG);
     }

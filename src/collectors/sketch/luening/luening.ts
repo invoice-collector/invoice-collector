@@ -32,6 +32,9 @@ export class LueningCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LueningCollector class.
+     */
     constructor() {
         super(LueningCollector.CONFIG);
     }

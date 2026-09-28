@@ -32,6 +32,9 @@ export class StreamyardCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StreamyardCollector class.
+     */
     constructor() {
         super(StreamyardCollector.CONFIG);
     }

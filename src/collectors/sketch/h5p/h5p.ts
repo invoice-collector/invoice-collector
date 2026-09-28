@@ -32,6 +32,9 @@ export class H5pCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the H5pCollector class.
+     */
     constructor() {
         super(H5pCollector.CONFIG);
     }

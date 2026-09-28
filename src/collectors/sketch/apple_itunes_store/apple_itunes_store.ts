@@ -32,6 +32,9 @@ export class AppleItunesStoreCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AppleItunesStoreCollector class.
+     */
     constructor() {
         super(AppleItunesStoreCollector.CONFIG);
     }

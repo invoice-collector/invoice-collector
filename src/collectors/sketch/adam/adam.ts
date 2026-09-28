@@ -32,6 +32,9 @@ export class AdamCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AdamCollector class.
+     */
     constructor() {
         super(AdamCollector.CONFIG);
     }

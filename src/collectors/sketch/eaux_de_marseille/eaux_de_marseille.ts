@@ -32,6 +32,9 @@ export class EauxDeMarseilleCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EauxDeMarseilleCollector class.
+     */
     constructor() {
         super(EauxDeMarseilleCollector.CONFIG);
     }

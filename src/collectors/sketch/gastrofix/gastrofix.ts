@@ -32,6 +32,9 @@ export class GastrofixCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GastrofixCollector class.
+     */
     constructor() {
         super(GastrofixCollector.CONFIG);
     }

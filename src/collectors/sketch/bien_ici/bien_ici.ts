@@ -32,6 +32,9 @@ export class BienIciCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BienIciCollector class.
+     */
     constructor() {
         super(BienIciCollector.CONFIG);
     }

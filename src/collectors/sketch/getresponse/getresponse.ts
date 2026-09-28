@@ -32,6 +32,9 @@ export class GetresponseCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GetresponseCollector class.
+     */
     constructor() {
         super(GetresponseCollector.CONFIG);
     }

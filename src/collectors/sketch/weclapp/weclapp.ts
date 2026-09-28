@@ -32,6 +32,9 @@ export class WeclappCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WeclappCollector class.
+     */
     constructor() {
         super(WeclappCollector.CONFIG);
     }

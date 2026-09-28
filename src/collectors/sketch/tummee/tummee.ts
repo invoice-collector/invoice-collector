@@ -32,6 +32,9 @@ export class TummeeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TummeeCollector class.
+     */
     constructor() {
         super(TummeeCollector.CONFIG);
     }

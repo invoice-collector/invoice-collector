@@ -32,6 +32,9 @@ export class LeFigaroCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LeFigaroCollector class.
+     */
     constructor() {
         super(LeFigaroCollector.CONFIG);
     }

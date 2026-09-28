@@ -32,6 +32,9 @@ export class MonsumCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MonsumCollector class.
+     */
     constructor() {
         super(MonsumCollector.CONFIG);
     }

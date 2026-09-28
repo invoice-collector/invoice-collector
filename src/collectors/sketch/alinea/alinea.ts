@@ -32,6 +32,9 @@ export class AlineaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AlineaCollector class.
+     */
     constructor() {
         super(AlineaCollector.CONFIG);
     }

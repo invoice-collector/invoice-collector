@@ -31,6 +31,9 @@ export class CasinoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CasinoCollector class.
+     */
     constructor() {
         super(CasinoCollector.CONFIG);
     }

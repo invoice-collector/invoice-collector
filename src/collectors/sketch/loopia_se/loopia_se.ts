@@ -32,6 +32,9 @@ export class LoopiaSeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LoopiaSeCollector class.
+     */
     constructor() {
         super(LoopiaSeCollector.CONFIG);
     }

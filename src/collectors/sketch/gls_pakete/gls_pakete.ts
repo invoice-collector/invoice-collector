@@ -32,6 +32,9 @@ export class GlsPaketeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GlsPaketeCollector class.
+     */
     constructor() {
         super(GlsPaketeCollector.CONFIG);
     }

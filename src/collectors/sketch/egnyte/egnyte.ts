@@ -32,6 +32,9 @@ export class EgnyteCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EgnyteCollector class.
+     */
     constructor() {
         super(EgnyteCollector.CONFIG);
     }

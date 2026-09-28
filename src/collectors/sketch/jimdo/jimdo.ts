@@ -32,6 +32,9 @@ export class JimdoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the JimdoCollector class.
+     */
     constructor() {
         super(JimdoCollector.CONFIG);
     }

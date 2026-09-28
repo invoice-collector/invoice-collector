@@ -32,6 +32,9 @@ export class XentralCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the XentralCollector class.
+     */
     constructor() {
         super(XentralCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class FirstDebitInkassoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FirstDebitInkassoCollector class.
+     */
     constructor() {
         super(FirstDebitInkassoCollector.CONFIG);
     }

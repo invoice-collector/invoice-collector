@@ -32,6 +32,9 @@ export class WpUmbrellaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WpUmbrellaCollector class.
+     */
     constructor() {
         super(WpUmbrellaCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class SnapnamesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SnapnamesCollector class.
+     */
     constructor() {
         super(SnapnamesCollector.CONFIG);
     }

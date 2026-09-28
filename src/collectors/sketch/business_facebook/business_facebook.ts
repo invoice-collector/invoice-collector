@@ -32,6 +32,9 @@ export class BusinessFacebookCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BusinessFacebookCollector class.
+     */
     constructor() {
         super(BusinessFacebookCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class PostnlCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PostnlCollector class.
+     */
     constructor() {
         super(PostnlCollector.CONFIG);
     }

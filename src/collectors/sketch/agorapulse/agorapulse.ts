@@ -32,6 +32,9 @@ export class AgorapulseCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AgorapulseCollector class.
+     */
     constructor() {
         super(AgorapulseCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class JungDmsAndCieCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the JungDmsAndCieCollector class.
+     */
     constructor() {
         super(JungDmsAndCieCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class VinlivtCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VinlivtCollector class.
+     */
     constructor() {
         super(VinlivtCollector.CONFIG);
     }

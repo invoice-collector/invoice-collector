@@ -32,6 +32,9 @@ export class StadtwerkeMerseburgCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StadtwerkeMerseburgCollector class.
+     */
     constructor() {
         super(StadtwerkeMerseburgCollector.CONFIG);
     }

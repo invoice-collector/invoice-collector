@@ -32,6 +32,9 @@ export class MemberspotCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MemberspotCollector class.
+     */
     constructor() {
         super(MemberspotCollector.CONFIG);
     }

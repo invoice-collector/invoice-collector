@@ -32,6 +32,9 @@ export class TruskCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TruskCollector class.
+     */
     constructor() {
         super(TruskCollector.CONFIG);
     }

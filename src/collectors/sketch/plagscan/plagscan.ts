@@ -32,6 +32,9 @@ export class PlagscanCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PlagscanCollector class.
+     */
     constructor() {
         super(PlagscanCollector.CONFIG);
     }

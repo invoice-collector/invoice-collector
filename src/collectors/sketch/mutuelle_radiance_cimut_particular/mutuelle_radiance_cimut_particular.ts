@@ -32,6 +32,9 @@ export class MutuelleRadianceCimutParticularCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MutuelleRadianceCimutParticularCollector class.
+     */
     constructor() {
         super(MutuelleRadianceCimutParticularCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class TwicpicsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TwicpicsCollector class.
+     */
     constructor() {
         super(TwicpicsCollector.CONFIG);
     }

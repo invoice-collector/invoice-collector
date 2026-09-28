@@ -32,6 +32,9 @@ export class MesPlacementsFrCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MesPlacementsFrCollector class.
+     */
     constructor() {
         super(MesPlacementsFrCollector.CONFIG);
     }

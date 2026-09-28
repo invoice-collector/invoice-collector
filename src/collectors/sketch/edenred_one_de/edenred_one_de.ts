@@ -32,6 +32,9 @@ export class EdenredOneDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EdenredOneDeCollector class.
+     */
     constructor() {
         super(EdenredOneDeCollector.CONFIG);
     }

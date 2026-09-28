@@ -32,6 +32,9 @@ export class BexioCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BexioCollector class.
+     */
     constructor() {
         super(BexioCollector.CONFIG);
     }

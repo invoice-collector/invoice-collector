@@ -32,6 +32,9 @@ export class PeopleperhourCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PeopleperhourCollector class.
+     */
     constructor() {
         super(PeopleperhourCollector.CONFIG);
     }

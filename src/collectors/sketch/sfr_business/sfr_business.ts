@@ -32,6 +32,9 @@ export class SfrBusinessCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SfrBusinessCollector class.
+     */
     constructor() {
         super(SfrBusinessCollector.CONFIG);
     }

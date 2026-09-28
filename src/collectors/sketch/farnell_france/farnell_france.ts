@@ -32,6 +32,9 @@ export class FarnellFranceCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FarnellFranceCollector class.
+     */
     constructor() {
         super(FarnellFranceCollector.CONFIG);
     }

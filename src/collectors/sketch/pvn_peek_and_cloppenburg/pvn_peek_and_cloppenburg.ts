@@ -32,6 +32,9 @@ export class PvnPeekAndCloppenburgCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PvnPeekAndCloppenburgCollector class.
+     */
     constructor() {
         super(PvnPeekAndCloppenburgCollector.CONFIG);
     }

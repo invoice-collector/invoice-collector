@@ -32,6 +32,9 @@ export class AlhambraWaterCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AlhambraWaterCollector class.
+     */
     constructor() {
         super(AlhambraWaterCollector.CONFIG);
     }

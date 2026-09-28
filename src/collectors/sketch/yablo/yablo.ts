@@ -32,6 +32,9 @@ export class YabloCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the YabloCollector class.
+     */
     constructor() {
         super(YabloCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class CoservCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CoservCollector class.
+     */
     constructor() {
         super(CoservCollector.CONFIG);
     }

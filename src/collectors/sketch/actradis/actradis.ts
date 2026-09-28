@@ -32,6 +32,9 @@ export class ActradisCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ActradisCollector class.
+     */
     constructor() {
         super(ActradisCollector.CONFIG);
     }

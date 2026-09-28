@@ -32,6 +32,9 @@ export class DustinCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DustinCollector class.
+     */
     constructor() {
         super(DustinCollector.CONFIG);
     }

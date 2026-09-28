@@ -32,6 +32,9 @@ export class AlphinCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AlphinCollector class.
+     */
     constructor() {
         super(AlphinCollector.CONFIG);
     }

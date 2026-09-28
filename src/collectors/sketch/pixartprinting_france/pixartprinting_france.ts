@@ -32,6 +32,9 @@ export class PixartprintingFranceCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PixartprintingFranceCollector class.
+     */
     constructor() {
         super(PixartprintingFranceCollector.CONFIG);
     }

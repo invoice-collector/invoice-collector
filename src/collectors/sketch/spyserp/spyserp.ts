@@ -32,6 +32,9 @@ export class SpyserpCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SpyserpCollector class.
+     */
     constructor() {
         super(SpyserpCollector.CONFIG);
     }

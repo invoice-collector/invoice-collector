@@ -32,6 +32,9 @@ export class QontoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the QontoCollector class.
+     */
     constructor() {
         super(QontoCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class LeapsomeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LeapsomeCollector class.
+     */
     constructor() {
         super(LeapsomeCollector.CONFIG);
     }

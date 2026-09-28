@@ -32,6 +32,9 @@ export class CmoDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CmoDeCollector class.
+     */
     constructor() {
         super(CmoDeCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class SpamexpertsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SpamexpertsCollector class.
+     */
     constructor() {
         super(SpamexpertsCollector.CONFIG);
     }

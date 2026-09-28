@@ -32,6 +32,9 @@ export class VoxtelesysCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VoxtelesysCollector class.
+     */
     constructor() {
         super(VoxtelesysCollector.CONFIG);
     }

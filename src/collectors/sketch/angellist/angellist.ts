@@ -32,6 +32,9 @@ export class AngellistCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AngellistCollector class.
+     */
     constructor() {
         super(AngellistCollector.CONFIG);
     }

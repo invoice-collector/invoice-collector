@@ -32,6 +32,9 @@ export class PlaceDesTendancesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PlaceDesTendancesCollector class.
+     */
     constructor() {
         super(PlaceDesTendancesCollector.CONFIG);
     }

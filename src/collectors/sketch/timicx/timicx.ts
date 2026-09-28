@@ -32,6 +32,9 @@ export class TimicxCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TimicxCollector class.
+     */
     constructor() {
         super(TimicxCollector.CONFIG);
     }

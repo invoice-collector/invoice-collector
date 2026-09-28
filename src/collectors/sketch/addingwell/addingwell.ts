@@ -32,6 +32,9 @@ export class AddingwellCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AddingwellCollector class.
+     */
     constructor() {
         super(AddingwellCollector.CONFIG);
     }

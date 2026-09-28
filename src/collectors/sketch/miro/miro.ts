@@ -32,6 +32,9 @@ export class MiroCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MiroCollector class.
+     */
     constructor() {
         super(MiroCollector.CONFIG);
     }

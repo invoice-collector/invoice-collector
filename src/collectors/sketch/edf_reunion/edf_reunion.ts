@@ -32,6 +32,9 @@ export class EdfReunionCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EdfReunionCollector class.
+     */
     constructor() {
         super(EdfReunionCollector.CONFIG);
     }

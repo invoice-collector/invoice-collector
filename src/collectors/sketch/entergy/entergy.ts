@@ -32,6 +32,9 @@ export class EntergyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EntergyCollector class.
+     */
     constructor() {
         super(EntergyCollector.CONFIG);
     }

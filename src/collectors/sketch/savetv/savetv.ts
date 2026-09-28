@@ -32,6 +32,9 @@ export class SavetvCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SavetvCollector class.
+     */
     constructor() {
         super(SavetvCollector.CONFIG);
     }

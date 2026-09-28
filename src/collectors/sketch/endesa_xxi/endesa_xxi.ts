@@ -32,6 +32,9 @@ export class EndesaXxiCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EndesaXxiCollector class.
+     */
     constructor() {
         super(EndesaXxiCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class InterconnectorEnbwCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the InterconnectorEnbwCollector class.
+     */
     constructor() {
         super(InterconnectorEnbwCollector.CONFIG);
     }

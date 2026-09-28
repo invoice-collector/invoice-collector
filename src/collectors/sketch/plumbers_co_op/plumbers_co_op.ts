@@ -32,6 +32,9 @@ export class PlumbersCoOpCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PlumbersCoOpCollector class.
+     */
     constructor() {
         super(PlumbersCoOpCollector.CONFIG);
     }

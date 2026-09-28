@@ -32,6 +32,9 @@ export class StadtwerkeKielCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StadtwerkeKielCollector class.
+     */
     constructor() {
         super(StadtwerkeKielCollector.CONFIG);
     }

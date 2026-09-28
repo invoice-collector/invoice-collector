@@ -32,6 +32,9 @@ export class FoliateamCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FoliateamCollector class.
+     */
     constructor() {
         super(FoliateamCollector.CONFIG);
     }

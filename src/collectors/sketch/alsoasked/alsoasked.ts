@@ -32,6 +32,9 @@ export class AlsoaskedCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AlsoaskedCollector class.
+     */
     constructor() {
         super(AlsoaskedCollector.CONFIG);
     }

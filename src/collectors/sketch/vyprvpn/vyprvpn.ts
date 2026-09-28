@@ -32,6 +32,9 @@ export class VyprvpnCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VyprvpnCollector class.
+     */
     constructor() {
         super(VyprvpnCollector.CONFIG);
     }

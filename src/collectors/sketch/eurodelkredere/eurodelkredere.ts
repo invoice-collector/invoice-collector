@@ -32,6 +32,9 @@ export class EurodelkredereCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EurodelkredereCollector class.
+     */
     constructor() {
         super(EurodelkredereCollector.CONFIG);
     }

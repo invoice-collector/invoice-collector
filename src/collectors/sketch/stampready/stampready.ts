@@ -32,6 +32,9 @@ export class StampreadyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StampreadyCollector class.
+     */
     constructor() {
         super(StampreadyCollector.CONFIG);
     }

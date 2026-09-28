@@ -32,6 +32,9 @@ export class MoncoyoteComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MoncoyoteComCollector class.
+     */
     constructor() {
         super(MoncoyoteComCollector.CONFIG);
     }

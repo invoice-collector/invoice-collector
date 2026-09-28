@@ -32,6 +32,9 @@ export class FritzBergerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FritzBergerCollector class.
+     */
     constructor() {
         super(FritzBergerCollector.CONFIG);
     }

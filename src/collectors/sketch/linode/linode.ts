@@ -32,6 +32,9 @@ export class LinodeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LinodeCollector class.
+     */
     constructor() {
         super(LinodeCollector.CONFIG);
     }

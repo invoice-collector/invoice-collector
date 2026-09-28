@@ -32,6 +32,9 @@ export class IMotionCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the IMotionCollector class.
+     */
     constructor() {
         super(IMotionCollector.CONFIG);
     }

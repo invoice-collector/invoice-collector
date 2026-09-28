@@ -32,6 +32,9 @@ export class CosComputerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CosComputerCollector class.
+     */
     constructor() {
         super(CosComputerCollector.CONFIG);
     }

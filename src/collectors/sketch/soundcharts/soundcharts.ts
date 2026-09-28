@@ -32,6 +32,9 @@ export class SoundchartsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SoundchartsCollector class.
+     */
     constructor() {
         super(SoundchartsCollector.CONFIG);
     }

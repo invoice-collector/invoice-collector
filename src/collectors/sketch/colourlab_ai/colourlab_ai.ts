@@ -32,6 +32,9 @@ export class ColourlabAiCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ColourlabAiCollector class.
+     */
     constructor() {
         super(ColourlabAiCollector.CONFIG);
     }

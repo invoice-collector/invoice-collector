@@ -32,6 +32,9 @@ export class InfostradaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the InfostradaCollector class.
+     */
     constructor() {
         super(InfostradaCollector.CONFIG);
     }

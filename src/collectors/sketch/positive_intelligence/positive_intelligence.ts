@@ -32,6 +32,9 @@ export class PositiveIntelligenceCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PositiveIntelligenceCollector class.
+     */
     constructor() {
         super(PositiveIntelligenceCollector.CONFIG);
     }

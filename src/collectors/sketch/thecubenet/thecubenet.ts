@@ -32,6 +32,9 @@ export class ThecubenetCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ThecubenetCollector class.
+     */
     constructor() {
         super(ThecubenetCollector.CONFIG);
     }

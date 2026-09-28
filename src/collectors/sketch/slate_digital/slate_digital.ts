@@ -32,6 +32,9 @@ export class SlateDigitalCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SlateDigitalCollector class.
+     */
     constructor() {
         super(SlateDigitalCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class AvisVerifiesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AvisVerifiesCollector class.
+     */
     constructor() {
         super(AvisVerifiesCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class RefurbedCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RefurbedCollector class.
+     */
     constructor() {
         super(RefurbedCollector.CONFIG);
     }

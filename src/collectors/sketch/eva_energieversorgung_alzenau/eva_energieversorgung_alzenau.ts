@@ -32,6 +32,9 @@ export class EvaEnergieversorgungAlzenauCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EvaEnergieversorgungAlzenauCollector class.
+     */
     constructor() {
         super(EvaEnergieversorgungAlzenauCollector.CONFIG);
     }

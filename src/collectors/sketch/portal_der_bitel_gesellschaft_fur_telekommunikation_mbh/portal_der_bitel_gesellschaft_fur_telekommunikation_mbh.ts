@@ -32,6 +32,9 @@ export class PortalDerBitelGesellschaftFurTelekommunikationMbhCollector extends 
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PortalDerBitelGesellschaftFurTelekommunikationMbhCollector class.
+     */
     constructor() {
         super(PortalDerBitelGesellschaftFurTelekommunikationMbhCollector.CONFIG);
     }

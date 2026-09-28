@@ -32,6 +32,9 @@ export class VrTeilhaberbankCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VrTeilhaberbankCollector class.
+     */
     constructor() {
         super(VrTeilhaberbankCollector.CONFIG);
     }

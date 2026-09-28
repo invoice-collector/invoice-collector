@@ -32,6 +32,9 @@ export class PromeaiCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PromeaiCollector class.
+     */
     constructor() {
         super(PromeaiCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class ParadigitCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ParadigitCollector class.
+     */
     constructor() {
         super(ParadigitCollector.CONFIG);
     }

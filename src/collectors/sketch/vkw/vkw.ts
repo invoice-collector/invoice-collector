@@ -32,6 +32,9 @@ export class VkwCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VkwCollector class.
+     */
     constructor() {
         super(VkwCollector.CONFIG);
     }

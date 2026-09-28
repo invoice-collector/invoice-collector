@@ -32,6 +32,9 @@ export class WoocommerceCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WoocommerceCollector class.
+     */
     constructor() {
         super(WoocommerceCollector.CONFIG);
     }

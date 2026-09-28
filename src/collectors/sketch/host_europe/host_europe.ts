@@ -32,6 +32,9 @@ export class HostEuropeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HostEuropeCollector class.
+     */
     constructor() {
         super(HostEuropeCollector.CONFIG);
     }

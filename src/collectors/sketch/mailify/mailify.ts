@@ -32,6 +32,9 @@ export class MailifyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MailifyCollector class.
+     */
     constructor() {
         super(MailifyCollector.CONFIG);
     }

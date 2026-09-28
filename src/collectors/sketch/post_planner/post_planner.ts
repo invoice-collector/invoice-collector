@@ -32,6 +32,9 @@ export class PostPlannerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PostPlannerCollector class.
+     */
     constructor() {
         super(PostPlannerCollector.CONFIG);
     }

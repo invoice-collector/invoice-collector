@@ -32,6 +32,9 @@ export class CopperCrmCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CopperCrmCollector class.
+     */
     constructor() {
         super(CopperCrmCollector.CONFIG);
     }

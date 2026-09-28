@@ -32,6 +32,9 @@ export class SodabarCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SodabarCollector class.
+     */
     constructor() {
         super(SodabarCollector.CONFIG);
     }

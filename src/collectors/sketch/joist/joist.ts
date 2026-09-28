@@ -32,6 +32,9 @@ export class JoistCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the JoistCollector class.
+     */
     constructor() {
         super(JoistCollector.CONFIG);
     }

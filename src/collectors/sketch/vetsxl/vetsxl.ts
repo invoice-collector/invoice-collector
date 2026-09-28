@@ -32,6 +32,9 @@ export class VetsxlCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VetsxlCollector class.
+     */
     constructor() {
         super(VetsxlCollector.CONFIG);
     }

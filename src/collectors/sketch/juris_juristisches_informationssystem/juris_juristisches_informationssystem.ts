@@ -32,6 +32,9 @@ export class JurisJuristischesInformationssystemCollector extends SketchCollecto
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the JurisJuristischesInformationssystemCollector class.
+     */
     constructor() {
         super(JurisJuristischesInformationssystemCollector.CONFIG);
     }

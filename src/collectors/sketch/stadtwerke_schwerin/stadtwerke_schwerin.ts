@@ -32,6 +32,9 @@ export class StadtwerkeSchwerinCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StadtwerkeSchwerinCollector class.
+     */
     constructor() {
         super(StadtwerkeSchwerinCollector.CONFIG);
     }

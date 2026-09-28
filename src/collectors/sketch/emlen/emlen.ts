@@ -32,6 +32,9 @@ export class EmlenCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EmlenCollector class.
+     */
     constructor() {
         super(EmlenCollector.CONFIG);
     }

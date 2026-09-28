@@ -32,6 +32,9 @@ export class WebshipperDkCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WebshipperDkCollector class.
+     */
     constructor() {
         super(WebshipperDkCollector.CONFIG);
     }

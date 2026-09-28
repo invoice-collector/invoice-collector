@@ -32,6 +32,9 @@ export class GysoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GysoCollector class.
+     */
     constructor() {
         super(GysoCollector.CONFIG);
     }

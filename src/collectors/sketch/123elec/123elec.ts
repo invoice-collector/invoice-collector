@@ -32,6 +32,9 @@ export class _123elecCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the _123elecCollector class.
+     */
     constructor() {
         super(_123elecCollector.CONFIG);
     }

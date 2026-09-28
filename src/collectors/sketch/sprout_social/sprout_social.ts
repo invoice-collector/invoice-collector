@@ -32,6 +32,9 @@ export class SproutSocialCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SproutSocialCollector class.
+     */
     constructor() {
         super(SproutSocialCollector.CONFIG);
     }

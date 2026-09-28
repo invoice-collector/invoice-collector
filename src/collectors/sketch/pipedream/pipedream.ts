@@ -32,6 +32,9 @@ export class PipedreamCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PipedreamCollector class.
+     */
     constructor() {
         super(PipedreamCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class GtmhubCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GtmhubCollector class.
+     */
     constructor() {
         super(GtmhubCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class JetiLineGlasfaserCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the JetiLineGlasfaserCollector class.
+     */
     constructor() {
         super(JetiLineGlasfaserCollector.CONFIG);
     }

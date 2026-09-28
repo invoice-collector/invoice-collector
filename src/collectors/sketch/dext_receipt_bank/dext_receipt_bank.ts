@@ -32,6 +32,9 @@ export class DextReceiptBankCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DextReceiptBankCollector class.
+     */
     constructor() {
         super(DextReceiptBankCollector.CONFIG);
     }

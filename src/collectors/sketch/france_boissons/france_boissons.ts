@@ -32,6 +32,9 @@ export class FranceBoissonsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FranceBoissonsCollector class.
+     */
     constructor() {
         super(FranceBoissonsCollector.CONFIG);
     }

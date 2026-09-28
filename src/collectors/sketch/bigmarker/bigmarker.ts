@@ -32,6 +32,9 @@ export class BigmarkerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BigmarkerCollector class.
+     */
     constructor() {
         super(BigmarkerCollector.CONFIG);
     }

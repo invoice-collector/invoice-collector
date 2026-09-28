@@ -32,6 +32,9 @@ export class ChangeEnergyKundenportalCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ChangeEnergyKundenportalCollector class.
+     */
     constructor() {
         super(ChangeEnergyKundenportalCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class MockuuupsStudioCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MockuuupsStudioCollector class.
+     */
     constructor() {
         super(MockuuupsStudioCollector.CONFIG);
     }

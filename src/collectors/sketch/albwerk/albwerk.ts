@@ -32,6 +32,9 @@ export class AlbwerkCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AlbwerkCollector class.
+     */
     constructor() {
         super(AlbwerkCollector.CONFIG);
     }

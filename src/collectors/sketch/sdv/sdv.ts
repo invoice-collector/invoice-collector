@@ -32,6 +32,9 @@ export class SdvCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SdvCollector class.
+     */
     constructor() {
         super(SdvCollector.CONFIG);
     }

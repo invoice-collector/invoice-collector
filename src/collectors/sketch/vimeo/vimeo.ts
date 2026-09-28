@@ -32,6 +32,9 @@ export class VimeoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VimeoCollector class.
+     */
     constructor() {
         super(VimeoCollector.CONFIG);
     }

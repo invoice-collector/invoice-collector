@@ -32,6 +32,9 @@ export class MachtfitCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MachtfitCollector class.
+     */
     constructor() {
         super(MachtfitCollector.CONFIG);
     }

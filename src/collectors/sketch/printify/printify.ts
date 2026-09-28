@@ -32,6 +32,9 @@ export class PrintifyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PrintifyCollector class.
+     */
     constructor() {
         super(PrintifyCollector.CONFIG);
     }

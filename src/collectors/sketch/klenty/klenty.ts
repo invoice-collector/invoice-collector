@@ -32,6 +32,9 @@ export class KlentyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KlentyCollector class.
+     */
     constructor() {
         super(KlentyCollector.CONFIG);
     }

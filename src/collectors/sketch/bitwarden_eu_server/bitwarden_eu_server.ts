@@ -32,6 +32,9 @@ export class BitwardenEuServerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BitwardenEuServerCollector class.
+     */
     constructor() {
         super(BitwardenEuServerCollector.CONFIG);
     }

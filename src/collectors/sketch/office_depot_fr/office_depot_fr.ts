@@ -32,6 +32,9 @@ export class OfficeDepotFrCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OfficeDepotFrCollector class.
+     */
     constructor() {
         super(OfficeDepotFrCollector.CONFIG);
     }

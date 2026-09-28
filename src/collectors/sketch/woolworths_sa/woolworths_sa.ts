@@ -32,6 +32,9 @@ export class WoolworthsSaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WoolworthsSaCollector class.
+     */
     constructor() {
         super(WoolworthsSaCollector.CONFIG);
     }

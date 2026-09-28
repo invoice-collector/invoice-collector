@@ -32,6 +32,9 @@ export class MyfenceDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MyfenceDeCollector class.
+     */
     constructor() {
         super(MyfenceDeCollector.CONFIG);
     }

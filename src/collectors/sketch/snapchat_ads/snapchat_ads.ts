@@ -32,6 +32,9 @@ export class SnapchatAdsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SnapchatAdsCollector class.
+     */
     constructor() {
         super(SnapchatAdsCollector.CONFIG);
     }

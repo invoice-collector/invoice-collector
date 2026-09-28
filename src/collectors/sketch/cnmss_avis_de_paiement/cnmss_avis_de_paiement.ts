@@ -32,6 +32,9 @@ export class CnmssAvisDePaiementCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CnmssAvisDePaiementCollector class.
+     */
     constructor() {
         super(CnmssAvisDePaiementCollector.CONFIG);
     }

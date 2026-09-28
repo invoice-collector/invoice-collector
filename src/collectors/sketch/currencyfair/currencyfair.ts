@@ -32,6 +32,9 @@ export class CurrencyfairCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CurrencyfairCollector class.
+     */
     constructor() {
         super(CurrencyfairCollector.CONFIG);
     }

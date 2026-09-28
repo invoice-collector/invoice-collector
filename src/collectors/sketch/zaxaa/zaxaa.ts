@@ -32,6 +32,9 @@ export class ZaxaaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ZaxaaCollector class.
+     */
     constructor() {
         super(ZaxaaCollector.CONFIG);
     }

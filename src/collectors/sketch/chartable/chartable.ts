@@ -32,6 +32,9 @@ export class ChartableCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ChartableCollector class.
+     */
     constructor() {
         super(ChartableCollector.CONFIG);
     }

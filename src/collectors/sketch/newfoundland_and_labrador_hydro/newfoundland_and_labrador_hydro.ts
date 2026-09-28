@@ -32,6 +32,9 @@ export class NewfoundlandAndLabradorHydroCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NewfoundlandAndLabradorHydroCollector class.
+     */
     constructor() {
         super(NewfoundlandAndLabradorHydroCollector.CONFIG);
     }

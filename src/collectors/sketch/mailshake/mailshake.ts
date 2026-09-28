@@ -32,6 +32,9 @@ export class MailshakeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MailshakeCollector class.
+     */
     constructor() {
         super(MailshakeCollector.CONFIG);
     }

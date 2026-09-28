@@ -32,6 +32,9 @@ export class CocolyzeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CocolyzeCollector class.
+     */
     constructor() {
         super(CocolyzeCollector.CONFIG);
     }

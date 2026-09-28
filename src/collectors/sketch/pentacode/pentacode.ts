@@ -32,6 +32,9 @@ export class PentacodeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PentacodeCollector class.
+     */
     constructor() {
         super(PentacodeCollector.CONFIG);
     }

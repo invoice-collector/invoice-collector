@@ -32,6 +32,9 @@ export class PactasCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PactasCollector class.
+     */
     constructor() {
         super(PactasCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class RapidapiCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RapidapiCollector class.
+     */
     constructor() {
         super(RapidapiCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class EasybillDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EasybillDeCollector class.
+     */
     constructor() {
         super(EasybillDeCollector.CONFIG);
     }

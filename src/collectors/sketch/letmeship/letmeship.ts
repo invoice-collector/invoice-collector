@@ -32,6 +32,9 @@ export class LetmeshipCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LetmeshipCollector class.
+     */
     constructor() {
         super(LetmeshipCollector.CONFIG);
     }

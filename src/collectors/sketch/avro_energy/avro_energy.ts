@@ -32,6 +32,9 @@ export class AvroEnergyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AvroEnergyCollector class.
+     */
     constructor() {
         super(AvroEnergyCollector.CONFIG);
     }

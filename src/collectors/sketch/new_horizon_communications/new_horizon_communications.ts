@@ -32,6 +32,9 @@ export class NewHorizonCommunicationsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NewHorizonCommunicationsCollector class.
+     */
     constructor() {
         super(NewHorizonCommunicationsCollector.CONFIG);
     }

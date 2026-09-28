@@ -32,6 +32,9 @@ export class PraxisdienstCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PraxisdienstCollector class.
+     */
     constructor() {
         super(PraxisdienstCollector.CONFIG);
     }

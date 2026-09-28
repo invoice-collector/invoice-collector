@@ -32,6 +32,9 @@ export class BilletreducComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BilletreducComCollector class.
+     */
     constructor() {
         super(BilletreducComCollector.CONFIG);
     }

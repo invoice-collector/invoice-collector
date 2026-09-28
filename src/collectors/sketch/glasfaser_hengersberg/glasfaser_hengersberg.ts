@@ -32,6 +32,9 @@ export class GlasfaserHengersbergCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GlasfaserHengersbergCollector class.
+     */
     constructor() {
         super(GlasfaserHengersbergCollector.CONFIG);
     }

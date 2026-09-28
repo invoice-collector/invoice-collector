@@ -32,6 +32,9 @@ export class PostLuxembourgCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PostLuxembourgCollector class.
+     */
     constructor() {
         super(PostLuxembourgCollector.CONFIG);
     }

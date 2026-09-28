@@ -32,6 +32,9 @@ export class BrillantEnergieCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BrillantEnergieCollector class.
+     */
     constructor() {
         super(BrillantEnergieCollector.CONFIG);
     }

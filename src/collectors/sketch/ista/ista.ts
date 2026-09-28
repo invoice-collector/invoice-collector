@@ -31,6 +31,9 @@ export class IstaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the IstaCollector class.
+     */
     constructor() {
         super(IstaCollector.CONFIG);
     }

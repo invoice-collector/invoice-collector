@@ -32,6 +32,9 @@ export class ShopimindCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ShopimindCollector class.
+     */
     constructor() {
         super(ShopimindCollector.CONFIG);
     }

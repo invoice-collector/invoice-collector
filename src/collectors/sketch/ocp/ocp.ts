@@ -32,6 +32,9 @@ export class OcpCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OcpCollector class.
+     */
     constructor() {
         super(OcpCollector.CONFIG);
     }

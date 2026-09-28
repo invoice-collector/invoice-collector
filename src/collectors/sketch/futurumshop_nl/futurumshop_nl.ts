@@ -32,6 +32,9 @@ export class FuturumshopNlCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FuturumshopNlCollector class.
+     */
     constructor() {
         super(FuturumshopNlCollector.CONFIG);
     }

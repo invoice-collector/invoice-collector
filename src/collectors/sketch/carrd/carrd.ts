@@ -32,6 +32,9 @@ export class CarrdCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CarrdCollector class.
+     */
     constructor() {
         super(CarrdCollector.CONFIG);
     }

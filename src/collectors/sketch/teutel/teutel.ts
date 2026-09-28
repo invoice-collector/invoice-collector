@@ -32,6 +32,9 @@ export class TeutelCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TeutelCollector class.
+     */
     constructor() {
         super(TeutelCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class BricopriveCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BricopriveCollector class.
+     */
     constructor() {
         super(BricopriveCollector.CONFIG);
     }

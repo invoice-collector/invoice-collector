@@ -32,6 +32,9 @@ export class DotsterCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DotsterCollector class.
+     */
     constructor() {
         super(DotsterCollector.CONFIG);
     }

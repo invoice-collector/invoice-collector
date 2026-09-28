@@ -32,6 +32,9 @@ export class WpRechnungenCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WpRechnungenCollector class.
+     */
     constructor() {
         super(WpRechnungenCollector.CONFIG);
     }

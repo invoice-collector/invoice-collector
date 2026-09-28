@@ -32,6 +32,9 @@ export class CartouchesEnStockCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CartouchesEnStockCollector class.
+     */
     constructor() {
         super(CartouchesEnStockCollector.CONFIG);
     }

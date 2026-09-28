@@ -32,6 +32,9 @@ export class CasellaWasteCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CasellaWasteCollector class.
+     */
     constructor() {
         super(CasellaWasteCollector.CONFIG);
     }

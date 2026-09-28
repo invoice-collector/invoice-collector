@@ -32,6 +32,9 @@ export class GeorgiaNaturalGasCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GeorgiaNaturalGasCollector class.
+     */
     constructor() {
         super(GeorgiaNaturalGasCollector.CONFIG);
     }

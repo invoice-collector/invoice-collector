@@ -32,6 +32,9 @@ export class WyomindAddonsForMagentoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WyomindAddonsForMagentoCollector class.
+     */
     constructor() {
         super(WyomindAddonsForMagentoCollector.CONFIG);
     }

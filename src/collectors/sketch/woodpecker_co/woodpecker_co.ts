@@ -32,6 +32,9 @@ export class WoodpeckerCoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WoodpeckerCoCollector class.
+     */
     constructor() {
         super(WoodpeckerCoCollector.CONFIG);
     }

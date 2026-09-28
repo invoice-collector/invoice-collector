@@ -32,6 +32,9 @@ export class IlleCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the IlleCollector class.
+     */
     constructor() {
         super(IlleCollector.CONFIG);
     }

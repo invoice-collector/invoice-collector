@@ -32,6 +32,9 @@ export class ThgExpertenCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ThgExpertenCollector class.
+     */
     constructor() {
         super(ThgExpertenCollector.CONFIG);
     }

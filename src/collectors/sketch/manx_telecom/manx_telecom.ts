@@ -32,6 +32,9 @@ export class ManxTelecomCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ManxTelecomCollector class.
+     */
     constructor() {
         super(ManxTelecomCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class TravelperkCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TravelperkCollector class.
+     */
     constructor() {
         super(TravelperkCollector.CONFIG);
     }

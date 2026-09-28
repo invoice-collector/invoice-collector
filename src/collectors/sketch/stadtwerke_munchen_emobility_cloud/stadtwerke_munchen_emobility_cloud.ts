@@ -32,6 +32,9 @@ export class StadtwerkeMunchenEmobilityCloudCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StadtwerkeMunchenEmobilityCloudCollector class.
+     */
     constructor() {
         super(StadtwerkeMunchenEmobilityCloudCollector.CONFIG);
     }

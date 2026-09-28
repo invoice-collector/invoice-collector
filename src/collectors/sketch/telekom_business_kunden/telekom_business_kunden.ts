@@ -32,6 +32,9 @@ export class TelekomBusinessKundenCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TelekomBusinessKundenCollector class.
+     */
     constructor() {
         super(TelekomBusinessKundenCollector.CONFIG);
     }

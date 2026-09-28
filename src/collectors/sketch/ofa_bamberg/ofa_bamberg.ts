@@ -32,6 +32,9 @@ export class OfaBambergCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OfaBambergCollector class.
+     */
     constructor() {
         super(OfaBambergCollector.CONFIG);
     }

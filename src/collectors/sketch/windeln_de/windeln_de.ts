@@ -32,6 +32,9 @@ export class WindelnDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WindelnDeCollector class.
+     */
     constructor() {
         super(WindelnDeCollector.CONFIG);
     }

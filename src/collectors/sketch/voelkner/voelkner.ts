@@ -32,6 +32,9 @@ export class VoelknerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VoelknerCollector class.
+     */
     constructor() {
         super(VoelknerCollector.CONFIG);
     }

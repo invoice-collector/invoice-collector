@@ -32,6 +32,9 @@ export class RevolutBusinessCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RevolutBusinessCollector class.
+     */
     constructor() {
         super(RevolutBusinessCollector.CONFIG);
     }

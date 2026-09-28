@@ -32,6 +32,9 @@ export class SymfonyInsightsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SymfonyInsightsCollector class.
+     */
     constructor() {
         super(SymfonyInsightsCollector.CONFIG);
     }

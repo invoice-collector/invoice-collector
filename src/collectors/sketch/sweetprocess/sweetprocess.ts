@@ -32,6 +32,9 @@ export class SweetprocessCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SweetprocessCollector class.
+     */
     constructor() {
         super(SweetprocessCollector.CONFIG);
     }

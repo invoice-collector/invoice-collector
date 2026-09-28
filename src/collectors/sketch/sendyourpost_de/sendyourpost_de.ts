@@ -32,6 +32,9 @@ export class SendyourpostDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SendyourpostDeCollector class.
+     */
     constructor() {
         super(SendyourpostDeCollector.CONFIG);
     }

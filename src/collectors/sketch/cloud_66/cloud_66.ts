@@ -32,6 +32,9 @@ export class Cloud66Collector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Cloud66Collector class.
+     */
     constructor() {
         super(Cloud66Collector.CONFIG);
     }

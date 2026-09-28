@@ -32,6 +32,9 @@ export class PerplexityAiCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PerplexityAiCollector class.
+     */
     constructor() {
         super(PerplexityAiCollector.CONFIG);
     }

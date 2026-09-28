@@ -32,6 +32,9 @@ export class ArthyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ArthyCollector class.
+     */
     constructor() {
         super(ArthyCollector.CONFIG);
     }

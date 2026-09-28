@@ -32,6 +32,9 @@ export class StratoFrCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StratoFrCollector class.
+     */
     constructor() {
         super(StratoFrCollector.CONFIG);
     }

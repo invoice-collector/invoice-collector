@@ -32,6 +32,9 @@ export class TeachizyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TeachizyCollector class.
+     */
     constructor() {
         super(TeachizyCollector.CONFIG);
     }

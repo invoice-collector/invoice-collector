@@ -32,6 +32,9 @@ export class LttVersandCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LttVersandCollector class.
+     */
     constructor() {
         super(LttVersandCollector.CONFIG);
     }

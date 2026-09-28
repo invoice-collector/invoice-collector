@@ -32,6 +32,9 @@ export class SysteamCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SysteamCollector class.
+     */
     constructor() {
         super(SysteamCollector.CONFIG);
     }

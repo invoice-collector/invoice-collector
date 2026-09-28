@@ -32,6 +32,9 @@ export class JochenSchweizerEnterprisePortalCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the JochenSchweizerEnterprisePortalCollector class.
+     */
     constructor() {
         super(JochenSchweizerEnterprisePortalCollector.CONFIG);
     }

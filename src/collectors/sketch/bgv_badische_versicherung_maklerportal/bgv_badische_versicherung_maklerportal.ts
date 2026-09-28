@@ -32,6 +32,9 @@ export class BgvBadischeVersicherungMaklerportalCollector extends SketchCollecto
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BgvBadischeVersicherungMaklerportalCollector class.
+     */
     constructor() {
         super(BgvBadischeVersicherungMaklerportalCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class FontsComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FontsComCollector class.
+     */
     constructor() {
         super(FontsComCollector.CONFIG);
     }

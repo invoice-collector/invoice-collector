@@ -32,6 +32,9 @@ export class ChartbeatCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ChartbeatCollector class.
+     */
     constructor() {
         super(ChartbeatCollector.CONFIG);
     }

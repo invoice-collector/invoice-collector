@@ -32,6 +32,9 @@ export class ReturnlessCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ReturnlessCollector class.
+     */
     constructor() {
         super(ReturnlessCollector.CONFIG);
     }

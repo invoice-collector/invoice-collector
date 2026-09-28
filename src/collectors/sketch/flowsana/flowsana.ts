@@ -32,6 +32,9 @@ export class FlowsanaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FlowsanaCollector class.
+     */
     constructor() {
         super(FlowsanaCollector.CONFIG);
     }

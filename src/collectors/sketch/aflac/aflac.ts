@@ -32,6 +32,9 @@ export class AflacCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AflacCollector class.
+     */
     constructor() {
         super(AflacCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class SpiegelOnlineCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SpiegelOnlineCollector class.
+     */
     constructor() {
         super(SpiegelOnlineCollector.CONFIG);
     }

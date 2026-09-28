@@ -32,6 +32,9 @@ export class McanismCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the McanismCollector class.
+     */
     constructor() {
         super(McanismCollector.CONFIG);
     }

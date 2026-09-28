@@ -32,6 +32,9 @@ export class AlleaktienCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AlleaktienCollector class.
+     */
     constructor() {
         super(AlleaktienCollector.CONFIG);
     }

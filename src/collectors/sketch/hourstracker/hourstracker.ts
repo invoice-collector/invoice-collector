@@ -32,6 +32,9 @@ export class HourstrackerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HourstrackerCollector class.
+     */
     constructor() {
         super(HourstrackerCollector.CONFIG);
     }

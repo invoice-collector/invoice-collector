@@ -32,6 +32,9 @@ export class NimbleCrmCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NimbleCrmCollector class.
+     */
     constructor() {
         super(NimbleCrmCollector.CONFIG);
     }

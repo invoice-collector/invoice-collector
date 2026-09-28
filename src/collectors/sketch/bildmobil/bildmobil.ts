@@ -32,6 +32,9 @@ export class BildmobilCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BildmobilCollector class.
+     */
     constructor() {
         super(BildmobilCollector.CONFIG);
     }

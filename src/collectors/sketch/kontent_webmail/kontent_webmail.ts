@@ -32,6 +32,9 @@ export class KontentWebmailCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KontentWebmailCollector class.
+     */
     constructor() {
         super(KontentWebmailCollector.CONFIG);
     }

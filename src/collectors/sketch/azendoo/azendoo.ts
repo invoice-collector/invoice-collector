@@ -32,6 +32,9 @@ export class AzendooCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AzendooCollector class.
+     */
     constructor() {
         super(AzendooCollector.CONFIG);
     }

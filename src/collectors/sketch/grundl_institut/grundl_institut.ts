@@ -32,6 +32,9 @@ export class GrundlInstitutCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GrundlInstitutCollector class.
+     */
     constructor() {
         super(GrundlInstitutCollector.CONFIG);
     }

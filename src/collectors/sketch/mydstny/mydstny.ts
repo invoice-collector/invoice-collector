@@ -32,6 +32,9 @@ export class MydstnyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MydstnyCollector class.
+     */
     constructor() {
         super(MydstnyCollector.CONFIG);
     }

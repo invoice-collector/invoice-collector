@@ -32,6 +32,9 @@ export class StgsSocieteDeTravauxGestionEtServicesCollector extends SketchCollec
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StgsSocieteDeTravauxGestionEtServicesCollector class.
+     */
     constructor() {
         super(StgsSocieteDeTravauxGestionEtServicesCollector.CONFIG);
     }

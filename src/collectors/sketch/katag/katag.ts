@@ -32,6 +32,9 @@ export class KatagCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KatagCollector class.
+     */
     constructor() {
         super(KatagCollector.CONFIG);
     }

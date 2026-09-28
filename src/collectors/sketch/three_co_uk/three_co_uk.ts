@@ -32,6 +32,9 @@ export class ThreeCoUkCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ThreeCoUkCollector class.
+     */
     constructor() {
         super(ThreeCoUkCollector.CONFIG);
     }

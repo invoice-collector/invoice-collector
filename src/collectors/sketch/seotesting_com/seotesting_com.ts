@@ -32,6 +32,9 @@ export class SeotestingComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SeotestingComCollector class.
+     */
     constructor() {
         super(SeotestingComCollector.CONFIG);
     }

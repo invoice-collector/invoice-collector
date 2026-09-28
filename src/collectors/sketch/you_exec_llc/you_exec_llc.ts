@@ -32,6 +32,9 @@ export class YouExecLlcCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the YouExecLlcCollector class.
+     */
     constructor() {
         super(YouExecLlcCollector.CONFIG);
     }

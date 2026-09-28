@@ -32,6 +32,9 @@ export class DistrielecCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DistrielecCollector class.
+     */
     constructor() {
         super(DistrielecCollector.CONFIG);
     }

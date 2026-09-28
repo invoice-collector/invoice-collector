@@ -32,6 +32,9 @@ export class MosyleBusinessCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MosyleBusinessCollector class.
+     */
     constructor() {
         super(MosyleBusinessCollector.CONFIG);
     }

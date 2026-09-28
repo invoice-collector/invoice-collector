@@ -32,6 +32,9 @@ export class WaveVideoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WaveVideoCollector class.
+     */
     constructor() {
         super(WaveVideoCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class DatapartCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DatapartCollector class.
+     */
     constructor() {
         super(DatapartCollector.CONFIG);
     }

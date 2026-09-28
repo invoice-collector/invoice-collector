@@ -32,6 +32,9 @@ export class CurrenxieCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CurrenxieCollector class.
+     */
     constructor() {
         super(CurrenxieCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class HuduCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HuduCollector class.
+     */
     constructor() {
         super(HuduCollector.CONFIG);
     }

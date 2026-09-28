@@ -32,6 +32,9 @@ export class DmrzCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DmrzCollector class.
+     */
     constructor() {
         super(DmrzCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class MorningscoreCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MorningscoreCollector class.
+     */
     constructor() {
         super(MorningscoreCollector.CONFIG);
     }

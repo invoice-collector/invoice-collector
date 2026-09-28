@@ -32,6 +32,9 @@ export class ProvesourceCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ProvesourceCollector class.
+     */
     constructor() {
         super(ProvesourceCollector.CONFIG);
     }

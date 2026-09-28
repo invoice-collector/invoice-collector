@@ -32,6 +32,9 @@ export class AmberscriptCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AmberscriptCollector class.
+     */
     constructor() {
         super(AmberscriptCollector.CONFIG);
     }

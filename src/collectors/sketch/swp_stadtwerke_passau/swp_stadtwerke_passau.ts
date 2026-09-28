@@ -32,6 +32,9 @@ export class SwpStadtwerkePassauCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SwpStadtwerkePassauCollector class.
+     */
     constructor() {
         super(SwpStadtwerkePassauCollector.CONFIG);
     }

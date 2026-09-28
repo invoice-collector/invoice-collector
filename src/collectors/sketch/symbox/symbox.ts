@@ -32,6 +32,9 @@ export class SymboxCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SymboxCollector class.
+     */
     constructor() {
         super(SymboxCollector.CONFIG);
     }

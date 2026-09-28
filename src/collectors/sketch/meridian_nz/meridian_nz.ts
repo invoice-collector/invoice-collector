@@ -32,6 +32,9 @@ export class MeridianNzCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MeridianNzCollector class.
+     */
     constructor() {
         super(MeridianNzCollector.CONFIG);
     }

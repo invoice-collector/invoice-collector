@@ -32,6 +32,9 @@ export class TestgorillaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TestgorillaCollector class.
+     */
     constructor() {
         super(TestgorillaCollector.CONFIG);
     }

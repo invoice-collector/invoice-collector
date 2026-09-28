@@ -32,6 +32,9 @@ export class _1nceCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the _1nceCollector class.
+     */
     constructor() {
         super(_1nceCollector.CONFIG);
     }

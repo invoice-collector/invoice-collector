@@ -32,6 +32,9 @@ export class KoronaCloudCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KoronaCloudCollector class.
+     */
     constructor() {
         super(KoronaCloudCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class InfinidentSolutionsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the InfinidentSolutionsCollector class.
+     */
     constructor() {
         super(InfinidentSolutionsCollector.CONFIG);
     }

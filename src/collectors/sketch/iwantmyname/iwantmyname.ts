@@ -32,6 +32,9 @@ export class IwantmynameCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the IwantmynameCollector class.
+     */
     constructor() {
         super(IwantmynameCollector.CONFIG);
     }

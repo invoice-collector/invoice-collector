@@ -32,6 +32,9 @@ export class TopbizCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TopbizCollector class.
+     */
     constructor() {
         super(TopbizCollector.CONFIG);
     }

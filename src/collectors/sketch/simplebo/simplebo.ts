@@ -32,6 +32,9 @@ export class SimpleboCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SimpleboCollector class.
+     */
     constructor() {
         super(SimpleboCollector.CONFIG);
     }

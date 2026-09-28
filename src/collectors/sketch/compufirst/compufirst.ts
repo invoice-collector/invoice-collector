@@ -32,6 +32,9 @@ export class CompufirstCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CompufirstCollector class.
+     */
     constructor() {
         super(CompufirstCollector.CONFIG);
     }

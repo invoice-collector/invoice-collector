@@ -32,6 +32,9 @@ export class CrocoblockCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CrocoblockCollector class.
+     */
     constructor() {
         super(CrocoblockCollector.CONFIG);
     }

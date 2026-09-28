@@ -32,6 +32,9 @@ export class SchnellImNetzDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SchnellImNetzDeCollector class.
+     */
     constructor() {
         super(SchnellImNetzDeCollector.CONFIG);
     }

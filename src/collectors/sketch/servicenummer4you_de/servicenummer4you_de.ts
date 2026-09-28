@@ -32,6 +32,9 @@ export class Servicenummer4youDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Servicenummer4youDeCollector class.
+     */
     constructor() {
         super(Servicenummer4youDeCollector.CONFIG);
     }

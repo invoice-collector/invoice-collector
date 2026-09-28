@@ -32,6 +32,9 @@ export class _123inktNlCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the _123inktNlCollector class.
+     */
     constructor() {
         super(_123inktNlCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class WishFurHandlerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WishFurHandlerCollector class.
+     */
     constructor() {
         super(WishFurHandlerCollector.CONFIG);
     }

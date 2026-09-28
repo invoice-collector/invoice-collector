@@ -32,6 +32,9 @@ export class OutscraperCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OutscraperCollector class.
+     */
     constructor() {
         super(OutscraperCollector.CONFIG);
     }

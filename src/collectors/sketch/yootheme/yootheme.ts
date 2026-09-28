@@ -32,6 +32,9 @@ export class YoothemeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the YoothemeCollector class.
+     */
     constructor() {
         super(YoothemeCollector.CONFIG);
     }

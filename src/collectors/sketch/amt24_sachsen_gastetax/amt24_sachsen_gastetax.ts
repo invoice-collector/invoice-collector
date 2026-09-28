@@ -32,6 +32,9 @@ export class Amt24SachsenGastetaxCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Amt24SachsenGastetaxCollector class.
+     */
     constructor() {
         super(Amt24SachsenGastetaxCollector.CONFIG);
     }

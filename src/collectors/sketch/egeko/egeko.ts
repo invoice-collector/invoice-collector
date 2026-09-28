@@ -32,6 +32,9 @@ export class EgekoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EgekoCollector class.
+     */
     constructor() {
         super(EgekoCollector.CONFIG);
     }

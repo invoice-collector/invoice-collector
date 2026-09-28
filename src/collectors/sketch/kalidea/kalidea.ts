@@ -32,6 +32,9 @@ export class KalideaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KalideaCollector class.
+     */
     constructor() {
         super(KalideaCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class ResopharmaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ResopharmaCollector class.
+     */
     constructor() {
         super(ResopharmaCollector.CONFIG);
     }

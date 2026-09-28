@@ -32,6 +32,9 @@ export class UrlGeniusCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the UrlGeniusCollector class.
+     */
     constructor() {
         super(UrlGeniusCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class WatsonNutritionCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WatsonNutritionCollector class.
+     */
     constructor() {
         super(WatsonNutritionCollector.CONFIG);
     }

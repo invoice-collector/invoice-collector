@@ -32,6 +32,9 @@ export class KaraokeVersionCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KaraokeVersionCollector class.
+     */
     constructor() {
         super(KaraokeVersionCollector.CONFIG);
     }

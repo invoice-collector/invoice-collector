@@ -32,6 +32,9 @@ export class Listen360Collector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Listen360Collector class.
+     */
     constructor() {
         super(Listen360Collector.CONFIG);
     }

@@ -37,10 +37,16 @@ export class BureauValleeCollector extends LinearWebCollector {
         state: CollectorState.ACTIVE,
     };
 
+    /**
+     * Constructs a new instance of the BureauValleeCollector class.
+     */
     constructor() {
         super(BureauValleeCollector.CONFIG);
     }
 
+    /**
+     * @inheritdoc
+     */
     async login(driver: AbstractDriver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
         // Refuse cookies
         await driver.leftClick(BureauValleeSelectors.BUTTON_REFUSE_COOKIES, { raiseException: false, timeout: 5000});
@@ -72,6 +78,9 @@ export class BureauValleeCollector extends LinearWebCollector {
         }
     }
 
+    /**
+     * @inheritdoc
+     */
     async navigate(driver: AbstractDriver): Promise<void> {
         // Wait for profile container
         await driver.getElement(BureauValleeSelectors.CONTAINER_PROFIL);
@@ -79,14 +88,23 @@ export class BureauValleeCollector extends LinearWebCollector {
         await driver.goto(this.config.entryUrl);
     }
 
+    /**
+     * @inheritdoc
+     */
     async isEmpty(driver: AbstractDriver): Promise<boolean> {
         return await driver.getElement(BureauValleeSelectors.CONTAINER_NO_INVOICE, { raiseException: false, timeout: 5000 }) !== null;
     }
- 
+
+    /**
+     * @inheritdoc
+     */
     async getInvoices(driver: AbstractDriver): Promise<Element[]> {
         return await driver.getElements(BureauValleeSelectors.CONTAINER_INVOICE);
     }
 
+    /**
+     * @inheritdoc
+     */
     async data(driver: AbstractDriver, element: Element): Promise<Invoice | null> {
         // Get data
         const date = await element.getAttribute(BureauValleeSelectors.CONTAINER_INVOICE_DATE, 'textContent');
@@ -104,6 +122,9 @@ export class BureauValleeCollector extends LinearWebCollector {
         };
     }
 
+    /**
+     * @inheritdoc
+     */
     async download(driver: AbstractDriver, invoice: Invoice): Promise<string[]> {
         // Click on element
         await invoice.downloadButton.leftClick();

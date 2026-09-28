@@ -32,6 +32,9 @@ export class WoltersKluwerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WoltersKluwerCollector class.
+     */
     constructor() {
         super(WoltersKluwerCollector.CONFIG);
     }

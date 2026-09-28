@@ -32,6 +32,9 @@ export class RackspaceCloudControlPanelCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RackspaceCloudControlPanelCollector class.
+     */
     constructor() {
         super(RackspaceCloudControlPanelCollector.CONFIG);
     }

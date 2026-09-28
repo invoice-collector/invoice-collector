@@ -31,6 +31,9 @@ export class AcadiaInfoComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AcadiaInfoComCollector class.
+     */
     constructor() {
         super(AcadiaInfoComCollector.CONFIG);
     }

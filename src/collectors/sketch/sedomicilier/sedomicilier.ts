@@ -32,6 +32,9 @@ export class SedomicilierCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SedomicilierCollector class.
+     */
     constructor() {
         super(SedomicilierCollector.CONFIG);
     }

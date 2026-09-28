@@ -32,6 +32,9 @@ export class PixelFilmStudiosCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PixelFilmStudiosCollector class.
+     */
     constructor() {
         super(PixelFilmStudiosCollector.CONFIG);
     }

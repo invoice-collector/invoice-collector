@@ -32,6 +32,9 @@ export class MubiCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MubiCollector class.
+     */
     constructor() {
         super(MubiCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class HdiVertriebsserviceCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HdiVertriebsserviceCollector class.
+     */
     constructor() {
         super(HdiVertriebsserviceCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class InterstateWasteServicesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the InterstateWasteServicesCollector class.
+     */
     constructor() {
         super(InterstateWasteServicesCollector.CONFIG);
     }

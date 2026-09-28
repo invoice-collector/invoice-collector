@@ -32,6 +32,9 @@ export class IsoChemieCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the IsoChemieCollector class.
+     */
     constructor() {
         super(IsoChemieCollector.CONFIG);
     }

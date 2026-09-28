@@ -32,6 +32,9 @@ export class MailboxOrgBusinessCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MailboxOrgBusinessCollector class.
+     */
     constructor() {
         super(MailboxOrgBusinessCollector.CONFIG);
     }

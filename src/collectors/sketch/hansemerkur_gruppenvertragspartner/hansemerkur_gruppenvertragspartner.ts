@@ -32,6 +32,9 @@ export class HansemerkurGruppenvertragspartnerCollector extends SketchCollector 
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HansemerkurGruppenvertragspartnerCollector class.
+     */
     constructor() {
         super(HansemerkurGruppenvertragspartnerCollector.CONFIG);
     }

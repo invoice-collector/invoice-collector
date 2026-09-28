@@ -32,6 +32,9 @@ export class AsgoodasnewCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AsgoodasnewCollector class.
+     */
     constructor() {
         super(AsgoodasnewCollector.CONFIG);
     }

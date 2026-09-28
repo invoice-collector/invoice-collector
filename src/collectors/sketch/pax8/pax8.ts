@@ -32,6 +32,9 @@ export class Pax8Collector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Pax8Collector class.
+     */
     constructor() {
         super(Pax8Collector.CONFIG);
     }

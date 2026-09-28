@@ -32,6 +32,9 @@ export class ScalaraDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ScalaraDeCollector class.
+     */
     constructor() {
         super(ScalaraDeCollector.CONFIG);
     }

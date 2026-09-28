@@ -32,6 +32,9 @@ export class GorgiasCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GorgiasCollector class.
+     */
     constructor() {
         super(GorgiasCollector.CONFIG);
     }

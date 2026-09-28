@@ -32,6 +32,9 @@ export class WebsupportSkCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WebsupportSkCollector class.
+     */
     constructor() {
         super(WebsupportSkCollector.CONFIG);
     }

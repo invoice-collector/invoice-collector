@@ -32,6 +32,9 @@ export class AzhCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AzhCollector class.
+     */
     constructor() {
         super(AzhCollector.CONFIG);
     }

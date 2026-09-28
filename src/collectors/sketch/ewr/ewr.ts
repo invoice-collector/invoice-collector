@@ -32,6 +32,9 @@ export class EwrCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EwrCollector class.
+     */
     constructor() {
         super(EwrCollector.CONFIG);
     }

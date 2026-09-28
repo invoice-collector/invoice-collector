@@ -32,6 +32,9 @@ export class AsosCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AsosCollector class.
+     */
     constructor() {
         super(AsosCollector.CONFIG);
     }

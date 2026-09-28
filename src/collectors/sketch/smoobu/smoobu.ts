@@ -32,6 +32,9 @@ export class SmoobuCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SmoobuCollector class.
+     */
     constructor() {
         super(SmoobuCollector.CONFIG);
     }

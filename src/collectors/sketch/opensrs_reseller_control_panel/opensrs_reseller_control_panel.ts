@@ -32,6 +32,9 @@ export class OpensrsResellerControlPanelCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OpensrsResellerControlPanelCollector class.
+     */
     constructor() {
         super(OpensrsResellerControlPanelCollector.CONFIG);
     }

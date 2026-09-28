@@ -32,6 +32,9 @@ export class OekopostCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OekopostCollector class.
+     */
     constructor() {
         super(OekopostCollector.CONFIG);
     }

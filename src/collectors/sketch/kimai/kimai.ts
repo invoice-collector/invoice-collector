@@ -32,6 +32,9 @@ export class KimaiCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KimaiCollector class.
+     */
     constructor() {
         super(KimaiCollector.CONFIG);
     }

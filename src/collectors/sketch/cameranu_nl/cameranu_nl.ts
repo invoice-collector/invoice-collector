@@ -32,6 +32,9 @@ export class CameranuNlCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CameranuNlCollector class.
+     */
     constructor() {
         super(CameranuNlCollector.CONFIG);
     }

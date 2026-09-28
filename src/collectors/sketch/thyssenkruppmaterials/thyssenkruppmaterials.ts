@@ -31,6 +31,9 @@ export class ThyssenkruppMaterialsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ThyssenkruppMaterialsCollector class.
+     */
     constructor() {
         super(ThyssenkruppMaterialsCollector.CONFIG);
     }

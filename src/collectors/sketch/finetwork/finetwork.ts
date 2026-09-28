@@ -32,6 +32,9 @@ export class FinetworkCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FinetworkCollector class.
+     */
     constructor() {
         super(FinetworkCollector.CONFIG);
     }

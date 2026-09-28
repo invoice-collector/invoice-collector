@@ -32,6 +32,9 @@ export class TradermadeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TradermadeCollector class.
+     */
     constructor() {
         super(TradermadeCollector.CONFIG);
     }

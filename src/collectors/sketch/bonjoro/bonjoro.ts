@@ -32,6 +32,9 @@ export class BonjoroCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BonjoroCollector class.
+     */
     constructor() {
         super(BonjoroCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class OttoOsterreichAffiliateNetzwerkCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OttoOsterreichAffiliateNetzwerkCollector class.
+     */
     constructor() {
         super(OttoOsterreichAffiliateNetzwerkCollector.CONFIG);
     }

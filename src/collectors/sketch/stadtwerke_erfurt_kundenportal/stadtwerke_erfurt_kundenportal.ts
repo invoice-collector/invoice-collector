@@ -32,6 +32,9 @@ export class StadtwerkeErfurtKundenportalCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StadtwerkeErfurtKundenportalCollector class.
+     */
     constructor() {
         super(StadtwerkeErfurtKundenportalCollector.CONFIG);
     }

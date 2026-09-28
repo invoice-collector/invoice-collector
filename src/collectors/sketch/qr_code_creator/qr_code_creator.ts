@@ -32,6 +32,9 @@ export class QrCodeCreatorCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the QrCodeCreatorCollector class.
+     */
     constructor() {
         super(QrCodeCreatorCollector.CONFIG);
     }

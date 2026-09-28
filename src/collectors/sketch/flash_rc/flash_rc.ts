@@ -32,6 +32,9 @@ export class FlashRcCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FlashRcCollector class.
+     */
     constructor() {
         super(FlashRcCollector.CONFIG);
     }

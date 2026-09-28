@@ -32,6 +32,9 @@ export class TurnoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TurnoCollector class.
+     */
     constructor() {
         super(TurnoCollector.CONFIG);
     }

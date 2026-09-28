@@ -32,6 +32,9 @@ export class AirBpCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AirBpCollector class.
+     */
     constructor() {
         super(AirBpCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class FreightcoreCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FreightcoreCollector class.
+     */
     constructor() {
         super(FreightcoreCollector.CONFIG);
     }

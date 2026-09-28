@@ -32,6 +32,9 @@ export class GitbookCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GitbookCollector class.
+     */
     constructor() {
         super(GitbookCollector.CONFIG);
     }

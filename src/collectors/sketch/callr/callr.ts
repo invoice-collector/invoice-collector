@@ -32,6 +32,9 @@ export class CallrCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CallrCollector class.
+     */
     constructor() {
         super(CallrCollector.CONFIG);
     }

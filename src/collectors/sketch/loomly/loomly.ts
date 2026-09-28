@@ -32,6 +32,9 @@ export class LoomlyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LoomlyCollector class.
+     */
     constructor() {
         super(LoomlyCollector.CONFIG);
     }

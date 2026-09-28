@@ -32,6 +32,9 @@ export class TrivagoComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TrivagoComCollector class.
+     */
     constructor() {
         super(TrivagoComCollector.CONFIG);
     }

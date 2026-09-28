@@ -32,6 +32,9 @@ export class HausAndGrundSchleswigHolsteinCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HausAndGrundSchleswigHolsteinCollector class.
+     */
     constructor() {
         super(HausAndGrundSchleswigHolsteinCollector.CONFIG);
     }

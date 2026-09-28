@@ -32,6 +32,9 @@ export class AigrowCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AigrowCollector class.
+     */
     constructor() {
         super(AigrowCollector.CONFIG);
     }

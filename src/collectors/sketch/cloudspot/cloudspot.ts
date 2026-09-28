@@ -32,6 +32,9 @@ export class CloudspotCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CloudspotCollector class.
+     */
     constructor() {
         super(CloudspotCollector.CONFIG);
     }

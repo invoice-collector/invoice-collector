@@ -32,6 +32,9 @@ export class TelenorDkErhvervCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TelenorDkErhvervCollector class.
+     */
     constructor() {
         super(TelenorDkErhvervCollector.CONFIG);
     }

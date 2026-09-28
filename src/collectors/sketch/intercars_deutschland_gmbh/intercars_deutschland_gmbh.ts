@@ -32,6 +32,9 @@ export class IntercarsDeutschlandGmbhCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the IntercarsDeutschlandGmbhCollector class.
+     */
     constructor() {
         super(IntercarsDeutschlandGmbhCollector.CONFIG);
     }

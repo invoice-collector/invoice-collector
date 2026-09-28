@@ -32,6 +32,9 @@ export class PetroCanadaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PetroCanadaCollector class.
+     */
     constructor() {
         super(PetroCanadaCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class TellaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TellaCollector class.
+     */
     constructor() {
         super(TellaCollector.CONFIG);
     }

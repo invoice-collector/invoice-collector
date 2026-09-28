@@ -32,6 +32,9 @@ export class Server4youComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Server4youComCollector class.
+     */
     constructor() {
         super(Server4youComCollector.CONFIG);
     }

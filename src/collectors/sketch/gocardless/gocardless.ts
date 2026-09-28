@@ -32,6 +32,9 @@ export class GocardlessCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GocardlessCollector class.
+     */
     constructor() {
         super(GocardlessCollector.CONFIG);
     }

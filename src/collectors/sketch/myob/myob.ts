@@ -32,6 +32,9 @@ export class MyobCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MyobCollector class.
+     */
     constructor() {
         super(MyobCollector.CONFIG);
     }

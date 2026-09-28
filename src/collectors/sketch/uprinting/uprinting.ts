@@ -32,6 +32,9 @@ export class UprintingCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the UprintingCollector class.
+     */
     constructor() {
         super(UprintingCollector.CONFIG);
     }

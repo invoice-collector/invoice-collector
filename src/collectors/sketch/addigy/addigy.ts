@@ -32,6 +32,9 @@ export class AddigyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AddigyCollector class.
+     */
     constructor() {
         super(AddigyCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class WoocommerceShopAdminCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WoocommerceShopAdminCollector class.
+     */
     constructor() {
         super(WoocommerceShopAdminCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class FreshbooksCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FreshbooksCollector class.
+     */
     constructor() {
         super(FreshbooksCollector.CONFIG);
     }

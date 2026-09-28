@@ -32,6 +32,9 @@ export class PrixtelCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PrixtelCollector class.
+     */
     constructor() {
         super(PrixtelCollector.CONFIG);
     }

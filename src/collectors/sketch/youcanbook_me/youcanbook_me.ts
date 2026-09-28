@@ -32,6 +32,9 @@ export class YoucanbookMeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the YoucanbookMeCollector class.
+     */
     constructor() {
         super(YoucanbookMeCollector.CONFIG);
     }

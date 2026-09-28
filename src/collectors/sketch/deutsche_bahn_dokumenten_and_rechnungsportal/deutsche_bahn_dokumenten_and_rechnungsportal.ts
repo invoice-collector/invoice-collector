@@ -32,6 +32,9 @@ export class DeutscheBahnDokumentenAndRechnungsportalCollector extends SketchCol
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DeutscheBahnDokumentenAndRechnungsportalCollector class.
+     */
     constructor() {
         super(DeutscheBahnDokumentenAndRechnungsportalCollector.CONFIG);
     }

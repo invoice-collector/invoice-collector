@@ -32,6 +32,9 @@ export class WimoodshopNlCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WimoodshopNlCollector class.
+     */
     constructor() {
         super(WimoodshopNlCollector.CONFIG);
     }

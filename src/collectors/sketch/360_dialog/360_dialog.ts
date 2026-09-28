@@ -32,6 +32,9 @@ export class _360DialogCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the _360DialogCollector class.
+     */
     constructor() {
         super(_360DialogCollector.CONFIG);
     }

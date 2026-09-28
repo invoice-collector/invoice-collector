@@ -32,6 +32,9 @@ export class CleafinCleanConceptCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CleafinCleanConceptCollector class.
+     */
     constructor() {
         super(CleafinCleanConceptCollector.CONFIG);
     }

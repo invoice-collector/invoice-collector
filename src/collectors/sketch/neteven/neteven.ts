@@ -32,6 +32,9 @@ export class NetevenCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NetevenCollector class.
+     */
     constructor() {
         super(NetevenCollector.CONFIG);
     }

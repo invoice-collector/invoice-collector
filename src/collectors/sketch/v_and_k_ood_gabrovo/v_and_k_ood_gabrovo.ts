@@ -32,6 +32,9 @@ export class VAndKOodGabrovoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VAndKOodGabrovoCollector class.
+     */
     constructor() {
         super(VAndKOodGabrovoCollector.CONFIG);
     }

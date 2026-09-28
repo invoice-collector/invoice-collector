@@ -32,6 +32,9 @@ export class GraphicReseauCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GraphicReseauCollector class.
+     */
     constructor() {
         super(GraphicReseauCollector.CONFIG);
     }

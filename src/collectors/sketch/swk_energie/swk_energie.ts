@@ -32,6 +32,9 @@ export class SwkEnergieCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SwkEnergieCollector class.
+     */
     constructor() {
         super(SwkEnergieCollector.CONFIG);
     }

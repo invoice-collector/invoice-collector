@@ -32,6 +32,9 @@ export class MyfactoriaFrCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MyfactoriaFrCollector class.
+     */
     constructor() {
         super(MyfactoriaFrCollector.CONFIG);
     }

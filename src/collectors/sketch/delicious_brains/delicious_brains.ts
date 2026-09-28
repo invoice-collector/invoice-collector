@@ -32,6 +32,9 @@ export class DeliciousBrainsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DeliciousBrainsCollector class.
+     */
     constructor() {
         super(DeliciousBrainsCollector.CONFIG);
     }

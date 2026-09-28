@@ -32,6 +32,9 @@ export class SmartscoutCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SmartscoutCollector class.
+     */
     constructor() {
         super(SmartscoutCollector.CONFIG);
     }

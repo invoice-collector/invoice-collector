@@ -32,6 +32,9 @@ export class EspaceLinkCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EspaceLinkCollector class.
+     */
     constructor() {
         super(EspaceLinkCollector.CONFIG);
     }

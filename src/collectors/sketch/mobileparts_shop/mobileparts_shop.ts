@@ -32,6 +32,9 @@ export class MobilepartsShopCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MobilepartsShopCollector class.
+     */
     constructor() {
         super(MobilepartsShopCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class BauschLombDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BauschLombDeCollector class.
+     */
     constructor() {
         super(BauschLombDeCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class VegwareCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VegwareCollector class.
+     */
     constructor() {
         super(VegwareCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class RikomCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RikomCollector class.
+     */
     constructor() {
         super(RikomCollector.CONFIG);
     }

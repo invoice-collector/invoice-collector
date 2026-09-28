@@ -32,6 +32,9 @@ export class EdenredBenefetsKundenportalCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EdenredBenefetsKundenportalCollector class.
+     */
     constructor() {
         super(EdenredBenefetsKundenportalCollector.CONFIG);
     }

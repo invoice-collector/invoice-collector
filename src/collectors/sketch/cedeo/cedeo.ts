@@ -32,6 +32,9 @@ export class CedeoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CedeoCollector class.
+     */
     constructor() {
         super(CedeoCollector.CONFIG);
     }

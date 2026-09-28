@@ -32,6 +32,9 @@ export class SmartsheetCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SmartsheetCollector class.
+     */
     constructor() {
         super(SmartsheetCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class InternationalMarketCentersCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the InternationalMarketCentersCollector class.
+     */
     constructor() {
         super(InternationalMarketCentersCollector.CONFIG);
     }

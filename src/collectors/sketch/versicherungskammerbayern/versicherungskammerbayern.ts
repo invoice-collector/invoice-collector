@@ -32,6 +32,9 @@ export class VersicherungskammerbayernCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VersicherungskammerbayernCollector class.
+     */
     constructor() {
         super(VersicherungskammerbayernCollector.CONFIG);
     }

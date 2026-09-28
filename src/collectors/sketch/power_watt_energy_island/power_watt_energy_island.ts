@@ -32,6 +32,9 @@ export class PowerWattEnergyIslandCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PowerWattEnergyIslandCollector class.
+     */
     constructor() {
         super(PowerWattEnergyIslandCollector.CONFIG);
     }

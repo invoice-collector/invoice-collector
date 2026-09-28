@@ -32,6 +32,9 @@ export class TestmanuelCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TestmanuelCollector class.
+     */
     constructor() {
         super(TestmanuelCollector.CONFIG);
     }

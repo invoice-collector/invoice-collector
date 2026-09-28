@@ -32,6 +32,9 @@ export class SliteCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SliteCollector class.
+     */
     constructor() {
         super(SliteCollector.CONFIG);
     }

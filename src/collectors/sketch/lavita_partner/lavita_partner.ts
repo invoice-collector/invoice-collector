@@ -32,6 +32,9 @@ export class LavitaPartnerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LavitaPartnerCollector class.
+     */
     constructor() {
         super(LavitaPartnerCollector.CONFIG);
     }

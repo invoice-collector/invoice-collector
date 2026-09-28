@@ -32,6 +32,9 @@ export class ShNetzCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ShNetzCollector class.
+     */
     constructor() {
         super(ShNetzCollector.CONFIG);
     }

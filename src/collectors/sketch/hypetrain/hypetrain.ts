@@ -32,6 +32,9 @@ export class HypetrainCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HypetrainCollector class.
+     */
     constructor() {
         super(HypetrainCollector.CONFIG);
     }

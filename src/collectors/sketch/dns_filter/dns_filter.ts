@@ -32,6 +32,9 @@ export class DnsFilterCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DnsFilterCollector class.
+     */
     constructor() {
         super(DnsFilterCollector.CONFIG);
     }

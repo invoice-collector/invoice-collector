@@ -32,6 +32,9 @@ export class ElbphilharmonieAndLaeiszhalleHamburgCollector extends SketchCollect
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ElbphilharmonieAndLaeiszhalleHamburgCollector class.
+     */
     constructor() {
         super(ElbphilharmonieAndLaeiszhalleHamburgCollector.CONFIG);
     }

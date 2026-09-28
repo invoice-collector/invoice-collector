@@ -32,6 +32,9 @@ export class EnormailCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EnormailCollector class.
+     */
     constructor() {
         super(EnormailCollector.CONFIG);
     }

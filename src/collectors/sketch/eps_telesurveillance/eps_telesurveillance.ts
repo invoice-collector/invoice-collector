@@ -32,6 +32,9 @@ export class EpsTelesurveillanceCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EpsTelesurveillanceCollector class.
+     */
     constructor() {
         super(EpsTelesurveillanceCollector.CONFIG);
     }

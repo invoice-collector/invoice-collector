@@ -32,6 +32,9 @@ export class LandingiCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LandingiCollector class.
+     */
     constructor() {
         super(LandingiCollector.CONFIG);
     }

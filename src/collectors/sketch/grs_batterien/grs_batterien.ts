@@ -32,6 +32,9 @@ export class GrsBatterienCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GrsBatterienCollector class.
+     */
     constructor() {
         super(GrsBatterienCollector.CONFIG);
     }

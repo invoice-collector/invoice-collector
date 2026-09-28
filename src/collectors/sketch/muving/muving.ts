@@ -32,6 +32,9 @@ export class MuvingCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MuvingCollector class.
+     */
     constructor() {
         super(MuvingCollector.CONFIG);
     }

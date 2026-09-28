@@ -32,6 +32,9 @@ export class MaxpoolCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MaxpoolCollector class.
+     */
     constructor() {
         super(MaxpoolCollector.CONFIG);
     }

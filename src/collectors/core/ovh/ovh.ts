@@ -51,10 +51,16 @@ export class OvhCollector extends ApiCollector {
         state: CollectorState.ACTIVE,
     };
 
+    /**
+     * Constructs a new instance of the OvhCollector class.
+     */
     constructor() {
         super(OvhCollector.CONFIG);
     }
 
+    /**
+     * @inheritdoc
+     */
     async collect(instance: AxiosInstance, webSocketServer: WebSocketServer | undefined, params: any): Promise<any[]> {
         // Set default headers
         instance.defaults.headers.common['X-Ovh-Application'] = params.app_key;
@@ -75,7 +81,9 @@ export class OvhCollector extends ApiCollector {
         }));
     }
     
-    // Define custom method to download invoice
+    /**
+     * @inheritdoc
+     */
     async download(instance: AxiosInstance, invoice: any): Promise<DownloadedInvoice> {
         return {
             ...invoice,
@@ -85,8 +93,15 @@ export class OvhCollector extends ApiCollector {
         };
     }
 
-    // Make request to OVH API
-    async request(instance: AxiosInstance, params: any, method: string, path: string): Promise<any> {
+    /**
+     * Makes a request to the OVH API.
+     * @param instance The Axios instance used to make the request.
+     * @param params The parameters containing authentication information.
+     * @param method The HTTP method to use for the request.
+     * @param path The API endpoint path.
+     * @returns The response data from the OVH API.
+     */
+    private async request(instance: AxiosInstance, params: any, method: string, path: string): Promise<any> {
         const timestamp: string = await this.getAuthTime(instance);
         const response = await instance.request({
             method,
@@ -103,8 +118,12 @@ export class OvhCollector extends ApiCollector {
         return response.data;
     }
 
-    // Get OVH API time
-    async getAuthTime(instance): Promise<string> {
+    /**
+     * Retrieves the current authentication time from the OVH API.
+     * @param instance The Axios instance used to make the request.
+     * @returns The current authentication time as a string.
+     */
+    private async getAuthTime(instance: AxiosInstance): Promise<string> {
         const response = await instance.get('/auth/time');
         if (response.status !== 200) {
             throw new Error('Unable to get auth time');
@@ -112,8 +131,16 @@ export class OvhCollector extends ApiCollector {
         return response.data;
     }
 
-    // Sign request
-    signRequest(params: any, httpMethod: string, url: string, body: string, timestamp: string): string {
+    /**
+     * Signs the request for the OVH API.
+     * @param params The parameters containing authentication information.
+     * @param httpMethod The HTTP method to use for the request.
+     * @param url The full URL of the API endpoint.
+     * @param body The request body as a string.
+     * @param timestamp The current authentication timestamp.
+     * @returns The generated signature for the request.
+     */
+    private signRequest(params: any, httpMethod: string, url: string, body: string, timestamp: string): string {
         const s = [
             params.app_secret,
             params.consumer_key,

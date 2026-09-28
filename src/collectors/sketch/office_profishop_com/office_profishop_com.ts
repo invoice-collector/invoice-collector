@@ -32,6 +32,9 @@ export class OfficeProfishopComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OfficeProfishopComCollector class.
+     */
     constructor() {
         super(OfficeProfishopComCollector.CONFIG);
     }

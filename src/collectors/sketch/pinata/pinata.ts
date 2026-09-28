@@ -32,6 +32,9 @@ export class PinataCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PinataCollector class.
+     */
     constructor() {
         super(PinataCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class BernerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BernerCollector class.
+     */
     constructor() {
         super(BernerCollector.CONFIG);
     }

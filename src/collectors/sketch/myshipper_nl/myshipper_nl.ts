@@ -32,6 +32,9 @@ export class MyshipperNlCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MyshipperNlCollector class.
+     */
     constructor() {
         super(MyshipperNlCollector.CONFIG);
     }

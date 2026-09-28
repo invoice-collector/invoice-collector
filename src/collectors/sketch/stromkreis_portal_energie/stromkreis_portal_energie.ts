@@ -32,6 +32,9 @@ export class StromkreisPortalEnergieCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StromkreisPortalEnergieCollector class.
+     */
     constructor() {
         super(StromkreisPortalEnergieCollector.CONFIG);
     }

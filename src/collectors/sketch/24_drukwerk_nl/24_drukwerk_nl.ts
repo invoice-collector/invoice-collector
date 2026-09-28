@@ -32,6 +32,9 @@ export class _24DrukwerkNlCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the _24DrukwerkNlCollector class.
+     */
     constructor() {
         super(_24DrukwerkNlCollector.CONFIG);
     }

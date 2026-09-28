@@ -32,6 +32,9 @@ export class Tyre24SupplierCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Tyre24SupplierCollector class.
+     */
     constructor() {
         super(Tyre24SupplierCollector.CONFIG);
     }

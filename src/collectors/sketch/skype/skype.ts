@@ -32,6 +32,9 @@ export class SkypeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SkypeCollector class.
+     */
     constructor() {
         super(SkypeCollector.CONFIG);
     }

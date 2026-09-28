@@ -32,6 +32,9 @@ export class OneSourceCommunicationCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OneSourceCommunicationCollector class.
+     */
     constructor() {
         super(OneSourceCommunicationCollector.CONFIG);
     }

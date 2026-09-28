@@ -32,6 +32,9 @@ export class AussieBroadbandCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AussieBroadbandCollector class.
+     */
     constructor() {
         super(AussieBroadbandCollector.CONFIG);
     }

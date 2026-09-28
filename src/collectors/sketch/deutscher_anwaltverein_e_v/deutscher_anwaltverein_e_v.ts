@@ -32,6 +32,9 @@ export class DeutscherAnwaltvereinEVCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DeutscherAnwaltvereinEVCollector class.
+     */
     constructor() {
         super(DeutscherAnwaltvereinEVCollector.CONFIG);
     }

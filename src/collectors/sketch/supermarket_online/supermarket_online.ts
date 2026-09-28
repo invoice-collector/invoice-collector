@@ -32,6 +32,9 @@ export class SupermarketOnlineCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SupermarketOnlineCollector class.
+     */
     constructor() {
         super(SupermarketOnlineCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class StadtwerkeBrettenCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StadtwerkeBrettenCollector class.
+     */
     constructor() {
         super(StadtwerkeBrettenCollector.CONFIG);
     }

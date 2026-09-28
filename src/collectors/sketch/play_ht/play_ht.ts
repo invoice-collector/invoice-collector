@@ -32,6 +32,9 @@ export class PlayHtCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PlayHtCollector class.
+     */
     constructor() {
         super(PlayHtCollector.CONFIG);
     }

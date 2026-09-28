@@ -32,6 +32,9 @@ export class EastValleyWaterDistrictCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EastValleyWaterDistrictCollector class.
+     */
     constructor() {
         super(EastValleyWaterDistrictCollector.CONFIG);
     }

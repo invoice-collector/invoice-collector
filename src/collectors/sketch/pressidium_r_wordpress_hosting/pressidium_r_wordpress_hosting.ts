@@ -32,6 +32,9 @@ export class PressidiumRWordpressHostingCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PressidiumRWordpressHostingCollector class.
+     */
     constructor() {
         super(PressidiumRWordpressHostingCollector.CONFIG);
     }

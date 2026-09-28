@@ -32,6 +32,9 @@ export class DripifyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DripifyCollector class.
+     */
     constructor() {
         super(DripifyCollector.CONFIG);
     }

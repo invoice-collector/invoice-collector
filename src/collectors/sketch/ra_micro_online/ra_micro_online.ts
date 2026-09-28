@@ -32,6 +32,9 @@ export class RaMicroOnlineCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RaMicroOnlineCollector class.
+     */
     constructor() {
         super(RaMicroOnlineCollector.CONFIG);
     }

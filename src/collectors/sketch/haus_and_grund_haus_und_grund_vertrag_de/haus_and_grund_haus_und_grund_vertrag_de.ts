@@ -32,6 +32,9 @@ export class HausAndGrundHausUndGrundVertragDeCollector extends SketchCollector 
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HausAndGrundHausUndGrundVertragDeCollector class.
+     */
     constructor() {
         super(HausAndGrundHausUndGrundVertragDeCollector.CONFIG);
     }

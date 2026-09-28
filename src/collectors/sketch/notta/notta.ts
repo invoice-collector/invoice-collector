@@ -32,6 +32,9 @@ export class NottaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NottaCollector class.
+     */
     constructor() {
         super(NottaCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class ObbOebbAtCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ObbOebbAtCollector class.
+     */
     constructor() {
         super(ObbOebbAtCollector.CONFIG);
     }

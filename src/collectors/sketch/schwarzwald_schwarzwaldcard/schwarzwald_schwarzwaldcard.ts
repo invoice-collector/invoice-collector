@@ -32,6 +32,9 @@ export class SchwarzwaldSchwarzwaldcardCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SchwarzwaldSchwarzwaldcardCollector class.
+     */
     constructor() {
         super(SchwarzwaldSchwarzwaldcardCollector.CONFIG);
     }

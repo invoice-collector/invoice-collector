@@ -32,6 +32,9 @@ export class NetfirmsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NetfirmsCollector class.
+     */
     constructor() {
         super(NetfirmsCollector.CONFIG);
     }

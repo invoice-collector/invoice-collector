@@ -32,6 +32,9 @@ export class UmsatzIoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the UmsatzIoCollector class.
+     */
     constructor() {
         super(UmsatzIoCollector.CONFIG);
     }

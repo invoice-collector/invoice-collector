@@ -32,6 +32,9 @@ export class OvagEnergieWasserServicesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OvagEnergieWasserServicesCollector class.
+     */
     constructor() {
         super(OvagEnergieWasserServicesCollector.CONFIG);
     }

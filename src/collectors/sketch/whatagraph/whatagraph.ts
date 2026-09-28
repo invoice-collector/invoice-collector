@@ -32,6 +32,9 @@ export class WhatagraphCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WhatagraphCollector class.
+     */
     constructor() {
         super(WhatagraphCollector.CONFIG);
     }

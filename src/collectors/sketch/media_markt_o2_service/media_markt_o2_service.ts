@@ -32,6 +32,9 @@ export class MediaMarktO2ServiceCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MediaMarktO2ServiceCollector class.
+     */
     constructor() {
         super(MediaMarktO2ServiceCollector.CONFIG);
     }

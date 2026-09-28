@@ -32,6 +32,9 @@ export class WestbahnCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WestbahnCollector class.
+     */
     constructor() {
         super(WestbahnCollector.CONFIG);
     }

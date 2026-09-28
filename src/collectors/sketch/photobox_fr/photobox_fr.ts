@@ -32,6 +32,9 @@ export class PhotoboxFrCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PhotoboxFrCollector class.
+     */
     constructor() {
         super(PhotoboxFrCollector.CONFIG);
     }

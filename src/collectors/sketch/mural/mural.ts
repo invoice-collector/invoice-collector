@@ -32,6 +32,9 @@ export class MuralCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MuralCollector class.
+     */
     constructor() {
         super(MuralCollector.CONFIG);
     }

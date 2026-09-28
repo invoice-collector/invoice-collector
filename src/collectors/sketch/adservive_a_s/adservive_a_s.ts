@@ -32,6 +32,9 @@ export class AdserviveASCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AdserviveASCollector class.
+     */
     constructor() {
         super(AdserviveASCollector.CONFIG);
     }

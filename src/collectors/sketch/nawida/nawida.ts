@@ -32,6 +32,9 @@ export class NawidaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NawidaCollector class.
+     */
     constructor() {
         super(NawidaCollector.CONFIG);
     }

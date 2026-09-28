@@ -32,6 +32,9 @@ export class StadtwerkeLudenscheidCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StadtwerkeLudenscheidCollector class.
+     */
     constructor() {
         super(StadtwerkeLudenscheidCollector.CONFIG);
     }

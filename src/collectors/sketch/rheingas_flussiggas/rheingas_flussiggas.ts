@@ -32,6 +32,9 @@ export class RheingasFlussiggasCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RheingasFlussiggasCollector class.
+     */
     constructor() {
         super(RheingasFlussiggasCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class SdbmCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SdbmCollector class.
+     */
     constructor() {
         super(SdbmCollector.CONFIG);
     }

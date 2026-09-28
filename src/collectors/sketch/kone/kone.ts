@@ -31,6 +31,9 @@ export class KoneCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KoneCollector class.
+     */
     constructor() {
         super(KoneCollector.CONFIG);
     }

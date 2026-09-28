@@ -32,6 +32,9 @@ export class VodafoneGreeceCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VodafoneGreeceCollector class.
+     */
     constructor() {
         super(VodafoneGreeceCollector.CONFIG);
     }

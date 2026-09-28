@@ -32,6 +32,9 @@ export class DandomainDkCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DandomainDkCollector class.
+     */
     constructor() {
         super(DandomainDkCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class CuedbCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CuedbCollector class.
+     */
     constructor() {
         super(CuedbCollector.CONFIG);
     }

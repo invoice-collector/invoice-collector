@@ -32,6 +32,9 @@ export class FastcometCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FastcometCollector class.
+     */
     constructor() {
         super(FastcometCollector.CONFIG);
     }

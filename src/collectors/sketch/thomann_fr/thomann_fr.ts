@@ -32,6 +32,9 @@ export class ThomannFrCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ThomannFrCollector class.
+     */
     constructor() {
         super(ThomannFrCollector.CONFIG);
     }

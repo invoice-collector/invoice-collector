@@ -32,6 +32,9 @@ export class OnoffBusinessCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OnoffBusinessCollector class.
+     */
     constructor() {
         super(OnoffBusinessCollector.CONFIG);
     }

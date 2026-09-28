@@ -32,6 +32,9 @@ export class WaalazyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WaalazyCollector class.
+     */
     constructor() {
         super(WaalazyCollector.CONFIG);
     }

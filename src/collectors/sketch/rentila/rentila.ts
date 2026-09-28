@@ -32,6 +32,9 @@ export class RentilaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RentilaCollector class.
+     */
     constructor() {
         super(RentilaCollector.CONFIG);
     }

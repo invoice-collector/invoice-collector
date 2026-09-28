@@ -32,6 +32,9 @@ export class DeskbookersCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DeskbookersCollector class.
+     */
     constructor() {
         super(DeskbookersCollector.CONFIG);
     }

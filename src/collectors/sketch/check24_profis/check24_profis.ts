@@ -32,6 +32,9 @@ export class Check24ProfisCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Check24ProfisCollector class.
+     */
     constructor() {
         super(Check24ProfisCollector.CONFIG);
     }

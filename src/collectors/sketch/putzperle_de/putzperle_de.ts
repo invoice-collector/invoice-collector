@@ -32,6 +32,9 @@ export class PutzperleDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PutzperleDeCollector class.
+     */
     constructor() {
         super(PutzperleDeCollector.CONFIG);
     }

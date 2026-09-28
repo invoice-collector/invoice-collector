@@ -32,6 +32,9 @@ export class ScvWaterCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ScvWaterCollector class.
+     */
     constructor() {
         super(ScvWaterCollector.CONFIG);
     }

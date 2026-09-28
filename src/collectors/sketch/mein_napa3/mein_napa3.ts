@@ -32,6 +32,9 @@ export class MeinNapa3Collector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MeinNapa3Collector class.
+     */
     constructor() {
         super(MeinNapa3Collector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class SocialBladeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SocialBladeCollector class.
+     */
     constructor() {
         super(SocialBladeCollector.CONFIG);
     }

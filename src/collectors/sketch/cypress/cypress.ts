@@ -32,6 +32,9 @@ export class CypressCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CypressCollector class.
+     */
     constructor() {
         super(CypressCollector.CONFIG);
     }

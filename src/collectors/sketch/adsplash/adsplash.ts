@@ -32,6 +32,9 @@ export class AdsplashCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AdsplashCollector class.
+     */
     constructor() {
         super(AdsplashCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class SprintlyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SprintlyCollector class.
+     */
     constructor() {
         super(SprintlyCollector.CONFIG);
     }

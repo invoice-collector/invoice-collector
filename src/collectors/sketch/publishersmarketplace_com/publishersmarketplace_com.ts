@@ -32,6 +32,9 @@ export class PublishersmarketplaceComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PublishersmarketplaceComCollector class.
+     */
     constructor() {
         super(PublishersmarketplaceComCollector.CONFIG);
     }

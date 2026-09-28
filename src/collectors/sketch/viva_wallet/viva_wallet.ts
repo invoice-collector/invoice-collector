@@ -32,6 +32,9 @@ export class VivaWalletCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VivaWalletCollector class.
+     */
     constructor() {
         super(VivaWalletCollector.CONFIG);
     }

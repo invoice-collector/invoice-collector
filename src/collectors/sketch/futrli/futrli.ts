@@ -32,6 +32,9 @@ export class FutrliCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FutrliCollector class.
+     */
     constructor() {
         super(FutrliCollector.CONFIG);
     }

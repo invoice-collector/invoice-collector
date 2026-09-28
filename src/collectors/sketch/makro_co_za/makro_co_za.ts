@@ -32,6 +32,9 @@ export class MakroCoZaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MakroCoZaCollector class.
+     */
     constructor() {
         super(MakroCoZaCollector.CONFIG);
     }

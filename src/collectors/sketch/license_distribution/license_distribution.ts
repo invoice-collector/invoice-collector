@@ -32,6 +32,9 @@ export class LicenseDistributionCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LicenseDistributionCollector class.
+     */
     constructor() {
         super(LicenseDistributionCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class EbaseCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EbaseCollector class.
+     */
     constructor() {
         super(EbaseCollector.CONFIG);
     }

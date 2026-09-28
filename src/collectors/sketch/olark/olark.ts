@@ -32,6 +32,9 @@ export class OlarkCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OlarkCollector class.
+     */
     constructor() {
         super(OlarkCollector.CONFIG);
     }

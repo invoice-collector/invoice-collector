@@ -32,6 +32,9 @@ export class MmfProCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MmfProCollector class.
+     */
     constructor() {
         super(MmfProCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class AsosMarketplaceCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AsosMarketplaceCollector class.
+     */
     constructor() {
         super(AsosMarketplaceCollector.CONFIG);
     }

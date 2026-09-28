@@ -32,6 +32,9 @@ export class VandebronCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VandebronCollector class.
+     */
     constructor() {
         super(VandebronCollector.CONFIG);
     }

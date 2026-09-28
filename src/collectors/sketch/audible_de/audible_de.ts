@@ -32,6 +32,9 @@ export class AudibleDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AudibleDeCollector class.
+     */
     constructor() {
         super(AudibleDeCollector.CONFIG);
     }

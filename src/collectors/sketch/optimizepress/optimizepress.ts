@@ -32,6 +32,9 @@ export class OptimizepressCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OptimizepressCollector class.
+     */
     constructor() {
         super(OptimizepressCollector.CONFIG);
     }

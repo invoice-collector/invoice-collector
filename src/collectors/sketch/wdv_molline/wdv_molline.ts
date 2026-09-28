@@ -32,6 +32,9 @@ export class WdvMollineCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WdvMollineCollector class.
+     */
     constructor() {
         super(WdvMollineCollector.CONFIG);
     }

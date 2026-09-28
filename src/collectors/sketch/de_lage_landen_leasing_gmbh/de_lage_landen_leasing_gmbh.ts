@@ -32,6 +32,9 @@ export class DeLageLandenLeasingGmbhCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DeLageLandenLeasingGmbhCollector class.
+     */
     constructor() {
         super(DeLageLandenLeasingGmbhCollector.CONFIG);
     }

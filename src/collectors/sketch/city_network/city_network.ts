@@ -32,6 +32,9 @@ export class CityNetworkCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CityNetworkCollector class.
+     */
     constructor() {
         super(CityNetworkCollector.CONFIG);
     }

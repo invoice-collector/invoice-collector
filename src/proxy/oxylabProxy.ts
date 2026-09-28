@@ -14,12 +14,18 @@ export class OxylabProxy extends AbstractProxy {
     username: string;
     password: string;
 
+    /**
+     * Constructs an instance of the OxylabProxy class.
+     */
     constructor() {
         super();
         this.username = utils.getEnvVar('PROXY_OXYLAB_USERNAME');
         this.password = utils.getEnvVar('PROXY_OXYLAB_PASSWORD');
     }
 
+    /**
+     * @inheritdoc
+     */
     async get(location: Location | null): Promise<Proxy | null> {
         if(location === null) {
             console.log('Location is unknown, using default location');
@@ -41,9 +47,9 @@ export class OxylabProxy extends AbstractProxy {
     /**
      * Ensures that the provided proxy can be constrained to specific coordinates
      * by making a test request to a predefined location URL.
-     *
      * @param proxy - The proxy configuration object containing the URI to be tested.
-     * @throws {Error} Throws an error with a cause if the proxy cannot be constrained to the specified coordinates.
+     * @param location The target location to which the proxy should be constrained.
+     * @throws An error with a cause if the proxy cannot be constrained to the specified coordinates.
      */
     async geoConstrain(proxy: Proxy, location: Location): Promise<void> {
         for (const radius of OxylabProxy.RADIUS_ACCURACIES) {

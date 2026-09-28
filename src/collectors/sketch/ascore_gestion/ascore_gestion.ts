@@ -32,6 +32,9 @@ export class AscoreGestionCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AscoreGestionCollector class.
+     */
     constructor() {
         super(AscoreGestionCollector.CONFIG);
     }

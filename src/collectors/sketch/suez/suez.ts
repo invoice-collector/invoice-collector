@@ -32,6 +32,9 @@ export class SuezCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SuezCollector class.
+     */
     constructor() {
         super(SuezCollector.CONFIG);
     }

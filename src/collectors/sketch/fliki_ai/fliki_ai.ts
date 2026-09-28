@@ -32,6 +32,9 @@ export class FlikiAiCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FlikiAiCollector class.
+     */
     constructor() {
         super(FlikiAiCollector.CONFIG);
     }

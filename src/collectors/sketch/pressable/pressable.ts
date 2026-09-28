@@ -32,6 +32,9 @@ export class PressableCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PressableCollector class.
+     */
     constructor() {
         super(PressableCollector.CONFIG);
     }

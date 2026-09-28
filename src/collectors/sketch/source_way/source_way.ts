@@ -32,6 +32,9 @@ export class SourceWayCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SourceWayCollector class.
+     */
     constructor() {
         super(SourceWayCollector.CONFIG);
     }

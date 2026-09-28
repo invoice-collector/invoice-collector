@@ -32,6 +32,9 @@ export class FlexclipCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FlexclipCollector class.
+     */
     constructor() {
         super(FlexclipCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class SquadcastCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SquadcastCollector class.
+     */
     constructor() {
         super(SquadcastCollector.CONFIG);
     }

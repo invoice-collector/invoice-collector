@@ -32,6 +32,9 @@ export class PurchasePowerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PurchasePowerCollector class.
+     */
     constructor() {
         super(PurchasePowerCollector.CONFIG);
     }

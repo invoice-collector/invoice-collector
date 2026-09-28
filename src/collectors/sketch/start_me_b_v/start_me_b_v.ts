@@ -32,6 +32,9 @@ export class StartMeBVCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StartMeBVCollector class.
+     */
     constructor() {
         super(StartMeBVCollector.CONFIG);
     }

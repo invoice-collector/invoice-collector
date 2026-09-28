@@ -23,6 +23,9 @@ export abstract class LinearWebCollector extends WebCollector {
 
     static DEFAULT_DOCUMENT_STRATEGY = DocumentStrategy.SPLIT;
 
+    /**
+     * @inheritdoc
+     */
     async _collect(
         state: State,
         webSocketServer: WebSocketServer | undefined,
@@ -354,10 +357,20 @@ export abstract class LinearWebCollector extends WebCollector {
     }
 
     //NOT IMPLEMENTED
+
+    /**
+     * Performs any pre-collection actions required by the collector.
+     * @param driver The driver instance used to perform the pre-collection actions.
+     */
     async pre(driver: AbstractDriver): Promise<void> {
         // Assume the collector does not need pre actions
     }
 
+    /**
+     * Determines whether the collector needs to perform a login action.
+     * @param driver The driver instance used to check the login status.
+     * @returns `true` if login is required, `false` otherwise.
+     */
     async needLogin(driver: AbstractDriver): Promise<boolean>{
         // User is not logged in if:
         // - entryUrl is not defined = always need go through login process
@@ -365,33 +378,83 @@ export abstract class LinearWebCollector extends WebCollector {
         return this.config.entryUrl === undefined || !driver.url().includes(this.config.entryUrl);
     }
 
+    /**
+     * Performs the login action for the collector.
+     * @param driver The driver instance used to perform the login.
+     * @param params The parameters required for the login process.
+     * @returns Nothing if the login is successful, or a string result if an error is displayed on screen.
+     */
     abstract login(driver: AbstractDriver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string |void>;
 
+    /**
+     * Checks whether the collector needs to perform a two-factor authentication (2FA) action.
+     * @param driver The driver instance used to check the 2FA status.
+     * @returns Nothing if 2FA is not required, or 2FA instructions if 2FA is needed.
+     */
     async needTwofa(driver: AbstractDriver): Promise<string | void>{
         // Assume the collector does not implement 2FA
     }
 
+    /**
+     * Performs the two-factor authentication (2FA) action for the collector.
+     * @param driver The driver instance used to perform the 2FA.
+     * @param params The parameters required for the 2FA process.
+     * @param twofa_promise The promise object used to handle the 2FA result.
+     * @param webSocketServer The WebSocket server instance for real-time communication.
+     * @returns Nothing if the 2FA is successful, or a string result if an error is displayed on screen.
+     */
     async twofa(driver: AbstractDriver, params: any, twofa_promise: TwofaPromise, webSocketServer: WebSocketServer): Promise<string | void> {
         // Assume the collector does not implement 2FA
     }
 
+    /**
+     * Navigates to the invoices/orders/commands page.
+     * @param driver The driver instance used to perform the navigation.
+     */
     async navigate(driver: AbstractDriver): Promise<void> {
         // Assume the collector does not need navigation
     }
 
+    /**
+     * Checks whether the page does not contain any invoices/orders/commands.
+     * @param driver The driver instance used to perform the check.
+     * @returns `true` if there are no invoices/orders/commands, `false` otherwise.
+     */
     async isEmpty(driver: AbstractDriver): Promise<boolean> {
         // Assume invoices are present
         return false;
     }
 
+    /**
+     * Iterates over each page of invoices/orders/commands.
+     * @param driver The driver instance used to perform the pagination.
+     * @param next A callback function to be called for each page.
+     */
     async forEachPage(driver: AbstractDriver, next: () => Promise<void>): Promise<void> {
         // Assume the collector does not have pagination
         await next();
     }
 
+    /**
+     * Retrieves the list of invoice elements from the page.
+     * @param driver The driver instance used to perform the retrieval.
+     * @returns An array of invoice elements.
+     */
     abstract getInvoices(driver: AbstractDriver): Promise<Element[]>;
 
+    /**
+     * Retrieves the data for a specific invoice element.
+     * @param driver The driver instance used to perform the retrieval.
+     * @param element The invoice element from which to extract the data.
+     * @returns The extracted invoice data, or `null` if the invoice collection must be canceled.
+     */
     abstract data(driver: AbstractDriver, element: Element): Promise<Invoice | null>;
 
+    /**
+     * Downloads the files associated with a specific invoice.
+     * @param driver The driver instance used to perform the download.
+     * @param invoice The invoice for which to download the files.
+     * @returns An array of file paths for the downloaded files.
+     */
     abstract download(driver: AbstractDriver, invoice: Invoice): Promise<string[]>;
 }

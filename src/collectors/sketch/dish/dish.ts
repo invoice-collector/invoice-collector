@@ -32,6 +32,9 @@ export class DishCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DishCollector class.
+     */
     constructor() {
         super(DishCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class ShopstarCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ShopstarCollector class.
+     */
     constructor() {
         super(ShopstarCollector.CONFIG);
     }

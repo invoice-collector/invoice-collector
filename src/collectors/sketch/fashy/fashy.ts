@@ -32,6 +32,9 @@ export class FashyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FashyCollector class.
+     */
     constructor() {
         super(FashyCollector.CONFIG);
     }

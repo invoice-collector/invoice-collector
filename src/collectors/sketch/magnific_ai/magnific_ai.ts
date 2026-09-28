@@ -32,6 +32,9 @@ export class MagnificAiCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MagnificAiCollector class.
+     */
     constructor() {
         super(MagnificAiCollector.CONFIG);
     }

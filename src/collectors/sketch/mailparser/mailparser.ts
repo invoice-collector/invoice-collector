@@ -32,6 +32,9 @@ export class MailparserCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MailparserCollector class.
+     */
     constructor() {
         super(MailparserCollector.CONFIG);
     }

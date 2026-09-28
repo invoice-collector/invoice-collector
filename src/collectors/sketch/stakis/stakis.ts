@@ -32,6 +32,9 @@ export class StakisCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StakisCollector class.
+     */
     constructor() {
         super(StakisCollector.CONFIG);
     }

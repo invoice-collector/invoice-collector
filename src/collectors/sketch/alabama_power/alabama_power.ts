@@ -32,6 +32,9 @@ export class AlabamaPowerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AlabamaPowerCollector class.
+     */
     constructor() {
         super(AlabamaPowerCollector.CONFIG);
     }

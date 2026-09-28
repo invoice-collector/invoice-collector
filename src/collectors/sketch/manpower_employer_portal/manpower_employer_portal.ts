@@ -32,6 +32,9 @@ export class ManpowerEmployerPortalCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ManpowerEmployerPortalCollector class.
+     */
     constructor() {
         super(ManpowerEmployerPortalCollector.CONFIG);
     }

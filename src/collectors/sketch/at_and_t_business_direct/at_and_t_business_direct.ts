@@ -32,6 +32,9 @@ export class AtAndTBusinessDirectCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AtAndTBusinessDirectCollector class.
+     */
     constructor() {
         super(AtAndTBusinessDirectCollector.CONFIG);
     }

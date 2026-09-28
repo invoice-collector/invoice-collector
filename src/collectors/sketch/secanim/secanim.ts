@@ -32,6 +32,9 @@ export class SecanimCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SecanimCollector class.
+     */
     constructor() {
         super(SecanimCollector.CONFIG);
     }

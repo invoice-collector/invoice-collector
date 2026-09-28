@@ -32,6 +32,9 @@ export class TeslaHandschuhfachCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TeslaHandschuhfachCollector class.
+     */
     constructor() {
         super(TeslaHandschuhfachCollector.CONFIG);
     }

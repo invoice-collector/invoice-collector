@@ -32,6 +32,9 @@ export class TalkmobileCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TalkmobileCollector class.
+     */
     constructor() {
         super(TalkmobileCollector.CONFIG);
     }

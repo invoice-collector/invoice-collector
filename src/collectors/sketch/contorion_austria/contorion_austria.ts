@@ -32,6 +32,9 @@ export class ContorionAustriaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ContorionAustriaCollector class.
+     */
     constructor() {
         super(ContorionAustriaCollector.CONFIG);
     }

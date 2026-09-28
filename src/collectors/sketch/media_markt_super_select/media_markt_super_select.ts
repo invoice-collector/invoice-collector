@@ -32,6 +32,9 @@ export class MediaMarktSuperSelectCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MediaMarktSuperSelectCollector class.
+     */
     constructor() {
         super(MediaMarktSuperSelectCollector.CONFIG);
     }

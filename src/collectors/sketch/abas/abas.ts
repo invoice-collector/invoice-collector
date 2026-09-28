@@ -32,6 +32,9 @@ export class AbasCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AbasCollector class.
+     */
     constructor() {
         super(AbasCollector.CONFIG);
     }

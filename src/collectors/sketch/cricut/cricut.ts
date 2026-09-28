@@ -32,6 +32,9 @@ export class CricutCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CricutCollector class.
+     */
     constructor() {
         super(CricutCollector.CONFIG);
     }

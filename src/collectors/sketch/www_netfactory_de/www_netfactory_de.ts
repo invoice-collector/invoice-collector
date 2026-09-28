@@ -32,6 +32,9 @@ export class WwwNetfactoryDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WwwNetfactoryDeCollector class.
+     */
     constructor() {
         super(WwwNetfactoryDeCollector.CONFIG);
     }

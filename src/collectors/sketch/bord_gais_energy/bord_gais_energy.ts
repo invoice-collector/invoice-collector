@@ -32,6 +32,9 @@ export class BordGaisEnergyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BordGaisEnergyCollector class.
+     */
     constructor() {
         super(BordGaisEnergyCollector.CONFIG);
     }

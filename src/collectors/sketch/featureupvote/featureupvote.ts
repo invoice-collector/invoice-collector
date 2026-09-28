@@ -32,6 +32,9 @@ export class FeatureupvoteCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FeatureupvoteCollector class.
+     */
     constructor() {
         super(FeatureupvoteCollector.CONFIG);
     }

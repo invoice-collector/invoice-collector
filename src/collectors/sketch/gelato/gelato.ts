@@ -32,6 +32,9 @@ export class GelatoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GelatoCollector class.
+     */
     constructor() {
         super(GelatoCollector.CONFIG);
     }

@@ -5,6 +5,14 @@ import { RemoteBrowser } from './remoteBrowser';
 import { Proxy } from '../../proxy/abstractProxy';
 
 export class BrowserFactory {
+
+    /**
+     * Connects to either a remote or local browser based on the specified parameters.
+     * @param remoteBrowser A boolean indicating whether to connect to a remote browser (true) or a local browser (false).
+     * @param locale The locale to configure the browser for.
+     * @param proxy The proxy settings to use for the browser connection, or null if no proxy is used.
+     * @returns An object containing the connected browser instance and the page with cursor support.
+     */
     static async connect(remoteBrowser: boolean, locale: string, proxy: Proxy | null): Promise<{
         browser: AbstractBrowser,
         page: PageWithCursor

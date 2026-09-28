@@ -32,6 +32,9 @@ export class BlinkplanCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BlinkplanCollector class.
+     */
     constructor() {
         super(BlinkplanCollector.CONFIG);
     }

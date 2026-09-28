@@ -32,6 +32,9 @@ export class DeltaTCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DeltaTCollector class.
+     */
     constructor() {
         super(DeltaTCollector.CONFIG);
     }

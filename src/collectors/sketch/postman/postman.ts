@@ -32,6 +32,9 @@ export class PostmanCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PostmanCollector class.
+     */
     constructor() {
         super(PostmanCollector.CONFIG);
     }

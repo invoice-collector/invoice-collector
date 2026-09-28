@@ -32,6 +32,9 @@ export class ExtrasauberCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ExtrasauberCollector class.
+     */
     constructor() {
         super(ExtrasauberCollector.CONFIG);
     }

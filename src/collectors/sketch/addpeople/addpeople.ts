@@ -32,6 +32,9 @@ export class AddpeopleCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AddpeopleCollector class.
+     */
     constructor() {
         super(AddpeopleCollector.CONFIG);
     }

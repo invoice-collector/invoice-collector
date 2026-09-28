@@ -32,6 +32,9 @@ export class KautBullingerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KautBullingerCollector class.
+     */
     constructor() {
         super(KautBullingerCollector.CONFIG);
     }

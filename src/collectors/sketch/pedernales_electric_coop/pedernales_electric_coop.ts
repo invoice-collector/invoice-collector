@@ -32,6 +32,9 @@ export class PedernalesElectricCoopCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PedernalesElectricCoopCollector class.
+     */
     constructor() {
         super(PedernalesElectricCoopCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class TaskworldCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TaskworldCollector class.
+     */
     constructor() {
         super(TaskworldCollector.CONFIG);
     }

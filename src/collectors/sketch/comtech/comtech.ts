@@ -32,6 +32,9 @@ export class ComtechCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ComtechCollector class.
+     */
     constructor() {
         super(ComtechCollector.CONFIG);
     }

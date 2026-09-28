@@ -32,6 +32,9 @@ export class ShoppaginaNlCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ShoppaginaNlCollector class.
+     */
     constructor() {
         super(ShoppaginaNlCollector.CONFIG);
     }

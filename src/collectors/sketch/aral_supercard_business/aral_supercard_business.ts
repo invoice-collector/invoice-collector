@@ -32,6 +32,9 @@ export class AralSupercardBusinessCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AralSupercardBusinessCollector class.
+     */
     constructor() {
         super(AralSupercardBusinessCollector.CONFIG);
     }

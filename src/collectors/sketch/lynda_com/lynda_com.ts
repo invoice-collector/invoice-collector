@@ -32,6 +32,9 @@ export class LyndaComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LyndaComCollector class.
+     */
     constructor() {
         super(LyndaComCollector.CONFIG);
     }

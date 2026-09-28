@@ -32,6 +32,9 @@ export class CroixRougeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CroixRougeCollector class.
+     */
     constructor() {
         super(CroixRougeCollector.CONFIG);
     }

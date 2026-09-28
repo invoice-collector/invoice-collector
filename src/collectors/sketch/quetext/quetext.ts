@@ -32,6 +32,9 @@ export class QuetextCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the QuetextCollector class.
+     */
     constructor() {
         super(QuetextCollector.CONFIG);
     }

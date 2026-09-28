@@ -32,6 +32,9 @@ export class RivalIqCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RivalIqCollector class.
+     */
     constructor() {
         super(RivalIqCollector.CONFIG);
     }

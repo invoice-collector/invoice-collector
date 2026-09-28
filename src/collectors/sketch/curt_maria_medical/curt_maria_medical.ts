@@ -32,6 +32,9 @@ export class CurtMariaMedicalCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CurtMariaMedicalCollector class.
+     */
     constructor() {
         super(CurtMariaMedicalCollector.CONFIG);
     }

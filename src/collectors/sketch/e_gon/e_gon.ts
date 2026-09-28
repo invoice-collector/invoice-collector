@@ -32,6 +32,9 @@ export class EGonCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EGonCollector class.
+     */
     constructor() {
         super(EGonCollector.CONFIG);
     }

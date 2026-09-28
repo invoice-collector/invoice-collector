@@ -32,6 +32,9 @@ export class BaloiseCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BaloiseCollector class.
+     */
     constructor() {
         super(BaloiseCollector.CONFIG);
     }

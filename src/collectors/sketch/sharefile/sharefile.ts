@@ -32,6 +32,9 @@ export class SharefileCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SharefileCollector class.
+     */
     constructor() {
         super(SharefileCollector.CONFIG);
     }

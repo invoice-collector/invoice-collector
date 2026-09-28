@@ -32,6 +32,9 @@ export class GametradeDistribuzioneCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GametradeDistribuzioneCollector class.
+     */
     constructor() {
         super(GametradeDistribuzioneCollector.CONFIG);
     }

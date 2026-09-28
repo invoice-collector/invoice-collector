@@ -32,6 +32,9 @@ export class StrikinglyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StrikinglyCollector class.
+     */
     constructor() {
         super(StrikinglyCollector.CONFIG);
     }

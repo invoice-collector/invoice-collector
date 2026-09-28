@@ -32,6 +32,9 @@ export class HostingIrelandCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HostingIrelandCollector class.
+     */
     constructor() {
         super(HostingIrelandCollector.CONFIG);
     }

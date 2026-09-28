@@ -32,6 +32,9 @@ export class SheetgptCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SheetgptCollector class.
+     */
     constructor() {
         super(SheetgptCollector.CONFIG);
     }

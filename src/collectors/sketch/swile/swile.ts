@@ -32,6 +32,9 @@ export class SwileCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SwileCollector class.
+     */
     constructor() {
         super(SwileCollector.CONFIG);
     }

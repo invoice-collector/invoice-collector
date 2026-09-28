@@ -32,6 +32,9 @@ export class MifidRecorderCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MifidRecorderCollector class.
+     */
     constructor() {
         super(MifidRecorderCollector.CONFIG);
     }

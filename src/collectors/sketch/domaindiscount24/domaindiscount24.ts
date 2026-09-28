@@ -32,6 +32,9 @@ export class Domaindiscount24Collector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Domaindiscount24Collector class.
+     */
     constructor() {
         super(Domaindiscount24Collector.CONFIG);
     }

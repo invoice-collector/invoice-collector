@@ -32,6 +32,9 @@ export class MediGmbhAndCoKgCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MediGmbhAndCoKgCollector class.
+     */
     constructor() {
         super(MediGmbhAndCoKgCollector.CONFIG);
     }

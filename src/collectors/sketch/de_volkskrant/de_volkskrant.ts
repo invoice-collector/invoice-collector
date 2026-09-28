@@ -32,6 +32,9 @@ export class DeVolkskrantCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DeVolkskrantCollector class.
+     */
     constructor() {
         super(DeVolkskrantCollector.CONFIG);
     }

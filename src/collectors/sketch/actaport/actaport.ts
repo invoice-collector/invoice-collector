@@ -32,6 +32,9 @@ export class ActaportCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ActaportCollector class.
+     */
     constructor() {
         super(ActaportCollector.CONFIG);
     }

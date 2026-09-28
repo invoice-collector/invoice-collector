@@ -32,6 +32,9 @@ export class PowrCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PowrCollector class.
+     */
     constructor() {
         super(PowrCollector.CONFIG);
     }

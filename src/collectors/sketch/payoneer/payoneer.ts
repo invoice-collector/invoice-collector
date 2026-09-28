@@ -32,6 +32,9 @@ export class PayoneerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PayoneerCollector class.
+     */
     constructor() {
         super(PayoneerCollector.CONFIG);
     }

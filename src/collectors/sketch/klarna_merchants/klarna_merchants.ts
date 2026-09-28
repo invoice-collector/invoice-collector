@@ -32,6 +32,9 @@ export class KlarnaMerchantsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KlarnaMerchantsCollector class.
+     */
     constructor() {
         super(KlarnaMerchantsCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class BfsAbrechnungsGmbhCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BfsAbrechnungsGmbhCollector class.
+     */
     constructor() {
         super(BfsAbrechnungsGmbhCollector.CONFIG);
     }

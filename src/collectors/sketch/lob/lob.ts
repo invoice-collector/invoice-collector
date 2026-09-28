@@ -32,6 +32,9 @@ export class LobCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LobCollector class.
+     */
     constructor() {
         super(LobCollector.CONFIG);
     }

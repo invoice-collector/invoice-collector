@@ -32,6 +32,9 @@ export class MedionCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MedionCollector class.
+     */
     constructor() {
         super(MedionCollector.CONFIG);
     }

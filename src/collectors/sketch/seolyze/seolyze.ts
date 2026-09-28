@@ -32,6 +32,9 @@ export class SeolyzeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SeolyzeCollector class.
+     */
     constructor() {
         super(SeolyzeCollector.CONFIG);
     }

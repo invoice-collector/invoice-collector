@@ -32,6 +32,9 @@ export class TucalendiComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TucalendiComCollector class.
+     */
     constructor() {
         super(TucalendiComCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class SodasmartCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SodasmartCollector class.
+     */
     constructor() {
         super(SodasmartCollector.CONFIG);
     }

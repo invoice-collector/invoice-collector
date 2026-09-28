@@ -32,6 +32,9 @@ export class LohmannUndRauscherDeutschlandCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LohmannUndRauscherDeutschlandCollector class.
+     */
     constructor() {
         super(LohmannUndRauscherDeutschlandCollector.CONFIG);
     }

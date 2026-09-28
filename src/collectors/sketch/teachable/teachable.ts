@@ -32,6 +32,9 @@ export class TeachableCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TeachableCollector class.
+     */
     constructor() {
         super(TeachableCollector.CONFIG);
     }

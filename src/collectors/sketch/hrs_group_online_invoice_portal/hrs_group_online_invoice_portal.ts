@@ -32,6 +32,9 @@ export class HrsGroupOnlineInvoicePortalCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HrsGroupOnlineInvoicePortalCollector class.
+     */
     constructor() {
         super(HrsGroupOnlineInvoicePortalCollector.CONFIG);
     }

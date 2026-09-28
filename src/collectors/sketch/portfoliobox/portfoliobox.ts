@@ -32,6 +32,9 @@ export class PortfolioboxCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PortfolioboxCollector class.
+     */
     constructor() {
         super(PortfolioboxCollector.CONFIG);
     }

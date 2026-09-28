@@ -32,6 +32,9 @@ export class AmazonSeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AmazonSeCollector class.
+     */
     constructor() {
         super(AmazonSeCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class VapaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VapaCollector class.
+     */
     constructor() {
         super(VapaCollector.CONFIG);
     }

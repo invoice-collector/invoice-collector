@@ -32,6 +32,9 @@ export class PlacetelCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PlacetelCollector class.
+     */
     constructor() {
         super(PlacetelCollector.CONFIG);
     }

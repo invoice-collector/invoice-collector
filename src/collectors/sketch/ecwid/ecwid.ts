@@ -32,6 +32,9 @@ export class EcwidCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EcwidCollector class.
+     */
     constructor() {
         super(EcwidCollector.CONFIG);
     }

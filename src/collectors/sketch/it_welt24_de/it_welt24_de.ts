@@ -32,6 +32,9 @@ export class ItWelt24DeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ItWelt24DeCollector class.
+     */
     constructor() {
         super(ItWelt24DeCollector.CONFIG);
     }

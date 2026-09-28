@@ -32,6 +32,9 @@ export class TelepacificCommunicationsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TelepacificCommunicationsCollector class.
+     */
     constructor() {
         super(TelepacificCommunicationsCollector.CONFIG);
     }

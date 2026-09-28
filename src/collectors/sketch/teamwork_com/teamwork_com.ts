@@ -32,6 +32,9 @@ export class TeamworkComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TeamworkComCollector class.
+     */
     constructor() {
         super(TeamworkComCollector.CONFIG);
     }

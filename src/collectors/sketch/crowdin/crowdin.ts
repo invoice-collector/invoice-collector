@@ -32,6 +32,9 @@ export class CrowdinCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CrowdinCollector class.
+     */
     constructor() {
         super(CrowdinCollector.CONFIG);
     }

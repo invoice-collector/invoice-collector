@@ -32,6 +32,9 @@ export class O2onlineDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the O2onlineDeCollector class.
+     */
     constructor() {
         super(O2onlineDeCollector.CONFIG);
     }

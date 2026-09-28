@@ -32,6 +32,9 @@ export class TailwindAppCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TailwindAppCollector class.
+     */
     constructor() {
         super(TailwindAppCollector.CONFIG);
     }

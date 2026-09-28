@@ -32,6 +32,9 @@ export class ZendutyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ZendutyCollector class.
+     */
     constructor() {
         super(ZendutyCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class PinterestAdsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PinterestAdsCollector class.
+     */
     constructor() {
         super(PinterestAdsCollector.CONFIG);
     }

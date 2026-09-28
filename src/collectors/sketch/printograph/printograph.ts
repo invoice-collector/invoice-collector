@@ -32,6 +32,9 @@ export class PrintographCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PrintographCollector class.
+     */
     constructor() {
         super(PrintographCollector.CONFIG);
     }

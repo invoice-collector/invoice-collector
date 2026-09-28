@@ -32,6 +32,9 @@ export class SmartPodcastPlayerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SmartPodcastPlayerCollector class.
+     */
     constructor() {
         super(SmartPodcastPlayerCollector.CONFIG);
     }

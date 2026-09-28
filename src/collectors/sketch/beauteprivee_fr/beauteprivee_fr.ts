@@ -32,6 +32,9 @@ export class BeautepriveeFrCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BeautepriveeFrCollector class.
+     */
     constructor() {
         super(BeautepriveeFrCollector.CONFIG);
     }

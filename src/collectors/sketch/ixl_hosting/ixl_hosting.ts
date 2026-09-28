@@ -32,6 +32,9 @@ export class IxlHostingCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the IxlHostingCollector class.
+     */
     constructor() {
         super(IxlHostingCollector.CONFIG);
     }

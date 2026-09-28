@@ -32,6 +32,9 @@ export class XneeloCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the XneeloCollector class.
+     */
     constructor() {
         super(XneeloCollector.CONFIG);
     }

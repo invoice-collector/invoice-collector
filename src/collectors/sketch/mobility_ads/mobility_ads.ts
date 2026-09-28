@@ -32,6 +32,9 @@ export class MobilityAdsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MobilityAdsCollector class.
+     */
     constructor() {
         super(MobilityAdsCollector.CONFIG);
     }

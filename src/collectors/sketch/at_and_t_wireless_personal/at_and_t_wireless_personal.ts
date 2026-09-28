@@ -32,6 +32,9 @@ export class AtAndTWirelessPersonalCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AtAndTWirelessPersonalCollector class.
+     */
     constructor() {
         super(AtAndTWirelessPersonalCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class CircleciCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CircleciCollector class.
+     */
     constructor() {
         super(CircleciCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class LocalFalconCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LocalFalconCollector class.
+     */
     constructor() {
         super(LocalFalconCollector.CONFIG);
     }

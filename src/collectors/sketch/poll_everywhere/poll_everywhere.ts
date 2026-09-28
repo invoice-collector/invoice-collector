@@ -32,6 +32,9 @@ export class PollEverywhereCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PollEverywhereCollector class.
+     */
     constructor() {
         super(PollEverywhereCollector.CONFIG);
     }

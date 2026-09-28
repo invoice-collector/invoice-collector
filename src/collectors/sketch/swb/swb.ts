@@ -32,6 +32,9 @@ export class SwbCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SwbCollector class.
+     */
     constructor() {
         super(SwbCollector.CONFIG);
     }

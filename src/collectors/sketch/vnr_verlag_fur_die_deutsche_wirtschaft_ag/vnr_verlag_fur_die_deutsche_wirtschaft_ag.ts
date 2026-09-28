@@ -32,6 +32,9 @@ export class VnrVerlagFurDieDeutscheWirtschaftAgCollector extends SketchCollecto
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VnrVerlagFurDieDeutscheWirtschaftAgCollector class.
+     */
     constructor() {
         super(VnrVerlagFurDieDeutscheWirtschaftAgCollector.CONFIG);
     }

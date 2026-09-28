@@ -32,6 +32,9 @@ export class MotionAdsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MotionAdsCollector class.
+     */
     constructor() {
         super(MotionAdsCollector.CONFIG);
     }

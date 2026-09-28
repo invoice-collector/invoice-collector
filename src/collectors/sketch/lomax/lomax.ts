@@ -32,6 +32,9 @@ export class LomaxCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LomaxCollector class.
+     */
     constructor() {
         super(LomaxCollector.CONFIG);
     }

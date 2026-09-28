@@ -32,6 +32,9 @@ export class LieferandoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LieferandoCollector class.
+     */
     constructor() {
         super(LieferandoCollector.CONFIG);
     }

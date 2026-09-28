@@ -32,6 +32,9 @@ export class TravelcardNlCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TravelcardNlCollector class.
+     */
     constructor() {
         super(TravelcardNlCollector.CONFIG);
     }

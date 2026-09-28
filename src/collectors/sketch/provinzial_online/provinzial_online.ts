@@ -32,6 +32,9 @@ export class ProvinzialOnlineCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ProvinzialOnlineCollector class.
+     */
     constructor() {
         super(ProvinzialOnlineCollector.CONFIG);
     }

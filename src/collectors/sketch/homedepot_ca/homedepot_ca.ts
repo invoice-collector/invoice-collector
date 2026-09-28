@@ -32,6 +32,9 @@ export class HomedepotCaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HomedepotCaCollector class.
+     */
     constructor() {
         super(HomedepotCaCollector.CONFIG);
     }

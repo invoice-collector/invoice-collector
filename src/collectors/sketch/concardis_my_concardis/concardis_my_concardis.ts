@@ -32,6 +32,9 @@ export class ConcardisMyConcardisCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ConcardisMyConcardisCollector class.
+     */
     constructor() {
         super(ConcardisMyConcardisCollector.CONFIG);
     }

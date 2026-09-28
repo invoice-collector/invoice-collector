@@ -32,6 +32,9 @@ export class EkoPunktCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EkoPunktCollector class.
+     */
     constructor() {
         super(EkoPunktCollector.CONFIG);
     }

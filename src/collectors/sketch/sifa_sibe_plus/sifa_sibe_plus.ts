@@ -32,6 +32,9 @@ export class SifaSibePlusCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SifaSibePlusCollector class.
+     */
     constructor() {
         super(SifaSibePlusCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class WincherCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WincherCollector class.
+     */
     constructor() {
         super(WincherCollector.CONFIG);
     }

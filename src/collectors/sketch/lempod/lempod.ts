@@ -32,6 +32,9 @@ export class LempodCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LempodCollector class.
+     */
     constructor() {
         super(LempodCollector.CONFIG);
     }

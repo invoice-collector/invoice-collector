@@ -32,6 +32,9 @@ export class SatelliteOfficeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SatelliteOfficeCollector class.
+     */
     constructor() {
         super(SatelliteOfficeCollector.CONFIG);
     }

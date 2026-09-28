@@ -32,6 +32,9 @@ export class LanguagetoolCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LanguagetoolCollector class.
+     */
     constructor() {
         super(LanguagetoolCollector.CONFIG);
     }

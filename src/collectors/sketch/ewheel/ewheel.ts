@@ -32,6 +32,9 @@ export class EwheelCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EwheelCollector class.
+     */
     constructor() {
         super(EwheelCollector.CONFIG);
     }

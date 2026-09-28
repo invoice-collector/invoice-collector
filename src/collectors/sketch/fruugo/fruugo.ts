@@ -32,6 +32,9 @@ export class FruugoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FruugoCollector class.
+     */
     constructor() {
         super(FruugoCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class VattenfallGeschaftskundenBundelportalCollector extends SketchCollec
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VattenfallGeschaftskundenBundelportalCollector class.
+     */
     constructor() {
         super(VattenfallGeschaftskundenBundelportalCollector.CONFIG);
     }

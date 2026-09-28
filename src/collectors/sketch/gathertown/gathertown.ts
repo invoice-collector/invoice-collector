@@ -32,6 +32,9 @@ export class GathertownCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GathertownCollector class.
+     */
     constructor() {
         super(GathertownCollector.CONFIG);
     }

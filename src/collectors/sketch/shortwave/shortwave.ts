@@ -32,6 +32,9 @@ export class ShortwaveCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ShortwaveCollector class.
+     */
     constructor() {
         super(ShortwaveCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class JustfitClubsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the JustfitClubsCollector class.
+     */
     constructor() {
         super(JustfitClubsCollector.CONFIG);
     }

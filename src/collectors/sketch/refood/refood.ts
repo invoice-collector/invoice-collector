@@ -32,6 +32,9 @@ export class RefoodCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RefoodCollector class.
+     */
     constructor() {
         super(RefoodCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class MysendingboxCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MysendingboxCollector class.
+     */
     constructor() {
         super(MysendingboxCollector.CONFIG);
     }

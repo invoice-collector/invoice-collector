@@ -32,6 +32,9 @@ export class ShirteeCloudCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ShirteeCloudCollector class.
+     */
     constructor() {
         super(ShirteeCloudCollector.CONFIG);
     }

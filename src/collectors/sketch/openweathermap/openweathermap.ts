@@ -32,6 +32,9 @@ export class OpenweathermapCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OpenweathermapCollector class.
+     */
     constructor() {
         super(OpenweathermapCollector.CONFIG);
     }

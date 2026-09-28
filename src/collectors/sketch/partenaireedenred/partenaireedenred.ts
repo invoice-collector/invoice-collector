@@ -32,6 +32,9 @@ export class PartenaireedenredCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PartenaireedenredCollector class.
+     */
     constructor() {
         super(PartenaireedenredCollector.CONFIG);
     }

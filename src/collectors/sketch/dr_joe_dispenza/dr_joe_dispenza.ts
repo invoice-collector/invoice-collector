@@ -32,6 +32,9 @@ export class DrJoeDispenzaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DrJoeDispenzaCollector class.
+     */
     constructor() {
         super(DrJoeDispenzaCollector.CONFIG);
     }

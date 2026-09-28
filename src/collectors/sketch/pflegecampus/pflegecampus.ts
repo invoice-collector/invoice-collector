@@ -32,6 +32,9 @@ export class PflegecampusCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PflegecampusCollector class.
+     */
     constructor() {
         super(PflegecampusCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class TowerdataCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TowerdataCollector class.
+     */
     constructor() {
         super(TowerdataCollector.CONFIG);
     }

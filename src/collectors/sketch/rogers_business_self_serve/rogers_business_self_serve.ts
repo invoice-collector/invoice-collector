@@ -32,6 +32,9 @@ export class RogersBusinessSelfServeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RogersBusinessSelfServeCollector class.
+     */
     constructor() {
         super(RogersBusinessSelfServeCollector.CONFIG);
     }

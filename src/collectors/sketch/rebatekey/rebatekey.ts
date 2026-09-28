@@ -32,6 +32,9 @@ export class RebatekeyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RebatekeyCollector class.
+     */
     constructor() {
         super(RebatekeyCollector.CONFIG);
     }

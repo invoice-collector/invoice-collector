@@ -32,6 +32,9 @@ export class CloudsecretaryTelefonServiceCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CloudsecretaryTelefonServiceCollector class.
+     */
     constructor() {
         super(CloudsecretaryTelefonServiceCollector.CONFIG);
     }

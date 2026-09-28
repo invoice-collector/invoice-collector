@@ -32,6 +32,9 @@ export class BinectCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BinectCollector class.
+     */
     constructor() {
         super(BinectCollector.CONFIG);
     }

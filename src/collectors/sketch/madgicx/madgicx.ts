@@ -32,6 +32,9 @@ export class MadgicxCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MadgicxCollector class.
+     */
     constructor() {
         super(MadgicxCollector.CONFIG);
     }

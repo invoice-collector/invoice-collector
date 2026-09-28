@@ -32,6 +32,9 @@ export class BmwBankCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BmwBankCollector class.
+     */
     constructor() {
         super(BmwBankCollector.CONFIG);
     }

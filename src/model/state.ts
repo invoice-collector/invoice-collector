@@ -17,6 +17,11 @@ export class State {
 
     static DEFAULT_STATE: State = State._0_UNKNOWN;
 
+    /**
+     * Builds a State instance from a plain object.
+     * @param obj The plain object containing state properties.
+     * @returns A new State instance populated with the values from the object.
+     */
     static fromObject(obj: object): State {
         const state = new State(obj['index'], obj['title'], obj['message']);
         state.max = obj['max'];
@@ -28,6 +33,12 @@ export class State {
     title: string;
     message: string;
 
+    /**
+     * Constructs a new State instance.
+     * @param index The index representing the state.
+     * @param title The title of the state.
+     * @param message The message associated with the state.
+     */
     constructor(index: number, title: string, message: string) {
         this.index = index;
         this.max = State.SUCCESS_LEVEL;
@@ -35,7 +46,11 @@ export class State {
         this.message = message;
     }
 
-    // Use update method to update the state values without creating a new instance
+    /**
+     * Updates the current state with the values from another state instance.
+     * @param state The state instance to copy values from.
+     * @param message An optional message to override the current state's message.
+     */
     update(state: State, message?: string) {
         this.index = state.index;
         this.max = state.max;
@@ -43,6 +58,10 @@ export class State {
         this.message = message ? utils.trim(message) : state.message;
     }
 
+    /**
+     * Checks whether the current state represents an error.
+     * @returns `true` if the state index is an error, otherwise, `false`.
+     */
     isError(): boolean {
         return this.index < 0;
     }

@@ -32,6 +32,9 @@ export class SocketlabsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SocketlabsCollector class.
+     */
     constructor() {
         super(SocketlabsCollector.CONFIG);
     }

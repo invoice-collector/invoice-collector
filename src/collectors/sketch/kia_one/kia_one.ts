@@ -32,6 +32,9 @@ export class KiaOneCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KiaOneCollector class.
+     */
     constructor() {
         super(KiaOneCollector.CONFIG);
     }

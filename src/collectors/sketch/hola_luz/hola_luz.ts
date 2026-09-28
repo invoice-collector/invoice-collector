@@ -32,6 +32,9 @@ export class HolaLuzCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HolaLuzCollector class.
+     */
     constructor() {
         super(HolaLuzCollector.CONFIG);
     }

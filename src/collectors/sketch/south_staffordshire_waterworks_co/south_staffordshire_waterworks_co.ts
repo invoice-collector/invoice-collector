@@ -32,6 +32,9 @@ export class SouthStaffordshireWaterworksCoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SouthStaffordshireWaterworksCoCollector class.
+     */
     constructor() {
         super(SouthStaffordshireWaterworksCoCollector.CONFIG);
     }

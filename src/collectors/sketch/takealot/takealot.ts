@@ -32,6 +32,9 @@ export class TakealotCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TakealotCollector class.
+     */
     constructor() {
         super(TakealotCollector.CONFIG);
     }

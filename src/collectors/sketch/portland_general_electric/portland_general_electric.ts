@@ -32,6 +32,9 @@ export class PortlandGeneralElectricCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PortlandGeneralElectricCollector class.
+     */
     constructor() {
         super(PortlandGeneralElectricCollector.CONFIG);
     }

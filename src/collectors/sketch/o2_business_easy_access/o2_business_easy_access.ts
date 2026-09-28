@@ -32,6 +32,9 @@ export class O2BusinessEasyAccessCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the O2BusinessEasyAccessCollector class.
+     */
     constructor() {
         super(O2BusinessEasyAccessCollector.CONFIG);
     }

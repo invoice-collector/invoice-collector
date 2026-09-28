@@ -32,6 +32,9 @@ export class OpenproviderCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OpenproviderCollector class.
+     */
     constructor() {
         super(OpenproviderCollector.CONFIG);
     }

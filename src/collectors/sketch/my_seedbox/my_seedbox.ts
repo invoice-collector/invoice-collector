@@ -32,6 +32,9 @@ export class MySeedboxCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MySeedboxCollector class.
+     */
     constructor() {
         super(MySeedboxCollector.CONFIG);
     }

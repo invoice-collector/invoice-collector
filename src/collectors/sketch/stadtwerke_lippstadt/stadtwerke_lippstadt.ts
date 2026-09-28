@@ -32,6 +32,9 @@ export class StadtwerkeLippstadtCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StadtwerkeLippstadtCollector class.
+     */
     constructor() {
         super(StadtwerkeLippstadtCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class ComdeskCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ComdeskCollector class.
+     */
     constructor() {
         super(ComdeskCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class MailtasticCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MailtasticCollector class.
+     */
     constructor() {
         super(MailtasticCollector.CONFIG);
     }

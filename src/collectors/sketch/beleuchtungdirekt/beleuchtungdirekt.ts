@@ -32,6 +32,9 @@ export class BeleuchtungdirektCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BeleuchtungdirektCollector class.
+     */
     constructor() {
         super(BeleuchtungdirektCollector.CONFIG);
     }

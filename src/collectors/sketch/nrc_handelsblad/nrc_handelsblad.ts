@@ -32,6 +32,9 @@ export class NrcHandelsbladCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NrcHandelsbladCollector class.
+     */
     constructor() {
         super(NrcHandelsbladCollector.CONFIG);
     }

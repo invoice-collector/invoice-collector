@@ -32,6 +32,9 @@ export class ShoppingAtDerOsterreichsicheOnlineMarktplatzCollector extends Sketc
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ShoppingAtDerOsterreichsicheOnlineMarktplatzCollector class.
+     */
     constructor() {
         super(ShoppingAtDerOsterreichsicheOnlineMarktplatzCollector.CONFIG);
     }

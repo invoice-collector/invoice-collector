@@ -32,6 +32,9 @@ export class OttoversandAtCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OttoversandAtCollector class.
+     */
     constructor() {
         super(OttoversandAtCollector.CONFIG);
     }

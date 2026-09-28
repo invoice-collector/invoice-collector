@@ -32,6 +32,9 @@ export class CorreosEsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CorreosEsCollector class.
+     */
     constructor() {
         super(CorreosEsCollector.CONFIG);
     }

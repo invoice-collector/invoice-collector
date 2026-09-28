@@ -32,6 +32,9 @@ export class StardslCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StardslCollector class.
+     */
     constructor() {
         super(StardslCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class ConceptBoardCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ConceptBoardCollector class.
+     */
     constructor() {
         super(ConceptBoardCollector.CONFIG);
     }

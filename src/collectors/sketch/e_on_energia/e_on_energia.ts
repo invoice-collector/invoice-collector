@@ -32,6 +32,9 @@ export class EOnEnergiaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EOnEnergiaCollector class.
+     */
     constructor() {
         super(EOnEnergiaCollector.CONFIG);
     }

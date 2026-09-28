@@ -32,6 +32,9 @@ export class ChasePaymentechOnlineReportingCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ChasePaymentechOnlineReportingCollector class.
+     */
     constructor() {
         super(ChasePaymentechOnlineReportingCollector.CONFIG);
     }

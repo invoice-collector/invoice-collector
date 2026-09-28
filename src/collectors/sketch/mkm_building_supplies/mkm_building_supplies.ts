@@ -32,6 +32,9 @@ export class MkmBuildingSuppliesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MkmBuildingSuppliesCollector class.
+     */
     constructor() {
         super(MkmBuildingSuppliesCollector.CONFIG);
     }

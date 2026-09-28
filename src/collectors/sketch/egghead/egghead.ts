@@ -32,6 +32,9 @@ export class EggheadCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EggheadCollector class.
+     */
     constructor() {
         super(EggheadCollector.CONFIG);
     }

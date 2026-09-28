@@ -32,6 +32,9 @@ export class ShcCareCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ShcCareCollector class.
+     */
     constructor() {
         super(ShcCareCollector.CONFIG);
     }

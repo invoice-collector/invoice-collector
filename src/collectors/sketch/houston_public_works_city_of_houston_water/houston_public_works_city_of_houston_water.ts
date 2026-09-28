@@ -32,6 +32,9 @@ export class HoustonPublicWorksCityOfHoustonWaterCollector extends SketchCollect
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HoustonPublicWorksCityOfHoustonWaterCollector class.
+     */
     constructor() {
         super(HoustonPublicWorksCityOfHoustonWaterCollector.CONFIG);
     }

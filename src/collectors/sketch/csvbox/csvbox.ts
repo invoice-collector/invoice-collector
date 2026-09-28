@@ -32,6 +32,9 @@ export class CsvboxCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CsvboxCollector class.
+     */
     constructor() {
         super(CsvboxCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class InsightAtCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the InsightAtCollector class.
+     */
     constructor() {
         super(InsightAtCollector.CONFIG);
     }

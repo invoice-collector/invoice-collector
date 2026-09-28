@@ -32,6 +32,9 @@ export class BarzahlenViafintechCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BarzahlenViafintechCollector class.
+     */
     constructor() {
         super(BarzahlenViafintechCollector.CONFIG);
     }

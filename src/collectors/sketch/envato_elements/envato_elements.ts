@@ -32,6 +32,9 @@ export class EnvatoElementsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EnvatoElementsCollector class.
+     */
     constructor() {
         super(EnvatoElementsCollector.CONFIG);
     }

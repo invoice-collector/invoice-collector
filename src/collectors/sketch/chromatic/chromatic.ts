@@ -32,6 +32,9 @@ export class ChromaticCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ChromaticCollector class.
+     */
     constructor() {
         super(ChromaticCollector.CONFIG);
     }

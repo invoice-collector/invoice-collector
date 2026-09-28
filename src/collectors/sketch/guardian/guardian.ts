@@ -32,6 +32,9 @@ export class GuardianCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GuardianCollector class.
+     */
     constructor() {
         super(GuardianCollector.CONFIG);
     }

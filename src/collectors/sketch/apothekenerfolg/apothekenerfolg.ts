@@ -32,6 +32,9 @@ export class ApothekenerfolgCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ApothekenerfolgCollector class.
+     */
     constructor() {
         super(ApothekenerfolgCollector.CONFIG);
     }

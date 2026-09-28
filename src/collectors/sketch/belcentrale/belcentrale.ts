@@ -32,6 +32,9 @@ export class BelcentraleCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BelcentraleCollector class.
+     */
     constructor() {
         super(BelcentraleCollector.CONFIG);
     }

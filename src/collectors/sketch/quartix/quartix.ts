@@ -32,6 +32,9 @@ export class QuartixCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the QuartixCollector class.
+     */
     constructor() {
         super(QuartixCollector.CONFIG);
     }

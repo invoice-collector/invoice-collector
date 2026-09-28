@@ -32,6 +32,9 @@ export class PhiladelphiaInsuranceCompaniesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PhiladelphiaInsuranceCompaniesCollector class.
+     */
     constructor() {
         super(PhiladelphiaInsuranceCompaniesCollector.CONFIG);
     }

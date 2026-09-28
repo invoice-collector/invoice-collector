@@ -32,6 +32,9 @@ export class AtAndTMyatAndTCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AtAndTMyatAndTCollector class.
+     */
     constructor() {
         super(AtAndTMyatAndTCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class Helium10Collector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Helium10Collector class.
+     */
     constructor() {
         super(Helium10Collector.CONFIG);
     }

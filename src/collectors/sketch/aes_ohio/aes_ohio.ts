@@ -32,6 +32,9 @@ export class AesOhioCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AesOhioCollector class.
+     */
     constructor() {
         super(AesOhioCollector.CONFIG);
     }

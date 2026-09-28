@@ -32,6 +32,9 @@ export class MpbGmbhChangeGearCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MpbGmbhChangeGearCollector class.
+     */
     constructor() {
         super(MpbGmbhChangeGearCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class ChannelreplyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ChannelreplyCollector class.
+     */
     constructor() {
         super(ChannelreplyCollector.CONFIG);
     }

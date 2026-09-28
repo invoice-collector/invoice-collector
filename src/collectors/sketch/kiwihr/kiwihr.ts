@@ -32,6 +32,9 @@ export class KiwihrCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KiwihrCollector class.
+     */
     constructor() {
         super(KiwihrCollector.CONFIG);
     }

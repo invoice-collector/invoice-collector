@@ -32,6 +32,9 @@ export class GDataPartnerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GDataPartnerCollector class.
+     */
     constructor() {
         super(GDataPartnerCollector.CONFIG);
     }

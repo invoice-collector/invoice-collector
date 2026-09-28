@@ -32,6 +32,9 @@ export class HunterIoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HunterIoCollector class.
+     */
     constructor() {
         super(HunterIoCollector.CONFIG);
     }

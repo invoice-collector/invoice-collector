@@ -32,6 +32,9 @@ export class CrefoFactoringCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CrefoFactoringCollector class.
+     */
     constructor() {
         super(CrefoFactoringCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class LimangoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LimangoCollector class.
+     */
     constructor() {
         super(LimangoCollector.CONFIG);
     }

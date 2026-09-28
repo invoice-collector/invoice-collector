@@ -32,6 +32,9 @@ export class OuiSncfCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OuiSncfCollector class.
+     */
     constructor() {
         super(OuiSncfCollector.CONFIG);
     }

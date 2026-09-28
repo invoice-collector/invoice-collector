@@ -32,6 +32,9 @@ export class MaptilerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MaptilerCollector class.
+     */
     constructor() {
         super(MaptilerCollector.CONFIG);
     }

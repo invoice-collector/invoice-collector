@@ -32,6 +32,9 @@ export class MailoptinCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MailoptinCollector class.
+     */
     constructor() {
         super(MailoptinCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class ErdgasSchwabenCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ErdgasSchwabenCollector class.
+     */
     constructor() {
         super(ErdgasSchwabenCollector.CONFIG);
     }

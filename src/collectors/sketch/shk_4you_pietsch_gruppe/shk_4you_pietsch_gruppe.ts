@@ -32,6 +32,9 @@ export class Shk4youPietschGruppeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Shk4youPietschGruppeCollector class.
+     */
     constructor() {
         super(Shk4youPietschGruppeCollector.CONFIG);
     }

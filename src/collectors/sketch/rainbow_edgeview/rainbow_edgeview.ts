@@ -32,6 +32,9 @@ export class RainbowEdgeviewCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RainbowEdgeviewCollector class.
+     */
     constructor() {
         super(RainbowEdgeviewCollector.CONFIG);
     }

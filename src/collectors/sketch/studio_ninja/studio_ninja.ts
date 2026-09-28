@@ -32,6 +32,9 @@ export class StudioNinjaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StudioNinjaCollector class.
+     */
     constructor() {
         super(StudioNinjaCollector.CONFIG);
     }

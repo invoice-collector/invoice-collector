@@ -32,6 +32,9 @@ export class MonitorBacklinksCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MonitorBacklinksCollector class.
+     */
     constructor() {
         super(MonitorBacklinksCollector.CONFIG);
     }

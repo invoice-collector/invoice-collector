@@ -32,6 +32,9 @@ export class HeimatguthabenCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HeimatguthabenCollector class.
+     */
     constructor() {
         super(HeimatguthabenCollector.CONFIG);
     }

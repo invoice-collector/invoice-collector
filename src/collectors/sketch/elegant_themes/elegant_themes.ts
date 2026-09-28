@@ -32,6 +32,9 @@ export class ElegantThemesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ElegantThemesCollector class.
+     */
     constructor() {
         super(ElegantThemesCollector.CONFIG);
     }

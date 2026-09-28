@@ -32,6 +32,9 @@ export class StarbueroCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StarbueroCollector class.
+     */
     constructor() {
         super(StarbueroCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class SchweizerStromCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SchweizerStromCollector class.
+     */
     constructor() {
         super(SchweizerStromCollector.CONFIG);
     }

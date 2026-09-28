@@ -32,6 +32,9 @@ export class Pdf4meCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Pdf4meCollector class.
+     */
     constructor() {
         super(Pdf4meCollector.CONFIG);
     }

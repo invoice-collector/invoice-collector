@@ -32,6 +32,9 @@ export class BuchnerHmkDigitalCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BuchnerHmkDigitalCollector class.
+     */
     constructor() {
         super(BuchnerHmkDigitalCollector.CONFIG);
     }

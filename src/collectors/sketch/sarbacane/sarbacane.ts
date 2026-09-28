@@ -32,6 +32,9 @@ export class SarbacaneCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SarbacaneCollector class.
+     */
     constructor() {
         super(SarbacaneCollector.CONFIG);
     }

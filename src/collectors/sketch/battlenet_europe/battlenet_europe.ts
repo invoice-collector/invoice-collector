@@ -32,6 +32,9 @@ export class BattlenetEuropeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BattlenetEuropeCollector class.
+     */
     constructor() {
         super(BattlenetEuropeCollector.CONFIG);
     }

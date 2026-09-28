@@ -32,6 +32,9 @@ export class UkPostboxCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the UkPostboxCollector class.
+     */
     constructor() {
         super(UkPostboxCollector.CONFIG);
     }

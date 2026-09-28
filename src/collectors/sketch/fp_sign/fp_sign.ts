@@ -32,6 +32,9 @@ export class FpSignCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FpSignCollector class.
+     */
     constructor() {
         super(FpSignCollector.CONFIG);
     }

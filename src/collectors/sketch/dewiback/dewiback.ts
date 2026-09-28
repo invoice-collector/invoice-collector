@@ -32,6 +32,9 @@ export class DewibackCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DewibackCollector class.
+     */
     constructor() {
         super(DewibackCollector.CONFIG);
     }

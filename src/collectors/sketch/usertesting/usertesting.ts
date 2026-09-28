@@ -32,6 +32,9 @@ export class UsertestingCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the UsertestingCollector class.
+     */
     constructor() {
         super(UsertestingCollector.CONFIG);
     }

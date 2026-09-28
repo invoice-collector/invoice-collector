@@ -32,6 +32,9 @@ export class VyroCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VyroCollector class.
+     */
     constructor() {
         super(VyroCollector.CONFIG);
     }

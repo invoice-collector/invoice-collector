@@ -32,6 +32,9 @@ export class DebounceCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DebounceCollector class.
+     */
     constructor() {
         super(DebounceCollector.CONFIG);
     }

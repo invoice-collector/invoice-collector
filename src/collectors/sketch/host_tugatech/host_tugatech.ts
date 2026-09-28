@@ -32,6 +32,9 @@ export class HostTugatechCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HostTugatechCollector class.
+     */
     constructor() {
         super(HostTugatechCollector.CONFIG);
     }

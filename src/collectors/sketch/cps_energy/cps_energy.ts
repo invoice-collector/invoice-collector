@@ -32,6 +32,9 @@ export class CpsEnergyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CpsEnergyCollector class.
+     */
     constructor() {
         super(CpsEnergyCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class HelloFreshCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HelloFreshCollector class.
+     */
     constructor() {
         super(HelloFreshCollector.CONFIG);
     }

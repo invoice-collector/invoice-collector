@@ -32,6 +32,9 @@ export class EterminCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EterminCollector class.
+     */
     constructor() {
         super(EterminCollector.CONFIG);
     }

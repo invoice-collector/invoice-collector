@@ -32,6 +32,9 @@ export class FiberyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FiberyCollector class.
+     */
     constructor() {
         super(FiberyCollector.CONFIG);
     }

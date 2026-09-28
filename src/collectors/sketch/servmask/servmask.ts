@@ -32,6 +32,9 @@ export class ServmaskCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ServmaskCollector class.
+     */
     constructor() {
         super(ServmaskCollector.CONFIG);
     }

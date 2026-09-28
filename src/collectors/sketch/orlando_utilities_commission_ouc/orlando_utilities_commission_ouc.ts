@@ -32,6 +32,9 @@ export class OrlandoUtilitiesCommissionOucCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OrlandoUtilitiesCommissionOucCollector class.
+     */
     constructor() {
         super(OrlandoUtilitiesCommissionOucCollector.CONFIG);
     }

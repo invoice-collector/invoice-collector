@@ -32,6 +32,9 @@ export class VirtuoForBusinessCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VirtuoForBusinessCollector class.
+     */
     constructor() {
         super(VirtuoForBusinessCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class ImValorisCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ImValorisCollector class.
+     */
     constructor() {
         super(ImValorisCollector.CONFIG);
     }

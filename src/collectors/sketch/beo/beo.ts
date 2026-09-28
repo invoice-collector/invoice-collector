@@ -32,6 +32,9 @@ export class BeoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BeoCollector class.
+     */
     constructor() {
         super(BeoCollector.CONFIG);
     }

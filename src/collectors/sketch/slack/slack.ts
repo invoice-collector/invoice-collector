@@ -32,6 +32,9 @@ export class SlackCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SlackCollector class.
+     */
     constructor() {
         super(SlackCollector.CONFIG);
     }

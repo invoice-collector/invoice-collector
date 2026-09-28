@@ -32,6 +32,9 @@ export class MarkerIoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MarkerIoCollector class.
+     */
     constructor() {
         super(MarkerIoCollector.CONFIG);
     }

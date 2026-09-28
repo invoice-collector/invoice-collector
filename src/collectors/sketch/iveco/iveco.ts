@@ -32,6 +32,9 @@ export class IvecoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the IvecoCollector class.
+     */
     constructor() {
         super(IvecoCollector.CONFIG);
     }

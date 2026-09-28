@@ -32,6 +32,9 @@ export class CallpageCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CallpageCollector class.
+     */
     constructor() {
         super(CallpageCollector.CONFIG);
     }

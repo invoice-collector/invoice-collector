@@ -32,6 +32,9 @@ export class RakutenViberCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RakutenViberCollector class.
+     */
     constructor() {
         super(RakutenViberCollector.CONFIG);
     }

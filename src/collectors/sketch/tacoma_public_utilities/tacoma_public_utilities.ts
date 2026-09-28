@@ -32,6 +32,9 @@ export class TacomaPublicUtilitiesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TacomaPublicUtilitiesCollector class.
+     */
     constructor() {
         super(TacomaPublicUtilitiesCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class QweebyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the QweebyCollector class.
+     */
     constructor() {
         super(QweebyCollector.CONFIG);
     }

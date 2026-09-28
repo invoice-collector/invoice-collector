@@ -32,6 +32,9 @@ export class RapidDirectCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RapidDirectCollector class.
+     */
     constructor() {
         super(RapidDirectCollector.CONFIG);
     }

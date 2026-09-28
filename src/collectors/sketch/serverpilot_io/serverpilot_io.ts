@@ -32,6 +32,9 @@ export class ServerpilotIoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ServerpilotIoCollector class.
+     */
     constructor() {
         super(ServerpilotIoCollector.CONFIG);
     }

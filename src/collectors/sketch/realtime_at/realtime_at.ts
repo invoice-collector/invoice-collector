@@ -32,6 +32,9 @@ export class RealtimeAtCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RealtimeAtCollector class.
+     */
     constructor() {
         super(RealtimeAtCollector.CONFIG);
     }

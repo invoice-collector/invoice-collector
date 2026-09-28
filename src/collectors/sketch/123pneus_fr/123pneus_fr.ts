@@ -32,6 +32,9 @@ export class _123pneusFrCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the _123pneusFrCollector class.
+     */
     constructor() {
         super(_123pneusFrCollector.CONFIG);
     }

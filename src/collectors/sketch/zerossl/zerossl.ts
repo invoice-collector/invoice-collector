@@ -32,6 +32,9 @@ export class ZerosslCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ZerosslCollector class.
+     */
     constructor() {
         super(ZerosslCollector.CONFIG);
     }

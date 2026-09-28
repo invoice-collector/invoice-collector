@@ -32,6 +32,9 @@ export class KaffeeOptimalCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KaffeeOptimalCollector class.
+     */
     constructor() {
         super(KaffeeOptimalCollector.CONFIG);
     }

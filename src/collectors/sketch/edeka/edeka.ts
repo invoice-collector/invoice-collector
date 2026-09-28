@@ -32,6 +32,9 @@ export class EdekaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EdekaCollector class.
+     */
     constructor() {
         super(EdekaCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class AwwwardsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AwwwardsCollector class.
+     */
     constructor() {
         super(AwwwardsCollector.CONFIG);
     }

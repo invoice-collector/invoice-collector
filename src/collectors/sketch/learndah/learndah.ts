@@ -32,6 +32,9 @@ export class LearndahCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LearndahCollector class.
+     */
     constructor() {
         super(LearndahCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class WekaMediaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WekaMediaCollector class.
+     */
     constructor() {
         super(WekaMediaCollector.CONFIG);
     }

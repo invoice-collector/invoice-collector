@@ -32,6 +32,9 @@ export class WebreusCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WebreusCollector class.
+     */
     constructor() {
         super(WebreusCollector.CONFIG);
     }

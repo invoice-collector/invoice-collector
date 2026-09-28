@@ -32,6 +32,9 @@ export class ResolutionMediaMunchenGmbhCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ResolutionMediaMunchenGmbhCollector class.
+     */
     constructor() {
         super(ResolutionMediaMunchenGmbhCollector.CONFIG);
     }

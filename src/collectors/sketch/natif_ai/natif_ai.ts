@@ -32,6 +32,9 @@ export class NatifAiCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NatifAiCollector class.
+     */
     constructor() {
         super(NatifAiCollector.CONFIG);
     }

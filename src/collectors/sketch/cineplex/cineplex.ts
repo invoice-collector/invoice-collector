@@ -32,6 +32,9 @@ export class CineplexCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CineplexCollector class.
+     */
     constructor() {
         super(CineplexCollector.CONFIG);
     }

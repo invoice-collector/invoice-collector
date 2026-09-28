@@ -32,6 +32,9 @@ export class DokutarCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DokutarCollector class.
+     */
     constructor() {
         super(DokutarCollector.CONFIG);
     }

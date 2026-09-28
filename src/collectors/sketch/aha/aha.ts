@@ -32,6 +32,9 @@ export class AhaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AhaCollector class.
+     */
     constructor() {
         super(AhaCollector.CONFIG);
     }

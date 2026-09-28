@@ -32,6 +32,9 @@ export class FilestackCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FilestackCollector class.
+     */
     constructor() {
         super(FilestackCollector.CONFIG);
     }

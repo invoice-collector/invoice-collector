@@ -32,6 +32,9 @@ export class KvbKolnerVerkehrsbetriebeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KvbKolnerVerkehrsbetriebeCollector class.
+     */
     constructor() {
         super(KvbKolnerVerkehrsbetriebeCollector.CONFIG);
     }

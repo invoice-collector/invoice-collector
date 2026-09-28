@@ -32,6 +32,9 @@ export class KasprCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KasprCollector class.
+     */
     constructor() {
         super(KasprCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class FloridaNaturalGasCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FloridaNaturalGasCollector class.
+     */
     constructor() {
         super(FloridaNaturalGasCollector.CONFIG);
     }

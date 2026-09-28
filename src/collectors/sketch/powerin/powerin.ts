@@ -32,6 +32,9 @@ export class PowerinCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PowerinCollector class.
+     */
     constructor() {
         super(PowerinCollector.CONFIG);
     }

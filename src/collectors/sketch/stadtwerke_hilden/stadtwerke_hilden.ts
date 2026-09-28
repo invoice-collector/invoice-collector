@@ -32,6 +32,9 @@ export class StadtwerkeHildenCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StadtwerkeHildenCollector class.
+     */
     constructor() {
         super(StadtwerkeHildenCollector.CONFIG);
     }

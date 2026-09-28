@@ -32,6 +32,9 @@ export class MytaxiBusinessCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MytaxiBusinessCollector class.
+     */
     constructor() {
         super(MytaxiBusinessCollector.CONFIG);
     }

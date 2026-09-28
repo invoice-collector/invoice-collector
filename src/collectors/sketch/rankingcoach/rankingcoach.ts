@@ -32,6 +32,9 @@ export class RankingcoachCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RankingcoachCollector class.
+     */
     constructor() {
         super(RankingcoachCollector.CONFIG);
     }

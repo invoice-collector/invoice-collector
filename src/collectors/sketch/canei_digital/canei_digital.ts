@@ -32,6 +32,9 @@ export class CaneiDigitalCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CaneiDigitalCollector class.
+     */
     constructor() {
         super(CaneiDigitalCollector.CONFIG);
     }

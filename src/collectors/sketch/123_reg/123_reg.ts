@@ -32,6 +32,9 @@ export class _123RegCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the _123RegCollector class.
+     */
     constructor() {
         super(_123RegCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class MydisplaysCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MydisplaysCollector class.
+     */
     constructor() {
         super(MydisplaysCollector.CONFIG);
     }

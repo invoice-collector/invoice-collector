@@ -32,6 +32,9 @@ export class BunningsWarehouseAuCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BunningsWarehouseAuCollector class.
+     */
     constructor() {
         super(BunningsWarehouseAuCollector.CONFIG);
     }

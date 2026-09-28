@@ -32,6 +32,9 @@ export class StoryblokCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StoryblokCollector class.
+     */
     constructor() {
         super(StoryblokCollector.CONFIG);
     }

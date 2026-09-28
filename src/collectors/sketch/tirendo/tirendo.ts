@@ -32,6 +32,9 @@ export class TirendoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TirendoCollector class.
+     */
     constructor() {
         super(TirendoCollector.CONFIG);
     }

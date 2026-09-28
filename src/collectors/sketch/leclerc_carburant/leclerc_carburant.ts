@@ -32,6 +32,9 @@ export class LeclercCarburantCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LeclercCarburantCollector class.
+     */
     constructor() {
         super(LeclercCarburantCollector.CONFIG);
     }

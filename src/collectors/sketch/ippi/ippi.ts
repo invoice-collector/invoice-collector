@@ -32,6 +32,9 @@ export class IppiCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the IppiCollector class.
+     */
     constructor() {
         super(IppiCollector.CONFIG);
     }

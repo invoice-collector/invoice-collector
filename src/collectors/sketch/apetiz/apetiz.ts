@@ -32,6 +32,9 @@ export class ApetizCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ApetizCollector class.
+     */
     constructor() {
         super(ApetizCollector.CONFIG);
     }

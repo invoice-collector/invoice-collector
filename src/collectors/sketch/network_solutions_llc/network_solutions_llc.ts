@@ -32,6 +32,9 @@ export class NetworkSolutionsLlcCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NetworkSolutionsLlcCollector class.
+     */
     constructor() {
         super(NetworkSolutionsLlcCollector.CONFIG);
     }

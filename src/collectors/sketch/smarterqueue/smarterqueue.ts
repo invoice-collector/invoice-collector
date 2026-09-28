@@ -32,6 +32,9 @@ export class SmarterqueueCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SmarterqueueCollector class.
+     */
     constructor() {
         super(SmarterqueueCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class TbaytelCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TbaytelCollector class.
+     */
     constructor() {
         super(TbaytelCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class ZenmateCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ZenmateCollector class.
+     */
     constructor() {
         super(ZenmateCollector.CONFIG);
     }

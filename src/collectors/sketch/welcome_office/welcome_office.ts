@@ -32,6 +32,9 @@ export class WelcomeOfficeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WelcomeOfficeCollector class.
+     */
     constructor() {
         super(WelcomeOfficeCollector.CONFIG);
     }

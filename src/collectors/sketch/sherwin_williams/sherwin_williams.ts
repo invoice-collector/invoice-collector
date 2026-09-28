@@ -32,6 +32,9 @@ export class SherwinWilliamsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SherwinWilliamsCollector class.
+     */
     constructor() {
         super(SherwinWilliamsCollector.CONFIG);
     }

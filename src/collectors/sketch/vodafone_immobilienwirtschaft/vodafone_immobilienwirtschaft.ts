@@ -32,6 +32,9 @@ export class VodafoneImmobilienwirtschaftCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VodafoneImmobilienwirtschaftCollector class.
+     */
     constructor() {
         super(VodafoneImmobilienwirtschaftCollector.CONFIG);
     }

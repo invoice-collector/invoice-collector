@@ -32,6 +32,9 @@ export class McafeeEpolicyOrchestratorCloudCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the McafeeEpolicyOrchestratorCloudCollector class.
+     */
     constructor() {
         super(McafeeEpolicyOrchestratorCloudCollector.CONFIG);
     }

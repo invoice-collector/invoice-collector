@@ -32,6 +32,9 @@ export class EteleonPersonlicheServiceweltCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EteleonPersonlicheServiceweltCollector class.
+     */
     constructor() {
         super(EteleonPersonlicheServiceweltCollector.CONFIG);
     }

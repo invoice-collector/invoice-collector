@@ -32,6 +32,9 @@ export class PayfunnelsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PayfunnelsCollector class.
+     */
     constructor() {
         super(PayfunnelsCollector.CONFIG);
     }

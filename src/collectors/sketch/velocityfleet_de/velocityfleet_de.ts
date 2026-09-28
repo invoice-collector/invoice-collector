@@ -32,6 +32,9 @@ export class VelocityfleetDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VelocityfleetDeCollector class.
+     */
     constructor() {
         super(VelocityfleetDeCollector.CONFIG);
     }

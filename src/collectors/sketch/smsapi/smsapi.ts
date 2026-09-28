@@ -32,6 +32,9 @@ export class SmsapiCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SmsapiCollector class.
+     */
     constructor() {
         super(SmsapiCollector.CONFIG);
     }

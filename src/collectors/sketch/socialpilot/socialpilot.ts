@@ -32,6 +32,9 @@ export class SocialpilotCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SocialpilotCollector class.
+     */
     constructor() {
         super(SocialpilotCollector.CONFIG);
     }

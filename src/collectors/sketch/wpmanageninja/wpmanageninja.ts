@@ -32,6 +32,9 @@ export class WpmanageninjaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WpmanageninjaCollector class.
+     */
     constructor() {
         super(WpmanageninjaCollector.CONFIG);
     }

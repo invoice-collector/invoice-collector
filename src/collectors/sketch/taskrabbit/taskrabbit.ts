@@ -32,6 +32,9 @@ export class TaskrabbitCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TaskrabbitCollector class.
+     */
     constructor() {
         super(TaskrabbitCollector.CONFIG);
     }

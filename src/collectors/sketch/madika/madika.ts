@@ -32,6 +32,9 @@ export class MadikaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MadikaCollector class.
+     */
     constructor() {
         super(MadikaCollector.CONFIG);
     }

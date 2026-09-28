@@ -32,6 +32,9 @@ export class MeinewbdKundenportalCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MeinewbdKundenportalCollector class.
+     */
     constructor() {
         super(MeinewbdKundenportalCollector.CONFIG);
     }

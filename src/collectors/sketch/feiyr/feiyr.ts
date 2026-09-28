@@ -32,6 +32,9 @@ export class FeiyrCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FeiyrCollector class.
+     */
     constructor() {
         super(FeiyrCollector.CONFIG);
     }

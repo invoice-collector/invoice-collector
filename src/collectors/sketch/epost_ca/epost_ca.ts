@@ -32,6 +32,9 @@ export class EpostCaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EpostCaCollector class.
+     */
     constructor() {
         super(EpostCaCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class BahrVerpackungsmittelCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BahrVerpackungsmittelCollector class.
+     */
     constructor() {
         super(BahrVerpackungsmittelCollector.CONFIG);
     }

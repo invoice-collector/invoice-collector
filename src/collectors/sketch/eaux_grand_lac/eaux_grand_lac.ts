@@ -32,6 +32,9 @@ export class EauxGrandLacCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EauxGrandLacCollector class.
+     */
     constructor() {
         super(EauxGrandLacCollector.CONFIG);
     }

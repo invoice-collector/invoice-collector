@@ -32,6 +32,9 @@ export class MutuelleGfpEntrepriseCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MutuelleGfpEntrepriseCollector class.
+     */
     constructor() {
         super(MutuelleGfpEntrepriseCollector.CONFIG);
     }

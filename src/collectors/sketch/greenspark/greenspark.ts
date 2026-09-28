@@ -32,6 +32,9 @@ export class GreensparkCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GreensparkCollector class.
+     */
     constructor() {
         super(GreensparkCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class PoupePoupiCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PoupePoupiCollector class.
+     */
     constructor() {
         super(PoupePoupiCollector.CONFIG);
     }

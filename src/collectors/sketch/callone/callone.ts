@@ -32,6 +32,9 @@ export class CalloneCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CalloneCollector class.
+     */
     constructor() {
         super(CalloneCollector.CONFIG);
     }

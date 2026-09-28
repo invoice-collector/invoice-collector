@@ -32,6 +32,9 @@ export class SpeedtreeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SpeedtreeCollector class.
+     */
     constructor() {
         super(SpeedtreeCollector.CONFIG);
     }

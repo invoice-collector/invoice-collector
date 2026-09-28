@@ -32,6 +32,9 @@ export class EbilanzOnlineCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EbilanzOnlineCollector class.
+     */
     constructor() {
         super(EbilanzOnlineCollector.CONFIG);
     }

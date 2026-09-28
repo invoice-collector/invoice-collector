@@ -32,6 +32,9 @@ export class SolocalCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SolocalCollector class.
+     */
     constructor() {
         super(SolocalCollector.CONFIG);
     }

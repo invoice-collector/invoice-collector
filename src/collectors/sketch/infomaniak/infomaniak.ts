@@ -32,6 +32,9 @@ export class InfomaniakCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the InfomaniakCollector class.
+     */
     constructor() {
         super(InfomaniakCollector.CONFIG);
     }

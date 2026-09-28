@@ -32,6 +32,9 @@ export class EnecoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EnecoCollector class.
+     */
     constructor() {
         super(EnecoCollector.CONFIG);
     }

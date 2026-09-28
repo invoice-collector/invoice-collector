@@ -32,6 +32,9 @@ export class OnlinecopyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OnlinecopyCollector class.
+     */
     constructor() {
         super(OnlinecopyCollector.CONFIG);
     }

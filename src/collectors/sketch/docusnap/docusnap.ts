@@ -32,6 +32,9 @@ export class DocusnapCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DocusnapCollector class.
+     */
     constructor() {
         super(DocusnapCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class AvaconNetzKundenportalCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AvaconNetzKundenportalCollector class.
+     */
     constructor() {
         super(AvaconNetzKundenportalCollector.CONFIG);
     }

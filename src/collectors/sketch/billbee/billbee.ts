@@ -32,6 +32,9 @@ export class BillbeeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BillbeeCollector class.
+     */
     constructor() {
         super(BillbeeCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class PleexyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PleexyCollector class.
+     */
     constructor() {
         super(PleexyCollector.CONFIG);
     }

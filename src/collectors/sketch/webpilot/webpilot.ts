@@ -32,6 +32,9 @@ export class WebpilotCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WebpilotCollector class.
+     */
     constructor() {
         super(WebpilotCollector.CONFIG);
     }

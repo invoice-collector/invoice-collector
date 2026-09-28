@@ -32,6 +32,9 @@ export class TransfergoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TransfergoCollector class.
+     */
     constructor() {
         super(TransfergoCollector.CONFIG);
     }

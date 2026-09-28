@@ -32,6 +32,9 @@ export class PabblyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PabblyCollector class.
+     */
     constructor() {
         super(PabblyCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class ShiftbaseCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ShiftbaseCollector class.
+     */
     constructor() {
         super(ShiftbaseCollector.CONFIG);
     }

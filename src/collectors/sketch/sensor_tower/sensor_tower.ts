@@ -32,6 +32,9 @@ export class SensorTowerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SensorTowerCollector class.
+     */
     constructor() {
         super(SensorTowerCollector.CONFIG);
     }

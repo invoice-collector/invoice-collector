@@ -32,6 +32,9 @@ export class NfonCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NfonCollector class.
+     */
     constructor() {
         super(NfonCollector.CONFIG);
     }

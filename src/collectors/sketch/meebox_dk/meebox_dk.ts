@@ -32,6 +32,9 @@ export class MeeboxDkCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MeeboxDkCollector class.
+     */
     constructor() {
         super(MeeboxDkCollector.CONFIG);
     }

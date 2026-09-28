@@ -32,6 +32,9 @@ export class FindmespotComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FindmespotComCollector class.
+     */
     constructor() {
         super(FindmespotComCollector.CONFIG);
     }

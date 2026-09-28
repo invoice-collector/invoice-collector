@@ -32,6 +32,9 @@ export class ClickceaseCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ClickceaseCollector class.
+     */
     constructor() {
         super(ClickceaseCollector.CONFIG);
     }

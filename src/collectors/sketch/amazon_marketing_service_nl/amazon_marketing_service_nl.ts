@@ -32,6 +32,9 @@ export class AmazonMarketingServiceNlCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AmazonMarketingServiceNlCollector class.
+     */
     constructor() {
         super(AmazonMarketingServiceNlCollector.CONFIG);
     }

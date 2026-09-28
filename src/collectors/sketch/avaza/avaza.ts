@@ -32,6 +32,9 @@ export class AvazaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AvazaCollector class.
+     */
     constructor() {
         super(AvazaCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class QuickmailCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the QuickmailCollector class.
+     */
     constructor() {
         super(QuickmailCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class ConnectBoosterCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ConnectBoosterCollector class.
+     */
     constructor() {
         super(ConnectBoosterCollector.CONFIG);
     }

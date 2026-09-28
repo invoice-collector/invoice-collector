@@ -32,6 +32,9 @@ export class TigoPanamaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TigoPanamaCollector class.
+     */
     constructor() {
         super(TigoPanamaCollector.CONFIG);
     }

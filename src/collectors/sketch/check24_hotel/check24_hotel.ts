@@ -32,6 +32,9 @@ export class Check24HotelCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Check24HotelCollector class.
+     */
     constructor() {
         super(Check24HotelCollector.CONFIG);
     }

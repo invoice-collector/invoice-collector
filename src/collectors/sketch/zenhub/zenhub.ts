@@ -32,6 +32,9 @@ export class ZenhubCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ZenhubCollector class.
+     */
     constructor() {
         super(ZenhubCollector.CONFIG);
     }

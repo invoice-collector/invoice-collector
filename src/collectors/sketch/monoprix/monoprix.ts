@@ -31,6 +31,9 @@ export class MonoprixCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MonoprixCollector class.
+     */
     constructor() {
         super(MonoprixCollector.CONFIG);
     }

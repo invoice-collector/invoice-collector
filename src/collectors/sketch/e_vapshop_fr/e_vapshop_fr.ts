@@ -32,6 +32,9 @@ export class EVapshopFrCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EVapshopFrCollector class.
+     */
     constructor() {
         super(EVapshopFrCollector.CONFIG);
     }

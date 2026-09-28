@@ -32,6 +32,9 @@ export class TeniosCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TeniosCollector class.
+     */
     constructor() {
         super(TeniosCollector.CONFIG);
     }

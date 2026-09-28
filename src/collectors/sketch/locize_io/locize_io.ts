@@ -32,6 +32,9 @@ export class LocizeIoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LocizeIoCollector class.
+     */
     constructor() {
         super(LocizeIoCollector.CONFIG);
     }

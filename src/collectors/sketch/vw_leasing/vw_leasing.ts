@@ -32,6 +32,9 @@ export class VwLeasingCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VwLeasingCollector class.
+     */
     constructor() {
         super(VwLeasingCollector.CONFIG);
     }

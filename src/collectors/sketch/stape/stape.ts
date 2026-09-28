@@ -32,6 +32,9 @@ export class StapeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StapeCollector class.
+     */
     constructor() {
         super(StapeCollector.CONFIG);
     }

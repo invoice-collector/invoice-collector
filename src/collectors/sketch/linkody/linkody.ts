@@ -32,6 +32,9 @@ export class LinkodyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LinkodyCollector class.
+     */
     constructor() {
         super(LinkodyCollector.CONFIG);
     }

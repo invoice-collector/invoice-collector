@@ -32,6 +32,9 @@ export class LampirisCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LampirisCollector class.
+     */
     constructor() {
         super(LampirisCollector.CONFIG);
     }

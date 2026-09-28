@@ -32,6 +32,9 @@ export class OfficerAndDCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OfficerAndDCollector class.
+     */
     constructor() {
         super(OfficerAndDCollector.CONFIG);
     }

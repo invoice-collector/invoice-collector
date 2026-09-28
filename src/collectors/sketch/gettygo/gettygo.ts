@@ -32,6 +32,9 @@ export class GettygoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GettygoCollector class.
+     */
     constructor() {
         super(GettygoCollector.CONFIG);
     }

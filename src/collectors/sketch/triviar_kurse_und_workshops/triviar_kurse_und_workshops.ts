@@ -32,6 +32,9 @@ export class TriviarKurseUndWorkshopsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TriviarKurseUndWorkshopsCollector class.
+     */
     constructor() {
         super(TriviarKurseUndWorkshopsCollector.CONFIG);
     }

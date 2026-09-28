@@ -32,6 +32,9 @@ export class SymaMobileCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SymaMobileCollector class.
+     */
     constructor() {
         super(SymaMobileCollector.CONFIG);
     }

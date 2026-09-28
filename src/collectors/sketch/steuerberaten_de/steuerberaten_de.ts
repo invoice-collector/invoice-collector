@@ -32,6 +32,9 @@ export class SteuerberatenDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SteuerberatenDeCollector class.
+     */
     constructor() {
         super(SteuerberatenDeCollector.CONFIG);
     }

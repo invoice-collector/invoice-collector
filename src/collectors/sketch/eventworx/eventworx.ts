@@ -32,6 +32,9 @@ export class EventworxCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EventworxCollector class.
+     */
     constructor() {
         super(EventworxCollector.CONFIG);
     }

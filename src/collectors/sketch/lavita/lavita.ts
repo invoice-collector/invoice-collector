@@ -32,6 +32,9 @@ export class LavitaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LavitaCollector class.
+     */
     constructor() {
         super(LavitaCollector.CONFIG);
     }

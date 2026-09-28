@@ -32,6 +32,9 @@ export class ProvenexpertCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ProvenexpertCollector class.
+     */
     constructor() {
         super(ProvenexpertCollector.CONFIG);
     }

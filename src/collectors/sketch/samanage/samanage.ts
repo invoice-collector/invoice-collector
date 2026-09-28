@@ -32,6 +32,9 @@ export class SamanageCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SamanageCollector class.
+     */
     constructor() {
         super(SamanageCollector.CONFIG);
     }

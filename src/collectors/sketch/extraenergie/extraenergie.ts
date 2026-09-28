@@ -32,6 +32,9 @@ export class ExtraenergieCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ExtraenergieCollector class.
+     */
     constructor() {
         super(ExtraenergieCollector.CONFIG);
     }

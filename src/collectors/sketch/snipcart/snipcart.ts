@@ -32,6 +32,9 @@ export class SnipcartCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SnipcartCollector class.
+     */
     constructor() {
         super(SnipcartCollector.CONFIG);
     }

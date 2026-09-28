@@ -32,6 +32,9 @@ export class DropcontactCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DropcontactCollector class.
+     */
     constructor() {
         super(DropcontactCollector.CONFIG);
     }

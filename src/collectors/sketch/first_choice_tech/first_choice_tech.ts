@@ -32,6 +32,9 @@ export class FirstChoiceTechCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FirstChoiceTechCollector class.
+     */
     constructor() {
         super(FirstChoiceTechCollector.CONFIG);
     }

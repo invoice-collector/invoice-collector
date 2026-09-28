@@ -32,6 +32,9 @@ export class SchunkCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SchunkCollector class.
+     */
     constructor() {
         super(SchunkCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class LpaMobilitesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LpaMobilitesCollector class.
+     */
     constructor() {
         super(LpaMobilitesCollector.CONFIG);
     }

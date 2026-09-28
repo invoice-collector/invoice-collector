@@ -32,6 +32,9 @@ export class InternetWorldCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the InternetWorldCollector class.
+     */
     constructor() {
         super(InternetWorldCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class GreaterSudburyUtilitiesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GreaterSudburyUtilitiesCollector class.
+     */
     constructor() {
         super(GreaterSudburyUtilitiesCollector.CONFIG);
     }

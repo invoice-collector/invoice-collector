@@ -32,6 +32,9 @@ export class XsellcoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the XsellcoCollector class.
+     */
     constructor() {
         super(XsellcoCollector.CONFIG);
     }

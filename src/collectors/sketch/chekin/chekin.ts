@@ -32,6 +32,9 @@ export class ChekinCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ChekinCollector class.
+     */
     constructor() {
         super(ChekinCollector.CONFIG);
     }

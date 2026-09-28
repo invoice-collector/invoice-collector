@@ -32,6 +32,9 @@ export class TelekomGeschaftskundenRechnungenCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TelekomGeschaftskundenRechnungenCollector class.
+     */
     constructor() {
         super(TelekomGeschaftskundenRechnungenCollector.CONFIG);
     }

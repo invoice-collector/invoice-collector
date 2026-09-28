@@ -32,6 +32,9 @@ export class FraenkCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FraenkCollector class.
+     */
     constructor() {
         super(FraenkCollector.CONFIG);
     }

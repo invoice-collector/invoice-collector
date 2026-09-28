@@ -32,6 +32,9 @@ export class RmvHandyticketCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RmvHandyticketCollector class.
+     */
     constructor() {
         super(RmvHandyticketCollector.CONFIG);
     }

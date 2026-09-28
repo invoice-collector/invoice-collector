@@ -32,6 +32,9 @@ export class OriginalEnergieCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OriginalEnergieCollector class.
+     */
     constructor() {
         super(OriginalEnergieCollector.CONFIG);
     }

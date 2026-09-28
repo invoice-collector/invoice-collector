@@ -32,6 +32,9 @@ export class LibratoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LibratoCollector class.
+     */
     constructor() {
         super(LibratoCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class RabotChargeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RabotChargeCollector class.
+     */
     constructor() {
         super(RabotChargeCollector.CONFIG);
     }

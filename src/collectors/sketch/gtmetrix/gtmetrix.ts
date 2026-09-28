@@ -32,6 +32,9 @@ export class GtmetrixCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GtmetrixCollector class.
+     */
     constructor() {
         super(GtmetrixCollector.CONFIG);
     }

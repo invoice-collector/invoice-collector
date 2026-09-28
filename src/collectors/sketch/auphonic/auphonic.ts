@@ -32,6 +32,9 @@ export class AuphonicCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AuphonicCollector class.
+     */
     constructor() {
         super(AuphonicCollector.CONFIG);
     }

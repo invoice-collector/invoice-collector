@@ -32,6 +32,9 @@ export class SimquadratCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SimquadratCollector class.
+     */
     constructor() {
         super(SimquadratCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class CityOfHollywoodCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CityOfHollywoodCollector class.
+     */
     constructor() {
         super(CityOfHollywoodCollector.CONFIG);
     }

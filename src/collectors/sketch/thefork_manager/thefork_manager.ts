@@ -32,6 +32,9 @@ export class TheforkManagerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TheforkManagerCollector class.
+     */
     constructor() {
         super(TheforkManagerCollector.CONFIG);
     }

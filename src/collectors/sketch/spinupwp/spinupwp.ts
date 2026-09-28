@@ -32,6 +32,9 @@ export class SpinupwpCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SpinupwpCollector class.
+     */
     constructor() {
         super(SpinupwpCollector.CONFIG);
     }

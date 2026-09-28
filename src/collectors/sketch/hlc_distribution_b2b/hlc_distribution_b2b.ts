@@ -32,6 +32,9 @@ export class HlcDistributionB2bCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HlcDistributionB2bCollector class.
+     */
     constructor() {
         super(HlcDistributionB2bCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class FreelancerComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FreelancerComCollector class.
+     */
     constructor() {
         super(FreelancerComCollector.CONFIG);
     }

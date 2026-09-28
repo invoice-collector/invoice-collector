@@ -32,6 +32,9 @@ export class MondayComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MondayComCollector class.
+     */
     constructor() {
         super(MondayComCollector.CONFIG);
     }

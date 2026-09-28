@@ -32,6 +32,9 @@ export class RftKabelCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RftKabelCollector class.
+     */
     constructor() {
         super(RftKabelCollector.CONFIG);
     }

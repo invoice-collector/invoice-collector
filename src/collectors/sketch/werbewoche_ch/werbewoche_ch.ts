@@ -32,6 +32,9 @@ export class WerbewocheChCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WerbewocheChCollector class.
+     */
     constructor() {
         super(WerbewocheChCollector.CONFIG);
     }

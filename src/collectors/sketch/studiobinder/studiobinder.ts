@@ -32,6 +32,9 @@ export class StudiobinderCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StudiobinderCollector class.
+     */
     constructor() {
         super(StudiobinderCollector.CONFIG);
     }

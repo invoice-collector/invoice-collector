@@ -32,6 +32,9 @@ export class PlusnetFruherQscCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PlusnetFruherQscCollector class.
+     */
     constructor() {
         super(PlusnetFruherQscCollector.CONFIG);
     }

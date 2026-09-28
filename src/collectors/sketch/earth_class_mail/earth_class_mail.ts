@@ -32,6 +32,9 @@ export class EarthClassMailCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EarthClassMailCollector class.
+     */
     constructor() {
         super(EarthClassMailCollector.CONFIG);
     }

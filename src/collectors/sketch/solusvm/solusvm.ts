@@ -32,6 +32,9 @@ export class SolusvmCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SolusvmCollector class.
+     */
     constructor() {
         super(SolusvmCollector.CONFIG);
     }

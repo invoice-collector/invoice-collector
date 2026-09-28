@@ -32,6 +32,9 @@ export class ComptoirDuCommerceCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ComptoirDuCommerceCollector class.
+     */
     constructor() {
         super(ComptoirDuCommerceCollector.CONFIG);
     }

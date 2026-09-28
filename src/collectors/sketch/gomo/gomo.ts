@@ -32,6 +32,9 @@ export class GomoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GomoCollector class.
+     */
     constructor() {
         super(GomoCollector.CONFIG);
     }

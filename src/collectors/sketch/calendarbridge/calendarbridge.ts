@@ -32,6 +32,9 @@ export class CalendarbridgeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CalendarbridgeCollector class.
+     */
     constructor() {
         super(CalendarbridgeCollector.CONFIG);
     }

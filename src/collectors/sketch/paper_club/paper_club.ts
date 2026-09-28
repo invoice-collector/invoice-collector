@@ -32,6 +32,9 @@ export class PaperClubCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PaperClubCollector class.
+     */
     constructor() {
         super(PaperClubCollector.CONFIG);
     }

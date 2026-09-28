@@ -32,6 +32,9 @@ export class JetbrainsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the JetbrainsCollector class.
+     */
     constructor() {
         super(JetbrainsCollector.CONFIG);
     }

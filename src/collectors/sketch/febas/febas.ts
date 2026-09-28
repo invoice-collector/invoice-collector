@@ -32,6 +32,9 @@ export class FebasCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FebasCollector class.
+     */
     constructor() {
         super(FebasCollector.CONFIG);
     }

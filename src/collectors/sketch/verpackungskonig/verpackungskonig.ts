@@ -32,6 +32,9 @@ export class VerpackungskonigCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VerpackungskonigCollector class.
+     */
     constructor() {
         super(VerpackungskonigCollector.CONFIG);
     }

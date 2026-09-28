@@ -32,6 +32,9 @@ export class DigitecChCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DigitecChCollector class.
+     */
     constructor() {
         super(DigitecChCollector.CONFIG);
     }

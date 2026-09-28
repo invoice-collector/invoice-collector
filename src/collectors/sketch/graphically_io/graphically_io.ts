@@ -32,6 +32,9 @@ export class GraphicallyIoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GraphicallyIoCollector class.
+     */
     constructor() {
         super(GraphicallyIoCollector.CONFIG);
     }

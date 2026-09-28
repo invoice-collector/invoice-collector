@@ -32,6 +32,9 @@ export class HandlerportalVwCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HandlerportalVwCollector class.
+     */
     constructor() {
         super(HandlerportalVwCollector.CONFIG);
     }

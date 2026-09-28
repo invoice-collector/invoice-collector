@@ -32,6 +32,9 @@ export class DiscoversnoopCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DiscoversnoopCollector class.
+     */
     constructor() {
         super(DiscoversnoopCollector.CONFIG);
     }

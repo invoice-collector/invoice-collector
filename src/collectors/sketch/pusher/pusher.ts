@@ -32,6 +32,9 @@ export class PusherCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PusherCollector class.
+     */
     constructor() {
         super(PusherCollector.CONFIG);
     }

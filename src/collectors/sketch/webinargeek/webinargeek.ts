@@ -32,6 +32,9 @@ export class WebinargeekCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WebinargeekCollector class.
+     */
     constructor() {
         super(WebinargeekCollector.CONFIG);
     }

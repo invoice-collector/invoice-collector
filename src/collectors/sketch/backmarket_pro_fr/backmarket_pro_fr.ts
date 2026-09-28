@@ -32,6 +32,9 @@ export class BackmarketProFrCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BackmarketProFrCollector class.
+     */
     constructor() {
         super(BackmarketProFrCollector.CONFIG);
     }

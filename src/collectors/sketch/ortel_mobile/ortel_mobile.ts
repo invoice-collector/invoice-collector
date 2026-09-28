@@ -32,6 +32,9 @@ export class OrtelMobileCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OrtelMobileCollector class.
+     */
     constructor() {
         super(OrtelMobileCollector.CONFIG);
     }

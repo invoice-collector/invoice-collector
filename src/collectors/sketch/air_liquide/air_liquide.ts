@@ -32,6 +32,9 @@ export class AirLiquideCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AirLiquideCollector class.
+     */
     constructor() {
         super(AirLiquideCollector.CONFIG);
     }

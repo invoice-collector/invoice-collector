@@ -32,6 +32,9 @@ export class TallyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TallyCollector class.
+     */
     constructor() {
         super(TallyCollector.CONFIG);
     }

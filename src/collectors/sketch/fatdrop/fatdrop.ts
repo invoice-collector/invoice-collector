@@ -32,6 +32,9 @@ export class FatdropCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FatdropCollector class.
+     */
     constructor() {
         super(FatdropCollector.CONFIG);
     }

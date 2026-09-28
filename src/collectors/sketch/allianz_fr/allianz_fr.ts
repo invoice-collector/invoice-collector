@@ -32,6 +32,9 @@ export class AllianzFrCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AllianzFrCollector class.
+     */
     constructor() {
         super(AllianzFrCollector.CONFIG);
     }

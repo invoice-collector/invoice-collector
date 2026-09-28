@@ -32,6 +32,9 @@ export class WebgilityCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WebgilityCollector class.
+     */
     constructor() {
         super(WebgilityCollector.CONFIG);
     }

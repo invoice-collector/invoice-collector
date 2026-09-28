@@ -32,6 +32,9 @@ export class UpprPerformanceNetworkCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the UpprPerformanceNetworkCollector class.
+     */
     constructor() {
         super(UpprPerformanceNetworkCollector.CONFIG);
     }

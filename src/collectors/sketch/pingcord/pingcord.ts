@@ -32,6 +32,9 @@ export class PingcordCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PingcordCollector class.
+     */
     constructor() {
         super(PingcordCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class ZattooCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ZattooCollector class.
+     */
     constructor() {
         super(ZattooCollector.CONFIG);
     }

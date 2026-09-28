@@ -32,6 +32,9 @@ export class FollowupthenCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FollowupthenCollector class.
+     */
     constructor() {
         super(FollowupthenCollector.CONFIG);
     }

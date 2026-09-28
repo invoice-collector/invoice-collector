@@ -32,6 +32,9 @@ export class PrCoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PrCoCollector class.
+     */
     constructor() {
         super(PrCoCollector.CONFIG);
     }

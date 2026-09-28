@@ -32,6 +32,9 @@ export class NeustadtwerkeDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NeustadtwerkeDeCollector class.
+     */
     constructor() {
         super(NeustadtwerkeDeCollector.CONFIG);
     }

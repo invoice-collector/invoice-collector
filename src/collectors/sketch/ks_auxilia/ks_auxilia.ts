@@ -32,6 +32,9 @@ export class KsAuxiliaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KsAuxiliaCollector class.
+     */
     constructor() {
         super(KsAuxiliaCollector.CONFIG);
     }

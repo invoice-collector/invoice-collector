@@ -32,6 +32,9 @@ export class BraunschweigerVersorgungsAgCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BraunschweigerVersorgungsAgCollector class.
+     */
     constructor() {
         super(BraunschweigerVersorgungsAgCollector.CONFIG);
     }

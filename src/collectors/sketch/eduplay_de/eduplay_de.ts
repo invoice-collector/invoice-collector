@@ -32,6 +32,9 @@ export class EduplayDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EduplayDeCollector class.
+     */
     constructor() {
         super(EduplayDeCollector.CONFIG);
     }

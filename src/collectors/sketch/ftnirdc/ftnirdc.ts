@@ -32,6 +32,9 @@ export class FtnirdcCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FtnirdcCollector class.
+     */
     constructor() {
         super(FtnirdcCollector.CONFIG);
     }

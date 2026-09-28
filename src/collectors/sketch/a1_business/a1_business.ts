@@ -32,6 +32,9 @@ export class A1BusinessCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the A1BusinessCollector class.
+     */
     constructor() {
         super(A1BusinessCollector.CONFIG);
     }

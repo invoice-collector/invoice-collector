@@ -31,6 +31,9 @@ export class MmaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MmaCollector class.
+     */
     constructor() {
         super(MmaCollector.CONFIG);
     }

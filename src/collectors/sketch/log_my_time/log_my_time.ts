@@ -32,6 +32,9 @@ export class LogMyTimeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LogMyTimeCollector class.
+     */
     constructor() {
         super(LogMyTimeCollector.CONFIG);
     }

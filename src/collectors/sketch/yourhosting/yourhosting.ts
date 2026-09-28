@@ -32,6 +32,9 @@ export class YourhostingCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the YourhostingCollector class.
+     */
     constructor() {
         super(YourhostingCollector.CONFIG);
     }

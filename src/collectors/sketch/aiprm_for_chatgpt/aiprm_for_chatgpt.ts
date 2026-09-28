@@ -32,6 +32,9 @@ export class AiprmForChatgptCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AiprmForChatgptCollector class.
+     */
     constructor() {
         super(AiprmForChatgptCollector.CONFIG);
     }

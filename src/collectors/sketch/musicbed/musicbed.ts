@@ -32,6 +32,9 @@ export class MusicbedCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MusicbedCollector class.
+     */
     constructor() {
         super(MusicbedCollector.CONFIG);
     }

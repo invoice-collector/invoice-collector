@@ -32,6 +32,9 @@ export class Auth0Collector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Auth0Collector class.
+     */
     constructor() {
         super(Auth0Collector.CONFIG);
     }

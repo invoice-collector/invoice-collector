@@ -32,6 +32,9 @@ export class AicaSanitarCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AicaSanitarCollector class.
+     */
     constructor() {
         super(AicaSanitarCollector.CONFIG);
     }

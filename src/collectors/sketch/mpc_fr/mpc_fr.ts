@@ -31,6 +31,9 @@ export class MpcFrCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MpcFrCollector class.
+     */
     constructor() {
         super(MpcFrCollector.CONFIG);
     }

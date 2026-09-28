@@ -32,6 +32,9 @@ export class FinionFairpayCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FinionFairpayCollector class.
+     */
     constructor() {
         super(FinionFairpayCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class TdsTelecomCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TdsTelecomCollector class.
+     */
     constructor() {
         super(TdsTelecomCollector.CONFIG);
     }

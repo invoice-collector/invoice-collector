@@ -32,6 +32,9 @@ export class MonizzeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MonizzeCollector class.
+     */
     constructor() {
         super(MonizzeCollector.CONFIG);
     }

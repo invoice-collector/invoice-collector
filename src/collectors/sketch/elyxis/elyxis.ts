@@ -32,6 +32,9 @@ export class ElyxisCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ElyxisCollector class.
+     */
     constructor() {
         super(ElyxisCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class IziworkCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the IziworkCollector class.
+     */
     constructor() {
         super(IziworkCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class ThomasKrennCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ThomasKrennCollector class.
+     */
     constructor() {
         super(ThomasKrennCollector.CONFIG);
     }

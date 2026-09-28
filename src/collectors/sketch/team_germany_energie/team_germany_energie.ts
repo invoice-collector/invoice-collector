@@ -32,6 +32,9 @@ export class TeamGermanyEnergieCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TeamGermanyEnergieCollector class.
+     */
     constructor() {
         super(TeamGermanyEnergieCollector.CONFIG);
     }

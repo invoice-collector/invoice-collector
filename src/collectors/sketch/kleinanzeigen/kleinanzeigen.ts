@@ -32,6 +32,9 @@ export class KleinanzeigenCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KleinanzeigenCollector class.
+     */
     constructor() {
         super(KleinanzeigenCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class EversignCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EversignCollector class.
+     */
     constructor() {
         super(EversignCollector.CONFIG);
     }

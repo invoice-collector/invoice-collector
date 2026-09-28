@@ -32,6 +32,9 @@ export class FontbaseCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FontbaseCollector class.
+     */
     constructor() {
         super(FontbaseCollector.CONFIG);
     }

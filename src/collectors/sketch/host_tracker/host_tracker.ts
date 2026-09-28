@@ -32,6 +32,9 @@ export class HostTrackerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HostTrackerCollector class.
+     */
     constructor() {
         super(HostTrackerCollector.CONFIG);
     }

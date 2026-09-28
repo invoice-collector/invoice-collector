@@ -32,6 +32,9 @@ export class UploadcareCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the UploadcareCollector class.
+     */
     constructor() {
         super(UploadcareCollector.CONFIG);
     }

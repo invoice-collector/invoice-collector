@@ -32,6 +32,9 @@ export class GreenpeaceEnergyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GreenpeaceEnergyCollector class.
+     */
     constructor() {
         super(GreenpeaceEnergyCollector.CONFIG);
     }

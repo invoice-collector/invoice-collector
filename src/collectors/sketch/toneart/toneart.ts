@@ -32,6 +32,9 @@ export class ToneartCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ToneartCollector class.
+     */
     constructor() {
         super(ToneartCollector.CONFIG);
     }

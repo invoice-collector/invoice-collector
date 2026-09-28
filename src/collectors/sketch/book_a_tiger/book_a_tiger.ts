@@ -32,6 +32,9 @@ export class BookATigerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BookATigerCollector class.
+     */
     constructor() {
         super(BookATigerCollector.CONFIG);
     }

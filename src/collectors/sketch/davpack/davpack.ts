@@ -32,6 +32,9 @@ export class DavpackCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DavpackCollector class.
+     */
     constructor() {
         super(DavpackCollector.CONFIG);
     }

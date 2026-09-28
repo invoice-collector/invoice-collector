@@ -32,6 +32,9 @@ export class OnePelotonCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OnePelotonCollector class.
+     */
     constructor() {
         super(OnePelotonCollector.CONFIG);
     }

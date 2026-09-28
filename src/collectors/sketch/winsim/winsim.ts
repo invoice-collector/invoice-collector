@@ -32,6 +32,9 @@ export class WinsimCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WinsimCollector class.
+     */
     constructor() {
         super(WinsimCollector.CONFIG);
     }

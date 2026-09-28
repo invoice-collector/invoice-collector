@@ -32,6 +32,9 @@ export class ZinspectorCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ZinspectorCollector class.
+     */
     constructor() {
         super(ZinspectorCollector.CONFIG);
     }

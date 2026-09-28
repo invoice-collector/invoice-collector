@@ -32,6 +32,9 @@ export class KastnerWebshopCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KastnerWebshopCollector class.
+     */
     constructor() {
         super(KastnerWebshopCollector.CONFIG);
     }

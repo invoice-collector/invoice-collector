@@ -32,6 +32,9 @@ export class OlxRoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OlxRoCollector class.
+     */
     constructor() {
         super(OlxRoCollector.CONFIG);
     }

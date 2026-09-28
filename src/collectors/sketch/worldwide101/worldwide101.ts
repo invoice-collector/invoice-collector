@@ -32,6 +32,9 @@ export class Worldwide101Collector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Worldwide101Collector class.
+     */
     constructor() {
         super(Worldwide101Collector.CONFIG);
     }

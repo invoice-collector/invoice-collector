@@ -32,6 +32,9 @@ export class AtarimCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AtarimCollector class.
+     */
     constructor() {
         super(AtarimCollector.CONFIG);
     }

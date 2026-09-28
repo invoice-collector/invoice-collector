@@ -32,6 +32,9 @@ export class BritishGasLiteCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BritishGasLiteCollector class.
+     */
     constructor() {
         super(BritishGasLiteCollector.CONFIG);
     }

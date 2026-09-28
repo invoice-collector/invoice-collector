@@ -32,6 +32,9 @@ export class CodaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CodaCollector class.
+     */
     constructor() {
         super(CodaCollector.CONFIG);
     }

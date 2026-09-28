@@ -32,6 +32,9 @@ export class WpdeveloperCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WpdeveloperCollector class.
+     */
     constructor() {
         super(WpdeveloperCollector.CONFIG);
     }

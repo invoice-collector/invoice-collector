@@ -32,6 +32,9 @@ export class WindMobileCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WindMobileCollector class.
+     */
     constructor() {
         super(WindMobileCollector.CONFIG);
     }

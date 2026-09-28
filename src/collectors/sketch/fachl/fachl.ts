@@ -32,6 +32,9 @@ export class FachlCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FachlCollector class.
+     */
     constructor() {
         super(FachlCollector.CONFIG);
     }

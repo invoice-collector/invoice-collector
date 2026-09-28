@@ -32,6 +32,9 @@ export class ParoolCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ParoolCollector class.
+     */
     constructor() {
         super(ParoolCollector.CONFIG);
     }

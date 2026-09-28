@@ -32,6 +32,9 @@ export class EasyparkCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EasyparkCollector class.
+     */
     constructor() {
         super(EasyparkCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class GeoTargetlyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GeoTargetlyCollector class.
+     */
     constructor() {
         super(GeoTargetlyCollector.CONFIG);
     }

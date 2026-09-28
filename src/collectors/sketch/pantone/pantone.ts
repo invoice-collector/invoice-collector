@@ -32,6 +32,9 @@ export class PantoneCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PantoneCollector class.
+     */
     constructor() {
         super(PantoneCollector.CONFIG);
     }

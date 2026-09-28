@@ -32,6 +32,9 @@ export class BcaAgCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BcaAgCollector class.
+     */
     constructor() {
         super(BcaAgCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class NeverbounceCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NeverbounceCollector class.
+     */
     constructor() {
         super(NeverbounceCollector.CONFIG);
     }

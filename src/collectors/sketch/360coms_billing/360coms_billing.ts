@@ -32,6 +32,9 @@ export class _360comsBillingCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the _360comsBillingCollector class.
+     */
     constructor() {
         super(_360comsBillingCollector.CONFIG);
     }

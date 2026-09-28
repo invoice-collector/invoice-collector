@@ -32,6 +32,9 @@ export class DoosopmaatNlCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DoosopmaatNlCollector class.
+     */
     constructor() {
         super(DoosopmaatNlCollector.CONFIG);
     }

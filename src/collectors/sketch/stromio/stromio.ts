@@ -32,6 +32,9 @@ export class StromioCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StromioCollector class.
+     */
     constructor() {
         super(StromioCollector.CONFIG);
     }

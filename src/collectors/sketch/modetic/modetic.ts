@@ -32,6 +32,9 @@ export class ModeticCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ModeticCollector class.
+     */
     constructor() {
         super(ModeticCollector.CONFIG);
     }

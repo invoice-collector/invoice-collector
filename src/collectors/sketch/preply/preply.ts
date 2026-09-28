@@ -32,6 +32,9 @@ export class PreplyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PreplyCollector class.
+     */
     constructor() {
         super(PreplyCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class SleStadtwerkeLutherstadtEislebenGmbhCollector extends SketchCollect
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SleStadtwerkeLutherstadtEislebenGmbhCollector class.
+     */
     constructor() {
         super(SleStadtwerkeLutherstadtEislebenGmbhCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class BestproxyandvpnCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BestproxyandvpnCollector class.
+     */
     constructor() {
         super(BestproxyandvpnCollector.CONFIG);
     }

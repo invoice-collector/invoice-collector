@@ -32,6 +32,9 @@ export class FirstpromoterCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FirstpromoterCollector class.
+     */
     constructor() {
         super(FirstpromoterCollector.CONFIG);
     }

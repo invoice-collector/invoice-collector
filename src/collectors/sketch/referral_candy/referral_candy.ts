@@ -32,6 +32,9 @@ export class ReferralCandyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ReferralCandyCollector class.
+     */
     constructor() {
         super(ReferralCandyCollector.CONFIG);
     }

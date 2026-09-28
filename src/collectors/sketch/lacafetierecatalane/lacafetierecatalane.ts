@@ -31,6 +31,9 @@ export class LaCafetiereCatalaneCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LaCafetiereCatalaneCollector class.
+     */
     constructor() {
         super(LaCafetiereCatalaneCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class BackMarketCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BackMarketCollector class.
+     */
     constructor() {
         super(BackMarketCollector.CONFIG);
     }

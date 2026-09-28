@@ -32,6 +32,9 @@ export class EdpPtCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EdpPtCollector class.
+     */
     constructor() {
         super(EdpPtCollector.CONFIG);
     }

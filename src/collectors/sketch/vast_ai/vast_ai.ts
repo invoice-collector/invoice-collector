@@ -32,6 +32,9 @@ export class VastAiCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VastAiCollector class.
+     */
     constructor() {
         super(VastAiCollector.CONFIG);
     }

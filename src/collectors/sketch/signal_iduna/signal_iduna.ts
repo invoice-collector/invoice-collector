@@ -32,6 +32,9 @@ export class SignalIdunaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SignalIdunaCollector class.
+     */
     constructor() {
         super(SignalIdunaCollector.CONFIG);
     }

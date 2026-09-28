@@ -32,6 +32,9 @@ export class FormsiteCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FormsiteCollector class.
+     */
     constructor() {
         super(FormsiteCollector.CONFIG);
     }

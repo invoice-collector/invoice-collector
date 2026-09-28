@@ -32,6 +32,9 @@ export class VTrustCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VTrustCollector class.
+     */
     constructor() {
         super(VTrustCollector.CONFIG);
     }

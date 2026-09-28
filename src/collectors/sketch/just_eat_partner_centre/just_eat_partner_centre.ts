@@ -32,6 +32,9 @@ export class JustEatPartnerCentreCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the JustEatPartnerCentreCollector class.
+     */
     constructor() {
         super(JustEatPartnerCentreCollector.CONFIG);
     }

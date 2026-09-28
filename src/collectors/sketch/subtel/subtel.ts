@@ -32,6 +32,9 @@ export class SubtelCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SubtelCollector class.
+     */
     constructor() {
         super(SubtelCollector.CONFIG);
     }

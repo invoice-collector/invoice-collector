@@ -32,6 +32,9 @@ export class GeorankerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GeorankerCollector class.
+     */
     constructor() {
         super(GeorankerCollector.CONFIG);
     }

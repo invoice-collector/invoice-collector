@@ -32,6 +32,9 @@ export class IbanfirstCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the IbanfirstCollector class.
+     */
     constructor() {
         super(IbanfirstCollector.CONFIG);
     }

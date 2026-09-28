@@ -32,6 +32,9 @@ export class FreemiusCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FreemiusCollector class.
+     */
     constructor() {
         super(FreemiusCollector.CONFIG);
     }

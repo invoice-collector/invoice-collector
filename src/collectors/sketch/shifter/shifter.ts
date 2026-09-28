@@ -32,6 +32,9 @@ export class ShifterCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ShifterCollector class.
+     */
     constructor() {
         super(ShifterCollector.CONFIG);
     }

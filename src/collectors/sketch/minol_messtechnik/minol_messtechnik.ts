@@ -32,6 +32,9 @@ export class MinolMesstechnikCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MinolMesstechnikCollector class.
+     */
     constructor() {
         super(MinolMesstechnikCollector.CONFIG);
     }

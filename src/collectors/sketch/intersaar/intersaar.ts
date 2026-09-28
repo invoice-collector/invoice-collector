@@ -32,6 +32,9 @@ export class IntersaarCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the IntersaarCollector class.
+     */
     constructor() {
         super(IntersaarCollector.CONFIG);
     }

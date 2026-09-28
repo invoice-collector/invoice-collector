@@ -32,6 +32,9 @@ export class ManpowerCareerResourcesForIndividualsCollector extends SketchCollec
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ManpowerCareerResourcesForIndividualsCollector class.
+     */
     constructor() {
         super(ManpowerCareerResourcesForIndividualsCollector.CONFIG);
     }

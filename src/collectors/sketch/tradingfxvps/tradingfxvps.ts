@@ -32,6 +32,9 @@ export class TradingfxvpsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TradingfxvpsCollector class.
+     */
     constructor() {
         super(TradingfxvpsCollector.CONFIG);
     }

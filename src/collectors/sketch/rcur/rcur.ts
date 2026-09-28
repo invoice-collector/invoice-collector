@@ -32,6 +32,9 @@ export class RcurCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RcurCollector class.
+     */
     constructor() {
         super(RcurCollector.CONFIG);
     }

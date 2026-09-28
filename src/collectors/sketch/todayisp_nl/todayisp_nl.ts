@@ -32,6 +32,9 @@ export class TodayispNlCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TodayispNlCollector class.
+     */
     constructor() {
         super(TodayispNlCollector.CONFIG);
     }

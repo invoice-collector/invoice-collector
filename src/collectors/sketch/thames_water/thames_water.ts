@@ -32,6 +32,9 @@ export class ThamesWaterCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ThamesWaterCollector class.
+     */
     constructor() {
         super(ThamesWaterCollector.CONFIG);
     }

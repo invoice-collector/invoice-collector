@@ -32,6 +32,9 @@ export class AckermannCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AckermannCollector class.
+     */
     constructor() {
         super(AckermannCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class GehePointGesundLebenPointCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GehePointGesundLebenPointCollector class.
+     */
     constructor() {
         super(GehePointGesundLebenPointCollector.CONFIG);
     }

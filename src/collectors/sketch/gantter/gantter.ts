@@ -32,6 +32,9 @@ export class GantterCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GantterCollector class.
+     */
     constructor() {
         super(GantterCollector.CONFIG);
     }

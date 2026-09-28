@@ -32,6 +32,9 @@ export class CoraCreditCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CoraCreditCollector class.
+     */
     constructor() {
         super(CoraCreditCollector.CONFIG);
     }

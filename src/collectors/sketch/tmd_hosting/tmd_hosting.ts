@@ -32,6 +32,9 @@ export class TmdHostingCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TmdHostingCollector class.
+     */
     constructor() {
         super(TmdHostingCollector.CONFIG);
     }

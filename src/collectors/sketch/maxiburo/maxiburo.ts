@@ -32,6 +32,9 @@ export class MaxiburoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MaxiburoCollector class.
+     */
     constructor() {
         super(MaxiburoCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class SendsparkCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SendsparkCollector class.
+     */
     constructor() {
         super(SendsparkCollector.CONFIG);
     }

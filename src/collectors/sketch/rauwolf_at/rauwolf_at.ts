@@ -32,6 +32,9 @@ export class RauwolfAtCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RauwolfAtCollector class.
+     */
     constructor() {
         super(RauwolfAtCollector.CONFIG);
     }

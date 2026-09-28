@@ -32,6 +32,9 @@ export class TopvisorCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TopvisorCollector class.
+     */
     constructor() {
         super(TopvisorCollector.CONFIG);
     }

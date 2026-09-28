@@ -32,6 +32,9 @@ export class CclSolarBVCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CclSolarBVCollector class.
+     */
     constructor() {
         super(CclSolarBVCollector.CONFIG);
     }

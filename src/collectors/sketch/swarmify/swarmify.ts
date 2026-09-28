@@ -32,6 +32,9 @@ export class SwarmifyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SwarmifyCollector class.
+     */
     constructor() {
         super(SwarmifyCollector.CONFIG);
     }

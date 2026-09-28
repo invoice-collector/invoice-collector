@@ -32,6 +32,9 @@ export class DataDiveCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DataDiveCollector class.
+     */
     constructor() {
         super(DataDiveCollector.CONFIG);
     }

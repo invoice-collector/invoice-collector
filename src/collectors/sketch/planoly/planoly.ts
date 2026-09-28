@@ -32,6 +32,9 @@ export class PlanolyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PlanolyCollector class.
+     */
     constructor() {
         super(PlanolyCollector.CONFIG);
     }

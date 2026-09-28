@@ -32,6 +32,9 @@ export class LinkmatchCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LinkmatchCollector class.
+     */
     constructor() {
         super(LinkmatchCollector.CONFIG);
     }

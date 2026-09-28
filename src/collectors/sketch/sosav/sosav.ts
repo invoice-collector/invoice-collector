@@ -32,6 +32,9 @@ export class SosavCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SosavCollector class.
+     */
     constructor() {
         super(SosavCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class MoodsSolutionsGmbhCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MoodsSolutionsGmbhCollector class.
+     */
     constructor() {
         super(MoodsSolutionsGmbhCollector.CONFIG);
     }

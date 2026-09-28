@@ -32,6 +32,9 @@ export class DirectEnergieComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DirectEnergieComCollector class.
+     */
     constructor() {
         super(DirectEnergieComCollector.CONFIG);
     }

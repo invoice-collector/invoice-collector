@@ -32,6 +32,9 @@ export class GravityPdfCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GravityPdfCollector class.
+     */
     constructor() {
         super(GravityPdfCollector.CONFIG);
     }

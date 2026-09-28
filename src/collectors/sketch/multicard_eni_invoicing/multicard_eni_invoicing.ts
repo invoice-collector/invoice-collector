@@ -32,6 +32,9 @@ export class MulticardEniInvoicingCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MulticardEniInvoicingCollector class.
+     */
     constructor() {
         super(MulticardEniInvoicingCollector.CONFIG);
     }

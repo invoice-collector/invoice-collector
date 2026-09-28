@@ -32,6 +32,9 @@ export class MinsterEbillingCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MinsterEbillingCollector class.
+     */
     constructor() {
         super(MinsterEbillingCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class KissmetricsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KissmetricsCollector class.
+     */
     constructor() {
         super(KissmetricsCollector.CONFIG);
     }

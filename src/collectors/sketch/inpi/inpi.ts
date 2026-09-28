@@ -32,6 +32,9 @@ export class InpiCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the InpiCollector class.
+     */
     constructor() {
         super(InpiCollector.CONFIG);
     }

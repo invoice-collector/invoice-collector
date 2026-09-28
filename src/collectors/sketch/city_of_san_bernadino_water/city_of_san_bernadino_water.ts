@@ -32,6 +32,9 @@ export class CityOfSanBernadinoWaterCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CityOfSanBernadinoWaterCollector class.
+     */
     constructor() {
         super(CityOfSanBernadinoWaterCollector.CONFIG);
     }

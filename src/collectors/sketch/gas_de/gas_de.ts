@@ -32,6 +32,9 @@ export class GasDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GasDeCollector class.
+     */
     constructor() {
         super(GasDeCollector.CONFIG);
     }

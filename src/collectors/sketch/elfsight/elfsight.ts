@@ -32,6 +32,9 @@ export class ElfsightCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ElfsightCollector class.
+     */
     constructor() {
         super(ElfsightCollector.CONFIG);
     }

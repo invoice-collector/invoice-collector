@@ -32,6 +32,9 @@ export class BateauxMouchesDuPontDeLAlmaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BateauxMouchesDuPontDeLAlmaCollector class.
+     */
     constructor() {
         super(BateauxMouchesDuPontDeLAlmaCollector.CONFIG);
     }

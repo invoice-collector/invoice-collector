@@ -32,6 +32,9 @@ export class JaguarHandlerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the JaguarHandlerCollector class.
+     */
     constructor() {
         super(JaguarHandlerCollector.CONFIG);
     }

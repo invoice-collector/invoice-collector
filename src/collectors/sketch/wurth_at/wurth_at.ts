@@ -38,6 +38,9 @@ export class WurthAtCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WurthAtCollector class.
+     */
     constructor() {
         super(WurthAtCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class SageOneAccountingSaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SageOneAccountingSaCollector class.
+     */
     constructor() {
         super(SageOneAccountingSaCollector.CONFIG);
     }

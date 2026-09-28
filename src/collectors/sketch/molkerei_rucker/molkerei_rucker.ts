@@ -32,6 +32,9 @@ export class MolkereiRuckerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MolkereiRuckerCollector class.
+     */
     constructor() {
         super(MolkereiRuckerCollector.CONFIG);
     }

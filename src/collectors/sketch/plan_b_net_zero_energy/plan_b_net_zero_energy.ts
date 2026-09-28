@@ -32,6 +32,9 @@ export class PlanBNetZeroEnergyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PlanBNetZeroEnergyCollector class.
+     */
     constructor() {
         super(PlanBNetZeroEnergyCollector.CONFIG);
     }

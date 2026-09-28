@@ -32,6 +32,9 @@ export class ThreeIeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ThreeIeCollector class.
+     */
     constructor() {
         super(ThreeIeCollector.CONFIG);
     }

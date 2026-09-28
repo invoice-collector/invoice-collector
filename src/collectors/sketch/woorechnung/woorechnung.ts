@@ -32,6 +32,9 @@ export class WoorechnungCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WoorechnungCollector class.
+     */
     constructor() {
         super(WoorechnungCollector.CONFIG);
     }

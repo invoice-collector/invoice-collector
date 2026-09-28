@@ -32,6 +32,9 @@ export class RcsdUtilitiesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RcsdUtilitiesCollector class.
+     */
     constructor() {
         super(RcsdUtilitiesCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class NutrimuscleCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NutrimuscleCollector class.
+     */
     constructor() {
         super(NutrimuscleCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class GranvaloraGmbhAndCoKgCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GranvaloraGmbhAndCoKgCollector class.
+     */
     constructor() {
         super(GranvaloraGmbhAndCoKgCollector.CONFIG);
     }

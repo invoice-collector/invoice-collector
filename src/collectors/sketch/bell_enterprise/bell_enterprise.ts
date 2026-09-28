@@ -32,6 +32,9 @@ export class BellEnterpriseCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BellEnterpriseCollector class.
+     */
     constructor() {
         super(BellEnterpriseCollector.CONFIG);
     }

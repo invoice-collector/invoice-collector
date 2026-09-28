@@ -32,6 +32,9 @@ export class ChometteCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ChometteCollector class.
+     */
     constructor() {
         super(ChometteCollector.CONFIG);
     }

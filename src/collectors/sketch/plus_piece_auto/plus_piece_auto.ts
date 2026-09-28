@@ -32,6 +32,9 @@ export class PlusPieceAutoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PlusPieceAutoCollector class.
+     */
     constructor() {
         super(PlusPieceAutoCollector.CONFIG);
     }

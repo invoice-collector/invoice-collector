@@ -32,6 +32,9 @@ export class UservoiceCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the UservoiceCollector class.
+     */
     constructor() {
         super(UservoiceCollector.CONFIG);
     }

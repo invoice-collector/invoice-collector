@@ -32,6 +32,9 @@ export class UdioCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the UdioCollector class.
+     */
     constructor() {
         super(UdioCollector.CONFIG);
     }

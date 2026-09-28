@@ -32,6 +32,9 @@ export class MotoProfilSpZOOCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MotoProfilSpZOOCollector class.
+     */
     constructor() {
         super(MotoProfilSpZOOCollector.CONFIG);
     }

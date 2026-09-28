@@ -32,6 +32,9 @@ export class MonabanqCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MonabanqCollector class.
+     */
     constructor() {
         super(MonabanqCollector.CONFIG);
     }

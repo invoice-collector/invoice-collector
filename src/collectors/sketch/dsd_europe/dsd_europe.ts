@@ -32,6 +32,9 @@ export class DsdEuropeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DsdEuropeCollector class.
+     */
     constructor() {
         super(DsdEuropeCollector.CONFIG);
     }

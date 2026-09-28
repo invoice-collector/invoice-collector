@@ -32,6 +32,9 @@ export class WurttembergischeFirmenkundenportalCollector extends SketchCollector
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WurttembergischeFirmenkundenportalCollector class.
+     */
     constructor() {
         super(WurttembergischeFirmenkundenportalCollector.CONFIG);
     }

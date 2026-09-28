@@ -32,6 +32,9 @@ export class GoneoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GoneoCollector class.
+     */
     constructor() {
         super(GoneoCollector.CONFIG);
     }

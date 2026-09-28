@@ -32,6 +32,9 @@ export class WpspaceCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WpspaceCollector class.
+     */
     constructor() {
         super(WpspaceCollector.CONFIG);
     }

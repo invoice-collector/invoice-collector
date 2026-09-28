@@ -32,6 +32,9 @@ export class TimeAndBillCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TimeAndBillCollector class.
+     */
     constructor() {
         super(TimeAndBillCollector.CONFIG);
     }

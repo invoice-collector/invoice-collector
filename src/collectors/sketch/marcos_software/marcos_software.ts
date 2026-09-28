@@ -32,6 +32,9 @@ export class MarcosSoftwareCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MarcosSoftwareCollector class.
+     */
     constructor() {
         super(MarcosSoftwareCollector.CONFIG);
     }

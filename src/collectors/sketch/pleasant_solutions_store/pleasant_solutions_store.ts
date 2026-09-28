@@ -32,6 +32,9 @@ export class PleasantSolutionsStoreCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PleasantSolutionsStoreCollector class.
+     */
     constructor() {
         super(PleasantSolutionsStoreCollector.CONFIG);
     }

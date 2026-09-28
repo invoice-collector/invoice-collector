@@ -32,6 +32,9 @@ export class UtaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the UtaCollector class.
+     */
     constructor() {
         super(UtaCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class Dokom21DeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Dokom21DeCollector class.
+     */
     constructor() {
         super(Dokom21DeCollector.CONFIG);
     }

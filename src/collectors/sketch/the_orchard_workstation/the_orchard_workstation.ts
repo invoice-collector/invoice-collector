@@ -32,6 +32,9 @@ export class TheOrchardWorkstationCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TheOrchardWorkstationCollector class.
+     */
     constructor() {
         super(TheOrchardWorkstationCollector.CONFIG);
     }

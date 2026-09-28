@@ -32,6 +32,9 @@ export class EdooboxCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EdooboxCollector class.
+     */
     constructor() {
         super(EdooboxCollector.CONFIG);
     }

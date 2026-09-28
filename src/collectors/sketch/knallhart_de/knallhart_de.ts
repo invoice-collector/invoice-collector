@@ -32,6 +32,9 @@ export class KnallhartDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KnallhartDeCollector class.
+     */
     constructor() {
         super(KnallhartDeCollector.CONFIG);
     }

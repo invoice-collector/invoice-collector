@@ -32,6 +32,9 @@ export class EskerTermsyncCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EskerTermsyncCollector class.
+     */
     constructor() {
         super(EskerTermsyncCollector.CONFIG);
     }

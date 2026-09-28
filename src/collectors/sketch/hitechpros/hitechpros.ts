@@ -32,6 +32,9 @@ export class HitechprosCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HitechprosCollector class.
+     */
     constructor() {
         super(HitechprosCollector.CONFIG);
     }

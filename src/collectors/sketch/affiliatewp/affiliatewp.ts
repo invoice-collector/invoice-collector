@@ -32,6 +32,9 @@ export class AffiliatewpCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AffiliatewpCollector class.
+     */
     constructor() {
         super(AffiliatewpCollector.CONFIG);
     }

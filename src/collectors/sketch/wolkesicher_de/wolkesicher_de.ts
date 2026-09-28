@@ -32,6 +32,9 @@ export class WolkesicherDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WolkesicherDeCollector class.
+     */
     constructor() {
         super(WolkesicherDeCollector.CONFIG);
     }

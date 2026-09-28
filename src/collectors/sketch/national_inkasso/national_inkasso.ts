@@ -32,6 +32,9 @@ export class NationalInkassoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NationalInkassoCollector class.
+     */
     constructor() {
         super(NationalInkassoCollector.CONFIG);
     }

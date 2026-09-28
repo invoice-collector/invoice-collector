@@ -32,6 +32,9 @@ export class MonteurzimmerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MonteurzimmerCollector class.
+     */
     constructor() {
         super(MonteurzimmerCollector.CONFIG);
     }

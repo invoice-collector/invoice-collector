@@ -32,6 +32,9 @@ export class FordLeasingCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FordLeasingCollector class.
+     */
     constructor() {
         super(FordLeasingCollector.CONFIG);
     }

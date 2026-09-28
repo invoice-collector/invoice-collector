@@ -32,6 +32,9 @@ export class OnlineprintersDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OnlineprintersDeCollector class.
+     */
     constructor() {
         super(OnlineprintersDeCollector.CONFIG);
     }

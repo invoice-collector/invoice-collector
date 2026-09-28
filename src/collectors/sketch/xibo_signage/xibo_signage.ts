@@ -32,6 +32,9 @@ export class XiboSignageCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the XiboSignageCollector class.
+     */
     constructor() {
         super(XiboSignageCollector.CONFIG);
     }

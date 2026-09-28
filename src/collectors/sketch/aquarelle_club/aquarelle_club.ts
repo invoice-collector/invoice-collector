@@ -32,6 +32,9 @@ export class AquarelleClubCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AquarelleClubCollector class.
+     */
     constructor() {
         super(AquarelleClubCollector.CONFIG);
     }

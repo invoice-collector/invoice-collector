@@ -32,6 +32,9 @@ export class MediamodifierCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MediamodifierCollector class.
+     */
     constructor() {
         super(MediamodifierCollector.CONFIG);
     }

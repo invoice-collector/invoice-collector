@@ -32,6 +32,9 @@ export class AgandoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AgandoCollector class.
+     */
     constructor() {
         super(AgandoCollector.CONFIG);
     }

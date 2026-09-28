@@ -32,6 +32,9 @@ export class NowedaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NowedaCollector class.
+     */
     constructor() {
         super(NowedaCollector.CONFIG);
     }

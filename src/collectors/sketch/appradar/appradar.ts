@@ -32,6 +32,9 @@ export class AppradarCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AppradarCollector class.
+     */
     constructor() {
         super(AppradarCollector.CONFIG);
     }

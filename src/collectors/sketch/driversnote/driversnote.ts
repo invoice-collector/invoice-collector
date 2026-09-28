@@ -32,6 +32,9 @@ export class DriversnoteCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DriversnoteCollector class.
+     */
     constructor() {
         super(DriversnoteCollector.CONFIG);
     }

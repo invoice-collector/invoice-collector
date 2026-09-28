@@ -32,6 +32,9 @@ export class BiffaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BiffaCollector class.
+     */
     constructor() {
         super(BiffaCollector.CONFIG);
     }

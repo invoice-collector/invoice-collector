@@ -32,6 +32,9 @@ export class ViprinetCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ViprinetCollector class.
+     */
     constructor() {
         super(ViprinetCollector.CONFIG);
     }

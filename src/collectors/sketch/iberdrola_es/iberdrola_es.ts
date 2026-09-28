@@ -32,6 +32,9 @@ export class IberdrolaEsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the IberdrolaEsCollector class.
+     */
     constructor() {
         super(IberdrolaEsCollector.CONFIG);
     }

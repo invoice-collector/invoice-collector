@@ -32,6 +32,9 @@ export class VattenfallLadeappCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VattenfallLadeappCollector class.
+     */
     constructor() {
         super(VattenfallLadeappCollector.CONFIG);
     }

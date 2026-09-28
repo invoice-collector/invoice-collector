@@ -32,6 +32,9 @@ export class MiraviaSellerCenterCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MiraviaSellerCenterCollector class.
+     */
     constructor() {
         super(MiraviaSellerCenterCollector.CONFIG);
     }

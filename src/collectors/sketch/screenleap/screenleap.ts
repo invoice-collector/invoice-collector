@@ -32,6 +32,9 @@ export class ScreenleapCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ScreenleapCollector class.
+     */
     constructor() {
         super(ScreenleapCollector.CONFIG);
     }

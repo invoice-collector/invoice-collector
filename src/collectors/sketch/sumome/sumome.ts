@@ -32,6 +32,9 @@ export class SumomeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SumomeCollector class.
+     */
     constructor() {
         super(SumomeCollector.CONFIG);
     }

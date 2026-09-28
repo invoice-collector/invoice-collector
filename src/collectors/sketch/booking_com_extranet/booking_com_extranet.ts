@@ -32,6 +32,9 @@ export class BookingComExtranetCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BookingComExtranetCollector class.
+     */
     constructor() {
         super(BookingComExtranetCollector.CONFIG);
     }

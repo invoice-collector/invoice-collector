@@ -32,6 +32,9 @@ export class LitmusCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LitmusCollector class.
+     */
     constructor() {
         super(LitmusCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class AsanaRecurlyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AsanaRecurlyCollector class.
+     */
     constructor() {
         super(AsanaRecurlyCollector.CONFIG);
     }

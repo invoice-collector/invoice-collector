@@ -32,6 +32,9 @@ export class SetappCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SetappCollector class.
+     */
     constructor() {
         super(SetappCollector.CONFIG);
     }

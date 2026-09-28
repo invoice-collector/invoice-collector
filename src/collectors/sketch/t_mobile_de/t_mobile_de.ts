@@ -32,6 +32,9 @@ export class TMobileDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TMobileDeCollector class.
+     */
     constructor() {
         super(TMobileDeCollector.CONFIG);
     }

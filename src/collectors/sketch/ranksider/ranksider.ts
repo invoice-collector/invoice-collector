@@ -32,6 +32,9 @@ export class RanksiderCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RanksiderCollector class.
+     */
     constructor() {
         super(RanksiderCollector.CONFIG);
     }

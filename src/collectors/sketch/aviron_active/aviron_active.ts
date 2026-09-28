@@ -32,6 +32,9 @@ export class AvironActiveCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AvironActiveCollector class.
+     */
     constructor() {
         super(AvironActiveCollector.CONFIG);
     }

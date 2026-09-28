@@ -32,6 +32,9 @@ export class IkeaKreditkarteCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the IkeaKreditkarteCollector class.
+     */
     constructor() {
         super(IkeaKreditkarteCollector.CONFIG);
     }

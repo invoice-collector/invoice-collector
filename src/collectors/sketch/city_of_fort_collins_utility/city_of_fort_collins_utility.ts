@@ -32,6 +32,9 @@ export class CityOfFortCollinsUtilityCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CityOfFortCollinsUtilityCollector class.
+     */
     constructor() {
         super(CityOfFortCollinsUtilityCollector.CONFIG);
     }

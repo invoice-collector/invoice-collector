@@ -32,6 +32,9 @@ export class Water2businessCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Water2businessCollector class.
+     */
     constructor() {
         super(Water2businessCollector.CONFIG);
     }

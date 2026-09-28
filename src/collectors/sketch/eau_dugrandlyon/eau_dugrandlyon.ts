@@ -32,6 +32,9 @@ export class EauDugrandlyonCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EauDugrandlyonCollector class.
+     */
     constructor() {
         super(EauDugrandlyonCollector.CONFIG);
     }

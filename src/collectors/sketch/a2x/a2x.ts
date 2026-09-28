@@ -32,6 +32,9 @@ export class A2xCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the A2xCollector class.
+     */
     constructor() {
         super(A2xCollector.CONFIG);
     }

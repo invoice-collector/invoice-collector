@@ -32,6 +32,9 @@ export class DrankdirectCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DrankdirectCollector class.
+     */
     constructor() {
         super(DrankdirectCollector.CONFIG);
     }

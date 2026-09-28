@@ -32,6 +32,9 @@ export class SonVideoComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SonVideoComCollector class.
+     */
     constructor() {
         super(SonVideoComCollector.CONFIG);
     }

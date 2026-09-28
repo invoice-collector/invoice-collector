@@ -32,6 +32,9 @@ export class Myh2oserversCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Myh2oserversCollector class.
+     */
     constructor() {
         super(Myh2oserversCollector.CONFIG);
     }

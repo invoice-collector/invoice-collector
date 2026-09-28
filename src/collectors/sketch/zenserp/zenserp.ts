@@ -32,6 +32,9 @@ export class ZenserpCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ZenserpCollector class.
+     */
     constructor() {
         super(ZenserpCollector.CONFIG);
     }

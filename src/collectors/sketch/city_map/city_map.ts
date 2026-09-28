@@ -32,6 +32,9 @@ export class CityMapCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CityMapCollector class.
+     */
     constructor() {
         super(CityMapCollector.CONFIG);
     }

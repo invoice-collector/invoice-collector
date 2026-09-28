@@ -32,6 +32,9 @@ export class VattenfallFranceElectriciteCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VattenfallFranceElectriciteCollector class.
+     */
     constructor() {
         super(VattenfallFranceElectriciteCollector.CONFIG);
     }

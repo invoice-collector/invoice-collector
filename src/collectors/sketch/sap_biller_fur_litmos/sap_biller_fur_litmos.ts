@@ -32,6 +32,9 @@ export class SapBillerFurLitmosCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SapBillerFurLitmosCollector class.
+     */
     constructor() {
         super(SapBillerFurLitmosCollector.CONFIG);
     }

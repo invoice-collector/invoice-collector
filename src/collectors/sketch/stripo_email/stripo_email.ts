@@ -32,6 +32,9 @@ export class StripoEmailCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StripoEmailCollector class.
+     */
     constructor() {
         super(StripoEmailCollector.CONFIG);
     }

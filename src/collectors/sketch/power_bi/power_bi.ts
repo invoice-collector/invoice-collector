@@ -32,6 +32,9 @@ export class PowerBiCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PowerBiCollector class.
+     */
     constructor() {
         super(PowerBiCollector.CONFIG);
     }

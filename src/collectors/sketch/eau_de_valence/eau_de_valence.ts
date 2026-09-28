@@ -32,6 +32,9 @@ export class EauDeValenceCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EauDeValenceCollector class.
+     */
     constructor() {
         super(EauDeValenceCollector.CONFIG);
     }

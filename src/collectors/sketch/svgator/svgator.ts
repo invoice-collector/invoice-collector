@@ -32,6 +32,9 @@ export class SvgatorCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SvgatorCollector class.
+     */
     constructor() {
         super(SvgatorCollector.CONFIG);
     }

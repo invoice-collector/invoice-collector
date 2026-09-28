@@ -32,6 +32,9 @@ export class DuluxCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DuluxCollector class.
+     */
     constructor() {
         super(DuluxCollector.CONFIG);
     }

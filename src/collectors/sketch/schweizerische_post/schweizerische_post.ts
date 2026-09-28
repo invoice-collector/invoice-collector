@@ -32,6 +32,9 @@ export class SchweizerischePostCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SchweizerischePostCollector class.
+     */
     constructor() {
         super(SchweizerischePostCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class ConsortiumImmobilierCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ConsortiumImmobilierCollector class.
+     */
     constructor() {
         super(ConsortiumImmobilierCollector.CONFIG);
     }

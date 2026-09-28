@@ -32,6 +32,9 @@ export class SimplemdmCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SimplemdmCollector class.
+     */
     constructor() {
         super(SimplemdmCollector.CONFIG);
     }

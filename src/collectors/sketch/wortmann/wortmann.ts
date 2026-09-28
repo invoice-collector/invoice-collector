@@ -32,6 +32,9 @@ export class WortmannCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WortmannCollector class.
+     */
     constructor() {
         super(WortmannCollector.CONFIG);
     }

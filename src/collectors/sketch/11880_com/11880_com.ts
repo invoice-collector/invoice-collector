@@ -32,6 +32,9 @@ export class _11880ComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the _11880ComCollector class.
+     */
     constructor() {
         super(_11880ComCollector.CONFIG);
     }

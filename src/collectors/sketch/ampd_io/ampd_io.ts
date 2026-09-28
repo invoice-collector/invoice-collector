@@ -32,6 +32,9 @@ export class AmpdIoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AmpdIoCollector class.
+     */
     constructor() {
         super(AmpdIoCollector.CONFIG);
     }

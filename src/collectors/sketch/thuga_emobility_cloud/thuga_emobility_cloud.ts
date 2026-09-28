@@ -32,6 +32,9 @@ export class ThugaEmobilityCloudCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ThugaEmobilityCloudCollector class.
+     */
     constructor() {
         super(ThugaEmobilityCloudCollector.CONFIG);
     }

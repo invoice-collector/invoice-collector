@@ -32,6 +32,9 @@ export class HomelikeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HomelikeCollector class.
+     */
     constructor() {
         super(HomelikeCollector.CONFIG);
     }

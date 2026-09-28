@@ -32,6 +32,9 @@ export class PinkPandaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PinkPandaCollector class.
+     */
     constructor() {
         super(PinkPandaCollector.CONFIG);
     }

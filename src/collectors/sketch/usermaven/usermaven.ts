@@ -32,6 +32,9 @@ export class UsermavenCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the UsermavenCollector class.
+     */
     constructor() {
         super(UsermavenCollector.CONFIG);
     }

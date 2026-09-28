@@ -32,6 +32,9 @@ export class SslmarketCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SslmarketCollector class.
+     */
     constructor() {
         super(SslmarketCollector.CONFIG);
     }

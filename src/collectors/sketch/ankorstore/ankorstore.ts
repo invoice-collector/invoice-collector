@@ -32,6 +32,9 @@ export class AnkorstoreCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AnkorstoreCollector class.
+     */
     constructor() {
         super(AnkorstoreCollector.CONFIG);
     }

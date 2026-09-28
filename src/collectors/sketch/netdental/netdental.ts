@@ -32,6 +32,9 @@ export class NetdentalCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NetdentalCollector class.
+     */
     constructor() {
         super(NetdentalCollector.CONFIG);
     }

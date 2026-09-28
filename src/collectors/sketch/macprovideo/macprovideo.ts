@@ -32,6 +32,9 @@ export class MacprovideoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MacprovideoCollector class.
+     */
     constructor() {
         super(MacprovideoCollector.CONFIG);
     }

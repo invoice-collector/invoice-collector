@@ -32,6 +32,9 @@ export class EnmaxReportsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EnmaxReportsCollector class.
+     */
     constructor() {
         super(EnmaxReportsCollector.CONFIG);
     }

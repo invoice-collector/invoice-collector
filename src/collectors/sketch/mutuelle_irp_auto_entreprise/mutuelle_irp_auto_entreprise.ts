@@ -32,6 +32,9 @@ export class MutuelleIrpAutoEntrepriseCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MutuelleIrpAutoEntrepriseCollector class.
+     */
     constructor() {
         super(MutuelleIrpAutoEntrepriseCollector.CONFIG);
     }

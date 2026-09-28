@@ -32,6 +32,9 @@ export class PrintforyouCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PrintforyouCollector class.
+     */
     constructor() {
         super(PrintforyouCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class GlobetrotterPartnerprogrammCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GlobetrotterPartnerprogrammCollector class.
+     */
     constructor() {
         super(GlobetrotterPartnerprogrammCollector.CONFIG);
     }

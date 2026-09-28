@@ -32,6 +32,9 @@ export class ApondoDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ApondoDeCollector class.
+     */
     constructor() {
         super(ApondoDeCollector.CONFIG);
     }

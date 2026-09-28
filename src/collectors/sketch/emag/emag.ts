@@ -32,6 +32,9 @@ export class EmagCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EmagCollector class.
+     */
     constructor() {
         super(EmagCollector.CONFIG);
     }

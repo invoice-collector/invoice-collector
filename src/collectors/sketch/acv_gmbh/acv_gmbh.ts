@@ -32,6 +32,9 @@ export class AcvGmbhCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AcvGmbhCollector class.
+     */
     constructor() {
         super(AcvGmbhCollector.CONFIG);
     }

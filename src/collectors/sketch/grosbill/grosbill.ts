@@ -32,6 +32,9 @@ export class GrosbillCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GrosbillCollector class.
+     */
     constructor() {
         super(GrosbillCollector.CONFIG);
     }

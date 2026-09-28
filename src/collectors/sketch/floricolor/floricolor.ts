@@ -32,6 +32,9 @@ export class FloricolorCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FloricolorCollector class.
+     */
     constructor() {
         super(FloricolorCollector.CONFIG);
     }

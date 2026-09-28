@@ -32,6 +32,9 @@ export class SoundbetterCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SoundbetterCollector class.
+     */
     constructor() {
         super(SoundbetterCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class BpmOnlineCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BpmOnlineCollector class.
+     */
     constructor() {
         super(BpmOnlineCollector.CONFIG);
     }

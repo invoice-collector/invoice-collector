@@ -31,6 +31,9 @@ export class SoloParisCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SoloParisCollector class.
+     */
     constructor() {
         super(SoloParisCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class PfdFoodsBusinessCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PfdFoodsBusinessCollector class.
+     */
     constructor() {
         super(PfdFoodsBusinessCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class RakutenKundenCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RakutenKundenCollector class.
+     */
     constructor() {
         super(RakutenKundenCollector.CONFIG);
     }

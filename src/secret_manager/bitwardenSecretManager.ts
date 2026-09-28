@@ -12,6 +12,9 @@ export class BitwardenSecretManager extends AbstractSecretManager {
     projectId: string;
     client: BitwardenClient;
 
+    /**
+     * Constructs an instance of the BitwardenSecretManager class.
+     */
     constructor() {
         super();
         this.accessToken = utils.getEnvVar('SECRET_MANAGER_BITWARDEN_ACCESS_TOKEN');
@@ -26,6 +29,9 @@ export class BitwardenSecretManager extends AbstractSecretManager {
         this.client = new BitwardenClient(settings, 2);
     }
 
+    /**
+     * @inheritdoc
+     */
     async connect(): Promise<void> {
         try {
             await this.client.auth().loginAccessToken(this.accessToken, BitwardenSecretManager.stateFile);
@@ -36,10 +42,16 @@ export class BitwardenSecretManager extends AbstractSecretManager {
         }
     }
 
+    /**
+     * @inheritdoc
+     */
     async disconnect(): Promise<void> {
         // No explicit disconnect method in Bitwarden SDK
     }
 
+    /**
+     * @inheritdoc
+     */
     async ping(): Promise<void> {
         try {
             await this.client.projects().list(this.organizationId);
@@ -50,6 +62,9 @@ export class BitwardenSecretManager extends AbstractSecretManager {
 
     // SECRETS
 
+    /**
+     * @inheritdoc
+     */
     async getValue(id: string): Promise<any> {
         try {
             const secret = await this.client.secrets().get(id);
@@ -61,6 +76,9 @@ export class BitwardenSecretManager extends AbstractSecretManager {
         }
     }
 
+    /**
+     * @inheritdoc
+     */
     async createSecret(secret: Secret): Promise<Secret> {
         try {
             // JSON secret before sending
@@ -73,6 +91,9 @@ export class BitwardenSecretManager extends AbstractSecretManager {
         }
     }
 
+    /**
+     * @inheritdoc
+     */
     async updateSecret(secret: Secret): Promise<void> {
         try {
             // JSON secret before sending
@@ -84,10 +105,16 @@ export class BitwardenSecretManager extends AbstractSecretManager {
         }
     }
 
+    /**
+     * @inheritdoc
+     */
     async deleteSecret(id: string): Promise<void> {
         await this.deleteSecrets([id]);
     }
 
+    /**
+     * @inheritdoc
+     */
     async deleteSecrets(ids: string[]): Promise<void> {
         try {
             await this.client.secrets().delete(ids);

@@ -32,6 +32,9 @@ export class TorontoHydroHomeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TorontoHydroHomeCollector class.
+     */
     constructor() {
         super(TorontoHydroHomeCollector.CONFIG);
     }

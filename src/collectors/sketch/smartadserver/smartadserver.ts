@@ -32,6 +32,9 @@ export class SmartadserverCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SmartadserverCollector class.
+     */
     constructor() {
         super(SmartadserverCollector.CONFIG);
     }

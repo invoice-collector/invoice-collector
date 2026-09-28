@@ -32,6 +32,9 @@ export class FibwiCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FibwiCollector class.
+     */
     constructor() {
         super(FibwiCollector.CONFIG);
     }

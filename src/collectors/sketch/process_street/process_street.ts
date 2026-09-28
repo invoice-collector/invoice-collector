@@ -32,6 +32,9 @@ export class ProcessStreetCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ProcessStreetCollector class.
+     */
     constructor() {
         super(ProcessStreetCollector.CONFIG);
     }

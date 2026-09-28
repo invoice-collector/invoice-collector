@@ -32,6 +32,9 @@ export class WerbetechnikerShopCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WerbetechnikerShopCollector class.
+     */
     constructor() {
         super(WerbetechnikerShopCollector.CONFIG);
     }

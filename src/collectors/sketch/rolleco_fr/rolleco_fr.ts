@@ -32,6 +32,9 @@ export class RollecoFrCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RollecoFrCollector class.
+     */
     constructor() {
         super(RollecoFrCollector.CONFIG);
     }

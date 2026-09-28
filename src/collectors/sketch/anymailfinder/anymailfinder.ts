@@ -32,6 +32,9 @@ export class AnymailfinderCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AnymailfinderCollector class.
+     */
     constructor() {
         super(AnymailfinderCollector.CONFIG);
     }

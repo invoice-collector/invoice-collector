@@ -32,6 +32,9 @@ export class UAreDesignCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the UAreDesignCollector class.
+     */
     constructor() {
         super(UAreDesignCollector.CONFIG);
     }

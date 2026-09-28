@@ -32,6 +32,9 @@ export class MotorolAutomotiveSpZOOCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MotorolAutomotiveSpZOOCollector class.
+     */
     constructor() {
         super(MotorolAutomotiveSpZOOCollector.CONFIG);
     }

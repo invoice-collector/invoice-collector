@@ -32,6 +32,9 @@ export class EfgOnlinePlusCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EfgOnlinePlusCollector class.
+     */
     constructor() {
         super(EfgOnlinePlusCollector.CONFIG);
     }

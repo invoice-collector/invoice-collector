@@ -32,6 +32,9 @@ export class DripComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DripComCollector class.
+     */
     constructor() {
         super(DripComCollector.CONFIG);
     }

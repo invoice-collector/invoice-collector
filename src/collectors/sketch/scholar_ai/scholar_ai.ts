@@ -32,6 +32,9 @@ export class ScholarAiCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ScholarAiCollector class.
+     */
     constructor() {
         super(ScholarAiCollector.CONFIG);
     }

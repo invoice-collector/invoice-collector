@@ -32,6 +32,9 @@ export class ScrapeopsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ScrapeopsCollector class.
+     */
     constructor() {
         super(ScrapeopsCollector.CONFIG);
     }

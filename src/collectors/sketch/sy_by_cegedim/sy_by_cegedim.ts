@@ -32,6 +32,9 @@ export class SyByCegedimCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SyByCegedimCollector class.
+     */
     constructor() {
         super(SyByCegedimCollector.CONFIG);
     }

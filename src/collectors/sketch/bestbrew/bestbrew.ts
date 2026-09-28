@@ -32,6 +32,9 @@ export class BestbrewCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BestbrewCollector class.
+     */
     constructor() {
         super(BestbrewCollector.CONFIG);
     }

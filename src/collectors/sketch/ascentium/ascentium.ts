@@ -32,6 +32,9 @@ export class AscentiumCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AscentiumCollector class.
+     */
     constructor() {
         super(AscentiumCollector.CONFIG);
     }

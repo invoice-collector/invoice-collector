@@ -32,6 +32,9 @@ export class EsmComputerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EsmComputerCollector class.
+     */
     constructor() {
         super(EsmComputerCollector.CONFIG);
     }

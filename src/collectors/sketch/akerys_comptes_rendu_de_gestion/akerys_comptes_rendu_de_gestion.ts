@@ -32,6 +32,9 @@ export class AkerysComptesRenduDeGestionCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AkerysComptesRenduDeGestionCollector class.
+     */
     constructor() {
         super(AkerysComptesRenduDeGestionCollector.CONFIG);
     }

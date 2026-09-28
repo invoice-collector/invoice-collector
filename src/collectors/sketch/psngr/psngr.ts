@@ -32,6 +32,9 @@ export class PsngrCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PsngrCollector class.
+     */
     constructor() {
         super(PsngrCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class CassCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CassCollector class.
+     */
     constructor() {
         super(CassCollector.CONFIG);
     }

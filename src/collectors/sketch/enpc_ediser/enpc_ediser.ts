@@ -32,6 +32,9 @@ export class EnpcEdiserCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EnpcEdiserCollector class.
+     */
     constructor() {
         super(EnpcEdiserCollector.CONFIG);
     }

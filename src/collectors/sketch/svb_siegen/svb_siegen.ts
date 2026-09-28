@@ -32,6 +32,9 @@ export class SvbSiegenCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SvbSiegenCollector class.
+     */
     constructor() {
         super(SvbSiegenCollector.CONFIG);
     }

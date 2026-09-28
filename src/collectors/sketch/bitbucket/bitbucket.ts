@@ -32,6 +32,9 @@ export class BitbucketCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BitbucketCollector class.
+     */
     constructor() {
         super(BitbucketCollector.CONFIG);
     }

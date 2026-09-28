@@ -31,6 +31,9 @@ export class TransportsSetakCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TransportsSetakCollector class.
+     */
     constructor() {
         super(TransportsSetakCollector.CONFIG);
     }

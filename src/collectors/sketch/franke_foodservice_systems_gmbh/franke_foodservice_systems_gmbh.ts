@@ -32,6 +32,9 @@ export class FrankeFoodserviceSystemsGmbhCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FrankeFoodserviceSystemsGmbhCollector class.
+     */
     constructor() {
         super(FrankeFoodserviceSystemsGmbhCollector.CONFIG);
     }

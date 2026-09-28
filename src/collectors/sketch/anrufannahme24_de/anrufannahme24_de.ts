@@ -32,6 +32,9 @@ export class Anrufannahme24DeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Anrufannahme24DeCollector class.
+     */
     constructor() {
         super(Anrufannahme24DeCollector.CONFIG);
     }

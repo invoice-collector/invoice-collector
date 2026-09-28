@@ -32,6 +32,9 @@ export class BrigadCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BrigadCollector class.
+     */
     constructor() {
         super(BrigadCollector.CONFIG);
     }

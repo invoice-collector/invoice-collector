@@ -32,6 +32,9 @@ export class SalesflareCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SalesflareCollector class.
+     */
     constructor() {
         super(SalesflareCollector.CONFIG);
     }

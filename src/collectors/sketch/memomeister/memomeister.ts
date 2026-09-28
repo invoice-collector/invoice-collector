@@ -32,6 +32,9 @@ export class MemomeisterCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MemomeisterCollector class.
+     */
     constructor() {
         super(MemomeisterCollector.CONFIG);
     }

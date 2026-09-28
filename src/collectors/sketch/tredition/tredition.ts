@@ -32,6 +32,9 @@ export class TreditionCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TreditionCollector class.
+     */
     constructor() {
         super(TreditionCollector.CONFIG);
     }

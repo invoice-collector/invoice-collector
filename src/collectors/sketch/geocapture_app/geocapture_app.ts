@@ -32,6 +32,9 @@ export class GeocaptureAppCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GeocaptureAppCollector class.
+     */
     constructor() {
         super(GeocaptureAppCollector.CONFIG);
     }

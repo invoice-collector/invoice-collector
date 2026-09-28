@@ -32,6 +32,9 @@ export class Collective2Collector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Collective2Collector class.
+     */
     constructor() {
         super(Collective2Collector.CONFIG);
     }

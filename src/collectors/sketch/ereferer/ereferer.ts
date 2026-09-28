@@ -32,6 +32,9 @@ export class ErefererCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ErefererCollector class.
+     */
     constructor() {
         super(ErefererCollector.CONFIG);
     }

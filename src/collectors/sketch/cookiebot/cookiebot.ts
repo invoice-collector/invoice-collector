@@ -32,6 +32,9 @@ export class CookiebotCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CookiebotCollector class.
+     */
     constructor() {
         super(CookiebotCollector.CONFIG);
     }

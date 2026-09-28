@@ -32,6 +32,9 @@ export class SpideroakCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SpideroakCollector class.
+     */
     constructor() {
         super(SpideroakCollector.CONFIG);
     }

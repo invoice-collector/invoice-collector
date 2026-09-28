@@ -32,6 +32,9 @@ export class QuicktapsurveyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the QuicktapsurveyCollector class.
+     */
     constructor() {
         super(QuicktapsurveyCollector.CONFIG);
     }

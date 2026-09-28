@@ -32,6 +32,9 @@ export class DrekopfRecyclingzentrumVelbertGmbhCollector extends SketchCollector
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DrekopfRecyclingzentrumVelbertGmbhCollector class.
+     */
     constructor() {
         super(DrekopfRecyclingzentrumVelbertGmbhCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class DevowlIoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DevowlIoCollector class.
+     */
     constructor() {
         super(DevowlIoCollector.CONFIG);
     }

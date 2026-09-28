@@ -32,6 +32,9 @@ export class MailtrackCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MailtrackCollector class.
+     */
     constructor() {
         super(MailtrackCollector.CONFIG);
     }

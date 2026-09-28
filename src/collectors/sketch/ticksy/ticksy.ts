@@ -32,6 +32,9 @@ export class TicksyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TicksyCollector class.
+     */
     constructor() {
         super(TicksyCollector.CONFIG);
     }

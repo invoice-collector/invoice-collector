@@ -32,6 +32,9 @@ export class MightydealsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MightydealsCollector class.
+     */
     constructor() {
         super(MightydealsCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class AmazonSellerCentralMxCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AmazonSellerCentralMxCollector class.
+     */
     constructor() {
         super(AmazonSellerCentralMxCollector.CONFIG);
     }

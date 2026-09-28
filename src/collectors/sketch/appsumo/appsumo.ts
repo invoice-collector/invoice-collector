@@ -32,6 +32,9 @@ export class AppsumoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AppsumoCollector class.
+     */
     constructor() {
         super(AppsumoCollector.CONFIG);
     }

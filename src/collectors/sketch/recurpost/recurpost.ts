@@ -32,6 +32,9 @@ export class RecurpostCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RecurpostCollector class.
+     */
     constructor() {
         super(RecurpostCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class As24ByTotalCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the As24ByTotalCollector class.
+     */
     constructor() {
         super(As24ByTotalCollector.CONFIG);
     }

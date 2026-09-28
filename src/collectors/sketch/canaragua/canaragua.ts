@@ -32,6 +32,9 @@ export class CanaraguaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CanaraguaCollector class.
+     */
     constructor() {
         super(CanaraguaCollector.CONFIG);
     }

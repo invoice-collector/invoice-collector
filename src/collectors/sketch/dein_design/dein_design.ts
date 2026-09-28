@@ -32,6 +32,9 @@ export class DeinDesignCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DeinDesignCollector class.
+     */
     constructor() {
         super(DeinDesignCollector.CONFIG);
     }

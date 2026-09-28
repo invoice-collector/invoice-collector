@@ -32,6 +32,9 @@ export class SslmateCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SslmateCollector class.
+     */
     constructor() {
         super(SslmateCollector.CONFIG);
     }

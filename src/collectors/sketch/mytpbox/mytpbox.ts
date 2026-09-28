@@ -32,6 +32,9 @@ export class MytpboxCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MytpboxCollector class.
+     */
     constructor() {
         super(MytpboxCollector.CONFIG);
     }

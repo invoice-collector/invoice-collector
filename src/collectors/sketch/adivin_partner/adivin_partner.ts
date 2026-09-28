@@ -32,6 +32,9 @@ export class AdivinPartnerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AdivinPartnerCollector class.
+     */
     constructor() {
         super(AdivinPartnerCollector.CONFIG);
     }

@@ -36,10 +36,16 @@ export class FreeCollector extends LinearWebCollector {
         state: CollectorState.ACTIVE,
     };
 
+    /**
+     * Constructs a new instance of the FreeCollector class.
+     */
     constructor() {
         super(FreeCollector.CONFIG);
     }
 
+    /**
+     * @inheritdoc
+     */
     async login(driver: AbstractDriver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
         await driver.inputText(FreeSelectors.FIELD_USERNAME, params.id);
         await driver.inputText(FreeSelectors.FIELD_PASSWORD, params.password);
@@ -58,15 +64,24 @@ export class FreeCollector extends LinearWebCollector {
         }
     }
 
+    /**
+     * @inheritdoc
+     */
     async navigate(driver: AbstractDriver): Promise<void> {
         // Go to invoices
         await driver.leftClick(FreeSelectors.BUTTON_INVOICES);
     }
 
+    /**
+     * @inheritdoc
+     */
     async getInvoices(driver: AbstractDriver): Promise<Element[]> {
         return await driver.getElements(FreeSelectors.CONTAINER_INVOICE);
     }
 
+    /**
+     * @inheritdoc
+     */
     async data(driver: AbstractDriver, element: Element): Promise<Invoice> {
         const downloadButton = await element.getElement(FreeSelectors.BUTTON_DOWNLOAD);
         const link = await element.getAttribute(FreeSelectors.BUTTON_DOWNLOAD, 'href');
@@ -96,6 +111,9 @@ export class FreeCollector extends LinearWebCollector {
         };
     }
 
+    /**
+     * @inheritdoc
+     */
     async download(driver: AbstractDriver, invoice: Invoice): Promise<string[]> {
         return [await this.download_link(driver, invoice.link)];
     }

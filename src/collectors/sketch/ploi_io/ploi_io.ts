@@ -32,6 +32,9 @@ export class PloiIoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PloiIoCollector class.
+     */
     constructor() {
         super(PloiIoCollector.CONFIG);
     }

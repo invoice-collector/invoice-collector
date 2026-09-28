@@ -32,6 +32,9 @@ export class RetraceCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RetraceCollector class.
+     */
     constructor() {
         super(RetraceCollector.CONFIG);
     }

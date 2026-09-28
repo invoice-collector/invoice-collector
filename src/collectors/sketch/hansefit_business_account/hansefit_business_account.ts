@@ -32,6 +32,9 @@ export class HansefitBusinessAccountCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HansefitBusinessAccountCollector class.
+     */
     constructor() {
         super(HansefitBusinessAccountCollector.CONFIG);
     }

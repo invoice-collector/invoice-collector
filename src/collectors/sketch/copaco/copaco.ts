@@ -32,6 +32,9 @@ export class CopacoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CopacoCollector class.
+     */
     constructor() {
         super(CopacoCollector.CONFIG);
     }

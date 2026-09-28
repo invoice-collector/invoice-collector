@@ -32,6 +32,9 @@ export class KlicktippManagerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KlicktippManagerCollector class.
+     */
     constructor() {
         super(KlicktippManagerCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class CityWaterLightAndPowerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CityWaterLightAndPowerCollector class.
+     */
     constructor() {
         super(CityWaterLightAndPowerCollector.CONFIG);
     }

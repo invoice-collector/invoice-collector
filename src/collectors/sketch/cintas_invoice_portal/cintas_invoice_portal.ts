@@ -32,6 +32,9 @@ export class CintasInvoicePortalCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CintasInvoicePortalCollector class.
+     */
     constructor() {
         super(CintasInvoicePortalCollector.CONFIG);
     }

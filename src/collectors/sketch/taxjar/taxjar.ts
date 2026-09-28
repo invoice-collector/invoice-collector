@@ -32,6 +32,9 @@ export class TaxjarCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TaxjarCollector class.
+     */
     constructor() {
         super(TaxjarCollector.CONFIG);
     }

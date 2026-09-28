@@ -32,6 +32,9 @@ export class GemaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GemaCollector class.
+     */
     constructor() {
         super(GemaCollector.CONFIG);
     }

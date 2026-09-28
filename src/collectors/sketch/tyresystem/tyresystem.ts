@@ -32,6 +32,9 @@ export class TyresystemCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TyresystemCollector class.
+     */
     constructor() {
         super(TyresystemCollector.CONFIG);
     }

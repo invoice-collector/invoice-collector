@@ -32,6 +32,9 @@ export class MarienfeldMultimediaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MarienfeldMultimediaCollector class.
+     */
     constructor() {
         super(MarienfeldMultimediaCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class TrowistaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TrowistaCollector class.
+     */
     constructor() {
         super(TrowistaCollector.CONFIG);
     }

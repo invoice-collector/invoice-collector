@@ -32,6 +32,9 @@ export class WarriorplusCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WarriorplusCollector class.
+     */
     constructor() {
         super(WarriorplusCollector.CONFIG);
     }

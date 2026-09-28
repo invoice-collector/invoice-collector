@@ -32,6 +32,9 @@ export class ServermaniaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ServermaniaCollector class.
+     */
     constructor() {
         super(ServermaniaCollector.CONFIG);
     }

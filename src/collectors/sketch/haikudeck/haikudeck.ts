@@ -32,6 +32,9 @@ export class HaikudeckCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HaikudeckCollector class.
+     */
     constructor() {
         super(HaikudeckCollector.CONFIG);
     }

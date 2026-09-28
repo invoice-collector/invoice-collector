@@ -32,6 +32,9 @@ export class ImmocloudCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ImmocloudCollector class.
+     */
     constructor() {
         super(ImmocloudCollector.CONFIG);
     }

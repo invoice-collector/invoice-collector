@@ -32,6 +32,9 @@ export class UniversignCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the UniversignCollector class.
+     */
     constructor() {
         super(UniversignCollector.CONFIG);
     }

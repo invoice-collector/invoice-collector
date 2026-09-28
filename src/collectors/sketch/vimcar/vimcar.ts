@@ -32,6 +32,9 @@ export class VimcarCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VimcarCollector class.
+     */
     constructor() {
         super(VimcarCollector.CONFIG);
     }

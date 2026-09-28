@@ -32,6 +32,9 @@ export class UsetifulCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the UsetifulCollector class.
+     */
     constructor() {
         super(UsetifulCollector.CONFIG);
     }

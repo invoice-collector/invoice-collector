@@ -32,6 +32,9 @@ export class _10dollarCaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the _10dollarCaCollector class.
+     */
     constructor() {
         super(_10dollarCaCollector.CONFIG);
     }

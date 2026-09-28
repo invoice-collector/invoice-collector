@@ -32,6 +32,9 @@ export class MutuelleGroupeLourmelPersonnelCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MutuelleGroupeLourmelPersonnelCollector class.
+     */
     constructor() {
         super(MutuelleGroupeLourmelPersonnelCollector.CONFIG);
     }

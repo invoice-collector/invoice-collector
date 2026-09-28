@@ -32,6 +32,9 @@ export class ClinicDressCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ClinicDressCollector class.
+     */
     constructor() {
         super(ClinicDressCollector.CONFIG);
     }

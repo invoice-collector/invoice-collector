@@ -32,6 +32,9 @@ export class McgPartsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the McgPartsCollector class.
+     */
     constructor() {
         super(McgPartsCollector.CONFIG);
     }

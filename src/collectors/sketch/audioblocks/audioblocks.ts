@@ -32,6 +32,9 @@ export class AudioblocksCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AudioblocksCollector class.
+     */
     constructor() {
         super(AudioblocksCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class IataCustomerPortalCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the IataCustomerPortalCollector class.
+     */
     constructor() {
         super(IataCustomerPortalCollector.CONFIG);
     }

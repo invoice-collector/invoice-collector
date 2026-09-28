@@ -32,6 +32,9 @@ export class AralSupercardReloadableCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AralSupercardReloadableCollector class.
+     */
     constructor() {
         super(AralSupercardReloadableCollector.CONFIG);
     }

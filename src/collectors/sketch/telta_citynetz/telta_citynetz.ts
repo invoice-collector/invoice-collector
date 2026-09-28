@@ -32,6 +32,9 @@ export class TeltaCitynetzCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TeltaCitynetzCollector class.
+     */
     constructor() {
         super(TeltaCitynetzCollector.CONFIG);
     }

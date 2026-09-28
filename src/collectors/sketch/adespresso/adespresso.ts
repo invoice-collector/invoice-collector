@@ -32,6 +32,9 @@ export class AdespressoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AdespressoCollector class.
+     */
     constructor() {
         super(AdespressoCollector.CONFIG);
     }

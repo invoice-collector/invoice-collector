@@ -32,6 +32,9 @@ export class SemjuiceCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SemjuiceCollector class.
+     */
     constructor() {
         super(SemjuiceCollector.CONFIG);
     }

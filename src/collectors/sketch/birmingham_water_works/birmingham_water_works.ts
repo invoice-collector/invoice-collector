@@ -32,6 +32,9 @@ export class BirminghamWaterWorksCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BirminghamWaterWorksCollector class.
+     */
     constructor() {
         super(BirminghamWaterWorksCollector.CONFIG);
     }

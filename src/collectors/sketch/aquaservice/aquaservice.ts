@@ -32,6 +32,9 @@ export class AquaserviceCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AquaserviceCollector class.
+     */
     constructor() {
         super(AquaserviceCollector.CONFIG);
     }

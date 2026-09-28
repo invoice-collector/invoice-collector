@@ -32,6 +32,9 @@ export class BerkmanCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BerkmanCollector class.
+     */
     constructor() {
         super(BerkmanCollector.CONFIG);
     }

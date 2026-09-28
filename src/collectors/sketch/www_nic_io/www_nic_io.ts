@@ -32,6 +32,9 @@ export class WwwNicIoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WwwNicIoCollector class.
+     */
     constructor() {
         super(WwwNicIoCollector.CONFIG);
     }

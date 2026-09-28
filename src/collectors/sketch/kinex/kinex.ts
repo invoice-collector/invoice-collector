@@ -32,6 +32,9 @@ export class KinexCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KinexCollector class.
+     */
     constructor() {
         super(KinexCollector.CONFIG);
     }

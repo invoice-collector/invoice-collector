@@ -32,6 +32,9 @@ export class KixieCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KixieCollector class.
+     */
     constructor() {
         super(KixieCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class EverphoneCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EverphoneCollector class.
+     */
     constructor() {
         super(EverphoneCollector.CONFIG);
     }

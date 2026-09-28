@@ -32,6 +32,9 @@ export class Sms77Collector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Sms77Collector class.
+     */
     constructor() {
         super(Sms77Collector.CONFIG);
     }

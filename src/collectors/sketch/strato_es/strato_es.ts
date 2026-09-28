@@ -32,6 +32,9 @@ export class StratoEsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StratoEsCollector class.
+     */
     constructor() {
         super(StratoEsCollector.CONFIG);
     }

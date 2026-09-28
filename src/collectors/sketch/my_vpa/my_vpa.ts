@@ -32,6 +32,9 @@ export class MyVpaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MyVpaCollector class.
+     */
     constructor() {
         super(MyVpaCollector.CONFIG);
     }

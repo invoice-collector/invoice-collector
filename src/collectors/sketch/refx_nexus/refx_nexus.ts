@@ -32,6 +32,9 @@ export class RefxNexusCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RefxNexusCollector class.
+     */
     constructor() {
         super(RefxNexusCollector.CONFIG);
     }

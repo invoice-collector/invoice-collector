@@ -32,6 +32,9 @@ export class LebendigesLandCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LebendigesLandCollector class.
+     */
     constructor() {
         super(LebendigesLandCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class WipsterIoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WipsterIoCollector class.
+     */
     constructor() {
         super(WipsterIoCollector.CONFIG);
     }

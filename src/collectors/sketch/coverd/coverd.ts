@@ -32,6 +32,9 @@ export class CoverdCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CoverdCollector class.
+     */
     constructor() {
         super(CoverdCollector.CONFIG);
     }

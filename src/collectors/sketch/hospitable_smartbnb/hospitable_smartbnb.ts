@@ -32,6 +32,9 @@ export class HospitableSmartbnbCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HospitableSmartbnbCollector class.
+     */
     constructor() {
         super(HospitableSmartbnbCollector.CONFIG);
     }

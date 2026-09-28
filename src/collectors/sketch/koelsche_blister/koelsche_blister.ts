@@ -32,6 +32,9 @@ export class KoelscheBlisterCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KoelscheBlisterCollector class.
+     */
     constructor() {
         super(KoelscheBlisterCollector.CONFIG);
     }

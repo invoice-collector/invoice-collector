@@ -32,6 +32,9 @@ export class HondaInteractiveNetworkCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HondaInteractiveNetworkCollector class.
+     */
     constructor() {
         super(HondaInteractiveNetworkCollector.CONFIG);
     }

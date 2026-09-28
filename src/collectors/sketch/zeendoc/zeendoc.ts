@@ -32,6 +32,9 @@ export class ZeendocCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ZeendocCollector class.
+     */
     constructor() {
         super(ZeendocCollector.CONFIG);
     }

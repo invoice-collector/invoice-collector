@@ -32,6 +32,9 @@ export class SipcallCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SipcallCollector class.
+     */
     constructor() {
         super(SipcallCollector.CONFIG);
     }

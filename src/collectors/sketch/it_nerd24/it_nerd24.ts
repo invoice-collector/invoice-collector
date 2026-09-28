@@ -32,6 +32,9 @@ export class ItNerd24Collector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ItNerd24Collector class.
+     */
     constructor() {
         super(ItNerd24Collector.CONFIG);
     }

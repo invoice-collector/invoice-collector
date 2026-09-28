@@ -32,6 +32,9 @@ export class _3asRacingCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the _3asRacingCollector class.
+     */
     constructor() {
         super(_3asRacingCollector.CONFIG);
     }

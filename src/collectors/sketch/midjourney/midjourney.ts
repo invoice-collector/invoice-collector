@@ -32,6 +32,9 @@ export class MidjourneyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MidjourneyCollector class.
+     */
     constructor() {
         super(MidjourneyCollector.CONFIG);
     }

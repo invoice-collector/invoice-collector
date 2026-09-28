@@ -32,6 +32,9 @@ export class ScreencloudSignageCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ScreencloudSignageCollector class.
+     */
     constructor() {
         super(ScreencloudSignageCollector.CONFIG);
     }

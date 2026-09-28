@@ -32,6 +32,9 @@ export class KeliwebCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KeliwebCollector class.
+     */
     constructor() {
         super(KeliwebCollector.CONFIG);
     }

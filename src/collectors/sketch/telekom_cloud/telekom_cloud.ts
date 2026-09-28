@@ -32,6 +32,9 @@ export class TelekomCloudCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TelekomCloudCollector class.
+     */
     constructor() {
         super(TelekomCloudCollector.CONFIG);
     }

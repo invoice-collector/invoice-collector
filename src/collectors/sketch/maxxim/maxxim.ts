@@ -32,6 +32,9 @@ export class MaxximCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MaxximCollector class.
+     */
     constructor() {
         super(MaxximCollector.CONFIG);
     }

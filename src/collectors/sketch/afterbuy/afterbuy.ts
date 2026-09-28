@@ -32,6 +32,9 @@ export class AfterbuyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AfterbuyCollector class.
+     */
     constructor() {
         super(AfterbuyCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class _20iCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the _20iCollector class.
+     */
     constructor() {
         super(_20iCollector.CONFIG);
     }

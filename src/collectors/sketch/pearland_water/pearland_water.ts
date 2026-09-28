@@ -32,6 +32,9 @@ export class PearlandWaterCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PearlandWaterCollector class.
+     */
     constructor() {
         super(PearlandWaterCollector.CONFIG);
     }

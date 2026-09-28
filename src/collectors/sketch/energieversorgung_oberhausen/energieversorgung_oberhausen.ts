@@ -32,6 +32,9 @@ export class EnergieversorgungOberhausenCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EnergieversorgungOberhausenCollector class.
+     */
     constructor() {
         super(EnergieversorgungOberhausenCollector.CONFIG);
     }

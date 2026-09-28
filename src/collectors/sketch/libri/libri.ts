@@ -32,6 +32,9 @@ export class LibriCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LibriCollector class.
+     */
     constructor() {
         super(LibriCollector.CONFIG);
     }

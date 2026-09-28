@@ -32,6 +32,9 @@ export class MaxityreCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MaxityreCollector class.
+     */
     constructor() {
         super(MaxityreCollector.CONFIG);
     }

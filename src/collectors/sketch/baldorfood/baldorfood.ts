@@ -32,6 +32,9 @@ export class BaldorfoodCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BaldorfoodCollector class.
+     */
     constructor() {
         super(BaldorfoodCollector.CONFIG);
     }

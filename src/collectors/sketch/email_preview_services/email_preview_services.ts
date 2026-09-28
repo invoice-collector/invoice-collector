@@ -32,6 +32,9 @@ export class EmailPreviewServicesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EmailPreviewServicesCollector class.
+     */
     constructor() {
         super(EmailPreviewServicesCollector.CONFIG);
     }

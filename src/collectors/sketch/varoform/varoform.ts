@@ -31,6 +31,9 @@ export class VaroformCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VaroformCollector class.
+     */
     constructor() {
         super(VaroformCollector.CONFIG);
     }

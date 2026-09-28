@@ -32,6 +32,9 @@ export class ChunkrAiCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ChunkrAiCollector class.
+     */
     constructor() {
         super(ChunkrAiCollector.CONFIG);
     }

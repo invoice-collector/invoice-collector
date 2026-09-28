@@ -32,6 +32,9 @@ export class HelloprintCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HelloprintCollector class.
+     */
     constructor() {
         super(HelloprintCollector.CONFIG);
     }

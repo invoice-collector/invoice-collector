@@ -32,6 +32,9 @@ export class EmailJsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EmailJsCollector class.
+     */
     constructor() {
         super(EmailJsCollector.CONFIG);
     }

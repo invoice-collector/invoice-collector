@@ -32,6 +32,9 @@ export class TrendMicroCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TrendMicroCollector class.
+     */
     constructor() {
         super(TrendMicroCollector.CONFIG);
     }

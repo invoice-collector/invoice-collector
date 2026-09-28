@@ -32,6 +32,9 @@ export class ShopwareCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ShopwareCollector class.
+     */
     constructor() {
         super(ShopwareCollector.CONFIG);
     }

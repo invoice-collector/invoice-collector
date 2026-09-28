@@ -32,6 +32,9 @@ export class MintEnergieCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MintEnergieCollector class.
+     */
     constructor() {
         super(MintEnergieCollector.CONFIG);
     }

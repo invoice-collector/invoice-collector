@@ -32,6 +32,9 @@ export class AgilecrmCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AgilecrmCollector class.
+     */
     constructor() {
         super(AgilecrmCollector.CONFIG);
     }

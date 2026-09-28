@@ -32,6 +32,9 @@ export class ZaDirektCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ZaDirektCollector class.
+     */
     constructor() {
         super(ZaDirektCollector.CONFIG);
     }

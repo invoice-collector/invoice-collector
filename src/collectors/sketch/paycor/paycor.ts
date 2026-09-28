@@ -32,6 +32,9 @@ export class PaycorCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PaycorCollector class.
+     */
     constructor() {
         super(PaycorCollector.CONFIG);
     }

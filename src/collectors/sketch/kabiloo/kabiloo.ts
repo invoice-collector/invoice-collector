@@ -32,6 +32,9 @@ export class KabilooCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KabilooCollector class.
+     */
     constructor() {
         super(KabilooCollector.CONFIG);
     }

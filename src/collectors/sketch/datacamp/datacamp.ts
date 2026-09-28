@@ -32,6 +32,9 @@ export class DatacampCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DatacampCollector class.
+     */
     constructor() {
         super(DatacampCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class BarmeniaAdcuriMaklerportalCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BarmeniaAdcuriMaklerportalCollector class.
+     */
     constructor() {
         super(BarmeniaAdcuriMaklerportalCollector.CONFIG);
     }

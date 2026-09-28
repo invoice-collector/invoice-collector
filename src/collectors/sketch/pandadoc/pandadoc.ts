@@ -32,6 +32,9 @@ export class PandadocCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PandadocCollector class.
+     */
     constructor() {
         super(PandadocCollector.CONFIG);
     }

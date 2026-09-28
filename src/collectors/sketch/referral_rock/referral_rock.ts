@@ -32,6 +32,9 @@ export class ReferralRockCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ReferralRockCollector class.
+     */
     constructor() {
         super(ReferralRockCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class SmartbrokerPartnerprogrammCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SmartbrokerPartnerprogrammCollector class.
+     */
     constructor() {
         super(SmartbrokerPartnerprogrammCollector.CONFIG);
     }

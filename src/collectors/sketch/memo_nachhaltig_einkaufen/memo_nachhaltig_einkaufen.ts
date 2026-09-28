@@ -32,6 +32,9 @@ export class MemoNachhaltigEinkaufenCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MemoNachhaltigEinkaufenCollector class.
+     */
     constructor() {
         super(MemoNachhaltigEinkaufenCollector.CONFIG);
     }

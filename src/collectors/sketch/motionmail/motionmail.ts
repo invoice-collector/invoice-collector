@@ -32,6 +32,9 @@ export class MotionmailCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MotionmailCollector class.
+     */
     constructor() {
         super(MotionmailCollector.CONFIG);
     }

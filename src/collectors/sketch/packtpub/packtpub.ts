@@ -32,6 +32,9 @@ export class PacktpubCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PacktpubCollector class.
+     */
     constructor() {
         super(PacktpubCollector.CONFIG);
     }

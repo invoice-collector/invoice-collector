@@ -32,6 +32,9 @@ export class EasyftpCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EasyftpCollector class.
+     */
     constructor() {
         super(EasyftpCollector.CONFIG);
     }

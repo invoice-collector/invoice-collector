@@ -32,6 +32,9 @@ export class ImgixCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ImgixCollector class.
+     */
     constructor() {
         super(ImgixCollector.CONFIG);
     }

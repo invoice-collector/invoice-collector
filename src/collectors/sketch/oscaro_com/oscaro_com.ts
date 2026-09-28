@@ -32,6 +32,9 @@ export class OscaroComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OscaroComCollector class.
+     */
     constructor() {
         super(OscaroComCollector.CONFIG);
     }

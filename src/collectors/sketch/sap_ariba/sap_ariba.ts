@@ -32,6 +32,9 @@ export class SapAribaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SapAribaCollector class.
+     */
     constructor() {
         super(SapAribaCollector.CONFIG);
     }

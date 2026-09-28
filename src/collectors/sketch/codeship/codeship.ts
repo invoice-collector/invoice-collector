@@ -32,6 +32,9 @@ export class CodeshipCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CodeshipCollector class.
+     */
     constructor() {
         super(CodeshipCollector.CONFIG);
     }

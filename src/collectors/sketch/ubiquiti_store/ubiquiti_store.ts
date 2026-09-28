@@ -32,6 +32,9 @@ export class UbiquitiStoreCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the UbiquitiStoreCollector class.
+     */
     constructor() {
         super(UbiquitiStoreCollector.CONFIG);
     }

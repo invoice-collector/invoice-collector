@@ -32,6 +32,9 @@ export class FunnelishCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FunnelishCollector class.
+     */
     constructor() {
         super(FunnelishCollector.CONFIG);
     }

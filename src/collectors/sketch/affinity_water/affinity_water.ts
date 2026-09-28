@@ -32,6 +32,9 @@ export class AffinityWaterCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AffinityWaterCollector class.
+     */
     constructor() {
         super(AffinityWaterCollector.CONFIG);
     }

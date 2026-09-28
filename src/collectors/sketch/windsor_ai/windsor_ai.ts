@@ -32,6 +32,9 @@ export class WindsorAiCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WindsorAiCollector class.
+     */
     constructor() {
         super(WindsorAiCollector.CONFIG);
     }

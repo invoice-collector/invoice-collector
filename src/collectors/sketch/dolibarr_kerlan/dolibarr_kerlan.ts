@@ -32,6 +32,9 @@ export class DolibarrKerlanCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DolibarrKerlanCollector class.
+     */
     constructor() {
         super(DolibarrKerlanCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class OracleCloudCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OracleCloudCollector class.
+     */
     constructor() {
         super(OracleCloudCollector.CONFIG);
     }

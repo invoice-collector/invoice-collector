@@ -32,6 +32,9 @@ export class AudionetworkCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AudionetworkCollector class.
+     */
     constructor() {
         super(AudionetworkCollector.CONFIG);
     }

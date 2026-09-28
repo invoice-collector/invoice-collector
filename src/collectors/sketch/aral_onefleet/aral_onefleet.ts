@@ -32,6 +32,9 @@ export class AralOnefleetCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AralOnefleetCollector class.
+     */
     constructor() {
         super(AralOnefleetCollector.CONFIG);
     }

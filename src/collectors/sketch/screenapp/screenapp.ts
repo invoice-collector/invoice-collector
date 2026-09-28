@@ -32,6 +32,9 @@ export class ScreenappCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ScreenappCollector class.
+     */
     constructor() {
         super(ScreenappCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class RVVersicherungsAgCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RVVersicherungsAgCollector class.
+     */
     constructor() {
         super(RVVersicherungsAgCollector.CONFIG);
     }

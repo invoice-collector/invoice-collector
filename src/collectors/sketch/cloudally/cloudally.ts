@@ -32,6 +32,9 @@ export class CloudallyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CloudallyCollector class.
+     */
     constructor() {
         super(CloudallyCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class BrevoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BrevoCollector class.
+     */
     constructor() {
         super(BrevoCollector.CONFIG);
     }

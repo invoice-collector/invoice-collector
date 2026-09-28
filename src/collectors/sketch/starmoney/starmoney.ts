@@ -32,6 +32,9 @@ export class StarmoneyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StarmoneyCollector class.
+     */
     constructor() {
         super(StarmoneyCollector.CONFIG);
     }

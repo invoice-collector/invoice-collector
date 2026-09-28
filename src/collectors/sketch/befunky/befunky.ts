@@ -32,6 +32,9 @@ export class BefunkyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BefunkyCollector class.
+     */
     constructor() {
         super(BefunkyCollector.CONFIG);
     }

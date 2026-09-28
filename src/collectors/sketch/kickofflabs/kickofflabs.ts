@@ -32,6 +32,9 @@ export class KickofflabsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KickofflabsCollector class.
+     */
     constructor() {
         super(KickofflabsCollector.CONFIG);
     }

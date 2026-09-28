@@ -32,6 +32,9 @@ export class ShopgateCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ShopgateCollector class.
+     */
     constructor() {
         super(ShopgateCollector.CONFIG);
     }

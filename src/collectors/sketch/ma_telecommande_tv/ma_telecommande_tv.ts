@@ -32,6 +32,9 @@ export class MaTelecommandeTvCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MaTelecommandeTvCollector class.
+     */
     constructor() {
         super(MaTelecommandeTvCollector.CONFIG);
     }

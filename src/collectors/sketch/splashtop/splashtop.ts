@@ -32,6 +32,9 @@ export class SplashtopCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SplashtopCollector class.
+     */
     constructor() {
         super(SplashtopCollector.CONFIG);
     }

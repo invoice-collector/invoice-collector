@@ -32,6 +32,9 @@ export class Ready2orderCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Ready2orderCollector class.
+     */
     constructor() {
         super(Ready2orderCollector.CONFIG);
     }

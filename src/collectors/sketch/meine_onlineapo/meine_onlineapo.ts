@@ -32,6 +32,9 @@ export class MeineOnlineapoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MeineOnlineapoCollector class.
+     */
     constructor() {
         super(MeineOnlineapoCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class TelecashCustomerCareCenterCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TelecashCustomerCareCenterCollector class.
+     */
     constructor() {
         super(TelecashCustomerCareCenterCollector.CONFIG);
     }

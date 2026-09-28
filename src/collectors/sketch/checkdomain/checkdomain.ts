@@ -32,6 +32,9 @@ export class CheckdomainCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CheckdomainCollector class.
+     */
     constructor() {
         super(CheckdomainCollector.CONFIG);
     }

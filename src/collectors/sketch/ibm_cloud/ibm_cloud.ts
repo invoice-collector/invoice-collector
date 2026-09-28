@@ -32,6 +32,9 @@ export class IbmCloudCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the IbmCloudCollector class.
+     */
     constructor() {
         super(IbmCloudCollector.CONFIG);
     }

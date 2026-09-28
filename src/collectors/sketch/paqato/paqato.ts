@@ -32,6 +32,9 @@ export class PaqatoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PaqatoCollector class.
+     */
     constructor() {
         super(PaqatoCollector.CONFIG);
     }

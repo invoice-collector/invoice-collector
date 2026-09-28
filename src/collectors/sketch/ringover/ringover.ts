@@ -32,6 +32,9 @@ export class RingoverCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RingoverCollector class.
+     */
     constructor() {
         super(RingoverCollector.CONFIG);
     }

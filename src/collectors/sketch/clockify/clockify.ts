@@ -32,6 +32,9 @@ export class ClockifyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ClockifyCollector class.
+     */
     constructor() {
         super(ClockifyCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class GoldenStateWaterCompanyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GoldenStateWaterCompanyCollector class.
+     */
     constructor() {
         super(GoldenStateWaterCompanyCollector.CONFIG);
     }

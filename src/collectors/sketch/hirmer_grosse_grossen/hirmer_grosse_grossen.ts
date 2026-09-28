@@ -32,6 +32,9 @@ export class HirmerGrosseGrossenCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HirmerGrosseGrossenCollector class.
+     */
     constructor() {
         super(HirmerGrosseGrossenCollector.CONFIG);
     }

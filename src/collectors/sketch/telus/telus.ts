@@ -32,6 +32,9 @@ export class TelusCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TelusCollector class.
+     */
     constructor() {
         super(TelusCollector.CONFIG);
     }

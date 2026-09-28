@@ -32,6 +32,9 @@ export class LeasetrackEsFinanceCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LeasetrackEsFinanceCollector class.
+     */
     constructor() {
         super(LeasetrackEsFinanceCollector.CONFIG);
     }

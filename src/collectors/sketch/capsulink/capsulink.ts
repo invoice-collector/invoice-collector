@@ -32,6 +32,9 @@ export class CapsulinkCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CapsulinkCollector class.
+     */
     constructor() {
         super(CapsulinkCollector.CONFIG);
     }

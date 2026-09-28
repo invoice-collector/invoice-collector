@@ -32,6 +32,9 @@ export class OsourcedCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OsourcedCollector class.
+     */
     constructor() {
         super(OsourcedCollector.CONFIG);
     }

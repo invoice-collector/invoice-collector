@@ -32,6 +32,9 @@ export class SharedinboxCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SharedinboxCollector class.
+     */
     constructor() {
         super(SharedinboxCollector.CONFIG);
     }

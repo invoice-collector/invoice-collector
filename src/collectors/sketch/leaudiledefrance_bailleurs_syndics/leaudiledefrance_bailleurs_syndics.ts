@@ -31,6 +31,9 @@ export class LeauDileDeFranceBailleursSyndicsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LeauDileDeFranceBailleursSyndicsCollector class.
+     */
     constructor() {
         super(LeauDileDeFranceBailleursSyndicsCollector.CONFIG);
     }

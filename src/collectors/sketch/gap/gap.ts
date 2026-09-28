@@ -32,6 +32,9 @@ export class GapCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GapCollector class.
+     */
     constructor() {
         super(GapCollector.CONFIG);
     }

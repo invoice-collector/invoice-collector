@@ -32,6 +32,9 @@ export class BellCanadaBusinessPortalCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BellCanadaBusinessPortalCollector class.
+     */
     constructor() {
         super(BellCanadaBusinessPortalCollector.CONFIG);
     }

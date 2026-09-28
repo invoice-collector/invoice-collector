@@ -32,6 +32,9 @@ export class TimetrackEnterpriseCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TimetrackEnterpriseCollector class.
+     */
     constructor() {
         super(TimetrackEnterpriseCollector.CONFIG);
     }

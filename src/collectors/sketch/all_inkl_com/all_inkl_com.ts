@@ -32,6 +32,9 @@ export class AllInklCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AllInklCollector class.
+     */
     constructor() {
         super(AllInklCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class MutuelleSmenoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MutuelleSmenoCollector class.
+     */
     constructor() {
         super(MutuelleSmenoCollector.CONFIG);
     }

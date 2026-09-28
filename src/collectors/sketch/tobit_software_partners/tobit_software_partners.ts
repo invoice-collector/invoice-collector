@@ -32,6 +32,9 @@ export class TobitSoftwarePartnersCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TobitSoftwarePartnersCollector class.
+     */
     constructor() {
         super(TobitSoftwarePartnersCollector.CONFIG);
     }

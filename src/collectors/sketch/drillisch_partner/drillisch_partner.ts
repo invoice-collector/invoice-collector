@@ -32,6 +32,9 @@ export class DrillischPartnerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DrillischPartnerCollector class.
+     */
     constructor() {
         super(DrillischPartnerCollector.CONFIG);
     }

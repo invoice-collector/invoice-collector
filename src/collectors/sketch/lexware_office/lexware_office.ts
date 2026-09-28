@@ -32,6 +32,9 @@ export class LexwareOfficeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LexwareOfficeCollector class.
+     */
     constructor() {
         super(LexwareOfficeCollector.CONFIG);
     }

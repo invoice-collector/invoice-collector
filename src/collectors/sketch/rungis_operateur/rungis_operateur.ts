@@ -32,6 +32,9 @@ export class RungisOperateurCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RungisOperateurCollector class.
+     */
     constructor() {
         super(RungisOperateurCollector.CONFIG);
     }

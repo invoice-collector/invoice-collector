@@ -32,6 +32,9 @@ export class PressloftCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PressloftCollector class.
+     */
     constructor() {
         super(PressloftCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class AusgewaehltVerpacktCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AusgewaehltVerpacktCollector class.
+     */
     constructor() {
         super(AusgewaehltVerpacktCollector.CONFIG);
     }

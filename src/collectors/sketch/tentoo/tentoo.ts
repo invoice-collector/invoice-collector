@@ -32,6 +32,9 @@ export class TentooCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TentooCollector class.
+     */
     constructor() {
         super(TentooCollector.CONFIG);
     }

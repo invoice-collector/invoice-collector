@@ -32,6 +32,9 @@ export class TicketIOCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TicketIOCollector class.
+     */
     constructor() {
         super(TicketIOCollector.CONFIG);
     }

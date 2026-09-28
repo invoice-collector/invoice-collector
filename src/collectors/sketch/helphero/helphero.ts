@@ -32,6 +32,9 @@ export class HelpheroCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HelpheroCollector class.
+     */
     constructor() {
         super(HelpheroCollector.CONFIG);
     }

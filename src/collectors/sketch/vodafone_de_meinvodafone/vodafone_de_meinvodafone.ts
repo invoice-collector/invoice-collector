@@ -32,6 +32,9 @@ export class VodafoneDeMeinvodafoneCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VodafoneDeMeinvodafoneCollector class.
+     */
     constructor() {
         super(VodafoneDeMeinvodafoneCollector.CONFIG);
     }

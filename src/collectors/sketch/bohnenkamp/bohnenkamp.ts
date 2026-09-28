@@ -32,6 +32,9 @@ export class BohnenkampCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BohnenkampCollector class.
+     */
     constructor() {
         super(BohnenkampCollector.CONFIG);
     }

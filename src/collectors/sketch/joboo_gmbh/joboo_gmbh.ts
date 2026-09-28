@@ -32,6 +32,9 @@ export class JobooGmbhCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the JobooGmbhCollector class.
+     */
     constructor() {
         super(JobooGmbhCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class GulpDeGutschriftstoolCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GulpDeGutschriftstoolCollector class.
+     */
     constructor() {
         super(GulpDeGutschriftstoolCollector.CONFIG);
     }

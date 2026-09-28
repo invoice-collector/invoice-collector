@@ -32,6 +32,9 @@ export class RVMaklerportalCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RVMaklerportalCollector class.
+     */
     constructor() {
         super(RVMaklerportalCollector.CONFIG);
     }

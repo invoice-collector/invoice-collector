@@ -32,6 +32,9 @@ export class DomcuraCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DomcuraCollector class.
+     */
     constructor() {
         super(DomcuraCollector.CONFIG);
     }

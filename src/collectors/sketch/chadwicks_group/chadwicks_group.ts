@@ -32,6 +32,9 @@ export class ChadwicksGroupCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ChadwicksGroupCollector class.
+     */
     constructor() {
         super(ChadwicksGroupCollector.CONFIG);
     }

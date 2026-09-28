@@ -32,6 +32,9 @@ export class VuzionLimitedCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VuzionLimitedCollector class.
+     */
     constructor() {
         super(VuzionLimitedCollector.CONFIG);
     }

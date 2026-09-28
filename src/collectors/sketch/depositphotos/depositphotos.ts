@@ -32,6 +32,9 @@ export class DepositphotosCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DepositphotosCollector class.
+     */
     constructor() {
         super(DepositphotosCollector.CONFIG);
     }

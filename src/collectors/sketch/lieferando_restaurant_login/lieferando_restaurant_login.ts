@@ -32,6 +32,9 @@ export class LieferandoRestaurantLoginCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LieferandoRestaurantLoginCollector class.
+     */
     constructor() {
         super(LieferandoRestaurantLoginCollector.CONFIG);
     }

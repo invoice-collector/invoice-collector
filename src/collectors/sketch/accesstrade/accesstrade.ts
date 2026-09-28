@@ -32,6 +32,9 @@ export class AccesstradeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AccesstradeCollector class.
+     */
     constructor() {
         super(AccesstradeCollector.CONFIG);
     }

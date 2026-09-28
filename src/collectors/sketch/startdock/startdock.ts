@@ -32,6 +32,9 @@ export class StartdockCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StartdockCollector class.
+     */
     constructor() {
         super(StartdockCollector.CONFIG);
     }

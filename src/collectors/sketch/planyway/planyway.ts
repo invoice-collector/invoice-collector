@@ -31,6 +31,9 @@ export class PlanywayCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PlanywayCollector class.
+     */
     constructor() {
         super(PlanywayCollector.CONFIG);
     }

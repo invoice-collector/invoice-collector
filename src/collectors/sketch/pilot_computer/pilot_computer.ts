@@ -32,6 +32,9 @@ export class PilotComputerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PilotComputerCollector class.
+     */
     constructor() {
         super(PilotComputerCollector.CONFIG);
     }

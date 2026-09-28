@@ -32,6 +32,9 @@ export class MathonFrCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MathonFrCollector class.
+     */
     constructor() {
         super(MathonFrCollector.CONFIG);
     }

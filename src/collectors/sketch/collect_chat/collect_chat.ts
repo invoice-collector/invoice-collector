@@ -32,6 +32,9 @@ export class CollectChatCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CollectChatCollector class.
+     */
     constructor() {
         super(CollectChatCollector.CONFIG);
     }

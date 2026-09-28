@@ -32,6 +32,9 @@ export class PrivateTunnelCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PrivateTunnelCollector class.
+     */
     constructor() {
         super(PrivateTunnelCollector.CONFIG);
     }

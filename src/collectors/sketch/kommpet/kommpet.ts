@@ -32,6 +32,9 @@ export class KommpetCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KommpetCollector class.
+     */
     constructor() {
         super(KommpetCollector.CONFIG);
     }

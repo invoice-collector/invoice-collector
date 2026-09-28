@@ -32,6 +32,9 @@ export class BvukDownloadPortsalCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BvukDownloadPortsalCollector class.
+     */
     constructor() {
         super(BvukDownloadPortsalCollector.CONFIG);
     }

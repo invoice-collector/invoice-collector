@@ -32,6 +32,9 @@ export class Recht247Collector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Recht247Collector class.
+     */
     constructor() {
         super(Recht247Collector.CONFIG);
     }

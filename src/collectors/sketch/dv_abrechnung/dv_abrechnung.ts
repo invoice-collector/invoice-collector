@@ -32,6 +32,9 @@ export class DvAbrechnungCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DvAbrechnungCollector class.
+     */
     constructor() {
         super(DvAbrechnungCollector.CONFIG);
     }

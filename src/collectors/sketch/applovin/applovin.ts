@@ -32,6 +32,9 @@ export class ApplovinCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ApplovinCollector class.
+     */
     constructor() {
         super(ApplovinCollector.CONFIG);
     }

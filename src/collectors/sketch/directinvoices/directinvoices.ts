@@ -32,6 +32,9 @@ export class DirectinvoicesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DirectinvoicesCollector class.
+     */
     constructor() {
         super(DirectinvoicesCollector.CONFIG);
     }

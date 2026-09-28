@@ -32,6 +32,9 @@ export class CopadexCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CopadexCollector class.
+     */
     constructor() {
         super(CopadexCollector.CONFIG);
     }

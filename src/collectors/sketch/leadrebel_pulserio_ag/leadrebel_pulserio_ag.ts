@@ -32,6 +32,9 @@ export class LeadrebelPulserioAgCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LeadrebelPulserioAgCollector class.
+     */
     constructor() {
         super(LeadrebelPulserioAgCollector.CONFIG);
     }

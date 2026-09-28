@@ -32,6 +32,9 @@ export class EasyscanDentalUnionCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EasyscanDentalUnionCollector class.
+     */
     constructor() {
         super(EasyscanDentalUnionCollector.CONFIG);
     }

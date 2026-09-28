@@ -32,6 +32,9 @@ export class MdsCentprodCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MdsCentprodCollector class.
+     */
     constructor() {
         super(MdsCentprodCollector.CONFIG);
     }

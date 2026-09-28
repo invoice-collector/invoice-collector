@@ -32,6 +32,9 @@ export class ProgisapCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ProgisapCollector class.
+     */
     constructor() {
         super(ProgisapCollector.CONFIG);
     }

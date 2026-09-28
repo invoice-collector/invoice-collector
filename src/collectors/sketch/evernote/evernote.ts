@@ -32,6 +32,9 @@ export class EvernoteCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EvernoteCollector class.
+     */
     constructor() {
         super(EvernoteCollector.CONFIG);
     }

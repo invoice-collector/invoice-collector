@@ -32,6 +32,9 @@ export class MaxdominiosCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MaxdominiosCollector class.
+     */
     constructor() {
         super(MaxdominiosCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class KagiCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KagiCollector class.
+     */
     constructor() {
         super(KagiCollector.CONFIG);
     }

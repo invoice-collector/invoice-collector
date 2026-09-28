@@ -32,6 +32,9 @@ export class EFluxCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EFluxCollector class.
+     */
     constructor() {
         super(EFluxCollector.CONFIG);
     }

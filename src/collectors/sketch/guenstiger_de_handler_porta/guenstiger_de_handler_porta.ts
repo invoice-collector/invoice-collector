@@ -32,6 +32,9 @@ export class GuenstigerDeHandlerPortaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GuenstigerDeHandlerPortaCollector class.
+     */
     constructor() {
         super(GuenstigerDeHandlerPortaCollector.CONFIG);
     }

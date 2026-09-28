@@ -32,6 +32,9 @@ export class FuelGenieCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FuelGenieCollector class.
+     */
     constructor() {
         super(FuelGenieCollector.CONFIG);
     }

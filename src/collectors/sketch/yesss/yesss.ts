@@ -32,6 +32,9 @@ export class YesssCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the YesssCollector class.
+     */
     constructor() {
         super(YesssCollector.CONFIG);
     }

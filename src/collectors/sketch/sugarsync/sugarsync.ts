@@ -32,6 +32,9 @@ export class SugarsyncCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SugarsyncCollector class.
+     */
     constructor() {
         super(SugarsyncCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class SamsclubComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SamsclubComCollector class.
+     */
     constructor() {
         super(SamsclubComCollector.CONFIG);
     }

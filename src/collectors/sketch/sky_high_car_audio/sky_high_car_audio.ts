@@ -32,6 +32,9 @@ export class SkyHighCarAudioCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SkyHighCarAudioCollector class.
+     */
     constructor() {
         super(SkyHighCarAudioCollector.CONFIG);
     }

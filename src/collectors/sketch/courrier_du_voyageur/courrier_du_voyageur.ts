@@ -32,6 +32,9 @@ export class CourrierDuVoyageurCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CourrierDuVoyageurCollector class.
+     */
     constructor() {
         super(CourrierDuVoyageurCollector.CONFIG);
     }

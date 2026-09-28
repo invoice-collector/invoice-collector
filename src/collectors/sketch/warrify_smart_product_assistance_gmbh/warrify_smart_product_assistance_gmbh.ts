@@ -32,6 +32,9 @@ export class WarrifySmartProductAssistanceGmbhCollector extends SketchCollector 
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WarrifySmartProductAssistanceGmbhCollector class.
+     */
     constructor() {
         super(WarrifySmartProductAssistanceGmbhCollector.CONFIG);
     }

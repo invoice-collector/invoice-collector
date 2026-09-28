@@ -32,6 +32,9 @@ export class YahooCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the YahooCollector class.
+     */
     constructor() {
         super(YahooCollector.CONFIG);
     }

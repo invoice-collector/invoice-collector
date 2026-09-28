@@ -32,6 +32,9 @@ export class ManitobaHydroCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ManitobaHydroCollector class.
+     */
     constructor() {
         super(ManitobaHydroCollector.CONFIG);
     }

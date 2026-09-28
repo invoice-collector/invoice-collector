@@ -32,6 +32,9 @@ export class OfficeClubCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OfficeClubCollector class.
+     */
     constructor() {
         super(OfficeClubCollector.CONFIG);
     }

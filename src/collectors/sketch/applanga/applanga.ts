@@ -32,6 +32,9 @@ export class ApplangaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ApplangaCollector class.
+     */
     constructor() {
         super(ApplangaCollector.CONFIG);
     }

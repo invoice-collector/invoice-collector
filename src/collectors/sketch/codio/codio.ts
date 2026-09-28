@@ -32,6 +32,9 @@ export class CodioCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CodioCollector class.
+     */
     constructor() {
         super(CodioCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class ContinentaleCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ContinentaleCollector class.
+     */
     constructor() {
         super(ContinentaleCollector.CONFIG);
     }

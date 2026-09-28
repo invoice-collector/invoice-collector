@@ -32,6 +32,9 @@ export class FlexpertoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FlexpertoCollector class.
+     */
     constructor() {
         super(FlexpertoCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class AudistoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AudistoCollector class.
+     */
     constructor() {
         super(AudistoCollector.CONFIG);
     }

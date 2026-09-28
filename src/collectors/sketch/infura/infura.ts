@@ -32,6 +32,9 @@ export class InfuraCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the InfuraCollector class.
+     */
     constructor() {
         super(InfuraCollector.CONFIG);
     }

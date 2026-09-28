@@ -32,6 +32,9 @@ export class RzhHomeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RzhHomeCollector class.
+     */
     constructor() {
         super(RzhHomeCollector.CONFIG);
     }

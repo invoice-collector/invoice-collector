@@ -32,6 +32,9 @@ export class NorthShoreGasCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NorthShoreGasCollector class.
+     */
     constructor() {
         super(NorthShoreGasCollector.CONFIG);
     }

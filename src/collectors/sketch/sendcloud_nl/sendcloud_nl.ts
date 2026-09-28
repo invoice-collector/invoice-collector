@@ -32,6 +32,9 @@ export class SendcloudNlCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SendcloudNlCollector class.
+     */
     constructor() {
         super(SendcloudNlCollector.CONFIG);
     }

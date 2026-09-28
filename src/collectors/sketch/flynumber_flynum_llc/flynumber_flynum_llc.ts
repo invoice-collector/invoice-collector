@@ -32,6 +32,9 @@ export class FlynumberFlynumLlcCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FlynumberFlynumLlcCollector class.
+     */
     constructor() {
         super(FlynumberFlynumLlcCollector.CONFIG);
     }

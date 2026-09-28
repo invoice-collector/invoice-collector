@@ -32,6 +32,9 @@ export class CityOfAustinEnergyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CityOfAustinEnergyCollector class.
+     */
     constructor() {
         super(CityOfAustinEnergyCollector.CONFIG);
     }

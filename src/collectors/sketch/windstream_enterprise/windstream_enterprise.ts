@@ -32,6 +32,9 @@ export class WindstreamEnterpriseCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WindstreamEnterpriseCollector class.
+     */
     constructor() {
         super(WindstreamEnterpriseCollector.CONFIG);
     }

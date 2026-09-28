@@ -32,6 +32,9 @@ export class WoofunnelsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WoofunnelsCollector class.
+     */
     constructor() {
         super(WoofunnelsCollector.CONFIG);
     }

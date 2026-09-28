@@ -32,6 +32,9 @@ export class MinoxCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MinoxCollector class.
+     */
     constructor() {
         super(MinoxCollector.CONFIG);
     }

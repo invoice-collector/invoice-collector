@@ -32,6 +32,9 @@ export class CapsFuelCardsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CapsFuelCardsCollector class.
+     */
     constructor() {
         super(CapsFuelCardsCollector.CONFIG);
     }

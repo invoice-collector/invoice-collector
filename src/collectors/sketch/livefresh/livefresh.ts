@@ -32,6 +32,9 @@ export class LivefreshCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LivefreshCollector class.
+     */
     constructor() {
         super(LivefreshCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class RealVncCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RealVncCollector class.
+     */
     constructor() {
         super(RealVncCollector.CONFIG);
     }

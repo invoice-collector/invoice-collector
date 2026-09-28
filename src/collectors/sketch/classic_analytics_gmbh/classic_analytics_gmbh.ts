@@ -32,6 +32,9 @@ export class ClassicAnalyticsGmbhCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ClassicAnalyticsGmbhCollector class.
+     */
     constructor() {
         super(ClassicAnalyticsGmbhCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class LodgifyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LodgifyCollector class.
+     */
     constructor() {
         super(LodgifyCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class ChaosgroupCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ChaosgroupCollector class.
+     */
     constructor() {
         super(ChaosgroupCollector.CONFIG);
     }

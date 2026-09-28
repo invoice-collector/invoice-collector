@@ -32,6 +32,9 @@ export class PunktumDkCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PunktumDkCollector class.
+     */
     constructor() {
         super(PunktumDkCollector.CONFIG);
     }

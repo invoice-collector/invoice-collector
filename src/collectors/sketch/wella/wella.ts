@@ -32,6 +32,9 @@ export class WellaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WellaCollector class.
+     */
     constructor() {
         super(WellaCollector.CONFIG);
     }

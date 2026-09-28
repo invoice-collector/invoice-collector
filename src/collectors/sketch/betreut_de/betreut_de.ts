@@ -32,6 +32,9 @@ export class BetreutDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BetreutDeCollector class.
+     */
     constructor() {
         super(BetreutDeCollector.CONFIG);
     }

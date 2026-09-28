@@ -32,6 +32,9 @@ export class SonoventeComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SonoventeComCollector class.
+     */
     constructor() {
         super(SonoventeComCollector.CONFIG);
     }

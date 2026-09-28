@@ -32,6 +32,9 @@ export class ReallusionIncCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ReallusionIncCollector class.
+     */
     constructor() {
         super(ReallusionIncCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class MediafireCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MediafireCollector class.
+     */
     constructor() {
         super(MediafireCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class CamshopCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CamshopCollector class.
+     */
     constructor() {
         super(CamshopCollector.CONFIG);
     }

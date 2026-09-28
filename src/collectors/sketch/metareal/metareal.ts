@@ -32,6 +32,9 @@ export class MetarealCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MetarealCollector class.
+     */
     constructor() {
         super(MetarealCollector.CONFIG);
     }

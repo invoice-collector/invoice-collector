@@ -32,6 +32,9 @@ export class Smtp2goCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Smtp2goCollector class.
+     */
     constructor() {
         super(Smtp2goCollector.CONFIG);
     }

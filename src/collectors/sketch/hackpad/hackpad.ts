@@ -32,6 +32,9 @@ export class HackpadCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HackpadCollector class.
+     */
     constructor() {
         super(HackpadCollector.CONFIG);
     }

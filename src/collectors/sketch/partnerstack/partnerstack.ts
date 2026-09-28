@@ -32,6 +32,9 @@ export class PartnerstackCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PartnerstackCollector class.
+     */
     constructor() {
         super(PartnerstackCollector.CONFIG);
     }

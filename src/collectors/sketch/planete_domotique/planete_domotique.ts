@@ -32,6 +32,9 @@ export class PlaneteDomotiqueCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PlaneteDomotiqueCollector class.
+     */
     constructor() {
         super(PlaneteDomotiqueCollector.CONFIG);
     }

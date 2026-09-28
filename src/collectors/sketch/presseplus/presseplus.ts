@@ -32,6 +32,9 @@ export class PresseplusCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PresseplusCollector class.
+     */
     constructor() {
         super(PresseplusCollector.CONFIG);
     }

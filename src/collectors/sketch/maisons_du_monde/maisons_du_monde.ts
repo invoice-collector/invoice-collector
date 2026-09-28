@@ -32,6 +32,9 @@ export class MaisonsDuMondeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MaisonsDuMondeCollector class.
+     */
     constructor() {
         super(MaisonsDuMondeCollector.CONFIG);
     }

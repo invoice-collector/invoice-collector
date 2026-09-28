@@ -32,6 +32,9 @@ export class WsWeinmannAndSchanzCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WsWeinmannAndSchanzCollector class.
+     */
     constructor() {
         super(WsWeinmannAndSchanzCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class UberEatsRestaurantManagerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the UberEatsRestaurantManagerCollector class.
+     */
     constructor() {
         super(UberEatsRestaurantManagerCollector.CONFIG);
     }

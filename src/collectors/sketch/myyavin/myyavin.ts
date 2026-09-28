@@ -32,6 +32,9 @@ export class MyyavinCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MyyavinCollector class.
+     */
     constructor() {
         super(MyyavinCollector.CONFIG);
     }

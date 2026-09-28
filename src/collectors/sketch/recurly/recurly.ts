@@ -32,6 +32,9 @@ export class RecurlyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RecurlyCollector class.
+     */
     constructor() {
         super(RecurlyCollector.CONFIG);
     }

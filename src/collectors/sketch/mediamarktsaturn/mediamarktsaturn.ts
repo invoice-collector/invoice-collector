@@ -32,6 +32,9 @@ export class MediamarktsaturnCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MediamarktsaturnCollector class.
+     */
     constructor() {
         super(MediamarktsaturnCollector.CONFIG);
     }

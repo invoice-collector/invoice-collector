@@ -32,6 +32,9 @@ export class MyAyvensManagerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MyAyvensManagerCollector class.
+     */
     constructor() {
         super(MyAyvensManagerCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class RealtimeBoardMiroComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RealtimeBoardMiroComCollector class.
+     */
     constructor() {
         super(RealtimeBoardMiroComCollector.CONFIG);
     }

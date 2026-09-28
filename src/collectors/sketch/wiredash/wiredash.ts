@@ -32,6 +32,9 @@ export class WiredashCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WiredashCollector class.
+     */
     constructor() {
         super(WiredashCollector.CONFIG);
     }

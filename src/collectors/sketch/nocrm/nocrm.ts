@@ -32,6 +32,9 @@ export class NocrmCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NocrmCollector class.
+     */
     constructor() {
         super(NocrmCollector.CONFIG);
     }

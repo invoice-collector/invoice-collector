@@ -32,6 +32,9 @@ export class MyuniqaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MyuniqaCollector class.
+     */
     constructor() {
         super(MyuniqaCollector.CONFIG);
     }

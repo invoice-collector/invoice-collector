@@ -32,6 +32,9 @@ export class FcbMobilCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FcbMobilCollector class.
+     */
     constructor() {
         super(FcbMobilCollector.CONFIG);
     }

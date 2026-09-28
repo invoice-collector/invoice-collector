@@ -32,6 +32,9 @@ export class NotismIoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NotismIoCollector class.
+     */
     constructor() {
         super(NotismIoCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class SwifteqCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SwifteqCollector class.
+     */
     constructor() {
         super(SwifteqCollector.CONFIG);
     }

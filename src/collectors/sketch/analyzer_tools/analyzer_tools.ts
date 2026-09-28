@@ -32,6 +32,9 @@ export class AnalyzerToolsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AnalyzerToolsCollector class.
+     */
     constructor() {
         super(AnalyzerToolsCollector.CONFIG);
     }

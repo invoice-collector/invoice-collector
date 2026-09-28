@@ -32,6 +32,9 @@ export class FieberNlCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FieberNlCollector class.
+     */
     constructor() {
         super(FieberNlCollector.CONFIG);
     }

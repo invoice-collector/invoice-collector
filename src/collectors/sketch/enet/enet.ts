@@ -32,6 +32,9 @@ export class EnetCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EnetCollector class.
+     */
     constructor() {
         super(EnetCollector.CONFIG);
     }

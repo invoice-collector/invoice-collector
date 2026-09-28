@@ -32,6 +32,9 @@ export class DiedruckereiDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DiedruckereiDeCollector class.
+     */
     constructor() {
         super(DiedruckereiDeCollector.CONFIG);
     }

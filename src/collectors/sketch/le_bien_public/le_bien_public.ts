@@ -32,6 +32,9 @@ export class LeBienPublicCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LeBienPublicCollector class.
+     */
     constructor() {
         super(LeBienPublicCollector.CONFIG);
     }

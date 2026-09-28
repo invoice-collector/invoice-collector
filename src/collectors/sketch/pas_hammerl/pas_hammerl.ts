@@ -32,6 +32,9 @@ export class PasHammerlCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PasHammerlCollector class.
+     */
     constructor() {
         super(PasHammerlCollector.CONFIG);
     }

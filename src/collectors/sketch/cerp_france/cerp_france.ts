@@ -32,6 +32,9 @@ export class CerpFranceCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CerpFranceCollector class.
+     */
     constructor() {
         super(CerpFranceCollector.CONFIG);
     }

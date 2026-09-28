@@ -32,6 +32,9 @@ export class ToolaniCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ToolaniCollector class.
+     */
     constructor() {
         super(ToolaniCollector.CONFIG);
     }

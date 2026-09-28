@@ -32,6 +32,9 @@ export class KauflandCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KauflandCollector class.
+     */
     constructor() {
         super(KauflandCollector.CONFIG);
     }

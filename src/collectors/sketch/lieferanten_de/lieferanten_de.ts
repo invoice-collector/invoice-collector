@@ -32,6 +32,9 @@ export class LieferantenDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LieferantenDeCollector class.
+     */
     constructor() {
         super(LieferantenDeCollector.CONFIG);
     }

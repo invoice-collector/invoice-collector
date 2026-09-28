@@ -32,6 +32,9 @@ export class AjlAbfallwirtschaftsgesellschaftJerichowerLandMbhCollector extends 
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AjlAbfallwirtschaftsgesellschaftJerichowerLandMbhCollector class.
+     */
     constructor() {
         super(AjlAbfallwirtschaftsgesellschaftJerichowerLandMbhCollector.CONFIG);
     }

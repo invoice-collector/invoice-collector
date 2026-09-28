@@ -32,6 +32,9 @@ export class ArcoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ArcoCollector class.
+     */
     constructor() {
         super(ArcoCollector.CONFIG);
     }

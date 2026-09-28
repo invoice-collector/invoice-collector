@@ -31,6 +31,9 @@ export class MrBricolageCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MrBricolageCollector class.
+     */
     constructor() {
         super(MrBricolageCollector.CONFIG);
     }

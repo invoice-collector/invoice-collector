@@ -32,6 +32,9 @@ export class HelpScoutCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HelpScoutCollector class.
+     */
     constructor() {
         super(HelpScoutCollector.CONFIG);
     }

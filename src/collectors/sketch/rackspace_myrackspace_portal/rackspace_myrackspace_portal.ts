@@ -32,6 +32,9 @@ export class RackspaceMyrackspacePortalCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RackspaceMyrackspacePortalCollector class.
+     */
     constructor() {
         super(RackspaceMyrackspacePortalCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class RumsMsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RumsMsCollector class.
+     */
     constructor() {
         super(RumsMsCollector.CONFIG);
     }

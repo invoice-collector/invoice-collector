@@ -32,6 +32,9 @@ export class OrmcoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OrmcoCollector class.
+     */
     constructor() {
         super(OrmcoCollector.CONFIG);
     }

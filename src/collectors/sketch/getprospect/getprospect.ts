@@ -32,6 +32,9 @@ export class GetprospectCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GetprospectCollector class.
+     */
     constructor() {
         super(GetprospectCollector.CONFIG);
     }

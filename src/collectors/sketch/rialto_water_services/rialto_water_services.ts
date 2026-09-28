@@ -32,6 +32,9 @@ export class RialtoWaterServicesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RialtoWaterServicesCollector class.
+     */
     constructor() {
         super(RialtoWaterServicesCollector.CONFIG);
     }

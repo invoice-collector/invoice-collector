@@ -32,6 +32,9 @@ export class CloudnsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CloudnsCollector class.
+     */
     constructor() {
         super(CloudnsCollector.CONFIG);
     }

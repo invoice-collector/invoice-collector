@@ -32,6 +32,9 @@ export class SurveymonkeyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SurveymonkeyCollector class.
+     */
     constructor() {
         super(SurveymonkeyCollector.CONFIG);
     }

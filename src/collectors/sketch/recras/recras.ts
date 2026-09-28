@@ -32,6 +32,9 @@ export class RecrasCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RecrasCollector class.
+     */
     constructor() {
         super(RecrasCollector.CONFIG);
     }

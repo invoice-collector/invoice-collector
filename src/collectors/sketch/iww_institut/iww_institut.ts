@@ -32,6 +32,9 @@ export class IwwInstitutCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the IwwInstitutCollector class.
+     */
     constructor() {
         super(IwwInstitutCollector.CONFIG);
     }

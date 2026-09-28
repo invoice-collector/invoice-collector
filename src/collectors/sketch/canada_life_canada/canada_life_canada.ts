@@ -32,6 +32,9 @@ export class CanadaLifeCanadaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CanadaLifeCanadaCollector class.
+     */
     constructor() {
         super(CanadaLifeCanadaCollector.CONFIG);
     }

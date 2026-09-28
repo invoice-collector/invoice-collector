@@ -32,6 +32,9 @@ export class FinetAssetManagementAgCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FinetAssetManagementAgCollector class.
+     */
     constructor() {
         super(FinetAssetManagementAgCollector.CONFIG);
     }

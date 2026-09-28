@@ -32,6 +32,9 @@ export class TwindisCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TwindisCollector class.
+     */
     constructor() {
         super(TwindisCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class BufferCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BufferCollector class.
+     */
     constructor() {
         super(BufferCollector.CONFIG);
     }

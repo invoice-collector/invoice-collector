@@ -32,6 +32,9 @@ export class BillpayCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BillpayCollector class.
+     */
     constructor() {
         super(BillpayCollector.CONFIG);
     }

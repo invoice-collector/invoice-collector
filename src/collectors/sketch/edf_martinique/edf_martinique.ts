@@ -32,6 +32,9 @@ export class EdfMartiniqueCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EdfMartiniqueCollector class.
+     */
     constructor() {
         super(EdfMartiniqueCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class GothaerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GothaerCollector class.
+     */
     constructor() {
         super(GothaerCollector.CONFIG);
     }

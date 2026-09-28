@@ -32,6 +32,9 @@ export class AlphormCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AlphormCollector class.
+     */
     constructor() {
         super(AlphormCollector.CONFIG);
     }

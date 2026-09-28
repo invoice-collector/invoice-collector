@@ -32,6 +32,9 @@ export class WpcoreCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WpcoreCollector class.
+     */
     constructor() {
         super(WpcoreCollector.CONFIG);
     }

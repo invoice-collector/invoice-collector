@@ -32,6 +32,9 @@ export class TrustpulseCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TrustpulseCollector class.
+     */
     constructor() {
         super(TrustpulseCollector.CONFIG);
     }

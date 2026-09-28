@@ -32,6 +32,9 @@ export class GigahostDkCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GigahostDkCollector class.
+     */
     constructor() {
         super(GigahostDkCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class BillwerkCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BillwerkCollector class.
+     */
     constructor() {
         super(BillwerkCollector.CONFIG);
     }

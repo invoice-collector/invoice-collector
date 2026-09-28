@@ -32,6 +32,9 @@ export class XeroxCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the XeroxCollector class.
+     */
     constructor() {
         super(XeroxCollector.CONFIG);
     }

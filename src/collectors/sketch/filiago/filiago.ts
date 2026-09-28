@@ -32,6 +32,9 @@ export class FiliagoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FiliagoCollector class.
+     */
     constructor() {
         super(FiliagoCollector.CONFIG);
     }

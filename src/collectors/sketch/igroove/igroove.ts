@@ -32,6 +32,9 @@ export class IgrooveCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the IgrooveCollector class.
+     */
     constructor() {
         super(IgrooveCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class EsweVersorgungCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EsweVersorgungCollector class.
+     */
     constructor() {
         super(EsweVersorgungCollector.CONFIG);
     }

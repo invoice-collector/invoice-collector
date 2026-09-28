@@ -32,6 +32,9 @@ export class UsepacCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the UsepacCollector class.
+     */
     constructor() {
         super(UsepacCollector.CONFIG);
     }

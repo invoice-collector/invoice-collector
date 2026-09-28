@@ -32,6 +32,9 @@ export class DexGetdexCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DexGetdexCollector class.
+     */
     constructor() {
         super(DexGetdexCollector.CONFIG);
     }

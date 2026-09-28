@@ -32,6 +32,9 @@ export class StadtwerkeEssenCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StadtwerkeEssenCollector class.
+     */
     constructor() {
         super(StadtwerkeEssenCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class StardockStoreCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StardockStoreCollector class.
+     */
     constructor() {
         super(StardockStoreCollector.CONFIG);
     }

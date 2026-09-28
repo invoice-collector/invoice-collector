@@ -32,6 +32,9 @@ export class RecruiteeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RecruiteeCollector class.
+     */
     constructor() {
         super(RecruiteeCollector.CONFIG);
     }

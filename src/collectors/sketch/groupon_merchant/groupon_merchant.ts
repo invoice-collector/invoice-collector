@@ -32,6 +32,9 @@ export class GrouponMerchantCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GrouponMerchantCollector class.
+     */
     constructor() {
         super(GrouponMerchantCollector.CONFIG);
     }

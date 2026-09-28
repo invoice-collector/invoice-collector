@@ -32,6 +32,9 @@ export class GogetsslCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GogetsslCollector class.
+     */
     constructor() {
         super(GogetsslCollector.CONFIG);
     }

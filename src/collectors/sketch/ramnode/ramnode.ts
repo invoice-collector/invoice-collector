@@ -32,6 +32,9 @@ export class RamnodeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RamnodeCollector class.
+     */
     constructor() {
         super(RamnodeCollector.CONFIG);
     }

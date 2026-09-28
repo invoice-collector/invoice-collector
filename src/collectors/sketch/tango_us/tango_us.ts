@@ -32,6 +32,9 @@ export class TangoUsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TangoUsCollector class.
+     */
     constructor() {
         super(TangoUsCollector.CONFIG);
     }

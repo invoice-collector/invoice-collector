@@ -32,6 +32,9 @@ export class TeliaDkCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TeliaDkCollector class.
+     */
     constructor() {
         super(TeliaDkCollector.CONFIG);
     }

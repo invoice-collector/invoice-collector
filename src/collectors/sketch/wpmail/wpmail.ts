@@ -32,6 +32,9 @@ export class WpmailCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WpmailCollector class.
+     */
     constructor() {
         super(WpmailCollector.CONFIG);
     }

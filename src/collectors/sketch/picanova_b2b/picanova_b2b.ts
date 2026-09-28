@@ -32,6 +32,9 @@ export class PicanovaB2bCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PicanovaB2bCollector class.
+     */
     constructor() {
         super(PicanovaB2bCollector.CONFIG);
     }

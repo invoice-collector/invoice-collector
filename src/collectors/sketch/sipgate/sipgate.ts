@@ -31,6 +31,9 @@ export class SipgateCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SipgateCollector class.
+     */
     constructor() {
         super(SipgateCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class PodimoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PodimoCollector class.
+     */
     constructor() {
         super(PodimoCollector.CONFIG);
     }

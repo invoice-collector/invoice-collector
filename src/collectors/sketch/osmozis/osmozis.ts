@@ -32,6 +32,9 @@ export class OsmozisCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OsmozisCollector class.
+     */
     constructor() {
         super(OsmozisCollector.CONFIG);
     }

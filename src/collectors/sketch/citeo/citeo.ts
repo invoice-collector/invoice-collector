@@ -32,6 +32,9 @@ export class CiteoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CiteoCollector class.
+     */
     constructor() {
         super(CiteoCollector.CONFIG);
     }

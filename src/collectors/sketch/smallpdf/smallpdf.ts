@@ -32,6 +32,9 @@ export class SmallpdfCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SmallpdfCollector class.
+     */
     constructor() {
         super(SmallpdfCollector.CONFIG);
     }

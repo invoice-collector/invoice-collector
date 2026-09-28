@@ -32,6 +32,9 @@ export class MutuelleMercerProfessionnelsDeSanteCollector extends SketchCollecto
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MutuelleMercerProfessionnelsDeSanteCollector class.
+     */
     constructor() {
         super(MutuelleMercerProfessionnelsDeSanteCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class CloudspongeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CloudspongeCollector class.
+     */
     constructor() {
         super(CloudspongeCollector.CONFIG);
     }

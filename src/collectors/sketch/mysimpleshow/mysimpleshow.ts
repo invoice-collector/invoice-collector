@@ -32,6 +32,9 @@ export class MysimpleshowCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MysimpleshowCollector class.
+     */
     constructor() {
         super(MysimpleshowCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class FinapiCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FinapiCollector class.
+     */
     constructor() {
         super(FinapiCollector.CONFIG);
     }

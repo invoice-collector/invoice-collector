@@ -32,6 +32,9 @@ export class DnsNetCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DnsNetCollector class.
+     */
     constructor() {
         super(DnsNetCollector.CONFIG);
     }

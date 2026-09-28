@@ -32,6 +32,9 @@ export class PictrsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PictrsCollector class.
+     */
     constructor() {
         super(PictrsCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class GmfContratsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GmfContratsCollector class.
+     */
     constructor() {
         super(GmfContratsCollector.CONFIG);
     }

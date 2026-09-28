@@ -32,6 +32,9 @@ export class AlsaceFibreCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AlsaceFibreCollector class.
+     */
     constructor() {
         super(AlsaceFibreCollector.CONFIG);
     }

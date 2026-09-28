@@ -32,6 +32,9 @@ export class CttComputertechnikAgCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CttComputertechnikAgCollector class.
+     */
     constructor() {
         super(CttComputertechnikAgCollector.CONFIG);
     }

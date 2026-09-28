@@ -32,6 +32,9 @@ export class StarsellersworldCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StarsellersworldCollector class.
+     */
     constructor() {
         super(StarsellersworldCollector.CONFIG);
     }

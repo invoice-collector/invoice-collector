@@ -32,6 +32,9 @@ export class WootricInmomentCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WootricInmomentCollector class.
+     */
     constructor() {
         super(WootricInmomentCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class CucamongaValleyWaterDistrictCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CucamongaValleyWaterDistrictCollector class.
+     */
     constructor() {
         super(CucamongaValleyWaterDistrictCollector.CONFIG);
     }

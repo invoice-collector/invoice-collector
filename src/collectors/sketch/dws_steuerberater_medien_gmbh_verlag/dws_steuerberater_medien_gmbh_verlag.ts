@@ -32,6 +32,9 @@ export class DwsSteuerberaterMedienGmbhVerlagCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DwsSteuerberaterMedienGmbhVerlagCollector class.
+     */
     constructor() {
         super(DwsSteuerberaterMedienGmbhVerlagCollector.CONFIG);
     }

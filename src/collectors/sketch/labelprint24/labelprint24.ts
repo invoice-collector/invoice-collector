@@ -32,6 +32,9 @@ export class Labelprint24Collector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Labelprint24Collector class.
+     */
     constructor() {
         super(Labelprint24Collector.CONFIG);
     }

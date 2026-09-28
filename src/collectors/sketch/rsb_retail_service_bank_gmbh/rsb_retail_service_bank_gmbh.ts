@@ -32,6 +32,9 @@ export class RsbRetailServiceBankGmbhCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RsbRetailServiceBankGmbhCollector class.
+     */
     constructor() {
         super(RsbRetailServiceBankGmbhCollector.CONFIG);
     }

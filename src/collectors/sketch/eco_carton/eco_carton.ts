@@ -32,6 +32,9 @@ export class EcoCartonCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EcoCartonCollector class.
+     */
     constructor() {
         super(EcoCartonCollector.CONFIG);
     }

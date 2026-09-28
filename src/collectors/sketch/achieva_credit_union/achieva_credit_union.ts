@@ -32,6 +32,9 @@ export class AchievaCreditUnionCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AchievaCreditUnionCollector class.
+     */
     constructor() {
         super(AchievaCreditUnionCollector.CONFIG);
     }

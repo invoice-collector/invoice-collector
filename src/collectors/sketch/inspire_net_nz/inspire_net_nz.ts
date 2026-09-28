@@ -32,6 +32,9 @@ export class InspireNetNzCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the InspireNetNzCollector class.
+     */
     constructor() {
         super(InspireNetNzCollector.CONFIG);
     }

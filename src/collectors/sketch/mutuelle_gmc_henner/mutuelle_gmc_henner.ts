@@ -32,6 +32,9 @@ export class MutuelleGmcHennerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MutuelleGmcHennerCollector class.
+     */
     constructor() {
         super(MutuelleGmcHennerCollector.CONFIG);
     }

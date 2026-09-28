@@ -32,6 +32,9 @@ export class KeySystemsRrpproxyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KeySystemsRrpproxyCollector class.
+     */
     constructor() {
         super(KeySystemsRrpproxyCollector.CONFIG);
     }

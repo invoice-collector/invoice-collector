@@ -32,6 +32,9 @@ export class FreshmileCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FreshmileCollector class.
+     */
     constructor() {
         super(FreshmileCollector.CONFIG);
     }

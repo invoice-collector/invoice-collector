@@ -32,6 +32,9 @@ export class MadMimiCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MadMimiCollector class.
+     */
     constructor() {
         super(MadMimiCollector.CONFIG);
     }

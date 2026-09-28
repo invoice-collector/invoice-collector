@@ -32,6 +32,9 @@ export class RefurbishedstoreCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RefurbishedstoreCollector class.
+     */
     constructor() {
         super(RefurbishedstoreCollector.CONFIG);
     }

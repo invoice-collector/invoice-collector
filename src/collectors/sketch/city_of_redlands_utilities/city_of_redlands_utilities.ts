@@ -32,6 +32,9 @@ export class CityOfRedlandsUtilitiesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CityOfRedlandsUtilitiesCollector class.
+     */
     constructor() {
         super(CityOfRedlandsUtilitiesCollector.CONFIG);
     }

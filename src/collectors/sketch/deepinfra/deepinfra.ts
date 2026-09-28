@@ -32,6 +32,9 @@ export class DeepinfraCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DeepinfraCollector class.
+     */
     constructor() {
         super(DeepinfraCollector.CONFIG);
     }

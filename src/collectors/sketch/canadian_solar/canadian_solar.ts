@@ -32,6 +32,9 @@ export class CanadianSolarCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CanadianSolarCollector class.
+     */
     constructor() {
         super(CanadianSolarCollector.CONFIG);
     }

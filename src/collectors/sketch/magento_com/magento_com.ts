@@ -32,6 +32,9 @@ export class MagentoComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MagentoComCollector class.
+     */
     constructor() {
         super(MagentoComCollector.CONFIG);
     }

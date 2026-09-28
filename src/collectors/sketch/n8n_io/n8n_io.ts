@@ -32,6 +32,9 @@ export class N8nIoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the N8nIoCollector class.
+     */
     constructor() {
         super(N8nIoCollector.CONFIG);
     }

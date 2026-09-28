@@ -32,6 +32,9 @@ export class ProsperworksCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ProsperworksCollector class.
+     */
     constructor() {
         super(ProsperworksCollector.CONFIG);
     }

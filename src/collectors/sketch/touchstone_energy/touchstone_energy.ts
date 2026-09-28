@@ -32,6 +32,9 @@ export class TouchstoneEnergyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TouchstoneEnergyCollector class.
+     */
     constructor() {
         super(TouchstoneEnergyCollector.CONFIG);
     }

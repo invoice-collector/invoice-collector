@@ -32,6 +32,9 @@ export class Home24MiraklCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Home24MiraklCollector class.
+     */
     constructor() {
         super(Home24MiraklCollector.CONFIG);
     }

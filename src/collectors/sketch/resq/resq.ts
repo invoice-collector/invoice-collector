@@ -32,6 +32,9 @@ export class ResqCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ResqCollector class.
+     */
     constructor() {
         super(ResqCollector.CONFIG);
     }

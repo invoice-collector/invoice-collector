@@ -32,6 +32,9 @@ export class HelloFreshUkCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HelloFreshUkCollector class.
+     */
     constructor() {
         super(HelloFreshUkCollector.CONFIG);
     }

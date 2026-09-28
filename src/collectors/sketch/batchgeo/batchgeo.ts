@@ -32,6 +32,9 @@ export class BatchgeoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BatchgeoCollector class.
+     */
     constructor() {
         super(BatchgeoCollector.CONFIG);
     }

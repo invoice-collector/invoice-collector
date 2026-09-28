@@ -32,6 +32,9 @@ export class EnbwSmartMobilityCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EnbwSmartMobilityCollector class.
+     */
     constructor() {
         super(EnbwSmartMobilityCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class SetasignCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SetasignCollector class.
+     */
     constructor() {
         super(SetasignCollector.CONFIG);
     }

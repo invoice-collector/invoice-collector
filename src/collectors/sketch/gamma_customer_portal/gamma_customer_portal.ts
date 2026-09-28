@@ -32,6 +32,9 @@ export class GammaCustomerPortalCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GammaCustomerPortalCollector class.
+     */
     constructor() {
         super(GammaCustomerPortalCollector.CONFIG);
     }

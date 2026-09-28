@@ -32,6 +32,9 @@ export class ReplacedirectNlCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ReplacedirectNlCollector class.
+     */
     constructor() {
         super(ReplacedirectNlCollector.CONFIG);
     }

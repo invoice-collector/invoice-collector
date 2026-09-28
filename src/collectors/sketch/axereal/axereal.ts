@@ -32,6 +32,9 @@ export class AxerealCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AxerealCollector class.
+     */
     constructor() {
         super(AxerealCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class XeroAccountingCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the XeroAccountingCollector class.
+     */
     constructor() {
         super(XeroAccountingCollector.CONFIG);
     }

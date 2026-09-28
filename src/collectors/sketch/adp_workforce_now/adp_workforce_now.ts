@@ -32,6 +32,9 @@ export class AdpWorkforceNowCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AdpWorkforceNowCollector class.
+     */
     constructor() {
         super(AdpWorkforceNowCollector.CONFIG);
     }

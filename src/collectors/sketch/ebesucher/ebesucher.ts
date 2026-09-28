@@ -32,6 +32,9 @@ export class EbesucherCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EbesucherCollector class.
+     */
     constructor() {
         super(EbesucherCollector.CONFIG);
     }

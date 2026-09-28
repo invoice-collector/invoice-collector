@@ -32,6 +32,9 @@ export class SendcloudDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SendcloudDeCollector class.
+     */
     constructor() {
         super(SendcloudDeCollector.CONFIG);
     }

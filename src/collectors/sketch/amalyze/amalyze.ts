@@ -32,6 +32,9 @@ export class AmalyzeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AmalyzeCollector class.
+     */
     constructor() {
         super(AmalyzeCollector.CONFIG);
     }

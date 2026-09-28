@@ -32,6 +32,9 @@ export class WienEnergieCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WienEnergieCollector class.
+     */
     constructor() {
         super(WienEnergieCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class BuderusCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BuderusCollector class.
+     */
     constructor() {
         super(BuderusCollector.CONFIG);
     }

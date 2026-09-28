@@ -32,6 +32,9 @@ export class UafricaComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the UafricaComCollector class.
+     */
     constructor() {
         super(UafricaComCollector.CONFIG);
     }

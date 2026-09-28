@@ -32,6 +32,9 @@ export class MutuelleMutestCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MutuelleMutestCollector class.
+     */
     constructor() {
         super(MutuelleMutestCollector.CONFIG);
     }

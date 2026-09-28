@@ -32,6 +32,9 @@ export class EdisonEnergiaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EdisonEnergiaCollector class.
+     */
     constructor() {
         super(EdisonEnergiaCollector.CONFIG);
     }

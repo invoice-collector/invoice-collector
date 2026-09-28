@@ -32,6 +32,9 @@ export class AlgoliaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AlgoliaCollector class.
+     */
     constructor() {
         super(AlgoliaCollector.CONFIG);
     }

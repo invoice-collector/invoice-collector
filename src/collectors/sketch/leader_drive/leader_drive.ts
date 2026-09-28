@@ -32,6 +32,9 @@ export class LeaderDriveCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LeaderDriveCollector class.
+     */
     constructor() {
         super(LeaderDriveCollector.CONFIG);
     }

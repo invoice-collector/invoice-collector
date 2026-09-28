@@ -32,6 +32,9 @@ export class SofradomEspaceClientCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SofradomEspaceClientCollector class.
+     */
     constructor() {
         super(SofradomEspaceClientCollector.CONFIG);
     }

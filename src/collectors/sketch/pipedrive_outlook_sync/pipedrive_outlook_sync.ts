@@ -32,6 +32,9 @@ export class PipedriveOutlookSyncCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PipedriveOutlookSyncCollector class.
+     */
     constructor() {
         super(PipedriveOutlookSyncCollector.CONFIG);
     }

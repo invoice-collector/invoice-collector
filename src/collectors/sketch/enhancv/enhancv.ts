@@ -32,6 +32,9 @@ export class EnhancvCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EnhancvCollector class.
+     */
     constructor() {
         super(EnhancvCollector.CONFIG);
     }

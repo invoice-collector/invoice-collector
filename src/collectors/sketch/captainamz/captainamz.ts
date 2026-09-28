@@ -32,6 +32,9 @@ export class CaptainamzCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CaptainamzCollector class.
+     */
     constructor() {
         super(CaptainamzCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class DelhaizeBeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DelhaizeBeCollector class.
+     */
     constructor() {
         super(DelhaizeBeCollector.CONFIG);
     }

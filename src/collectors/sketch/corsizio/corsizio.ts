@@ -32,6 +32,9 @@ export class CorsizioCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CorsizioCollector class.
+     */
     constructor() {
         super(CorsizioCollector.CONFIG);
     }

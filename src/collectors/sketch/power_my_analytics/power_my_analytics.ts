@@ -32,6 +32,9 @@ export class PowerMyAnalyticsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PowerMyAnalyticsCollector class.
+     */
     constructor() {
         super(PowerMyAnalyticsCollector.CONFIG);
     }

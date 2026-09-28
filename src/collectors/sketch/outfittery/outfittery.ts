@@ -32,6 +32,9 @@ export class OutfitteryCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OutfitteryCollector class.
+     */
     constructor() {
         super(OutfitteryCollector.CONFIG);
     }

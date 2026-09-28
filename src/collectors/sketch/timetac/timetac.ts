@@ -32,6 +32,9 @@ export class TimetacCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TimetacCollector class.
+     */
     constructor() {
         super(TimetacCollector.CONFIG);
     }

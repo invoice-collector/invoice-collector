@@ -32,6 +32,9 @@ export class AlexanderBurkleCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AlexanderBurkleCollector class.
+     */
     constructor() {
         super(AlexanderBurkleCollector.CONFIG);
     }

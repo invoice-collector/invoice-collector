@@ -32,6 +32,9 @@ export class WascoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WascoCollector class.
+     */
     constructor() {
         super(WascoCollector.CONFIG);
     }

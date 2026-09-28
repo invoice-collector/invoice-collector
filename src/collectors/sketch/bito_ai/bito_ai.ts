@@ -32,6 +32,9 @@ export class BitoAiCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BitoAiCollector class.
+     */
     constructor() {
         super(BitoAiCollector.CONFIG);
     }

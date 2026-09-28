@@ -32,6 +32,9 @@ export class EwerkSachsenwaldEmobilitycloudCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EwerkSachsenwaldEmobilitycloudCollector class.
+     */
     constructor() {
         super(EwerkSachsenwaldEmobilitycloudCollector.CONFIG);
     }

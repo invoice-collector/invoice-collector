@@ -32,6 +32,9 @@ export class AppleDeveloperProgrammCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AppleDeveloperProgrammCollector class.
+     */
     constructor() {
         super(AppleDeveloperProgrammCollector.CONFIG);
     }

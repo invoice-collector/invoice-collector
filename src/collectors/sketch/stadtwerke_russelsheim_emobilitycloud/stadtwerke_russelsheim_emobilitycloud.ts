@@ -32,6 +32,9 @@ export class StadtwerkeRusselsheimEmobilitycloudCollector extends SketchCollecto
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StadtwerkeRusselsheimEmobilitycloudCollector class.
+     */
     constructor() {
         super(StadtwerkeRusselsheimEmobilitycloudCollector.CONFIG);
     }

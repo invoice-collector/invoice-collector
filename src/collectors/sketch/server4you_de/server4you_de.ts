@@ -32,6 +32,9 @@ export class Server4youDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Server4youDeCollector class.
+     */
     constructor() {
         super(Server4youDeCollector.CONFIG);
     }

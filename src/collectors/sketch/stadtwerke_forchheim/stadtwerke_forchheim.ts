@@ -32,6 +32,9 @@ export class StadtwerkeForchheimCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StadtwerkeForchheimCollector class.
+     */
     constructor() {
         super(StadtwerkeForchheimCollector.CONFIG);
     }

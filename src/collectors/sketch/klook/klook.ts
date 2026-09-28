@@ -32,6 +32,9 @@ export class KlookCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KlookCollector class.
+     */
     constructor() {
         super(KlookCollector.CONFIG);
     }

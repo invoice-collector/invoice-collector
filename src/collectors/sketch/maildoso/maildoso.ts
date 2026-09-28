@@ -32,6 +32,9 @@ export class MaildosoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MaildosoCollector class.
+     */
     constructor() {
         super(MaildosoCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class ContaboCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ContaboCollector class.
+     */
     constructor() {
         super(ContaboCollector.CONFIG);
     }

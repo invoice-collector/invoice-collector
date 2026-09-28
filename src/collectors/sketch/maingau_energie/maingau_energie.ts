@@ -32,6 +32,9 @@ export class MaingauEnergieCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MaingauEnergieCollector class.
+     */
     constructor() {
         super(MaingauEnergieCollector.CONFIG);
     }

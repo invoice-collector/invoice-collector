@@ -32,6 +32,9 @@ export class PrimashopCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PrimashopCollector class.
+     */
     constructor() {
         super(PrimashopCollector.CONFIG);
     }

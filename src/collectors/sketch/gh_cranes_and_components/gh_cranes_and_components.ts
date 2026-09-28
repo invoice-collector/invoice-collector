@@ -32,6 +32,9 @@ export class GhCranesAndComponentsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GhCranesAndComponentsCollector class.
+     */
     constructor() {
         super(GhCranesAndComponentsCollector.CONFIG);
     }

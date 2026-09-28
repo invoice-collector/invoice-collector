@@ -32,6 +32,9 @@ export class OfficeDiscountDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OfficeDiscountDeCollector class.
+     */
     constructor() {
         super(OfficeDiscountDeCollector.CONFIG);
     }

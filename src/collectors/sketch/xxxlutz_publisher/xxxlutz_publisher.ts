@@ -32,6 +32,9 @@ export class XxxlutzPublisherCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the XxxlutzPublisherCollector class.
+     */
     constructor() {
         super(XxxlutzPublisherCollector.CONFIG);
     }

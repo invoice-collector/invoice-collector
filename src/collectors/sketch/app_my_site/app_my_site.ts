@@ -32,6 +32,9 @@ export class AppMySiteCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AppMySiteCollector class.
+     */
     constructor() {
         super(AppMySiteCollector.CONFIG);
     }

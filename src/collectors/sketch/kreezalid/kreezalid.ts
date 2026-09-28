@@ -32,6 +32,9 @@ export class KreezalidCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KreezalidCollector class.
+     */
     constructor() {
         super(KreezalidCollector.CONFIG);
     }

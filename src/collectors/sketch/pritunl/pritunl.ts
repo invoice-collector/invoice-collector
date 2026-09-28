@@ -32,6 +32,9 @@ export class PritunlCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PritunlCollector class.
+     */
     constructor() {
         super(PritunlCollector.CONFIG);
     }

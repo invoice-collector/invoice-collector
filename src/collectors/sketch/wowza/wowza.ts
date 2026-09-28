@@ -32,6 +32,9 @@ export class WowzaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WowzaCollector class.
+     */
     constructor() {
         super(WowzaCollector.CONFIG);
     }

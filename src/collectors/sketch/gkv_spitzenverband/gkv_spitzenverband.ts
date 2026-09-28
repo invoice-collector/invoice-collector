@@ -32,6 +32,9 @@ export class GkvSpitzenverbandCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GkvSpitzenverbandCollector class.
+     */
     constructor() {
         super(GkvSpitzenverbandCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class LaBoutiqueDuNetCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LaBoutiqueDuNetCollector class.
+     */
     constructor() {
         super(LaBoutiqueDuNetCollector.CONFIG);
     }

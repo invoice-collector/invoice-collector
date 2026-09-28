@@ -32,6 +32,9 @@ export class NowinfinityCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NowinfinityCollector class.
+     */
     constructor() {
         super(NowinfinityCollector.CONFIG);
     }

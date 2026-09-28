@@ -32,6 +32,9 @@ export class TutanotaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TutanotaCollector class.
+     */
     constructor() {
         super(TutanotaCollector.CONFIG);
     }

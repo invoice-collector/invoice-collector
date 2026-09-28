@@ -32,6 +32,9 @@ export class ImageBrokerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ImageBrokerCollector class.
+     */
     constructor() {
         super(ImageBrokerCollector.CONFIG);
     }

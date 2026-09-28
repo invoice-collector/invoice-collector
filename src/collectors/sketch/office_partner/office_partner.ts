@@ -32,6 +32,9 @@ export class OfficePartnerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OfficePartnerCollector class.
+     */
     constructor() {
         super(OfficePartnerCollector.CONFIG);
     }

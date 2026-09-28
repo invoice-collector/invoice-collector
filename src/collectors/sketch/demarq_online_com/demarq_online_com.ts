@@ -32,6 +32,9 @@ export class DemarqOnlineComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DemarqOnlineComCollector class.
+     */
     constructor() {
         super(DemarqOnlineComCollector.CONFIG);
     }

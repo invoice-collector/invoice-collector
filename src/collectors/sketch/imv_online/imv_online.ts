@@ -32,6 +32,9 @@ export class ImvOnlineCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ImvOnlineCollector class.
+     */
     constructor() {
         super(ImvOnlineCollector.CONFIG);
     }

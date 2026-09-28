@@ -32,6 +32,9 @@ export class Dew21Collector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Dew21Collector class.
+     */
     constructor() {
         super(Dew21Collector.CONFIG);
     }

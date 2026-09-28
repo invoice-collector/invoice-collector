@@ -32,6 +32,9 @@ export class IngramsparkCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the IngramsparkCollector class.
+     */
     constructor() {
         super(IngramsparkCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class JetFlottenkarteOsterreichCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the JetFlottenkarteOsterreichCollector class.
+     */
     constructor() {
         super(JetFlottenkarteOsterreichCollector.CONFIG);
     }

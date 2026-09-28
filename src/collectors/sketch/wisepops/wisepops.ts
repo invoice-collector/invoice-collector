@@ -32,6 +32,9 @@ export class WisepopsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WisepopsCollector class.
+     */
     constructor() {
         super(WisepopsCollector.CONFIG);
     }

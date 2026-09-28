@@ -32,6 +32,9 @@ export class EmeraCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EmeraCollector class.
+     */
     constructor() {
         super(EmeraCollector.CONFIG);
     }

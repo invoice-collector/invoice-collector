@@ -32,6 +32,9 @@ export class ParcelhubCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ParcelhubCollector class.
+     */
     constructor() {
         super(ParcelhubCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class ChampionEnergyServicesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ChampionEnergyServicesCollector class.
+     */
     constructor() {
         super(ChampionEnergyServicesCollector.CONFIG);
     }

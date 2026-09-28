@@ -32,6 +32,9 @@ export class BbvRheinNeckarCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BbvRheinNeckarCollector class.
+     */
     constructor() {
         super(BbvRheinNeckarCollector.CONFIG);
     }

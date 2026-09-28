@@ -32,6 +32,9 @@ export class SeopressCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SeopressCollector class.
+     */
     constructor() {
         super(SeopressCollector.CONFIG);
     }

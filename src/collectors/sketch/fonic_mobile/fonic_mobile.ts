@@ -32,6 +32,9 @@ export class FonicMobileCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FonicMobileCollector class.
+     */
     constructor() {
         super(FonicMobileCollector.CONFIG);
     }

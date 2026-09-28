@@ -32,6 +32,9 @@ export class SalestubeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SalestubeCollector class.
+     */
     constructor() {
         super(SalestubeCollector.CONFIG);
     }

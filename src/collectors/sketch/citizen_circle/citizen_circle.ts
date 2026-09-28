@@ -32,6 +32,9 @@ export class CitizenCircleCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CitizenCircleCollector class.
+     */
     constructor() {
         super(CitizenCircleCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class KoganMobileCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KoganMobileCollector class.
+     */
     constructor() {
         super(KoganMobileCollector.CONFIG);
     }

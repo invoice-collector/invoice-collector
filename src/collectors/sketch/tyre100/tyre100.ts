@@ -32,6 +32,9 @@ export class Tyre100Collector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Tyre100Collector class.
+     */
     constructor() {
         super(Tyre100Collector.CONFIG);
     }

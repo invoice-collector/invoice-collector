@@ -32,6 +32,9 @@ export class AmazonNlCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AmazonNlCollector class.
+     */
     constructor() {
         super(AmazonNlCollector.CONFIG);
     }

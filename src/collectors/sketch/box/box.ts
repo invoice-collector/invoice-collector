@@ -32,6 +32,9 @@ export class BoxCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BoxCollector class.
+     */
     constructor() {
         super(BoxCollector.CONFIG);
     }

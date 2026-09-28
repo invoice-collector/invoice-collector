@@ -32,6 +32,9 @@ export class MerchjarComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MerchjarComCollector class.
+     */
     constructor() {
         super(MerchjarComCollector.CONFIG);
     }

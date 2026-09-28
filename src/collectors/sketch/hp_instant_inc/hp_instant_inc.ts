@@ -32,6 +32,9 @@ export class HpInstantIncCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HpInstantIncCollector class.
+     */
     constructor() {
         super(HpInstantIncCollector.CONFIG);
     }

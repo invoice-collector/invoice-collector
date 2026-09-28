@@ -32,6 +32,9 @@ export class PlantedCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PlantedCollector class.
+     */
     constructor() {
         super(PlantedCollector.CONFIG);
     }

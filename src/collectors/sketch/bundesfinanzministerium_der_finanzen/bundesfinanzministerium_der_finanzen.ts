@@ -32,6 +32,9 @@ export class BundesfinanzministeriumDerFinanzenCollector extends SketchCollector
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BundesfinanzministeriumDerFinanzenCollector class.
+     */
     constructor() {
         super(BundesfinanzministeriumDerFinanzenCollector.CONFIG);
     }

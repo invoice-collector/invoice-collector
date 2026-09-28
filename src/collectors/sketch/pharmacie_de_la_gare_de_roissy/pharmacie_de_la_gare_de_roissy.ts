@@ -32,6 +32,9 @@ export class PharmacieDeLaGareDeRoissyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PharmacieDeLaGareDeRoissyCollector class.
+     */
     constructor() {
         super(PharmacieDeLaGareDeRoissyCollector.CONFIG);
     }

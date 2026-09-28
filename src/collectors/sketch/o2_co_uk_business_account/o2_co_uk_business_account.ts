@@ -32,6 +32,9 @@ export class O2CoUkBusinessAccountCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the O2CoUkBusinessAccountCollector class.
+     */
     constructor() {
         super(O2CoUkBusinessAccountCollector.CONFIG);
     }

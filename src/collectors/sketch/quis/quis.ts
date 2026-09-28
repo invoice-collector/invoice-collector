@@ -32,6 +32,9 @@ export class QuisCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the QuisCollector class.
+     */
     constructor() {
         super(QuisCollector.CONFIG);
     }

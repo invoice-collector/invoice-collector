@@ -32,6 +32,9 @@ export class MutuelleOcianeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MutuelleOcianeCollector class.
+     */
     constructor() {
         super(MutuelleOcianeCollector.CONFIG);
     }

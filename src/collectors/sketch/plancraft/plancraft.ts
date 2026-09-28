@@ -32,6 +32,9 @@ export class PlancraftCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PlancraftCollector class.
+     */
     constructor() {
         super(PlancraftCollector.CONFIG);
     }

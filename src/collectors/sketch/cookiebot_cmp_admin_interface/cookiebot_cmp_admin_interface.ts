@@ -32,6 +32,9 @@ export class CookiebotCmpAdminInterfaceCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CookiebotCmpAdminInterfaceCollector class.
+     */
     constructor() {
         super(CookiebotCmpAdminInterfaceCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class KioskBrowserRemoteCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KioskBrowserRemoteCollector class.
+     */
     constructor() {
         super(KioskBrowserRemoteCollector.CONFIG);
     }

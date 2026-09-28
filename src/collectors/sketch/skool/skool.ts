@@ -32,6 +32,9 @@ export class SkoolCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SkoolCollector class.
+     */
     constructor() {
         super(SkoolCollector.CONFIG);
     }

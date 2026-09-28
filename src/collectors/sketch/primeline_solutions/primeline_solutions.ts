@@ -32,6 +32,9 @@ export class PrimelineSolutionsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PrimelineSolutionsCollector class.
+     */
     constructor() {
         super(PrimelineSolutionsCollector.CONFIG);
     }

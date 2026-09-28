@@ -32,6 +32,9 @@ export class EffiaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EffiaCollector class.
+     */
     constructor() {
         super(EffiaCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class BrennercomCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BrennercomCollector class.
+     */
     constructor() {
         super(BrennercomCollector.CONFIG);
     }

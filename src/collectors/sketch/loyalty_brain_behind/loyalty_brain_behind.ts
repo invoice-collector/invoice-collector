@@ -32,6 +32,9 @@ export class LoyaltyBrainBehindCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LoyaltyBrainBehindCollector class.
+     */
     constructor() {
         super(LoyaltyBrainBehindCollector.CONFIG);
     }

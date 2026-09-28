@@ -32,6 +32,9 @@ export class GabeLivanAssetCleanupProCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GabeLivanAssetCleanupProCollector class.
+     */
     constructor() {
         super(GabeLivanAssetCleanupProCollector.CONFIG);
     }

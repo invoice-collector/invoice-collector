@@ -32,6 +32,9 @@ export class MeilleurplacementComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MeilleurplacementComCollector class.
+     */
     constructor() {
         super(MeilleurplacementComCollector.CONFIG);
     }

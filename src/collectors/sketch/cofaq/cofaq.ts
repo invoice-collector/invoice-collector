@@ -32,6 +32,9 @@ export class CofaqCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CofaqCollector class.
+     */
     constructor() {
         super(CofaqCollector.CONFIG);
     }

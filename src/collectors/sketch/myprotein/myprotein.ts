@@ -32,6 +32,9 @@ export class MyproteinCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MyproteinCollector class.
+     */
     constructor() {
         super(MyproteinCollector.CONFIG);
     }

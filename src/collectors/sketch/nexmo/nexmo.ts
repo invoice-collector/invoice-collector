@@ -32,6 +32,9 @@ export class NexmoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NexmoCollector class.
+     */
     constructor() {
         super(NexmoCollector.CONFIG);
     }

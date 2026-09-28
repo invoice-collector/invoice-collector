@@ -32,6 +32,9 @@ export class TkElevatorCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TkElevatorCollector class.
+     */
     constructor() {
         super(TkElevatorCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class AdmincolumnsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AdmincolumnsCollector class.
+     */
     constructor() {
         super(AdmincolumnsCollector.CONFIG);
     }

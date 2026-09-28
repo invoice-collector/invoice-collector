@@ -32,6 +32,9 @@ export class BeautyfortCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BeautyfortCollector class.
+     */
     constructor() {
         super(BeautyfortCollector.CONFIG);
     }

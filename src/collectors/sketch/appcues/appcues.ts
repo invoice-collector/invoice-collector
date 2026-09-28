@@ -32,6 +32,9 @@ export class AppcuesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AppcuesCollector class.
+     */
     constructor() {
         super(AppcuesCollector.CONFIG);
     }

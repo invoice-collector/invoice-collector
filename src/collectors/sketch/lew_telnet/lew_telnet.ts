@@ -32,6 +32,9 @@ export class LewTelnetCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LewTelnetCollector class.
+     */
     constructor() {
         super(LewTelnetCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class DeputyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DeputyCollector class.
+     */
     constructor() {
         super(DeputyCollector.CONFIG);
     }

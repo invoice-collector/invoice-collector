@@ -32,6 +32,9 @@ export class GroupeAprilContratsEtCourriersAssureSalarieCollector extends Sketch
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GroupeAprilContratsEtCourriersAssureSalarieCollector class.
+     */
     constructor() {
         super(GroupeAprilContratsEtCourriersAssureSalarieCollector.CONFIG);
     }

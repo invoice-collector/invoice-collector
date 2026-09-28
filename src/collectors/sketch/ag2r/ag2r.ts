@@ -32,6 +32,9 @@ export class Ag2rCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Ag2rCollector class.
+     */
     constructor() {
         super(Ag2rCollector.CONFIG);
     }

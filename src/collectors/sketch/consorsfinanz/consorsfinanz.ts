@@ -32,6 +32,9 @@ export class ConsorsfinanzCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ConsorsfinanzCollector class.
+     */
     constructor() {
         super(ConsorsfinanzCollector.CONFIG);
     }

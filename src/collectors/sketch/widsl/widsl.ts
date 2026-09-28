@@ -32,6 +32,9 @@ export class WidslCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WidslCollector class.
+     */
     constructor() {
         super(WidslCollector.CONFIG);
     }

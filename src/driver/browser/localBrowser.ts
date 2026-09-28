@@ -7,6 +7,10 @@ export class LocalBrowser extends AbstractBrowser {
 
     static LOCAL_IP: string = '127.0.0.1';
 
+    /**
+     * Gets the download path for the local browser instance.
+     * @returns The resolved download path as a string.
+     */
     private static getDownloadPath(): string {
         AbstractBrowser.instanceCounter += 1;
         return path.resolve(__dirname, '../../../media/download', String(AbstractBrowser.instanceCounter));
@@ -14,10 +18,16 @@ export class LocalBrowser extends AbstractBrowser {
 
     chrome: LaunchedChrome|undefined;
 
+    /**
+     * Constructs a new instance of the LocalBrowser class.
+     */
     constructor() {
         super(LocalBrowser.LOCAL_IP, LocalBrowser.getDownloadPath());
     }
 
+    /**
+     * @inheritdoc
+     */
     async launch(options: any): Promise<string> {
         // Create download folder if not exists
         fs.mkdirSync(this.downloadPath, { recursive: true });
@@ -30,6 +40,9 @@ export class LocalBrowser extends AbstractBrowser {
         return this.downloadPath;
     }
 
+    /**
+     * @inheritdoc
+     */
     async close() {
         this.puppeteerBrowser.close();
         if (this.chrome) {
@@ -43,6 +56,9 @@ export class LocalBrowser extends AbstractBrowser {
         }
     }
 
+    /**
+     * @inheritdoc
+     */
     async getDownloadedFiles(clean: boolean): Promise<string[]> {
         // Get the files in the download folder
         const files = fs.readdirSync(this.downloadPath)

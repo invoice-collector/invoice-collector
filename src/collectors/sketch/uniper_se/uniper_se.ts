@@ -32,6 +32,9 @@ export class UniperSeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the UniperSeCollector class.
+     */
     constructor() {
         super(UniperSeCollector.CONFIG);
     }

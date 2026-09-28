@@ -32,6 +32,9 @@ export class UptimeRobotCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the UptimeRobotCollector class.
+     */
     constructor() {
         super(UptimeRobotCollector.CONFIG);
     }

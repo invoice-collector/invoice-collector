@@ -32,6 +32,9 @@ export class JobrufDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the JobrufDeCollector class.
+     */
     constructor() {
         super(JobrufDeCollector.CONFIG);
     }

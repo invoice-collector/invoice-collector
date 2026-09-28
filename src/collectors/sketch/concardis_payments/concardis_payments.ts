@@ -32,6 +32,9 @@ export class ConcardisPaymentsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ConcardisPaymentsCollector class.
+     */
     constructor() {
         super(ConcardisPaymentsCollector.CONFIG);
     }

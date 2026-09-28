@@ -32,6 +32,9 @@ export class ConvertflowCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ConvertflowCollector class.
+     */
     constructor() {
         super(ConvertflowCollector.CONFIG);
     }

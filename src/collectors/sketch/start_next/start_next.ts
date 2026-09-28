@@ -32,6 +32,9 @@ export class StartNextCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StartNextCollector class.
+     */
     constructor() {
         super(StartNextCollector.CONFIG);
     }

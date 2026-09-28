@@ -32,6 +32,9 @@ export class IBillCoUkCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the IBillCoUkCollector class.
+     */
     constructor() {
         super(IBillCoUkCollector.CONFIG);
     }

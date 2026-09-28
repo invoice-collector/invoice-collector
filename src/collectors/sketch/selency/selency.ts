@@ -32,6 +32,9 @@ export class SelencyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SelencyCollector class.
+     */
     constructor() {
         super(SelencyCollector.CONFIG);
     }

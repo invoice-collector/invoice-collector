@@ -32,6 +32,9 @@ export class LiquidPlannerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LiquidPlannerCollector class.
+     */
     constructor() {
         super(LiquidPlannerCollector.CONFIG);
     }

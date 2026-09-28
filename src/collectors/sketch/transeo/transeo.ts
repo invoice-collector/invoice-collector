@@ -32,6 +32,9 @@ export class TranseoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TranseoCollector class.
+     */
     constructor() {
         super(TranseoCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class SearchwpCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SearchwpCollector class.
+     */
     constructor() {
         super(SearchwpCollector.CONFIG);
     }

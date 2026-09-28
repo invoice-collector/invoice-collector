@@ -32,6 +32,9 @@ export class HellofaxCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HellofaxCollector class.
+     */
     constructor() {
         super(HellofaxCollector.CONFIG);
     }

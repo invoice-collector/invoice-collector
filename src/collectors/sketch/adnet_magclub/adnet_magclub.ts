@@ -32,6 +32,9 @@ export class AdnetMagclubCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AdnetMagclubCollector class.
+     */
     constructor() {
         super(AdnetMagclubCollector.CONFIG);
     }

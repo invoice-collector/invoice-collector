@@ -32,6 +32,9 @@ export class ClixtellCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ClixtellCollector class.
+     */
     constructor() {
         super(ClixtellCollector.CONFIG);
     }

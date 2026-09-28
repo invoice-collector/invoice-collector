@@ -32,6 +32,9 @@ export class MinutedockCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MinutedockCollector class.
+     */
     constructor() {
         super(MinutedockCollector.CONFIG);
     }

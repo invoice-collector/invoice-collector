@@ -32,6 +32,9 @@ export class BtiBefestigungstechnikGmbhAndCoKgCollector extends SketchCollector 
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BtiBefestigungstechnikGmbhAndCoKgCollector class.
+     */
     constructor() {
         super(BtiBefestigungstechnikGmbhAndCoKgCollector.CONFIG);
     }

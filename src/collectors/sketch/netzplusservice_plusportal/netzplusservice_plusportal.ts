@@ -32,6 +32,9 @@ export class NetzplusservicePlusportalCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NetzplusservicePlusportalCollector class.
+     */
     constructor() {
         super(NetzplusservicePlusportalCollector.CONFIG);
     }

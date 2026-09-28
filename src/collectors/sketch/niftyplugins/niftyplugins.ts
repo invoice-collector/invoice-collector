@@ -32,6 +32,9 @@ export class NiftypluginsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NiftypluginsCollector class.
+     */
     constructor() {
         super(NiftypluginsCollector.CONFIG);
     }

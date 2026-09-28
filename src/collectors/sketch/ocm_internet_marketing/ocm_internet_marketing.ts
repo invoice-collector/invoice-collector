@@ -32,6 +32,9 @@ export class OcmInternetMarketingCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OcmInternetMarketingCollector class.
+     */
     constructor() {
         super(OcmInternetMarketingCollector.CONFIG);
     }

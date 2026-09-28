@@ -32,6 +32,9 @@ export class InventoryPlannerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the InventoryPlannerCollector class.
+     */
     constructor() {
         super(InventoryPlannerCollector.CONFIG);
     }

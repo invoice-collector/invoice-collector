@@ -32,6 +32,9 @@ export class AdtCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AdtCollector class.
+     */
     constructor() {
         super(AdtCollector.CONFIG);
     }

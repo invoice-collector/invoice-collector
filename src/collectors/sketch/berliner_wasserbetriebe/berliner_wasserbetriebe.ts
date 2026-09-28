@@ -32,6 +32,9 @@ export class BerlinerWasserbetriebeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BerlinerWasserbetriebeCollector class.
+     */
     constructor() {
         super(BerlinerWasserbetriebeCollector.CONFIG);
     }

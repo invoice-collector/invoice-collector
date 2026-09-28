@@ -32,6 +32,9 @@ export class ArvivrCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ArvivrCollector class.
+     */
     constructor() {
         super(ArvivrCollector.CONFIG);
     }

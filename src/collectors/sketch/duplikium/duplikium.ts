@@ -32,6 +32,9 @@ export class DuplikiumCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DuplikiumCollector class.
+     */
     constructor() {
         super(DuplikiumCollector.CONFIG);
     }

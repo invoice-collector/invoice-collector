@@ -32,6 +32,9 @@ export class BuchholzDigitalCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BuchholzDigitalCollector class.
+     */
     constructor() {
         super(BuchholzDigitalCollector.CONFIG);
     }

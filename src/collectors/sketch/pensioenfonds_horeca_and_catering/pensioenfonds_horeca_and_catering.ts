@@ -32,6 +32,9 @@ export class PensioenfondsHorecaAndCateringCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PensioenfondsHorecaAndCateringCollector class.
+     */
     constructor() {
         super(PensioenfondsHorecaAndCateringCollector.CONFIG);
     }

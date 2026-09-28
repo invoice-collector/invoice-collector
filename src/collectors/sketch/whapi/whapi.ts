@@ -32,6 +32,9 @@ export class WhapiCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WhapiCollector class.
+     */
     constructor() {
         super(WhapiCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class BoiPaymentAcceptanceCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BoiPaymentAcceptanceCollector class.
+     */
     constructor() {
         super(BoiPaymentAcceptanceCollector.CONFIG);
     }

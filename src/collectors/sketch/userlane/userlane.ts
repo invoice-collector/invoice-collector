@@ -32,6 +32,9 @@ export class UserlaneCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the UserlaneCollector class.
+     */
     constructor() {
         super(UserlaneCollector.CONFIG);
     }

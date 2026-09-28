@@ -32,6 +32,9 @@ export class BmwConnecteddriveCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BmwConnecteddriveCollector class.
+     */
     constructor() {
         super(BmwConnecteddriveCollector.CONFIG);
     }

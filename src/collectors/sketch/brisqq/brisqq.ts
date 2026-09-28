@@ -32,6 +32,9 @@ export class BrisqqCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BrisqqCollector class.
+     */
     constructor() {
         super(BrisqqCollector.CONFIG);
     }

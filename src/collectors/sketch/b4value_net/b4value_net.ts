@@ -32,6 +32,9 @@ export class B4valueNetCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the B4valueNetCollector class.
+     */
     constructor() {
         super(B4valueNetCollector.CONFIG);
     }

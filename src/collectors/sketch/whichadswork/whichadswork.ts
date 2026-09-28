@@ -32,6 +32,9 @@ export class WhichadsworkCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WhichadsworkCollector class.
+     */
     constructor() {
         super(WhichadsworkCollector.CONFIG);
     }

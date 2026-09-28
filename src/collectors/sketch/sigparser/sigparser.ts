@@ -32,6 +32,9 @@ export class SigparserCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SigparserCollector class.
+     */
     constructor() {
         super(SigparserCollector.CONFIG);
     }

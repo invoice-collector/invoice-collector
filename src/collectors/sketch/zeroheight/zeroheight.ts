@@ -32,6 +32,9 @@ export class ZeroheightCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ZeroheightCollector class.
+     */
     constructor() {
         super(ZeroheightCollector.CONFIG);
     }

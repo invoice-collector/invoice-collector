@@ -32,6 +32,9 @@ export class DirectBasingRCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DirectBasingRCollector class.
+     */
     constructor() {
         super(DirectBasingRCollector.CONFIG);
     }

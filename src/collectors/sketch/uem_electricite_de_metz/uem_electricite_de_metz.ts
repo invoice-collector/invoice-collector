@@ -32,6 +32,9 @@ export class UemElectriciteDeMetzCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the UemElectriciteDeMetzCollector class.
+     */
     constructor() {
         super(UemElectriciteDeMetzCollector.CONFIG);
     }

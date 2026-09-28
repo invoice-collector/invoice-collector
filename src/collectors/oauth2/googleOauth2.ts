@@ -61,10 +61,22 @@ export const GoogleOauth2Selectors = {
 
 export class GoogleOauth2 {
 
+    /**
+     * Checks if the current page requires Google OAuth2 login.
+     * @param driver The driver instance used to interact with the web page.
+     * @returns A boolean indicating whether the login page is displayed.
+     */
     static check(driver: AbstractDriver): boolean {
         return driver.url().includes('accounts.google.com') && driver.url().includes('/signin/');
     }
 
+    /**
+     * Performs the Google OAuth2 login process.
+     * @param driver The driver instance used to interact with the web page.
+     * @param params The login parameters, including email and password.
+     * @param webSocketServer The WebSocket server instance for communication, if any.
+     * @returns A string containing an error message if login fails, or void if successful.
+     */
     static async login(driver: AbstractDriver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
         if(GoogleOauth2.check(driver) && driver.url().includes('signin/accountchooser')) {
             // If account chooser is displayed, click on use another account
@@ -113,6 +125,11 @@ export class GoogleOauth2 {
         }
     }
 
+    /**
+     * Checks if the current page requires two-factor authentication (2FA) for Google OAuth2.
+     * @param driver The driver instance used to interact with the web page.
+     * @returns A string containing the 2FA instructions if 2FA is required, or void otherwise.
+     */
     static async needTwofa(driver: AbstractDriver): Promise<string | void> {
         if(GoogleOauth2.check(driver) && driver.url().includes('signin/challenge')) {
             // Select 2FA method if selection page is displayed
@@ -125,6 +142,14 @@ export class GoogleOauth2 {
         }
     }
 
+    /**
+     * Performs the two-factor authentication (2FA) process for Google OAuth2.
+     * @param driver The driver instance used to interact with the web page.
+     * @param params The login parameters, including email and password.
+     * @param twofa_promise The promise that resolves to the 2FA code.
+     * @param webSocketServer The WebSocket server instance for communication, if any.
+     * @returns String containing an error message if 2FA fails, or void if successful.
+     */
     static async twofa(driver: AbstractDriver, params: any, twofa_promise: TwofaPromise, webSocketServer: WebSocketServer): Promise<string | void> {
         if(GoogleOauth2.check(driver) && driver.url().includes('signin/challenge')) {
             // Get code from UI

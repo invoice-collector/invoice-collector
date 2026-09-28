@@ -32,6 +32,9 @@ export class StarTouchCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StarTouchCollector class.
+     */
     constructor() {
         super(StarTouchCollector.CONFIG);
     }

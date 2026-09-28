@@ -32,6 +32,9 @@ export class ArkeviaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ArkeviaCollector class.
+     */
     constructor() {
         super(ArkeviaCollector.CONFIG);
     }

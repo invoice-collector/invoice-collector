@@ -32,6 +32,9 @@ export class SteilEnergieGmbhCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SteilEnergieGmbhCollector class.
+     */
     constructor() {
         super(SteilEnergieGmbhCollector.CONFIG);
     }

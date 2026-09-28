@@ -32,6 +32,9 @@ export class GreenMountainEnergyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GreenMountainEnergyCollector class.
+     */
     constructor() {
         super(GreenMountainEnergyCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class OnnectwiseCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OnnectwiseCollector class.
+     */
     constructor() {
         super(OnnectwiseCollector.CONFIG);
     }

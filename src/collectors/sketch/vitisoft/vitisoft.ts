@@ -32,6 +32,9 @@ export class VitisoftCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VitisoftCollector class.
+     */
     constructor() {
         super(VitisoftCollector.CONFIG);
     }

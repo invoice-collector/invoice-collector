@@ -32,6 +32,9 @@ export class UrbansportsB2bCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the UrbansportsB2bCollector class.
+     */
     constructor() {
         super(UrbansportsB2bCollector.CONFIG);
     }

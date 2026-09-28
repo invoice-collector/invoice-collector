@@ -32,6 +32,9 @@ export class EchobotCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EchobotCollector class.
+     */
     constructor() {
         super(EchobotCollector.CONFIG);
     }

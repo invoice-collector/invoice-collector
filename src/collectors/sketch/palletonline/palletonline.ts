@@ -32,6 +32,9 @@ export class PalletonlineCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PalletonlineCollector class.
+     */
     constructor() {
         super(PalletonlineCollector.CONFIG);
     }

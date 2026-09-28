@@ -31,6 +31,9 @@ export class HexisGraphicsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HexisGraphicsCollector class.
+     */
     constructor() {
         super(HexisGraphicsCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class RssAppCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RssAppCollector class.
+     */
     constructor() {
         super(RssAppCollector.CONFIG);
     }

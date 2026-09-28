@@ -32,6 +32,9 @@ export class ClsMedCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ClsMedCollector class.
+     */
     constructor() {
         super(ClsMedCollector.CONFIG);
     }

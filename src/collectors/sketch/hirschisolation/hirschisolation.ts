@@ -31,6 +31,9 @@ export class HirschIsolationCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HirschIsolationCollector class.
+     */
     constructor() {
         super(HirschIsolationCollector.CONFIG);
     }

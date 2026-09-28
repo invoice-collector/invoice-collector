@@ -32,6 +32,9 @@ export class CorrentlyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CorrentlyCollector class.
+     */
     constructor() {
         super(CorrentlyCollector.CONFIG);
     }

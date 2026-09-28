@@ -32,6 +32,9 @@ export class PixlipCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PixlipCollector class.
+     */
     constructor() {
         super(PixlipCollector.CONFIG);
     }

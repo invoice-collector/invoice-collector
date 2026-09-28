@@ -32,6 +32,9 @@ export class CityOfLongBeachCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CityOfLongBeachCollector class.
+     */
     constructor() {
         super(CityOfLongBeachCollector.CONFIG);
     }

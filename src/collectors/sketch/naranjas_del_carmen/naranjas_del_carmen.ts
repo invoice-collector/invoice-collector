@@ -32,6 +32,9 @@ export class NaranjasDelCarmenCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NaranjasDelCarmenCollector class.
+     */
     constructor() {
         super(NaranjasDelCarmenCollector.CONFIG);
     }

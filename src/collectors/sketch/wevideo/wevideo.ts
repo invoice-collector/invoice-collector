@@ -32,6 +32,9 @@ export class WevideoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WevideoCollector class.
+     */
     constructor() {
         super(WevideoCollector.CONFIG);
     }

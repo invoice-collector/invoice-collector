@@ -32,6 +32,9 @@ export class GeorgiaPowerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GeorgiaPowerCollector class.
+     */
     constructor() {
         super(GeorgiaPowerCollector.CONFIG);
     }

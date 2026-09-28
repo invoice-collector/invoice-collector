@@ -32,6 +32,9 @@ export class MittwaldCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MittwaldCollector class.
+     */
     constructor() {
         super(MittwaldCollector.CONFIG);
     }

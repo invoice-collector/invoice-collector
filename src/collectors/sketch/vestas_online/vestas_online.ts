@@ -32,6 +32,9 @@ export class VestasOnlineCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VestasOnlineCollector class.
+     */
     constructor() {
         super(VestasOnlineCollector.CONFIG);
     }

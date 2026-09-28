@@ -32,6 +32,9 @@ export class CamifFrCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CamifFrCollector class.
+     */
     constructor() {
         super(CamifFrCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class CoupDePatesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CoupDePatesCollector class.
+     */
     constructor() {
         super(CoupDePatesCollector.CONFIG);
     }

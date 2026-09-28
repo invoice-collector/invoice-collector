@@ -32,6 +32,9 @@ export class AleonoAgCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AleonoAgCollector class.
+     */
     constructor() {
         super(AleonoAgCollector.CONFIG);
     }

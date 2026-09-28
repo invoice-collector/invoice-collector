@@ -32,6 +32,9 @@ export class MorgengoldCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MorgengoldCollector class.
+     */
     constructor() {
         super(MorgengoldCollector.CONFIG);
     }

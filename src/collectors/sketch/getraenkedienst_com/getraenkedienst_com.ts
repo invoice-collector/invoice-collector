@@ -32,6 +32,9 @@ export class GetraenkedienstComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GetraenkedienstComCollector class.
+     */
     constructor() {
         super(GetraenkedienstComCollector.CONFIG);
     }

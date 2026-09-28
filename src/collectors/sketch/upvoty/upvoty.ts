@@ -32,6 +32,9 @@ export class UpvotyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the UpvotyCollector class.
+     */
     constructor() {
         super(UpvotyCollector.CONFIG);
     }

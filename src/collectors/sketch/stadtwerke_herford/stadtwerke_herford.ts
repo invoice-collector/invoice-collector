@@ -32,6 +32,9 @@ export class StadtwerkeHerfordCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StadtwerkeHerfordCollector class.
+     */
     constructor() {
         super(StadtwerkeHerfordCollector.CONFIG);
     }

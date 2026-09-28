@@ -32,6 +32,9 @@ export class MoonFachhandelCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MoonFachhandelCollector class.
+     */
     constructor() {
         super(MoonFachhandelCollector.CONFIG);
     }

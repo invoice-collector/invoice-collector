@@ -32,6 +32,9 @@ export class WhimsicalCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WhimsicalCollector class.
+     */
     constructor() {
         super(WhimsicalCollector.CONFIG);
     }

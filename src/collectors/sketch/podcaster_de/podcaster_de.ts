@@ -32,6 +32,9 @@ export class PodcasterDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PodcasterDeCollector class.
+     */
     constructor() {
         super(PodcasterDeCollector.CONFIG);
     }

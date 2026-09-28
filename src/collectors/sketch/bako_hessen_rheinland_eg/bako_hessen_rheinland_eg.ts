@@ -32,6 +32,9 @@ export class BakoHessenRheinlandEgCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BakoHessenRheinlandEgCollector class.
+     */
     constructor() {
         super(BakoHessenRheinlandEgCollector.CONFIG);
     }

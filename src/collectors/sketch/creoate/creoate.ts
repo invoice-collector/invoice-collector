@@ -32,6 +32,9 @@ export class CreoateCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CreoateCollector class.
+     */
     constructor() {
         super(CreoateCollector.CONFIG);
     }

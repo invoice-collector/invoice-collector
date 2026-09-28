@@ -32,6 +32,9 @@ export class VerspierenAssurproCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VerspierenAssurproCollector class.
+     */
     constructor() {
         super(VerspierenAssurproCollector.CONFIG);
     }

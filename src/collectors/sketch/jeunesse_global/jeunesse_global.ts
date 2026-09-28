@@ -32,6 +32,9 @@ export class JeunesseGlobalCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the JeunesseGlobalCollector class.
+     */
     constructor() {
         super(JeunesseGlobalCollector.CONFIG);
     }

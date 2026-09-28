@@ -32,6 +32,9 @@ export class BlacksimCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BlacksimCollector class.
+     */
     constructor() {
         super(BlacksimCollector.CONFIG);
     }

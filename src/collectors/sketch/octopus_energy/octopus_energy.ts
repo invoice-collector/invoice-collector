@@ -32,6 +32,9 @@ export class OctopusEnergyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OctopusEnergyCollector class.
+     */
     constructor() {
         super(OctopusEnergyCollector.CONFIG);
     }

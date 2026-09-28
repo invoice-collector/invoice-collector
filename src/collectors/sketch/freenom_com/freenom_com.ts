@@ -32,6 +32,9 @@ export class FreenomComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FreenomComCollector class.
+     */
     constructor() {
         super(FreenomComCollector.CONFIG);
     }

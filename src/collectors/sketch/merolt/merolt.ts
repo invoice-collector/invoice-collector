@@ -32,6 +32,9 @@ export class MeroltCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MeroltCollector class.
+     */
     constructor() {
         super(MeroltCollector.CONFIG);
     }

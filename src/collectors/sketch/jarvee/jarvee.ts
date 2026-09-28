@@ -32,6 +32,9 @@ export class JarveeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the JarveeCollector class.
+     */
     constructor() {
         super(JarveeCollector.CONFIG);
     }

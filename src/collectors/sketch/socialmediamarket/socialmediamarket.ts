@@ -32,6 +32,9 @@ export class SocialmediamarketCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SocialmediamarketCollector class.
+     */
     constructor() {
         super(SocialmediamarketCollector.CONFIG);
     }

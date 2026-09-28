@@ -32,6 +32,9 @@ export class AxxesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AxxesCollector class.
+     */
     constructor() {
         super(AxxesCollector.CONFIG);
     }

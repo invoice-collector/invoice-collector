@@ -32,6 +32,9 @@ export class SteamCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SteamCollector class.
+     */
     constructor() {
         super(SteamCollector.CONFIG);
     }

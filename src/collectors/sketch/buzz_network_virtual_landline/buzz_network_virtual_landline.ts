@@ -32,6 +32,9 @@ export class BuzzNetworkVirtualLandlineCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BuzzNetworkVirtualLandlineCollector class.
+     */
     constructor() {
         super(BuzzNetworkVirtualLandlineCollector.CONFIG);
     }

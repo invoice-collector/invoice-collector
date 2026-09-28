@@ -32,6 +32,9 @@ export class HostodoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HostodoCollector class.
+     */
     constructor() {
         super(HostodoCollector.CONFIG);
     }

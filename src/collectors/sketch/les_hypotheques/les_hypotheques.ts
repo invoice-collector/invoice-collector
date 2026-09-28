@@ -32,6 +32,9 @@ export class LesHypothequesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LesHypothequesCollector class.
+     */
     constructor() {
         super(LesHypothequesCollector.CONFIG);
     }

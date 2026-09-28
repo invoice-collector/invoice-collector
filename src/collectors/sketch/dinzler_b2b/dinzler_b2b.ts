@@ -32,6 +32,9 @@ export class DinzlerB2bCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DinzlerB2bCollector class.
+     */
     constructor() {
         super(DinzlerB2bCollector.CONFIG);
     }

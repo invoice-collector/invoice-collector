@@ -32,6 +32,9 @@ export class CoachyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CoachyCollector class.
+     */
     constructor() {
         super(CoachyCollector.CONFIG);
     }

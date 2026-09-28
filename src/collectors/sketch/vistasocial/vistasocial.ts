@@ -32,6 +32,9 @@ export class VistasocialCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VistasocialCollector class.
+     */
     constructor() {
         super(VistasocialCollector.CONFIG);
     }

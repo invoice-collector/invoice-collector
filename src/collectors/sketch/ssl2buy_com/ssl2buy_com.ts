@@ -32,6 +32,9 @@ export class Ssl2buyComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Ssl2buyComCollector class.
+     */
     constructor() {
         super(Ssl2buyComCollector.CONFIG);
     }

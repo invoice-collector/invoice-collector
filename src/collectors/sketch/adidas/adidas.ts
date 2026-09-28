@@ -32,6 +32,9 @@ export class AdidasCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AdidasCollector class.
+     */
     constructor() {
         super(AdidasCollector.CONFIG);
     }

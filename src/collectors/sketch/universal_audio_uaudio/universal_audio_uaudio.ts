@@ -32,6 +32,9 @@ export class UniversalAudioUaudioCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the UniversalAudioUaudioCollector class.
+     */
     constructor() {
         super(UniversalAudioUaudioCollector.CONFIG);
     }

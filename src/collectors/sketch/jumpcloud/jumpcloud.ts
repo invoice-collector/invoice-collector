@@ -32,6 +32,9 @@ export class JumpcloudCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the JumpcloudCollector class.
+     */
     constructor() {
         super(JumpcloudCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class LearnworldsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LearnworldsCollector class.
+     */
     constructor() {
         super(LearnworldsCollector.CONFIG);
     }

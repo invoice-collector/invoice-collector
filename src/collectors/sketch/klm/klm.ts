@@ -32,6 +32,9 @@ export class KlmCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KlmCollector class.
+     */
     constructor() {
         super(KlmCollector.CONFIG);
     }

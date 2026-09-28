@@ -32,6 +32,9 @@ export class KpsysCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KpsysCollector class.
+     */
     constructor() {
         super(KpsysCollector.CONFIG);
     }

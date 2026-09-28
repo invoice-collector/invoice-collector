@@ -32,6 +32,9 @@ export class SepteoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SepteoCollector class.
+     */
     constructor() {
         super(SepteoCollector.CONFIG);
     }

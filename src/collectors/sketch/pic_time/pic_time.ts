@@ -32,6 +32,9 @@ export class PicTimeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PicTimeCollector class.
+     */
     constructor() {
         super(PicTimeCollector.CONFIG);
     }

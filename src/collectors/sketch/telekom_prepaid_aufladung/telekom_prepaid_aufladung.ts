@@ -32,6 +32,9 @@ export class TelekomPrepaidAufladungCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TelekomPrepaidAufladungCollector class.
+     */
     constructor() {
         super(TelekomPrepaidAufladungCollector.CONFIG);
     }

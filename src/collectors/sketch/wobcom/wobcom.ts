@@ -32,6 +32,9 @@ export class WobcomCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WobcomCollector class.
+     */
     constructor() {
         super(WobcomCollector.CONFIG);
     }

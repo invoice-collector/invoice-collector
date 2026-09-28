@@ -32,6 +32,9 @@ export class TrelloCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TrelloCollector class.
+     */
     constructor() {
         super(TrelloCollector.CONFIG);
     }

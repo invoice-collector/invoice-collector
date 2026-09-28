@@ -32,6 +32,9 @@ export class ReifenBischoffCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ReifenBischoffCollector class.
+     */
     constructor() {
         super(ReifenBischoffCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class EirIeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EirIeCollector class.
+     */
     constructor() {
         super(EirIeCollector.CONFIG);
     }

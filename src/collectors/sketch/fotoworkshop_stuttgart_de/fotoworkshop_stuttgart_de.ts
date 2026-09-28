@@ -32,6 +32,9 @@ export class FotoworkshopStuttgartDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FotoworkshopStuttgartDeCollector class.
+     */
     constructor() {
         super(FotoworkshopStuttgartDeCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class MsMileIqCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MsMileIqCollector class.
+     */
     constructor() {
         super(MsMileIqCollector.CONFIG);
     }

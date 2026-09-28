@@ -32,6 +32,9 @@ export class DccDkCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DccDkCollector class.
+     */
     constructor() {
         super(DccDkCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class ManomanoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ManomanoCollector class.
+     */
     constructor() {
         super(ManomanoCollector.CONFIG);
     }

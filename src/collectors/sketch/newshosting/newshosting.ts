@@ -32,6 +32,9 @@ export class NewshostingCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NewshostingCollector class.
+     */
     constructor() {
         super(NewshostingCollector.CONFIG);
     }

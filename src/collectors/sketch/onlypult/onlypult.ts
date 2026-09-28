@@ -32,6 +32,9 @@ export class OnlypultCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OnlypultCollector class.
+     */
     constructor() {
         super(OnlypultCollector.CONFIG);
     }

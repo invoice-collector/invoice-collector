@@ -32,6 +32,9 @@ export class DigitaldruckFabrikCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DigitaldruckFabrikCollector class.
+     */
     constructor() {
         super(DigitaldruckFabrikCollector.CONFIG);
     }

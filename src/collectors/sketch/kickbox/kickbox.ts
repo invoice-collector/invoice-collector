@@ -32,6 +32,9 @@ export class KickboxCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KickboxCollector class.
+     */
     constructor() {
         super(KickboxCollector.CONFIG);
     }

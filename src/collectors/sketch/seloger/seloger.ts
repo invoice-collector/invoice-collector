@@ -32,6 +32,9 @@ export class SelogerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SelogerCollector class.
+     */
     constructor() {
         super(SelogerCollector.CONFIG);
     }

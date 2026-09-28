@@ -32,6 +32,9 @@ export class TrendcornerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TrendcornerCollector class.
+     */
     constructor() {
         super(TrendcornerCollector.CONFIG);
     }

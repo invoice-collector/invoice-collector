@@ -32,6 +32,9 @@ export class GreenfiberInternetCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GreenfiberInternetCollector class.
+     */
     constructor() {
         super(GreenfiberInternetCollector.CONFIG);
     }

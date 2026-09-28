@@ -32,6 +32,9 @@ export class MetaPlatformsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MetaPlatformsCollector class.
+     */
     constructor() {
         super(MetaPlatformsCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class FlexbitsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FlexbitsCollector class.
+     */
     constructor() {
         super(FlexbitsCollector.CONFIG);
     }

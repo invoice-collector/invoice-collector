@@ -32,6 +32,9 @@ export class KioskoYMasCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KioskoYMasCollector class.
+     */
     constructor() {
         super(KioskoYMasCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class NochGmbhCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NochGmbhCollector class.
+     */
     constructor() {
         super(NochGmbhCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class SwmVersorgungsGmbhCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SwmVersorgungsGmbhCollector class.
+     */
     constructor() {
         super(SwmVersorgungsGmbhCollector.CONFIG);
     }

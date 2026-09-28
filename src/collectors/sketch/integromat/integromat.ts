@@ -32,6 +32,9 @@ export class IntegromatCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the IntegromatCollector class.
+     */
     constructor() {
         super(IntegromatCollector.CONFIG);
     }

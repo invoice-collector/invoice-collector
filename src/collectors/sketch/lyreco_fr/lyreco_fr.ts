@@ -32,6 +32,9 @@ export class LyrecoFrCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LyrecoFrCollector class.
+     */
     constructor() {
         super(LyrecoFrCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class CrystalCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CrystalCollector class.
+     */
     constructor() {
         super(CrystalCollector.CONFIG);
     }

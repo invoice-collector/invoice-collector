@@ -32,6 +32,9 @@ export class NiftyimagesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NiftyimagesCollector class.
+     */
     constructor() {
         super(NiftyimagesCollector.CONFIG);
     }

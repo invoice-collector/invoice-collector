@@ -32,6 +32,9 @@ export class WorldstreamCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WorldstreamCollector class.
+     */
     constructor() {
         super(WorldstreamCollector.CONFIG);
     }

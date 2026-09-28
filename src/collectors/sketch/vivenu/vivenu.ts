@@ -32,6 +32,9 @@ export class VivenuCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VivenuCollector class.
+     */
     constructor() {
         super(VivenuCollector.CONFIG);
     }

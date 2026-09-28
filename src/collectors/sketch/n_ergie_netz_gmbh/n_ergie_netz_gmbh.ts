@@ -32,6 +32,9 @@ export class NErgieNetzGmbhCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NErgieNetzGmbhCollector class.
+     */
     constructor() {
         super(NErgieNetzGmbhCollector.CONFIG);
     }

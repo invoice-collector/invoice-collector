@@ -32,6 +32,9 @@ export class SubstackCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SubstackCollector class.
+     */
     constructor() {
         super(SubstackCollector.CONFIG);
     }

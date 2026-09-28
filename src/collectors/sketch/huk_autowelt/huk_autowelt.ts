@@ -32,6 +32,9 @@ export class HukAutoweltCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HukAutoweltCollector class.
+     */
     constructor() {
         super(HukAutoweltCollector.CONFIG);
     }

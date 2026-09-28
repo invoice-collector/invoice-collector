@@ -32,6 +32,9 @@ export class OnlineBulkEmailValidatorCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OnlineBulkEmailValidatorCollector class.
+     */
     constructor() {
         super(OnlineBulkEmailValidatorCollector.CONFIG);
     }

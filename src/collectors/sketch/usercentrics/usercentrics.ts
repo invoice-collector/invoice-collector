@@ -32,6 +32,9 @@ export class UsercentricsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the UsercentricsCollector class.
+     */
     constructor() {
         super(UsercentricsCollector.CONFIG);
     }

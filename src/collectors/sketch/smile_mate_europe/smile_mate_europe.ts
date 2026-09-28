@@ -32,6 +32,9 @@ export class SmileMateEuropeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SmileMateEuropeCollector class.
+     */
     constructor() {
         super(SmileMateEuropeCollector.CONFIG);
     }

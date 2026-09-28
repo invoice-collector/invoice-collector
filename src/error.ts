@@ -1,6 +1,11 @@
 import { Config, AbstractCollector } from './collectors/abstractCollector';
-import { AbstractDriver, Screenshot } from './driver/abstractDriver';
+import { Screenshot } from './driver/abstractDriver';
 
+/**
+ * Returns the full stack trace of the error, including any nested causes.
+ * @param error The error object for which to retrieve the full stack trace.
+ * @returns The full stack trace of the error, including any nested causes.
+ */
 export function fullStackTrace(error: Error): string {
     let output = error.stack || '';
     if (error.cause instanceof Error) {
@@ -17,6 +22,12 @@ export function fullStackTrace(error: Error): string {
 export class StatusError extends Error {
     status_code: number;
 
+    /**
+     * Constructs a new StatusError instance.
+     * @param message The error message describing the status error.
+     * @param status_code The HTTP status code associated with the error.
+     * @param opts Additional options for the error.
+     */
     constructor(message: string, status_code: number, opts: any = {}) {
         super(message, opts);
         this.name = this.constructor.name;
@@ -25,6 +36,11 @@ export class StatusError extends Error {
 }
 
 export class AuthenticationBearerError extends StatusError {
+
+    /**
+     * Constructs a new AuthenticationBearerError instance.
+     * @param opts Additional options for the error.
+     */
     constructor(opts = {}) {
         super('Invalid Bearer token', 401, opts);
         this.name = this.constructor.name;
@@ -32,6 +48,11 @@ export class AuthenticationBearerError extends StatusError {
 }
 
 export class OauthError extends StatusError {
+
+    /**
+     * Constructs a new OauthError instance.
+     * @param opts Additional options for the error.
+     */
     constructor(opts = {}) {
         super('Invalid Oauth token', 401, opts);
         this.name = this.constructor.name;
@@ -39,6 +60,12 @@ export class OauthError extends StatusError {
 }
 
 export class MissingField extends StatusError {
+
+    /**
+     * Constructs a new MissingField instance.
+     * @param field_name The name of the missing field.
+     * @param opts Additional options for the error.
+     */
     constructor(field_name: string, opts = {}) {
         super(`The field "${field_name}" is missing.`, 400, opts);
         this.name = this.constructor.name;
@@ -47,6 +74,12 @@ export class MissingField extends StatusError {
 
 
 export class MissingParams extends StatusError {
+
+    /**
+     * Constructs a new MissingParams instance.
+     * @param field_name The names of the missing parameters.
+     * @param opts Additional options for the error.
+     */
     constructor(field_name: string[], opts = {}) {
         let message;
         if (field_name.length === 1) {
@@ -66,6 +99,12 @@ export class CollectorError extends Error {
     collector_name: string;
     collector_version: string;
 
+    /**
+     * Constructs a new CollectorError instance.
+     * @param message The error message describing the collector error.
+     * @param collector The collector instance associated with the error.
+     * @param opts Additional options for the error.
+     */
     constructor(message: string, collector: AbstractCollector<Config>, opts = {}) {
         super(message, opts);
         this.name = this.constructor.name;
@@ -76,6 +115,12 @@ export class CollectorError extends Error {
 }
 
 export class MaintenanceError extends CollectorError {
+
+    /**
+     * Constructs a new MaintenanceError instance.
+     * @param collector The collector instance associated with the error.
+     * @param opts Additional options for the error.
+     */
     constructor(collector: AbstractCollector<Config>, opts = {}) {
         super(
             'The website is in maintenance. Wait a moment and try again.',
@@ -87,6 +132,13 @@ export class MaintenanceError extends CollectorError {
 }
 
 export class AuthenticationError extends CollectorError {
+
+    /**
+     * Constructs a new AuthenticationError instance.
+     * @param message The error message describing the authentication error.
+     * @param collector The collector instance associated with the error.
+     * @param opts Additional options for the error.
+     */
     constructor(message: string, collector: AbstractCollector<Config>, opts = {}) {
         super(
             message.trim(),
@@ -97,6 +149,12 @@ export class AuthenticationError extends CollectorError {
     }
 }
 export class RemoveError extends CollectorError {
+
+    /**
+     * Constructs a new RemoveError instance.
+     * @param collector The collector instance associated with the error.
+     * @param opts Additional options for the error.
+     */
     constructor(collector: AbstractCollector<Config>, opts = {}) {
         super(
             'i18n.collectors.all.login.cancel',
@@ -108,6 +166,13 @@ export class RemoveError extends CollectorError {
 }
 
 export class DisconnectedError extends CollectorError {
+
+    /**
+     * Constructs a new DisconnectedError instance.
+     * @param message The error message describing the disconnection error.
+     * @param collector The collector instance associated with the error.
+     * @param opts Additional options for the error.
+     */
     constructor(message: string, collector: AbstractCollector<Config>, opts = {}) {
         super(
             message.trim(),
@@ -123,6 +188,12 @@ export class LoggableError extends CollectorError {
     source_code: string;
     screenshot: Screenshot;
 
+    /**
+     * Constructs a new LoggableError instance.
+     * @param message The error message describing the loggable error.
+     * @param collector The collector instance associated with the error.
+     * @param opts Additional options for the error.
+     */
     constructor(message: string, collector: AbstractCollector<Config>, opts = {}) {
         super(
             message,
@@ -139,6 +210,12 @@ export class LoggableError extends CollectorError {
 export class ElementNotFoundError extends LoggableError {
     selector: any;
 
+    /**
+     * Constructs a new ElementNotFoundError instance.
+     * @param collector The collector instance associated with the error.
+     * @param selector The selector that could not be found on the page.
+     * @param opts Additional options for the error.
+     */
     constructor(collector: AbstractCollector<Config>, selector: any, opts = {}) {
         super(
             `Could not find selector '${selector.selector}' corresponding to the "${selector.info}" on the page. See the source code and the screenshot to find the issue.`,
@@ -151,6 +228,12 @@ export class ElementNotFoundError extends LoggableError {
 }
 
 export class UnfinishedCollectorError extends LoggableError {
+
+    /**
+     * Constructs a new UnfinishedCollectorError instance.
+     * @param collector The collector instance associated with the error.
+     * @param opts Additional options for the error.
+     */
     constructor(collector: AbstractCollector<Config>, opts = {}) {
         super(
             'The collector is not finished',
@@ -162,6 +245,12 @@ export class UnfinishedCollectorError extends LoggableError {
 }
 
 export class NoInvoiceFoundError extends LoggableError {
+
+    /**
+     * Constructs a new NoInvoiceFoundError instance.
+     * @param collector The collector instance associated with the error.
+     * @param opts Additional options for the error.
+     */
     constructor(collector: AbstractCollector<Config>, opts = {}) {
         super(
             'No invoice found, collector may be broken',
@@ -173,6 +262,13 @@ export class NoInvoiceFoundError extends LoggableError {
 }
 
 export class DesynchronizationError extends AuthenticationError {
+
+    /**
+     * Constructs a new DesynchronizationError instance.
+     * @param credential_id The ID of the credential associated with the error.
+     * @param collector The collector instance associated with the error.
+     * @param opts Additional options for the error.
+     */
     constructor(credential_id: string, collector: AbstractCollector<Config>, opts = {}) {
         super(
             `Desynchronization Error - We are sorry but something went wrong with the collector. Please remove it and add it again. (${credential_id})`,

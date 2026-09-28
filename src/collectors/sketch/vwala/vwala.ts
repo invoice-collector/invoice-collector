@@ -32,6 +32,9 @@ export class VwalaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VwalaCollector class.
+     */
     constructor() {
         super(VwalaCollector.CONFIG);
     }

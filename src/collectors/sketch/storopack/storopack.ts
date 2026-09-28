@@ -32,6 +32,9 @@ export class StoropackCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StoropackCollector class.
+     */
     constructor() {
         super(StoropackCollector.CONFIG);
     }

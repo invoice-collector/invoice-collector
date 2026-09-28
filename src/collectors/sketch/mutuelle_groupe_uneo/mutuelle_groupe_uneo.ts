@@ -32,6 +32,9 @@ export class MutuelleGroupeUneoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MutuelleGroupeUneoCollector class.
+     */
     constructor() {
         super(MutuelleGroupeUneoCollector.CONFIG);
     }

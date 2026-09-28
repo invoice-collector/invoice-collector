@@ -32,6 +32,9 @@ export class MutuelleDuSoleilRsiPersonnelCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MutuelleDuSoleilRsiPersonnelCollector class.
+     */
     constructor() {
         super(MutuelleDuSoleilRsiPersonnelCollector.CONFIG);
     }

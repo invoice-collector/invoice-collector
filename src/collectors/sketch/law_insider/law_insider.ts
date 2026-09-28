@@ -32,6 +32,9 @@ export class LawInsiderCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LawInsiderCollector class.
+     */
     constructor() {
         super(LawInsiderCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class MutuelleGsmcCourtierCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MutuelleGsmcCourtierCollector class.
+     */
     constructor() {
         super(MutuelleGsmcCourtierCollector.CONFIG);
     }

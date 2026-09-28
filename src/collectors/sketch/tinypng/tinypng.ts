@@ -32,6 +32,9 @@ export class TinypngCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TinypngCollector class.
+     */
     constructor() {
         super(TinypngCollector.CONFIG);
     }

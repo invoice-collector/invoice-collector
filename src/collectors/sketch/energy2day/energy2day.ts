@@ -32,6 +32,9 @@ export class Energy2dayCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Energy2dayCollector class.
+     */
     constructor() {
         super(Energy2dayCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class HugoInternetCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HugoInternetCollector class.
+     */
     constructor() {
         super(HugoInternetCollector.CONFIG);
     }

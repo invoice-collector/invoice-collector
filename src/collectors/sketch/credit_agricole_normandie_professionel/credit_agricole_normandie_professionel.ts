@@ -32,6 +32,9 @@ export class CreditAgricoleNormandieProfessionelCollector extends SketchCollecto
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CreditAgricoleNormandieProfessionelCollector class.
+     */
     constructor() {
         super(CreditAgricoleNormandieProfessionelCollector.CONFIG);
     }

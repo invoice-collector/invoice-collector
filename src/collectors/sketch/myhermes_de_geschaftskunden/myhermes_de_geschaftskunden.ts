@@ -32,6 +32,9 @@ export class MyhermesDeGeschaftskundenCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MyhermesDeGeschaftskundenCollector class.
+     */
     constructor() {
         super(MyhermesDeGeschaftskundenCollector.CONFIG);
     }

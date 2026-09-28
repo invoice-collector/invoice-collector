@@ -32,6 +32,9 @@ export class ShopvoteBetrieberCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ShopvoteBetrieberCollector class.
+     */
     constructor() {
         super(ShopvoteBetrieberCollector.CONFIG);
     }

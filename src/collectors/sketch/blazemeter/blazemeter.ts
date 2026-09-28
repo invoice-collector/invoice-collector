@@ -32,6 +32,9 @@ export class BlazemeterCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BlazemeterCollector class.
+     */
     constructor() {
         super(BlazemeterCollector.CONFIG);
     }

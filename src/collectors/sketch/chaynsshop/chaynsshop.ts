@@ -32,6 +32,9 @@ export class ChaynsshopCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ChaynsshopCollector class.
+     */
     constructor() {
         super(ChaynsshopCollector.CONFIG);
     }

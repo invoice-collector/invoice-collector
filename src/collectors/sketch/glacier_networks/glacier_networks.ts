@@ -32,6 +32,9 @@ export class GlacierNetworksCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GlacierNetworksCollector class.
+     */
     constructor() {
         super(GlacierNetworksCollector.CONFIG);
     }

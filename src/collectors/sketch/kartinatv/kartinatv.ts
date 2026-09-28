@@ -32,6 +32,9 @@ export class KartinatvCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KartinatvCollector class.
+     */
     constructor() {
         super(KartinatvCollector.CONFIG);
     }

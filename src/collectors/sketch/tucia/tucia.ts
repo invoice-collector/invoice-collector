@@ -32,6 +32,9 @@ export class TuciaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TuciaCollector class.
+     */
     constructor() {
         super(TuciaCollector.CONFIG);
     }

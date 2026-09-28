@@ -32,6 +32,9 @@ export class DeBijenkorfCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DeBijenkorfCollector class.
+     */
     constructor() {
         super(DeBijenkorfCollector.CONFIG);
     }

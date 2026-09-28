@@ -32,6 +32,9 @@ export class UptrendsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the UptrendsCollector class.
+     */
     constructor() {
         super(UptrendsCollector.CONFIG);
     }

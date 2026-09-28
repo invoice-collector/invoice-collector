@@ -32,6 +32,9 @@ export class FattoriaLaViallaDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FattoriaLaViallaDeCollector class.
+     */
     constructor() {
         super(FattoriaLaViallaDeCollector.CONFIG);
     }

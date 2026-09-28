@@ -32,6 +32,9 @@ export class Level3Collector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Level3Collector class.
+     */
     constructor() {
         super(Level3Collector.CONFIG);
     }

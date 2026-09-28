@@ -32,6 +32,9 @@ export class FastbillCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FastbillCollector class.
+     */
     constructor() {
         super(FastbillCollector.CONFIG);
     }

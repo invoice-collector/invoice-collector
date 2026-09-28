@@ -32,6 +32,9 @@ export class IdgardCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the IdgardCollector class.
+     */
     constructor() {
         super(IdgardCollector.CONFIG);
     }

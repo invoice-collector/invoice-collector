@@ -32,6 +32,9 @@ export class UptimiaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the UptimiaCollector class.
+     */
     constructor() {
         super(UptimiaCollector.CONFIG);
     }

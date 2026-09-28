@@ -32,6 +32,9 @@ export class PascomCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PascomCollector class.
+     */
     constructor() {
         super(PascomCollector.CONFIG);
     }

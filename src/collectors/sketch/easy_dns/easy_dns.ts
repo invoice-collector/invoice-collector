@@ -32,6 +32,9 @@ export class EasyDnsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EasyDnsCollector class.
+     */
     constructor() {
         super(EasyDnsCollector.CONFIG);
     }

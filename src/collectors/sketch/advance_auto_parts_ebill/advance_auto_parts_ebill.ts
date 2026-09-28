@@ -32,6 +32,9 @@ export class AdvanceAutoPartsEbillCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AdvanceAutoPartsEbillCollector class.
+     */
     constructor() {
         super(AdvanceAutoPartsEbillCollector.CONFIG);
     }

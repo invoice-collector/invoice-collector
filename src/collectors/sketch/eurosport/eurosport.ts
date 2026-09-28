@@ -32,6 +32,9 @@ export class EurosportCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EurosportCollector class.
+     */
     constructor() {
         super(EurosportCollector.CONFIG);
     }

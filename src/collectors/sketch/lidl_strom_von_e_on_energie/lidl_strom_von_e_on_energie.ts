@@ -32,6 +32,9 @@ export class LidlStromVonEOnEnergieCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LidlStromVonEOnEnergieCollector class.
+     */
     constructor() {
         super(LidlStromVonEOnEnergieCollector.CONFIG);
     }

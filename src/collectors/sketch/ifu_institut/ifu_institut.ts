@@ -32,6 +32,9 @@ export class IfuInstitutCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the IfuInstitutCollector class.
+     */
     constructor() {
         super(IfuInstitutCollector.CONFIG);
     }

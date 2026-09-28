@@ -32,6 +32,9 @@ export class WonderboxPartnerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WonderboxPartnerCollector class.
+     */
     constructor() {
         super(WonderboxPartnerCollector.CONFIG);
     }

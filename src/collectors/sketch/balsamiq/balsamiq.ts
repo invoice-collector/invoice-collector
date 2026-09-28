@@ -32,6 +32,9 @@ export class BalsamiqCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BalsamiqCollector class.
+     */
     constructor() {
         super(BalsamiqCollector.CONFIG);
     }

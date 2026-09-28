@@ -36,15 +36,24 @@ export class OpenaiChatgptCollector extends OpenaiCommonCollector {
         state: CollectorState.ACTIVE,
     };
 
+    /**
+     * Constructs a new instance of the OpenaiChatgptCollector class.
+     */
     constructor() {
         super(OpenaiChatgptCollector.CONFIG);
     }
 
+    /**
+     * @inheritdoc
+     */
     async needLogin(driver: AbstractDriver ): Promise<boolean> {
         await utils.delay(2000);
         return driver.url().includes('auth.openai.com');
     }
-    
+
+    /**
+     * @inheritdoc
+     */
     async navigate(driver: AbstractDriver): Promise<void> {
         // Wait for billing button
         await driver.getElement(OpenaiSelectors.BUTTON_ACCOUNT, { timeout: 5000 });
@@ -53,7 +62,10 @@ export class OpenaiChatgptCollector extends OpenaiCommonCollector {
         // Wait for invoices search button
         await driver.getElement(OpenaiSelectors.BUTTON_SEARCH_INVOICES);
     }
-    
+
+    /**
+     * @inheritdoc
+     */
     async forEachPage(driver: AbstractDriver, next: () => Promise<void>): Promise<void> {
         // Show more invoices while possible
         await driver.leftClick(OpenaiSelectors.BUTTON_MORE_INVOICES, { raiseException: false, timeout: 1000, navigation: false });
@@ -62,15 +74,24 @@ export class OpenaiChatgptCollector extends OpenaiCommonCollector {
         // Collect invoices
         await next();
     }
-    
+
+    /**
+     * @inheritdoc
+     */
     async isEmpty(driver: AbstractDriver): Promise<boolean>{
         return await driver.getElement(OpenaiSelectors.CONTAINER_NO_ORDERS, { raiseException: false, timeout: 100 }) !== null;
     }
 
+    /**
+     * @inheritdoc
+     */
     async getInvoices(driver: AbstractDriver): Promise<Element[]> {
         return await driver.getElements(OpenaiSelectors.CONTAINER_INVOICES);
     }
 
+    /**
+     * @inheritdoc
+     */
     async data(driver: AbstractDriver, element: Element): Promise<Invoice | null> {
         // Get url before map
         const link = driver.url();

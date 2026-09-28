@@ -32,6 +32,9 @@ export class StadtwerkeMunchenGmbhCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StadtwerkeMunchenGmbhCollector class.
+     */
     constructor() {
         super(StadtwerkeMunchenGmbhCollector.CONFIG);
     }

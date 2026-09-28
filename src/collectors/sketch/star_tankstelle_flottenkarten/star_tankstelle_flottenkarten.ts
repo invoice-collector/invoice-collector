@@ -32,6 +32,9 @@ export class StarTankstelleFlottenkartenCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StarTankstelleFlottenkartenCollector class.
+     */
     constructor() {
         super(StarTankstelleFlottenkartenCollector.CONFIG);
     }

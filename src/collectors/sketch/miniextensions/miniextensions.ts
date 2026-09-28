@@ -32,6 +32,9 @@ export class MiniextensionsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MiniextensionsCollector class.
+     */
     constructor() {
         super(MiniextensionsCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class TitanFitnessCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TitanFitnessCollector class.
+     */
     constructor() {
         super(TitanFitnessCollector.CONFIG);
     }

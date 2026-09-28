@@ -32,6 +32,9 @@ export class OmstarsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OmstarsCollector class.
+     */
     constructor() {
         super(OmstarsCollector.CONFIG);
     }

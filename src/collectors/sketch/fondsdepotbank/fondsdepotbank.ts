@@ -32,6 +32,9 @@ export class FondsdepotbankCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FondsdepotbankCollector class.
+     */
     constructor() {
         super(FondsdepotbankCollector.CONFIG);
     }

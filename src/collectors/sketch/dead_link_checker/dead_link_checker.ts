@@ -32,6 +32,9 @@ export class DeadLinkCheckerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DeadLinkCheckerCollector class.
+     */
     constructor() {
         super(DeadLinkCheckerCollector.CONFIG);
     }

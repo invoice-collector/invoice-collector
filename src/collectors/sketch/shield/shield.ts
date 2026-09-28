@@ -32,6 +32,9 @@ export class ShieldCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ShieldCollector class.
+     */
     constructor() {
         super(ShieldCollector.CONFIG);
     }

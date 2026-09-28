@@ -32,6 +32,9 @@ export class GreenlineCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GreenlineCollector class.
+     */
     constructor() {
         super(GreenlineCollector.CONFIG);
     }

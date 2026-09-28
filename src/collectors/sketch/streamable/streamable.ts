@@ -32,6 +32,9 @@ export class StreamableCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StreamableCollector class.
+     */
     constructor() {
         super(StreamableCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class JasperAiCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the JasperAiCollector class.
+     */
     constructor() {
         super(JasperAiCollector.CONFIG);
     }

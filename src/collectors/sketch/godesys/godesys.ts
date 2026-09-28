@@ -32,6 +32,9 @@ export class GodesysCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GodesysCollector class.
+     */
     constructor() {
         super(GodesysCollector.CONFIG);
     }

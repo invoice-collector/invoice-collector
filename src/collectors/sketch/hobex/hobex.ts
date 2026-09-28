@@ -32,6 +32,9 @@ export class HobexCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HobexCollector class.
+     */
     constructor() {
         super(HobexCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class RebuyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RebuyCollector class.
+     */
     constructor() {
         super(RebuyCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class RetoolCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RetoolCollector class.
+     */
     constructor() {
         super(RetoolCollector.CONFIG);
     }

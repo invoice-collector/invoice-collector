@@ -32,6 +32,9 @@ export class HeidelpayCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HeidelpayCollector class.
+     */
     constructor() {
         super(HeidelpayCollector.CONFIG);
     }

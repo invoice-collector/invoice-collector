@@ -32,6 +32,9 @@ export class ConstellationNewEnergyDnCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ConstellationNewEnergyDnCollector class.
+     */
     constructor() {
         super(ConstellationNewEnergyDnCollector.CONFIG);
     }

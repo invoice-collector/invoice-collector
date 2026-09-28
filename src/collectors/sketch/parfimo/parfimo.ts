@@ -32,6 +32,9 @@ export class ParfimoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ParfimoCollector class.
+     */
     constructor() {
         super(ParfimoCollector.CONFIG);
     }

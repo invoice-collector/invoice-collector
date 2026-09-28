@@ -32,6 +32,9 @@ export class WodifyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WodifyCollector class.
+     */
     constructor() {
         super(WodifyCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class PrioriDataCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PrioriDataCollector class.
+     */
     constructor() {
         super(PrioriDataCollector.CONFIG);
     }

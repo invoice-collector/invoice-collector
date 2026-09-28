@@ -32,6 +32,9 @@ export class Home24KundenCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Home24KundenCollector class.
+     */
     constructor() {
         super(Home24KundenCollector.CONFIG);
     }

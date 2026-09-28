@@ -32,6 +32,9 @@ export class ZepCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ZepCollector class.
+     */
     constructor() {
         super(ZepCollector.CONFIG);
     }

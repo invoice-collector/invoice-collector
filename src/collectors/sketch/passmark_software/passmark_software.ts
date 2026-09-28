@@ -32,6 +32,9 @@ export class PassmarkSoftwareCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PassmarkSoftwareCollector class.
+     */
     constructor() {
         super(PassmarkSoftwareCollector.CONFIG);
     }

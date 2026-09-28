@@ -32,6 +32,9 @@ export class VisibleWirelessCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VisibleWirelessCollector class.
+     */
     constructor() {
         super(VisibleWirelessCollector.CONFIG);
     }

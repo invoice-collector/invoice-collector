@@ -32,6 +32,9 @@ export class EmscherLippeEnergieGmbhCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EmscherLippeEnergieGmbhCollector class.
+     */
     constructor() {
         super(EmscherLippeEnergieGmbhCollector.CONFIG);
     }

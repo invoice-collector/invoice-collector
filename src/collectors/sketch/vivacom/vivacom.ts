@@ -32,6 +32,9 @@ export class VivacomCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VivacomCollector class.
+     */
     constructor() {
         super(VivacomCollector.CONFIG);
     }

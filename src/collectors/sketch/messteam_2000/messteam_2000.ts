@@ -32,6 +32,9 @@ export class Messteam2000Collector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Messteam2000Collector class.
+     */
     constructor() {
         super(Messteam2000Collector.CONFIG);
     }

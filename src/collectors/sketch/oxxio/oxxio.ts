@@ -32,6 +32,9 @@ export class OxxioCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OxxioCollector class.
+     */
     constructor() {
         super(OxxioCollector.CONFIG);
     }

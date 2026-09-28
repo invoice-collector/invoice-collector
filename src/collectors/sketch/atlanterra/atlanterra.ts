@@ -31,6 +31,9 @@ export class AtlanterraCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AtlanterraCollector class.
+     */
     constructor() {
         super(AtlanterraCollector.CONFIG);
     }

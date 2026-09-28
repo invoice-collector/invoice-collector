@@ -32,6 +32,9 @@ export class UtmBuilderCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the UtmBuilderCollector class.
+     */
     constructor() {
         super(UtmBuilderCollector.CONFIG);
     }

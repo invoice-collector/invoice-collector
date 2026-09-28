@@ -32,6 +32,9 @@ export class SslstoreCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SslstoreCollector class.
+     */
     constructor() {
         super(SslstoreCollector.CONFIG);
     }

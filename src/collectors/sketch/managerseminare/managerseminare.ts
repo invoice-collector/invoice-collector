@@ -32,6 +32,9 @@ export class ManagerseminareCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ManagerseminareCollector class.
+     */
     constructor() {
         super(ManagerseminareCollector.CONFIG);
     }

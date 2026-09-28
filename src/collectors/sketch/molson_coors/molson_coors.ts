@@ -32,6 +32,9 @@ export class MolsonCoorsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MolsonCoorsCollector class.
+     */
     constructor() {
         super(MolsonCoorsCollector.CONFIG);
     }

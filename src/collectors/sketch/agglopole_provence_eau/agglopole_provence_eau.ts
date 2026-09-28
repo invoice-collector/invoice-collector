@@ -32,6 +32,9 @@ export class AgglopoleProvenceEauCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AgglopoleProvenceEauCollector class.
+     */
     constructor() {
         super(AgglopoleProvenceEauCollector.CONFIG);
     }

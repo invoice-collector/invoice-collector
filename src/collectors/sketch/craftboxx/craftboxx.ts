@@ -32,6 +32,9 @@ export class CraftboxxCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CraftboxxCollector class.
+     */
     constructor() {
         super(CraftboxxCollector.CONFIG);
     }

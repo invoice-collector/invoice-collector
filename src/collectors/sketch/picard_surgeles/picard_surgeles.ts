@@ -32,6 +32,9 @@ export class PicardSurgelesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PicardSurgelesCollector class.
+     */
     constructor() {
         super(PicardSurgelesCollector.CONFIG);
     }

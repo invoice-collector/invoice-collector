@@ -32,6 +32,9 @@ export class UberconferenceCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the UberconferenceCollector class.
+     */
     constructor() {
         super(UberconferenceCollector.CONFIG);
     }

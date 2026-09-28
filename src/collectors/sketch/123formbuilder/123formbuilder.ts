@@ -32,6 +32,9 @@ export class _123formbuilderCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the _123formbuilderCollector class.
+     */
     constructor() {
         super(_123formbuilderCollector.CONFIG);
     }

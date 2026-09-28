@@ -32,6 +32,9 @@ export class VodafoneKabelDeutschlandCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VodafoneKabelDeutschlandCollector class.
+     */
     constructor() {
         super(VodafoneKabelDeutschlandCollector.CONFIG);
     }

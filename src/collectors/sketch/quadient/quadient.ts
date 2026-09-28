@@ -32,6 +32,9 @@ export class QuadientCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the QuadientCollector class.
+     */
     constructor() {
         super(QuadientCollector.CONFIG);
     }

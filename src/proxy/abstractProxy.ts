@@ -20,9 +20,20 @@ export abstract class AbstractProxy {
         lon: '2.348993',
     };
 
+    /**
+     * Gets a proxy for the specified location.
+     * @param location The location for which to get a proxy.
+     * @returns A Proxy instance for the specified location, or null if no proxy is available.
+     */
     abstract get(location: Location | null): Promise<Proxy | null>;
 
+    /**
+     * Gets the geographical location for the specified IP address.
+     * @param ip The IP address for which to get the location.
+     * @returns A Location instance for the specified IP address, or null if the location cannot be determined.
+     */
     async locate(ip: string | undefined): Promise<Location | null> {
+        // TODO merge _local and local methods
         // Check if exists
         if (ip) {
             return this._locate(ip);
@@ -30,6 +41,11 @@ export abstract class AbstractProxy {
         return null;
     }
 
+    /**
+     * Gets the geographical location for the specified IP address.
+     * @param ip The IP address for which to get the location.
+     * @returns A Location instance for the specified IP address, or null if the location cannot be determined.
+     */
     private async _locate(ip: string): Promise<Location | null> {
         const response = await fetch(`http://ip-api.com/json/${ip}`);
         if (!response.ok) {

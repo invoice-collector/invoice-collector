@@ -32,6 +32,9 @@ export class WoodbrassComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WoodbrassComCollector class.
+     */
     constructor() {
         super(WoodbrassComCollector.CONFIG);
     }

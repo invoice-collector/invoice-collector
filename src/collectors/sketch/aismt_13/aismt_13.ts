@@ -32,6 +32,9 @@ export class Aismt13Collector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Aismt13Collector class.
+     */
     constructor() {
         super(Aismt13Collector.CONFIG);
     }

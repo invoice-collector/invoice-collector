@@ -32,6 +32,9 @@ export class PlaycanvasCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PlaycanvasCollector class.
+     */
     constructor() {
         super(PlaycanvasCollector.CONFIG);
     }

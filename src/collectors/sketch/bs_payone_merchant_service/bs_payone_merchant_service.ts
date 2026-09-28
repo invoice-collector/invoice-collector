@@ -32,6 +32,9 @@ export class BsPayoneMerchantServiceCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BsPayoneMerchantServiceCollector class.
+     */
     constructor() {
         super(BsPayoneMerchantServiceCollector.CONFIG);
     }

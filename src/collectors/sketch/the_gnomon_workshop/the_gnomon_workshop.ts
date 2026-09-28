@@ -32,6 +32,9 @@ export class TheGnomonWorkshopCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TheGnomonWorkshopCollector class.
+     */
     constructor() {
         super(TheGnomonWorkshopCollector.CONFIG);
     }

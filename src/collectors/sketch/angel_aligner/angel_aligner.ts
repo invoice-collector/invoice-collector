@@ -32,6 +32,9 @@ export class AngelAlignerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AngelAlignerCollector class.
+     */
     constructor() {
         super(AngelAlignerCollector.CONFIG);
     }

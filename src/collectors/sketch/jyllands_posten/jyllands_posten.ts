@@ -32,6 +32,9 @@ export class JyllandsPostenCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the JyllandsPostenCollector class.
+     */
     constructor() {
         super(JyllandsPostenCollector.CONFIG);
     }

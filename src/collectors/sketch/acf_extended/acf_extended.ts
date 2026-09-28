@@ -32,6 +32,9 @@ export class AcfExtendedCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AcfExtendedCollector class.
+     */
     constructor() {
         super(AcfExtendedCollector.CONFIG);
     }

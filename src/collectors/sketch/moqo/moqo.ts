@@ -32,6 +32,9 @@ export class MoqoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MoqoCollector class.
+     */
     constructor() {
         super(MoqoCollector.CONFIG);
     }

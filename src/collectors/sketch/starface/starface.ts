@@ -32,6 +32,9 @@ export class StarfaceCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StarfaceCollector class.
+     */
     constructor() {
         super(StarfaceCollector.CONFIG);
     }

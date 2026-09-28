@@ -32,6 +32,9 @@ export class CamiegRelevesMensuelsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CamiegRelevesMensuelsCollector class.
+     */
     constructor() {
         super(CamiegRelevesMensuelsCollector.CONFIG);
     }

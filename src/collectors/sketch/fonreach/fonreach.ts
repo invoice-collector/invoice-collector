@@ -32,6 +32,9 @@ export class FonreachCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FonreachCollector class.
+     */
     constructor() {
         super(FonreachCollector.CONFIG);
     }

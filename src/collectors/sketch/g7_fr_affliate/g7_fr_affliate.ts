@@ -32,6 +32,9 @@ export class G7FrAffliateCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the G7FrAffliateCollector class.
+     */
     constructor() {
         super(G7FrAffliateCollector.CONFIG);
     }

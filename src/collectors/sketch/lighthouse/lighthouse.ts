@@ -32,6 +32,9 @@ export class LighthouseCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LighthouseCollector class.
+     */
     constructor() {
         super(LighthouseCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class BuyerdockCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BuyerdockCollector class.
+     */
     constructor() {
         super(BuyerdockCollector.CONFIG);
     }

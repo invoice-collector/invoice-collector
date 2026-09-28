@@ -32,6 +32,9 @@ export class FivetranCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FivetranCollector class.
+     */
     constructor() {
         super(FivetranCollector.CONFIG);
     }

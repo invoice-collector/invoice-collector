@@ -32,6 +32,9 @@ export class SwissmademarketingAffiliatesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SwissmademarketingAffiliatesCollector class.
+     */
     constructor() {
         super(SwissmademarketingAffiliatesCollector.CONFIG);
     }

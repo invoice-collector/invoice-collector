@@ -32,6 +32,9 @@ export class TeamcalCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TeamcalCollector class.
+     */
     constructor() {
         super(TeamcalCollector.CONFIG);
     }

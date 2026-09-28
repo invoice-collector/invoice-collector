@@ -32,6 +32,9 @@ export class AdaptyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AdaptyCollector class.
+     */
     constructor() {
         super(AdaptyCollector.CONFIG);
     }

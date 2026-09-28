@@ -32,6 +32,9 @@ export class NoezDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NoezDeCollector class.
+     */
     constructor() {
         super(NoezDeCollector.CONFIG);
     }

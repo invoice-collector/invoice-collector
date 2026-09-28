@@ -32,6 +32,9 @@ export class GrihedServiceGmbhCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GrihedServiceGmbhCollector class.
+     */
     constructor() {
         super(GrihedServiceGmbhCollector.CONFIG);
     }

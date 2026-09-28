@@ -32,6 +32,9 @@ export class PropelbonCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PropelbonCollector class.
+     */
     constructor() {
         super(PropelbonCollector.CONFIG);
     }

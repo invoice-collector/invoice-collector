@@ -32,6 +32,9 @@ export class ProlendCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ProlendCollector class.
+     */
     constructor() {
         super(ProlendCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class PharmageniusCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PharmageniusCollector class.
+     */
     constructor() {
         super(PharmageniusCollector.CONFIG);
     }

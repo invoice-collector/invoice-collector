@@ -32,6 +32,9 @@ export class DotdigitalCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DotdigitalCollector class.
+     */
     constructor() {
         super(DotdigitalCollector.CONFIG);
     }

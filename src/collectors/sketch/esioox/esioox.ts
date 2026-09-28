@@ -32,6 +32,9 @@ export class EsiooxCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EsiooxCollector class.
+     */
     constructor() {
         super(EsiooxCollector.CONFIG);
     }

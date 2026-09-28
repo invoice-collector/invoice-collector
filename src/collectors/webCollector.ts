@@ -26,6 +26,10 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
 
     driver: AbstractDriver | null;
 
+    /**
+     * Constructs a new WebCollector instance.
+     * @param config The configuration object for the WebCollector instance.
+     */
     constructor(config: WebConfig) {
         super({
             ...config,
@@ -44,6 +48,8 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
         this.driver = null;
     }
 
+    /**
+     * @inheritdoc */
     async _close(): Promise<void> {
         if (this.driver !== null) {
             // Close the browser
@@ -53,10 +59,22 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
 
     // DOWNLOAD METHODS
 
+    /**
+     * Downloads a file from the given link using the provided driver.
+     * @param driver The driver instance used to perform the download.
+     * @param link The URL of the file to be downloaded.
+     * @returns The downloaded file data as a string.
+     */
     async download_link(driver: AbstractDriver, link: string): Promise<string> {
         return await driver.downloadFile(link);
     }
 
+    /**
+     * Downloads a webpage as a PDF using the provided driver.
+     * @param driver The driver instance used to perform the download.
+     * @param link The URL of the webpage to be downloaded.
+     * @returns The downloaded webpage data as a string.
+     */
     async download_webpage(driver: AbstractDriver, link: string): Promise<string> {
         // Get current value
         const loadImagesPreviousValue = driver.collector.config.loadImages;
@@ -71,10 +89,22 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
         return data;
     }
 
+    /**
+     * Downloads a file from the local file system using the provided driver.
+     * @param driver The driver instance used to perform the download.
+     * @returns The downloaded file data as a string.
+     */
     async download_from_file(driver: AbstractDriver): Promise<string> {
         return await driver.waitForFileToDownload(false);
     }
 
+    /**
+     * Performs an interactive session using the provided driver and WebSocket server.
+     * @param driver The driver instance used to perform the interactive session.
+     * @param webSocketServer The WebSocket server instance for real-time communication, or undefined if not available.
+     * @param instructions The instructions to be followed during the interactive session.
+     * @returns A string result of the interaction, or void if no result is produced.
+     */
     protected async interactive(
         driver: AbstractDriver,
         webSocketServer: WebSocketServer | undefined,

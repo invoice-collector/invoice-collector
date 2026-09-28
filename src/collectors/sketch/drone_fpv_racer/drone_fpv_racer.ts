@@ -32,6 +32,9 @@ export class DroneFpvRacerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DroneFpvRacerCollector class.
+     */
     constructor() {
         super(DroneFpvRacerCollector.CONFIG);
     }

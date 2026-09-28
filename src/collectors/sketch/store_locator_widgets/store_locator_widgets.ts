@@ -32,6 +32,9 @@ export class StoreLocatorWidgetsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StoreLocatorWidgetsCollector class.
+     */
     constructor() {
         super(StoreLocatorWidgetsCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class JweilandNetCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the JweilandNetCollector class.
+     */
     constructor() {
         super(JweilandNetCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class InsomniaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the InsomniaCollector class.
+     */
     constructor() {
         super(InsomniaCollector.CONFIG);
     }

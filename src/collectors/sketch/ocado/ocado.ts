@@ -32,6 +32,9 @@ export class OcadoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OcadoCollector class.
+     */
     constructor() {
         super(OcadoCollector.CONFIG);
     }

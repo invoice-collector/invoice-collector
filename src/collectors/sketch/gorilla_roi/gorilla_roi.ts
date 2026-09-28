@@ -32,6 +32,9 @@ export class GorillaRoiCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GorillaRoiCollector class.
+     */
     constructor() {
         super(GorillaRoiCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class GearhostCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GearhostCollector class.
+     */
     constructor() {
         super(GearhostCollector.CONFIG);
     }

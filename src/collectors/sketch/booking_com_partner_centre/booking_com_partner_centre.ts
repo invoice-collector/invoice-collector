@@ -32,6 +32,9 @@ export class BookingComPartnerCentreCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BookingComPartnerCentreCollector class.
+     */
     constructor() {
         super(BookingComPartnerCentreCollector.CONFIG);
     }

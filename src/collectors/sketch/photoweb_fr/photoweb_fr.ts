@@ -32,6 +32,9 @@ export class PhotowebFrCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PhotowebFrCollector class.
+     */
     constructor() {
         super(PhotowebFrCollector.CONFIG);
     }

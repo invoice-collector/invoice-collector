@@ -32,6 +32,9 @@ export class PowwebCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PowwebCollector class.
+     */
     constructor() {
         super(PowwebCollector.CONFIG);
     }

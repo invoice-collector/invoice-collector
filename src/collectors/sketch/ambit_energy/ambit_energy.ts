@@ -32,6 +32,9 @@ export class AmbitEnergyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AmbitEnergyCollector class.
+     */
     constructor() {
         super(AmbitEnergyCollector.CONFIG);
     }

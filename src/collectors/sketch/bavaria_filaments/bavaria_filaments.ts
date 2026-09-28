@@ -32,6 +32,9 @@ export class BavariaFilamentsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BavariaFilamentsCollector class.
+     */
     constructor() {
         super(BavariaFilamentsCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class Daz3dCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Daz3dCollector class.
+     */
     constructor() {
         super(Daz3dCollector.CONFIG);
     }

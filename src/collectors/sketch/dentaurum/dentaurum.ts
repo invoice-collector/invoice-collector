@@ -32,6 +32,9 @@ export class DentaurumCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DentaurumCollector class.
+     */
     constructor() {
         super(DentaurumCollector.CONFIG);
     }

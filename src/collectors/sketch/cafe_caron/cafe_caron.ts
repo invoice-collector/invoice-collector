@@ -32,6 +32,9 @@ export class CafeCaronCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CafeCaronCollector class.
+     */
     constructor() {
         super(CafeCaronCollector.CONFIG);
     }

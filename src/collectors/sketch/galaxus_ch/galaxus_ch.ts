@@ -32,6 +32,9 @@ export class GalaxusChCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GalaxusChCollector class.
+     */
     constructor() {
         super(GalaxusChCollector.CONFIG);
     }

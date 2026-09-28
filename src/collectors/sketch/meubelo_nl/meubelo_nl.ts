@@ -32,6 +32,9 @@ export class MeubeloNlCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MeubeloNlCollector class.
+     */
     constructor() {
         super(MeubeloNlCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class LinkedinCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LinkedinCollector class.
+     */
     constructor() {
         super(LinkedinCollector.CONFIG);
     }

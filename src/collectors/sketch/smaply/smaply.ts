@@ -32,6 +32,9 @@ export class SmaplyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SmaplyCollector class.
+     */
     constructor() {
         super(SmaplyCollector.CONFIG);
     }

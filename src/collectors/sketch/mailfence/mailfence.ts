@@ -32,6 +32,9 @@ export class MailfenceCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MailfenceCollector class.
+     */
     constructor() {
         super(MailfenceCollector.CONFIG);
     }

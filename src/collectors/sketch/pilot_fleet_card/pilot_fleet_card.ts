@@ -32,6 +32,9 @@ export class PilotFleetCardCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PilotFleetCardCollector class.
+     */
     constructor() {
         super(PilotFleetCardCollector.CONFIG);
     }

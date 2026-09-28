@@ -32,6 +32,9 @@ export class HuntressCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HuntressCollector class.
+     */
     constructor() {
         super(HuntressCollector.CONFIG);
     }

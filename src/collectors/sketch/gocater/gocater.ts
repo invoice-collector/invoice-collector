@@ -32,6 +32,9 @@ export class GocaterCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GocaterCollector class.
+     */
     constructor() {
         super(GocaterCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class BackringNordCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BackringNordCollector class.
+     */
     constructor() {
         super(BackringNordCollector.CONFIG);
     }

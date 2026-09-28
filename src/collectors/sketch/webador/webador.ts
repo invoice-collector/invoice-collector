@@ -31,6 +31,9 @@ export class WebadorCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WebadorCollector class.
+     */
     constructor() {
         super(WebadorCollector.CONFIG);
     }

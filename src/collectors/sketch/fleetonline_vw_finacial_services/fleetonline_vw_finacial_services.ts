@@ -32,6 +32,9 @@ export class FleetonlineVwFinacialServicesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FleetonlineVwFinacialServicesCollector class.
+     */
     constructor() {
         super(FleetonlineVwFinacialServicesCollector.CONFIG);
     }

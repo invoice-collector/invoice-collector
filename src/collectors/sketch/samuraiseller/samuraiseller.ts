@@ -32,6 +32,9 @@ export class SamuraisellerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SamuraisellerCollector class.
+     */
     constructor() {
         super(SamuraisellerCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class DropboxCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DropboxCollector class.
+     */
     constructor() {
         super(DropboxCollector.CONFIG);
     }

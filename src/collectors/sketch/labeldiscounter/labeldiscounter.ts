@@ -32,6 +32,9 @@ export class LabeldiscounterCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LabeldiscounterCollector class.
+     */
     constructor() {
         super(LabeldiscounterCollector.CONFIG);
     }

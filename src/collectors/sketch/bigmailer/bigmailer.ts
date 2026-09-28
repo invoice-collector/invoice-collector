@@ -32,6 +32,9 @@ export class BigmailerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BigmailerCollector class.
+     */
     constructor() {
         super(BigmailerCollector.CONFIG);
     }

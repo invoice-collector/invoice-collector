@@ -32,6 +32,9 @@ export class LightOnlineCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LightOnlineCollector class.
+     */
     constructor() {
         super(LightOnlineCollector.CONFIG);
     }

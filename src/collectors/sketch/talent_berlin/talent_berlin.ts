@@ -32,6 +32,9 @@ export class TalentBerlinCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TalentBerlinCollector class.
+     */
     constructor() {
         super(TalentBerlinCollector.CONFIG);
     }

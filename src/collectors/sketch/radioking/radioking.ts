@@ -32,6 +32,9 @@ export class RadiokingCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RadiokingCollector class.
+     */
     constructor() {
         super(RadiokingCollector.CONFIG);
     }

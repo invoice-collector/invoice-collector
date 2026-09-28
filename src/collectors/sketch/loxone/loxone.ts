@@ -32,6 +32,9 @@ export class LoxoneCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LoxoneCollector class.
+     */
     constructor() {
         super(LoxoneCollector.CONFIG);
     }

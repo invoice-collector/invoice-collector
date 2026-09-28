@@ -31,6 +31,9 @@ export class BuroPlusCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BuroPlusCollector class.
+     */
     constructor() {
         super(BuroPlusCollector.CONFIG);
     }

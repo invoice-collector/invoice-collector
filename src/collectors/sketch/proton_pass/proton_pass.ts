@@ -32,6 +32,9 @@ export class ProtonPassCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ProtonPassCollector class.
+     */
     constructor() {
         super(ProtonPassCollector.CONFIG);
     }

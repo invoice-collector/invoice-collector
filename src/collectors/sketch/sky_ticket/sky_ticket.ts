@@ -32,6 +32,9 @@ export class SkyTicketCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SkyTicketCollector class.
+     */
     constructor() {
         super(SkyTicketCollector.CONFIG);
     }

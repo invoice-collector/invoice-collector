@@ -32,6 +32,9 @@ export class EFactFacNissanCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EFactFacNissanCollector class.
+     */
     constructor() {
         super(EFactFacNissanCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class AppearInCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AppearInCollector class.
+     */
     constructor() {
         super(AppearInCollector.CONFIG);
     }

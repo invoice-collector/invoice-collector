@@ -32,6 +32,9 @@ export class HeycaterCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HeycaterCollector class.
+     */
     constructor() {
         super(HeycaterCollector.CONFIG);
     }

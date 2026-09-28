@@ -32,6 +32,9 @@ export class SilvrCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SilvrCollector class.
+     */
     constructor() {
         super(SilvrCollector.CONFIG);
     }

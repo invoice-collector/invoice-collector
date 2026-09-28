@@ -32,6 +32,9 @@ export class LOrealCosmetiqueActiveCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LOrealCosmetiqueActiveCollector class.
+     */
     constructor() {
         super(LOrealCosmetiqueActiveCollector.CONFIG);
     }

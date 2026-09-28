@@ -32,6 +32,9 @@ export class OnlineDruckBizCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OnlineDruckBizCollector class.
+     */
     constructor() {
         super(OnlineDruckBizCollector.CONFIG);
     }

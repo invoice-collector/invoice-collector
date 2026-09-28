@@ -32,6 +32,9 @@ export class RKomNeuCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RKomNeuCollector class.
+     */
     constructor() {
         super(RKomNeuCollector.CONFIG);
     }

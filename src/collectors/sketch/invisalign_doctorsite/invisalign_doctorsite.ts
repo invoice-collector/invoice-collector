@@ -32,6 +32,9 @@ export class InvisalignDoctorsiteCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the InvisalignDoctorsiteCollector class.
+     */
     constructor() {
         super(InvisalignDoctorsiteCollector.CONFIG);
     }

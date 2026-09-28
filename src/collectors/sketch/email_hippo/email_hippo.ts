@@ -32,6 +32,9 @@ export class EmailHippoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EmailHippoCollector class.
+     */
     constructor() {
         super(EmailHippoCollector.CONFIG);
     }

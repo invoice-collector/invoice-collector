@@ -32,6 +32,9 @@ export class StablediffusionapiCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StablediffusionapiCollector class.
+     */
     constructor() {
         super(StablediffusionapiCollector.CONFIG);
     }

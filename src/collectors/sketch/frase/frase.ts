@@ -32,6 +32,9 @@ export class FraseCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FraseCollector class.
+     */
     constructor() {
         super(FraseCollector.CONFIG);
     }

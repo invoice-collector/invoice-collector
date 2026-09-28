@@ -32,6 +32,9 @@ export class HealthchecksCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HealthchecksCollector class.
+     */
     constructor() {
         super(HealthchecksCollector.CONFIG);
     }

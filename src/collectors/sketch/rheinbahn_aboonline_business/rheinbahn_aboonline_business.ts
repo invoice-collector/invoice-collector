@@ -32,6 +32,9 @@ export class RheinbahnAboonlineBusinessCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RheinbahnAboonlineBusinessCollector class.
+     */
     constructor() {
         super(RheinbahnAboonlineBusinessCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class MagentaBusinessAtCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MagentaBusinessAtCollector class.
+     */
     constructor() {
         super(MagentaBusinessAtCollector.CONFIG);
     }

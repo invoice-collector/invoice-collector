@@ -31,6 +31,9 @@ export class ZuiverCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ZuiverCollector class.
+     */
     constructor() {
         super(ZuiverCollector.CONFIG);
     }

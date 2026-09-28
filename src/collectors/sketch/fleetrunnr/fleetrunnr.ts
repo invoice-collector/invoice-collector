@@ -32,6 +32,9 @@ export class FleetrunnrCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FleetrunnrCollector class.
+     */
     constructor() {
         super(FleetrunnrCollector.CONFIG);
     }

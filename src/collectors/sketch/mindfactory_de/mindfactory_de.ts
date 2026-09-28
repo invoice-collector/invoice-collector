@@ -32,6 +32,9 @@ export class MindfactoryDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MindfactoryDeCollector class.
+     */
     constructor() {
         super(MindfactoryDeCollector.CONFIG);
     }

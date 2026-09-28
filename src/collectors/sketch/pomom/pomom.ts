@@ -32,6 +32,9 @@ export class PomomCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PomomCollector class.
+     */
     constructor() {
         super(PomomCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class SmartItGlobalLtdCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SmartItGlobalLtdCollector class.
+     */
     constructor() {
         super(SmartItGlobalLtdCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class SdeaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SdeaCollector class.
+     */
     constructor() {
         super(SdeaCollector.CONFIG);
     }

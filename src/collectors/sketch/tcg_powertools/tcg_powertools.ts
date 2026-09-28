@@ -32,6 +32,9 @@ export class TcgPowertoolsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TcgPowertoolsCollector class.
+     */
     constructor() {
         super(TcgPowertoolsCollector.CONFIG);
     }

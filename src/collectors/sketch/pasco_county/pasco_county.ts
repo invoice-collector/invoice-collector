@@ -32,6 +32,9 @@ export class PascoCountyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PascoCountyCollector class.
+     */
     constructor() {
         super(PascoCountyCollector.CONFIG);
     }

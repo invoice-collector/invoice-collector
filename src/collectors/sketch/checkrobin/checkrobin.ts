@@ -32,6 +32,9 @@ export class CheckrobinCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CheckrobinCollector class.
+     */
     constructor() {
         super(CheckrobinCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class EnterpriseCarshareCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EnterpriseCarshareCollector class.
+     */
     constructor() {
         super(EnterpriseCarshareCollector.CONFIG);
     }

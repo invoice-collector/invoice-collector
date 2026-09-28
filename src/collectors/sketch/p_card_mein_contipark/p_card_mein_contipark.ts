@@ -32,6 +32,9 @@ export class PCardMeinContiparkCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PCardMeinContiparkCollector class.
+     */
     constructor() {
         super(PCardMeinContiparkCollector.CONFIG);
     }

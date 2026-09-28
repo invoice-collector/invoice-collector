@@ -32,6 +32,9 @@ export class ParseurCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ParseurCollector class.
+     */
     constructor() {
         super(ParseurCollector.CONFIG);
     }

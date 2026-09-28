@@ -32,6 +32,9 @@ export class StadtwerkeEutinCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StadtwerkeEutinCollector class.
+     */
     constructor() {
         super(StadtwerkeEutinCollector.CONFIG);
     }

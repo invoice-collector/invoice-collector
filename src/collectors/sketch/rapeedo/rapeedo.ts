@@ -32,6 +32,9 @@ export class RapeedoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RapeedoCollector class.
+     */
     constructor() {
         super(RapeedoCollector.CONFIG);
     }

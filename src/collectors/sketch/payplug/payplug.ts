@@ -32,6 +32,9 @@ export class PayplugCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PayplugCollector class.
+     */
     constructor() {
         super(PayplugCollector.CONFIG);
     }

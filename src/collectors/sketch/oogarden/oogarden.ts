@@ -32,6 +32,9 @@ export class OogardenCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OogardenCollector class.
+     */
     constructor() {
         super(OogardenCollector.CONFIG);
     }

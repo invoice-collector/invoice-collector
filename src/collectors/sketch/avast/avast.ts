@@ -32,6 +32,9 @@ export class AvastCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AvastCollector class.
+     */
     constructor() {
         super(AvastCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class TowerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TowerCollector class.
+     */
     constructor() {
         super(TowerCollector.CONFIG);
     }

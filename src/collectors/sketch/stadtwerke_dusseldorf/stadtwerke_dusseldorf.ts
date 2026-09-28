@@ -32,6 +32,9 @@ export class StadtwerkeDusseldorfCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StadtwerkeDusseldorfCollector class.
+     */
     constructor() {
         super(StadtwerkeDusseldorfCollector.CONFIG);
     }

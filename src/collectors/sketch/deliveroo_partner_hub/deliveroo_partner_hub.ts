@@ -32,6 +32,9 @@ export class DeliverooPartnerHubCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DeliverooPartnerHubCollector class.
+     */
     constructor() {
         super(DeliverooPartnerHubCollector.CONFIG);
     }

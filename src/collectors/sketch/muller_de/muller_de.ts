@@ -32,6 +32,9 @@ export class MullerDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MullerDeCollector class.
+     */
     constructor() {
         super(MullerDeCollector.CONFIG);
     }

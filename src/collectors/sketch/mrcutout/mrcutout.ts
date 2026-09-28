@@ -32,6 +32,9 @@ export class MrcutoutCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MrcutoutCollector class.
+     */
     constructor() {
         super(MrcutoutCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class ChannableCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ChannableCollector class.
+     */
     constructor() {
         super(ChannableCollector.CONFIG);
     }

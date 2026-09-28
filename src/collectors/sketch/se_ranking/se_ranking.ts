@@ -32,6 +32,9 @@ export class SeRankingCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SeRankingCollector class.
+     */
     constructor() {
         super(SeRankingCollector.CONFIG);
     }

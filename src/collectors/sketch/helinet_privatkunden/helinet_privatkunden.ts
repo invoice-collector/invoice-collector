@@ -32,6 +32,9 @@ export class HelinetPrivatkundenCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HelinetPrivatkundenCollector class.
+     */
     constructor() {
         super(HelinetPrivatkundenCollector.CONFIG);
     }

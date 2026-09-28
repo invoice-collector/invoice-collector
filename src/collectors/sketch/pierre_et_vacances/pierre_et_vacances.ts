@@ -32,6 +32,9 @@ export class PierreEtVacancesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PierreEtVacancesCollector class.
+     */
     constructor() {
         super(PierreEtVacancesCollector.CONFIG);
     }

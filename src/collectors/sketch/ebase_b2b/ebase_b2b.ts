@@ -32,6 +32,9 @@ export class EbaseB2bCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EbaseB2bCollector class.
+     */
     constructor() {
         super(EbaseB2bCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class OsterreichischePostBusinessCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OsterreichischePostBusinessCollector class.
+     */
     constructor() {
         super(OsterreichischePostBusinessCollector.CONFIG);
     }

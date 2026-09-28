@@ -32,6 +32,9 @@ export class InnpowerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the InnpowerCollector class.
+     */
     constructor() {
         super(InnpowerCollector.CONFIG);
     }

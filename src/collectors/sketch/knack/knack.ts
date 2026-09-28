@@ -32,6 +32,9 @@ export class KnackCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KnackCollector class.
+     */
     constructor() {
         super(KnackCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class AcmeoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AcmeoCollector class.
+     */
     constructor() {
         super(AcmeoCollector.CONFIG);
     }

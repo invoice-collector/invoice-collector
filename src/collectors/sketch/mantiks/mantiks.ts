@@ -32,6 +32,9 @@ export class MantiksCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MantiksCollector class.
+     */
     constructor() {
         super(MantiksCollector.CONFIG);
     }

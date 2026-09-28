@@ -32,6 +32,9 @@ export class GithostCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GithostCollector class.
+     */
     constructor() {
         super(GithostCollector.CONFIG);
     }

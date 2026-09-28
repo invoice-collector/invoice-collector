@@ -32,6 +32,9 @@ export class GroverBusinessCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GroverBusinessCollector class.
+     */
     constructor() {
         super(GroverBusinessCollector.CONFIG);
     }

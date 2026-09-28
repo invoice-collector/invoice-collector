@@ -32,6 +32,9 @@ export class LemlistCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LemlistCollector class.
+     */
     constructor() {
         super(LemlistCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class CellagonCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CellagonCollector class.
+     */
     constructor() {
         super(CellagonCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class EzebraDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EzebraDeCollector class.
+     */
     constructor() {
         super(EzebraDeCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class SmartjobboardCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SmartjobboardCollector class.
+     */
     constructor() {
         super(SmartjobboardCollector.CONFIG);
     }

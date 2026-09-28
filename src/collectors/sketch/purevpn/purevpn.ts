@@ -32,6 +32,9 @@ export class PurevpnCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PurevpnCollector class.
+     */
     constructor() {
         super(PurevpnCollector.CONFIG);
     }

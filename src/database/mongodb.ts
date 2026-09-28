@@ -213,7 +213,7 @@ export class MongoDB extends AbstractDatabase {
     }
 
     /**
-     * Get a customer from a matcher object.
+     * Gets a customer from a matcher object.
      * @param matcher The matcher object to find the customer.
      * @returns The customer if found, otherwise null.
      */
@@ -465,7 +465,7 @@ export class MongoDB extends AbstractDatabase {
     }
 
     /**
-     * Get a user from a matcher object.
+     * Gets a user from a matcher object.
      * @param matcher The matcher object to find the user.
      * @returns The user if found, otherwise null.
      */

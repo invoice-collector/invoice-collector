@@ -32,6 +32,9 @@ export class AlphabetInvoicesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AlphabetInvoicesCollector class.
+     */
     constructor() {
         super(AlphabetInvoicesCollector.CONFIG);
     }

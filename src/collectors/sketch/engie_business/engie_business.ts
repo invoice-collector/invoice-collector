@@ -32,6 +32,9 @@ export class EngieBusinessCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EngieBusinessCollector class.
+     */
     constructor() {
         super(EngieBusinessCollector.CONFIG);
     }

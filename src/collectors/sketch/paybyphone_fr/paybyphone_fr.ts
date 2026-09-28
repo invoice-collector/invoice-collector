@@ -32,6 +32,9 @@ export class PaybyphoneFrCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PaybyphoneFrCollector class.
+     */
     constructor() {
         super(PaybyphoneFrCollector.CONFIG);
     }

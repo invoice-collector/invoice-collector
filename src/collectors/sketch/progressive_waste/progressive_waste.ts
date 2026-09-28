@@ -32,6 +32,9 @@ export class ProgressiveWasteCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ProgressiveWasteCollector class.
+     */
     constructor() {
         super(ProgressiveWasteCollector.CONFIG);
     }

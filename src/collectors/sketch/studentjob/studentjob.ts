@@ -32,6 +32,9 @@ export class StudentjobCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StudentjobCollector class.
+     */
     constructor() {
         super(StudentjobCollector.CONFIG);
     }

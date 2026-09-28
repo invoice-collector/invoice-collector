@@ -32,6 +32,9 @@ export class StampinUpDemonstratorLoginCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StampinUpDemonstratorLoginCollector class.
+     */
     constructor() {
         super(StampinUpDemonstratorLoginCollector.CONFIG);
     }

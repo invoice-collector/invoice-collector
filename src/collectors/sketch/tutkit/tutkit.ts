@@ -32,6 +32,9 @@ export class TutkitCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TutkitCollector class.
+     */
     constructor() {
         super(TutkitCollector.CONFIG);
     }

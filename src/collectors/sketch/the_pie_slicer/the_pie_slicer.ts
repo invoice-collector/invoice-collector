@@ -32,6 +32,9 @@ export class ThePieSlicerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ThePieSlicerCollector class.
+     */
     constructor() {
         super(ThePieSlicerCollector.CONFIG);
     }

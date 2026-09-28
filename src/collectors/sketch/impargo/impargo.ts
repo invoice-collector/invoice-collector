@@ -32,6 +32,9 @@ export class ImpargoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ImpargoCollector class.
+     */
     constructor() {
         super(ImpargoCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class DialfireCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DialfireCollector class.
+     */
     constructor() {
         super(DialfireCollector.CONFIG);
     }

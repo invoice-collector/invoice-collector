@@ -32,6 +32,9 @@ export class AsksundayCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AsksundayCollector class.
+     */
     constructor() {
         super(AsksundayCollector.CONFIG);
     }

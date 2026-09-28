@@ -32,6 +32,9 @@ export class CrtServicesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CrtServicesCollector class.
+     */
     constructor() {
         super(CrtServicesCollector.CONFIG);
     }

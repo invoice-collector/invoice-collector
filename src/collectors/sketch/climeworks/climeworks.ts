@@ -32,6 +32,9 @@ export class ClimeworksCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ClimeworksCollector class.
+     */
     constructor() {
         super(ClimeworksCollector.CONFIG);
     }

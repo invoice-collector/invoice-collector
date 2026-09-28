@@ -32,6 +32,9 @@ export class CocaColaHbcCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CocaColaHbcCollector class.
+     */
     constructor() {
         super(CocaColaHbcCollector.CONFIG);
     }

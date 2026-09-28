@@ -32,6 +32,9 @@ export class LePetitVapoteurCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LePetitVapoteurCollector class.
+     */
     constructor() {
         super(LePetitVapoteurCollector.CONFIG);
     }

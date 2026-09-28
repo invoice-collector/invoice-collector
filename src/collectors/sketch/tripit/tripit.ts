@@ -32,6 +32,9 @@ export class TripitCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TripitCollector class.
+     */
     constructor() {
         super(TripitCollector.CONFIG);
     }

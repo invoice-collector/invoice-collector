@@ -32,6 +32,9 @@ export class CloudmersiveCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CloudmersiveCollector class.
+     */
     constructor() {
         super(CloudmersiveCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class ChequeDejeunerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ChequeDejeunerCollector class.
+     */
     constructor() {
         super(ChequeDejeunerCollector.CONFIG);
     }

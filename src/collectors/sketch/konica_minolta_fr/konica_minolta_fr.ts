@@ -32,6 +32,9 @@ export class KonicaMinoltaFrCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KonicaMinoltaFrCollector class.
+     */
     constructor() {
         super(KonicaMinoltaFrCollector.CONFIG);
     }

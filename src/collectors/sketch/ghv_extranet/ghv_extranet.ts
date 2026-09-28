@@ -32,6 +32,9 @@ export class GhvExtranetCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GhvExtranetCollector class.
+     */
     constructor() {
         super(GhvExtranetCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class EweGoNeuCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EweGoNeuCollector class.
+     */
     constructor() {
         super(EweGoNeuCollector.CONFIG);
     }

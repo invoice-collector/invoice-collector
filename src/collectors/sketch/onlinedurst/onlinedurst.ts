@@ -32,6 +32,9 @@ export class OnlinedurstCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OnlinedurstCollector class.
+     */
     constructor() {
         super(OnlinedurstCollector.CONFIG);
     }

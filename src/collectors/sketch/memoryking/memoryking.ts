@@ -32,6 +32,9 @@ export class MemorykingCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MemorykingCollector class.
+     */
     constructor() {
         super(MemorykingCollector.CONFIG);
     }

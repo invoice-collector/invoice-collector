@@ -32,6 +32,9 @@ export class LittleYogaStoreCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LittleYogaStoreCollector class.
+     */
     constructor() {
         super(LittleYogaStoreCollector.CONFIG);
     }

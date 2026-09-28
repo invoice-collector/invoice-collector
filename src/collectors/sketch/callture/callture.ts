@@ -32,6 +32,9 @@ export class CalltureCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CalltureCollector class.
+     */
     constructor() {
         super(CalltureCollector.CONFIG);
     }

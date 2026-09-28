@@ -17,12 +17,23 @@ export class Collect {
     webSocketServer: WebSocketServer | undefined;
     deleted: boolean;
 
+    /**
+     * Constructs an instance of the Collect class.
+     * @param credential_id The ID of the credential to collect invoices for.
+     * @param wss The WebSocket server instance for real-time communication, or undefined if not available.
+     */
     constructor(credential_id: string, wss: WebSocketServer | undefined) {
         this.credential_id = credential_id;
         this.webSocketServer = wss;
         this.deleted = false;
     }
 
+    /**
+     * Starts the invoice collection process for the specified credential.
+     * This includes fetching the necessary user, customer, and secret information,
+     * initializing the appropriate collector, and handling the collection workflow.
+     * @throws Error if any step in the collection process fails.
+     */
     async start(): Promise<void> {
         let credential: Credential|null = null;
         let user: User|null = null;

@@ -32,6 +32,9 @@ export class NeweggCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NeweggCollector class.
+     */
     constructor() {
         super(NeweggCollector.CONFIG);
     }

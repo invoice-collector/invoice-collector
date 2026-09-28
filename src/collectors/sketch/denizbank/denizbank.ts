@@ -32,6 +32,9 @@ export class DenizbankCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DenizbankCollector class.
+     */
     constructor() {
         super(DenizbankCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class OtterCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OtterCollector class.
+     */
     constructor() {
         super(OtterCollector.CONFIG);
     }

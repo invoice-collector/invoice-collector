@@ -32,6 +32,9 @@ export class MitsubishiMdlCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MitsubishiMdlCollector class.
+     */
     constructor() {
         super(MitsubishiMdlCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class PersonizerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PersonizerCollector class.
+     */
     constructor() {
         super(PersonizerCollector.CONFIG);
     }

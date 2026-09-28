@@ -32,6 +32,9 @@ export class BmwUsaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BmwUsaCollector class.
+     */
     constructor() {
         super(BmwUsaCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class ReselloCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ReselloCollector class.
+     */
     constructor() {
         super(ReselloCollector.CONFIG);
     }

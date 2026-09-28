@@ -32,6 +32,9 @@ export class SpenditCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SpenditCollector class.
+     */
     constructor() {
         super(SpenditCollector.CONFIG);
     }

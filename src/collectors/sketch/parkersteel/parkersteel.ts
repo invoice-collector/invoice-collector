@@ -32,6 +32,9 @@ export class ParkersteelCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ParkersteelCollector class.
+     */
     constructor() {
         super(ParkersteelCollector.CONFIG);
     }

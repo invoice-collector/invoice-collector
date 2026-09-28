@@ -32,6 +32,9 @@ export class OptmyzrCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OptmyzrCollector class.
+     */
     constructor() {
         super(OptmyzrCollector.CONFIG);
     }

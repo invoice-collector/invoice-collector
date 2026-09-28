@@ -32,6 +32,9 @@ export class MagentaKabelInternetCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MagentaKabelInternetCollector class.
+     */
     constructor() {
         super(MagentaKabelInternetCollector.CONFIG);
     }

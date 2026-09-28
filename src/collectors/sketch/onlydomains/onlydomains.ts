@@ -32,6 +32,9 @@ export class OnlydomainsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OnlydomainsCollector class.
+     */
     constructor() {
         super(OnlydomainsCollector.CONFIG);
     }

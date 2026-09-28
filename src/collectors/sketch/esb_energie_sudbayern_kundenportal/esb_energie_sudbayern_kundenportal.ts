@@ -32,6 +32,9 @@ export class EsbEnergieSudbayernKundenportalCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EsbEnergieSudbayernKundenportalCollector class.
+     */
     constructor() {
         super(EsbEnergieSudbayernKundenportalCollector.CONFIG);
     }

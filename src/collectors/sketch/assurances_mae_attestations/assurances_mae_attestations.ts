@@ -32,6 +32,9 @@ export class AssurancesMaeAttestationsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AssurancesMaeAttestationsCollector class.
+     */
     constructor() {
         super(AssurancesMaeAttestationsCollector.CONFIG);
     }

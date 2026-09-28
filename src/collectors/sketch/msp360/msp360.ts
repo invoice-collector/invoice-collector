@@ -32,6 +32,9 @@ export class Msp360Collector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Msp360Collector class.
+     */
     constructor() {
         super(Msp360Collector.CONFIG);
     }

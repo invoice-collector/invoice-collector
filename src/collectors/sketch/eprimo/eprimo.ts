@@ -32,6 +32,9 @@ export class EprimoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EprimoCollector class.
+     */
     constructor() {
         super(EprimoCollector.CONFIG);
     }

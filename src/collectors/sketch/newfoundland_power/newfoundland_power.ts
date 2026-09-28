@@ -32,6 +32,9 @@ export class NewfoundlandPowerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NewfoundlandPowerCollector class.
+     */
     constructor() {
         super(NewfoundlandPowerCollector.CONFIG);
     }

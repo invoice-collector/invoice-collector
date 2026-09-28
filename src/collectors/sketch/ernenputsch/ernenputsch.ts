@@ -32,6 +32,9 @@ export class ErnenputschCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ErnenputschCollector class.
+     */
     constructor() {
         super(ErnenputschCollector.CONFIG);
     }

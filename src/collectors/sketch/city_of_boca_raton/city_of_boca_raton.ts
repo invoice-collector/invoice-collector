@@ -32,6 +32,9 @@ export class CityOfBocaRatonCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CityOfBocaRatonCollector class.
+     */
     constructor() {
         super(CityOfBocaRatonCollector.CONFIG);
     }

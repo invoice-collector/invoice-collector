@@ -32,6 +32,9 @@ export class GetmyinvoicesPartnerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GetmyinvoicesPartnerCollector class.
+     */
     constructor() {
         super(GetmyinvoicesPartnerCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class PhonestyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PhonestyCollector class.
+     */
     constructor() {
         super(PhonestyCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class HostelworldCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HostelworldCollector class.
+     */
     constructor() {
         super(HostelworldCollector.CONFIG);
     }

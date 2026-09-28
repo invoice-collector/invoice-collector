@@ -32,6 +32,9 @@ export class UpsAccessPointCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the UpsAccessPointCollector class.
+     */
     constructor() {
         super(UpsAccessPointCollector.CONFIG);
     }

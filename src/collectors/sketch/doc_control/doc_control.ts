@@ -32,6 +32,9 @@ export class DocControlCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DocControlCollector class.
+     */
     constructor() {
         super(DocControlCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class ResourceGuruCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ResourceGuruCollector class.
+     */
     constructor() {
         super(ResourceGuruCollector.CONFIG);
     }

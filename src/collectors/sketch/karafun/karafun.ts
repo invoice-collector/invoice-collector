@@ -32,6 +32,9 @@ export class KarafunCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KarafunCollector class.
+     */
     constructor() {
         super(KarafunCollector.CONFIG);
     }

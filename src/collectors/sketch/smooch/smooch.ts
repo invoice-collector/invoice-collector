@@ -32,6 +32,9 @@ export class SmoochCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SmoochCollector class.
+     */
     constructor() {
         super(SmoochCollector.CONFIG);
     }

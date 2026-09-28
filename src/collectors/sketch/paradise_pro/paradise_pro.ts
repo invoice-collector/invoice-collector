@@ -32,6 +32,9 @@ export class ParadiseProCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ParadiseProCollector class.
+     */
     constructor() {
         super(ParadiseProCollector.CONFIG);
     }

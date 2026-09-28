@@ -32,6 +32,9 @@ export class NeklanCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NeklanCollector class.
+     */
     constructor() {
         super(NeklanCollector.CONFIG);
     }

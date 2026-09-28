@@ -32,6 +32,9 @@ export class CodecovCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CodecovCollector class.
+     */
     constructor() {
         super(CodecovCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class PsychzNetworksCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PsychzNetworksCollector class.
+     */
     constructor() {
         super(PsychzNetworksCollector.CONFIG);
     }

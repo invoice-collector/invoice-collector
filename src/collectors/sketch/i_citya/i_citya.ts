@@ -32,6 +32,9 @@ export class ICityaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ICityaCollector class.
+     */
     constructor() {
         super(ICityaCollector.CONFIG);
     }

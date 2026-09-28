@@ -32,6 +32,9 @@ export class DewesoftCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DewesoftCollector class.
+     */
     constructor() {
         super(DewesoftCollector.CONFIG);
     }

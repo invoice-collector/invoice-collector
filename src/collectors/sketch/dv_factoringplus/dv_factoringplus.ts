@@ -32,6 +32,9 @@ export class DvFactoringplusCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DvFactoringplusCollector class.
+     */
     constructor() {
         super(DvFactoringplusCollector.CONFIG);
     }

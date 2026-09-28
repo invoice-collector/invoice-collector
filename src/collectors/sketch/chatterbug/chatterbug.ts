@@ -32,6 +32,9 @@ export class ChatterbugCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ChatterbugCollector class.
+     */
     constructor() {
         super(ChatterbugCollector.CONFIG);
     }

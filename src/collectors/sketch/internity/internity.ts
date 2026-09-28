@@ -32,6 +32,9 @@ export class InternityCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the InternityCollector class.
+     */
     constructor() {
         super(InternityCollector.CONFIG);
     }

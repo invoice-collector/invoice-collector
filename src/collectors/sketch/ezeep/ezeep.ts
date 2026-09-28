@@ -32,6 +32,9 @@ export class EzeepCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EzeepCollector class.
+     */
     constructor() {
         super(EzeepCollector.CONFIG);
     }

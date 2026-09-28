@@ -32,6 +32,9 @@ export class GlobusCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GlobusCollector class.
+     */
     constructor() {
         super(GlobusCollector.CONFIG);
     }

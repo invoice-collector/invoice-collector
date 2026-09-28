@@ -32,6 +32,9 @@ export class M2mMobilDrillischCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the M2mMobilDrillischCollector class.
+     */
     constructor() {
         super(M2mMobilDrillischCollector.CONFIG);
     }

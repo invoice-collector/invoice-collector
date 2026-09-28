@@ -32,6 +32,9 @@ export class LomavisCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LomavisCollector class.
+     */
     constructor() {
         super(LomavisCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class VogelAutomobilIndustrieCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VogelAutomobilIndustrieCollector class.
+     */
     constructor() {
         super(VogelAutomobilIndustrieCollector.CONFIG);
     }

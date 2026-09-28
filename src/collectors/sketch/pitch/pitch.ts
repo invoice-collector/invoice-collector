@@ -32,6 +32,9 @@ export class PitchCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PitchCollector class.
+     */
     constructor() {
         super(PitchCollector.CONFIG);
     }

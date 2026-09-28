@@ -32,6 +32,9 @@ export class GrunderDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GrunderDeCollector class.
+     */
     constructor() {
         super(GrunderDeCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class InvisalignCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the InvisalignCollector class.
+     */
     constructor() {
         super(InvisalignCollector.CONFIG);
     }

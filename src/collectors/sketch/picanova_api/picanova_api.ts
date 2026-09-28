@@ -32,6 +32,9 @@ export class PicanovaApiCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PicanovaApiCollector class.
+     */
     constructor() {
         super(PicanovaApiCollector.CONFIG);
     }

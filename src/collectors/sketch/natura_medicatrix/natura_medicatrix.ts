@@ -32,6 +32,9 @@ export class NaturaMedicatrixCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NaturaMedicatrixCollector class.
+     */
     constructor() {
         super(NaturaMedicatrixCollector.CONFIG);
     }

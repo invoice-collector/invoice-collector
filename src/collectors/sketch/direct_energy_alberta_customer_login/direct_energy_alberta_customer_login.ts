@@ -32,6 +32,9 @@ export class DirectEnergyAlbertaCustomerLoginCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DirectEnergyAlbertaCustomerLoginCollector class.
+     */
     constructor() {
         super(DirectEnergyAlbertaCustomerLoginCollector.CONFIG);
     }

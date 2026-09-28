@@ -32,6 +32,9 @@ export class DigidipCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DigidipCollector class.
+     */
     constructor() {
         super(DigidipCollector.CONFIG);
     }

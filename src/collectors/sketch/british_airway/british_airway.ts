@@ -32,6 +32,9 @@ export class BritishAirwayCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BritishAirwayCollector class.
+     */
     constructor() {
         super(BritishAirwayCollector.CONFIG);
     }

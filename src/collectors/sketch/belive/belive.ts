@@ -32,6 +32,9 @@ export class BeliveCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BeliveCollector class.
+     */
     constructor() {
         super(BeliveCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class MangoMobiliteCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MangoMobiliteCollector class.
+     */
     constructor() {
         super(MangoMobiliteCollector.CONFIG);
     }

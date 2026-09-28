@@ -32,6 +32,9 @@ export class SmartpricingCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SmartpricingCollector class.
+     */
     constructor() {
         super(SmartpricingCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class AnycubicCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AnycubicCollector class.
+     */
     constructor() {
         super(AnycubicCollector.CONFIG);
     }

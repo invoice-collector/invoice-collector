@@ -32,6 +32,9 @@ export class EcammCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EcammCollector class.
+     */
     constructor() {
         super(EcammCollector.CONFIG);
     }

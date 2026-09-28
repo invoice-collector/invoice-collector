@@ -32,6 +32,9 @@ export class HouraCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HouraCollector class.
+     */
     constructor() {
         super(HouraCollector.CONFIG);
     }

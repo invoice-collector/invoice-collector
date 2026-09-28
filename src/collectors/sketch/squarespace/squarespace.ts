@@ -32,6 +32,9 @@ export class SquarespaceCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SquarespaceCollector class.
+     */
     constructor() {
         super(SquarespaceCollector.CONFIG);
     }

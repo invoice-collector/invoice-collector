@@ -32,6 +32,9 @@ export class ComunifiedInteractiveDigitalMediaGmbhCollector extends SketchCollec
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ComunifiedInteractiveDigitalMediaGmbhCollector class.
+     */
     constructor() {
         super(ComunifiedInteractiveDigitalMediaGmbhCollector.CONFIG);
     }

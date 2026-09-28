@@ -32,6 +32,9 @@ export class ApifyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ApifyCollector class.
+     */
     constructor() {
         super(ApifyCollector.CONFIG);
     }

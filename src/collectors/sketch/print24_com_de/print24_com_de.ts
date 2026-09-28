@@ -32,6 +32,9 @@ export class Print24ComDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Print24ComDeCollector class.
+     */
     constructor() {
         super(Print24ComDeCollector.CONFIG);
     }

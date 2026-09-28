@@ -32,6 +32,9 @@ export class LewanaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LewanaCollector class.
+     */
     constructor() {
         super(LewanaCollector.CONFIG);
     }

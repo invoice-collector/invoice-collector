@@ -32,6 +32,9 @@ export class AmazonStoreCardCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AmazonStoreCardCollector class.
+     */
     constructor() {
         super(AmazonStoreCardCollector.CONFIG);
     }

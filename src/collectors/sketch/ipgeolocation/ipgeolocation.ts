@@ -32,6 +32,9 @@ export class IpgeolocationCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the IpgeolocationCollector class.
+     */
     constructor() {
         super(IpgeolocationCollector.CONFIG);
     }

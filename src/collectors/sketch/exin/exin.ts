@@ -32,6 +32,9 @@ export class ExinCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ExinCollector class.
+     */
     constructor() {
         super(ExinCollector.CONFIG);
     }

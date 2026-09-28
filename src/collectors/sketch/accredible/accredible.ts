@@ -32,6 +32,9 @@ export class AccredibleCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AccredibleCollector class.
+     */
     constructor() {
         super(AccredibleCollector.CONFIG);
     }

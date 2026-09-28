@@ -32,6 +32,9 @@ export class AgipiCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AgipiCollector class.
+     */
     constructor() {
         super(AgipiCollector.CONFIG);
     }

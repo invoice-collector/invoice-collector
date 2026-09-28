@@ -32,6 +32,9 @@ export class ZeroForfaitCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ZeroForfaitCollector class.
+     */
     constructor() {
         super(ZeroForfaitCollector.CONFIG);
     }

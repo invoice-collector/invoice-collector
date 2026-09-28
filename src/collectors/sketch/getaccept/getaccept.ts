@@ -32,6 +32,9 @@ export class GetacceptCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GetacceptCollector class.
+     */
     constructor() {
         super(GetacceptCollector.CONFIG);
     }

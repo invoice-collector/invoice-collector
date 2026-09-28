@@ -32,6 +32,9 @@ export class Alphabet360Collector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Alphabet360Collector class.
+     */
     constructor() {
         super(Alphabet360Collector.CONFIG);
     }

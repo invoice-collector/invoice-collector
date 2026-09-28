@@ -32,6 +32,9 @@ export class HereDeveloperCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HereDeveloperCollector class.
+     */
     constructor() {
         super(HereDeveloperCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class EbayComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EbayComCollector class.
+     */
     constructor() {
         super(EbayComCollector.CONFIG);
     }

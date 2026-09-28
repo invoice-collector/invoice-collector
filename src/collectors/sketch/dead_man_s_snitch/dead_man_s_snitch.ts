@@ -32,6 +32,9 @@ export class DeadManSSnitchCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DeadManSSnitchCollector class.
+     */
     constructor() {
         super(DeadManSSnitchCollector.CONFIG);
     }

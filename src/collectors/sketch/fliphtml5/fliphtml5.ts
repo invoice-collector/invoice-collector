@@ -32,6 +32,9 @@ export class Fliphtml5Collector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Fliphtml5Collector class.
+     */
     constructor() {
         super(Fliphtml5Collector.CONFIG);
     }

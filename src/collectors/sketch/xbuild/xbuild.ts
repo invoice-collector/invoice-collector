@@ -32,6 +32,9 @@ export class XbuildCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the XbuildCollector class.
+     */
     constructor() {
         super(XbuildCollector.CONFIG);
     }

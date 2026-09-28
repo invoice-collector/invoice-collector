@@ -32,6 +32,9 @@ export class UptimeComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the UptimeComCollector class.
+     */
     constructor() {
         super(UptimeComCollector.CONFIG);
     }

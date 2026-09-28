@@ -32,6 +32,9 @@ export class Flowwer2Collector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Flowwer2Collector class.
+     */
     constructor() {
         super(Flowwer2Collector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class MutuelleAdreaProfessionnelDeSanteCollector extends SketchCollector 
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MutuelleAdreaProfessionnelDeSanteCollector class.
+     */
     constructor() {
         super(MutuelleAdreaProfessionnelDeSanteCollector.CONFIG);
     }

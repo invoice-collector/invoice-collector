@@ -32,6 +32,9 @@ export class AdvancedDisposalCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AdvancedDisposalCollector class.
+     */
     constructor() {
         super(AdvancedDisposalCollector.CONFIG);
     }

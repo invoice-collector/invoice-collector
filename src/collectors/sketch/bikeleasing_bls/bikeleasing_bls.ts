@@ -32,6 +32,9 @@ export class BikeleasingBlsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BikeleasingBlsCollector class.
+     */
     constructor() {
         super(BikeleasingBlsCollector.CONFIG);
     }

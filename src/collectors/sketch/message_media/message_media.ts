@@ -32,6 +32,9 @@ export class MessageMediaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MessageMediaCollector class.
+     */
     constructor() {
         super(MessageMediaCollector.CONFIG);
     }

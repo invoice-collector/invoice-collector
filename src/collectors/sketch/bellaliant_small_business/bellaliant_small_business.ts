@@ -32,6 +32,9 @@ export class BellaliantSmallBusinessCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BellaliantSmallBusinessCollector class.
+     */
     constructor() {
         super(BellaliantSmallBusinessCollector.CONFIG);
     }

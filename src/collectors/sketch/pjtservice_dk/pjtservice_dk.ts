@@ -32,6 +32,9 @@ export class PjtserviceDkCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PjtserviceDkCollector class.
+     */
     constructor() {
         super(PjtserviceDkCollector.CONFIG);
     }

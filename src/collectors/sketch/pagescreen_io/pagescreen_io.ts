@@ -32,6 +32,9 @@ export class PagescreenIoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PagescreenIoCollector class.
+     */
     constructor() {
         super(PagescreenIoCollector.CONFIG);
     }

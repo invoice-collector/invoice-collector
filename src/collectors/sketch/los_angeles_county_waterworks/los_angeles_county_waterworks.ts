@@ -32,6 +32,9 @@ export class LosAngelesCountyWaterworksCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LosAngelesCountyWaterworksCollector class.
+     */
     constructor() {
         super(LosAngelesCountyWaterworksCollector.CONFIG);
     }

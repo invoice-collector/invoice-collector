@@ -31,6 +31,9 @@ export class KnaufIndustriesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KnaufIndustriesCollector class.
+     */
     constructor() {
         super(KnaufIndustriesCollector.CONFIG);
     }

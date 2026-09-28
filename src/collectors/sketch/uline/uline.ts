@@ -32,6 +32,9 @@ export class UlineCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the UlineCollector class.
+     */
     constructor() {
         super(UlineCollector.CONFIG);
     }

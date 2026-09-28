@@ -32,6 +32,9 @@ export class Onedrive4BusinessCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Onedrive4BusinessCollector class.
+     */
     constructor() {
         super(Onedrive4BusinessCollector.CONFIG);
     }

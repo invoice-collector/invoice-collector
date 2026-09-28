@@ -32,6 +32,9 @@ export class NettokomCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NettokomCollector class.
+     */
     constructor() {
         super(NettokomCollector.CONFIG);
     }

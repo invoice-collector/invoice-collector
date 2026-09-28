@@ -32,6 +32,9 @@ export class EDisCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EDisCollector class.
+     */
     constructor() {
         super(EDisCollector.CONFIG);
     }

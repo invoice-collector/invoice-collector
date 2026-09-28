@@ -32,6 +32,9 @@ export class NationalFuelGasCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NationalFuelGasCollector class.
+     */
     constructor() {
         super(NationalFuelGasCollector.CONFIG);
     }

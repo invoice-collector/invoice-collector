@@ -32,6 +32,9 @@ export class StawagLadecloudCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StawagLadecloudCollector class.
+     */
     constructor() {
         super(StawagLadecloudCollector.CONFIG);
     }

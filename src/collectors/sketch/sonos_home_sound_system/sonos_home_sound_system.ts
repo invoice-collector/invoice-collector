@@ -32,6 +32,9 @@ export class SonosHomeSoundSystemCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SonosHomeSoundSystemCollector class.
+     */
     constructor() {
         super(SonosHomeSoundSystemCollector.CONFIG);
     }

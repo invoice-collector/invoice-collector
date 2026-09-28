@@ -32,6 +32,9 @@ export class ActronicsGmbhCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ActronicsGmbhCollector class.
+     */
     constructor() {
         super(ActronicsGmbhCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class DialpadCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DialpadCollector class.
+     */
     constructor() {
         super(DialpadCollector.CONFIG);
     }

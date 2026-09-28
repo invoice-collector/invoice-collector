@@ -32,6 +32,9 @@ export class PublerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PublerCollector class.
+     */
     constructor() {
         super(PublerCollector.CONFIG);
     }

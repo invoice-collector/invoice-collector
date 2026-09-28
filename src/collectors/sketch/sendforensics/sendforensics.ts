@@ -32,6 +32,9 @@ export class SendforensicsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SendforensicsCollector class.
+     */
     constructor() {
         super(SendforensicsCollector.CONFIG);
     }

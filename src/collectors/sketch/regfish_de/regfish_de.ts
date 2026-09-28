@@ -32,6 +32,9 @@ export class RegfishDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RegfishDeCollector class.
+     */
     constructor() {
         super(RegfishDeCollector.CONFIG);
     }

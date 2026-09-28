@@ -32,6 +32,9 @@ export class PressreaderComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PressreaderComCollector class.
+     */
     constructor() {
         super(PressreaderComCollector.CONFIG);
     }

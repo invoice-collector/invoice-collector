@@ -32,6 +32,9 @@ export class _123rfCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the _123rfCollector class.
+     */
     constructor() {
         super(_123rfCollector.CONFIG);
     }

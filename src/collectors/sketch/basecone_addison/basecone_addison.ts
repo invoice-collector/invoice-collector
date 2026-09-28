@@ -32,6 +32,9 @@ export class BaseconeAddisonCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BaseconeAddisonCollector class.
+     */
     constructor() {
         super(BaseconeAddisonCollector.CONFIG);
     }

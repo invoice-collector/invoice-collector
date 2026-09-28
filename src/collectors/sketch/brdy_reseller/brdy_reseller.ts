@@ -32,6 +32,9 @@ export class BrdyResellerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BrdyResellerCollector class.
+     */
     constructor() {
         super(BrdyResellerCollector.CONFIG);
     }

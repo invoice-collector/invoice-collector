@@ -32,6 +32,9 @@ export class TeamGptCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TeamGptCollector class.
+     */
     constructor() {
         super(TeamGptCollector.CONFIG);
     }

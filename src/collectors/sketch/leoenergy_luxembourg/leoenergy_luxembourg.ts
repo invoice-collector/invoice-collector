@@ -32,6 +32,9 @@ export class LeoenergyLuxembourgCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LeoenergyLuxembourgCollector class.
+     */
     constructor() {
         super(LeoenergyLuxembourgCollector.CONFIG);
     }

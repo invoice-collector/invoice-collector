@@ -32,6 +32,9 @@ export class AmeropaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AmeropaCollector class.
+     */
     constructor() {
         super(AmeropaCollector.CONFIG);
     }

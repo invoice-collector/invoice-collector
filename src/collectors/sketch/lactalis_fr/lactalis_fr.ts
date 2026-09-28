@@ -32,6 +32,9 @@ export class LactalisFrCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LactalisFrCollector class.
+     */
     constructor() {
         super(LactalisFrCollector.CONFIG);
     }

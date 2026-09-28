@@ -32,6 +32,9 @@ export class GeneralAnzeigerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GeneralAnzeigerCollector class.
+     */
     constructor() {
         super(GeneralAnzeigerCollector.CONFIG);
     }

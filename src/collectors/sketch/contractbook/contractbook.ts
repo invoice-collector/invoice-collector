@@ -32,6 +32,9 @@ export class ContractbookCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ContractbookCollector class.
+     */
     constructor() {
         super(ContractbookCollector.CONFIG);
     }

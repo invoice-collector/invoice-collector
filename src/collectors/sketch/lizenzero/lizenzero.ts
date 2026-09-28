@@ -32,6 +32,9 @@ export class LizenzeroCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LizenzeroCollector class.
+     */
     constructor() {
         super(LizenzeroCollector.CONFIG);
     }

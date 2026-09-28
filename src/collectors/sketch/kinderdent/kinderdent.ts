@@ -32,6 +32,9 @@ export class KinderdentCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KinderdentCollector class.
+     */
     constructor() {
         super(KinderdentCollector.CONFIG);
     }

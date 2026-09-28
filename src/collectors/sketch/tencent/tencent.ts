@@ -32,6 +32,9 @@ export class TencentCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TencentCollector class.
+     */
     constructor() {
         super(TencentCollector.CONFIG);
     }

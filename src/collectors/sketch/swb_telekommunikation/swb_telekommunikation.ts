@@ -32,6 +32,9 @@ export class SwbTelekommunikationCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SwbTelekommunikationCollector class.
+     */
     constructor() {
         super(SwbTelekommunikationCollector.CONFIG);
     }

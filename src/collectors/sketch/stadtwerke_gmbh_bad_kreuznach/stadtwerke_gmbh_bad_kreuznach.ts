@@ -32,6 +32,9 @@ export class StadtwerkeGmbhBadKreuznachCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StadtwerkeGmbhBadKreuznachCollector class.
+     */
     constructor() {
         super(StadtwerkeGmbhBadKreuznachCollector.CONFIG);
     }

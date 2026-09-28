@@ -32,6 +32,9 @@ export class SeozoomCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SeozoomCollector class.
+     */
     constructor() {
         super(SeozoomCollector.CONFIG);
     }

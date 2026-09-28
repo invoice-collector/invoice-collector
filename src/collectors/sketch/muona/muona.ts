@@ -32,6 +32,9 @@ export class MuonaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MuonaCollector class.
+     */
     constructor() {
         super(MuonaCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class StanleyStellaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StanleyStellaCollector class.
+     */
     constructor() {
         super(StanleyStellaCollector.CONFIG);
     }

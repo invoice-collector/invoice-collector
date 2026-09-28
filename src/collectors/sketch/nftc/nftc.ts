@@ -32,6 +32,9 @@ export class NftcCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NftcCollector class.
+     */
     constructor() {
         super(NftcCollector.CONFIG);
     }

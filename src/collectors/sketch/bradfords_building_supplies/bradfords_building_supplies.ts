@@ -32,6 +32,9 @@ export class BradfordsBuildingSuppliesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BradfordsBuildingSuppliesCollector class.
+     */
     constructor() {
         super(BradfordsBuildingSuppliesCollector.CONFIG);
     }

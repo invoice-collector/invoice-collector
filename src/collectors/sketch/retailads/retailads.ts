@@ -32,6 +32,9 @@ export class RetailadsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RetailadsCollector class.
+     */
     constructor() {
         super(RetailadsCollector.CONFIG);
     }

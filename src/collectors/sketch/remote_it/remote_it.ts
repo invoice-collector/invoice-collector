@@ -32,6 +32,9 @@ export class RemoteItCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RemoteItCollector class.
+     */
     constructor() {
         super(RemoteItCollector.CONFIG);
     }

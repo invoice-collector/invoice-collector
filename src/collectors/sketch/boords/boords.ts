@@ -32,6 +32,9 @@ export class BoordsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BoordsCollector class.
+     */
     constructor() {
         super(BoordsCollector.CONFIG);
     }

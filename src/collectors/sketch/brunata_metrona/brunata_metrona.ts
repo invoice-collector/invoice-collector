@@ -32,6 +32,9 @@ export class BrunataMetronaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BrunataMetronaCollector class.
+     */
     constructor() {
         super(BrunataMetronaCollector.CONFIG);
     }

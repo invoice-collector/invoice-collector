@@ -32,6 +32,9 @@ export class ImmergrunEnergieCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ImmergrunEnergieCollector class.
+     */
     constructor() {
         super(ImmergrunEnergieCollector.CONFIG);
     }

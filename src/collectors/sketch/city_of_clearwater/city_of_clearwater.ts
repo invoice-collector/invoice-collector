@@ -32,6 +32,9 @@ export class CityOfClearwaterCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CityOfClearwaterCollector class.
+     */
     constructor() {
         super(CityOfClearwaterCollector.CONFIG);
     }

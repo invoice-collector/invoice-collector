@@ -32,6 +32,9 @@ export class GappsExpertsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GappsExpertsCollector class.
+     */
     constructor() {
         super(GappsExpertsCollector.CONFIG);
     }

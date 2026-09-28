@@ -32,6 +32,9 @@ export class BbNetCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BbNetCollector class.
+     */
     constructor() {
         super(BbNetCollector.CONFIG);
     }

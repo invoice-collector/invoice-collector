@@ -32,6 +32,9 @@ export class TermlabsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TermlabsCollector class.
+     */
     constructor() {
         super(TermlabsCollector.CONFIG);
     }

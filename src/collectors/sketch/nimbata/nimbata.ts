@@ -32,6 +32,9 @@ export class NimbataCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NimbataCollector class.
+     */
     constructor() {
         super(NimbataCollector.CONFIG);
     }

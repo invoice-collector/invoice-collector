@@ -32,6 +32,9 @@ export class AdnCloudMarketplaceCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AdnCloudMarketplaceCollector class.
+     */
     constructor() {
         super(AdnCloudMarketplaceCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class CrowdfarmingCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CrowdfarmingCollector class.
+     */
     constructor() {
         super(CrowdfarmingCollector.CONFIG);
     }

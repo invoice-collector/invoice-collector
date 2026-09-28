@@ -32,6 +32,9 @@ export class SpectrumBusinessCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SpectrumBusinessCollector class.
+     */
     constructor() {
         super(SpectrumBusinessCollector.CONFIG);
     }

@@ -31,6 +31,9 @@ export class VoiComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VoiComCollector class.
+     */
     constructor() {
         super(VoiComCollector.CONFIG);
     }

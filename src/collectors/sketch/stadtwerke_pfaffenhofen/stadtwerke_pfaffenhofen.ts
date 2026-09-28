@@ -32,6 +32,9 @@ export class StadtwerkePfaffenhofenCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StadtwerkePfaffenhofenCollector class.
+     */
     constructor() {
         super(StadtwerkePfaffenhofenCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class AireCantilienneCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AireCantilienneCollector class.
+     */
     constructor() {
         super(AireCantilienneCollector.CONFIG);
     }

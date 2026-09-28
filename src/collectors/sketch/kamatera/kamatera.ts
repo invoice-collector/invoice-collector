@@ -32,6 +32,9 @@ export class KamateraCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KamateraCollector class.
+     */
     constructor() {
         super(KamateraCollector.CONFIG);
     }

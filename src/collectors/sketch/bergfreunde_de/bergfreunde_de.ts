@@ -32,6 +32,9 @@ export class BergfreundeDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BergfreundeDeCollector class.
+     */
     constructor() {
         super(BergfreundeDeCollector.CONFIG);
     }

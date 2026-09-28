@@ -32,6 +32,9 @@ export class HanseMerkurVertriebsportalCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HanseMerkurVertriebsportalCollector class.
+     */
     constructor() {
         super(HanseMerkurVertriebsportalCollector.CONFIG);
     }

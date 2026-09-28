@@ -32,6 +32,9 @@ export class WatadoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WatadoCollector class.
+     */
     constructor() {
         super(WatadoCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class MotionvfxCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MotionvfxCollector class.
+     */
     constructor() {
         super(MotionvfxCollector.CONFIG);
     }

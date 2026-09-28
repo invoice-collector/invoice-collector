@@ -32,6 +32,9 @@ export class AntratekCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AntratekCollector class.
+     */
     constructor() {
         super(AntratekCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class Pond5Collector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Pond5Collector class.
+     */
     constructor() {
         super(Pond5Collector.CONFIG);
     }

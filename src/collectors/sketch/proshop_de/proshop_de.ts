@@ -32,6 +32,9 @@ export class ProshopDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ProshopDeCollector class.
+     */
     constructor() {
         super(ProshopDeCollector.CONFIG);
     }

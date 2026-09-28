@@ -32,6 +32,9 @@ export class GrowYourSocialCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GrowYourSocialCollector class.
+     */
     constructor() {
         super(GrowYourSocialCollector.CONFIG);
     }

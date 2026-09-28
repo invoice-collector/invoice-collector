@@ -32,6 +32,9 @@ export class ColorfulStandardCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ColorfulStandardCollector class.
+     */
     constructor() {
         super(ColorfulStandardCollector.CONFIG);
     }

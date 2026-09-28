@@ -32,6 +32,9 @@ export class VofficePartnerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VofficePartnerCollector class.
+     */
     constructor() {
         super(VofficePartnerCollector.CONFIG);
     }

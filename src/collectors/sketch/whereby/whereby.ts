@@ -32,6 +32,9 @@ export class WherebyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WherebyCollector class.
+     */
     constructor() {
         super(WherebyCollector.CONFIG);
     }

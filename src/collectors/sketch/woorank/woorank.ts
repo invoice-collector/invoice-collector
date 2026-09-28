@@ -32,6 +32,9 @@ export class WoorankCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WoorankCollector class.
+     */
     constructor() {
         super(WoorankCollector.CONFIG);
     }

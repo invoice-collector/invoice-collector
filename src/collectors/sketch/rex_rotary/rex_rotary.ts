@@ -32,6 +32,9 @@ export class RexRotaryCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RexRotaryCollector class.
+     */
     constructor() {
         super(RexRotaryCollector.CONFIG);
     }

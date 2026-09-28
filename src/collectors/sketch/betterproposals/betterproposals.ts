@@ -32,6 +32,9 @@ export class BetterproposalsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BetterproposalsCollector class.
+     */
     constructor() {
         super(BetterproposalsCollector.CONFIG);
     }

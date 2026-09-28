@@ -32,6 +32,9 @@ export class AlmaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AlmaCollector class.
+     */
     constructor() {
         super(AlmaCollector.CONFIG);
     }

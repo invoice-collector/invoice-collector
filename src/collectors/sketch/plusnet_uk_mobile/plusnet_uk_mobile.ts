@@ -32,6 +32,9 @@ export class PlusnetUkMobileCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PlusnetUkMobileCollector class.
+     */
     constructor() {
         super(PlusnetUkMobileCollector.CONFIG);
     }

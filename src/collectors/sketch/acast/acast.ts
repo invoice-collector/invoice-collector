@@ -32,6 +32,9 @@ export class AcastCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AcastCollector class.
+     */
     constructor() {
         super(AcastCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class OnlineafsprakenCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OnlineafsprakenCollector class.
+     */
     constructor() {
         super(OnlineafsprakenCollector.CONFIG);
     }

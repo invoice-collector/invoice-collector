@@ -32,6 +32,9 @@ export class PhsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PhsCollector class.
+     */
     constructor() {
         super(PhsCollector.CONFIG);
     }

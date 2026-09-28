@@ -32,6 +32,9 @@ export class RpOnlineCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RpOnlineCollector class.
+     */
     constructor() {
         super(RpOnlineCollector.CONFIG);
     }

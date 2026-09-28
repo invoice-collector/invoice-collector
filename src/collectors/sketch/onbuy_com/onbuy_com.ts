@@ -32,6 +32,9 @@ export class OnbuyComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OnbuyComCollector class.
+     */
     constructor() {
         super(OnbuyComCollector.CONFIG);
     }

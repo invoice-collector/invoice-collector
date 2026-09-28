@@ -32,6 +32,9 @@ export class TeamviewerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TeamviewerCollector class.
+     */
     constructor() {
         super(TeamviewerCollector.CONFIG);
     }

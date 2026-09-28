@@ -32,6 +32,9 @@ export class EasternPropaneAndOilCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EasternPropaneAndOilCollector class.
+     */
     constructor() {
         super(EasternPropaneAndOilCollector.CONFIG);
     }

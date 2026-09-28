@@ -32,6 +32,9 @@ export class LrCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LrCollector class.
+     */
     constructor() {
         super(LrCollector.CONFIG);
     }

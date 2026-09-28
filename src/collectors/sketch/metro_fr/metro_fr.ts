@@ -32,6 +32,9 @@ export class MetroFrCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MetroFrCollector class.
+     */
     constructor() {
         super(MetroFrCollector.CONFIG);
     }

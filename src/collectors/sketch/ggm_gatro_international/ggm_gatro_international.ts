@@ -32,6 +32,9 @@ export class GgmGatroInternationalCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GgmGatroInternationalCollector class.
+     */
     constructor() {
         super(GgmGatroInternationalCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class DirectEnergyRegulatedServicesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DirectEnergyRegulatedServicesCollector class.
+     */
     constructor() {
         super(DirectEnergyRegulatedServicesCollector.CONFIG);
     }

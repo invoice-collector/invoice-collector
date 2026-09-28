@@ -32,6 +32,9 @@ export class FilestageCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FilestageCollector class.
+     */
     constructor() {
         super(FilestageCollector.CONFIG);
     }

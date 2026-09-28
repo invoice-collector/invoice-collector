@@ -32,6 +32,9 @@ export class WilhelmTelCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WilhelmTelCollector class.
+     */
     constructor() {
         super(WilhelmTelCollector.CONFIG);
     }

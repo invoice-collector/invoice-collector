@@ -32,6 +32,9 @@ export class FunnelfluxCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FunnelfluxCollector class.
+     */
     constructor() {
         super(FunnelfluxCollector.CONFIG);
     }

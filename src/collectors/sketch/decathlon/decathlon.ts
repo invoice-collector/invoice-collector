@@ -32,6 +32,9 @@ export class DecathlonCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DecathlonCollector class.
+     */
     constructor() {
         super(DecathlonCollector.CONFIG);
     }

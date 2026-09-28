@@ -32,6 +32,9 @@ export class ClickfireCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ClickfireCollector class.
+     */
     constructor() {
         super(ClickfireCollector.CONFIG);
     }

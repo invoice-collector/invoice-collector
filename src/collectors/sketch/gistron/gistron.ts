@@ -32,6 +32,9 @@ export class GistronCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GistronCollector class.
+     */
     constructor() {
         super(GistronCollector.CONFIG);
     }

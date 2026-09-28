@@ -32,6 +32,9 @@ export class CopyAiCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CopyAiCollector class.
+     */
     constructor() {
         super(CopyAiCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class EuservCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EuservCollector class.
+     */
     constructor() {
         super(EuservCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class BpmLuxCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BpmLuxCollector class.
+     */
     constructor() {
         super(BpmLuxCollector.CONFIG);
     }

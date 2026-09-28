@@ -32,6 +32,9 @@ export class BamboraCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BamboraCollector class.
+     */
     constructor() {
         super(BamboraCollector.CONFIG);
     }

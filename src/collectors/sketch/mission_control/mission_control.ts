@@ -32,6 +32,9 @@ export class MissionControlCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MissionControlCollector class.
+     */
     constructor() {
         super(MissionControlCollector.CONFIG);
     }

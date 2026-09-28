@@ -32,6 +32,9 @@ export class ClickworkerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ClickworkerCollector class.
+     */
     constructor() {
         super(ClickworkerCollector.CONFIG);
     }

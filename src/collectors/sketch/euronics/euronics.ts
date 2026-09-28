@@ -32,6 +32,9 @@ export class EuronicsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EuronicsCollector class.
+     */
     constructor() {
         super(EuronicsCollector.CONFIG);
     }

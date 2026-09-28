@@ -32,6 +32,9 @@ export class ElevonMerchantServicesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ElevonMerchantServicesCollector class.
+     */
     constructor() {
         super(ElevonMerchantServicesCollector.CONFIG);
     }

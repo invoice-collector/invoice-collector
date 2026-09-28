@@ -32,6 +32,9 @@ export class VoipstudioCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VoipstudioCollector class.
+     */
     constructor() {
         super(VoipstudioCollector.CONFIG);
     }

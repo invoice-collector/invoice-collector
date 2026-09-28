@@ -32,6 +32,9 @@ export class CommodisCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CommodisCollector class.
+     */
     constructor() {
         super(CommodisCollector.CONFIG);
     }

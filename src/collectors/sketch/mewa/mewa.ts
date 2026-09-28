@@ -32,6 +32,9 @@ export class MewaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MewaCollector class.
+     */
     constructor() {
         super(MewaCollector.CONFIG);
     }

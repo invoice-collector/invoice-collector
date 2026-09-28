@@ -32,6 +32,9 @@ export class AdvancedAdsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AdvancedAdsCollector class.
+     */
     constructor() {
         super(AdvancedAdsCollector.CONFIG);
     }

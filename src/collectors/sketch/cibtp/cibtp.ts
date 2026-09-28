@@ -32,6 +32,9 @@ export class CibtpCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CibtpCollector class.
+     */
     constructor() {
         super(CibtpCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class _11FreundeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the _11FreundeCollector class.
+     */
     constructor() {
         super(_11FreundeCollector.CONFIG);
     }

@@ -57,11 +57,8 @@ export abstract class AbstractDriver extends EventEmitter {
      * Creates an instance of AbstractDriver.
      * @param collector The WebCollector instance to use for collecting data.
      */
-    constructor(collector: WebCollector) {
+    protected constructor(collector: WebCollector) {
         super();
-        if (new.target === AbstractDriver) {
-            throw new TypeError('Cannot construct AbstractDriver instances directly');
-        }
         this.collector = collector;
         this.proxy = null;
     }

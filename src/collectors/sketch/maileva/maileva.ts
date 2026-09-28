@@ -32,6 +32,9 @@ export class MailevaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MailevaCollector class.
+     */
     constructor() {
         super(MailevaCollector.CONFIG);
     }

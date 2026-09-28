@@ -32,6 +32,9 @@ export class TMobileRechnungonlineBusinessCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TMobileRechnungonlineBusinessCollector class.
+     */
     constructor() {
         super(TMobileRechnungonlineBusinessCollector.CONFIG);
     }

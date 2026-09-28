@@ -32,6 +32,9 @@ export class MaterialiseCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MaterialiseCollector class.
+     */
     constructor() {
         super(MaterialiseCollector.CONFIG);
     }

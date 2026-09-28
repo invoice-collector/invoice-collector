@@ -32,6 +32,9 @@ export class MeilleursAgentsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MeilleursAgentsCollector class.
+     */
     constructor() {
         super(MeilleursAgentsCollector.CONFIG);
     }

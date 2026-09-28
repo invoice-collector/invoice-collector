@@ -32,6 +32,9 @@ export class DroplrCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DroplrCollector class.
+     */
     constructor() {
         super(DroplrCollector.CONFIG);
     }

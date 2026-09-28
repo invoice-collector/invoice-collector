@@ -32,6 +32,9 @@ export class NewspreadCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NewspreadCollector class.
+     */
     constructor() {
         super(NewspreadCollector.CONFIG);
     }

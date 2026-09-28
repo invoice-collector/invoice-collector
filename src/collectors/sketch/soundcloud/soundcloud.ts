@@ -32,6 +32,9 @@ export class SoundcloudCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SoundcloudCollector class.
+     */
     constructor() {
         super(SoundcloudCollector.CONFIG);
     }

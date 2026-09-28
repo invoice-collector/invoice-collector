@@ -32,6 +32,9 @@ export class VideoaskCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VideoaskCollector class.
+     */
     constructor() {
         super(VideoaskCollector.CONFIG);
     }

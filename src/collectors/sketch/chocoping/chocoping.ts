@@ -32,6 +32,9 @@ export class ChocopingCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ChocopingCollector class.
+     */
     constructor() {
         super(ChocopingCollector.CONFIG);
     }

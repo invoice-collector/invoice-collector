@@ -32,6 +32,9 @@ export class AustrocardCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AustrocardCollector class.
+     */
     constructor() {
         super(AustrocardCollector.CONFIG);
     }

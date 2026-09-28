@@ -32,6 +32,9 @@ export class SpeeditSolutionsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SpeeditSolutionsCollector class.
+     */
     constructor() {
         super(SpeeditSolutionsCollector.CONFIG);
     }

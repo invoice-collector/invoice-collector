@@ -32,6 +32,9 @@ export class AlibabaCloudCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AlibabaCloudCollector class.
+     */
     constructor() {
         super(AlibabaCloudCollector.CONFIG);
     }

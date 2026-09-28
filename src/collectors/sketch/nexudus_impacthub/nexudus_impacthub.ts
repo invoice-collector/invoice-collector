@@ -32,6 +32,9 @@ export class NexudusImpacthubCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NexudusImpacthubCollector class.
+     */
     constructor() {
         super(NexudusImpacthubCollector.CONFIG);
     }

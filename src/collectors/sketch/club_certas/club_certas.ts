@@ -32,6 +32,9 @@ export class ClubCertasCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ClubCertasCollector class.
+     */
     constructor() {
         super(ClubCertasCollector.CONFIG);
     }

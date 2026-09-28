@@ -32,6 +32,9 @@ export class PmuFranceCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PmuFranceCollector class.
+     */
     constructor() {
         super(PmuFranceCollector.CONFIG);
     }

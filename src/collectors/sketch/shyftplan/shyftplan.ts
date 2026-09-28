@@ -32,6 +32,9 @@ export class ShyftplanCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ShyftplanCollector class.
+     */
     constructor() {
         super(ShyftplanCollector.CONFIG);
     }

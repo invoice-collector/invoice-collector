@@ -32,6 +32,9 @@ export class WebsitepulseCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WebsitepulseCollector class.
+     */
     constructor() {
         super(WebsitepulseCollector.CONFIG);
     }

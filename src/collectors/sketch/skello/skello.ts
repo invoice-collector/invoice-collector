@@ -32,6 +32,9 @@ export class SkelloCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SkelloCollector class.
+     */
     constructor() {
         super(SkelloCollector.CONFIG);
     }

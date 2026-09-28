@@ -32,6 +32,9 @@ export class AbfallwirtschaftSudholsteinAwshCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AbfallwirtschaftSudholsteinAwshCollector class.
+     */
     constructor() {
         super(AbfallwirtschaftSudholsteinAwshCollector.CONFIG);
     }

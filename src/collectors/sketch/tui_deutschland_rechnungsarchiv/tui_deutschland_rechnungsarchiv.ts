@@ -32,6 +32,9 @@ export class TuiDeutschlandRechnungsarchivCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TuiDeutschlandRechnungsarchivCollector class.
+     */
     constructor() {
         super(TuiDeutschlandRechnungsarchivCollector.CONFIG);
     }

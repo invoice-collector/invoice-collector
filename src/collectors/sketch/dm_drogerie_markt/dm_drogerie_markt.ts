@@ -32,6 +32,9 @@ export class DmDrogerieMarktCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DmDrogerieMarktCollector class.
+     */
     constructor() {
         super(DmDrogerieMarktCollector.CONFIG);
     }

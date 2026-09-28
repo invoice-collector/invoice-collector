@@ -32,6 +32,9 @@ export class KarlsruherVerkehrsverbundCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KarlsruherVerkehrsverbundCollector class.
+     */
     constructor() {
         super(KarlsruherVerkehrsverbundCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class Like2driveCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Like2driveCollector class.
+     */
     constructor() {
         super(Like2driveCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class ClaranetCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ClaranetCollector class.
+     */
     constructor() {
         super(ClaranetCollector.CONFIG);
     }

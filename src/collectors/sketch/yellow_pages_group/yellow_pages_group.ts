@@ -32,6 +32,9 @@ export class YellowPagesGroupCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the YellowPagesGroupCollector class.
+     */
     constructor() {
         super(YellowPagesGroupCollector.CONFIG);
     }

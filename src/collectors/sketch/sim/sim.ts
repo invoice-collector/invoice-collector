@@ -32,6 +32,9 @@ export class SimCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SimCollector class.
+     */
     constructor() {
         super(SimCollector.CONFIG);
     }

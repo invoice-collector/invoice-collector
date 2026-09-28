@@ -32,6 +32,9 @@ export class TockifyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TockifyCollector class.
+     */
     constructor() {
         super(TockifyCollector.CONFIG);
     }

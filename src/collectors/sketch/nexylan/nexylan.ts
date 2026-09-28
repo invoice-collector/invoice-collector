@@ -32,6 +32,9 @@ export class NexylanCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NexylanCollector class.
+     */
     constructor() {
         super(NexylanCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class SeosurferCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SeosurferCollector class.
+     */
     constructor() {
         super(SeosurferCollector.CONFIG);
     }

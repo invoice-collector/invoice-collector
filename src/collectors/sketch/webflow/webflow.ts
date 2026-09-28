@@ -32,6 +32,9 @@ export class WebflowCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WebflowCollector class.
+     */
     constructor() {
         super(WebflowCollector.CONFIG);
     }

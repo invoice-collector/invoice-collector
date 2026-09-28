@@ -32,6 +32,9 @@ export class GazDeBordeauxCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GazDeBordeauxCollector class.
+     */
     constructor() {
         super(GazDeBordeauxCollector.CONFIG);
     }

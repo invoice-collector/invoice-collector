@@ -32,6 +32,9 @@ export class SemrushCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SemrushCollector class.
+     */
     constructor() {
         super(SemrushCollector.CONFIG);
     }

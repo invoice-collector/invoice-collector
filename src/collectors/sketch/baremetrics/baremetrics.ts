@@ -32,6 +32,9 @@ export class BaremetricsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BaremetricsCollector class.
+     */
     constructor() {
         super(BaremetricsCollector.CONFIG);
     }

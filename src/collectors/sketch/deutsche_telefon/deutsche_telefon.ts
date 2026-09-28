@@ -32,6 +32,9 @@ export class DeutscheTelefonCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DeutscheTelefonCollector class.
+     */
     constructor() {
         super(DeutscheTelefonCollector.CONFIG);
     }

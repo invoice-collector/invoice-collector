@@ -32,6 +32,9 @@ export class PennymobilCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PennymobilCollector class.
+     */
     constructor() {
         super(PennymobilCollector.CONFIG);
     }

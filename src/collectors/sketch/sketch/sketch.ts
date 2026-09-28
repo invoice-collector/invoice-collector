@@ -32,6 +32,9 @@ export class Sketch2Collector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Sketch2Collector class.
+     */
     constructor() {
         super(Sketch2Collector.CONFIG);
     }

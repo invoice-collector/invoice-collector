@@ -32,6 +32,9 @@ export class ArticleforgeComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ArticleforgeComCollector class.
+     */
     constructor() {
         super(ArticleforgeComCollector.CONFIG);
     }

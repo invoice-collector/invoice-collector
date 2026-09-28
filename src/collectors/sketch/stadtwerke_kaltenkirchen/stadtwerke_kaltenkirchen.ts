@@ -32,6 +32,9 @@ export class StadtwerkeKaltenkirchenCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StadtwerkeKaltenkirchenCollector class.
+     */
     constructor() {
         super(StadtwerkeKaltenkirchenCollector.CONFIG);
     }

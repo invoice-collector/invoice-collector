@@ -32,6 +32,9 @@ export class LunchrCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LunchrCollector class.
+     */
     constructor() {
         super(LunchrCollector.CONFIG);
     }

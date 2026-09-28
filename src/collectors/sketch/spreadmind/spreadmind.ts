@@ -32,6 +32,9 @@ export class SpreadmindCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SpreadmindCollector class.
+     */
     constructor() {
         super(SpreadmindCollector.CONFIG);
     }

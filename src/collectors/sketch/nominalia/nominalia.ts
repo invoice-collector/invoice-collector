@@ -32,6 +32,9 @@ export class NominaliaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NominaliaCollector class.
+     */
     constructor() {
         super(NominaliaCollector.CONFIG);
     }

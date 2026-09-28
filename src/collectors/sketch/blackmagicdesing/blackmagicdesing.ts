@@ -32,6 +32,9 @@ export class BlackmagicdesingCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BlackmagicdesingCollector class.
+     */
     constructor() {
         super(BlackmagicdesingCollector.CONFIG);
     }

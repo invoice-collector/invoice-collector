@@ -32,6 +32,9 @@ export class JournalLaDepecheCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the JournalLaDepecheCollector class.
+     */
     constructor() {
         super(JournalLaDepecheCollector.CONFIG);
     }

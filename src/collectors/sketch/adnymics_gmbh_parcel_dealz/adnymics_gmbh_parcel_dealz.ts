@@ -32,6 +32,9 @@ export class AdnymicsGmbhParcelDealzCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AdnymicsGmbhParcelDealzCollector class.
+     */
     constructor() {
         super(AdnymicsGmbhParcelDealzCollector.CONFIG);
     }

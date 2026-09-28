@@ -38,14 +38,31 @@ export enum BearerType {
 
 /* FUNCTIONS */
 
+/**
+ * Generates a bearer token of the specified type.
+ * @param type The type of bearer token to generate.
+ * @param size The size of the random component of the token, in bytes. Defaults to 128.
+ * @returns The generated bearer token as a string.
+ */
 export function generate_bearer(type: BearerType, size=128): string {
     return `${type}_${crypto.randomBytes(size).toString('base64')}`;
 }
 
+/**
+ * Generates a random token of the specified size.
+ * @param size The size of the random token in bytes. Defaults to 64.
+ * @returns The generated token as a hexadecimal string.
+ */
 export function generate_token(size=64): string {
     return crypto.randomBytes(size).toString('hex');
 }
 
+/**
+ * Hashes the given input string using the specified cryptographic hash algorithm.
+ * @param input The input string to hash.
+ * @param algorithm The hash algorithm to use. Defaults to 'sha3-512'.
+ * @returns The hexadecimal representation of the hash.
+ */
 export function hash_string(input: string, algorithm: string = 'sha3-512'): string {
     return crypto.createHash(algorithm).update(input).digest('hex');
 }
@@ -101,10 +118,20 @@ const BLOCKED_IPV4_RANGES: Array<[string, number]> = [
     ['240.0.0.0', 4],     // reserved
 ];
 
+/**
+ * Converts an IPv4 address from its dotted-decimal string representation to a 32-bit integer.
+ * @param ip The IPv4 address in dotted-decimal notation (e.g., "192.168.0.1").
+ * @returns The 32-bit integer representation of the IPv4 address.
+ */
 function ipv4ToInt(ip: string): number {
     return ip.split('.').reduce((acc, octet) => (acc << 8) + Number(octet), 0) >>> 0;
 }
 
+/**
+ * Checks if an IPv4 address falls within any of the blocked private/internal ranges.
+ * @param ip The IPv4 address in dotted-decimal notation (e.g., "192.168.0.1").
+ * @returns True if the IP is private/internal, false otherwise.
+ */
 function isPrivateIpv4(ip: string): boolean {
     const ipInt = ipv4ToInt(ip);
     return BLOCKED_IPV4_RANGES.some(([base, bits]) => {
@@ -113,6 +140,11 @@ function isPrivateIpv4(ip: string): boolean {
     });
 }
 
+/**
+ * Checks if an IPv6 address falls within any of the blocked private/internal ranges.
+ * @param ip The IPv6 address in standard notation (e.g., "fe80::1").
+ * @returns True if the IP is private/internal, false otherwise.
+ */
 function isPrivateIpv6(ip: string): boolean {
     const normalized = ip.toLowerCase();
     return normalized === '::1'                      // loopback
@@ -174,6 +206,7 @@ const keyLocks = new Map<string, Promise<unknown>>();
  * concurrent invocations so check-then-act sequences (e.g. quota checks) can't race each other.
  * @param key The lock key. Calls with different keys run concurrently.
  * @param fn The function to run once the lock for `key` is acquired.
+ * @returns The result of the function `fn` after acquiring the lock.
  */
 export async function withLock<T>(key: string, fn: () => Promise<T>): Promise<T> {
     const previous = keyLocks.get(key) ?? Promise.resolve();
@@ -195,6 +228,12 @@ export async function delay(ms: number): Promise<void> {
     }
 }
 
+/**
+ * Parses a value as a boolean, with a fallback if parsing fails.
+ * @param value The value to parse as a boolean.
+ * @param fallback The fallback boolean value to return if parsing fails.
+ * @returns The parsed boolean value, or the fallback if parsing fails.
+ */
 export function parseBoolean(value: unknown, fallback: boolean): boolean {
     if (typeof value === 'boolean') {
         return value;
@@ -211,6 +250,12 @@ export function parseBoolean(value: unknown, fallback: boolean): boolean {
     return fallback;
 }
 
+/**
+ * Waits for a random amount of time between the specified minimum and maximum milliseconds.
+ * @param min The minimum number of milliseconds to wait.
+ * @param max The maximum number of milliseconds to wait.
+ * @returns A promise that resolves after the random delay.
+ */
 export function randomDelay(min: number=200, max: number=400): Promise<void> {
     return new Promise(resolve => {
         const delay = Math.floor(Math.random() * (max - min + 1)) + min;
@@ -218,6 +263,13 @@ export function randomDelay(min: number=200, max: number=400): Promise<void> {
     });
 }
 
+/**
+ * Parses a date string according to the specified formats and locale, returning the corresponding timestamp.
+ * @param date The date string to parse.
+ * @param formats The date format(s) to use for parsing.
+ * @param locale The locale to use for parsing.
+ * @returns The timestamp (in milliseconds) corresponding to the parsed date.
+ */
 export function timestampFromString(date: string, formats: string | string[], locale: string): number {
     // Trim date string
     date = trim(date);
@@ -255,11 +307,21 @@ export function timestampFromString(date: string, formats: string | string[], lo
     throw new Error(`Unable to parse date: ${date} with formats: ${formats} and locale: ${locale}`);
 }
 
+/**
+ * Converts a wildcard pattern to a regular expression.
+ * @param pattern The wildcard pattern to convert (e.g., "*.txt").
+ * @returns A RegExp object representing the equivalent regular expression.
+ */
 export function wildcardToRegex(pattern: string): RegExp {
     const escaped = pattern.replace(/[.+?^${}()|[\]\\]/g, '\\$&');
     return new RegExp(`^${  escaped.replace(/\*/g, '.*')  }$`, 'i');
 }
 
+/**
+ * Determines the MIME type of a base64-encoded string.
+ * @param base64 The base64-encoded string to check.
+ * @returns The MIME type corresponding to the base64 string, or 'application/octet-stream' if unknown.
+ */
 export function mimetypeFromBase64(base64: string | null): string {
     if(base64 === null) {
         return 'application/octet-stream';
@@ -274,6 +336,11 @@ export function mimetypeFromBase64(base64: string | null): string {
     throw Error(`Unknown mimetype for base64 string starting with ${base64.slice(0, 100)}`);
 }
 
+/**
+ * Merges multiple PDF documents and images into a single PDF document.
+ * @param documents An array of base64-encoded PDF or image documents to merge.
+ * @returns A promise that resolves to a base64-encoded string of the merged PDF document.
+ */
 export async function mergePdfDocuments(documents: string[]): Promise<string> {
     // Initialize document
     const pdfDoc = await PDFDocument.create();
@@ -327,6 +394,11 @@ export async function mergePdfDocuments(documents: string[]): Promise<string> {
 const ZIP_MAX_ENTRIES = 100;
 const ZIP_MAX_TOTAL_DECOMPRESSED_BYTES = 200 * 1024 * 1024; // 200MB
 
+/**
+ * Extracts PDF files from a ZIP archive contained within an invoice.
+ * @param invoice The invoice containing the ZIP archive.
+ * @returns A promise that resolves to an array of invoices, each containing a single extracted PDF file.
+ */
 export async function extractPdfFromZip(invoice: CompleteInvoice): Promise<CompleteInvoice[]> {
     if (!invoice.data) {
         throw new Error(`Cannot extract PDFs from zip for invoice ${invoice.id}: missing invoice data.`);
@@ -366,14 +438,27 @@ export async function extractPdfFromZip(invoice: CompleteInvoice): Promise<Compl
     return invoices;
 }
 
+/**
+ * Generates a 6-digit verification code as a string.
+ * @returns A string representing the 6-digit verification code.
+ */
 export function generateVerificationCode(): string {
     return Math.floor(100000 + Math.random() * 900000).toString().padStart(6, '0');
 }
 
+/**
+ * Trims the input string, replaces newlines with spaces, and collapses multiple spaces into one.
+ * @param str The input string to be trimmed and cleaned.
+ * @returns The cleaned and trimmed string.
+ */
 export function trim(str: string): string {
     return str.trim().replaceAll('\n', ' ').replace(/  +/g, ' ');
 }
 
+/**
+ * Generates a random User-Agent string mimicking a Chrome browser.
+ * @returns A string representing the User-Agent.
+ */
 export function generateUserAgent()  {
     const chromeVersion = Math.floor(Math.random() * 20) + 60;
     const webkitVersion = Math.floor(Math.random() * 700) + 500;
@@ -385,6 +470,12 @@ export function generateUserAgent()  {
     return userAgent;
 }
 
+/**
+ * Gets the value of an environment variable, with an optional fallback.
+ * @param envVar The name of the environment variable to retrieve.
+ * @param fallback An optional fallback value to use if the environment variable is not set.
+ * @returns The value of the environment variable, or the fallback if provided and the variable is not set.
+ */
 export function getEnvVar(envVar: string, fallback: string | undefined = undefined): string {
     const value = process.env[envVar];
     // If the value is undefined or empty
@@ -398,6 +489,10 @@ export function getEnvVar(envVar: string, fallback: string | undefined = undefin
     return value;
 }
 
+/**
+ * Creates a fake invoice for testing purposes.
+ * @returns An object representing the fake invoice, including the collector configuration, remote ID, and invoice details.
+ */
 export function createFakeInvoice(): {
         collector: Config,
         remote_id: string,
@@ -423,6 +518,10 @@ export function createFakeInvoice(): {
     };
 }
 
+/**
+ * Creates a fake notification indicating a disconnected state for testing purposes.
+ * @returns An object representing the fake disconnected notification, including the collector configuration, credential ID, user ID, and remote ID.
+ */
 export function createFakeNotificationDisconnected(): {
         collector: Config,
         credential_id: string,
@@ -437,6 +536,10 @@ export function createFakeNotificationDisconnected(): {
     };
 }
 
+/**
+ * Creates a fake collector configuration for testing purposes.
+ * @returns An object representing the fake collector configuration.
+ */
 export function createFakeCollectorConfig(): Config {
     return {
         id: 'sliced_invoices',
@@ -465,6 +568,11 @@ export function createFakeCollectorConfig(): Config {
     };
 }
 
+/**
+ * Checks if the given amount contains a currency symbol.
+ * @param amount The amount string to check for a currency symbol.
+ * @throws Will throw an error if the amount is empty or does not contain a currency symbol.
+ */
 export function checkAmountContainsCurrencySymbol(amount: string): void {
     // Check if amount is empty
     if (!amount || amount.trim() === '') {
@@ -478,6 +586,11 @@ export function checkAmountContainsCurrencySymbol(amount: string): void {
     }
 }
 
+/**
+ * Checks if the given email is valid.
+ * @param email The email string to validate.
+ * @returns A boolean indicating whether the email is valid.
+ */
 export function checkEmailIsValid(email: string): boolean {
     // Check if email is empty
     if (!email || email.trim() === '') {
@@ -492,6 +605,11 @@ export function checkEmailIsValid(email: string): boolean {
     return true;
 }
 
+/**
+ * Converts a name string into a unique invite ID suitable for use in URLs or identifiers.
+ * @param name The name string to convert into an invite ID.
+ * @returns A unique invite ID string derived from the given name.
+ */
 export function convertNameToInviteId(name: string): string {
     // Remove all special characters by nothing
     name = name.trim().toLowerCase().replace(/[^a-z0-9\s]+/g, '');
@@ -505,6 +623,11 @@ export function convertNameToInviteId(name: string): string {
     return name;
 }
 
+/**
+ * Extracts all links from a PDF document.
+ * @param data The PDF document data as a string.
+ * @returns A promise that resolves to an array of links found in the PDF document.
+ */
 export async function getLinksFromPdfDocument(data: string): Promise<string[]> {
     const links: string[] = [];
     const documentPdf = await PDFDocument.load(data);
@@ -531,9 +654,11 @@ export async function getLinksFromPdfDocument(data: string): Promise<string[]> {
 }
 
 /**
- * Get months between two dates.
+ * Gets months between two dates.
  * @param startTimestamp The start date as a timestamp
  * @param endDate The end date as a Date object (default is current date)
+ * @param excludeFirstMonth Whether to exclude the first month from the result.
+ * @param excludeLastMonth Whether to exclude the last month from the result.
  * @returns An array of months in the format "yyyy-mm" between the start and end dates
  */
 export function getMonthsBetween(startTimestamp: number, endDate: Date, excludeFirstMonth: boolean, excludeLastMonth: boolean): string[] {
@@ -569,6 +694,10 @@ export function getMonthsBetween(startTimestamp: number, endDate: Date, excludeF
 
 const COUNTER_BILL = 'bill';
 
+/**
+ * Generates a unique bill ID based on the current counter value.
+ * @returns A promise that resolves to the generated bill ID string.
+ */
 export async function generateBillId(): Promise<string> {
     const number = await DatabaseFactory.getDatabase().getCounter(COUNTER_BILL);
     return`INV-${number}`;

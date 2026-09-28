@@ -32,6 +32,9 @@ export class ParcelMonkeyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ParcelMonkeyCollector class.
+     */
     constructor() {
         super(ParcelMonkeyCollector.CONFIG);
     }

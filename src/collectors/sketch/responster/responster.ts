@@ -32,6 +32,9 @@ export class ResponsterCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ResponsterCollector class.
+     */
     constructor() {
         super(ResponsterCollector.CONFIG);
     }

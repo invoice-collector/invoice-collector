@@ -32,6 +32,9 @@ export class ShootproofCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ShootproofCollector class.
+     */
     constructor() {
         super(ShootproofCollector.CONFIG);
     }

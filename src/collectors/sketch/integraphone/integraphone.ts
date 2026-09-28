@@ -32,6 +32,9 @@ export class IntegraphoneCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the IntegraphoneCollector class.
+     */
     constructor() {
         super(IntegraphoneCollector.CONFIG);
     }

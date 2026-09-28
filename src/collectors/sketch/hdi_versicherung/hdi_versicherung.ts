@@ -32,6 +32,9 @@ export class HdiVersicherungCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HdiVersicherungCollector class.
+     */
     constructor() {
         super(HdiVersicherungCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class DeutschlandMonteurzimmerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DeutschlandMonteurzimmerCollector class.
+     */
     constructor() {
         super(DeutschlandMonteurzimmerCollector.CONFIG);
     }

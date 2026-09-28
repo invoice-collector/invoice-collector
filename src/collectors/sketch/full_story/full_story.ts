@@ -32,6 +32,9 @@ export class FullStoryCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FullStoryCollector class.
+     */
     constructor() {
         super(FullStoryCollector.CONFIG);
     }

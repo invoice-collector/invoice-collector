@@ -32,6 +32,9 @@ export class GksHandelssystemeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GksHandelssystemeCollector class.
+     */
     constructor() {
         super(GksHandelssystemeCollector.CONFIG);
     }

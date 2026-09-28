@@ -32,6 +32,9 @@ export class LinkedinBusinessManagerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LinkedinBusinessManagerCollector class.
+     */
     constructor() {
         super(LinkedinBusinessManagerCollector.CONFIG);
     }

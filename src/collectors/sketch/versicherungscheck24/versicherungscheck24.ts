@@ -32,6 +32,9 @@ export class Versicherungscheck24Collector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Versicherungscheck24Collector class.
+     */
     constructor() {
         super(Versicherungscheck24Collector.CONFIG);
     }

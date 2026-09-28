@@ -32,6 +32,9 @@ export class EtsyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EtsyCollector class.
+     */
     constructor() {
         super(EtsyCollector.CONFIG);
     }

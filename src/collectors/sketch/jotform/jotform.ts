@@ -32,6 +32,9 @@ export class JotformCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the JotformCollector class.
+     */
     constructor() {
         super(JotformCollector.CONFIG);
     }

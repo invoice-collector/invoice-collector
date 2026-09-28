@@ -32,6 +32,9 @@ export class ShortcutCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ShortcutCollector class.
+     */
     constructor() {
         super(ShortcutCollector.CONFIG);
     }

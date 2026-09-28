@@ -32,6 +32,9 @@ export class UsabilityhubCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the UsabilityhubCollector class.
+     */
     constructor() {
         super(UsabilityhubCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class NumericableFrCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NumericableFrCollector class.
+     */
     constructor() {
         super(NumericableFrCollector.CONFIG);
     }

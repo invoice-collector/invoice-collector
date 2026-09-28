@@ -32,6 +32,9 @@ export class SwisscomCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SwisscomCollector class.
+     */
     constructor() {
         super(SwisscomCollector.CONFIG);
     }

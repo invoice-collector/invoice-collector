@@ -32,6 +32,9 @@ export class MalakoffMedericRetraiteCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MalakoffMedericRetraiteCollector class.
+     */
     constructor() {
         super(MalakoffMedericRetraiteCollector.CONFIG);
     }

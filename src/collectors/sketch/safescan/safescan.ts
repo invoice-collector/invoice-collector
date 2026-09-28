@@ -32,6 +32,9 @@ export class SafescanCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SafescanCollector class.
+     */
     constructor() {
         super(SafescanCollector.CONFIG);
     }

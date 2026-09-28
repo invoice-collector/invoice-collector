@@ -32,6 +32,9 @@ export class AokGesundheitspartnerserviceCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AokGesundheitspartnerserviceCollector class.
+     */
     constructor() {
         super(AokGesundheitspartnerserviceCollector.CONFIG);
     }

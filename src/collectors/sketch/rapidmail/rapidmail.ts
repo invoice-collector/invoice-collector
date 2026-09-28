@@ -32,6 +32,9 @@ export class RapidmailCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RapidmailCollector class.
+     */
     constructor() {
         super(RapidmailCollector.CONFIG);
     }

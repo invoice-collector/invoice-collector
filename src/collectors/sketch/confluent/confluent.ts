@@ -32,6 +32,9 @@ export class ConfluentCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ConfluentCollector class.
+     */
     constructor() {
         super(ConfluentCollector.CONFIG);
     }

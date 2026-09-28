@@ -32,6 +32,9 @@ export class InspectletCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the InspectletCollector class.
+     */
     constructor() {
         super(InspectletCollector.CONFIG);
     }

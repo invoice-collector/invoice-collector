@@ -32,6 +32,9 @@ export class GrunweltEnergieCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GrunweltEnergieCollector class.
+     */
     constructor() {
         super(GrunweltEnergieCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class DerTouristikCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DerTouristikCollector class.
+     */
     constructor() {
         super(DerTouristikCollector.CONFIG);
     }

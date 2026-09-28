@@ -32,6 +32,9 @@ export class CircleKDenmarkCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CircleKDenmarkCollector class.
+     */
     constructor() {
         super(CircleKDenmarkCollector.CONFIG);
     }

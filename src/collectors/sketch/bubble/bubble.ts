@@ -32,6 +32,9 @@ export class BubbleCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BubbleCollector class.
+     */
     constructor() {
         super(BubbleCollector.CONFIG);
     }

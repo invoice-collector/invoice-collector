@@ -32,6 +32,9 @@ export class FunnelformsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FunnelformsCollector class.
+     */
     constructor() {
         super(FunnelformsCollector.CONFIG);
     }

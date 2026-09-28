@@ -32,6 +32,9 @@ export class StadtwerkePlauenStromCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StadtwerkePlauenStromCollector class.
+     */
     constructor() {
         super(StadtwerkePlauenStromCollector.CONFIG);
     }

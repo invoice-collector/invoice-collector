@@ -32,6 +32,9 @@ export class MakitaDealerzoneCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MakitaDealerzoneCollector class.
+     */
     constructor() {
         super(MakitaDealerzoneCollector.CONFIG);
     }

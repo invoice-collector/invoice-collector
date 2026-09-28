@@ -32,6 +32,9 @@ export class DnsimpleCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DnsimpleCollector class.
+     */
     constructor() {
         super(DnsimpleCollector.CONFIG);
     }

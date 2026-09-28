@@ -32,6 +32,9 @@ export class MutuelleAonHewittDecomptesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MutuelleAonHewittDecomptesCollector class.
+     */
     constructor() {
         super(MutuelleAonHewittDecomptesCollector.CONFIG);
     }

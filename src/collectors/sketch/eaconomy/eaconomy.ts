@@ -32,6 +32,9 @@ export class EaconomyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EaconomyCollector class.
+     */
     constructor() {
         super(EaconomyCollector.CONFIG);
     }

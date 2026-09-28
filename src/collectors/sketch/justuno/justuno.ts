@@ -32,6 +32,9 @@ export class JustunoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the JustunoCollector class.
+     */
     constructor() {
         super(JustunoCollector.CONFIG);
     }

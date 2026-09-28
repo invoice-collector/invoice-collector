@@ -32,6 +32,9 @@ export class OekostromAtCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OekostromAtCollector class.
+     */
     constructor() {
         super(OekostromAtCollector.CONFIG);
     }

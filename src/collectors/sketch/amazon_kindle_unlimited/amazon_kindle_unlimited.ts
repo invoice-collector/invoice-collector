@@ -32,6 +32,9 @@ export class AmazonKindleUnlimitedCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AmazonKindleUnlimitedCollector class.
+     */
     constructor() {
         super(AmazonKindleUnlimitedCollector.CONFIG);
     }

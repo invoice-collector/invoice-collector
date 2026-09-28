@@ -32,6 +32,9 @@ export class Uk2numbersCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Uk2numbersCollector class.
+     */
     constructor() {
         super(Uk2numbersCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class DpdFrCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DpdFrCollector class.
+     */
     constructor() {
         super(DpdFrCollector.CONFIG);
     }

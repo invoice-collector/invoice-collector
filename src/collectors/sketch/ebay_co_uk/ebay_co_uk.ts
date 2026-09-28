@@ -32,6 +32,9 @@ export class EbayCoUkCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EbayCoUkCollector class.
+     */
     constructor() {
         super(EbayCoUkCollector.CONFIG);
     }

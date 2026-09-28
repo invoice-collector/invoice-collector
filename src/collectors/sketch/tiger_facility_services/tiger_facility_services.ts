@@ -32,6 +32,9 @@ export class TigerFacilityServicesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TigerFacilityServicesCollector class.
+     */
     constructor() {
         super(TigerFacilityServicesCollector.CONFIG);
     }

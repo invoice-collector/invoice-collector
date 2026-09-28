@@ -32,6 +32,9 @@ export class HogastAtCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HogastAtCollector class.
+     */
     constructor() {
         super(HogastAtCollector.CONFIG);
     }

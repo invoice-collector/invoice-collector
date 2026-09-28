@@ -32,6 +32,9 @@ export class LinkbirdDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LinkbirdDeCollector class.
+     */
     constructor() {
         super(LinkbirdDeCollector.CONFIG);
     }

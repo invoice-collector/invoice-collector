@@ -32,6 +32,9 @@ export class BereikIoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BereikIoCollector class.
+     */
     constructor() {
         super(BereikIoCollector.CONFIG);
     }

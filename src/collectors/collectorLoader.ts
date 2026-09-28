@@ -9,6 +9,11 @@ export class CollectorLoader {
     private static collectors: Map<string, {config: Config, file: string}> = new Map();
     private static vmContext = vm.createContext(Object.create(null));
 
+    /**
+     * Loads all collectors matching the specified filter.
+     * @param filter The filter to apply when loading collectors. If `null`, all collectors are loaded.
+     * @returns A map of collector IDs to their corresponding configuration and file path.
+     */
     static async load(filter: string | null = null): Promise<Map<string, {config: Config, file: string}>> {
         await this.loadFolders('sketch', 'sketch', filter);
         await this.loadFolders('community', 'community', filter);
@@ -25,6 +30,12 @@ export class CollectorLoader {
         return CollectorLoader.collectors;
     }
 
+    /**
+     * Loads all collector files from the specified folder that match the given filter.
+     * @param name The name of the collector category (e.g., 'sketch', 'community').
+     * @param folder The folder path where the collector files are located.
+     * @param filter The filter to apply when loading collector files. If `null`, all files are loaded.
+     */
     private static async loadFolders(name: string, folder: string, filter: string | null) {
         const strPattern = filter ? `./${folder}/**/${filter}.ts` : `./${folder}/**/*.ts`;
         const pattern = path.join(__dirname, strPattern)
@@ -45,7 +56,7 @@ export class CollectorLoader {
                     // Read the file content
                     const content = fs.readFileSync(file, 'utf8');
 
-                    const configMatch = content.match(/CONFIG\s*=\s*({[\s\S]*?});?\s*constructor/);
+                    const configMatch = content.match(/CONFIG\s*=\s*({[\s\S]*?});?\s*(?:\/\*\*[\s\S]*?\*\/\s*)?constructor/);
                     if (configMatch) {
                         try {
                             let configStr = configMatch[1];
@@ -101,6 +112,10 @@ export class CollectorLoader {
         });
     }
 
+    /**
+     * Retrieves all collector configurations.
+     * @returns An array of all collector configurations.
+     */
     public static async getAll(): Promise<Config[]> {
         //Check if collectors are loaded
         if (CollectorLoader.collectors.size === 0) {
@@ -110,6 +125,11 @@ export class CollectorLoader {
         return Array.from(CollectorLoader.collectors.values()).map((collector) => collector.config);
     }
 
+    /**
+     * Retrieves the configuration for a specific collector by its ID.
+     * @param id The ID of the collector to retrieve the configuration for.
+     * @returns The configuration object for the specified collector.
+     */
     public static async getConfig(id: string): Promise<Config> {
         //Check if collectors are loaded
         if (CollectorLoader.collectors.size === 0) {
@@ -122,6 +142,11 @@ export class CollectorLoader {
         return collector.config;
     }
 
+    /**
+     * Retrieves an instance of a specific collector by its ID.
+     * @param id The ID of the collector to retrieve.
+     * @returns An instance of the specified collector.
+     */
     public static async get(id: string): Promise<AbstractCollector<Config>> {
         //Check if collectors are loaded
         if (CollectorLoader.collectors.size === 0) {

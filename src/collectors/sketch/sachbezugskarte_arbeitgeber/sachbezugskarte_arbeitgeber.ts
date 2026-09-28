@@ -32,6 +32,9 @@ export class SachbezugskarteArbeitgeberCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SachbezugskarteArbeitgeberCollector class.
+     */
     constructor() {
         super(SachbezugskarteArbeitgeberCollector.CONFIG);
     }

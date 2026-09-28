@@ -32,6 +32,9 @@ export class TeamretroCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TeamretroCollector class.
+     */
     constructor() {
         super(TeamretroCollector.CONFIG);
     }

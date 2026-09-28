@@ -32,6 +32,9 @@ export class SapForMeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SapForMeCollector class.
+     */
     constructor() {
         super(SapForMeCollector.CONFIG);
     }

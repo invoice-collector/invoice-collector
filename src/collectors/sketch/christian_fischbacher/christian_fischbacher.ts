@@ -31,6 +31,9 @@ export class ChristianFischbacherCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ChristianFischbacherCollector class.
+     */
     constructor() {
         super(ChristianFischbacherCollector.CONFIG);
     }

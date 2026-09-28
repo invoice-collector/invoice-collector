@@ -32,6 +32,9 @@ export class SpringwiseCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SpringwiseCollector class.
+     */
     constructor() {
         super(SpringwiseCollector.CONFIG);
     }

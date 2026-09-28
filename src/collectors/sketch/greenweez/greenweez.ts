@@ -32,6 +32,9 @@ export class GreenweezCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GreenweezCollector class.
+     */
     constructor() {
         super(GreenweezCollector.CONFIG);
     }

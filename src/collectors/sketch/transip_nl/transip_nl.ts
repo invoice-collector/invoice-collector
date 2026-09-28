@@ -32,6 +32,9 @@ export class TransipNlCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TransipNlCollector class.
+     */
     constructor() {
         super(TransipNlCollector.CONFIG);
     }

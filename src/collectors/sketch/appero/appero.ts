@@ -32,6 +32,9 @@ export class ApperoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ApperoCollector class.
+     */
     constructor() {
         super(ApperoCollector.CONFIG);
     }

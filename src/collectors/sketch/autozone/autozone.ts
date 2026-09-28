@@ -32,6 +32,9 @@ export class AutozoneCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AutozoneCollector class.
+     */
     constructor() {
         super(AutozoneCollector.CONFIG);
     }

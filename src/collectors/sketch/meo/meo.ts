@@ -32,6 +32,9 @@ export class MeoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MeoCollector class.
+     */
     constructor() {
         super(MeoCollector.CONFIG);
     }

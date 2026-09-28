@@ -32,6 +32,9 @@ export class MeetupCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MeetupCollector class.
+     */
     constructor() {
         super(MeetupCollector.CONFIG);
     }

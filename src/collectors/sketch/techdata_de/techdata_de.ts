@@ -32,6 +32,9 @@ export class TechdataDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TechdataDeCollector class.
+     */
     constructor() {
         super(TechdataDeCollector.CONFIG);
     }

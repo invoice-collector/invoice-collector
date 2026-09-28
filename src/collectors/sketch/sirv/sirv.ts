@@ -32,6 +32,9 @@ export class SirvCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SirvCollector class.
+     */
     constructor() {
         super(SirvCollector.CONFIG);
     }

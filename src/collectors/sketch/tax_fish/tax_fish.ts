@@ -32,6 +32,9 @@ export class TaxFishCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TaxFishCollector class.
+     */
     constructor() {
         super(TaxFishCollector.CONFIG);
     }

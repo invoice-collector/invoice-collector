@@ -32,6 +32,9 @@ export class PacketstreamCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PacketstreamCollector class.
+     */
     constructor() {
         super(PacketstreamCollector.CONFIG);
     }

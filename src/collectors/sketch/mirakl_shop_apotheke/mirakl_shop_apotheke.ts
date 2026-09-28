@@ -32,6 +32,9 @@ export class MiraklShopApothekeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MiraklShopApothekeCollector class.
+     */
     constructor() {
         super(MiraklShopApothekeCollector.CONFIG);
     }

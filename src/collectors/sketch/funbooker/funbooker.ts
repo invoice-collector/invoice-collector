@@ -32,6 +32,9 @@ export class FunbookerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FunbookerCollector class.
+     */
     constructor() {
         super(FunbookerCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class OwntagCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OwntagCollector class.
+     */
     constructor() {
         super(OwntagCollector.CONFIG);
     }

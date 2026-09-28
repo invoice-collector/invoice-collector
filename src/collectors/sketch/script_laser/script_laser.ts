@@ -32,6 +32,9 @@ export class ScriptLaserCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ScriptLaserCollector class.
+     */
     constructor() {
         super(ScriptLaserCollector.CONFIG);
     }

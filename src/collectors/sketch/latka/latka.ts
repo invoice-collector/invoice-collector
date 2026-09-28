@@ -32,6 +32,9 @@ export class LatkaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LatkaCollector class.
+     */
     constructor() {
         super(LatkaCollector.CONFIG);
     }

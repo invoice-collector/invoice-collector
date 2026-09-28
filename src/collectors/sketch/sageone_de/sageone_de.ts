@@ -32,6 +32,9 @@ export class SageoneDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SageoneDeCollector class.
+     */
     constructor() {
         super(SageoneDeCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class StlTonesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StlTonesCollector class.
+     */
     constructor() {
         super(StlTonesCollector.CONFIG);
     }

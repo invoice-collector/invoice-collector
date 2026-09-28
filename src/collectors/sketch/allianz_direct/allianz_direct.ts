@@ -32,6 +32,9 @@ export class AllianzDirectCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AllianzDirectCollector class.
+     */
     constructor() {
         super(AllianzDirectCollector.CONFIG);
     }

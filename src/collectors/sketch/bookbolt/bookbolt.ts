@@ -32,6 +32,9 @@ export class BookboltCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BookboltCollector class.
+     */
     constructor() {
         super(BookboltCollector.CONFIG);
     }

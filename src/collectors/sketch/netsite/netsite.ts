@@ -32,6 +32,9 @@ export class NetsiteCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NetsiteCollector class.
+     */
     constructor() {
         super(NetsiteCollector.CONFIG);
     }

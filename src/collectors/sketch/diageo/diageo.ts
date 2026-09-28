@@ -32,6 +32,9 @@ export class DiageoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DiageoCollector class.
+     */
     constructor() {
         super(DiageoCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class EspressoSolutionsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EspressoSolutionsCollector class.
+     */
     constructor() {
         super(EspressoSolutionsCollector.CONFIG);
     }

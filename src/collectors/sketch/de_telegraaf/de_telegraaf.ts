@@ -32,6 +32,9 @@ export class DeTelegraafCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DeTelegraafCollector class.
+     */
     constructor() {
         super(DeTelegraafCollector.CONFIG);
     }

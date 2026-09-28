@@ -32,6 +32,9 @@ export class AmazonCoJpCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AmazonCoJpCollector class.
+     */
     constructor() {
         super(AmazonCoJpCollector.CONFIG);
     }

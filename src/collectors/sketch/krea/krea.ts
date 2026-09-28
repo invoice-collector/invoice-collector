@@ -32,6 +32,9 @@ export class KreaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KreaCollector class.
+     */
     constructor() {
         super(KreaCollector.CONFIG);
     }

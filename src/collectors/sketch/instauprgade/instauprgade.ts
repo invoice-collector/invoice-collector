@@ -32,6 +32,9 @@ export class InstauprgadeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the InstauprgadeCollector class.
+     */
     constructor() {
         super(InstauprgadeCollector.CONFIG);
     }

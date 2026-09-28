@@ -32,6 +32,9 @@ export class ContentstudioCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ContentstudioCollector class.
+     */
     constructor() {
         super(ContentstudioCollector.CONFIG);
     }

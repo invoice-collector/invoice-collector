@@ -32,6 +32,9 @@ export class VoluumComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VoluumComCollector class.
+     */
     constructor() {
         super(VoluumComCollector.CONFIG);
     }

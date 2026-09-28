@@ -32,6 +32,9 @@ export class LigneWebServicesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LigneWebServicesCollector class.
+     */
     constructor() {
         super(LigneWebServicesCollector.CONFIG);
     }

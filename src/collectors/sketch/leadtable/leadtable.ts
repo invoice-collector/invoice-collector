@@ -32,6 +32,9 @@ export class LeadtableCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LeadtableCollector class.
+     */
     constructor() {
         super(LeadtableCollector.CONFIG);
     }

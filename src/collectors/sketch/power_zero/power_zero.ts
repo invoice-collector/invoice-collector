@@ -32,6 +32,9 @@ export class PowerZeroCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PowerZeroCollector class.
+     */
     constructor() {
         super(PowerZeroCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class CraftnoteCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CraftnoteCollector class.
+     */
     constructor() {
         super(CraftnoteCollector.CONFIG);
     }

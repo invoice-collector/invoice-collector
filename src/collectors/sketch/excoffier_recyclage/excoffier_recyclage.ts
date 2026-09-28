@@ -32,6 +32,9 @@ export class ExcoffierRecyclageCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ExcoffierRecyclageCollector class.
+     */
     constructor() {
         super(ExcoffierRecyclageCollector.CONFIG);
     }

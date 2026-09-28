@@ -32,6 +32,9 @@ export class FreelancejuniorDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FreelancejuniorDeCollector class.
+     */
     constructor() {
         super(FreelancejuniorDeCollector.CONFIG);
     }

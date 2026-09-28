@@ -32,6 +32,9 @@ export class LocalizeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LocalizeCollector class.
+     */
     constructor() {
         super(LocalizeCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class TechnischeWerkeLudwigshafenCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TechnischeWerkeLudwigshafenCollector class.
+     */
     constructor() {
         super(TechnischeWerkeLudwigshafenCollector.CONFIG);
     }

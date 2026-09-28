@@ -32,6 +32,9 @@ export class TestdomeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TestdomeCollector class.
+     */
     constructor() {
         super(TestdomeCollector.CONFIG);
     }

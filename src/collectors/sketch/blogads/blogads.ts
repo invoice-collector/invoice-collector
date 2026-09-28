@@ -32,6 +32,9 @@ export class BlogadsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BlogadsCollector class.
+     */
     constructor() {
         super(BlogadsCollector.CONFIG);
     }

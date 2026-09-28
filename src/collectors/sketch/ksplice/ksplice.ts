@@ -32,6 +32,9 @@ export class KspliceCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KspliceCollector class.
+     */
     constructor() {
         super(KspliceCollector.CONFIG);
     }

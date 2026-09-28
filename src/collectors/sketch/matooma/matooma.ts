@@ -32,6 +32,9 @@ export class MatoomaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MatoomaCollector class.
+     */
     constructor() {
         super(MatoomaCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class DomomatCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DomomatCollector class.
+     */
     constructor() {
         super(DomomatCollector.CONFIG);
     }

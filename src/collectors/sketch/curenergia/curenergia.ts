@@ -32,6 +32,9 @@ export class CurenergiaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CurenergiaCollector class.
+     */
     constructor() {
         super(CurenergiaCollector.CONFIG);
     }

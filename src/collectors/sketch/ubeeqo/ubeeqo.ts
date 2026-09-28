@@ -32,6 +32,9 @@ export class UbeeqoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the UbeeqoCollector class.
+     */
     constructor() {
         super(UbeeqoCollector.CONFIG);
     }

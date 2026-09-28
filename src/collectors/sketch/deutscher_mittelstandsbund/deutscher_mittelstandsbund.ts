@@ -32,6 +32,9 @@ export class DeutscherMittelstandsbundCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DeutscherMittelstandsbundCollector class.
+     */
     constructor() {
         super(DeutscherMittelstandsbundCollector.CONFIG);
     }

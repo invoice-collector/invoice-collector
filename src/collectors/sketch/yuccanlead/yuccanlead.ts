@@ -32,6 +32,9 @@ export class YuccanleadCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the YuccanleadCollector class.
+     */
     constructor() {
         super(YuccanleadCollector.CONFIG);
     }

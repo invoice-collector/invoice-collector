@@ -32,6 +32,9 @@ export class OnetrustCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OnetrustCollector class.
+     */
     constructor() {
         super(OnetrustCollector.CONFIG);
     }

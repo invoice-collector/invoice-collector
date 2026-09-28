@@ -32,6 +32,9 @@ export class VeoliaEeaDeToulouseCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VeoliaEeaDeToulouseCollector class.
+     */
     constructor() {
         super(VeoliaEeaDeToulouseCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class CovetrusCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CovetrusCollector class.
+     */
     constructor() {
         super(CovetrusCollector.CONFIG);
     }

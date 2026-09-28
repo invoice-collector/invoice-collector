@@ -32,6 +32,9 @@ export class AutoserviceComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AutoserviceComCollector class.
+     */
     constructor() {
         super(AutoserviceComCollector.CONFIG);
     }

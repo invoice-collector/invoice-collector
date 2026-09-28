@@ -32,6 +32,9 @@ export class BeamerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BeamerCollector class.
+     */
     constructor() {
         super(BeamerCollector.CONFIG);
     }

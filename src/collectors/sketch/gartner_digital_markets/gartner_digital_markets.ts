@@ -32,6 +32,9 @@ export class GartnerDigitalMarketsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GartnerDigitalMarketsCollector class.
+     */
     constructor() {
         super(GartnerDigitalMarketsCollector.CONFIG);
     }

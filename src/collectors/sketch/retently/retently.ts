@@ -32,6 +32,9 @@ export class RetentlyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RetentlyCollector class.
+     */
     constructor() {
         super(RetentlyCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class SimplesellCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SimplesellCollector class.
+     */
     constructor() {
         super(SimplesellCollector.CONFIG);
     }

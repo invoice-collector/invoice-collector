@@ -32,6 +32,9 @@ export class TechdataUkCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TechdataUkCollector class.
+     */
     constructor() {
         super(TechdataUkCollector.CONFIG);
     }

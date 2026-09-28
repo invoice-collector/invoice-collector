@@ -32,6 +32,9 @@ export class SharpspringCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SharpspringCollector class.
+     */
     constructor() {
         super(SharpspringCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class KfwKreditanstaltFurWiederaufbauCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KfwKreditanstaltFurWiederaufbauCollector class.
+     */
     constructor() {
         super(KfwKreditanstaltFurWiederaufbauCollector.CONFIG);
     }

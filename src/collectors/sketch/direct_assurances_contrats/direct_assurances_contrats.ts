@@ -32,6 +32,9 @@ export class DirectAssurancesContratsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DirectAssurancesContratsCollector class.
+     */
     constructor() {
         super(DirectAssurancesContratsCollector.CONFIG);
     }

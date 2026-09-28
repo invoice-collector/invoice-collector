@@ -32,6 +32,9 @@ export class StephanoiseDesEauxCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StephanoiseDesEauxCollector class.
+     */
     constructor() {
         super(StephanoiseDesEauxCollector.CONFIG);
     }

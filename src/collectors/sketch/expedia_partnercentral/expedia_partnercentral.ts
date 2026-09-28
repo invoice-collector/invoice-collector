@@ -32,6 +32,9 @@ export class ExpediaPartnercentralCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ExpediaPartnercentralCollector class.
+     */
     constructor() {
         super(ExpediaPartnercentralCollector.CONFIG);
     }

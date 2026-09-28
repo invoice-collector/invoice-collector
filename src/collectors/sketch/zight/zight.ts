@@ -32,6 +32,9 @@ export class ZightCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ZightCollector class.
+     */
     constructor() {
         super(ZightCollector.CONFIG);
     }

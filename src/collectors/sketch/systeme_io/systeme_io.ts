@@ -32,6 +32,9 @@ export class SystemeIoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SystemeIoCollector class.
+     */
     constructor() {
         super(SystemeIoCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class GeschaftskundenDeutscheTelekomMobilCollector extends SketchCollecto
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GeschaftskundenDeutscheTelekomMobilCollector class.
+     */
     constructor() {
         super(GeschaftskundenDeutscheTelekomMobilCollector.CONFIG);
     }

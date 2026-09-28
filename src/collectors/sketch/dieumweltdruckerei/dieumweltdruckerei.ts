@@ -32,6 +32,9 @@ export class DieumweltdruckereiCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DieumweltdruckereiCollector class.
+     */
     constructor() {
         super(DieumweltdruckereiCollector.CONFIG);
     }

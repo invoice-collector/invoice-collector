@@ -32,6 +32,9 @@ export class CompagnieParisienneDeChauffageUrbainCpcuCollector extends SketchCol
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CompagnieParisienneDeChauffageUrbainCpcuCollector class.
+     */
     constructor() {
         super(CompagnieParisienneDeChauffageUrbainCpcuCollector.CONFIG);
     }

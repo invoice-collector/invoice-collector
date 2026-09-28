@@ -32,6 +32,9 @@ export class MxToolboxCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MxToolboxCollector class.
+     */
     constructor() {
         super(MxToolboxCollector.CONFIG);
     }

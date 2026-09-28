@@ -32,6 +32,9 @@ export class PinwheelCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PinwheelCollector class.
+     */
     constructor() {
         super(PinwheelCollector.CONFIG);
     }

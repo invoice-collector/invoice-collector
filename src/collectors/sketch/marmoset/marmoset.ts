@@ -32,6 +32,9 @@ export class MarmosetCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MarmosetCollector class.
+     */
     constructor() {
         super(MarmosetCollector.CONFIG);
     }

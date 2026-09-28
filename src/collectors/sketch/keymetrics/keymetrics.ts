@@ -32,6 +32,9 @@ export class KeymetricsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KeymetricsCollector class.
+     */
     constructor() {
         super(KeymetricsCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class ManagementboekCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ManagementboekCollector class.
+     */
     constructor() {
         super(ManagementboekCollector.CONFIG);
     }

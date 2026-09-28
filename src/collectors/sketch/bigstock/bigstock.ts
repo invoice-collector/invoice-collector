@@ -32,6 +32,9 @@ export class BigstockCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BigstockCollector class.
+     */
     constructor() {
         super(BigstockCollector.CONFIG);
     }

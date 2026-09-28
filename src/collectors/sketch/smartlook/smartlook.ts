@@ -32,6 +32,9 @@ export class SmartlookCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SmartlookCollector class.
+     */
     constructor() {
         super(SmartlookCollector.CONFIG);
     }

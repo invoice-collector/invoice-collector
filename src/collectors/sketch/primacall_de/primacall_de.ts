@@ -32,6 +32,9 @@ export class PrimacallDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PrimacallDeCollector class.
+     */
     constructor() {
         super(PrimacallDeCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class HpaAssuranceCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HpaAssuranceCollector class.
+     */
     constructor() {
         super(HpaAssuranceCollector.CONFIG);
     }

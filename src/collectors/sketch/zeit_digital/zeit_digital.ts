@@ -32,6 +32,9 @@ export class ZeitDigitalCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ZeitDigitalCollector class.
+     */
     constructor() {
         super(ZeitDigitalCollector.CONFIG);
     }

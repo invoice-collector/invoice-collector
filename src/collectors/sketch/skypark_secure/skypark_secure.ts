@@ -32,6 +32,9 @@ export class SkyparkSecureCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SkyparkSecureCollector class.
+     */
     constructor() {
         super(SkyparkSecureCollector.CONFIG);
     }

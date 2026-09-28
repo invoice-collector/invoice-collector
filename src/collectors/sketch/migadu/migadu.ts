@@ -32,6 +32,9 @@ export class MigaduCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MigaduCollector class.
+     */
     constructor() {
         super(MigaduCollector.CONFIG);
     }

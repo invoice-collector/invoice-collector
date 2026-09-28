@@ -32,6 +32,9 @@ export class SixPaymentServicesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SixPaymentServicesCollector class.
+     */
     constructor() {
         super(SixPaymentServicesCollector.CONFIG);
     }

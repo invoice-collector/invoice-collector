@@ -32,6 +32,9 @@ export class BarkCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BarkCollector class.
+     */
     constructor() {
         super(BarkCollector.CONFIG);
     }

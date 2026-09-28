@@ -39,15 +39,24 @@ export class OpenaiApiCollector extends OpenaiCommonCollector {
         state: CollectorState.ACTIVE,
     };
 
+    /**
+     * Constructs a new instance of the OpenaiApiCollector class.
+     */
     constructor() {
         super(OpenaiApiCollector.CONFIG);
     }
 
+    /**
+     * @inheritdoc
+     */
     async needLogin(driver: AbstractDriver): Promise<boolean> {
         return await driver.getElement(OpenaiSelectors.BUTTON_LOGIN_OR_OUPS, { raiseException: false, timeout: 5000 }) !== null ||
             driver.url().includes(this.config.loginUrl);
     }
 
+    /**
+     * @inheritdoc
+     */
     async navigate(driver: AbstractDriver): Promise<void> {
         // Wait for profile button
         await driver.getElement(OpenaiSelectors.BUTTON_PROFILE, { timeout: 5000 });
@@ -55,14 +64,23 @@ export class OpenaiApiCollector extends OpenaiCommonCollector {
         await driver.goto(this.config.entryUrl);
     }
 
+    /**
+     * @inheritdoc
+     */
     async isEmpty(driver: AbstractDriver): Promise<boolean> {
         return await driver.getElement(OpenaiSelectors.CONTAINER_NO_INVOICE, { raiseException: false, timeout: 5000 }) !== null;
     }
 
+    /**
+     * @inheritdoc
+     */
     async getInvoices(driver: AbstractDriver): Promise<Element[]> {
         return await driver.getElements(OpenaiSelectors.CONTAINER_INVOICE);
     }
 
+    /**
+     * @inheritdoc
+     */
     async data(driver: AbstractDriver, element: Element): Promise<Invoice | null> {
         // Get url before map
         const link = driver.url();

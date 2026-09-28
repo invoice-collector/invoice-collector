@@ -32,6 +32,9 @@ export class GeneraliEspaceEpargneCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GeneraliEspaceEpargneCollector class.
+     */
     constructor() {
         super(GeneraliEspaceEpargneCollector.CONFIG);
     }

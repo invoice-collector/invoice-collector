@@ -32,6 +32,9 @@ export class HubstaffCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HubstaffCollector class.
+     */
     constructor() {
         super(HubstaffCollector.CONFIG);
     }

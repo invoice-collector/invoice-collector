@@ -32,6 +32,9 @@ export class Connect365Collector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Connect365Collector class.
+     */
     constructor() {
         super(Connect365Collector.CONFIG);
     }

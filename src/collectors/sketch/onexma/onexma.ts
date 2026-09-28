@@ -32,6 +32,9 @@ export class OnexmaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OnexmaCollector class.
+     */
     constructor() {
         super(OnexmaCollector.CONFIG);
     }

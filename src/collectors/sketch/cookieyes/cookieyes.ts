@@ -32,6 +32,9 @@ export class CookieyesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CookieyesCollector class.
+     */
     constructor() {
         super(CookieyesCollector.CONFIG);
     }

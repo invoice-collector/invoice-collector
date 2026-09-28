@@ -32,6 +32,9 @@ export class HelixWaterDistrictCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HelixWaterDistrictCollector class.
+     */
     constructor() {
         super(HelixWaterDistrictCollector.CONFIG);
     }

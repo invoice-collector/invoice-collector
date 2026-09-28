@@ -32,6 +32,9 @@ export class ViewneoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ViewneoCollector class.
+     */
     constructor() {
         super(ViewneoCollector.CONFIG);
     }

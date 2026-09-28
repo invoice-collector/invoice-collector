@@ -32,6 +32,9 @@ export class ClearBusinessCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ClearBusinessCollector class.
+     */
     constructor() {
         super(ClearBusinessCollector.CONFIG);
     }

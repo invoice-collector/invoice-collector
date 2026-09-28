@@ -32,6 +32,9 @@ export class AndasaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AndasaCollector class.
+     */
     constructor() {
         super(AndasaCollector.CONFIG);
     }

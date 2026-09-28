@@ -32,6 +32,9 @@ export class NilDatabaseCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NilDatabaseCollector class.
+     */
     constructor() {
         super(NilDatabaseCollector.CONFIG);
     }

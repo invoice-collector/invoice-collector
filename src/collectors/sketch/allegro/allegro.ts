@@ -32,6 +32,9 @@ export class AllegroCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AllegroCollector class.
+     */
     constructor() {
         super(AllegroCollector.CONFIG);
     }

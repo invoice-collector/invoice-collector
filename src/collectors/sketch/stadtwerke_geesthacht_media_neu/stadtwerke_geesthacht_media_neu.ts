@@ -32,6 +32,9 @@ export class StadtwerkeGeesthachtMediaNeuCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StadtwerkeGeesthachtMediaNeuCollector class.
+     */
     constructor() {
         super(StadtwerkeGeesthachtMediaNeuCollector.CONFIG);
     }

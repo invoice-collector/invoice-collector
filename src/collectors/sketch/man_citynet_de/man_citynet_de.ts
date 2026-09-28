@@ -32,6 +32,9 @@ export class ManCitynetDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ManCitynetDeCollector class.
+     */
     constructor() {
         super(ManCitynetDeCollector.CONFIG);
     }

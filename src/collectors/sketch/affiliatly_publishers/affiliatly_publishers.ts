@@ -32,6 +32,9 @@ export class AffiliatlyPublishersCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AffiliatlyPublishersCollector class.
+     */
     constructor() {
         super(AffiliatlyPublishersCollector.CONFIG);
     }

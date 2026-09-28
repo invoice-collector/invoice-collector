@@ -32,6 +32,9 @@ export class TimebuzzerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TimebuzzerCollector class.
+     */
     constructor() {
         super(TimebuzzerCollector.CONFIG);
     }

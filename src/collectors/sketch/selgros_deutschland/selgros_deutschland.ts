@@ -32,6 +32,9 @@ export class SelgrosDeutschlandCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SelgrosDeutschlandCollector class.
+     */
     constructor() {
         super(SelgrosDeutschlandCollector.CONFIG);
     }

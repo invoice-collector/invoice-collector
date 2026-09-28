@@ -32,6 +32,9 @@ export class MutuelleDuSoleilEntrepriseCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MutuelleDuSoleilEntrepriseCollector class.
+     */
     constructor() {
         super(MutuelleDuSoleilEntrepriseCollector.CONFIG);
     }

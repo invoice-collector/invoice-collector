@@ -32,6 +32,9 @@ export class Check24MerchantCenterAutoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Check24MerchantCenterAutoCollector class.
+     */
     constructor() {
         super(Check24MerchantCenterAutoCollector.CONFIG);
     }

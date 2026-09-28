@@ -32,6 +32,9 @@ export class PerformanceHorizonGroupLtdGbCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PerformanceHorizonGroupLtdGbCollector class.
+     */
     constructor() {
         super(PerformanceHorizonGroupLtdGbCollector.CONFIG);
     }

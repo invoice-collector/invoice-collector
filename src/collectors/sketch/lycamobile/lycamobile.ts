@@ -32,6 +32,9 @@ export class LycamobileCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LycamobileCollector class.
+     */
     constructor() {
         super(LycamobileCollector.CONFIG);
     }

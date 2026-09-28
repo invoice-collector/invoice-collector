@@ -32,6 +32,9 @@ export class DasaugeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DasaugeCollector class.
+     */
     constructor() {
         super(DasaugeCollector.CONFIG);
     }

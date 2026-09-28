@@ -32,6 +32,9 @@ export class AdrollCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AdrollCollector class.
+     */
     constructor() {
         super(AdrollCollector.CONFIG);
     }

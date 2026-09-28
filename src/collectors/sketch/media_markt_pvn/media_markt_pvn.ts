@@ -32,6 +32,9 @@ export class MediaMarktPvnCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MediaMarktPvnCollector class.
+     */
     constructor() {
         super(MediaMarktPvnCollector.CONFIG);
     }

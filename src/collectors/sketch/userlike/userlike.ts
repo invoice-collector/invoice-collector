@@ -32,6 +32,9 @@ export class UserlikeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the UserlikeCollector class.
+     */
     constructor() {
         super(UserlikeCollector.CONFIG);
     }

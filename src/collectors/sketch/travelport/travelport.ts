@@ -32,6 +32,9 @@ export class TravelportCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TravelportCollector class.
+     */
     constructor() {
         super(TravelportCollector.CONFIG);
     }

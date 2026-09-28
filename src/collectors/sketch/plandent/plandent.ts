@@ -32,6 +32,9 @@ export class PlandentCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PlandentCollector class.
+     */
     constructor() {
         super(PlandentCollector.CONFIG);
     }

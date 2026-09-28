@@ -32,6 +32,9 @@ export class KiabiCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KiabiCollector class.
+     */
     constructor() {
         super(KiabiCollector.CONFIG);
     }

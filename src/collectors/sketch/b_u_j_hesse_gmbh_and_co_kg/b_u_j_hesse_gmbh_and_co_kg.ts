@@ -32,6 +32,9 @@ export class BUJHesseGmbhAndCoKgCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BUJHesseGmbhAndCoKgCollector class.
+     */
     constructor() {
         super(BUJHesseGmbhAndCoKgCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class FlinkCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FlinkCollector class.
+     */
     constructor() {
         super(FlinkCollector.CONFIG);
     }

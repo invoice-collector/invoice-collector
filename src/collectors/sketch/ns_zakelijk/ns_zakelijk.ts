@@ -32,6 +32,9 @@ export class NsZakelijkCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NsZakelijkCollector class.
+     */
     constructor() {
         super(NsZakelijkCollector.CONFIG);
     }

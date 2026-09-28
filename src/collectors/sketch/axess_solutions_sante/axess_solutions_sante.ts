@@ -32,6 +32,9 @@ export class AxessSolutionsSanteCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AxessSolutionsSanteCollector class.
+     */
     constructor() {
         super(AxessSolutionsSanteCollector.CONFIG);
     }

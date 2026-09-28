@@ -32,6 +32,9 @@ export class PrintmaticCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PrintmaticCollector class.
+     */
     constructor() {
         super(PrintmaticCollector.CONFIG);
     }

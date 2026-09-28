@@ -32,6 +32,9 @@ export class LobsterPlaceCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LobsterPlaceCollector class.
+     */
     constructor() {
         super(LobsterPlaceCollector.CONFIG);
     }

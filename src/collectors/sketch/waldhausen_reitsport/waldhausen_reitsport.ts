@@ -32,6 +32,9 @@ export class WaldhausenReitsportCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WaldhausenReitsportCollector class.
+     */
     constructor() {
         super(WaldhausenReitsportCollector.CONFIG);
     }

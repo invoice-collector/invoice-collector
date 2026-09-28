@@ -32,6 +32,9 @@ export class FontspringCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FontspringCollector class.
+     */
     constructor() {
         super(FontspringCollector.CONFIG);
     }

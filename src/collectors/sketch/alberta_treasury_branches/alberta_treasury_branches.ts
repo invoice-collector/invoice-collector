@@ -32,6 +32,9 @@ export class AlbertaTreasuryBranchesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AlbertaTreasuryBranchesCollector class.
+     */
     constructor() {
         super(AlbertaTreasuryBranchesCollector.CONFIG);
     }

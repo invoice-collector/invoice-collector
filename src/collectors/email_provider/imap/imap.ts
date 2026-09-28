@@ -62,6 +62,9 @@ export class ImapCollector extends EmailProvider {
         state: CollectorState.ACTIVE,
     };
 
+    /**
+     * Constructs a new instance of the ImapCollector class.
+     */
     constructor() {
         super(ImapCollector.CONFIG);
         this.client = null;

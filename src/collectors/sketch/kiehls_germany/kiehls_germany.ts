@@ -32,6 +32,9 @@ export class KiehlsGermanyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KiehlsGermanyCollector class.
+     */
     constructor() {
         super(KiehlsGermanyCollector.CONFIG);
     }

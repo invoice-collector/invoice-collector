@@ -32,6 +32,9 @@ export class LOrealParisCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LOrealParisCollector class.
+     */
     constructor() {
         super(LOrealParisCollector.CONFIG);
     }

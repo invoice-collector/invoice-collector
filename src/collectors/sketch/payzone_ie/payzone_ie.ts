@@ -32,6 +32,9 @@ export class PayzoneIeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PayzoneIeCollector class.
+     */
     constructor() {
         super(PayzoneIeCollector.CONFIG);
     }

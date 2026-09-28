@@ -32,6 +32,9 @@ export class IpDirectionsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the IpDirectionsCollector class.
+     */
     constructor() {
         super(IpDirectionsCollector.CONFIG);
     }

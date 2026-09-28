@@ -32,6 +32,9 @@ export class EFumeurCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EFumeurCollector class.
+     */
     constructor() {
         super(EFumeurCollector.CONFIG);
     }

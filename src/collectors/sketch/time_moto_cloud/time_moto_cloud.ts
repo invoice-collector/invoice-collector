@@ -32,6 +32,9 @@ export class TimeMotoCloudCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TimeMotoCloudCollector class.
+     */
     constructor() {
         super(TimeMotoCloudCollector.CONFIG);
     }

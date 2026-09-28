@@ -31,6 +31,9 @@ export class MaterielChrProCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MaterielChrProCollector class.
+     */
     constructor() {
         super(MaterielChrProCollector.CONFIG);
     }

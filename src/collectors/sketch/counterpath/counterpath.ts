@@ -32,6 +32,9 @@ export class CounterpathCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CounterpathCollector class.
+     */
     constructor() {
         super(CounterpathCollector.CONFIG);
     }

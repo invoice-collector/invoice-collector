@@ -32,6 +32,9 @@ export class CouponCarrierCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CouponCarrierCollector class.
+     */
     constructor() {
         super(CouponCarrierCollector.CONFIG);
     }

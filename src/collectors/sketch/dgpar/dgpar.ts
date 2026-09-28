@@ -32,6 +32,9 @@ export class DgparCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DgparCollector class.
+     */
     constructor() {
         super(DgparCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class GanttifyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GanttifyCollector class.
+     */
     constructor() {
         super(GanttifyCollector.CONFIG);
     }

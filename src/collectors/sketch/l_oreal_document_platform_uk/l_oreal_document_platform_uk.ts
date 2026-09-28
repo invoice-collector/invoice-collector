@@ -32,6 +32,9 @@ export class LOrealDocumentPlatformUkCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LOrealDocumentPlatformUkCollector class.
+     */
     constructor() {
         super(LOrealDocumentPlatformUkCollector.CONFIG);
     }

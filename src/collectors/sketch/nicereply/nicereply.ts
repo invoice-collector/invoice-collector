@@ -32,6 +32,9 @@ export class NicereplyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NicereplyCollector class.
+     */
     constructor() {
         super(NicereplyCollector.CONFIG);
     }

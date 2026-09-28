@@ -32,6 +32,9 @@ export class WannafindDkCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WannafindDkCollector class.
+     */
     constructor() {
         super(WannafindDkCollector.CONFIG);
     }

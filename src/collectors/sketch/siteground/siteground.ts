@@ -32,6 +32,9 @@ export class SitegroundCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SitegroundCollector class.
+     */
     constructor() {
         super(SitegroundCollector.CONFIG);
     }

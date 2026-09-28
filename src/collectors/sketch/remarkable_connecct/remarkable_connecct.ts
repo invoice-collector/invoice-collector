@@ -32,6 +32,9 @@ export class RemarkableConnecctCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RemarkableConnecctCollector class.
+     */
     constructor() {
         super(RemarkableConnecctCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class SutraCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SutraCollector class.
+     */
     constructor() {
         super(SutraCollector.CONFIG);
     }

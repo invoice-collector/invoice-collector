@@ -32,6 +32,9 @@ export class AcosolCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AcosolCollector class.
+     */
     constructor() {
         super(AcosolCollector.CONFIG);
     }

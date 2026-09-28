@@ -32,6 +32,9 @@ export class EcovadisCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EcovadisCollector class.
+     */
     constructor() {
         super(EcovadisCollector.CONFIG);
     }

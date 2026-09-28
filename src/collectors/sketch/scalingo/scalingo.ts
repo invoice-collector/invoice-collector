@@ -32,6 +32,9 @@ export class ScalingoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ScalingoCollector class.
+     */
     constructor() {
         super(ScalingoCollector.CONFIG);
     }

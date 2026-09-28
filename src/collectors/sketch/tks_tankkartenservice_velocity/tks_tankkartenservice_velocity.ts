@@ -32,6 +32,9 @@ export class TksTankkartenserviceVelocityCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TksTankkartenserviceVelocityCollector class.
+     */
     constructor() {
         super(TksTankkartenserviceVelocityCollector.CONFIG);
     }

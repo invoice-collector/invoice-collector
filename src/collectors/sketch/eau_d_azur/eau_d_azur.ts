@@ -32,6 +32,9 @@ export class EauDAzurCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EauDAzurCollector class.
+     */
     constructor() {
         super(EauDAzurCollector.CONFIG);
     }

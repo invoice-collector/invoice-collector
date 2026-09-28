@@ -32,6 +32,9 @@ export class HeliNetCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HeliNetCollector class.
+     */
     constructor() {
         super(HeliNetCollector.CONFIG);
     }

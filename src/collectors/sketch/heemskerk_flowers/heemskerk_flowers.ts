@@ -32,6 +32,9 @@ export class HeemskerkFlowersCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HeemskerkFlowersCollector class.
+     */
     constructor() {
         super(HeemskerkFlowersCollector.CONFIG);
     }

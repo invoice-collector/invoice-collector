@@ -32,6 +32,9 @@ export class PoweoFrCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PoweoFrCollector class.
+     */
     constructor() {
         super(PoweoFrCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class EmiratesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EmiratesCollector class.
+     */
     constructor() {
         super(EmiratesCollector.CONFIG);
     }

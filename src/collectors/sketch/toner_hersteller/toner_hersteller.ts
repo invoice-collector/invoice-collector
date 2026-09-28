@@ -32,6 +32,9 @@ export class TonerHerstellerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TonerHerstellerCollector class.
+     */
     constructor() {
         super(TonerHerstellerCollector.CONFIG);
     }

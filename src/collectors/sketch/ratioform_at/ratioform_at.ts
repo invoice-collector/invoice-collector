@@ -32,6 +32,9 @@ export class RatioformAtCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RatioformAtCollector class.
+     */
     constructor() {
         super(RatioformAtCollector.CONFIG);
     }

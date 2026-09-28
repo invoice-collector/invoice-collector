@@ -32,6 +32,9 @@ export class GuruKnowledgeManagementCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GuruKnowledgeManagementCollector class.
+     */
     constructor() {
         super(GuruKnowledgeManagementCollector.CONFIG);
     }

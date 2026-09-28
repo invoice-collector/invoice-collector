@@ -32,6 +32,9 @@ export class WaternetCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WaternetCollector class.
+     */
     constructor() {
         super(WaternetCollector.CONFIG);
     }

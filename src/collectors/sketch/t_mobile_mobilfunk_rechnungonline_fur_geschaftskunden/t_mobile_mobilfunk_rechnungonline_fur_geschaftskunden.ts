@@ -32,6 +32,9 @@ export class TMobileMobilfunkRechnungonlineFurGeschaftskundenCollector extends S
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TMobileMobilfunkRechnungonlineFurGeschaftskundenCollector class.
+     */
     constructor() {
         super(TMobileMobilfunkRechnungonlineFurGeschaftskundenCollector.CONFIG);
     }

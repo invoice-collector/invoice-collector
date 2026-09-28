@@ -32,6 +32,9 @@ export class TrackPodCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TrackPodCollector class.
+     */
     constructor() {
         super(TrackPodCollector.CONFIG);
     }

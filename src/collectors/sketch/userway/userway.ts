@@ -32,6 +32,9 @@ export class UserwayCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the UserwayCollector class.
+     */
     constructor() {
         super(UserwayCollector.CONFIG);
     }

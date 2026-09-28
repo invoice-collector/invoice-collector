@@ -32,6 +32,9 @@ export class EasyspaceCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EasyspaceCollector class.
+     */
     constructor() {
         super(EasyspaceCollector.CONFIG);
     }

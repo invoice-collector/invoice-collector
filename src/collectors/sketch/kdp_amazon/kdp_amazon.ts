@@ -32,6 +32,9 @@ export class KdpAmazonCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KdpAmazonCollector class.
+     */
     constructor() {
         super(KdpAmazonCollector.CONFIG);
     }

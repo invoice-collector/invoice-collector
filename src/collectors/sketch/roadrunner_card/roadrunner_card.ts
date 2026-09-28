@@ -32,6 +32,9 @@ export class RoadrunnerCardCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RoadrunnerCardCollector class.
+     */
     constructor() {
         super(RoadrunnerCardCollector.CONFIG);
     }

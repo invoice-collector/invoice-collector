@@ -32,6 +32,9 @@ export class LandalGreenparksEigentumerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LandalGreenparksEigentumerCollector class.
+     */
     constructor() {
         super(LandalGreenparksEigentumerCollector.CONFIG);
     }

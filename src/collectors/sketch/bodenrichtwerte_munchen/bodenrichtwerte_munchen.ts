@@ -32,6 +32,9 @@ export class BodenrichtwerteMunchenCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BodenrichtwerteMunchenCollector class.
+     */
     constructor() {
         super(BodenrichtwerteMunchenCollector.CONFIG);
     }

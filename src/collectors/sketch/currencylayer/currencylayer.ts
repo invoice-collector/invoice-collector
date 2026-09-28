@@ -32,6 +32,9 @@ export class CurrencylayerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CurrencylayerCollector class.
+     */
     constructor() {
         super(CurrencylayerCollector.CONFIG);
     }

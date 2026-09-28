@@ -32,6 +32,9 @@ export class ZinewayCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ZinewayCollector class.
+     */
     constructor() {
         super(ZinewayCollector.CONFIG);
     }

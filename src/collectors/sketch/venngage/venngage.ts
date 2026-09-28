@@ -32,6 +32,9 @@ export class VenngageCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VenngageCollector class.
+     */
     constructor() {
         super(VenngageCollector.CONFIG);
     }

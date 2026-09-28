@@ -32,6 +32,9 @@ export class OteloCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OteloCollector class.
+     */
     constructor() {
         super(OteloCollector.CONFIG);
     }

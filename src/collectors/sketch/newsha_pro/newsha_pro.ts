@@ -32,6 +32,9 @@ export class NewshaProCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NewshaProCollector class.
+     */
     constructor() {
         super(NewshaProCollector.CONFIG);
     }

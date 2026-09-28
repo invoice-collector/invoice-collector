@@ -32,6 +32,9 @@ export class MonduCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MonduCollector class.
+     */
     constructor() {
         super(MonduCollector.CONFIG);
     }

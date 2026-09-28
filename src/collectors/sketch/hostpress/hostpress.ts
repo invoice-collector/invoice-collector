@@ -32,6 +32,9 @@ export class HostpressCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HostpressCollector class.
+     */
     constructor() {
         super(HostpressCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class Neo4jCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Neo4jCollector class.
+     */
     constructor() {
         super(Neo4jCollector.CONFIG);
     }

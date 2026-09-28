@@ -32,6 +32,9 @@ export class PageMagazinCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PageMagazinCollector class.
+     */
     constructor() {
         super(PageMagazinCollector.CONFIG);
     }

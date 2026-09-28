@@ -32,6 +32,9 @@ export class ProfiOnlineCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ProfiOnlineCollector class.
+     */
     constructor() {
         super(ProfiOnlineCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class SellerfoxCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SellerfoxCollector class.
+     */
     constructor() {
         super(SellerfoxCollector.CONFIG);
     }

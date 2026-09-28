@@ -32,6 +32,9 @@ export class WoothemesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WoothemesCollector class.
+     */
     constructor() {
         super(WoothemesCollector.CONFIG);
     }

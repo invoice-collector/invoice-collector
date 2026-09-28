@@ -32,6 +32,9 @@ export class PremiumbeatCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PremiumbeatCollector class.
+     */
     constructor() {
         super(PremiumbeatCollector.CONFIG);
     }

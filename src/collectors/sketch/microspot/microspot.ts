@@ -32,6 +32,9 @@ export class MicrospotCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MicrospotCollector class.
+     */
     constructor() {
         super(MicrospotCollector.CONFIG);
     }

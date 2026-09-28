@@ -32,6 +32,9 @@ export class RideGmbhUberStripeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RideGmbhUberStripeCollector class.
+     */
     constructor() {
         super(RideGmbhUberStripeCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class ReifenGundlachGmbhCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ReifenGundlachGmbhCollector class.
+     */
     constructor() {
         super(ReifenGundlachGmbhCollector.CONFIG);
     }

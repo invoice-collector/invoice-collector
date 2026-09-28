@@ -32,6 +32,9 @@ export class MoqupsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MoqupsCollector class.
+     */
     constructor() {
         super(MoqupsCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class LaBonnePointureCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LaBonnePointureCollector class.
+     */
     constructor() {
         super(LaBonnePointureCollector.CONFIG);
     }

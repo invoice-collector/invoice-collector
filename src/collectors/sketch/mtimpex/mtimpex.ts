@@ -32,6 +32,9 @@ export class MtimpexCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MtimpexCollector class.
+     */
     constructor() {
         super(MtimpexCollector.CONFIG);
     }

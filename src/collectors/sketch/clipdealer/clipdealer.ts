@@ -32,6 +32,9 @@ export class ClipdealerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ClipdealerCollector class.
+     */
     constructor() {
         super(ClipdealerCollector.CONFIG);
     }

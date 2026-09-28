@@ -32,6 +32,9 @@ export class PlootoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PlootoCollector class.
+     */
     constructor() {
         super(PlootoCollector.CONFIG);
     }

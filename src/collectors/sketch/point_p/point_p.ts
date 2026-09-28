@@ -32,6 +32,9 @@ export class PointPCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PointPCollector class.
+     */
     constructor() {
         super(PointPCollector.CONFIG);
     }

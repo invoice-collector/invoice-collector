@@ -32,6 +32,9 @@ export class AssonaPartnerportalCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AssonaPartnerportalCollector class.
+     */
     constructor() {
         super(AssonaPartnerportalCollector.CONFIG);
     }

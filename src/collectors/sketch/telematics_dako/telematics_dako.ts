@@ -32,6 +32,9 @@ export class TelematicsDakoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TelematicsDakoCollector class.
+     */
     constructor() {
         super(TelematicsDakoCollector.CONFIG);
     }

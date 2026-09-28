@@ -32,6 +32,9 @@ export class StadtwerkeBarmstedtCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StadtwerkeBarmstedtCollector class.
+     */
     constructor() {
         super(StadtwerkeBarmstedtCollector.CONFIG);
     }

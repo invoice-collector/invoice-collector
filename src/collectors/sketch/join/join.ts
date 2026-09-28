@@ -32,6 +32,9 @@ export class JoinCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the JoinCollector class.
+     */
     constructor() {
         super(JoinCollector.CONFIG);
     }

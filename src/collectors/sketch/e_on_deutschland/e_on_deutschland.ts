@@ -32,6 +32,9 @@ export class EOnDeutschlandCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EOnDeutschlandCollector class.
+     */
     constructor() {
         super(EOnDeutschlandCollector.CONFIG);
     }

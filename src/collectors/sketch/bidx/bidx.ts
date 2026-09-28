@@ -32,6 +32,9 @@ export class BidxCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BidxCollector class.
+     */
     constructor() {
         super(BidxCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class NewYorkS529CollegeSavingsProgramCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NewYorkS529CollegeSavingsProgramCollector class.
+     */
     constructor() {
         super(NewYorkS529CollegeSavingsProgramCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class WeeblrCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WeeblrCollector class.
+     */
     constructor() {
         super(WeeblrCollector.CONFIG);
     }

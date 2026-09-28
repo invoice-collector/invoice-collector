@@ -32,6 +32,9 @@ export class FlextrackCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FlextrackCollector class.
+     */
     constructor() {
         super(FlextrackCollector.CONFIG);
     }

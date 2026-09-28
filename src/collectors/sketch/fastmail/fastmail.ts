@@ -32,6 +32,9 @@ export class FastmailCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FastmailCollector class.
+     */
     constructor() {
         super(FastmailCollector.CONFIG);
     }

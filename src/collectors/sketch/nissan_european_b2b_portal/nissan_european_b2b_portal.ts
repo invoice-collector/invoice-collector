@@ -32,6 +32,9 @@ export class NissanEuropeanB2bPortalCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NissanEuropeanB2bPortalCollector class.
+     */
     constructor() {
         super(NissanEuropeanB2bPortalCollector.CONFIG);
     }

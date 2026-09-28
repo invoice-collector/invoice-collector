@@ -32,6 +32,9 @@ export class JournalMidiLibreCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the JournalMidiLibreCollector class.
+     */
     constructor() {
         super(JournalMidiLibreCollector.CONFIG);
     }

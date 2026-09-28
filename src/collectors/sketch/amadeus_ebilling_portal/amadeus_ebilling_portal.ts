@@ -32,6 +32,9 @@ export class AmadeusEbillingPortalCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AmadeusEbillingPortalCollector class.
+     */
     constructor() {
         super(AmadeusEbillingPortalCollector.CONFIG);
     }

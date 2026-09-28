@@ -32,6 +32,9 @@ export class WbsWorldsoftBusinessCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WbsWorldsoftBusinessCollector class.
+     */
     constructor() {
         super(WbsWorldsoftBusinessCollector.CONFIG);
     }

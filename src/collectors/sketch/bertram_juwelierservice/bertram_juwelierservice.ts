@@ -32,6 +32,9 @@ export class BertramJuwelierserviceCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BertramJuwelierserviceCollector class.
+     */
     constructor() {
         super(BertramJuwelierserviceCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class FortumCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FortumCollector class.
+     */
     constructor() {
         super(FortumCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class MeyerMenuCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MeyerMenuCollector class.
+     */
     constructor() {
         super(MeyerMenuCollector.CONFIG);
     }

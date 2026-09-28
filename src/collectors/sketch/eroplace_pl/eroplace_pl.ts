@@ -32,6 +32,9 @@ export class EroplacePlCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EroplacePlCollector class.
+     */
     constructor() {
         super(EroplacePlCollector.CONFIG);
     }

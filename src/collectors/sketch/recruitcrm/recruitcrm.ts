@@ -32,6 +32,9 @@ export class RecruitcrmCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RecruitcrmCollector class.
+     */
     constructor() {
         super(RecruitcrmCollector.CONFIG);
     }

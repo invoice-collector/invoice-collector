@@ -32,6 +32,9 @@ export class Monocure3dCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Monocure3dCollector class.
+     */
     constructor() {
         super(Monocure3dCollector.CONFIG);
     }

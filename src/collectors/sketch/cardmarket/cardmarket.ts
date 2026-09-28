@@ -32,6 +32,9 @@ export class CardmarketCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CardmarketCollector class.
+     */
     constructor() {
         super(CardmarketCollector.CONFIG);
     }

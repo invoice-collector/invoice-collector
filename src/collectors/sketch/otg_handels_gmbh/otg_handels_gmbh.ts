@@ -32,6 +32,9 @@ export class OtgHandelsGmbhCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OtgHandelsGmbhCollector class.
+     */
     constructor() {
         super(OtgHandelsGmbhCollector.CONFIG);
     }

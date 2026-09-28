@@ -32,6 +32,9 @@ export class CollierCountyUtilitiesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CollierCountyUtilitiesCollector class.
+     */
     constructor() {
         super(CollierCountyUtilitiesCollector.CONFIG);
     }

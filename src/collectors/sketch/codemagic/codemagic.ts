@@ -32,6 +32,9 @@ export class CodemagicCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CodemagicCollector class.
+     */
     constructor() {
         super(CodemagicCollector.CONFIG);
     }

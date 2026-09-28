@@ -31,6 +31,9 @@ export class RexelDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RexelDeCollector class.
+     */
     constructor() {
         super(RexelDeCollector.CONFIG);
     }

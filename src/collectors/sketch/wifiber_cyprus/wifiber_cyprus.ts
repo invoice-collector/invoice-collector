@@ -32,6 +32,9 @@ export class WifiberCyprusCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WifiberCyprusCollector class.
+     */
     constructor() {
         super(WifiberCyprusCollector.CONFIG);
     }

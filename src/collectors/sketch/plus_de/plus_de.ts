@@ -32,6 +32,9 @@ export class PlusDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PlusDeCollector class.
+     */
     constructor() {
         super(PlusDeCollector.CONFIG);
     }

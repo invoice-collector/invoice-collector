@@ -32,6 +32,9 @@ export class LegalZoomCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LegalZoomCollector class.
+     */
     constructor() {
         super(LegalZoomCollector.CONFIG);
     }

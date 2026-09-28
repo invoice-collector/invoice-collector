@@ -32,6 +32,9 @@ export class Cierp3Collector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Cierp3Collector class.
+     */
     constructor() {
         super(Cierp3Collector.CONFIG);
     }

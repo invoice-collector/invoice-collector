@@ -32,6 +32,9 @@ export class TknDeutschlandCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TknDeutschlandCollector class.
+     */
     constructor() {
         super(TknDeutschlandCollector.CONFIG);
     }

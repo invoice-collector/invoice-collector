@@ -32,6 +32,9 @@ export class LebaraRetailCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LebaraRetailCollector class.
+     */
     constructor() {
         super(LebaraRetailCollector.CONFIG);
     }

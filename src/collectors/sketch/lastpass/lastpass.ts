@@ -32,6 +32,9 @@ export class LastpassCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LastpassCollector class.
+     */
     constructor() {
         super(LastpassCollector.CONFIG);
     }

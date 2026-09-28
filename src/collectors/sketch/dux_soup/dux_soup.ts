@@ -32,6 +32,9 @@ export class DuxSoupCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DuxSoupCollector class.
+     */
     constructor() {
         super(DuxSoupCollector.CONFIG);
     }

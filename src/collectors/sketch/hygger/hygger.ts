@@ -32,6 +32,9 @@ export class HyggerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HyggerCollector class.
+     */
     constructor() {
         super(HyggerCollector.CONFIG);
     }

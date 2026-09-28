@@ -32,6 +32,9 @@ export class LeetoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LeetoCollector class.
+     */
     constructor() {
         super(LeetoCollector.CONFIG);
     }

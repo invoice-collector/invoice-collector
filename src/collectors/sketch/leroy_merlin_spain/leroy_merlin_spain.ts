@@ -32,6 +32,9 @@ export class LeyroyMerlinSpainCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LeyroyMerlinSpainCollector class.
+     */
     constructor() {
         super(LeyroyMerlinSpainCollector.CONFIG);
     }

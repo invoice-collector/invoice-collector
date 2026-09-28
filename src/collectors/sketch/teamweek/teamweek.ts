@@ -32,6 +32,9 @@ export class TeamweekCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TeamweekCollector class.
+     */
     constructor() {
         super(TeamweekCollector.CONFIG);
     }

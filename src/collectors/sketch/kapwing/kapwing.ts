@@ -32,6 +32,9 @@ export class KapwingCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KapwingCollector class.
+     */
     constructor() {
         super(KapwingCollector.CONFIG);
     }

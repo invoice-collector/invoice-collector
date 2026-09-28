@@ -32,6 +32,9 @@ export class WasteManagementCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WasteManagementCollector class.
+     */
     constructor() {
         super(WasteManagementCollector.CONFIG);
     }

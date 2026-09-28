@@ -32,6 +32,9 @@ export class FroneriSchollerGmbhCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FroneriSchollerGmbhCollector class.
+     */
     constructor() {
         super(FroneriSchollerGmbhCollector.CONFIG);
     }

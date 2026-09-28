@@ -32,6 +32,9 @@ export class MobilDeutscheTelekomCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MobilDeutscheTelekomCollector class.
+     */
     constructor() {
         super(MobilDeutscheTelekomCollector.CONFIG);
     }

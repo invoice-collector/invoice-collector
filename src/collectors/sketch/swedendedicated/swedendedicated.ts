@@ -32,6 +32,9 @@ export class SwedendedicatedCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SwedendedicatedCollector class.
+     */
     constructor() {
         super(SwedendedicatedCollector.CONFIG);
     }

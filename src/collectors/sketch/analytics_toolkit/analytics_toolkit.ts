@@ -32,6 +32,9 @@ export class AnalyticsToolkitCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AnalyticsToolkitCollector class.
+     */
     constructor() {
         super(AnalyticsToolkitCollector.CONFIG);
     }

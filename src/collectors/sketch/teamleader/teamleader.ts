@@ -32,6 +32,9 @@ export class TeamleaderCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TeamleaderCollector class.
+     */
     constructor() {
         super(TeamleaderCollector.CONFIG);
     }

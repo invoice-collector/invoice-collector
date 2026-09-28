@@ -32,6 +32,9 @@ export class ClubOpticLeaderCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ClubOpticLeaderCollector class.
+     */
     constructor() {
         super(ClubOpticLeaderCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class CasewareCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CasewareCollector class.
+     */
     constructor() {
         super(CasewareCollector.CONFIG);
     }

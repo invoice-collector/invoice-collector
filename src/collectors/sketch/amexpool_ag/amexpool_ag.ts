@@ -32,6 +32,9 @@ export class AmexpoolAgCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AmexpoolAgCollector class.
+     */
     constructor() {
         super(AmexpoolAgCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class VevidaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VevidaCollector class.
+     */
     constructor() {
         super(VevidaCollector.CONFIG);
     }

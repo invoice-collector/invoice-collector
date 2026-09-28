@@ -32,6 +32,9 @@ export class BoutiqueDeMuseesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BoutiqueDeMuseesCollector class.
+     */
     constructor() {
         super(BoutiqueDeMuseesCollector.CONFIG);
     }

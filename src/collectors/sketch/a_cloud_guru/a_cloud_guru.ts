@@ -32,6 +32,9 @@ export class ACloudGuruCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ACloudGuruCollector class.
+     */
     constructor() {
         super(ACloudGuruCollector.CONFIG);
     }

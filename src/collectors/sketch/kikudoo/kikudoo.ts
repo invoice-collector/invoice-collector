@@ -32,6 +32,9 @@ export class KikudooCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KikudooCollector class.
+     */
     constructor() {
         super(KikudooCollector.CONFIG);
     }

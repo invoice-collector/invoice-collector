@@ -32,6 +32,9 @@ export class FunknetzHgCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FunknetzHgCollector class.
+     */
     constructor() {
         super(FunknetzHgCollector.CONFIG);
     }

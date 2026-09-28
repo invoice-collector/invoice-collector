@@ -32,6 +32,9 @@ export class ExonetCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ExonetCollector class.
+     */
     constructor() {
         super(ExonetCollector.CONFIG);
     }

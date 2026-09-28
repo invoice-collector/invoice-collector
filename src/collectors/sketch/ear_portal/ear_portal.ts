@@ -32,6 +32,9 @@ export class EarPortalCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EarPortalCollector class.
+     */
     constructor() {
         super(EarPortalCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class TopazLabsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TopazLabsCollector class.
+     */
     constructor() {
         super(TopazLabsCollector.CONFIG);
     }

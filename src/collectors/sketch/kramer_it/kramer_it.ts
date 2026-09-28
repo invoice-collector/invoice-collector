@@ -32,6 +32,9 @@ export class KramerItCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KramerItCollector class.
+     */
     constructor() {
         super(KramerItCollector.CONFIG);
     }

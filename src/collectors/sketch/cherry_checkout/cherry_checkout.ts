@@ -32,6 +32,9 @@ export class CherryCheckoutCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CherryCheckoutCollector class.
+     */
     constructor() {
         super(CherryCheckoutCollector.CONFIG);
     }

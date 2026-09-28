@@ -32,6 +32,9 @@ export class SimplytelDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SimplytelDeCollector class.
+     */
     constructor() {
         super(SimplytelDeCollector.CONFIG);
     }

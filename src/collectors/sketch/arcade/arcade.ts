@@ -32,6 +32,9 @@ export class ArcadeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ArcadeCollector class.
+     */
     constructor() {
         super(ArcadeCollector.CONFIG);
     }

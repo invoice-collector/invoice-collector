@@ -32,6 +32,9 @@ export class MaxconvCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MaxconvCollector class.
+     */
     constructor() {
         super(MaxconvCollector.CONFIG);
     }

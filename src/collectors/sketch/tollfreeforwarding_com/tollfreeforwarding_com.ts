@@ -32,6 +32,9 @@ export class TollfreeforwardingComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TollfreeforwardingComCollector class.
+     */
     constructor() {
         super(TollfreeforwardingComCollector.CONFIG);
     }

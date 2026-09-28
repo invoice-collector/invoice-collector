@@ -32,6 +32,9 @@ export class EseltCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EseltCollector class.
+     */
     constructor() {
         super(EseltCollector.CONFIG);
     }

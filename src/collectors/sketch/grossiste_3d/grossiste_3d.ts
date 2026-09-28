@@ -32,6 +32,9 @@ export class Grossiste3dCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Grossiste3dCollector class.
+     */
     constructor() {
         super(Grossiste3dCollector.CONFIG);
     }

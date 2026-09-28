@@ -32,6 +32,9 @@ export class SpyfuCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SpyfuCollector class.
+     */
     constructor() {
         super(SpyfuCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class HkLivingCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HkLivingCollector class.
+     */
     constructor() {
         super(HkLivingCollector.CONFIG);
     }

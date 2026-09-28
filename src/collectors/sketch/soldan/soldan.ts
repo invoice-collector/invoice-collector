@@ -32,6 +32,9 @@ export class SoldanCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SoldanCollector class.
+     */
     constructor() {
         super(SoldanCollector.CONFIG);
     }

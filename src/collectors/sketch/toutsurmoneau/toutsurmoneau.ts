@@ -31,6 +31,9 @@ export class ToutSurMonEauCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ToutSurMonEauCollector class.
+     */
     constructor() {
         super(ToutSurMonEauCollector.CONFIG);
     }

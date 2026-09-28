@@ -32,6 +32,9 @@ export class DensysPv5GmbhCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DensysPv5GmbhCollector class.
+     */
     constructor() {
         super(DensysPv5GmbhCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class SwmMoreCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SwmMoreCollector class.
+     */
     constructor() {
         super(SwmMoreCollector.CONFIG);
     }

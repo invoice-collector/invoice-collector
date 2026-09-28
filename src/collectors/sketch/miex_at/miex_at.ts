@@ -32,6 +32,9 @@ export class MiexAtCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MiexAtCollector class.
+     */
     constructor() {
         super(MiexAtCollector.CONFIG);
     }

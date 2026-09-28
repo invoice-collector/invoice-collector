@@ -32,6 +32,9 @@ export class ToyaEboaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ToyaEboaCollector class.
+     */
     constructor() {
         super(ToyaEboaCollector.CONFIG);
     }

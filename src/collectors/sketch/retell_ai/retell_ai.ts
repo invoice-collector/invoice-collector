@@ -32,6 +32,9 @@ export class RetellAiCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RetellAiCollector class.
+     */
     constructor() {
         super(RetellAiCollector.CONFIG);
     }

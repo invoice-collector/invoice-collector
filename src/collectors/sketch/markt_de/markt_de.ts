@@ -32,6 +32,9 @@ export class MarktDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MarktDeCollector class.
+     */
     constructor() {
         super(MarktDeCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class PensakiCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PensakiCollector class.
+     */
     constructor() {
         super(PensakiCollector.CONFIG);
     }

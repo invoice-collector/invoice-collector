@@ -32,6 +32,9 @@ export class BlackblazeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BlackblazeCollector class.
+     */
     constructor() {
         super(BlackblazeCollector.CONFIG);
     }

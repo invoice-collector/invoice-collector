@@ -32,6 +32,9 @@ export class PhpArchitectCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PhpArchitectCollector class.
+     */
     constructor() {
         super(PhpArchitectCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class InlandWasteSolutionsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the InlandWasteSolutionsCollector class.
+     */
     constructor() {
         super(InlandWasteSolutionsCollector.CONFIG);
     }

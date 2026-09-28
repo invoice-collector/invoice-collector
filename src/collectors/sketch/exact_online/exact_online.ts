@@ -32,6 +32,9 @@ export class ExactOnlineCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ExactOnlineCollector class.
+     */
     constructor() {
         super(ExactOnlineCollector.CONFIG);
     }

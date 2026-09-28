@@ -32,6 +32,9 @@ export class LiveagentCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LiveagentCollector class.
+     */
     constructor() {
         super(LiveagentCollector.CONFIG);
     }

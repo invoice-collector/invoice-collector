@@ -32,6 +32,9 @@ export class StadtwerkeHerneCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StadtwerkeHerneCollector class.
+     */
     constructor() {
         super(StadtwerkeHerneCollector.CONFIG);
     }

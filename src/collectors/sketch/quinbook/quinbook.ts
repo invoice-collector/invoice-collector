@@ -32,6 +32,9 @@ export class QuinbookCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the QuinbookCollector class.
+     */
     constructor() {
         super(QuinbookCollector.CONFIG);
     }

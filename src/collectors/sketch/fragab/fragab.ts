@@ -32,6 +32,9 @@ export class FragabCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FragabCollector class.
+     */
     constructor() {
         super(FragabCollector.CONFIG);
     }

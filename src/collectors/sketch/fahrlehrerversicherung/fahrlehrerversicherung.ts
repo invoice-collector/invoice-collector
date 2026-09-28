@@ -32,6 +32,9 @@ export class FahrlehrerversicherungCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FahrlehrerversicherungCollector class.
+     */
     constructor() {
         super(FahrlehrerversicherungCollector.CONFIG);
     }

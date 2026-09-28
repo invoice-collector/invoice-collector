@@ -32,6 +32,9 @@ export class KobitonCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KobitonCollector class.
+     */
     constructor() {
         super(KobitonCollector.CONFIG);
     }

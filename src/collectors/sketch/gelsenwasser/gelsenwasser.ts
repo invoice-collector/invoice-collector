@@ -32,6 +32,9 @@ export class GelsenwasserCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GelsenwasserCollector class.
+     */
     constructor() {
         super(GelsenwasserCollector.CONFIG);
     }

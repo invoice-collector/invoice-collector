@@ -32,6 +32,9 @@ export class DropispyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DropispyCollector class.
+     */
     constructor() {
         super(DropispyCollector.CONFIG);
     }

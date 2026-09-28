@@ -32,6 +32,9 @@ export class AtmsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AtmsCollector class.
+     */
     constructor() {
         super(AtmsCollector.CONFIG);
     }

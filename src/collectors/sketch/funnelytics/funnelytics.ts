@@ -32,6 +32,9 @@ export class FunnelyticsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FunnelyticsCollector class.
+     */
     constructor() {
         super(FunnelyticsCollector.CONFIG);
     }

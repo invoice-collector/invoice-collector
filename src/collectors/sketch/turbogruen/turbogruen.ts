@@ -32,6 +32,9 @@ export class TurbogruenCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TurbogruenCollector class.
+     */
     constructor() {
         super(TurbogruenCollector.CONFIG);
     }

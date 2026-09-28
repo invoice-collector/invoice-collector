@@ -32,6 +32,9 @@ export class CgedCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CgedCollector class.
+     */
     constructor() {
         super(CgedCollector.CONFIG);
     }

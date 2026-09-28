@@ -32,6 +32,9 @@ export class HoliduCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HoliduCollector class.
+     */
     constructor() {
         super(HoliduCollector.CONFIG);
     }

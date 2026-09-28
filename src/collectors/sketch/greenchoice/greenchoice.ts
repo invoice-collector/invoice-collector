@@ -32,6 +32,9 @@ export class GreenchoiceCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GreenchoiceCollector class.
+     */
     constructor() {
         super(GreenchoiceCollector.CONFIG);
     }

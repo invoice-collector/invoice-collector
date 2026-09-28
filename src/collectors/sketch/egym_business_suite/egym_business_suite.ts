@@ -32,6 +32,9 @@ export class EgymBusinessSuiteCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EgymBusinessSuiteCollector class.
+     */
     constructor() {
         super(EgymBusinessSuiteCollector.CONFIG);
     }

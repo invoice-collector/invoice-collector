@@ -32,6 +32,9 @@ export class HanseaticCoffeeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HanseaticCoffeeCollector class.
+     */
     constructor() {
         super(HanseaticCoffeeCollector.CONFIG);
     }

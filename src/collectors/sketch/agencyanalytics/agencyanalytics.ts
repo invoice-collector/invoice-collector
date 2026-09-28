@@ -32,6 +32,9 @@ export class AgencyanalyticsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AgencyanalyticsCollector class.
+     */
     constructor() {
         super(AgencyanalyticsCollector.CONFIG);
     }

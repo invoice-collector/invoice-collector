@@ -32,6 +32,9 @@ export class MadeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MadeCollector class.
+     */
     constructor() {
         super(MadeCollector.CONFIG);
     }

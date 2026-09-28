@@ -32,6 +32,9 @@ export class RueDuCommerceCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RueDuCommerceCollector class.
+     */
     constructor() {
         super(RueDuCommerceCollector.CONFIG);
     }

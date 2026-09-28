@@ -32,6 +32,9 @@ export class Spst1924Collector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Spst1924Collector class.
+     */
     constructor() {
         super(Spst1924Collector.CONFIG);
     }

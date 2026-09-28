@@ -32,6 +32,9 @@ export class MercureCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MercureCollector class.
+     */
     constructor() {
         super(MercureCollector.CONFIG);
     }

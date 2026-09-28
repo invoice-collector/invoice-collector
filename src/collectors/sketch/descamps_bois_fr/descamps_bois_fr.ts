@@ -32,6 +32,9 @@ export class DescampsBoisFrCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DescampsBoisFrCollector class.
+     */
     constructor() {
         super(DescampsBoisFrCollector.CONFIG);
     }

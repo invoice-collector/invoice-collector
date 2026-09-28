@@ -32,6 +32,9 @@ export class GeneralMotorsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GeneralMotorsCollector class.
+     */
     constructor() {
         super(GeneralMotorsCollector.CONFIG);
     }

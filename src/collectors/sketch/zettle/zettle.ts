@@ -32,6 +32,9 @@ export class ZettleCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ZettleCollector class.
+     */
     constructor() {
         super(ZettleCollector.CONFIG);
     }

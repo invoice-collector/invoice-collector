@@ -32,6 +32,9 @@ export class BinaryedgeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BinaryedgeCollector class.
+     */
     constructor() {
         super(BinaryedgeCollector.CONFIG);
     }

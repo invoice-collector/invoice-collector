@@ -32,6 +32,9 @@ export class TurboperformanceCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TurboperformanceCollector class.
+     */
     constructor() {
         super(TurboperformanceCollector.CONFIG);
     }

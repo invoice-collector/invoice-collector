@@ -32,6 +32,9 @@ export class MyalbumCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MyalbumCollector class.
+     */
     constructor() {
         super(MyalbumCollector.CONFIG);
     }

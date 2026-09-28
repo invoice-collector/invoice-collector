@@ -32,6 +32,9 @@ export class ExpressVpnCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ExpressVpnCollector class.
+     */
     constructor() {
         super(ExpressVpnCollector.CONFIG);
     }

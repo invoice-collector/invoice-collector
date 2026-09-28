@@ -32,6 +32,9 @@ export class MichelinPasrelComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MichelinPasrelComCollector class.
+     */
     constructor() {
         super(MichelinPasrelComCollector.CONFIG);
     }

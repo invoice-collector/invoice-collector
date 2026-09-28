@@ -32,6 +32,9 @@ export class JournalVosgesMatinCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the JournalVosgesMatinCollector class.
+     */
     constructor() {
         super(JournalVosgesMatinCollector.CONFIG);
     }

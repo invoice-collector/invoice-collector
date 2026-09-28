@@ -32,6 +32,9 @@ export class VaiTradeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VaiTradeCollector class.
+     */
     constructor() {
         super(VaiTradeCollector.CONFIG);
     }

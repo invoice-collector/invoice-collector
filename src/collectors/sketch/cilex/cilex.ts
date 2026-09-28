@@ -32,6 +32,9 @@ export class CilexCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CilexCollector class.
+     */
     constructor() {
         super(CilexCollector.CONFIG);
     }

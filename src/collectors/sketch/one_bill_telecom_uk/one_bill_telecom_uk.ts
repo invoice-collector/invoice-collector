@@ -32,6 +32,9 @@ export class OneBillTelecomUkCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OneBillTelecomUkCollector class.
+     */
     constructor() {
         super(OneBillTelecomUkCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class UnumCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the UnumCollector class.
+     */
     constructor() {
         super(UnumCollector.CONFIG);
     }

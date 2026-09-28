@@ -32,6 +32,9 @@ export class SpigraphCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SpigraphCollector class.
+     */
     constructor() {
         super(SpigraphCollector.CONFIG);
     }

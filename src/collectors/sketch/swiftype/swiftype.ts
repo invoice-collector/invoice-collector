@@ -32,6 +32,9 @@ export class SwiftypeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SwiftypeCollector class.
+     */
     constructor() {
         super(SwiftypeCollector.CONFIG);
     }

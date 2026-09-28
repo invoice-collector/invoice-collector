@@ -32,6 +32,9 @@ export class VeligoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VeligoCollector class.
+     */
     constructor() {
         super(VeligoCollector.CONFIG);
     }

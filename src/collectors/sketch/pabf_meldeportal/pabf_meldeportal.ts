@@ -32,6 +32,9 @@ export class PabfMeldeportalCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PabfMeldeportalCollector class.
+     */
     constructor() {
         super(PabfMeldeportalCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class SchieggVersicherungCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SchieggVersicherungCollector class.
+     */
     constructor() {
         super(SchieggVersicherungCollector.CONFIG);
     }

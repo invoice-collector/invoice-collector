@@ -32,6 +32,9 @@ export class PoliigonCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PoliigonCollector class.
+     */
     constructor() {
         super(PoliigonCollector.CONFIG);
     }

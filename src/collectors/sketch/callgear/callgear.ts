@@ -32,6 +32,9 @@ export class CallgearCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CallgearCollector class.
+     */
     constructor() {
         super(CallgearCollector.CONFIG);
     }

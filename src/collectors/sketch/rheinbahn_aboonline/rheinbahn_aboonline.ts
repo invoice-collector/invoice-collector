@@ -32,6 +32,9 @@ export class RheinbahnAboonlineCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RheinbahnAboonlineCollector class.
+     */
     constructor() {
         super(RheinbahnAboonlineCollector.CONFIG);
     }

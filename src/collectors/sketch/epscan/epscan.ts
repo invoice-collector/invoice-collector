@@ -32,6 +32,9 @@ export class EpscanCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EpscanCollector class.
+     */
     constructor() {
         super(EpscanCollector.CONFIG);
     }

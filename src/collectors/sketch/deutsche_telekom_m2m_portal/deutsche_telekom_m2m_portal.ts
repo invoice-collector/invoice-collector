@@ -32,6 +32,9 @@ export class DeutscheTelekomM2mPortalCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DeutscheTelekomM2mPortalCollector class.
+     */
     constructor() {
         super(DeutscheTelekomM2mPortalCollector.CONFIG);
     }

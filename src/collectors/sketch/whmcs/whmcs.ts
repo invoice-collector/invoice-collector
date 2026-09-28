@@ -32,6 +32,9 @@ export class WhmcsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WhmcsCollector class.
+     */
     constructor() {
         super(WhmcsCollector.CONFIG);
     }

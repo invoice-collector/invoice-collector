@@ -32,6 +32,9 @@ export class FedexCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FedexCollector class.
+     */
     constructor() {
         super(FedexCollector.CONFIG);
     }

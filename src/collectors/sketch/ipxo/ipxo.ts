@@ -32,6 +32,9 @@ export class IpxoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the IpxoCollector class.
+     */
     constructor() {
         super(IpxoCollector.CONFIG);
     }

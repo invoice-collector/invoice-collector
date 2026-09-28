@@ -32,6 +32,9 @@ export class BobmailCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BobmailCollector class.
+     */
     constructor() {
         super(BobmailCollector.CONFIG);
     }

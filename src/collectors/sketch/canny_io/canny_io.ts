@@ -32,6 +32,9 @@ export class CannyIoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CannyIoCollector class.
+     */
     constructor() {
         super(CannyIoCollector.CONFIG);
     }

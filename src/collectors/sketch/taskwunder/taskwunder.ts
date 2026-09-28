@@ -32,6 +32,9 @@ export class TaskwunderCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TaskwunderCollector class.
+     */
     constructor() {
         super(TaskwunderCollector.CONFIG);
     }

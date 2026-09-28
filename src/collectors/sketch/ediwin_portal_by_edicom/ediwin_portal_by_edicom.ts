@@ -32,6 +32,9 @@ export class EdiwinPortalByEdicomCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EdiwinPortalByEdicomCollector class.
+     */
     constructor() {
         super(EdiwinPortalByEdicomCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class SwapfietsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SwapfietsCollector class.
+     */
     constructor() {
         super(SwapfietsCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class SilbersaitenCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SilbersaitenCollector class.
+     */
     constructor() {
         super(SilbersaitenCollector.CONFIG);
     }

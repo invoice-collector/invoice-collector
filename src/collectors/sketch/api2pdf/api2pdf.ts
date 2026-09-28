@@ -32,6 +32,9 @@ export class Api2pdfCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Api2pdfCollector class.
+     */
     constructor() {
         super(Api2pdfCollector.CONFIG);
     }

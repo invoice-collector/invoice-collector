@@ -32,6 +32,9 @@ export class SoftengineCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SoftengineCollector class.
+     */
     constructor() {
         super(SoftengineCollector.CONFIG);
     }

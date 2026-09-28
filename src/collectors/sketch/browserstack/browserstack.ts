@@ -32,6 +32,9 @@ export class BrowserstackCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BrowserstackCollector class.
+     */
     constructor() {
         super(BrowserstackCollector.CONFIG);
     }

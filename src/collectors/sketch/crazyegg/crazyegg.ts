@@ -32,6 +32,9 @@ export class CrazyeggCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CrazyeggCollector class.
+     */
     constructor() {
         super(CrazyeggCollector.CONFIG);
     }

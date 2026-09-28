@@ -32,6 +32,9 @@ export class FormlabsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FormlabsCollector class.
+     */
     constructor() {
         super(FormlabsCollector.CONFIG);
     }

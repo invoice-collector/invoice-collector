@@ -32,6 +32,9 @@ export class GlsOneCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GlsOneCollector class.
+     */
     constructor() {
         super(GlsOneCollector.CONFIG);
     }

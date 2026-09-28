@@ -32,6 +32,9 @@ export class OakvilleHydroCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OakvilleHydroCollector class.
+     */
     constructor() {
         super(OakvilleHydroCollector.CONFIG);
     }

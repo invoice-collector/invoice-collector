@@ -32,6 +32,9 @@ export class VerbundCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VerbundCollector class.
+     */
     constructor() {
         super(VerbundCollector.CONFIG);
     }

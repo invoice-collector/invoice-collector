@@ -32,6 +32,9 @@ export class IntegralSystemFrCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the IntegralSystemFrCollector class.
+     */
     constructor() {
         super(IntegralSystemFrCollector.CONFIG);
     }

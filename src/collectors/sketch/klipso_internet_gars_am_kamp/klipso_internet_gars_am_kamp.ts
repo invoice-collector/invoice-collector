@@ -32,6 +32,9 @@ export class KlipsoInternetGarsAmKampCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KlipsoInternetGarsAmKampCollector class.
+     */
     constructor() {
         super(KlipsoInternetGarsAmKampCollector.CONFIG);
     }

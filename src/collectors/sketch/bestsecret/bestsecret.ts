@@ -32,6 +32,9 @@ export class BestsecretCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BestsecretCollector class.
+     */
     constructor() {
         super(BestsecretCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class MutuelleApicilPartenaireCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MutuelleApicilPartenaireCollector class.
+     */
     constructor() {
         super(MutuelleApicilPartenaireCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class QuickbooksOnlineAccountantCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the QuickbooksOnlineAccountantCollector class.
+     */
     constructor() {
         super(QuickbooksOnlineAccountantCollector.CONFIG);
     }

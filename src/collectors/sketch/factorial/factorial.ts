@@ -32,6 +32,9 @@ export class FactorialCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FactorialCollector class.
+     */
     constructor() {
         super(FactorialCollector.CONFIG);
     }

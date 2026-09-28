@@ -32,6 +32,9 @@ export class MacwayComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MacwayComCollector class.
+     */
     constructor() {
         super(MacwayComCollector.CONFIG);
     }

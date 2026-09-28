@@ -32,6 +32,9 @@ export class TrengoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TrengoCollector class.
+     */
     constructor() {
         super(TrengoCollector.CONFIG);
     }

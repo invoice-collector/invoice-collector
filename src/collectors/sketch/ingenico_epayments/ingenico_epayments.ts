@@ -32,6 +32,9 @@ export class IngenicoEpaymentsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the IngenicoEpaymentsCollector class.
+     */
     constructor() {
         super(IngenicoEpaymentsCollector.CONFIG);
     }

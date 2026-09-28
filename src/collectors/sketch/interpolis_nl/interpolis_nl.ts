@@ -32,6 +32,9 @@ export class InterpolisNlCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the InterpolisNlCollector class.
+     */
     constructor() {
         super(InterpolisNlCollector.CONFIG);
     }

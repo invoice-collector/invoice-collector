@@ -32,6 +32,9 @@ export class InStylefashionCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the InStylefashionCollector class.
+     */
     constructor() {
         super(InStylefashionCollector.CONFIG);
     }

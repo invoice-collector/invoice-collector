@@ -32,6 +32,9 @@ export class FinancequalityCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FinancequalityCollector class.
+     */
     constructor() {
         super(FinancequalityCollector.CONFIG);
     }

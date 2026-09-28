@@ -32,6 +32,9 @@ export class MNetDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MNetDeCollector class.
+     */
     constructor() {
         super(MNetDeCollector.CONFIG);
     }

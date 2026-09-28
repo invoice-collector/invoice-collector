@@ -32,6 +32,9 @@ export class AscapCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AscapCollector class.
+     */
     constructor() {
         super(AscapCollector.CONFIG);
     }

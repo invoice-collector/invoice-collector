@@ -32,6 +32,9 @@ export class PraxairCanadaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PraxairCanadaCollector class.
+     */
     constructor() {
         super(PraxairCanadaCollector.CONFIG);
     }

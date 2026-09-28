@@ -32,6 +32,9 @@ export class HostwayCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HostwayCollector class.
+     */
     constructor() {
         super(HostwayCollector.CONFIG);
     }

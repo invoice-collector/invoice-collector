@@ -32,6 +32,9 @@ export class ELiquideComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ELiquideComCollector class.
+     */
     constructor() {
         super(ELiquideComCollector.CONFIG);
     }

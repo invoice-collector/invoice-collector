@@ -32,6 +32,9 @@ export class DerbyCyclesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DerbyCyclesCollector class.
+     */
     constructor() {
         super(DerbyCyclesCollector.CONFIG);
     }

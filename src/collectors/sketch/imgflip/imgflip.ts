@@ -32,6 +32,9 @@ export class ImgflipCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ImgflipCollector class.
+     */
     constructor() {
         super(ImgflipCollector.CONFIG);
     }

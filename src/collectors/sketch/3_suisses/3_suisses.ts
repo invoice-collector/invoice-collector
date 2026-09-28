@@ -32,6 +32,9 @@ export class _3SuissesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the _3SuissesCollector class.
+     */
     constructor() {
         super(_3SuissesCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class KomfortkasseCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KomfortkasseCollector class.
+     */
     constructor() {
         super(KomfortkasseCollector.CONFIG);
     }

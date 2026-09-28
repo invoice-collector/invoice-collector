@@ -32,6 +32,9 @@ export class HogrefeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HogrefeCollector class.
+     */
     constructor() {
         super(HogrefeCollector.CONFIG);
     }

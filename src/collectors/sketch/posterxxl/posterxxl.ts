@@ -32,6 +32,9 @@ export class PosterxxlCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PosterxxlCollector class.
+     */
     constructor() {
         super(PosterxxlCollector.CONFIG);
     }

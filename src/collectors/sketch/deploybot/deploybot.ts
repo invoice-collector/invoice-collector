@@ -32,6 +32,9 @@ export class DeploybotCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DeploybotCollector class.
+     */
     constructor() {
         super(DeploybotCollector.CONFIG);
     }

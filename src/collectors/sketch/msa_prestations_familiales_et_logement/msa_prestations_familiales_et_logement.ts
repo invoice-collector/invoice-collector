@@ -32,6 +32,9 @@ export class MsaPrestationsFamilialesEtLogementCollector extends SketchCollector
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MsaPrestationsFamilialesEtLogementCollector class.
+     */
     constructor() {
         super(MsaPrestationsFamilialesEtLogementCollector.CONFIG);
     }

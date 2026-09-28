@@ -32,6 +32,9 @@ export class EdoElektrogrosshandelCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EdoElektrogrosshandelCollector class.
+     */
     constructor() {
         super(EdoElektrogrosshandelCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class WaveUtilitiesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WaveUtilitiesCollector class.
+     */
     constructor() {
         super(WaveUtilitiesCollector.CONFIG);
     }

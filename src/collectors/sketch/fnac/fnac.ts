@@ -32,6 +32,9 @@ export class FnacCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FnacCollector class.
+     */
     constructor() {
         super(FnacCollector.CONFIG);
     }

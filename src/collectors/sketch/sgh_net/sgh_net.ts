@@ -32,6 +32,9 @@ export class SghNetCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SghNetCollector class.
+     */
     constructor() {
         super(SghNetCollector.CONFIG);
     }

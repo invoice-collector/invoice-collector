@@ -32,6 +32,9 @@ export class FreenetTvCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FreenetTvCollector class.
+     */
     constructor() {
         super(FreenetTvCollector.CONFIG);
     }

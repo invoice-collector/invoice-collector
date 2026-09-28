@@ -32,6 +32,9 @@ export class BelboonServiceCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BelboonServiceCollector class.
+     */
     constructor() {
         super(BelboonServiceCollector.CONFIG);
     }

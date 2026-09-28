@@ -32,6 +32,9 @@ export class LykoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LykoCollector class.
+     */
     constructor() {
         super(LykoCollector.CONFIG);
     }

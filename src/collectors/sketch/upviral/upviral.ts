@@ -32,6 +32,9 @@ export class UpviralCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the UpviralCollector class.
+     */
     constructor() {
         super(UpviralCollector.CONFIG);
     }

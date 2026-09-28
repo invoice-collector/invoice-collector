@@ -32,6 +32,9 @@ export class SerpworxCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SerpworxCollector class.
+     */
     constructor() {
         super(SerpworxCollector.CONFIG);
     }

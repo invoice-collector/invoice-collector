@@ -32,6 +32,9 @@ export class ImpulseCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ImpulseCollector class.
+     */
     constructor() {
         super(ImpulseCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class FotorCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FotorCollector class.
+     */
     constructor() {
         super(FotorCollector.CONFIG);
     }

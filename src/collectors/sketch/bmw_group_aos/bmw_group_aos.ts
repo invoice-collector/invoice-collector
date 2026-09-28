@@ -32,6 +32,9 @@ export class BmwGroupAosCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BmwGroupAosCollector class.
+     */
     constructor() {
         super(BmwGroupAosCollector.CONFIG);
     }

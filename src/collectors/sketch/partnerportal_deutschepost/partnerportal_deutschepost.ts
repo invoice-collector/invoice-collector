@@ -32,6 +32,9 @@ export class PartnerportalDeutschepostCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PartnerportalDeutschepostCollector class.
+     */
     constructor() {
         super(PartnerportalDeutschepostCollector.CONFIG);
     }

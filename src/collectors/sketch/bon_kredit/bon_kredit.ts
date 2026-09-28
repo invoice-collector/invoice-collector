@@ -32,6 +32,9 @@ export class BonKreditCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BonKreditCollector class.
+     */
     constructor() {
         super(BonKreditCollector.CONFIG);
     }

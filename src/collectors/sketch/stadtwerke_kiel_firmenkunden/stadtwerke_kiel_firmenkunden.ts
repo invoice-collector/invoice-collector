@@ -32,6 +32,9 @@ export class StadtwerkeKielFirmenkundenCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StadtwerkeKielFirmenkundenCollector class.
+     */
     constructor() {
         super(StadtwerkeKielFirmenkundenCollector.CONFIG);
     }

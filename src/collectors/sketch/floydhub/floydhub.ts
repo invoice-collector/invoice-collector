@@ -32,6 +32,9 @@ export class FloydhubCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FloydhubCollector class.
+     */
     constructor() {
         super(FloydhubCollector.CONFIG);
     }

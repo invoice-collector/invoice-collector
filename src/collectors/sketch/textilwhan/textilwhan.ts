@@ -32,6 +32,9 @@ export class TextilwhanCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TextilwhanCollector class.
+     */
     constructor() {
         super(TextilwhanCollector.CONFIG);
     }

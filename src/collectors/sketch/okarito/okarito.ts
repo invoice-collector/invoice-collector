@@ -32,6 +32,9 @@ export class OkaritoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OkaritoCollector class.
+     */
     constructor() {
         super(OkaritoCollector.CONFIG);
     }

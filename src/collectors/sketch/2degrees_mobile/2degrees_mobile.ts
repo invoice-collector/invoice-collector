@@ -32,6 +32,9 @@ export class _2degreesMobileCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the _2degreesMobileCollector class.
+     */
     constructor() {
         super(_2degreesMobileCollector.CONFIG);
     }

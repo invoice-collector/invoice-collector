@@ -32,6 +32,9 @@ export class DatevSmartTransferCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DatevSmartTransferCollector class.
+     */
     constructor() {
         super(DatevSmartTransferCollector.CONFIG);
     }

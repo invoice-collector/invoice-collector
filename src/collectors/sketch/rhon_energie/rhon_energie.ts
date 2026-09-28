@@ -32,6 +32,9 @@ export class RhonEnergieCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RhonEnergieCollector class.
+     */
     constructor() {
         super(RhonEnergieCollector.CONFIG);
     }

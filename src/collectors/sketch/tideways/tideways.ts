@@ -32,6 +32,9 @@ export class TidewaysCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TidewaysCollector class.
+     */
     constructor() {
         super(TidewaysCollector.CONFIG);
     }

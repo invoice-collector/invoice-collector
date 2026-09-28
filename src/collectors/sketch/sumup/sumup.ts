@@ -31,6 +31,9 @@ export class SumUpCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SumUpCollector class.
+     */
     constructor() {
         super(SumUpCollector.CONFIG);
     }

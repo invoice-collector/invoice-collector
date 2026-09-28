@@ -32,6 +32,9 @@ export class AdequatCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AdequatCollector class.
+     */
     constructor() {
         super(AdequatCollector.CONFIG);
     }

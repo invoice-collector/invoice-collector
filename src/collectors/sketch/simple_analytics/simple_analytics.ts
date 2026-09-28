@@ -32,6 +32,9 @@ export class SimpleAnalyticsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SimpleAnalyticsCollector class.
+     */
     constructor() {
         super(SimpleAnalyticsCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class MutuelleViazimutCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MutuelleViazimutCollector class.
+     */
     constructor() {
         super(MutuelleViazimutCollector.CONFIG);
     }

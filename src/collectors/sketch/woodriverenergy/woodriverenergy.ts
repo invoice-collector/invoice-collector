@@ -32,6 +32,9 @@ export class WoodriverenergyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WoodriverenergyCollector class.
+     */
     constructor() {
         super(WoodriverenergyCollector.CONFIG);
     }

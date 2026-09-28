@@ -32,6 +32,9 @@ export class AutologgCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AutologgCollector class.
+     */
     constructor() {
         super(AutologgCollector.CONFIG);
     }

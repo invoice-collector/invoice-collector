@@ -32,6 +32,9 @@ export class BrizyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BrizyCollector class.
+     */
     constructor() {
         super(BrizyCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class RepsolMiSolredCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RepsolMiSolredCollector class.
+     */
     constructor() {
         super(RepsolMiSolredCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class SeriouslySimpleMarketingCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SeriouslySimpleMarketingCollector class.
+     */
     constructor() {
         super(SeriouslySimpleMarketingCollector.CONFIG);
     }

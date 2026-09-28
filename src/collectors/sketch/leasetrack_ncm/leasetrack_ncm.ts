@@ -32,6 +32,9 @@ export class LeasetrackNcmCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LeasetrackNcmCollector class.
+     */
     constructor() {
         super(LeasetrackNcmCollector.CONFIG);
     }

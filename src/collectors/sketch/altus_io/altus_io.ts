@@ -32,6 +32,9 @@ export class AltusIoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AltusIoCollector class.
+     */
     constructor() {
         super(AltusIoCollector.CONFIG);
     }

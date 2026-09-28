@@ -32,6 +32,9 @@ export class MissLashesDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MissLashesDeCollector class.
+     */
     constructor() {
         super(MissLashesDeCollector.CONFIG);
     }

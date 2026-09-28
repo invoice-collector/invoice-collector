@@ -32,6 +32,9 @@ export class CocaColaAuCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CocaColaAuCollector class.
+     */
     constructor() {
         super(CocaColaAuCollector.CONFIG);
     }

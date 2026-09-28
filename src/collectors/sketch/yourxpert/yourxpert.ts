@@ -32,6 +32,9 @@ export class YourxpertCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the YourxpertCollector class.
+     */
     constructor() {
         super(YourxpertCollector.CONFIG);
     }

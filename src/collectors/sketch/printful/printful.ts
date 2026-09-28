@@ -32,6 +32,9 @@ export class PrintfulCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PrintfulCollector class.
+     */
     constructor() {
         super(PrintfulCollector.CONFIG);
     }

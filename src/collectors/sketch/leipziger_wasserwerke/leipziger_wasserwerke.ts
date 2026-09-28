@@ -32,6 +32,9 @@ export class LeipzigerWasserwerkeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LeipzigerWasserwerkeCollector class.
+     */
     constructor() {
         super(LeipzigerWasserwerkeCollector.CONFIG);
     }

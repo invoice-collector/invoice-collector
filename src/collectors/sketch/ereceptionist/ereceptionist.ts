@@ -32,6 +32,9 @@ export class EreceptionistCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EreceptionistCollector class.
+     */
     constructor() {
         super(EreceptionistCollector.CONFIG);
     }

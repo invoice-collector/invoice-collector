@@ -32,6 +32,9 @@ export class CspCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CspCollector class.
+     */
     constructor() {
         super(CspCollector.CONFIG);
     }

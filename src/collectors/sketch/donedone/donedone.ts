@@ -32,6 +32,9 @@ export class DonedoneCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DonedoneCollector class.
+     */
     constructor() {
         super(DonedoneCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class OttomatikCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OttomatikCollector class.
+     */
     constructor() {
         super(OttomatikCollector.CONFIG);
     }

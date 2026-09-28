@@ -32,6 +32,9 @@ export class _2checkoutCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the _2checkoutCollector class.
+     */
     constructor() {
         super(_2checkoutCollector.CONFIG);
     }

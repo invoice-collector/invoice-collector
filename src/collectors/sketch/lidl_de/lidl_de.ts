@@ -32,6 +32,9 @@ export class LidlDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LidlDeCollector class.
+     */
     constructor() {
         super(LidlDeCollector.CONFIG);
     }

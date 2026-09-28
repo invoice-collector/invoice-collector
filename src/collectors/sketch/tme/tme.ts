@@ -32,6 +32,9 @@ export class TmeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TmeCollector class.
+     */
     constructor() {
         super(TmeCollector.CONFIG);
     }

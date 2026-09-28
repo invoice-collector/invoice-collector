@@ -32,6 +32,9 @@ export class _5pmWebCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the _5pmWebCollector class.
+     */
     constructor() {
         super(_5pmWebCollector.CONFIG);
     }

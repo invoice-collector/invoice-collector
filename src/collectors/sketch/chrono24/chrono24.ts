@@ -32,6 +32,9 @@ export class Chrono24Collector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Chrono24Collector class.
+     */
     constructor() {
         super(Chrono24Collector.CONFIG);
     }

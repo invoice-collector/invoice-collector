@@ -32,6 +32,9 @@ export class AnnickWeikertShopCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AnnickWeikertShopCollector class.
+     */
     constructor() {
         super(AnnickWeikertShopCollector.CONFIG);
     }

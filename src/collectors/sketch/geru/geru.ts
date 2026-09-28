@@ -32,6 +32,9 @@ export class GeruCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GeruCollector class.
+     */
     constructor() {
         super(GeruCollector.CONFIG);
     }

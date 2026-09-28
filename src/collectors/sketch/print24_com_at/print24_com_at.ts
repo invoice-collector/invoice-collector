@@ -32,6 +32,9 @@ export class Print24ComAtCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Print24ComAtCollector class.
+     */
     constructor() {
         super(Print24ComAtCollector.CONFIG);
     }

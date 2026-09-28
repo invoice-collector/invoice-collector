@@ -32,6 +32,9 @@ export class MerchantOnlinePortalTelecashDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MerchantOnlinePortalTelecashDeCollector class.
+     */
     constructor() {
         super(MerchantOnlinePortalTelecashDeCollector.CONFIG);
     }

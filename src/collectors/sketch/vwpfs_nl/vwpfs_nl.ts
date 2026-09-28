@@ -32,6 +32,9 @@ export class VwpfsNlCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VwpfsNlCollector class.
+     */
     constructor() {
         super(VwpfsNlCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class OneskyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OneskyCollector class.
+     */
     constructor() {
         super(OneskyCollector.CONFIG);
     }

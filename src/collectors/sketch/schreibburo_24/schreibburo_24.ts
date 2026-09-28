@@ -32,6 +32,9 @@ export class Schreibburo24Collector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Schreibburo24Collector class.
+     */
     constructor() {
         super(Schreibburo24Collector.CONFIG);
     }

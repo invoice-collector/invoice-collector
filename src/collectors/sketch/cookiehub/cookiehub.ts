@@ -32,6 +32,9 @@ export class CookiehubCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CookiehubCollector class.
+     */
     constructor() {
         super(CookiehubCollector.CONFIG);
     }

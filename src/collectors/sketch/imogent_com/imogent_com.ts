@@ -32,6 +32,9 @@ export class ImogentComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ImogentComCollector class.
+     */
     constructor() {
         super(ImogentComCollector.CONFIG);
     }

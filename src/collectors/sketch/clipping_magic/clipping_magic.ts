@@ -32,6 +32,9 @@ export class ClippingMagicCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ClippingMagicCollector class.
+     */
     constructor() {
         super(ClippingMagicCollector.CONFIG);
     }

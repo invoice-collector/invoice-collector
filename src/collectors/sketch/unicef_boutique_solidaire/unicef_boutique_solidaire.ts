@@ -32,6 +32,9 @@ export class UnicefBoutiqueSolidaireCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the UnicefBoutiqueSolidaireCollector class.
+     */
     constructor() {
         super(UnicefBoutiqueSolidaireCollector.CONFIG);
     }

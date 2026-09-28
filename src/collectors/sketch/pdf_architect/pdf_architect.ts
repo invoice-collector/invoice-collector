@@ -32,6 +32,9 @@ export class PdfArchitectCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PdfArchitectCollector class.
+     */
     constructor() {
         super(PdfArchitectCollector.CONFIG);
     }

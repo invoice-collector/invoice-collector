@@ -32,6 +32,9 @@ export class YoastCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the YoastCollector class.
+     */
     constructor() {
         super(YoastCollector.CONFIG);
     }

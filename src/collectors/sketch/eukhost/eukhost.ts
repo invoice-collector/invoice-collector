@@ -32,6 +32,9 @@ export class EukhostCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EukhostCollector class.
+     */
     constructor() {
         super(EukhostCollector.CONFIG);
     }

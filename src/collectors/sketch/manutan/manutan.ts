@@ -32,6 +32,9 @@ export class ManutanCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ManutanCollector class.
+     */
     constructor() {
         super(ManutanCollector.CONFIG);
     }

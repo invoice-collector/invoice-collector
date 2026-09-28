@@ -32,6 +32,9 @@ export class LiquideShopCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LiquideShopCollector class.
+     */
     constructor() {
         super(LiquideShopCollector.CONFIG);
     }

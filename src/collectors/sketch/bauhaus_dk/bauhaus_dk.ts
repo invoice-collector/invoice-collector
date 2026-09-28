@@ -32,6 +32,9 @@ export class BauhausDkCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BauhausDkCollector class.
+     */
     constructor() {
         super(BauhausDkCollector.CONFIG);
     }

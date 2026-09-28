@@ -32,6 +32,9 @@ export class EstgGrosshandelFurErneuerbareEnergienCollector extends SketchCollec
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EstgGrosshandelFurErneuerbareEnergienCollector class.
+     */
     constructor() {
         super(EstgGrosshandelFurErneuerbareEnergienCollector.CONFIG);
     }

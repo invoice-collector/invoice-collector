@@ -32,6 +32,9 @@ export class LandbellEasyShopCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LandbellEasyShopCollector class.
+     */
     constructor() {
         super(LandbellEasyShopCollector.CONFIG);
     }

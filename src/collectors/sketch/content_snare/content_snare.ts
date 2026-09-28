@@ -32,6 +32,9 @@ export class ContentSnareCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ContentSnareCollector class.
+     */
     constructor() {
         super(ContentSnareCollector.CONFIG);
     }

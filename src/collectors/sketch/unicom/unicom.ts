@@ -32,6 +32,9 @@ export class UnicomCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the UnicomCollector class.
+     */
     constructor() {
         super(UnicomCollector.CONFIG);
     }

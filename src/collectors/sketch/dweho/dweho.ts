@@ -32,6 +32,9 @@ export class DwehoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DwehoCollector class.
+     */
     constructor() {
         super(DwehoCollector.CONFIG);
     }

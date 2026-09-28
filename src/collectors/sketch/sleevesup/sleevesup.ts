@@ -32,6 +32,9 @@ export class SleevesupCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SleevesupCollector class.
+     */
     constructor() {
         super(SleevesupCollector.CONFIG);
     }

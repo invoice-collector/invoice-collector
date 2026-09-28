@@ -32,6 +32,9 @@ export class FoursixtyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FoursixtyCollector class.
+     */
     constructor() {
         super(FoursixtyCollector.CONFIG);
     }

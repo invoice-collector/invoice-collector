@@ -32,6 +32,9 @@ export class AliceadslFrCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AliceadslFrCollector class.
+     */
     constructor() {
         super(AliceadslFrCollector.CONFIG);
     }

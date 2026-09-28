@@ -32,6 +32,9 @@ export class WonderpushCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WonderpushCollector class.
+     */
     constructor() {
         super(WonderpushCollector.CONFIG);
     }

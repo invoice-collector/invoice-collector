@@ -32,6 +32,9 @@ export class AmazonKindleDirectPublishingCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AmazonKindleDirectPublishingCollector class.
+     */
     constructor() {
         super(AmazonKindleDirectPublishingCollector.CONFIG);
     }

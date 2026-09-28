@@ -32,6 +32,9 @@ export class EnlapseCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EnlapseCollector class.
+     */
     constructor() {
         super(EnlapseCollector.CONFIG);
     }

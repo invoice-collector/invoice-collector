@@ -32,6 +32,9 @@ export class MaingauEnergieKundenportalCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MaingauEnergieKundenportalCollector class.
+     */
     constructor() {
         super(MaingauEnergieKundenportalCollector.CONFIG);
     }

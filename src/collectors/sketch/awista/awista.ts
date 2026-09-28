@@ -32,6 +32,9 @@ export class AwistaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AwistaCollector class.
+     */
     constructor() {
         super(AwistaCollector.CONFIG);
     }

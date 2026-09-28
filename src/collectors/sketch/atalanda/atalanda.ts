@@ -32,6 +32,9 @@ export class AtalandaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AtalandaCollector class.
+     */
     constructor() {
         super(AtalandaCollector.CONFIG);
     }

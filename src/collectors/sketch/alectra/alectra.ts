@@ -32,6 +32,9 @@ export class AlectraCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AlectraCollector class.
+     */
     constructor() {
         super(AlectraCollector.CONFIG);
     }

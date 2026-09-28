@@ -32,6 +32,9 @@ export class CombellCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CombellCollector class.
+     */
     constructor() {
         super(CombellCollector.CONFIG);
     }

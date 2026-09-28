@@ -32,6 +32,9 @@ export class HrsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HrsCollector class.
+     */
     constructor() {
         super(HrsCollector.CONFIG);
     }

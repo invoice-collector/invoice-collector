@@ -32,6 +32,9 @@ export class BillogrammCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BillogrammCollector class.
+     */
     constructor() {
         super(BillogrammCollector.CONFIG);
     }

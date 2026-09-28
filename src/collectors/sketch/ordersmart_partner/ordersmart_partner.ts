@@ -32,6 +32,9 @@ export class OrdersmartPartnerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OrdersmartPartnerCollector class.
+     */
     constructor() {
         super(OrdersmartPartnerCollector.CONFIG);
     }

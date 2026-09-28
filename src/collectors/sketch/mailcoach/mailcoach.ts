@@ -32,6 +32,9 @@ export class MailcoachCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MailcoachCollector class.
+     */
     constructor() {
         super(MailcoachCollector.CONFIG);
     }

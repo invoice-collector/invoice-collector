@@ -32,6 +32,9 @@ export class NetReviewsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NetReviewsCollector class.
+     */
     constructor() {
         super(NetReviewsCollector.CONFIG);
     }

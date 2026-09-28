@@ -32,6 +32,9 @@ export class BritishTelecomCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BritishTelecomCollector class.
+     */
     constructor() {
         super(BritishTelecomCollector.CONFIG);
     }

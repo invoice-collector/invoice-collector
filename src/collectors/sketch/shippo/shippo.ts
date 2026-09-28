@@ -32,6 +32,9 @@ export class ShippoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ShippoCollector class.
+     */
     constructor() {
         super(ShippoCollector.CONFIG);
     }

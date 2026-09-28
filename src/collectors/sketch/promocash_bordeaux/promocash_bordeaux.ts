@@ -32,6 +32,9 @@ export class PromocashBordeauxCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PromocashBordeauxCollector class.
+     */
     constructor() {
         super(PromocashBordeauxCollector.CONFIG);
     }

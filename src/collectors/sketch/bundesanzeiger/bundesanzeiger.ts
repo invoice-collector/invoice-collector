@@ -32,6 +32,9 @@ export class BundesanzeigerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BundesanzeigerCollector class.
+     */
     constructor() {
         super(BundesanzeigerCollector.CONFIG);
     }

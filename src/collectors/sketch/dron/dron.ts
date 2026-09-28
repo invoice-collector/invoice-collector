@@ -32,6 +32,9 @@ export class DronCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DronCollector class.
+     */
     constructor() {
         super(DronCollector.CONFIG);
     }

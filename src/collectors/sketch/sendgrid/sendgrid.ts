@@ -32,6 +32,9 @@ export class SendgridCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SendgridCollector class.
+     */
     constructor() {
         super(SendgridCollector.CONFIG);
     }

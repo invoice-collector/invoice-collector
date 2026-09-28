@@ -32,6 +32,9 @@ export class AppyPieConnectCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AppyPieConnectCollector class.
+     */
     constructor() {
         super(AppyPieConnectCollector.CONFIG);
     }

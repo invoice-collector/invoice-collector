@@ -32,6 +32,9 @@ export class ThuringerNetkomCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ThuringerNetkomCollector class.
+     */
     constructor() {
         super(ThuringerNetkomCollector.CONFIG);
     }

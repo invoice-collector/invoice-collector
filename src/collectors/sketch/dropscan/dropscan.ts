@@ -32,6 +32,9 @@ export class DropscanCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DropscanCollector class.
+     */
     constructor() {
         super(DropscanCollector.CONFIG);
     }

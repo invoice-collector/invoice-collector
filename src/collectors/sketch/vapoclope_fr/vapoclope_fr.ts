@@ -32,6 +32,9 @@ export class VapoclopeFrCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VapoclopeFrCollector class.
+     */
     constructor() {
         super(VapoclopeFrCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class EpriceItCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EpriceItCollector class.
+     */
     constructor() {
         super(EpriceItCollector.CONFIG);
     }

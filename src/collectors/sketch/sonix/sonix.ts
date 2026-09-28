@@ -32,6 +32,9 @@ export class SonixCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SonixCollector class.
+     */
     constructor() {
         super(SonixCollector.CONFIG);
     }

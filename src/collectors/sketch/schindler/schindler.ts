@@ -31,6 +31,9 @@ export class SchindlerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SchindlerCollector class.
+     */
     constructor() {
         super(SchindlerCollector.CONFIG);
     }

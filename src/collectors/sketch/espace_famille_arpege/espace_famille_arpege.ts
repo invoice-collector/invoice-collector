@@ -32,6 +32,9 @@ export class EspaceFamilleArpegeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EspaceFamilleArpegeCollector class.
+     */
     constructor() {
         super(EspaceFamilleArpegeCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class KohlForderungsmanagementCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KohlForderungsmanagementCollector class.
+     */
     constructor() {
         super(KohlForderungsmanagementCollector.CONFIG);
     }

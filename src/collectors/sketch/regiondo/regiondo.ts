@@ -32,6 +32,9 @@ export class RegiondoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RegiondoCollector class.
+     */
     constructor() {
         super(RegiondoCollector.CONFIG);
     }

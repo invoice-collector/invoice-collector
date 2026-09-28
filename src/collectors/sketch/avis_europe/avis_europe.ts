@@ -32,6 +32,9 @@ export class AvisEuropeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AvisEuropeCollector class.
+     */
     constructor() {
         super(AvisEuropeCollector.CONFIG);
     }

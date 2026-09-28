@@ -32,6 +32,9 @@ export class InvoxiaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the InvoxiaCollector class.
+     */
     constructor() {
         super(InvoxiaCollector.CONFIG);
     }

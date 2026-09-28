@@ -32,6 +32,9 @@ export class TransparenzregisterCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TransparenzregisterCollector class.
+     */
     constructor() {
         super(TransparenzregisterCollector.CONFIG);
     }

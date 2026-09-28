@@ -32,6 +32,9 @@ export class PixumCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PixumCollector class.
+     */
     constructor() {
         super(PixumCollector.CONFIG);
     }

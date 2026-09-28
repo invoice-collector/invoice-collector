@@ -32,6 +32,9 @@ export class ColumbiaGasOfVirginiaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ColumbiaGasOfVirginiaCollector class.
+     */
     constructor() {
         super(ColumbiaGasOfVirginiaCollector.CONFIG);
     }

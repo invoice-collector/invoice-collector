@@ -32,6 +32,9 @@ export class MinutCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MinutCollector class.
+     */
     constructor() {
         super(MinutCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class OneComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OneComCollector class.
+     */
     constructor() {
         super(OneComCollector.CONFIG);
     }

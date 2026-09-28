@@ -32,6 +32,9 @@ export class MutuellePlanSanteProfessionnelCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MutuellePlanSanteProfessionnelCollector class.
+     */
     constructor() {
         super(MutuellePlanSanteProfessionnelCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class MilanoteCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MilanoteCollector class.
+     */
     constructor() {
         super(MilanoteCollector.CONFIG);
     }

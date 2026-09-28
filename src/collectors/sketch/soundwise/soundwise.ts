@@ -32,6 +32,9 @@ export class SoundwiseCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SoundwiseCollector class.
+     */
     constructor() {
         super(SoundwiseCollector.CONFIG);
     }

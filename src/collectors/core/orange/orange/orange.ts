@@ -41,26 +41,44 @@ export class OrangeCollector extends LinearWebCollector {
         state: CollectorState.ACTIVE,
     };
 
+    /**
+     * Constructs a new instance of the OrangeCollector class.
+     */
     constructor() {
         super(OrangeCollector.CONFIG);
     }
 
+    /**
+     * @inheritdoc
+     */
     async needLogin(driver: AbstractDriver): Promise<boolean> {
         return await OrangeHelper.needLogin(driver);
     }
 
+    /**
+     * @inheritdoc
+     */
     async login(driver: AbstractDriver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
         return await OrangeHelper.login(driver, params, webSocketServer);
     }
 
+    /**
+     * @inheritdoc
+     */
     async needTwofa(driver: AbstractDriver): Promise<string | void>{
         return await OrangeHelper.needTwofa(driver);
     }
 
+    /**
+     * @inheritdoc
+     */
     async twofa(driver: AbstractDriver, params: any, twofa_promise: TwofaPromise, webSocketServer: WebSocketServer): Promise<string | void> {
         return await OrangeHelper.twofa(driver, params, twofa_promise, webSocketServer);
     }
 
+    /**
+     * @inheritdoc
+     */
     async navigate(driver: AbstractDriver): Promise<void> {
         // Refuse cookies
         await driver.leftClick(OrangeSelectors.BUTTON_REFUSE_COOKIES, { raiseException: false, timeout: 2000});
@@ -77,22 +95,37 @@ export class OrangeCollector extends LinearWebCollector {
         }
     }
 
+    /**
+     * @inheritdoc
+     */
     async forEachPage(driver: AbstractDriver, next: () => Promise<void>): Promise<void> {
         return await OrangeHelper.forEachPage(driver, next);
     }
 
+    /**
+     * @inheritdoc
+     */
     async isEmpty(driver: AbstractDriver): Promise<boolean> {
         return await OrangeHelper.isEmpty(driver);
     }
 
+    /**
+     * @inheritdoc
+     */
     async getInvoices(driver: AbstractDriver): Promise<Element[]> {
         return await OrangeHelper.getInvoices(driver);
     }
 
+    /**
+     * @inheritdoc
+     */
     async data(driver: AbstractDriver, element: Element): Promise<Invoice | null> {
         return await OrangeHelper.data(driver, element);
     }
-    
+
+    /**
+     * @inheritdoc
+     */
     async download(driver: AbstractDriver, invoice: Invoice): Promise<string[]> {
         return await OrangeHelper.download(driver, invoice, this);
     }

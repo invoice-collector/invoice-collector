@@ -32,6 +32,9 @@ export class AescriptsAepluginsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AescriptsAepluginsCollector class.
+     */
     constructor() {
         super(AescriptsAepluginsCollector.CONFIG);
     }

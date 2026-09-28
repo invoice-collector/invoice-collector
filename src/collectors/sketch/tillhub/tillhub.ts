@@ -32,6 +32,9 @@ export class TillhubCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TillhubCollector class.
+     */
     constructor() {
         super(TillhubCollector.CONFIG);
     }

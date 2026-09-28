@@ -32,6 +32,9 @@ export class ConvertiserCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ConvertiserCollector class.
+     */
     constructor() {
         super(ConvertiserCollector.CONFIG);
     }

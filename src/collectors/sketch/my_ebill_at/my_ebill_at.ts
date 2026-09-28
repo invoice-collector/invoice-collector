@@ -32,6 +32,9 @@ export class MyEbillAtCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MyEbillAtCollector class.
+     */
     constructor() {
         super(MyEbillAtCollector.CONFIG);
     }

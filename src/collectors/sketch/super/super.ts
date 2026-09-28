@@ -32,6 +32,9 @@ export class SuperCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SuperCollector class.
+     */
     constructor() {
         super(SuperCollector.CONFIG);
     }

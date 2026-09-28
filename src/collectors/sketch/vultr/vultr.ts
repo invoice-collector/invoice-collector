@@ -32,6 +32,9 @@ export class VultrCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VultrCollector class.
+     */
     constructor() {
         super(VultrCollector.CONFIG);
     }

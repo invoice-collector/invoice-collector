@@ -32,6 +32,9 @@ export class PsipentaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PsipentaCollector class.
+     */
     constructor() {
         super(PsipentaCollector.CONFIG);
     }

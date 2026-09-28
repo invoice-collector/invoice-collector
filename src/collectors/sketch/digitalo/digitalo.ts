@@ -32,6 +32,9 @@ export class DigitaloCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DigitaloCollector class.
+     */
     constructor() {
         super(DigitaloCollector.CONFIG);
     }

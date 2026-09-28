@@ -32,6 +32,9 @@ export class DampsoftCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DampsoftCollector class.
+     */
     constructor() {
         super(DampsoftCollector.CONFIG);
     }

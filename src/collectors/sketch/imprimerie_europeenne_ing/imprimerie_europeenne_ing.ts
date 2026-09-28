@@ -32,6 +32,9 @@ export class ImprimerieEuropeenneIngCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ImprimerieEuropeenneIngCollector class.
+     */
     constructor() {
         super(ImprimerieEuropeenneIngCollector.CONFIG);
     }

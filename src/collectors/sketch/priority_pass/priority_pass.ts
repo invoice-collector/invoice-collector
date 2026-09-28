@@ -32,6 +32,9 @@ export class PriorityPassCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PriorityPassCollector class.
+     */
     constructor() {
         super(PriorityPassCollector.CONFIG);
     }

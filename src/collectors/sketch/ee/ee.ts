@@ -32,6 +32,9 @@ export class EeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EeCollector class.
+     */
     constructor() {
         super(EeCollector.CONFIG);
     }

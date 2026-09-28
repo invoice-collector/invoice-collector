@@ -32,6 +32,9 @@ export class NapaProlinkCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NapaProlinkCollector class.
+     */
     constructor() {
         super(NapaProlinkCollector.CONFIG);
     }

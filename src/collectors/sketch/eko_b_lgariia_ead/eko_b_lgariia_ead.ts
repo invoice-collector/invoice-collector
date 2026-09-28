@@ -32,6 +32,9 @@ export class EkoBLgariiaEadCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EkoBLgariiaEadCollector class.
+     */
     constructor() {
         super(EkoBLgariiaEadCollector.CONFIG);
     }

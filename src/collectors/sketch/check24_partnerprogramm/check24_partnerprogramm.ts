@@ -32,6 +32,9 @@ export class Check24PartnerprogrammCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Check24PartnerprogrammCollector class.
+     */
     constructor() {
         super(Check24PartnerprogrammCollector.CONFIG);
     }

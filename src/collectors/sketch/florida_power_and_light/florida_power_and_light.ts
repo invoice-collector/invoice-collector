@@ -32,6 +32,9 @@ export class FloridaPowerAndLightCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FloridaPowerAndLightCollector class.
+     */
     constructor() {
         super(FloridaPowerAndLightCollector.CONFIG);
     }

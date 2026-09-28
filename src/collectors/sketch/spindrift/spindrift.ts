@@ -32,6 +32,9 @@ export class SpindriftCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SpindriftCollector class.
+     */
     constructor() {
         super(SpindriftCollector.CONFIG);
     }

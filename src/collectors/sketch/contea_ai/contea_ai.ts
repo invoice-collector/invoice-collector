@@ -32,6 +32,9 @@ export class ConteaAiCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ConteaAiCollector class.
+     */
     constructor() {
         super(ConteaAiCollector.CONFIG);
     }

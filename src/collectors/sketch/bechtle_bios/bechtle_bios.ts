@@ -32,6 +32,9 @@ export class BechtleBiosCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BechtleBiosCollector class.
+     */
     constructor() {
         super(BechtleBiosCollector.CONFIG);
     }

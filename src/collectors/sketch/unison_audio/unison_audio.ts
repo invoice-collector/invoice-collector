@@ -32,6 +32,9 @@ export class UnisonAudioCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the UnisonAudioCollector class.
+     */
     constructor() {
         super(UnisonAudioCollector.CONFIG);
     }

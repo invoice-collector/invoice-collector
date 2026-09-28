@@ -32,6 +32,9 @@ export class EpisodCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EpisodCollector class.
+     */
     constructor() {
         super(EpisodCollector.CONFIG);
     }

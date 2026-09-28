@@ -32,6 +32,9 @@ export class BenNlCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BenNlCollector class.
+     */
     constructor() {
         super(BenNlCollector.CONFIG);
     }

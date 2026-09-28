@@ -32,6 +32,9 @@ export class ProboCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ProboCollector class.
+     */
     constructor() {
         super(ProboCollector.CONFIG);
     }

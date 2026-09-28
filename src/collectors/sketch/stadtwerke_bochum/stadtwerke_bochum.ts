@@ -32,6 +32,9 @@ export class StadtwerkeBochumCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StadtwerkeBochumCollector class.
+     */
     constructor() {
         super(StadtwerkeBochumCollector.CONFIG);
     }

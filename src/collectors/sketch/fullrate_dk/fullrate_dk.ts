@@ -32,6 +32,9 @@ export class FullrateDkCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FullrateDkCollector class.
+     */
     constructor() {
         super(FullrateDkCollector.CONFIG);
     }

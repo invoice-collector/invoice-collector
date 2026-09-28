@@ -32,6 +32,9 @@ export class AseohostingCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AseohostingCollector class.
+     */
     constructor() {
         super(AseohostingCollector.CONFIG);
     }

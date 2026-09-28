@@ -32,6 +32,9 @@ export class Webspeicherplatz24Collector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Webspeicherplatz24Collector class.
+     */
     constructor() {
         super(Webspeicherplatz24Collector.CONFIG);
     }

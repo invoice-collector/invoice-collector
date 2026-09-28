@@ -32,6 +32,9 @@ export class BuyselladsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BuyselladsCollector class.
+     */
     constructor() {
         super(BuyselladsCollector.CONFIG);
     }

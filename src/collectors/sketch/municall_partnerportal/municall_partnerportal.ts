@@ -32,6 +32,9 @@ export class MunicallPartnerportalCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MunicallPartnerportalCollector class.
+     */
     constructor() {
         super(MunicallPartnerportalCollector.CONFIG);
     }

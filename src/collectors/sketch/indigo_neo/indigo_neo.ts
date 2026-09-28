@@ -32,6 +32,9 @@ export class IndigoNeoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the IndigoNeoCollector class.
+     */
     constructor() {
         super(IndigoNeoCollector.CONFIG);
     }

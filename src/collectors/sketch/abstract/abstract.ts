@@ -32,6 +32,9 @@ export class AbstractCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AbstractCollector class.
+     */
     constructor() {
         super(AbstractCollector.CONFIG);
     }

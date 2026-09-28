@@ -32,6 +32,9 @@ export class SitebulbCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SitebulbCollector class.
+     */
     constructor() {
         super(SitebulbCollector.CONFIG);
     }

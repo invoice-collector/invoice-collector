@@ -31,6 +31,9 @@ export class EngieFrCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EngieFrCollector class.
+     */
     constructor() {
         super(EngieFrCollector.CONFIG);
     }

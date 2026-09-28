@@ -32,6 +32,9 @@ export class ZenkitCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ZenkitCollector class.
+     */
     constructor() {
         super(ZenkitCollector.CONFIG);
     }

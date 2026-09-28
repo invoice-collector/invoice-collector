@@ -32,6 +32,9 @@ export class XxxlutzMarktplatzCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the XxxlutzMarktplatzCollector class.
+     */
     constructor() {
         super(XxxlutzMarktplatzCollector.CONFIG);
     }

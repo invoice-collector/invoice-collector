@@ -32,6 +32,9 @@ export class KotelCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KotelCollector class.
+     */
     constructor() {
         super(KotelCollector.CONFIG);
     }

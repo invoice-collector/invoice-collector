@@ -32,6 +32,9 @@ export class ToysforfunCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ToysforfunCollector class.
+     */
     constructor() {
         super(ToysforfunCollector.CONFIG);
     }

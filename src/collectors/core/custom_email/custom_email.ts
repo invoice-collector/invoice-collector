@@ -51,6 +51,9 @@ export class CustomEmailCollector extends EmailCollector {
         state: CollectorState.ACTIVE,
     };
 
+    /**
+     * Constructs a new instance of the CustomEmailCollector class.
+     */
     constructor() {
         super(CustomEmailCollector.CONFIG);
     }

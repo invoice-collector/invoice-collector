@@ -32,6 +32,9 @@ export class TemplatemonsterCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TemplatemonsterCollector class.
+     */
     constructor() {
         super(TemplatemonsterCollector.CONFIG);
     }

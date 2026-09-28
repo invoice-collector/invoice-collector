@@ -32,6 +32,9 @@ export class BbklopeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BbklopeCollector class.
+     */
     constructor() {
         super(BbklopeCollector.CONFIG);
     }

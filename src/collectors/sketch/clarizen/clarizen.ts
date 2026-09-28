@@ -32,6 +32,9 @@ export class ClarizenCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ClarizenCollector class.
+     */
     constructor() {
         super(ClarizenCollector.CONFIG);
     }

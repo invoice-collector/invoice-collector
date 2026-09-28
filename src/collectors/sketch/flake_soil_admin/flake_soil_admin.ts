@@ -32,6 +32,9 @@ export class FlakeSoilAdminCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FlakeSoilAdminCollector class.
+     */
     constructor() {
         super(FlakeSoilAdminCollector.CONFIG);
     }

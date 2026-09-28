@@ -32,6 +32,9 @@ export class LennySNewsletterCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LennySNewsletterCollector class.
+     */
     constructor() {
         super(LennySNewsletterCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class MutuelleMgcPersonnelCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MutuelleMgcPersonnelCollector class.
+     */
     constructor() {
         super(MutuelleMgcPersonnelCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class MyLittleBoxCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MyLittleBoxCollector class.
+     */
     constructor() {
         super(MyLittleBoxCollector.CONFIG);
     }

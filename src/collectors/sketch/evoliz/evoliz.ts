@@ -32,6 +32,9 @@ export class EvolizCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EvolizCollector class.
+     */
     constructor() {
         super(EvolizCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class BvgBerlinerVerkehrsbetriebeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BvgBerlinerVerkehrsbetriebeCollector class.
+     */
     constructor() {
         super(BvgBerlinerVerkehrsbetriebeCollector.CONFIG);
     }

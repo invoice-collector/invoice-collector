@@ -32,6 +32,9 @@ export class XxxlutzCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the XxxlutzCollector class.
+     */
     constructor() {
         super(XxxlutzCollector.CONFIG);
     }

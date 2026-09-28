@@ -32,6 +32,9 @@ export class EasypayGroupCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EasypayGroupCollector class.
+     */
     constructor() {
         super(EasypayGroupCollector.CONFIG);
     }

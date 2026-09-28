@@ -32,6 +32,9 @@ export class ProjectfactsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ProjectfactsCollector class.
+     */
     constructor() {
         super(ProjectfactsCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class HostarmadaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HostarmadaCollector class.
+     */
     constructor() {
         super(HostarmadaCollector.CONFIG);
     }

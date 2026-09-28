@@ -32,6 +32,9 @@ export class EvianChezVousCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EvianChezVousCollector class.
+     */
     constructor() {
         super(EvianChezVousCollector.CONFIG);
     }

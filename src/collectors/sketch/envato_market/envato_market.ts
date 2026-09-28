@@ -32,6 +32,9 @@ export class EnvatoMarketCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EnvatoMarketCollector class.
+     */
     constructor() {
         super(EnvatoMarketCollector.CONFIG);
     }

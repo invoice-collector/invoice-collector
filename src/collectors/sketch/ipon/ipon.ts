@@ -32,6 +32,9 @@ export class IponCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the IponCollector class.
+     */
     constructor() {
         super(IponCollector.CONFIG);
     }

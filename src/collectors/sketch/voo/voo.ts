@@ -32,6 +32,9 @@ export class VooCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VooCollector class.
+     */
     constructor() {
         super(VooCollector.CONFIG);
     }

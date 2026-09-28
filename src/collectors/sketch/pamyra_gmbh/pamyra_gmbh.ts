@@ -32,6 +32,9 @@ export class PamyraGmbhCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PamyraGmbhCollector class.
+     */
     constructor() {
         super(PamyraGmbhCollector.CONFIG);
     }

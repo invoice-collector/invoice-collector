@@ -32,6 +32,9 @@ export class StaffsquaredCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StaffsquaredCollector class.
+     */
     constructor() {
         super(StaffsquaredCollector.CONFIG);
     }

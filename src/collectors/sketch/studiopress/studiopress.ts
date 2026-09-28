@@ -32,6 +32,9 @@ export class StudiopressCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StudiopressCollector class.
+     */
     constructor() {
         super(StudiopressCollector.CONFIG);
     }

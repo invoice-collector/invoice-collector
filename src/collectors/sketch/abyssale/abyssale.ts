@@ -32,6 +32,9 @@ export class AbyssaleCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AbyssaleCollector class.
+     */
     constructor() {
         super(AbyssaleCollector.CONFIG);
     }

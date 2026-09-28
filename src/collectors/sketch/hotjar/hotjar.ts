@@ -32,6 +32,9 @@ export class HotjarCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HotjarCollector class.
+     */
     constructor() {
         super(HotjarCollector.CONFIG);
     }

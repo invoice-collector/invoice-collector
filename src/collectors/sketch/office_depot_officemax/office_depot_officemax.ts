@@ -32,6 +32,9 @@ export class OfficeDepotOfficemaxCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OfficeDepotOfficemaxCollector class.
+     */
     constructor() {
         super(OfficeDepotOfficemaxCollector.CONFIG);
     }

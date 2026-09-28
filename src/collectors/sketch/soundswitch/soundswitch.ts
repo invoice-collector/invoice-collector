@@ -32,6 +32,9 @@ export class SoundswitchCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SoundswitchCollector class.
+     */
     constructor() {
         super(SoundswitchCollector.CONFIG);
     }

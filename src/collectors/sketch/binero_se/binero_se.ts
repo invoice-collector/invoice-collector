@@ -32,6 +32,9 @@ export class BineroSeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BineroSeCollector class.
+     */
     constructor() {
         super(BineroSeCollector.CONFIG);
     }

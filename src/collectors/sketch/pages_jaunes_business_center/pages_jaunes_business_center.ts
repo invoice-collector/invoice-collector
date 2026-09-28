@@ -32,6 +32,9 @@ export class PagesJaunesBusinessCenterCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PagesJaunesBusinessCenterCollector class.
+     */
     constructor() {
         super(PagesJaunesBusinessCenterCollector.CONFIG);
     }

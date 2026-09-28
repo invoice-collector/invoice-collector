@@ -32,6 +32,9 @@ export class PcextremeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PcextremeCollector class.
+     */
     constructor() {
         super(PcextremeCollector.CONFIG);
     }

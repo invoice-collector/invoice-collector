@@ -32,6 +32,9 @@ export class WeapIoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WeapIoCollector class.
+     */
     constructor() {
         super(WeapIoCollector.CONFIG);
     }

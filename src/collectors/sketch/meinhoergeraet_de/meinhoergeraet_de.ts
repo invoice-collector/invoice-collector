@@ -32,6 +32,9 @@ export class MeinhoergeraetDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MeinhoergeraetDeCollector class.
+     */
     constructor() {
         super(MeinhoergeraetDeCollector.CONFIG);
     }

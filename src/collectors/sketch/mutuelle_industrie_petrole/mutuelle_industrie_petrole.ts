@@ -32,6 +32,9 @@ export class MutuelleIndustriePetroleCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MutuelleIndustriePetroleCollector class.
+     */
     constructor() {
         super(MutuelleIndustriePetroleCollector.CONFIG);
     }

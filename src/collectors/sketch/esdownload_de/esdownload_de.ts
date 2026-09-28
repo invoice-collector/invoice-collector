@@ -32,6 +32,9 @@ export class EsdownloadDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EsdownloadDeCollector class.
+     */
     constructor() {
         super(EsdownloadDeCollector.CONFIG);
     }

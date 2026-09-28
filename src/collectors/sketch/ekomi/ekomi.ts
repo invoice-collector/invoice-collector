@@ -32,6 +32,9 @@ export class EkomiCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EkomiCollector class.
+     */
     constructor() {
         super(EkomiCollector.CONFIG);
     }

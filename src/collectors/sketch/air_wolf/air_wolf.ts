@@ -32,6 +32,9 @@ export class AirWolfCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AirWolfCollector class.
+     */
     constructor() {
         super(AirWolfCollector.CONFIG);
     }

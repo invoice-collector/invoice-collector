@@ -32,6 +32,9 @@ export class LandkreisRostockEigenbetriebAbfallwirtschaftCollector extends Sketc
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LandkreisRostockEigenbetriebAbfallwirtschaftCollector class.
+     */
     constructor() {
         super(LandkreisRostockEigenbetriebAbfallwirtschaftCollector.CONFIG);
     }

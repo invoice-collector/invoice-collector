@@ -32,6 +32,9 @@ export class RackspaceFanaticalSupportForAwsControlPanelCollector extends Sketch
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RackspaceFanaticalSupportForAwsControlPanelCollector class.
+     */
     constructor() {
         super(RackspaceFanaticalSupportForAwsControlPanelCollector.CONFIG);
     }

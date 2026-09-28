@@ -32,6 +32,9 @@ export class CornelsenVerlagCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CornelsenVerlagCollector class.
+     */
     constructor() {
         super(CornelsenVerlagCollector.CONFIG);
     }

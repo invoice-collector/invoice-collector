@@ -32,6 +32,9 @@ export class JoynCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the JoynCollector class.
+     */
     constructor() {
         super(JoynCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class VhbwB2bCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VhbwB2bCollector class.
+     */
     constructor() {
         super(VhbwB2bCollector.CONFIG);
     }

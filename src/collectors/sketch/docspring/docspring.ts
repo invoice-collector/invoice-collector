@@ -32,6 +32,9 @@ export class DocspringCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DocspringCollector class.
+     */
     constructor() {
         super(DocspringCollector.CONFIG);
     }

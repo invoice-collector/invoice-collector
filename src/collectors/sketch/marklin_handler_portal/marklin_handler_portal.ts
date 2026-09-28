@@ -32,6 +32,9 @@ export class MarklinHandlerPortalCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MarklinHandlerPortalCollector class.
+     */
     constructor() {
         super(MarklinHandlerPortalCollector.CONFIG);
     }

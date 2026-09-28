@@ -32,6 +32,9 @@ export class MutuelleRadianceEntrepriseCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MutuelleRadianceEntrepriseCollector class.
+     */
     constructor() {
         super(MutuelleRadianceEntrepriseCollector.CONFIG);
     }

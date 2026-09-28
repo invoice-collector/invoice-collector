@@ -32,6 +32,9 @@ export class BuhlDataServiceCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BuhlDataServiceCollector class.
+     */
     constructor() {
         super(BuhlDataServiceCollector.CONFIG);
     }

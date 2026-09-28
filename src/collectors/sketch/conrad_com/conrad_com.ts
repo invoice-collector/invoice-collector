@@ -32,6 +32,9 @@ export class ConradComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ConradComCollector class.
+     */
     constructor() {
         super(ConradComCollector.CONFIG);
     }

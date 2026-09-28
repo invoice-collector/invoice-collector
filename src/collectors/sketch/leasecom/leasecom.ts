@@ -31,6 +31,9 @@ export class LeasecomCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LeasecomCollector class.
+     */
     constructor() {
         super(LeasecomCollector.CONFIG);
     }

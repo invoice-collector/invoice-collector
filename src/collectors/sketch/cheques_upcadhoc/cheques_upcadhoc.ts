@@ -32,6 +32,9 @@ export class ChequesUpcadhocCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ChequesUpcadhocCollector class.
+     */
     constructor() {
         super(ChequesUpcadhocCollector.CONFIG);
     }

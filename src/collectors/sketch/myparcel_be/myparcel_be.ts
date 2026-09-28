@@ -32,6 +32,9 @@ export class MyparcelBeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MyparcelBeCollector class.
+     */
     constructor() {
         super(MyparcelBeCollector.CONFIG);
     }

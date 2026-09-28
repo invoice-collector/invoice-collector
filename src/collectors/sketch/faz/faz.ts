@@ -32,6 +32,9 @@ export class FazCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FazCollector class.
+     */
     constructor() {
         super(FazCollector.CONFIG);
     }

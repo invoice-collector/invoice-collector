@@ -32,6 +32,9 @@ export class SeatableCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SeatableCollector class.
+     */
     constructor() {
         super(SeatableCollector.CONFIG);
     }

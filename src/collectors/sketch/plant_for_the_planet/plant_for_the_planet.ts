@@ -32,6 +32,9 @@ export class PlantForThePlanetCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PlantForThePlanetCollector class.
+     */
     constructor() {
         super(PlantForThePlanetCollector.CONFIG);
     }

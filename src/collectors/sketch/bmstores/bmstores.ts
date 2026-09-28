@@ -31,6 +31,9 @@ export class BMStoresCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BMStoresCollector class.
+     */
     constructor() {
         super(BMStoresCollector.CONFIG);
     }

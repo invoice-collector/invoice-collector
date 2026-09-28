@@ -32,6 +32,9 @@ export class ShippyProCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ShippyProCollector class.
+     */
     constructor() {
         super(ShippyProCollector.CONFIG);
     }

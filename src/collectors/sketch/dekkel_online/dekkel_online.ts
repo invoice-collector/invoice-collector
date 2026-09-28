@@ -32,6 +32,9 @@ export class DekkelOnlineCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DekkelOnlineCollector class.
+     */
     constructor() {
         super(DekkelOnlineCollector.CONFIG);
     }

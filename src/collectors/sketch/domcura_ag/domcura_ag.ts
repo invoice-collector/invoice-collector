@@ -32,6 +32,9 @@ export class DomcuraAgCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DomcuraAgCollector class.
+     */
     constructor() {
         super(DomcuraAgCollector.CONFIG);
     }

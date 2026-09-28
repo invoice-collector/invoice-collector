@@ -32,6 +32,9 @@ export class KrispCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KrispCollector class.
+     */
     constructor() {
         super(KrispCollector.CONFIG);
     }

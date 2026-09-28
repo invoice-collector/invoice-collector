@@ -32,6 +32,9 @@ export class ArrowCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ArrowCollector class.
+     */
     constructor() {
         super(ArrowCollector.CONFIG);
     }

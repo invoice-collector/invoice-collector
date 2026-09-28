@@ -32,6 +32,9 @@ export class AdvanceAutoPartsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AdvanceAutoPartsCollector class.
+     */
     constructor() {
         super(AdvanceAutoPartsCollector.CONFIG);
     }

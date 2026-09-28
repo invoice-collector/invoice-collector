@@ -32,6 +32,9 @@ export class BarmerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BarmerCollector class.
+     */
     constructor() {
         super(BarmerCollector.CONFIG);
     }

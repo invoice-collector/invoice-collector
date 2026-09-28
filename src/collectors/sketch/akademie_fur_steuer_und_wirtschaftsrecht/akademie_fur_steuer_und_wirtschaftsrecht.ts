@@ -32,6 +32,9 @@ export class AkademieFurSteuerUndWirtschaftsrechtCollector extends SketchCollect
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AkademieFurSteuerUndWirtschaftsrechtCollector class.
+     */
     constructor() {
         super(AkademieFurSteuerUndWirtschaftsrechtCollector.CONFIG);
     }

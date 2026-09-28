@@ -32,6 +32,9 @@ export class SwuEmobilityCloudCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SwuEmobilityCloudCollector class.
+     */
     constructor() {
         super(SwuEmobilityCloudCollector.CONFIG);
     }

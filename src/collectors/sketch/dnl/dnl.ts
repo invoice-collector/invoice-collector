@@ -32,6 +32,9 @@ export class DnlCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DnlCollector class.
+     */
     constructor() {
         super(DnlCollector.CONFIG);
     }

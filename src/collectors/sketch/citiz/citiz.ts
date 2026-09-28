@@ -32,6 +32,9 @@ export class CitizCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CitizCollector class.
+     */
     constructor() {
         super(CitizCollector.CONFIG);
     }

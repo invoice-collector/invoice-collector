@@ -32,6 +32,9 @@ export class Packen24Collector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Packen24Collector class.
+     */
     constructor() {
         super(Packen24Collector.CONFIG);
     }

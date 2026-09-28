@@ -32,6 +32,9 @@ export class VeliaNetCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VeliaNetCollector class.
+     */
     constructor() {
         super(VeliaNetCollector.CONFIG);
     }

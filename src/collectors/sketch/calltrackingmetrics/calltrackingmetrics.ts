@@ -32,6 +32,9 @@ export class CalltrackingmetricsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CalltrackingmetricsCollector class.
+     */
     constructor() {
         super(CalltrackingmetricsCollector.CONFIG);
     }

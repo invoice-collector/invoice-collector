@@ -32,6 +32,9 @@ export class StratoEShopDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StratoEShopDeCollector class.
+     */
     constructor() {
         super(StratoEShopDeCollector.CONFIG);
     }

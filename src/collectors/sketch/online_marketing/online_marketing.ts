@@ -32,6 +32,9 @@ export class OnlineMarketingCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OnlineMarketingCollector class.
+     */
     constructor() {
         super(OnlineMarketingCollector.CONFIG);
     }

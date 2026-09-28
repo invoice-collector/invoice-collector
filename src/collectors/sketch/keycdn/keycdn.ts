@@ -32,6 +32,9 @@ export class KeycdnCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KeycdnCollector class.
+     */
     constructor() {
         super(KeycdnCollector.CONFIG);
     }

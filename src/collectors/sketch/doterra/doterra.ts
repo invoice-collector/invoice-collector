@@ -32,6 +32,9 @@ export class DoterraCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DoterraCollector class.
+     */
     constructor() {
         super(DoterraCollector.CONFIG);
     }

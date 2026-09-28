@@ -32,6 +32,9 @@ export class KiblyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KiblyCollector class.
+     */
     constructor() {
         super(KiblyCollector.CONFIG);
     }

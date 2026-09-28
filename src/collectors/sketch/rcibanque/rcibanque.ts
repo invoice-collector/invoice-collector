@@ -32,6 +32,9 @@ export class RcibanqueCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RcibanqueCollector class.
+     */
     constructor() {
         super(RcibanqueCollector.CONFIG);
     }

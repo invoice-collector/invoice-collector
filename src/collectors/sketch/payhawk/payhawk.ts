@@ -32,6 +32,9 @@ export class PayhawkCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PayhawkCollector class.
+     */
     constructor() {
         super(PayhawkCollector.CONFIG);
     }

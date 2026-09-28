@@ -32,6 +32,9 @@ export class BcHydroCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BcHydroCollector class.
+     */
     constructor() {
         super(BcHydroCollector.CONFIG);
     }

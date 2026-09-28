@@ -32,6 +32,9 @@ export class AkismetCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AkismetCollector class.
+     */
     constructor() {
         super(AkismetCollector.CONFIG);
     }

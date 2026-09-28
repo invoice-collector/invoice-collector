@@ -32,6 +32,9 @@ export class ScaleSerpCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ScaleSerpCollector class.
+     */
     constructor() {
         super(ScaleSerpCollector.CONFIG);
     }

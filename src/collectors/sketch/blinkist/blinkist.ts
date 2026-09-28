@@ -32,6 +32,9 @@ export class BlinkistCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BlinkistCollector class.
+     */
     constructor() {
         super(BlinkistCollector.CONFIG);
     }

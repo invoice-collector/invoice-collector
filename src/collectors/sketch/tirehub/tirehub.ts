@@ -32,6 +32,9 @@ export class TirehubCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TirehubCollector class.
+     */
     constructor() {
         super(TirehubCollector.CONFIG);
     }

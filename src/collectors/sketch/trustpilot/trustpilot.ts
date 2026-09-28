@@ -32,6 +32,9 @@ export class TrustpilotCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TrustpilotCollector class.
+     */
     constructor() {
         super(TrustpilotCollector.CONFIG);
     }

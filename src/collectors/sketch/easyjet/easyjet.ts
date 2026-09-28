@@ -32,6 +32,9 @@ export class EasyjetCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EasyjetCollector class.
+     */
     constructor() {
         super(EasyjetCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class RensaNlCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RensaNlCollector class.
+     */
     constructor() {
         super(RensaNlCollector.CONFIG);
     }

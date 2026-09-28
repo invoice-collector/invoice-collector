@@ -32,6 +32,9 @@ export class FoodmigosCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FoodmigosCollector class.
+     */
     constructor() {
         super(FoodmigosCollector.CONFIG);
     }

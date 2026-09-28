@@ -32,6 +32,9 @@ export class SummerEnergyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SummerEnergyCollector class.
+     */
     constructor() {
         super(SummerEnergyCollector.CONFIG);
     }

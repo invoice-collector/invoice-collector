@@ -5,6 +5,10 @@ import * as utils from '../utils';
 export class DatabaseFactory {
     static instance: AbstractDatabase;
 
+    /**
+     * Gets the singleton instance of the database.
+     * @returns The singleton instance of the database.
+     */
     static getDatabase(): AbstractDatabase {
         if (!DatabaseFactory.instance) {
             const databaseUri = utils.getEnvVar('DATABASE_URI');

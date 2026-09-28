@@ -32,6 +32,9 @@ export class FirefliesAiCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FirefliesAiCollector class.
+     */
     constructor() {
         super(FirefliesAiCollector.CONFIG);
     }

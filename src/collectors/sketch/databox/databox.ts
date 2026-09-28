@@ -32,6 +32,9 @@ export class DataboxCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DataboxCollector class.
+     */
     constructor() {
         super(DataboxCollector.CONFIG);
     }

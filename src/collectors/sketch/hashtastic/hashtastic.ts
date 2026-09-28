@@ -32,6 +32,9 @@ export class HashtasticCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HashtasticCollector class.
+     */
     constructor() {
         super(HashtasticCollector.CONFIG);
     }

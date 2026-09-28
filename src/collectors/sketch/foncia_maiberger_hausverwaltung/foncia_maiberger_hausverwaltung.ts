@@ -32,6 +32,9 @@ export class FonciaMaibergerHausverwaltungCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FonciaMaibergerHausverwaltungCollector class.
+     */
     constructor() {
         super(FonciaMaibergerHausverwaltungCollector.CONFIG);
     }

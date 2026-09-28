@@ -32,6 +32,9 @@ export class FlachServiceBundCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FlachServiceBundCollector class.
+     */
     constructor() {
         super(FlachServiceBundCollector.CONFIG);
     }

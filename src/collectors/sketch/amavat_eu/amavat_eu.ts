@@ -32,6 +32,9 @@ export class AmavatEuCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AmavatEuCollector class.
+     */
     constructor() {
         super(AmavatEuCollector.CONFIG);
     }

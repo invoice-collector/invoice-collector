@@ -32,6 +32,9 @@ export class PcbWayCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PcbWayCollector class.
+     */
     constructor() {
         super(PcbWayCollector.CONFIG);
     }

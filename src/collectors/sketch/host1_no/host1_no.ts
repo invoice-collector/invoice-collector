@@ -32,6 +32,9 @@ export class Host1NoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Host1NoCollector class.
+     */
     constructor() {
         super(Host1NoCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class ThreecoltsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ThreecoltsCollector class.
+     */
     constructor() {
         super(ThreecoltsCollector.CONFIG);
     }

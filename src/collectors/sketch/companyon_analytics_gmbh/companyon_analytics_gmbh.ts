@@ -32,6 +32,9 @@ export class CompanyonAnalyticsGmbhCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CompanyonAnalyticsGmbhCollector class.
+     */
     constructor() {
         super(CompanyonAnalyticsGmbhCollector.CONFIG);
     }

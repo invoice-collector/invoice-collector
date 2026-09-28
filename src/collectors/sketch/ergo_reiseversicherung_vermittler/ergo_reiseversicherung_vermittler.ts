@@ -32,6 +32,9 @@ export class ErgoReiseversicherungVermittlerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ErgoReiseversicherungVermittlerCollector class.
+     */
     constructor() {
         super(ErgoReiseversicherungVermittlerCollector.CONFIG);
     }

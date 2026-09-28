@@ -32,6 +32,9 @@ export class SynergyAuCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SynergyAuCollector class.
+     */
     constructor() {
         super(SynergyAuCollector.CONFIG);
     }

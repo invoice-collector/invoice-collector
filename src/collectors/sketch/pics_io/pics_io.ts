@@ -32,6 +32,9 @@ export class PicsIoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PicsIoCollector class.
+     */
     constructor() {
         super(PicsIoCollector.CONFIG);
     }

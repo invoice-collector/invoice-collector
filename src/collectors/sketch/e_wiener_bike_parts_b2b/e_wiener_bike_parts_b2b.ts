@@ -32,6 +32,9 @@ export class EWienerBikePartsB2bCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EWienerBikePartsB2bCollector class.
+     */
     constructor() {
         super(EWienerBikePartsB2bCollector.CONFIG);
     }

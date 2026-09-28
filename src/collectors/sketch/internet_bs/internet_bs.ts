@@ -32,6 +32,9 @@ export class InternetBsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the InternetBsCollector class.
+     */
     constructor() {
         super(InternetBsCollector.CONFIG);
     }

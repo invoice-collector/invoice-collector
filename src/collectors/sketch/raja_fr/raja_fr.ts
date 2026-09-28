@@ -32,6 +32,9 @@ export class RajaFrCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RajaFrCollector class.
+     */
     constructor() {
         super(RajaFrCollector.CONFIG);
     }

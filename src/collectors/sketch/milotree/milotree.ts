@@ -32,6 +32,9 @@ export class MilotreeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MilotreeCollector class.
+     */
     constructor() {
         super(MilotreeCollector.CONFIG);
     }

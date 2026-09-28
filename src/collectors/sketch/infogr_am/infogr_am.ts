@@ -32,6 +32,9 @@ export class InfogrAmCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the InfogrAmCollector class.
+     */
     constructor() {
         super(InfogrAmCollector.CONFIG);
     }

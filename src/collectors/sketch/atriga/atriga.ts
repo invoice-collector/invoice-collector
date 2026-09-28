@@ -32,6 +32,9 @@ export class AtrigaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AtrigaCollector class.
+     */
     constructor() {
         super(AtrigaCollector.CONFIG);
     }

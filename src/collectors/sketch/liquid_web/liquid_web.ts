@@ -32,6 +32,9 @@ export class LiquidWebCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LiquidWebCollector class.
+     */
     constructor() {
         super(LiquidWebCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class ScreamingFrogCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ScreamingFrogCollector class.
+     */
     constructor() {
         super(ScreamingFrogCollector.CONFIG);
     }

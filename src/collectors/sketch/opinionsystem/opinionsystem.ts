@@ -32,6 +32,9 @@ export class OpinionsystemCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OpinionsystemCollector class.
+     */
     constructor() {
         super(OpinionsystemCollector.CONFIG);
     }

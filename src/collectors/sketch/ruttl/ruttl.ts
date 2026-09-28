@@ -32,6 +32,9 @@ export class RuttlCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RuttlCollector class.
+     */
     constructor() {
         super(RuttlCollector.CONFIG);
     }

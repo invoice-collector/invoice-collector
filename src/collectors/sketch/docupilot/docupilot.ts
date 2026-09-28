@@ -32,6 +32,9 @@ export class DocupilotCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DocupilotCollector class.
+     */
     constructor() {
         super(DocupilotCollector.CONFIG);
     }

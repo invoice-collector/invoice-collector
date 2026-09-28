@@ -32,6 +32,9 @@ export class MojEracunCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MojEracunCollector class.
+     */
     constructor() {
         super(MojEracunCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class SmoothPandaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SmoothPandaCollector class.
+     */
     constructor() {
         super(SmoothPandaCollector.CONFIG);
     }

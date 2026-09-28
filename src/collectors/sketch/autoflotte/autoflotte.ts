@@ -32,6 +32,9 @@ export class AutoflotteCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AutoflotteCollector class.
+     */
     constructor() {
         super(AutoflotteCollector.CONFIG);
     }

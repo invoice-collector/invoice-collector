@@ -32,6 +32,9 @@ export class ViperprintCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ViperprintCollector class.
+     */
     constructor() {
         super(ViperprintCollector.CONFIG);
     }

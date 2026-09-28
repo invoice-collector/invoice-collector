@@ -32,6 +32,9 @@ export class MercateoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MercateoCollector class.
+     */
     constructor() {
         super(MercateoCollector.CONFIG);
     }

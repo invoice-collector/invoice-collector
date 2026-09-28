@@ -32,6 +32,9 @@ export class StadtwerkeRadolfzellCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StadtwerkeRadolfzellCollector class.
+     */
     constructor() {
         super(StadtwerkeRadolfzellCollector.CONFIG);
     }

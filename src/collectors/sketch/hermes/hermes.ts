@@ -32,6 +32,9 @@ export class HermesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HermesCollector class.
+     */
     constructor() {
         super(HermesCollector.CONFIG);
     }

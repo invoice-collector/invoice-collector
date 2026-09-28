@@ -32,6 +32,9 @@ export class VectorizerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VectorizerCollector class.
+     */
     constructor() {
         super(VectorizerCollector.CONFIG);
     }

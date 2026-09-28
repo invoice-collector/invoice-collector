@@ -32,6 +32,9 @@ export class BayernwerkCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BayernwerkCollector class.
+     */
     constructor() {
         super(BayernwerkCollector.CONFIG);
     }

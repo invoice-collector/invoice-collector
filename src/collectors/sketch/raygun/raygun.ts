@@ -32,6 +32,9 @@ export class RaygunCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RaygunCollector class.
+     */
     constructor() {
         super(RaygunCollector.CONFIG);
     }

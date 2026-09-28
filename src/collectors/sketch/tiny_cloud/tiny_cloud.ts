@@ -32,6 +32,9 @@ export class TinyCloudCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TinyCloudCollector class.
+     */
     constructor() {
         super(TinyCloudCollector.CONFIG);
     }

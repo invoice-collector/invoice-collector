@@ -32,6 +32,9 @@ export class PolitikenCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PolitikenCollector class.
+     */
     constructor() {
         super(PolitikenCollector.CONFIG);
     }

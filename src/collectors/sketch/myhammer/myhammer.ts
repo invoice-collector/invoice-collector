@@ -32,6 +32,9 @@ export class MyhammerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MyhammerCollector class.
+     */
     constructor() {
         super(MyhammerCollector.CONFIG);
     }

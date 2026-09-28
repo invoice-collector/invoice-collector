@@ -32,6 +32,9 @@ export class KrosofuCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KrosofuCollector class.
+     */
     constructor() {
         super(KrosofuCollector.CONFIG);
     }

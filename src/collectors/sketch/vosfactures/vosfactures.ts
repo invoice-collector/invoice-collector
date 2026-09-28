@@ -32,6 +32,9 @@ export class VosfacturesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VosfacturesCollector class.
+     */
     constructor() {
         super(VosfacturesCollector.CONFIG);
     }

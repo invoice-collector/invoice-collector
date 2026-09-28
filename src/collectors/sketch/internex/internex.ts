@@ -32,6 +32,9 @@ export class InternexCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the InternexCollector class.
+     */
     constructor() {
         super(InternexCollector.CONFIG);
     }

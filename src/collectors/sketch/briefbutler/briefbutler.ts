@@ -32,6 +32,9 @@ export class BriefbutlerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BriefbutlerCollector class.
+     */
     constructor() {
         super(BriefbutlerCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class KartraCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KartraCollector class.
+     */
     constructor() {
         super(KartraCollector.CONFIG);
     }

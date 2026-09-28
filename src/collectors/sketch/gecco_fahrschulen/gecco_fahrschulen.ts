@@ -32,6 +32,9 @@ export class GeccoFahrschulenCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GeccoFahrschulenCollector class.
+     */
     constructor() {
         super(GeccoFahrschulenCollector.CONFIG);
     }

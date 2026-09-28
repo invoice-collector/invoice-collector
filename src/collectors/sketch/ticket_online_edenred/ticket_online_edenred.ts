@@ -32,6 +32,9 @@ export class TicketOnlineEdenredCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TicketOnlineEdenredCollector class.
+     */
     constructor() {
         super(TicketOnlineEdenredCollector.CONFIG);
     }

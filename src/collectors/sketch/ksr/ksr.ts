@@ -32,6 +32,9 @@ export class KsrCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KsrCollector class.
+     */
     constructor() {
         super(KsrCollector.CONFIG);
     }

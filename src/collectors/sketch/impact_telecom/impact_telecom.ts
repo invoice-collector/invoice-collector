@@ -32,6 +32,9 @@ export class ImpactTelecomCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ImpactTelecomCollector class.
+     */
     constructor() {
         super(ImpactTelecomCollector.CONFIG);
     }

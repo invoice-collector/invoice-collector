@@ -32,6 +32,9 @@ export class SpacesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SpacesCollector class.
+     */
     constructor() {
         super(SpacesCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class AddperformanceCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AddperformanceCollector class.
+     */
     constructor() {
         super(AddperformanceCollector.CONFIG);
     }

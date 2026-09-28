@@ -32,6 +32,9 @@ export class SparhandyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SparhandyCollector class.
+     */
     constructor() {
         super(SparhandyCollector.CONFIG);
     }

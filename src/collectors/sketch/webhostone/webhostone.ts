@@ -32,6 +32,9 @@ export class WebhostoneCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WebhostoneCollector class.
+     */
     constructor() {
         super(WebhostoneCollector.CONFIG);
     }

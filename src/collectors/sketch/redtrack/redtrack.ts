@@ -32,6 +32,9 @@ export class RedtrackCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RedtrackCollector class.
+     */
     constructor() {
         super(RedtrackCollector.CONFIG);
     }

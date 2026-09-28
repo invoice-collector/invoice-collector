@@ -32,6 +32,9 @@ export class PackatorCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PackatorCollector class.
+     */
     constructor() {
         super(PackatorCollector.CONFIG);
     }

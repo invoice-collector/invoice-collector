@@ -32,6 +32,9 @@ export class OttoFrickeAndCoKgCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OttoFrickeAndCoKgCollector class.
+     */
     constructor() {
         super(OttoFrickeAndCoKgCollector.CONFIG);
     }

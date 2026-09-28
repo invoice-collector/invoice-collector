@@ -32,6 +32,9 @@ export class VoxerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VoxerCollector class.
+     */
     constructor() {
         super(VoxerCollector.CONFIG);
     }

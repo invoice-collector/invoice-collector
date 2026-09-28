@@ -32,6 +32,9 @@ export class CaptureoneCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CaptureoneCollector class.
+     */
     constructor() {
         super(CaptureoneCollector.CONFIG);
     }

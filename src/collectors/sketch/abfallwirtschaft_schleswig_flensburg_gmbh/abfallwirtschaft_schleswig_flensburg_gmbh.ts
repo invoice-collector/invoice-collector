@@ -32,6 +32,9 @@ export class AbfallwirtschaftSchleswigFlensburgGmbhCollector extends SketchColle
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AbfallwirtschaftSchleswigFlensburgGmbhCollector class.
+     */
     constructor() {
         super(AbfallwirtschaftSchleswigFlensburgGmbhCollector.CONFIG);
     }

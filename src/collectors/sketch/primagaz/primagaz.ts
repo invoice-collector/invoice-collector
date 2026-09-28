@@ -32,6 +32,9 @@ export class PrimagazCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PrimagazCollector class.
+     */
     constructor() {
         super(PrimagazCollector.CONFIG);
     }

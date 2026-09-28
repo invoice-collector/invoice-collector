@@ -32,6 +32,9 @@ export class ContractheroCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ContractheroCollector class.
+     */
     constructor() {
         super(ContractheroCollector.CONFIG);
     }

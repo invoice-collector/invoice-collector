@@ -32,6 +32,9 @@ export class MercedesMeChargeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MercedesMeChargeCollector class.
+     */
     constructor() {
         super(MercedesMeChargeCollector.CONFIG);
     }

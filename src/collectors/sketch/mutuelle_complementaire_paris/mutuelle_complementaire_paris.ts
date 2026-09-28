@@ -32,6 +32,9 @@ export class MutuelleComplementaireParisCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MutuelleComplementaireParisCollector class.
+     */
     constructor() {
         super(MutuelleComplementaireParisCollector.CONFIG);
     }

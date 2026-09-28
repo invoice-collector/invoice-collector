@@ -32,6 +32,9 @@ export class ScottishPowerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ScottishPowerCollector class.
+     */
     constructor() {
         super(ScottishPowerCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class PremiumsimCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PremiumsimCollector class.
+     */
     constructor() {
         super(PremiumsimCollector.CONFIG);
     }

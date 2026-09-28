@@ -32,6 +32,9 @@ export class WebsitebutlerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WebsitebutlerCollector class.
+     */
     constructor() {
         super(WebsitebutlerCollector.CONFIG);
     }

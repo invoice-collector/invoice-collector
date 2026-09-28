@@ -32,6 +32,9 @@ export class HtmlsigCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HtmlsigCollector class.
+     */
     constructor() {
         super(HtmlsigCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class SaiSubscriptionsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SaiSubscriptionsCollector class.
+     */
     constructor() {
         super(SaiSubscriptionsCollector.CONFIG);
     }

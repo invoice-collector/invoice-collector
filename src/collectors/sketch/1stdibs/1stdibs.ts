@@ -32,6 +32,9 @@ export class _1stdibsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the _1stdibsCollector class.
+     */
     constructor() {
         super(_1stdibsCollector.CONFIG);
     }

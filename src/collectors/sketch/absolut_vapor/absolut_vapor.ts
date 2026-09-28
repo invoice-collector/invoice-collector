@@ -32,6 +32,9 @@ export class AbsolutVaporCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AbsolutVaporCollector class.
+     */
     constructor() {
         super(AbsolutVaporCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class AraAltstoffRecyclingAustriaAgCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AraAltstoffRecyclingAustriaAgCollector class.
+     */
     constructor() {
         super(AraAltstoffRecyclingAustriaAgCollector.CONFIG);
     }

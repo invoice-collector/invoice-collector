@@ -32,6 +32,9 @@ export class AuxinumCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AuxinumCollector class.
+     */
     constructor() {
         super(AuxinumCollector.CONFIG);
     }

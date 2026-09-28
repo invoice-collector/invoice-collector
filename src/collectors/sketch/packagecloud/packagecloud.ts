@@ -32,6 +32,9 @@ export class PackagecloudCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PackagecloudCollector class.
+     */
     constructor() {
         super(PackagecloudCollector.CONFIG);
     }

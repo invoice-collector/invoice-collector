@@ -32,6 +32,9 @@ export class SerpclixCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SerpclixCollector class.
+     */
     constructor() {
         super(SerpclixCollector.CONFIG);
     }

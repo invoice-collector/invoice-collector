@@ -32,6 +32,9 @@ export class KeyyoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KeyyoCollector class.
+     */
     constructor() {
         super(KeyyoCollector.CONFIG);
     }

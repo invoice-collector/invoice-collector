@@ -32,6 +32,9 @@ export class PlugAndPayCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PlugAndPayCollector class.
+     */
     constructor() {
         super(PlugAndPayCollector.CONFIG);
     }

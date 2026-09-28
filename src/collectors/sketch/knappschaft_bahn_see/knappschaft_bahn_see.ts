@@ -32,6 +32,9 @@ export class KnappschaftBahnSeeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the KnappschaftBahnSeeCollector class.
+     */
     constructor() {
         super(KnappschaftBahnSeeCollector.CONFIG);
     }

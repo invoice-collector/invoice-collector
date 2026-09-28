@@ -32,6 +32,9 @@ export class Nlc21Collector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Nlc21Collector class.
+     */
     constructor() {
         super(Nlc21Collector.CONFIG);
     }

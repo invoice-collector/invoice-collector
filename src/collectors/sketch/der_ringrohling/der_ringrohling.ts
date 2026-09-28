@@ -32,6 +32,9 @@ export class DerRingrohlingCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DerRingrohlingCollector class.
+     */
     constructor() {
         super(DerRingrohlingCollector.CONFIG);
     }

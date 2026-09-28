@@ -32,6 +32,9 @@ export class LvmVersicherungCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LvmVersicherungCollector class.
+     */
     constructor() {
         super(LvmVersicherungCollector.CONFIG);
     }

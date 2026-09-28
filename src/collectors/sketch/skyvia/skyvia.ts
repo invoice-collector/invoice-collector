@@ -32,6 +32,9 @@ export class SkyviaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SkyviaCollector class.
+     */
     constructor() {
         super(SkyviaCollector.CONFIG);
     }

@@ -31,6 +31,9 @@ export class LaposteColissimoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LaposteColissimoCollector class.
+     */
     constructor() {
         super(LaposteColissimoCollector.CONFIG);
     }

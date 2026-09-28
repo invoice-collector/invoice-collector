@@ -32,6 +32,9 @@ export class HenryScheinDentalDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HenryScheinDentalDeCollector class.
+     */
     constructor() {
         super(HenryScheinDentalDeCollector.CONFIG);
     }

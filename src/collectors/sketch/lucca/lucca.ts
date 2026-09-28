@@ -32,6 +32,9 @@ export class LuccaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LuccaCollector class.
+     */
     constructor() {
         super(LuccaCollector.CONFIG);
     }

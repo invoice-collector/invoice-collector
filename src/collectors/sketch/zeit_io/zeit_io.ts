@@ -32,6 +32,9 @@ export class ZeitIoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ZeitIoCollector class.
+     */
     constructor() {
         super(ZeitIoCollector.CONFIG);
     }

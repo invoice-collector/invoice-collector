@@ -32,6 +32,9 @@ export class GroupamaContratsCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GroupamaContratsCollector class.
+     */
     constructor() {
         super(GroupamaContratsCollector.CONFIG);
     }

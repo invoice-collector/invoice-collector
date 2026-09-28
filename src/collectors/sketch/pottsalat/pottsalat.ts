@@ -32,6 +32,9 @@ export class PottsalatCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PottsalatCollector class.
+     */
     constructor() {
         super(PottsalatCollector.CONFIG);
     }

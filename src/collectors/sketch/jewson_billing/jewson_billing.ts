@@ -32,6 +32,9 @@ export class JewsonBillingCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the JewsonBillingCollector class.
+     */
     constructor() {
         super(JewsonBillingCollector.CONFIG);
     }

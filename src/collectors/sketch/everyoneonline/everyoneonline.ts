@@ -32,6 +32,9 @@ export class EveryoneonlineCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EveryoneonlineCollector class.
+     */
     constructor() {
         super(EveryoneonlineCollector.CONFIG);
     }

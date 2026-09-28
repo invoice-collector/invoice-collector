@@ -32,6 +32,9 @@ export class DemodeskGmbhCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DemodeskGmbhCollector class.
+     */
     constructor() {
         super(DemodeskGmbhCollector.CONFIG);
     }

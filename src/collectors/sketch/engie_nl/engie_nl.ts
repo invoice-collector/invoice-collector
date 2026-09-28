@@ -32,6 +32,9 @@ export class EngieNlCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the EngieNlCollector class.
+     */
     constructor() {
         super(EngieNlCollector.CONFIG);
     }

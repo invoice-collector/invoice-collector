@@ -32,6 +32,9 @@ export class MycommerceCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MycommerceCollector class.
+     */
     constructor() {
         super(MycommerceCollector.CONFIG);
     }

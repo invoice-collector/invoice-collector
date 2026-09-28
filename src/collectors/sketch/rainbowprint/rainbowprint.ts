@@ -32,6 +32,9 @@ export class RainbowprintCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RainbowprintCollector class.
+     */
     constructor() {
         super(RainbowprintCollector.CONFIG);
     }

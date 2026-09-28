@@ -32,6 +32,9 @@ export class SimplyEnergyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SimplyEnergyCollector class.
+     */
     constructor() {
         super(SimplyEnergyCollector.CONFIG);
     }

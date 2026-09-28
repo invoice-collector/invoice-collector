@@ -32,6 +32,9 @@ export class FeedbinComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FeedbinComCollector class.
+     */
     constructor() {
         super(FeedbinComCollector.CONFIG);
     }

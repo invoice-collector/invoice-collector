@@ -32,6 +32,9 @@ export class PanoplyCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PanoplyCollector class.
+     */
     constructor() {
         super(PanoplyCollector.CONFIG);
     }

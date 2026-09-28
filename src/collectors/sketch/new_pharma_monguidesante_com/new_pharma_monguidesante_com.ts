@@ -32,6 +32,9 @@ export class NewPharmaMonguidesanteComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the NewPharmaMonguidesanteComCollector class.
+     */
     constructor() {
         super(NewPharmaMonguidesanteComCollector.CONFIG);
     }

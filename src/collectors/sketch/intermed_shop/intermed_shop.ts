@@ -32,6 +32,9 @@ export class IntermedShopCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the IntermedShopCollector class.
+     */
     constructor() {
         super(IntermedShopCollector.CONFIG);
     }

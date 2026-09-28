@@ -32,6 +32,9 @@ export class MuttisLadenCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MuttisLadenCollector class.
+     */
     constructor() {
         super(MuttisLadenCollector.CONFIG);
     }

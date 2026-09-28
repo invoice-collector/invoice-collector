@@ -32,6 +32,9 @@ export class UprightNowecorCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the UprightNowecorCollector class.
+     */
     constructor() {
         super(UprightNowecorCollector.CONFIG);
     }

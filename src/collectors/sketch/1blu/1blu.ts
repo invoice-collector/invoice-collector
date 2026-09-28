@@ -32,6 +32,9 @@ export class _1bluCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the _1bluCollector class.
+     */
     constructor() {
         super(_1bluCollector.CONFIG);
     }

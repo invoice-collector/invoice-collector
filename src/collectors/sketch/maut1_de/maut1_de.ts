@@ -32,6 +32,9 @@ export class Maut1DeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Maut1DeCollector class.
+     */
     constructor() {
         super(Maut1DeCollector.CONFIG);
     }

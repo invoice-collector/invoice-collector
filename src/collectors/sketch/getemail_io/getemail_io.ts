@@ -32,6 +32,9 @@ export class GetemailIoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GetemailIoCollector class.
+     */
     constructor() {
         super(GetemailIoCollector.CONFIG);
     }

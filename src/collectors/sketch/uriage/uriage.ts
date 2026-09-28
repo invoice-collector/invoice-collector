@@ -32,6 +32,9 @@ export class UriageCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the UriageCollector class.
+     */
     constructor() {
         super(UriageCollector.CONFIG);
     }

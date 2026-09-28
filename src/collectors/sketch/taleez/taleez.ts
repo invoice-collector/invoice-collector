@@ -32,6 +32,9 @@ export class TaleezCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TaleezCollector class.
+     */
     constructor() {
         super(TaleezCollector.CONFIG);
     }

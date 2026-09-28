@@ -32,6 +32,9 @@ export class InfoRetraiteCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the InfoRetraiteCollector class.
+     */
     constructor() {
         super(InfoRetraiteCollector.CONFIG);
     }

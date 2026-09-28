@@ -32,6 +32,9 @@ export class GerlDentalCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GerlDentalCollector class.
+     */
     constructor() {
         super(GerlDentalCollector.CONFIG);
     }

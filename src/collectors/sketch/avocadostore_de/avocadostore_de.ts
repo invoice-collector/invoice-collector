@@ -32,6 +32,9 @@ export class AvocadostoreDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AvocadostoreDeCollector class.
+     */
     constructor() {
         super(AvocadostoreDeCollector.CONFIG);
     }

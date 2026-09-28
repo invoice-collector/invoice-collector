@@ -32,6 +32,9 @@ export class OneUpCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the OneUpCollector class.
+     */
     constructor() {
         super(OneUpCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class SpielmaterialCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SpielmaterialCollector class.
+     */
     constructor() {
         super(SpielmaterialCollector.CONFIG);
     }

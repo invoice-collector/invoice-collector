@@ -32,6 +32,9 @@ export class AlbaMullentsorgungCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the AlbaMullentsorgungCollector class.
+     */
     constructor() {
         super(AlbaMullentsorgungCollector.CONFIG);
     }

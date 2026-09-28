@@ -32,6 +32,9 @@ export class CjPartnersCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CjPartnersCollector class.
+     */
     constructor() {
         super(CjPartnersCollector.CONFIG);
     }

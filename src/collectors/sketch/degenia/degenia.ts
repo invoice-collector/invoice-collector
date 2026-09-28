@@ -32,6 +32,9 @@ export class DegeniaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DegeniaCollector class.
+     */
     constructor() {
         super(DegeniaCollector.CONFIG);
     }

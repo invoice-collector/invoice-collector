@@ -32,6 +32,9 @@ export class FaxDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FaxDeCollector class.
+     */
     constructor() {
         super(FaxDeCollector.CONFIG);
     }

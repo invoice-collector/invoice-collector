@@ -32,6 +32,9 @@ export class PulumiCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PulumiCollector class.
+     */
     constructor() {
         super(PulumiCollector.CONFIG);
     }

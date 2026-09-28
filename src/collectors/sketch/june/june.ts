@@ -32,6 +32,9 @@ export class JuneCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the JuneCollector class.
+     */
     constructor() {
         super(JuneCollector.CONFIG);
     }

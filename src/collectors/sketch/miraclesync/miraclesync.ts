@@ -32,6 +32,9 @@ export class MiraclesyncCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MiraclesyncCollector class.
+     */
     constructor() {
         super(MiraclesyncCollector.CONFIG);
     }

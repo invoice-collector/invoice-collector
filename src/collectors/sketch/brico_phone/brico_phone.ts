@@ -32,6 +32,9 @@ export class BricoPhoneCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BricoPhoneCollector class.
+     */
     constructor() {
         super(BricoPhoneCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class DominiosCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DominiosCollector class.
+     */
     constructor() {
         super(DominiosCollector.CONFIG);
     }

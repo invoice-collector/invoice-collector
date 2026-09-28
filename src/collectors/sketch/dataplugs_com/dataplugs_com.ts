@@ -32,6 +32,9 @@ export class DataplugsComCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DataplugsComCollector class.
+     */
     constructor() {
         super(DataplugsComCollector.CONFIG);
     }

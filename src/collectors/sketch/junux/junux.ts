@@ -32,6 +32,9 @@ export class JunuxCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the JunuxCollector class.
+     */
     constructor() {
         super(JunuxCollector.CONFIG);
     }

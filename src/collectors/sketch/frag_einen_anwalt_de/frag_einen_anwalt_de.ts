@@ -32,6 +32,9 @@ export class FragEinenAnwaltDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FragEinenAnwaltDeCollector class.
+     */
     constructor() {
         super(FragEinenAnwaltDeCollector.CONFIG);
     }

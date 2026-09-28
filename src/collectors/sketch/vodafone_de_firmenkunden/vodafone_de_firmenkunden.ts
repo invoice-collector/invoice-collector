@@ -32,6 +32,9 @@ export class VodafoneDeFirmenkundenCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VodafoneDeFirmenkundenCollector class.
+     */
     constructor() {
         super(VodafoneDeFirmenkundenCollector.CONFIG);
     }

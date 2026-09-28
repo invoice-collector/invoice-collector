@@ -32,6 +32,9 @@ export class IpackProfiCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the IpackProfiCollector class.
+     */
     constructor() {
         super(IpackProfiCollector.CONFIG);
     }

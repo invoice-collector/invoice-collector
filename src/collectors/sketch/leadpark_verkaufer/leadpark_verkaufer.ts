@@ -32,6 +32,9 @@ export class LeadparkVerkauferCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LeadparkVerkauferCollector class.
+     */
     constructor() {
         super(LeadparkVerkauferCollector.CONFIG);
     }

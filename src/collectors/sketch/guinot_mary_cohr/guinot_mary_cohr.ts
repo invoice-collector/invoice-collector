@@ -32,6 +32,9 @@ export class GuinotMaryCohrCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the GuinotMaryCohrCollector class.
+     */
     constructor() {
         super(GuinotMaryCohrCollector.CONFIG);
     }

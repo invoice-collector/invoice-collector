@@ -32,6 +32,9 @@ export class LittleLunchCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LittleLunchCollector class.
+     */
     constructor() {
         super(LittleLunchCollector.CONFIG);
     }

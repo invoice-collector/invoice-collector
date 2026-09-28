@@ -32,6 +32,9 @@ export class BrytSoftwareCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the BrytSoftwareCollector class.
+     */
     constructor() {
         super(BrytSoftwareCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class FuntainmentB2bCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FuntainmentB2bCollector class.
+     */
     constructor() {
         super(FuntainmentB2bCollector.CONFIG);
     }

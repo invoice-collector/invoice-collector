@@ -32,6 +32,9 @@ export class StudiolutionCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the StudiolutionCollector class.
+     */
     constructor() {
         super(StudiolutionCollector.CONFIG);
     }

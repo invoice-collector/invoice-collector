@@ -32,6 +32,9 @@ export class FlexcardCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FlexcardCollector class.
+     */
     constructor() {
         super(FlexcardCollector.CONFIG);
     }

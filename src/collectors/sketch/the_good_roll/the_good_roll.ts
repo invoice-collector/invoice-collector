@@ -32,6 +32,9 @@ export class TheGoodRollCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TheGoodRollCollector class.
+     */
     constructor() {
         super(TheGoodRollCollector.CONFIG);
     }

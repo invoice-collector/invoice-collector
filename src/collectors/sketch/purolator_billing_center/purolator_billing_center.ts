@@ -32,6 +32,9 @@ export class PurolatorBillingCenterCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PurolatorBillingCenterCollector class.
+     */
     constructor() {
         super(PurolatorBillingCenterCollector.CONFIG);
     }

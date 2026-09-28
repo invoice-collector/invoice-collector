@@ -32,6 +32,9 @@ export class FlyerBeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the FlyerBeCollector class.
+     */
     constructor() {
         super(FlyerBeCollector.CONFIG);
     }

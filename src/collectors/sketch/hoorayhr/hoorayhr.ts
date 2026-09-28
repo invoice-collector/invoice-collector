@@ -32,6 +32,9 @@ export class HoorayhrCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HoorayhrCollector class.
+     */
     constructor() {
         super(HoorayhrCollector.CONFIG);
     }

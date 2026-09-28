@@ -32,6 +32,9 @@ export class ScrapingHubCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the ScrapingHubCollector class.
+     */
     constructor() {
         super(ScrapingHubCollector.CONFIG);
     }

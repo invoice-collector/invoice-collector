@@ -32,6 +32,9 @@ export class Cin7InventorySoftwareCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the Cin7InventorySoftwareCollector class.
+     */
     constructor() {
         super(Cin7InventorySoftwareCollector.CONFIG);
     }

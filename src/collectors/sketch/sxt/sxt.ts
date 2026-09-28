@@ -32,6 +32,9 @@ export class SxtCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SxtCollector class.
+     */
     constructor() {
         super(SxtCollector.CONFIG);
     }

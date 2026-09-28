@@ -32,6 +32,9 @@ export class PhaxioCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PhaxioCollector class.
+     */
     constructor() {
         super(PhaxioCollector.CONFIG);
     }

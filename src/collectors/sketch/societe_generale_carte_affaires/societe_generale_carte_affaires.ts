@@ -32,6 +32,9 @@ export class SocieteGeneraleCarteAffairesCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SocieteGeneraleCarteAffairesCollector class.
+     */
     constructor() {
         super(SocieteGeneraleCarteAffairesCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class TracktorFrCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TracktorFrCollector class.
+     */
     constructor() {
         super(TracktorFrCollector.CONFIG);
     }

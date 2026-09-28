@@ -32,6 +32,9 @@ export class PixelletterCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the PixelletterCollector class.
+     */
     constructor() {
         super(PixelletterCollector.CONFIG);
     }

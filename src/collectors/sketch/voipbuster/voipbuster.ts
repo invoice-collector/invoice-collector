@@ -32,6 +32,9 @@ export class VoipbusterCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VoipbusterCollector class.
+     */
     constructor() {
         super(VoipbusterCollector.CONFIG);
     }

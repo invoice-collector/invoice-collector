@@ -32,6 +32,9 @@ export class WappalyzerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WappalyzerCollector class.
+     */
     constructor() {
         super(WappalyzerCollector.CONFIG);
     }

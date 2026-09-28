@@ -32,6 +32,9 @@ export class SanacorpConnectCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SanacorpConnectCollector class.
+     */
     constructor() {
         super(SanacorpConnectCollector.CONFIG);
     }

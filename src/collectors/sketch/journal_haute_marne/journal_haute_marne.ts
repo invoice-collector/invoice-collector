@@ -32,6 +32,9 @@ export class JournalHauteMarneCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the JournalHauteMarneCollector class.
+     */
     constructor() {
         super(JournalHauteMarneCollector.CONFIG);
     }

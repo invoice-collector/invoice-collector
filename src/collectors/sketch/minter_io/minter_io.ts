@@ -32,6 +32,9 @@ export class MinterIoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MinterIoCollector class.
+     */
     constructor() {
         super(MinterIoCollector.CONFIG);
     }

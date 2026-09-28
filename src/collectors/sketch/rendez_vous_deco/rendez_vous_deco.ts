@@ -32,6 +32,9 @@ export class RendezVousDecoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RendezVousDecoCollector class.
+     */
     constructor() {
         super(RendezVousDecoCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class UmfrageonlineCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the UmfrageonlineCollector class.
+     */
     constructor() {
         super(UmfrageonlineCollector.CONFIG);
     }

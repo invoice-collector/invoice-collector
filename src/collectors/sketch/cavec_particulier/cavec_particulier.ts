@@ -32,6 +32,9 @@ export class CavecParticulierCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CavecParticulierCollector class.
+     */
     constructor() {
         super(CavecParticulierCollector.CONFIG);
     }

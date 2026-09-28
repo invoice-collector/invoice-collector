@@ -32,6 +32,9 @@ export class MitgoIdCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the MitgoIdCollector class.
+     */
     constructor() {
         super(MitgoIdCollector.CONFIG);
     }

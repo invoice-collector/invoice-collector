@@ -32,6 +32,9 @@ export class IsagenixBackofficeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the IsagenixBackofficeCollector class.
+     */
     constructor() {
         super(IsagenixBackofficeCollector.CONFIG);
     }

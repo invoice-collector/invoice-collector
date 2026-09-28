@@ -32,6 +32,9 @@ export class LeakyPaywallCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the LeakyPaywallCollector class.
+     */
     constructor() {
         super(LeakyPaywallCollector.CONFIG);
     }

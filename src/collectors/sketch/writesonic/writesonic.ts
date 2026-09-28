@@ -32,6 +32,9 @@ export class WritesonicCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the WritesonicCollector class.
+     */
     constructor() {
         super(WritesonicCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class HelloBarCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the HelloBarCollector class.
+     */
     constructor() {
         super(HelloBarCollector.CONFIG);
     }

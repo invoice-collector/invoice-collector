@@ -32,6 +32,9 @@ export class SouthwestGasCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SouthwestGasCollector class.
+     */
     constructor() {
         super(SouthwestGasCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class TagoIoCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the TagoIoCollector class.
+     */
     constructor() {
         super(TagoIoCollector.CONFIG);
     }

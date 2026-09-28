@@ -32,6 +32,9 @@ export class DesignenlassenDeCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DesignenlassenDeCollector class.
+     */
     constructor() {
         super(DesignenlassenDeCollector.CONFIG);
     }

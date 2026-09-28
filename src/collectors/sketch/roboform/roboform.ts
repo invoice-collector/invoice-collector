@@ -32,6 +32,9 @@ export class RoboformCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RoboformCollector class.
+     */
     constructor() {
         super(RoboformCollector.CONFIG);
     }

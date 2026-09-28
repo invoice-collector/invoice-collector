@@ -32,6 +32,9 @@ export class SunpowerCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SunpowerCollector class.
+     */
     constructor() {
         super(SunpowerCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class RawpixelCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the RawpixelCollector class.
+     */
     constructor() {
         super(RawpixelCollector.CONFIG);
     }

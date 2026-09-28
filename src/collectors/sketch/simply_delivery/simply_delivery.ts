@@ -32,6 +32,9 @@ export class SimplyDeliveryCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the SimplyDeliveryCollector class.
+     */
     constructor() {
         super(SimplyDeliveryCollector.CONFIG);
     }

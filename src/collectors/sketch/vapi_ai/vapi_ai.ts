@@ -32,6 +32,9 @@ export class VapiAiCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the VapiAiCollector class.
+     */
     constructor() {
         super(VapiAiCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class DreiAtInternetCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the DreiAtInternetCollector class.
+     */
     constructor() {
         super(DreiAtInternetCollector.CONFIG);
     }

@@ -32,6 +32,9 @@ export class CoinpaprikaCollector extends SketchCollector {
         state: CollectorState.PLANNED,
     };
 
+    /**
+     * Constructs a new instance of the CoinpaprikaCollector class.
+     */
     constructor() {
         super(CoinpaprikaCollector.CONFIG);
     }
