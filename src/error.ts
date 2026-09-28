@@ -269,7 +269,7 @@ export class NoInvoiceFoundError extends LoggableError {
     }
 }
 
-export class PartialCollectError extends LoggableError {
+export class PartialCollectError extends CollectorError {
     invoices: CompleteInvoice[];
     errors: LoggableError[];
 
@@ -284,14 +284,11 @@ export class PartialCollectError extends LoggableError {
         super(
             `${errors.length} invoice(s) failed to download: ${errors.map(e => e.message).join(' | ')}`,
             collector,
-            { cause: errors[0], ...opts },
+            opts,
         );
         this.name = this.constructor.name;
         this.invoices = invoices;
         this.errors = errors;
-        this.url = errors[0]?.url || '';
-        this.source_code = errors[0]?.source_code || '';
-        this.screenshot = errors[0]?.screenshot || this.screenshot;
     }
 }
 

@@ -149,7 +149,7 @@ export class Collect {
             else if (err instanceof PartialCollectError) {
                 console.error(`Invoice collection for credential ${this.credential_id} partially failed: ${err.message}`);
                 err.errors.forEach(e => {
-                    console.error(e);
+                    console.error(e.message);
                     AnalyticsFactory.getInstance().logError(customer?.email || '', user?.remote_id || '', e);
                 });
 
