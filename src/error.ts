@@ -1,4 +1,4 @@
-import { Config, AbstractCollector } from './collectors/abstractCollector';
+import { Config, AbstractCollector, CompleteInvoice } from './collectors/abstractCollector';
 import { Screenshot } from './driver/abstractDriver';
 
 /**
@@ -111,23 +111,6 @@ export class CollectorError extends Error {
         this.collector_id = collector.config.id;
         this.collector_name = collector.config.name;
         this.collector_version = collector.config.version;
-    }
-}
-
-export class MaintenanceError extends CollectorError {
-
-    /**
-     * Constructs a new MaintenanceError instance.
-     * @param collector The collector instance associated with the error.
-     * @param opts Additional options for the error.
-     */
-    constructor(collector: AbstractCollector<Config>, opts = {}) {
-        super(
-            'The website is in maintenance. Wait a moment and try again.',
-            collector,
-            opts,
-        );
-        this.name = this.constructor.name;
     }
 }
 
@@ -266,6 +249,29 @@ export class NoInvoiceFoundError extends LoggableError {
             opts,
         );
         this.name = this.constructor.name;
+    }
+}
+
+export class PartialCollectError extends CollectorError {
+    invoices: CompleteInvoice[];
+    errors: LoggableError[];
+
+    /**
+     * Constructs a new PartialCollectError instance, raised when some invoices failed to download while others succeeded.
+     * @param invoices The invoices collected despite the errors.
+     * @param errors The errors raised while downloading the failed invoices.
+     * @param collector The collector instance associated with the error.
+     * @param opts Additional options for the error.
+     */
+    constructor(invoices: CompleteInvoice[], errors: LoggableError[], collector: AbstractCollector<Config>, opts = {}) {
+        super(
+            `${errors.length} invoice(s) failed to download: ${errors.map(e => e.message).join(' | ')}`,
+            collector,
+            opts,
+        );
+        this.name = this.constructor.name;
+        this.invoices = invoices;
+        this.errors = errors;
     }
 }
 

@@ -2,7 +2,7 @@ import { Invoice, CompleteInvoice } from './abstractCollector';
 import { AbstractDriver } from '../driver/abstractDriver';
 import { DriverFactory } from '../driver/driverFactory';
 import { Element } from '../driver/element';
-import { AuthenticationError, CollectorError, DisconnectedError, LoggableError, NoInvoiceFoundError } from '../error';
+import { AuthenticationError, CollectorError, DisconnectedError, LoggableError, NoInvoiceFoundError, PartialCollectError } from '../error';
 import { ProxyFactory } from '../proxy/proxyFactory';
 import { Location, Proxy } from '../proxy/abstractProxy';
 import { Secret } from '../model/secret';
@@ -237,6 +237,7 @@ export abstract class LinearWebCollector extends WebCollector {
 
             // For each page
             const invoices: CompleteInvoice[] = [];
+            const downloadErrors: LoggableError[] = [];
             let firstDownload = true;
             await this.forEachPage(driver, async () => {
                 // Check if no invoices are present on the page
@@ -287,32 +288,50 @@ export abstract class LinearWebCollector extends WebCollector {
                                 // Get number of pages before download
                                 const pagesBefore = await driver.numberOfPages();
 
-                                // Download invoice
-                                let documents = await this.download(driver, invoice);
+                                try {
 
-                                // Get number of pages after download
-                                const pagesAfter = await driver.numberOfPages();
+                                    // Download invoice
+                                    let documents = await this.download(driver, invoice);
 
-                                // Close all new pages if download opened some
-                                for (let i = pagesAfter; i > pagesBefore; i--) {
-                                    await driver.closePage();
+                                    // If one document downloaded
+                                    if (LinearWebCollector.DEFAULT_DOCUMENT_STRATEGY === DocumentStrategy.MERGE && documents.length > 1) {
+                                        documents = [await utils.mergePdfDocuments(documents)];
+                                    }
+                                    console.log(`Invoice ${invoice.id} successfully downloaded, ${documents.length} document(s) found.`);
+                        
+                                    for (const document of documents) {
+                                        invoices.push({
+                                            ...invoice,
+                                            data: document,
+                                            mimetype: utils.mimetypeFromBase64(document),
+                                            hash: utils.hash_string(document, 'md5'),
+                                            collected_timestamp: Date.now(),
+                                            metadata: invoice.metadata || {},
+                                        });
+                                    }
                                 }
-
-                                // If one document downloaded
-                                if (LinearWebCollector.DEFAULT_DOCUMENT_STRATEGY === DocumentStrategy.MERGE && documents.length > 1) {
-                                    documents = [await utils.mergePdfDocuments(documents)];
+                                catch (error) {
+                                    // Non-loggable collector errors (disconnected, maintenance...) abort the whole collect
+                                    if (error instanceof CollectorError && !(error instanceof LoggableError)) {
+                                        throw error;
+                                    }
+                                    const loggableError = error instanceof LoggableError
+                                        ? error
+                                        : new LoggableError(`Failed to download invoice ${invoice.id}`, this, { cause: error });
+                                    if (!loggableError.url) {loggableError.url = driver.url();}
+                                    if (!loggableError.source_code) {loggableError.source_code = await driver.sourceCode(true, true);}
+                                    if (!loggableError.hasScreenshot()) {loggableError.screenshot = await driver.screenshot();}
+                                    console.error(`Invoice ${invoice.id} failed to download, continuing with next invoices`, error);
+                                    downloadErrors.push(loggableError);
                                 }
-                                console.log(`Invoice ${invoice.id} successfully downloaded, ${documents.length} document(s) found.`);
-                    
-                                for (const document of documents) {
-                                    invoices.push({
-                                        ...invoice,
-                                        data: document,
-                                        mimetype: utils.mimetypeFromBase64(document),
-                                        hash: utils.hash_string(document, 'md5'),
-                                        collected_timestamp: Date.now(),
-                                        metadata: invoice.metadata || {},
-                                    });
+                                finally {
+                                    // Get number of pages after download
+                                    const pagesAfter = await driver.numberOfPages();
+
+                                    // Close all new pages if download opened some
+                                    for (let i = pagesAfter; i > pagesBefore; i--) {
+                                        await driver.closePage();
+                                    }
                                 }
                             }
                             else {
@@ -331,6 +350,10 @@ export abstract class LinearWebCollector extends WebCollector {
                     }
                 }
             });
+            
+            if (downloadErrors.length > 0) {
+                throw new PartialCollectError(invoices, downloadErrors, this);
+            }
 
             return invoices;
         } catch (error) {
