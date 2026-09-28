@@ -337,7 +337,7 @@ export abstract class LinearWebCollector extends WebCollector {
             if (error instanceof LoggableError) {
                 if (!error.url) {error.url = driver.url();}
                 if (!error.source_code) {error.source_code = await driver.sourceCode(true, true);}
-                if (!error.screenshot) {error.screenshot = await driver.screenshot();}
+                if (!error.hasScreenshot()) {error.screenshot = await driver.screenshot();}
             }
             if (error instanceof CollectorError) {
                 throw error;
