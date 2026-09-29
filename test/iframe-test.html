@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Iframe Test</title>
+    <style>
+        :root {
+            color-scheme: light;
+            font-family: "Segoe UI", sans-serif;
+            background: #f2f5f4;
+            color: #182522;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            padding: 28px;
+        }
+
+        main {
+            width: min(100%, 1100px);
+            margin: 0 auto;
+        }
+
+        h1 {
+            margin: 0 0 18px;
+            font-size: 22px;
+            font-weight: 650;
+        }
+
+        form {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        input {
+            flex: 1;
+            min-width: 0;
+            height: 42px;
+            padding: 0 12px;
+            border: 1px solid #aebbb6;
+            border-radius: 4px;
+            background: #fff;
+            color: inherit;
+            font: inherit;
+        }
+
+        input:focus-visible, button:focus-visible {
+            outline: 3px solid #78b4a0;
+            outline-offset: 2px;
+        }
+
+        button {
+            min-height: 42px;
+            padding: 0 18px;
+            border: 0;
+            border-radius: 4px;
+            background: #175d4b;
+            color: #fff;
+            font: inherit;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        #status {
+            min-height: 22px;
+            margin: 0 0 10px;
+            color: #52635d;
+            font-size: 13px;
+        }
+
+        iframe {
+            display: block;
+            width: 100%;
+            height: min(74vh, 760px);
+            min-height: 360px;
+            border: 1px solid #b8c4bf;
+            border-radius: 4px;
+            background: #fff;
+        }
+
+        @media (max-width: 560px) {
+            body { padding: 18px 14px; }
+            form { flex-direction: column; }
+            iframe { height: 65vh; min-height: 300px; }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>Iframe Test</h1>
+        <form id="url-form">
+            <input id="url" type="url" placeholder="https://example.com" aria-label="URL to open" required>
+            <button type="submit">Open in iframe</button>
+        </form>
+        <p id="status" role="status" aria-live="polite"></p>
+        <iframe id="preview" title="Embedded page" src="about:blank"></iframe>
+    </main>
+    <script>
+        const form = document.getElementById('url-form');
+        const input = document.getElementById('url');
+        const frame = document.getElementById('preview');
+        const status = document.getElementById('status');
+
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
+
+            let target;
+            try {
+                target = new URL(input.value.trim());
+            } catch {
+                status.textContent = 'Enter a valid URL.';
+                return;
+            }
+
+            if (target.protocol !== 'http:' && target.protocol !== 'https:') {
+                status.textContent = 'Only HTTP and HTTPS URLs can be opened.';
+                return;
+            }
+
+            frame.src = target.href;
+            status.textContent = `Loading ${target.href}`;
+        });
+    </script>
+</body>
+</html>
