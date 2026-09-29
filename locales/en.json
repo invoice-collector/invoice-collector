@@ -347,7 +347,6 @@
   "i18n.collectors.all.login.cancel": "You have cancelled the addition of the collector",
   "i18n.collectors.all.login.error": "An error occurred during login. Please reconnect the account to try again.",
   "i18n.collectors.all.login.expired": "Your account has been disconnected. Please reconnect it to continue receiving your invoices automatically.",
-  "i18n.collectors.all.login.timeout": "Login time expired. Please try again.",
   "i18n.collectors.all.missing_param": "A required parameter is missing. Please create a new collector and delete this one.",
   "i18n.collectors.all.oauth2.timeout": "No OAuth2 code provided within the allotted time. Please try again.",
   "i18n.collectors.all.password": "Password",
