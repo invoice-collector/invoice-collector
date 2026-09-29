@@ -49,5 +49,6 @@ media/download
 # Docs and misc dev-only assets
 images
 devscripts
+/views/documentations-ai
 README.md
 LICENSE
