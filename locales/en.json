@@ -8383,7 +8383,7 @@
   "i18n.collectors.ubaldi_com.description": "Ubaldi is an online retailer specializing in high-tech, home appliances, and multimedia products.",
   "i18n.collectors.ubeeqo.description": "A car-sharing service offering flexible and sustainable mobility solutions for urban and corporate use.",
   "i18n.collectors.uber_rides_web.description": "A ride-hailing platform connecting passengers with drivers for convenient and affordable transportation.",
-  "i18n.collectors.uber_api.authentication_error": "Uber rejected the authorization. Check the app credentials, granted business.receipts scope, organization UUID, and order IDs.",
+  "i18n.collectors.uber_business_api.authentication_error": "Uber rejected the authorization. Check the app credentials, granted business.receipts scope, organization UUID, and order IDs.",
   "i18n.collectors.uber_business_web.description": "Download Uber for Business ride and Uber Eats receipt invoices for known organization orders.",
   "i18n.collectors.uber_business_api.description": "Download Uber for Business ride and Uber Eats receipt invoices for known organization orders.",
   "i18n.collectors.uber_business_api.instructions": "You can retrieve the UUID of your Uber for Business organization from the URL in your browser. It will appear as follows: UUID=d229fcf9-43f8-4a33-a05a-7a9e7e7fXXXX.",
