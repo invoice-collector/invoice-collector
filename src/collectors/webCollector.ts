@@ -121,7 +121,7 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
         const interactiveEndPromise = new Promise<void>((resolve, reject) => {
             // Define timeout
             setTimeout(() => {
-                reject(new AuthenticationError('i18n.collectors.all.login.timeout', this));
+                reject(new DisconnectedError('i18n.collectors.all.login.error', this));
             }, WebCollector.LOGIN_TIMEOUT_MS);
 
             // Reject if the screencast could not be started (e.g. the target was destroyed)
