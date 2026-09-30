@@ -19,7 +19,7 @@
   "dependencies": {
     "@bitwarden/sdk-napi": "^1.0.0",
     "axios": "^1.7.9",
-    "chrome-launcher": "^1.1.2",
+    "chrome-launcher": "^1.2.2",
     "cron": "^4.4.0",
     "date-fns": "^4.1.0",
     "ejs": "^6.0.1",
