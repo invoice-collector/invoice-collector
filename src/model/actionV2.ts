@@ -475,16 +475,16 @@ export class InputTextAction extends ActionV2<InputTextContext, InputTextArgs, I
     }
 }
 
-export type RaiseErrorContext = {
+export type ErrorDisplayedContext = {
     driver: AbstractDriver;
 }
 
-export type RaiseErrorArgs = {
+export type ErrorDisplayedArgs = {
     cssSelector: string;
     default: string;
 }
 
-export class ErrorDisplayedAction extends ActionV2<RaiseErrorContext, RaiseErrorArgs, RaiseErrorContext> {
+export class ErrorDisplayedAction extends ActionV2<ErrorDisplayedContext, ErrorDisplayedArgs, ErrorDisplayedContext> {
 
     /**
      * Constructs a new ErrorDisplayedAction instance.
@@ -503,7 +503,7 @@ export class ErrorDisplayedAction extends ActionV2<RaiseErrorContext, RaiseError
         pageUrlRegex: string,
         objectiveId: string | null,
         lastUsed: string | null,
-        args: RaiseErrorArgs,
+        args: ErrorDisplayedArgs,
         destinationIds: string[] = [],
     ) {
         // Check if cssSelector is provided
@@ -529,7 +529,7 @@ export class ErrorDisplayedAction extends ActionV2<RaiseErrorContext, RaiseError
     /**
      * @inheritdoc
      */
-    async _perform(context: RaiseErrorContext): Promise<RaiseErrorContext> {
+    async _perform(context: ErrorDisplayedContext): Promise<ErrorDisplayedContext> {
         // Get element from cssSelector
         const element = await context.driver.getElement({
             selector: this.args.cssSelector,
@@ -550,7 +550,7 @@ export class ErrorDisplayedAction extends ActionV2<RaiseErrorContext, RaiseError
     /**
      * @inheritdoc
      */
-    async canPerform(context: RaiseErrorContext): Promise<boolean> {
+    async canPerform(context: ErrorDisplayedContext): Promise<boolean> {
         if (!new RegExp(this.pageUrlRegex).test(context.driver.url())) {
             return false;
         }
