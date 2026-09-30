@@ -606,6 +606,29 @@ export function checkEmailIsValid(email: string): boolean {
 }
 
 /**
+ * Creates a regular expression string for matching a given URL, with special handling for path segments that look like IDs.
+ * @param url The URL to create a regex for.
+ * @returns A string representing the regular expression for the URL.
+ */
+export function createUrlRegex(url: string): string {
+    const parsedUrl = new URL(url);
+    // Split the pathname and replace segments that look like IDs (numbers or alphanumeric) with .*
+    const pathSegments = parsedUrl.pathname.split('/').map(seg => {
+        // Replace segments that contain at least 3 digits (anywhere, not necessarily consecutive)
+        const digitCount = (seg.match(/\d/g) || []).length;
+        if (digitCount >= 3) {
+            return '.*';
+        }
+        // Escape protocol and hostname
+        return seg.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    });
+    // Reconstruct the URL
+    const baseUrl = `${parsedUrl.protocol}//${parsedUrl.hostname}${pathSegments.join('/')}`;
+    // Append regex to match any optional query
+    return `${baseUrl  }(\/)?(#.*)?(\\?.*)?$`;
+}
+
+/**
  * Converts a name string into a unique invite ID suitable for use in URLs or identifiers.
  * @param name The name string to convert into an invite ID.
  * @returns A unique invite ID string derived from the given name.
