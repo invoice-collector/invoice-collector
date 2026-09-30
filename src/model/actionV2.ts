@@ -20,6 +20,7 @@ export enum ActionEnum  {
     ERROR_LOGIN_PAGE_DISPLAYED = 'errorLoginPageDisplayed',
     WAIT = 'wait',
     INVOICE_REQUESTED = 'invoiceRequested',
+    ERROR_CANNOT_DOWNLOAD_INVOICE = 'errorCannotDownloadInvoice',
 }
 
 export abstract class ActionV2<InputContext, Args, OutputContext> {
@@ -1382,6 +1383,7 @@ export class InvoiceRequestedAction extends ActionV2<InvoiceRequestedContext, In
     }
 
     async _perform(context: InvoiceRequestedContext): Promise<InvoiceRequestedContext> {
+        //TODO
         return context;
     }
 
@@ -1391,6 +1393,69 @@ export class InvoiceRequestedAction extends ActionV2<InvoiceRequestedContext, In
         }
         const el = await context.driver.getElement({ selector: this.args.cssSelector }, { raiseException: false, timeout: 100 });
         return el?.isClickable() || false;
+    }
+
+    canFollow(actions: ActionEnum[], previousAction: ActionEnum | null, secondPreviousAction: ActionEnum | null): boolean {
+        return actions.includes(ActionEnum.EXTRACT_INVOICE_DATA) &&
+               (
+                   previousAction === ActionEnum.LEFT_CLICK ||
+                   previousAction === ActionEnum.MIDDLE_CLICK ||
+                   previousAction === ActionEnum.CUSTOM ||
+                   previousAction === ActionEnum.WAIT
+               );
+    }
+}
+
+
+export type ErrorCannotDownloadInvoiceContext = {
+    driver: AbstractDriver;
+}
+
+export type ErrorCannotDownloadInvoiceArgs = {
+    cssSelector: string;
+    default: string;
+}
+
+export class ErrorCannotDownloadInvoiceAction extends ActionV2<ErrorCannotDownloadInvoiceContext, ErrorCannotDownloadInvoiceArgs, ErrorCannotDownloadInvoiceContext> {
+
+    constructor(
+        id: string | null,
+        description: string,
+        pageUrlRegex: string,
+        objectiveId: string | null,
+        lastUsed: string | null,
+        args: ErrorCannotDownloadInvoiceArgs,
+        destinationIds: string[] = [],
+    ) {
+        if (!args.cssSelector) {
+            throw new Error('ErrorCannotDownloadInvoiceAction requires a cssSelector to locate the element');
+        }
+        if (!args.default) {
+            throw new Error('ErrorCannotDownloadInvoiceAction requires args to have a "default" field');
+        }
+        super(
+            id,
+            ActionEnum.ERROR_CANNOT_DOWNLOAD_INVOICE,
+            description,
+            pageUrlRegex,
+            objectiveId,
+            lastUsed,
+            args,
+            destinationIds,
+        );
+    }
+
+    async _perform(context: ErrorCannotDownloadInvoiceContext): Promise<ErrorCannotDownloadInvoiceContext> {
+        //TODO
+        return context;
+    }
+
+    async canPerform(context: ErrorCannotDownloadInvoiceContext): Promise<boolean> {
+        if (!new RegExp(this.pageUrlRegex).test(context.driver.url())) {
+            return false;
+        }
+        const element = await context.driver.getElement({ selector: this.args.cssSelector }, { raiseException: false, timeout: 100 });
+        return element?.isClickable() || false;
     }
 
     canFollow(actions: ActionEnum[], previousAction: ActionEnum | null, secondPreviousAction: ActionEnum | null): boolean {
@@ -1418,4 +1483,5 @@ export const ClassActionMap = {
     [ActionEnum.ERROR_LOGIN_PAGE_DISPLAYED]: ErrorLoginPageDisplayedAction,
     [ActionEnum.WAIT]: WaitAction,
     [ActionEnum.INVOICE_REQUESTED]: InvoiceRequestedAction,
+    [ActionEnum.ERROR_CANNOT_DOWNLOAD_INVOICE]: ErrorCannotDownloadInvoiceAction,
 };
