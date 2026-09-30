@@ -8382,7 +8382,7 @@
   "i18n.collectors.uafrica_com.description": "An online platform offering e-commerce solutions and integrations for businesses in South Africa.",
   "i18n.collectors.ubaldi_com.description": "Ubaldi is an online retailer specializing in high-tech, home appliances, and multimedia products.",
   "i18n.collectors.ubeeqo.description": "A car-sharing service offering flexible and sustainable mobility solutions for urban and corporate use.",
-  "i18n.collectors.uber_rides_web.description": "A ride-hailing platform connecting passengers with drivers for convenient and affordable transportation.",
+  "i18n.collectors.uber_rides_web.description": "A service that allows you to book and pay for a ride with a private driver in just a few clicks.",
   "i18n.collectors.uber_business_api.authentication_error": "Uber rejected the authorization. Check the app credentials, granted business.receipts scope, organization UUID, and order IDs.",
   "i18n.collectors.uber_business_web.description": "Download Uber for Business ride and Uber Eats receipt invoices for known organization orders.",
   "i18n.collectors.uber_business_api.description": "Download Uber for Business ride and Uber Eats receipt invoices for known organization orders.",
