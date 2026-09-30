@@ -564,11 +564,14 @@ export class ErrorDisplayedAction extends ActionV2<ErrorDisplayedContext, ErrorD
      * @inheritdoc
      */
     canFollow(actions: ActionEnum[], previousAction: ActionEnum | null, secondPreviousAction: ActionEnum | null): boolean {
-        return previousAction === ActionEnum.LEFT_CLICK ||
-               previousAction === ActionEnum.INPUT_TEXT ||
-               previousAction === ActionEnum.INPUT_2FA_CODE ||
-               previousAction === ActionEnum.CUSTOM ||
-               previousAction === ActionEnum.WAIT;
+        return !actions.includes(ActionEnum.GET_INVOICES) &&
+               (
+                   previousAction === ActionEnum.LEFT_CLICK ||
+                   previousAction === ActionEnum.INPUT_TEXT ||
+                   previousAction === ActionEnum.INPUT_2FA_CODE ||
+                   previousAction === ActionEnum.CUSTOM ||
+                   previousAction === ActionEnum.WAIT
+               );
     }
 }
 
@@ -864,8 +867,11 @@ export class ErrorNoInvoicesAction extends ActionV2<ErrorNoInvoicesContext, Erro
      * @inheritdoc
      */
     canFollow(actions: ActionEnum[], previousAction: ActionEnum | null, secondPreviousAction: ActionEnum | null): boolean {
-        return previousAction === ActionEnum.NOOP ||
-               previousAction === ActionEnum.LEFT_CLICK;
+        return !actions.includes(ActionEnum.GET_INVOICES) &&
+            (
+                previousAction === ActionEnum.NOOP ||
+                previousAction === ActionEnum.LEFT_CLICK
+            );
     }
 }
 
@@ -1267,10 +1273,13 @@ export class ErrorLoginPageDisplayedAction extends ActionV2<ErrorLoginPageDispla
      * @inheritdoc
      */
     canFollow(actions: ActionEnum[], previousAction: ActionEnum | null, secondPreviousAction: ActionEnum | null): boolean {
-        return previousAction === null ||
-               previousAction === ActionEnum.LEFT_CLICK ||
-               previousAction === ActionEnum.CUSTOM ||
-               previousAction === ActionEnum.WAIT;
+        return !actions.includes(ActionEnum.GET_INVOICES) &&
+               (
+                   previousAction === null ||
+                   previousAction === ActionEnum.LEFT_CLICK ||
+                   previousAction === ActionEnum.CUSTOM ||
+                   previousAction === ActionEnum.WAIT
+               );
     }
 }
 
