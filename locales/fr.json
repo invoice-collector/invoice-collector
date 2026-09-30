@@ -335,6 +335,7 @@
   "i18n.collectors.all.captcha": "Impossible de continuer car un captcha a été détecté. Merci de reconnecter le compte.",
   "i18n.collectors.all.contract_access.error": "Impossible d'accéder au contrat",
   "i18n.collectors.all.credentials.error": "Identifiants de connexion incorrects",
+  "i18n.collectors.all.invoice_requested": "La facture a été demandée",
   "i18n.collectors.all.email": "Email",
   "i18n.collectors.all.email.error": "Email incorrect",
   "i18n.collectors.all.email.placeholder": "exemple@domaine.com",

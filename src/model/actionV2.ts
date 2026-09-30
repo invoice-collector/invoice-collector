@@ -19,6 +19,7 @@ export enum ActionEnum  {
     CUSTOM = 'custom',
     ERROR_LOGIN_PAGE_DISPLAYED = 'errorLoginPageDisplayed',
     WAIT = 'wait',
+    INVOICE_REQUESTED = 'invoiceRequested',
 }
 
 export abstract class ActionV2<InputContext, Args, OutputContext> {
@@ -1348,6 +1349,61 @@ export class WaitAction extends ActionV2<WaitContext, WaitArgs, WaitContext> {
     }
 }
 
+export type InvoiceRequestedContext = {
+    driver: AbstractDriver;
+}
+
+export type InvoiceRequestedArgs = {
+    cssSelector: string;
+    default: string;
+}
+
+export class InvoiceRequestedAction extends ActionV2<InvoiceRequestedContext, InvoiceRequestedArgs, InvoiceRequestedContext> {
+
+    constructor(
+        id: string | null,
+        description: string,
+        pageUrlRegex: string,
+        objectiveId: string | null,
+        lastUsed: string | null,
+        args: InvoiceRequestedArgs,
+        destinationIds: string[] = [],
+    ) {
+        super(
+            id,
+            ActionEnum.INVOICE_REQUESTED,
+            description,
+            pageUrlRegex,
+            objectiveId,
+            lastUsed,
+            args,
+            destinationIds,
+        );
+    }
+
+    async _perform(context: InvoiceRequestedContext): Promise<InvoiceRequestedContext> {
+        return context;
+    }
+
+    async canPerform(context: InvoiceRequestedContext): Promise<boolean> {
+        if (!new RegExp(this.pageUrlRegex).test(context.driver.url())) {
+            return false;
+        }
+        const el = await context.driver.getElement({ selector: this.args.cssSelector }, { raiseException: false, timeout: 100 });
+        return el?.isClickable() || false;
+    }
+
+    canFollow(actions: ActionEnum[], previousAction: ActionEnum | null, secondPreviousAction: ActionEnum | null): boolean {
+        return actions.includes(ActionEnum.EXTRACT_INVOICE_DATA) &&
+               (
+                   previousAction === ActionEnum.LEFT_CLICK ||
+                   previousAction === ActionEnum.MIDDLE_CLICK ||
+                   previousAction === ActionEnum.CUSTOM ||
+                   previousAction === ActionEnum.WAIT
+               );
+    }
+}
+
 export const ClassActionMap = {
     [ActionEnum.NOOP]: NoopAction,
     [ActionEnum.LEFT_CLICK]: LeftClickAction,
@@ -1359,6 +1415,7 @@ export const ClassActionMap = {
     [ActionEnum.EXTRACT_INVOICE_DATA]: ExtractInvoiceDataAction,
     [ActionEnum.MIDDLE_CLICK]: MiddleClickAction,
     [ActionEnum.CUSTOM]: CustomAction,
-    [ActionEnum.WAIT]: WaitAction,
     [ActionEnum.ERROR_LOGIN_PAGE_DISPLAYED]: ErrorLoginPageDisplayedAction,
+    [ActionEnum.WAIT]: WaitAction,
+    [ActionEnum.INVOICE_REQUESTED]: InvoiceRequestedAction,
 };
