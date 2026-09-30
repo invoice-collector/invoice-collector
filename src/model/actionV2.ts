@@ -255,13 +255,13 @@ export class NoopAction extends ActionV2<NoopContext, NoopArgs, NoopContext> {
      * @inheritdoc
      */
     canFollow(actions: ActionEnum[], previousAction: ActionEnum | null, secondPreviousAction: ActionEnum | null): boolean {
-        return previousAction == null ||
-               previousAction == ActionEnum.LEFT_CLICK ||
-               previousAction == ActionEnum.INPUT_TEXT ||
-               previousAction == ActionEnum.INPUT_2FA_CODE ||
-               previousAction == ActionEnum.MIDDLE_CLICK ||
-               previousAction == ActionEnum.CUSTOM ||
-               previousAction == ActionEnum.WAIT;
+        return previousAction === null ||
+               previousAction === ActionEnum.LEFT_CLICK ||
+               previousAction === ActionEnum.INPUT_TEXT ||
+               previousAction === ActionEnum.INPUT_2FA_CODE ||
+               previousAction === ActionEnum.MIDDLE_CLICK ||
+               previousAction === ActionEnum.CUSTOM ||
+               previousAction === ActionEnum.WAIT;
     }
 }
 
@@ -361,14 +361,14 @@ export class LeftClickAction extends ActionV2<LeftClickContext, LeftClickArgs, L
      * @inheritdoc
      */
     canFollow(actions: ActionEnum[], previousAction: ActionEnum | null, secondPreviousAction: ActionEnum | null): boolean {
-        return previousAction == null ||
-               previousAction == ActionEnum.LEFT_CLICK ||
-               previousAction == ActionEnum.INPUT_TEXT ||
-               previousAction == ActionEnum.INPUT_2FA_CODE ||
-               previousAction == ActionEnum.EXTRACT_INVOICE_DATA ||
-               previousAction == ActionEnum.MIDDLE_CLICK ||
-               previousAction == ActionEnum.CUSTOM ||
-               previousAction == ActionEnum.WAIT;
+        return previousAction === null ||
+               previousAction === ActionEnum.LEFT_CLICK ||
+               previousAction === ActionEnum.INPUT_TEXT ||
+               previousAction === ActionEnum.INPUT_2FA_CODE ||
+               previousAction === ActionEnum.EXTRACT_INVOICE_DATA ||
+               previousAction === ActionEnum.MIDDLE_CLICK ||
+               previousAction === ActionEnum.CUSTOM ||
+               previousAction === ActionEnum.WAIT;
     }
 }
 
@@ -465,13 +465,13 @@ export class InputTextAction extends ActionV2<InputTextContext, InputTextArgs, I
      * @inheritdoc
      */
     canFollow(actions: ActionEnum[], previousAction: ActionEnum | null, secondPreviousAction: ActionEnum | null): boolean {
-        return previousAction == null ||
-               previousAction == ActionEnum.LEFT_CLICK ||
-               previousAction == ActionEnum.INPUT_TEXT ||
-               previousAction == ActionEnum.INPUT_2FA_CODE ||
-               previousAction == ActionEnum.MIDDLE_CLICK ||
-               previousAction == ActionEnum.CUSTOM ||
-               previousAction == ActionEnum.WAIT;
+        return previousAction === null ||
+               previousAction === ActionEnum.LEFT_CLICK ||
+               previousAction === ActionEnum.INPUT_TEXT ||
+               previousAction === ActionEnum.INPUT_2FA_CODE ||
+               previousAction === ActionEnum.MIDDLE_CLICK ||
+               previousAction === ActionEnum.CUSTOM ||
+               previousAction === ActionEnum.WAIT;
     }
 }
 
@@ -562,11 +562,11 @@ export class ErrorDisplayedAction extends ActionV2<ErrorDisplayedContext, ErrorD
      * @inheritdoc
      */
     canFollow(actions: ActionEnum[], previousAction: ActionEnum | null, secondPreviousAction: ActionEnum | null): boolean {
-        return previousAction == ActionEnum.LEFT_CLICK ||
-               previousAction == ActionEnum.INPUT_TEXT ||
-               previousAction == ActionEnum.INPUT_2FA_CODE ||
-               previousAction == ActionEnum.CUSTOM ||
-               previousAction == ActionEnum.WAIT;
+        return previousAction === ActionEnum.LEFT_CLICK ||
+               previousAction === ActionEnum.INPUT_TEXT ||
+               previousAction === ActionEnum.INPUT_2FA_CODE ||
+               previousAction === ActionEnum.CUSTOM ||
+               previousAction === ActionEnum.WAIT;
     }
 }
 
@@ -784,7 +784,7 @@ export class GetInvoicesAction extends ActionV2<GetInvoicesInputContext, GetInvo
      */
     canFollow(actions: ActionEnum[], previousAction: ActionEnum | null, secondPreviousAction: ActionEnum | null): boolean {
         return !actions.includes(ActionEnum.GET_INVOICES) &&
-               previousAction === ActionEnum.NOOP
+               previousAction === ActionEnum.NOOP;
     }
 }
 
@@ -1344,8 +1344,7 @@ export class WaitAction extends ActionV2<WaitContext, WaitArgs, WaitContext> {
                previousAction === ActionEnum.LEFT_CLICK ||
                previousAction === ActionEnum.INPUT_2FA_CODE ||
                previousAction === ActionEnum.MIDDLE_CLICK ||
-               previousAction === ActionEnum.CUSTOM ||
-               previousAction === ActionEnum.WAIT;
+               previousAction === ActionEnum.CUSTOM;
     }
 }
 
