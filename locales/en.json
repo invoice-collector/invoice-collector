@@ -341,7 +341,7 @@
   "i18n.collectors.all.email_or_number": "Email or phone number",
   "i18n.collectors.all.email_or_number.error": "Incorrect email or phone number",
   "i18n.collectors.all.email_or_number.placeholder": "Email or phone number of the account",
-  "i18n.collectors.all.error_cannot_download_invoice": "The invoice cannot be downloaded",
+  "i18n.collectors.all.no_invoice_for_this_order": "There is no invoice for this order",
   "i18n.collectors.all.identifier": "Identifier",
   "i18n.collectors.all.identifier.error": "Incorrect identifier",
   "i18n.collectors.all.identifier.placeholder": "Login identifier",

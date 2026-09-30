@@ -20,7 +20,7 @@ export enum ActionEnum  {
     ERROR_LOGIN_PAGE_DISPLAYED = 'errorLoginPageDisplayed',
     WAIT = 'wait',
     INVOICE_REQUESTED = 'invoiceRequested',
-    ERROR_CANNOT_DOWNLOAD_INVOICE = 'errorCannotDownloadInvoice',
+    ERROR_NO_INVOICE_FOR_THIS_ORDER = 'errorNoInvoiceForThisOrder',
 }
 
 export abstract class ActionV2<InputContext, Args, OutputContext> {
@@ -1416,16 +1416,16 @@ export class InvoiceRequestedAction extends ActionV2<InvoiceRequestedContext, In
 }
 
 
-export type ErrorCannotDownloadInvoiceContext = {
+export type ErrorNoInvoiceForThisOrderContext = {
     driver: AbstractDriver;
 }
 
-export type ErrorCannotDownloadInvoiceArgs = {
+export type ErrorNoInvoiceForThisOrderArgs = {
     cssSelector: string;
     default: string;
 }
 
-export class ErrorCannotDownloadInvoiceAction extends ActionV2<ErrorCannotDownloadInvoiceContext, ErrorCannotDownloadInvoiceArgs, ErrorCannotDownloadInvoiceContext> {
+export class ErrorNoInvoiceForThisOrderAction extends ActionV2<ErrorNoInvoiceForThisOrderContext, ErrorNoInvoiceForThisOrderArgs, ErrorNoInvoiceForThisOrderContext> {
 
     constructor(
         id: string | null,
@@ -1433,7 +1433,7 @@ export class ErrorCannotDownloadInvoiceAction extends ActionV2<ErrorCannotDownlo
         pageUrlRegex: string,
         objectiveId: string | null,
         lastUsed: string | null,
-        args: ErrorCannotDownloadInvoiceArgs,
+        args: ErrorNoInvoiceForThisOrderArgs,
         destinationIds: string[] = [],
     ) {
         if (!args.cssSelector) {
@@ -1444,7 +1444,7 @@ export class ErrorCannotDownloadInvoiceAction extends ActionV2<ErrorCannotDownlo
         }
         super(
             id,
-            ActionEnum.ERROR_CANNOT_DOWNLOAD_INVOICE,
+            ActionEnum.ERROR_NO_INVOICE_FOR_THIS_ORDER,
             description,
             pageUrlRegex,
             objectiveId,
@@ -1454,12 +1454,12 @@ export class ErrorCannotDownloadInvoiceAction extends ActionV2<ErrorCannotDownlo
         );
     }
 
-    async _perform(context: ErrorCannotDownloadInvoiceContext): Promise<ErrorCannotDownloadInvoiceContext> {
+    async _perform(context: ErrorNoInvoiceForThisOrderContext): Promise<ErrorNoInvoiceForThisOrderContext> {
         //TODO
         return context;
     }
 
-    async canPerform(context: ErrorCannotDownloadInvoiceContext): Promise<boolean> {
+    async canPerform(context: ErrorNoInvoiceForThisOrderContext): Promise<boolean> {
         if (!new RegExp(this.pageUrlRegex).test(context.driver.url())) {
             return false;
         }
@@ -1492,5 +1492,5 @@ export const ClassActionMap = {
     [ActionEnum.ERROR_LOGIN_PAGE_DISPLAYED]: ErrorLoginPageDisplayedAction,
     [ActionEnum.WAIT]: WaitAction,
     [ActionEnum.INVOICE_REQUESTED]: InvoiceRequestedAction,
-    [ActionEnum.ERROR_CANNOT_DOWNLOAD_INVOICE]: ErrorCannotDownloadInvoiceAction,
+    [ActionEnum.ERROR_NO_INVOICE_FOR_THIS_ORDER]: ErrorNoInvoiceForThisOrderAction,
 };

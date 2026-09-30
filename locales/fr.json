@@ -341,7 +341,7 @@
   "i18n.collectors.all.email_or_number": "Email ou numéro de téléphone",
   "i18n.collectors.all.email_or_number.error": "Email ou numéro de téléphone incorrect",
   "i18n.collectors.all.email_or_number.placeholder": "Email ou numéro de téléphone du compte",
-  "i18n.collectors.all.error_cannot_download_invoice": "La facture ne peut pas être téléchargée",
+  "i18n.collectors.all.no_invoice_for_this_order": "Il n'existe pas de facture pour cette commande",
   "i18n.collectors.all.identifier": "Identifiant",
   "i18n.collectors.all.identifier.error": "Identifiant incorrect",
   "i18n.collectors.all.identifier.placeholder": "Identifiant de connexion",
