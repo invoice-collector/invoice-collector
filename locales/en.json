@@ -7259,6 +7259,7 @@
   "i18n.collectors.skeddly.description": "A cloud automation platform for scheduling and managing AWS and Azure resources efficiently.",
   "i18n.collectors.skello.description": "An online workforce scheduling and time management solution for teams and businesses.",
   "i18n.collectors.sketch.description": "A digital design toolkit for creating, prototyping, and collaborating on user interfaces.",
+  "i18n.collectors.sketch.not_implemented.error": "This collector is not functional and is planned for future implementation.",
   "i18n.collectors.sketchfab.description": "A platform to publish, share, and discover 3D and VR content online.",
   "i18n.collectors.skillz.description": "A competitive mobile gaming platform enabling developers to integrate esports features into their games.",
   "i18n.collectors.skimlinks.description": "A content monetization platform that helps publishers earn revenue by automatically turning product links into affiliate links.",

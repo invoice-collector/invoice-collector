@@ -27,7 +27,7 @@ export abstract class SketchCollector extends LinearWebCollector {
      * @inheritdoc
      */
     async login(driver: AbstractDriver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
-        return;
+        throw new Error("i18n.collectors.sketch.not_implemented.error");
     }
 
     /**
