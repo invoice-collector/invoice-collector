@@ -564,14 +564,11 @@ export class ErrorDisplayedAction extends ActionV2<ErrorDisplayedContext, ErrorD
      * @inheritdoc
      */
     canFollow(actions: ActionEnum[], previousAction: ActionEnum | null, secondPreviousAction: ActionEnum | null): boolean {
-        return !actions.includes(ActionEnum.GET_INVOICES) &&
-               (
-                   previousAction === ActionEnum.LEFT_CLICK ||
-                   previousAction === ActionEnum.INPUT_TEXT ||
-                   previousAction === ActionEnum.INPUT_2FA_CODE ||
-                   previousAction === ActionEnum.CUSTOM ||
-                   previousAction === ActionEnum.WAIT
-               );
+        return previousAction === ActionEnum.LEFT_CLICK ||
+               previousAction === ActionEnum.INPUT_TEXT ||
+               previousAction === ActionEnum.INPUT_2FA_CODE ||
+               previousAction === ActionEnum.CUSTOM ||
+               previousAction === ActionEnum.WAIT;
     }
 }
 
@@ -780,6 +777,10 @@ export class GetInvoicesAction extends ActionV2<GetInvoicesInputContext, GetInvo
         if (!new RegExp(this.pageUrlRegex).test(context.driver.url())) {
             return false;
         }
+        // Cannot perform action if invoice exists in context
+        if(Object.hasOwn(context, 'invoice')) {
+            return false;
+        }
         const el = await context.driver.getElement({ selector: this.args.cssSelector }, { raiseException: false, timeout: 100 });
         return el?.isClickable() || false;
     }
@@ -788,8 +789,7 @@ export class GetInvoicesAction extends ActionV2<GetInvoicesInputContext, GetInvo
      * @inheritdoc
      */
     canFollow(actions: ActionEnum[], previousAction: ActionEnum | null, secondPreviousAction: ActionEnum | null): boolean {
-        return !actions.includes(ActionEnum.GET_INVOICES) &&
-               previousAction === ActionEnum.NOOP;
+        return previousAction === ActionEnum.NOOP;
     }
 }
 
@@ -859,6 +859,10 @@ export class ErrorNoInvoicesAction extends ActionV2<ErrorNoInvoicesContext, Erro
         if (!new RegExp(this.pageUrlRegex).test(context.driver.url())) {
             return false;
         }
+        // Cannot perform action if invoice exists in context
+        if(Object.hasOwn(context, 'invoice')) {
+            return false;
+        }
         const el = await context.driver.getElement({ selector: this.args.cssSelector }, { raiseException: false, timeout: 100 });
         return el?.isClickable() || false;
     }
@@ -867,11 +871,8 @@ export class ErrorNoInvoicesAction extends ActionV2<ErrorNoInvoicesContext, Erro
      * @inheritdoc
      */
     canFollow(actions: ActionEnum[], previousAction: ActionEnum | null, secondPreviousAction: ActionEnum | null): boolean {
-        return !actions.includes(ActionEnum.GET_INVOICES) &&
-            (
-                previousAction === ActionEnum.NOOP ||
-                previousAction === ActionEnum.LEFT_CLICK
-            );
+        return previousAction === ActionEnum.NOOP ||
+               previousAction === ActionEnum.LEFT_CLICK;
     }
 }
 
@@ -996,6 +997,10 @@ export class ExtractInvoiceDataAction extends ActionV2<ExtractInvoiceDataInputCo
         if (!new RegExp(this.pageUrlRegex).test(context.driver.url())) {
             return false;
         }
+        // Cannot perform action if invoice exists in context
+        if(Object.hasOwn(context, 'invoice')) {
+            return false;
+        }
         const [idElement, amountElement, dateElement, downloadElement] = await Promise.all([
             this.args.id ? context.element.getElement({ selector: this.args.id.cssSelector }, { raiseException: false}) : null,
             this.args.amount ? context.element.getElement({ selector: this.args.amount.cssSelector }, { raiseException: false }) : null,
@@ -1015,11 +1020,8 @@ export class ExtractInvoiceDataAction extends ActionV2<ExtractInvoiceDataInputCo
      * @inheritdoc
      */
     canFollow(actions: ActionEnum[], previousAction: ActionEnum | null, secondPreviousAction: ActionEnum | null): boolean {
-        return !actions.includes(ActionEnum.EXTRACT_INVOICE_DATA) &&
-               (
-                   previousAction === ActionEnum.GET_INVOICES ||
-                   previousAction === ActionEnum.CUSTOM
-               );
+        return previousAction === ActionEnum.GET_INVOICES ||
+               previousAction === ActionEnum.CUSTOM;
     }
 }
 
@@ -1273,13 +1275,10 @@ export class ErrorLoginPageDisplayedAction extends ActionV2<ErrorLoginPageDispla
      * @inheritdoc
      */
     canFollow(actions: ActionEnum[], previousAction: ActionEnum | null, secondPreviousAction: ActionEnum | null): boolean {
-        return !actions.includes(ActionEnum.GET_INVOICES) &&
-               (
-                   previousAction === null ||
-                   previousAction === ActionEnum.LEFT_CLICK ||
-                   previousAction === ActionEnum.CUSTOM ||
-                   previousAction === ActionEnum.WAIT
-               );
+        return previousAction === null ||
+               previousAction === ActionEnum.LEFT_CLICK ||
+               previousAction === ActionEnum.CUSTOM ||
+               previousAction === ActionEnum.WAIT;
     }
 }
 
@@ -1392,12 +1391,15 @@ export class InvoiceRequestedAction extends ActionV2<InvoiceRequestedContext, In
     }
 
     async _perform(context: InvoiceRequestedContext): Promise<InvoiceRequestedContext> {
-        //TODO
-        return context;
+        throw Error('Invoice requested for this order')
     }
 
     async canPerform(context: InvoiceRequestedContext): Promise<boolean> {
         if (!new RegExp(this.pageUrlRegex).test(context.driver.url())) {
+            return false;
+        }
+        // Cannot perform action if invoice missing in context
+        if(!Object.hasOwn(context, 'invoice')) {
             return false;
         }
         const el = await context.driver.getElement({ selector: this.args.cssSelector }, { raiseException: false, timeout: 100 });
@@ -1405,13 +1407,10 @@ export class InvoiceRequestedAction extends ActionV2<InvoiceRequestedContext, In
     }
 
     canFollow(actions: ActionEnum[], previousAction: ActionEnum | null, secondPreviousAction: ActionEnum | null): boolean {
-        return actions.includes(ActionEnum.EXTRACT_INVOICE_DATA) &&
-               (
-                   previousAction === ActionEnum.LEFT_CLICK ||
-                   previousAction === ActionEnum.MIDDLE_CLICK ||
-                   previousAction === ActionEnum.CUSTOM ||
-                   previousAction === ActionEnum.WAIT
-               );
+        return previousAction === ActionEnum.LEFT_CLICK ||
+               previousAction === ActionEnum.MIDDLE_CLICK ||
+               previousAction === ActionEnum.CUSTOM ||
+               previousAction === ActionEnum.WAIT;
     }
 }
 
@@ -1455,12 +1454,15 @@ export class ErrorNoInvoiceForThisOrderAction extends ActionV2<ErrorNoInvoiceFor
     }
 
     async _perform(context: ErrorNoInvoiceForThisOrderContext): Promise<ErrorNoInvoiceForThisOrderContext> {
-        //TODO
-        return context;
+        throw Error('No invoice for this order')
     }
 
     async canPerform(context: ErrorNoInvoiceForThisOrderContext): Promise<boolean> {
         if (!new RegExp(this.pageUrlRegex).test(context.driver.url())) {
+            return false;
+        }
+        // Cannot perform action if invoice missing in context
+        if(!Object.hasOwn(context, 'invoice')) {
             return false;
         }
         const element = await context.driver.getElement({ selector: this.args.cssSelector }, { raiseException: false, timeout: 100 });
@@ -1468,13 +1470,10 @@ export class ErrorNoInvoiceForThisOrderAction extends ActionV2<ErrorNoInvoiceFor
     }
 
     canFollow(actions: ActionEnum[], previousAction: ActionEnum | null, secondPreviousAction: ActionEnum | null): boolean {
-        return actions.includes(ActionEnum.EXTRACT_INVOICE_DATA) &&
-               (
-                   previousAction === ActionEnum.LEFT_CLICK ||
-                   previousAction === ActionEnum.MIDDLE_CLICK ||
-                   previousAction === ActionEnum.CUSTOM ||
-                   previousAction === ActionEnum.WAIT
-               );
+        return previousAction === ActionEnum.LEFT_CLICK ||
+               previousAction === ActionEnum.MIDDLE_CLICK ||
+               previousAction === ActionEnum.CUSTOM ||
+               previousAction === ActionEnum.WAIT;
     }
 }
 
