@@ -1,7 +1,7 @@
 import { DatabaseFactory } from '../database/databaseFactory';
 import { Action } from './action';
 import { Actions } from './actions';
-import { ActionV2 } from './actionV2';
+import { IActionV2 } from './actionV2';
 
 export class CollectorMemory {
 
@@ -18,7 +18,7 @@ export class CollectorMemory {
     id: string;
     collector_id: string;
     actions: Actions;
-    actionsV2: ActionV2<any, any, any>[];
+    actionsV2: IActionV2<any, any, any, any>[];
     customerAreaUrl?: string;
     entryUrl?: string;
     tips?: string;
@@ -35,7 +35,7 @@ export class CollectorMemory {
     constructor(
         collector_id: string,
         actions: Actions,
-        actionsV2: ActionV2<any, any, any>[],
+        actionsV2: IActionV2<any, any, any, any>[],
         customerAreaUrl?: string,
         entryUrl?: string,
         tips?: string,
