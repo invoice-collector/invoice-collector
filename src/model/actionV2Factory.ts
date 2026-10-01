@@ -12,7 +12,7 @@ type ActionV2Static = {
 };
 
 export class ActionV2Factory {
-    private static classAction: ActionV2Static | null;
+    private static classAction: ActionV2Static = ActionV2;
 
     /**
      * Register a premium ActionV2 class instead of the default one.
@@ -28,10 +28,6 @@ export class ActionV2Factory {
      * @returns An array of constructed ActionV2 instances.
      */
     static fromObjects<InputContext, Args, OutputContext>(objs: any): IActionV2<any, InputContext, Args, OutputContext>[] {
-      const cls = ActionV2Factory.classAction;
-      if (!cls) {
-          return ActionV2.fromObjects(objs);
-      }
-      return cls.fromObjects(objs); // ← the static, called through the class reference
+      return ActionV2Factory.classAction.fromObjects(objs); // ← the static, called through the class reference
     }
 }
