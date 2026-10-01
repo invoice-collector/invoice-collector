@@ -222,10 +222,6 @@ export class Collect {
 
                     // Cancel next collect
                     credential.next_collect_timestamp = Number.NaN;
-
-                    // Reset cookies and localStorage
-                    await secret?.setCookies(null);
-                    await secret?.setLocalStorage(null);
                 }
             }
             else if (err instanceof RemoveError) {
