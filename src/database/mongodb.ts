@@ -8,7 +8,7 @@ import { buildCustomerStatsPipeline, getAllCustomerData } from './mongodbConstan
 import { State } from '../model/state';
 import { CollectorMemory } from '../model/collectorMemory';
 import { Actions } from '../model/actions';
-import { ActionV2 } from '../model/actionV2';
+import { ActionV2Factory } from '../model/actionV2Factory';
 import { Callback } from '../model/callback';
 import { StatusError } from '../error';
 import { Plan } from '../model/plan';
@@ -739,7 +739,7 @@ export class MongoDB extends AbstractDatabase {
             const collectorMemory = new CollectorMemory(
                 document.collector_id,
                 Actions.fromObject(document.actions),
-                ActionV2.fromObjectList(document.actionsV2),
+                ActionV2Factory.fromObjects(document.actionsV2),
                 document.customerAreaUrl,
                 document.entryUrl,
                 document.tips,
@@ -761,7 +761,7 @@ export class MongoDB extends AbstractDatabase {
         const collectorMemory = new CollectorMemory(
             document.collector_id,
             Actions.fromObject(document.actions),
-            ActionV2.fromObjectList(document.actionsV2),
+            ActionV2Factory.fromObjects(document.actionsV2),
             document.customerAreaUrl,
             document.entryUrl,
             document.tips,
