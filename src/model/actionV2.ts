@@ -6,23 +6,47 @@ import * as utils from '../utils';
  * can only describe public members. It stays on the abstract class.
  */
 export interface IActionV2<ActionType, InputContext, Args, OutputContext> {
-  id: string;
-  action: ActionType;
-  pageUrlRegex: string;
-  description: string;
-  objectiveId: string | null;
-  lastUsed: string | null;
-  args: Args;
-  destinationIds: string[];
+    id: string;
+    action: ActionType;
+    pageUrlRegex: string;
+    description: string;
+    objectiveId: string | null;
+    lastUsed: string | null;
+    args: Args;
+    destinationIds: string[];
 
-  _perform(context: InputContext): Promise<OutputContext | OutputContext[]>;
-  perform(context: InputContext): Promise<OutputContext | OutputContext[]>;
-  canPerform(context: InputContext): Promise<boolean>;
-  canFollow(
-    actions: ActionType[],
-    previousAction: ActionType | null,
-    secondPreviousAction: ActionType | null,
-  ): boolean;
+    /**
+     * Performs the action in the given context.
+     * @param context The context in which to perform the action.
+     * @returns The output context resulting from performing the action. It can be a single context or an array of contexts.
+     */
+    _perform(context: InputContext): Promise<OutputContext | OutputContext[]>;
+
+    /**
+     * Performs the action in the given context.
+     * @param context The context in which to perform the action.
+     * @returns The output context resulting from performing the action. It can be a single context or an array of contexts.
+     */
+    perform(context: InputContext): Promise<OutputContext | OutputContext[]>;
+
+    /**
+     * Checks whether this action can be performed in the given context.
+     * @param context The context in which to check if the action can be performed.
+     * @returns A boolean indicating whether the action can be performed.
+     */
+    canPerform(context: InputContext): Promise<boolean>;
+
+    /**
+     * Checks whether this action can follow the given sequence of actions.
+     * @param actions The sequence of actions to check against.
+     * @param previousAction The action immediately preceding this one.
+     * @param secondPreviousAction The action two steps before this one.
+     */
+    canFollow(
+        actions: ActionType[],
+        previousAction: ActionType | null,
+        secondPreviousAction: ActionType | null,
+    ): boolean;
 }
 
 export class ActionV2<InputContext, Args, OutputContext> implements IActionV2<any, InputContext, Args, OutputContext> {
@@ -112,37 +136,28 @@ export class ActionV2<InputContext, Args, OutputContext> implements IActionV2<an
     }
 
     /**
-     * Performs the action in the given context.
-     * @param context The context in which to perform the action.
-     * @returns The output context resulting from performing the action. It can be a single context or an array of contexts.
+     * @inheritdoc
      */
     _perform(context: InputContext): Promise<OutputContext | OutputContext[]>{
         throw new Error('Not implemented');
     }
 
     /**
-     * Performs the action in the given context.
-     * @param context The context in which to perform the action.
-     * @returns The output context resulting from performing the action. It can be a single context or an array of contexts.
+     * @inheritdoc
      */
     perform(context: InputContext): Promise<OutputContext | OutputContext[]>{
         throw new Error('Not implemented');
     }
 
     /**
-     * Checks whether this action can be performed in the given context.
-     * @param context The context in which to check if the action can be performed.
-     * @returns A boolean indicating whether the action can be performed.
+     * @inheritdoc
      */
     canPerform(context: InputContext): Promise<boolean>{
         throw new Error('Not implemented');
     }
 
     /**
-     * Checks whether this action can follow the given sequence of actions.
-     * @param actions The sequence of actions to check against.
-     * @param previousAction The action immediately preceding this one.
-     * @param secondPreviousAction The action two steps before this one.
+     * @inheritdoc
      */
     canFollow(actions: any[], previousAction: any | null, secondPreviousAction: any | null): boolean{
         throw new Error('Not implemented');
