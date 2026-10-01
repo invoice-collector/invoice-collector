@@ -5,7 +5,7 @@ import { Customer } from '../../model/customer';
  * Task responsible for scheduling and creating a bill at the end of each month.
  */
 export class BillTask {
-    static DEFAULT_CRON_TIME = '30 0 1 * *';    // At 00:30 the 1st day of every month
+    static DEFAULT_CRON_TIME = '30 * * * *';    // At 00:30 the 1st day of every month
     static DEFAULT_TIMEZONE = 'UTC';
 
     private job: CronJob;
@@ -23,7 +23,13 @@ export class BillTask {
                     try {
                         // If the plan does not have no cost
                         if(!customer.plan.noCost()) {
-                            await customer.computeMissingBills();
+                            console.log(`Computing bills for ${customer.id}`)
+                            const newBills = await customer.computeMissingBills();
+                            console.log(
+                                newBills.length > 0 ?
+                                `${newBills.length} new bills` :
+                                'No new bill to compute'
+                            )
                         }
                     } catch (error) {
                         console.error(`Error occurred while creating bill for customer ${customer.id}:`);
