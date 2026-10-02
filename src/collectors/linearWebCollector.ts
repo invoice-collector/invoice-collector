@@ -161,6 +161,10 @@ export abstract class LinearWebCollector extends WebCollector {
                         this.driver = driver;
                     }
 
+                    // Set progress step to logging in
+                    state.update(State._2_LOGGING_IN);
+                    webSocketServer?.sendState(State._2_LOGGING_IN);
+
                     // Go to login url
                     await driver.goto(this.config.loginUrl, { navigation: false });
                     // Perform interactive login
