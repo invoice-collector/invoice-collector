@@ -131,6 +131,7 @@ export class AuthenticationError extends CollectorError {
         this.name = this.constructor.name;
     }
 }
+
 export class RemoveError extends CollectorError {
 
     /**
@@ -159,6 +160,23 @@ export class DisconnectedError extends CollectorError {
     constructor(message: string, collector: AbstractCollector<Config>, opts = {}) {
         super(
             message.trim(),
+            collector,
+            opts,
+        );
+        this.name = this.constructor.name;
+    }
+}
+
+export class PlannedCollectorError extends CollectorError {
+
+    /**
+     * Constructs a new PlannedCollectorError instance.
+     * @param collector The collector instance associated with the error.
+     * @param opts Additional options for the error.
+     */
+    constructor(collector: AbstractCollector<Config>, opts = {}) {
+        super(
+            'i18n.collectors.sketch.not_implemented.error',
             collector,
             opts,
         );

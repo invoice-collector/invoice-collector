@@ -1,6 +1,6 @@
 import { AbstractCollector, CompleteInvoice, Config } from '../../collectors/abstractCollector';
 import { CollectorLoader } from '../../collectors/collectorLoader';
-import { AuthenticationError, RemoveError, DisconnectedError, LoggableError, NoInvoiceFoundError, PartialCollectError } from '../../error';
+import { AuthenticationError, RemoveError, DisconnectedError, LoggableError, NoInvoiceFoundError, PartialCollectError, PlannedCollectorError } from '../../error';
 import { Credential } from '../../model/credential';
 import { Callback } from '../../model/callback';
 import { State } from '../../model/state';
@@ -184,6 +184,23 @@ export class Collect {
 
                     // Schedule next collect in 1 day
                     credential.next_collect_timestamp = credential.last_collect_timestamp + Credential.ONE_DAY_MS;
+                }
+            }
+            // If error is PlannedCollectorError
+            else if(err instanceof PlannedCollectorError) {
+                console.error(`Invoice collection for credential ${this.credential_id} has failed: ${err.message}`);
+
+                // If credential exists
+                if (credential) {
+                    // Update credential
+                    credential.state.update(State._0_UNKNOWN, err.message);
+                    this.webSocketServer?.sendState(State._0_UNKNOWN, err.message);
+
+                    // Update last collect
+                    credential.last_collect_timestamp = Date.now();
+
+                    // Schedule next collect in 1 week
+                    credential.next_collect_timestamp = credential.last_collect_timestamp + Credential.ONE_WEEK_MS;
                 }
             }
             else if (err instanceof AuthenticationError || err instanceof DisconnectedError) {
