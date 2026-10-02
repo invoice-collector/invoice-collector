@@ -4,6 +4,7 @@ import { AbstractDriver } from '../driver/abstractDriver';
 import { Element } from '../driver/element';
 import { WebSocketServer } from '../websocket/webSocketServer';
 import { LinearWebCollector } from './linearWebCollector';
+import { PlannedCollectorError } from '../error';
 
 export type SketchConfig = WebConfig & {
 }
@@ -27,7 +28,7 @@ export abstract class SketchCollector extends LinearWebCollector {
      * @inheritdoc
      */
     async login(driver: AbstractDriver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
-        throw new Error("i18n.collectors.sketch.not_implemented.error");
+        throw new PlannedCollectorError(this);
     }
 
     /**
