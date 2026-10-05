@@ -269,10 +269,20 @@ export class Collect {
                 console.warn(`Credential ${this.credential_id} has been deleted during collect, skipping commit of credential and secret`);
             }
             else {
-                // Commit credential
-                await credential?.commit();
-                // Commit secret
-                await secret?.commit();
+                try {
+                    // Commit credential
+                    await credential?.commit();
+                    // Commit secret
+                    await secret?.commit();
+                } catch (commitError) {
+                    const message = `Failed to commit credential or secret: ${commitError}`;
+                    console.error(message);
+                    console.error(commitError);
+                    // If collector is defined, log error
+                    if(collector) {
+                        AnalyticsFactory.getInstance().logError(customer?.email || '', user?.remote_id || '', new LoggableError(message, collector));
+                    }
+                }
             }
         }
     }
