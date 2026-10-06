@@ -673,13 +673,37 @@ export class PuppeteerDriver extends AbstractDriver {
         const framesSourceCode = await Promise.all(
             frames.map(async frame => {
                 try {
-                    const sourceCode = (await frame.content());
-                    return sourceCode
+                    await frame.evaluate(() => {
+
+                        /**
+                         * Traverse the DOM tree to find and process shadow roots.
+                         * @param node The DOM node to traverse for shadow roots.
+                         */
+                        function traverseForShadowRoots(node: Node): void {
+                            if (node.nodeType === Node.ELEMENT_NODE) {
+                                const element = node as globalThis.Element;
+                                if (element.shadowRoot) {
+                                    traverseForShadowRoots(element.shadowRoot);
+                                    element.innerHTML = `<shadow-root>${element.shadowRoot.innerHTML}</shadow-root>`;
+                                    return;
+                                }
+                            }
+                            for (const child of Array.from(node.childNodes)) {
+                                traverseForShadowRoots(child);
+                            }
+                        }
+
+                        traverseForShadowRoots(document.body);
+                    });
+
+                    const sourceCode = await frame.content();
+                    const cleanedCode = sourceCode
                         .replace(/<script\b[^>]*>([\s\S]*?)<\/script>/gi, '')
                         .replace(/<svg\b[^>]*>([\s\S]*?)<\/svg>/gi, '')
                         .replace(/<style\b[^>]*>([\s\S]*?)<\/style>/gi, '')
                         .replace(/<head\b[^>]*>([\s\S]*?)<\/head>/gi, '')
                         .replace(/<iframe\b[^>]*>([\s\S]*?)<\/iframe>/gi, '');
+                    return cleanedCode;
                 } catch (error) {
                     return `<!-- Unable to retrieve frame content. Error: ${error} -->`;
                 }

@@ -89,12 +89,13 @@ export class Element {
      * @param options The middle click options.
      * @param options.useFallbackMethod Whether to use the fallback method for middle click. Default is `false`.
      * @param options.timeout The timeout for the middle click action. Default is {@link AbstractDriver.DEFAULT_TIMEOUT}.
+     * @returns `true` if the fallback method was used, `false` otherwise.
      */
     async middleClick(options: {
         useFallbackMethod?: boolean,
         timeout?: number,
-    } = {}): Promise<void> {
-        const {
+    } = {}): Promise<boolean> {
+        let {
             useFallbackMethod = false,
             timeout = AbstractDriver.DEFAULT_TIMEOUT,
         } = options;
@@ -114,18 +115,11 @@ export class Element {
             // Get number of downloaded files after middle click
             const numberOfFilesAfter = (await this.driver.getDownloadedFiles(false)).length;
             // If no new page opened and no new file downloaded, set useFallbackMethod to true
-            const shouldUseFallbackMethod = numberOfPagesAfter === numberOfPagesBefore && numberOfFilesAfter === numberOfFilesBefore;
-            if (shouldUseFallbackMethod) {
-                const currentUrl = this.driver.url();
-                await this.driver.newPage(currentUrl);
-                await this.driver.leftClick({
-                    selector: await this.cssSelector(),
-                    info: 'middle click',
-                }, {
-                    timeout,
-                });
-            }
-        } else {
+            useFallbackMethod = numberOfPagesAfter === numberOfPagesBefore && numberOfFilesAfter === numberOfFilesBefore;
+        }
+
+        // If the middle click did not open a new page, use the fallback method
+        if(useFallbackMethod) {
             const currentUrl = this.driver.url();
             await this.driver.newPage(currentUrl);
             await this.driver.leftClick({
@@ -135,6 +129,7 @@ export class Element {
                 timeout,
             });
         }
+        return useFallbackMethod
     }
 
     /**
