@@ -674,7 +674,12 @@ export class PuppeteerDriver extends AbstractDriver {
             frames.map(async frame => {
                 try {
                     await frame.evaluate(() => {
-                        function traverseForShadowRoots(node: Node) {
+
+                        /**
+                         * Traverse the DOM tree to find and process shadow roots.
+                         * @param node The DOM node to traverse for shadow roots.
+                         */
+                        function traverseForShadowRoots(node: Node): void {
                             if (node.nodeType === Node.ELEMENT_NODE) {
                                 const element = node as globalThis.Element;
                                 if (element.shadowRoot) {
