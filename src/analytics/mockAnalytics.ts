@@ -1,4 +1,4 @@
-import { AbstractAnalytics, OTP } from './abstractAnalytics';
+import { AbstractAnalytics, OTP, ProbeType } from './abstractAnalytics';
 import * as utils from '../utils';
 import { AbstractCollector, Config } from '../collectors/abstractCollector';
 import { LoggableError } from '../error';
@@ -23,6 +23,13 @@ export class MockAnalytics extends AbstractAnalytics {
      */
     logError(email: string, remoteId: string, err: LoggableError): void {
         console.warn('No analytics server endpoint configured. Cannot log error.');
+    }
+
+    /**
+     * @inheritdoc
+     */
+    sendProbe(collectorId: string, type: ProbeType, data: object): void {
+        console.warn('No analytics server endpoint configured. Cannot send probe.');
     }
 
     /**

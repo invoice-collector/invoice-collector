@@ -123,6 +123,11 @@ export class Collect {
             // Update last collect
             credential.last_collect_timestamp = Date.now();
 
+            // Update first authentication date if not set
+            if (!credential.firstAuthenticationDate) {
+                credential.firstAuthenticationDate = new Date();
+            }
+
             // Compute next collect
             credential.computeNextCollect(customer.maxDelayBetweenCollect);
         }
@@ -143,6 +148,11 @@ export class Collect {
 
                     // Schedule next collect in 1 day
                     credential.next_collect_timestamp = credential.last_collect_timestamp + Credential.ONE_DAY_MS;
+
+                    // Update first authentication date if not set
+                    if (!credential.firstAuthenticationDate) {
+                        credential.firstAuthenticationDate = new Date();
+                    }
                 }
             }
             // If some invoices failed to download but others succeeded
@@ -165,6 +175,11 @@ export class Collect {
 
                     // Retry failed downloads in 1 day
                     credential.next_collect_timestamp = credential.last_collect_timestamp + Credential.ONE_DAY_MS;
+
+                    // Update first authentication date if not set
+                    if (!credential.firstAuthenticationDate) {
+                        credential.firstAuthenticationDate = new Date();
+                    }
                 }
             }
             // If error is LoggableError
@@ -228,10 +243,13 @@ export class Collect {
                         this.webSocketServer?.sendState(State._1_ERROR, err.message);
                     }
                     // If disconnected error
-                    else {
+                    else if (err instanceof DisconnectedError) {
                         // Update credential to disconnected
                         credential.state.update(State._2_DISCONNECTED, err.message);
                         this.webSocketServer?.sendState(State._2_DISCONNECTED, err.message);
+
+                        // Send session duration probe and reset session start for the next reconnection
+                        credential.sendProbeSessionDuration();
                     }
 
                     // Update last collect

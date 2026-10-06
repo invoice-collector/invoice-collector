@@ -3,7 +3,7 @@ import { fullStackTrace, LoggableError } from '../error';
 import * as utils from '../utils';
 import { TokenManager } from '../tokenManager';
 import { AbstractCollector, Config } from '../collectors/abstractCollector';
-import { AbstractAnalytics, OTP } from './abstractAnalytics';
+import { AbstractAnalytics, OTP, ProbeType } from './abstractAnalytics';
 
 export class HttpAnalytics extends AbstractAnalytics {
 
@@ -77,6 +77,27 @@ export class HttpAnalytics extends AbstractAnalytics {
             console.error(`Could not reach analytics server at ${error.request.res?.responseUrl || error.request._currentUrl}. Status code: ${error.response?.status || error.code}`);
         });
     }
+
+    /**
+     * Send a probe to the analytics server.
+     * @param collectorId The ID of the collector sending the probe.
+     * @param type The type of the probe.
+     * @param data The data associated with the probe.
+     */
+    sendProbe(collectorId: string, type: ProbeType, data: object): void {
+        this.client.post('/probe', {
+            type: type,
+            collectorId: collectorId,
+            data: data,
+        })
+        .then(response => {
+            console.log('Analytics server successfully reached');
+        })
+        .catch(error => {
+            console.error(`Could not reach analytics server at ${error.request.res?.responseUrl || error.request._currentUrl}. Status code: ${error.response?.status || error.code}`);
+        });
+    }
+
 
     /**
      * @inheritdoc

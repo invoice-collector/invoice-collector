@@ -1,3 +1,5 @@
+import { AnalyticsFactory } from '../analytics/analyticsFactory';
+import { ProbeType } from '../analytics/abstractAnalytics';
 import { CompleteInvoice } from '../collectors/abstractCollector';
 import { DatabaseFactory } from '../database/databaseFactory';
 import { StatusError } from '../error';
@@ -45,6 +47,7 @@ export class Credential {
     download_from_timestamp: number;
     last_collect_timestamp: number;
     next_collect_timestamp: number;
+    firstAuthenticationDate: Date|null;
     invoices: ModelInvoice[];
     state: State;
 
@@ -58,6 +61,7 @@ export class Credential {
      * @param download_from_timestamp The timestamp from which to start downloading invoices.
      * @param last_collect_timestamp The timestamp of the last collection.
      * @param next_collect_timestamp The timestamp of the next planned collection.
+     * @param firstAuthenticationDate The date of the first successful authentication of the current session.
      * @param invoices The list of invoices associated with the credential.
      * @param state The state of the credential.
      */
@@ -70,6 +74,7 @@ export class Credential {
         download_from_timestamp: number,
         last_collect_timestamp: number = Number.NaN,
         next_collect_timestamp: number = Number.NaN,
+        firstAuthenticationDate: Date|null = null,
         invoices: ModelInvoice[] = [],
         state: State = State.DEFAULT_STATE,
     ) {
@@ -82,6 +87,7 @@ export class Credential {
         this.download_from_timestamp = download_from_timestamp;
         this.last_collect_timestamp = last_collect_timestamp;
         this.next_collect_timestamp = next_collect_timestamp;
+        this.firstAuthenticationDate = firstAuthenticationDate;
         this.invoices = invoices;
         this.state = state;
     }
@@ -209,5 +215,23 @@ export class Credential {
     sortInvoices(): void {
         // Order invoices by timestamp
         this.invoices.sort((a, b) => a.timestamp - b.timestamp);
+    }
+
+    /**
+     * Send a session duration probe if the first authentication date is set.
+     */
+    sendProbeSessionDuration(): void {
+        // Send session duration probe if firstAuthenticationDate is set
+        if (this.firstAuthenticationDate) {
+            AnalyticsFactory.getInstance().sendProbe(this.collector_id, ProbeType.SESSION_DURATION, {
+                firstAuthenticationDate: this.firstAuthenticationDate,
+                endDate: new Date()
+            });
+            // Reset the first authentication date for future usage
+            this.firstAuthenticationDate = null;
+        }
+        else {
+            console.warn('No session duration probe to send because firstAuthenticationDate is not set.');
+        }
     }
 }
