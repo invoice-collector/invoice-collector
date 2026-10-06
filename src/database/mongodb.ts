@@ -628,6 +628,7 @@ export class MongoDB extends AbstractDatabase {
                 document.download_from_timestamp,
                 document.last_collect_timestamp,
                 document.next_collect_timestamp,
+                document.firstAuthenticationDate ? new Date(document.firstAuthenticationDate) : null,
                 document.invoices,
                 State.fromObject(document.state),
             );
@@ -656,6 +657,7 @@ export class MongoDB extends AbstractDatabase {
             document.download_from_timestamp,
             document.last_collect_timestamp,
             document.next_collect_timestamp,
+            document.firstAuthenticationDate ? new Date(document.firstAuthenticationDate) : null,
             document.invoices,
             State.fromObject(document.state),
         );
@@ -677,6 +679,7 @@ export class MongoDB extends AbstractDatabase {
             download_from_timestamp: credential.download_from_timestamp,
             last_collect_timestamp: credential.last_collect_timestamp,
             next_collect_timestamp: credential.next_collect_timestamp,
+            firstAuthenticationDate: credential.firstAuthenticationDate,
             invoices: credential.invoices,
             state: credential.state,
         });
@@ -698,6 +701,7 @@ export class MongoDB extends AbstractDatabase {
                 secret_id: credential.secret_id,
                 last_collect_timestamp: credential.last_collect_timestamp,
                 next_collect_timestamp: credential.next_collect_timestamp,
+                firstAuthenticationDate: credential.firstAuthenticationDate,
                 invoices: credential.invoices,
                 state: credential.state,
             }},

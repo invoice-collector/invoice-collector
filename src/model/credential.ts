@@ -45,6 +45,7 @@ export class Credential {
     download_from_timestamp: number;
     last_collect_timestamp: number;
     next_collect_timestamp: number;
+    firstAuthenticationDate: Date|null;
     invoices: ModelInvoice[];
     state: State;
 
@@ -70,6 +71,7 @@ export class Credential {
         download_from_timestamp: number,
         last_collect_timestamp: number = Number.NaN,
         next_collect_timestamp: number = Number.NaN,
+        firstAuthenticationDate: Date|null = null,
         invoices: ModelInvoice[] = [],
         state: State = State.DEFAULT_STATE,
     ) {
@@ -82,6 +84,7 @@ export class Credential {
         this.download_from_timestamp = download_from_timestamp;
         this.last_collect_timestamp = last_collect_timestamp;
         this.next_collect_timestamp = next_collect_timestamp;
+        this.firstAuthenticationDate = firstAuthenticationDate;
         this.invoices = invoices;
         this.state = state;
     }
