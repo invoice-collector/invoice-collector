@@ -8,6 +8,10 @@ export type OTP = {
     validatedAt?: number;
 }
 
+export enum ProbeType {
+    SESSION_DURATION = 'session_duration'
+}
+
 export abstract class AbstractAnalytics {
 
     static VERSION = 'v1';
@@ -31,6 +35,14 @@ export abstract class AbstractAnalytics {
      * @param err The error to be logged.
      */
     abstract logError(email: string, remoteId: string, err: LoggableError): void;
+
+    /**
+     * Send a probe to the analytics server.
+     * @param collectorId The ID of the collector sending the probe.
+     * @param type The type of the probe.
+     * @param data The data associated with the probe.
+     */
+    abstract sendProbe(collectorId: string, type: ProbeType, data: object): void;
 
     /**
      * Sends feedback to the analytics service.

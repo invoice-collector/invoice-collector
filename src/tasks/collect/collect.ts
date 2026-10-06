@@ -247,6 +247,9 @@ export class Collect {
                         // Update credential to disconnected
                         credential.state.update(State._2_DISCONNECTED, err.message);
                         this.webSocketServer?.sendState(State._2_DISCONNECTED, err.message);
+
+                        // Send session duration probe and reset session start for the next reconnection
+                        credential.sendProbeSessionDuration();
                     }
 
                     // Update last collect
