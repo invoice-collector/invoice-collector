@@ -58,13 +58,13 @@ export class Element {
      * @param options.timeout The timeout for the click action. Default is {@link AbstractDriver.DEFAULT_TIMEOUT}.
      * @param options.delay The delay after the click action. Default is {@link AbstractDriver.DEFAULT_DELAY}.
      * @param options.navigation Whether to wait for navigation after the click. Default is `true`.
-     * @param options.mouseHover Whether to hover the mouse over the element before clicking. Default is `false`.
+     * @param options.mouseHover Whether to hover the mouse over the element before clicking. Default is `false`. Can also be a string representing a selector for the element to hover over.
      */
     async leftClick(options: {
         timeout?: number,
         delay?: number,
         navigation?: boolean,
-        mouseHover?: boolean,
+        mouseHover?: boolean | string,
     } = {}): Promise<void> {
         const {
             timeout = AbstractDriver.DEFAULT_TIMEOUT,
@@ -75,7 +75,16 @@ export class Element {
 
         await this.element.scrollIntoView();
         if (mouseHover) {
-            await this.element.hover();
+            if (typeof mouseHover === 'string') {
+                const hoverElement = await this.getElement({
+                    selector: mouseHover,
+                    info: 'mouse hover element',
+                });
+                await hoverElement.element.hover();
+            }
+            else {
+                await this.element.hover();
+            }
             await utils.delay(delay);
         }
         await this.element.click();
@@ -91,14 +100,14 @@ export class Element {
      * @param options.useFallbackMethod Whether to use the fallback method for middle click. Default is `false`.
      * @param options.timeout The timeout for the middle click action. Default is {@link AbstractDriver.DEFAULT_TIMEOUT}.
      * @param options.delay The delay after the middle click action. Default is {@link AbstractDriver.DEFAULT_TIMEOUT}.
-     * @param options.mouseHover Whether to hover the mouse over the element before middle clicking. Default is `false`.
+     * @param options.mouseHover Whether to hover the mouse over the element before middle clicking. Default is `false`. Can also be a string representing a selector for the element to hover over.
      * @returns `true` if the fallback method was used, `false` otherwise.
      */
     async middleClick(options: {
         useFallbackMethod?: boolean,
         timeout?: number,
         delay?: number,
-        mouseHover?: boolean,
+        mouseHover?: boolean | string,
     } = {}): Promise<boolean> {
         let {
             useFallbackMethod = false,
@@ -116,7 +125,16 @@ export class Element {
             // Scroll the element into view before performing the middle click
             await this.element.scrollIntoView();
             if (mouseHover) {
-                await this.element.hover();
+                if (typeof mouseHover === 'string') {
+                    const hoverElement = await this.getElement({
+                        selector: mouseHover,
+                        info: 'mouse hover element',
+                    });
+                    await hoverElement.element.hover();
+                }
+                else {
+                    await this.element.hover();
+                }
                 await utils.delay(delay);
             }
             // Perform middle click
@@ -141,7 +159,16 @@ export class Element {
             await this.element.scrollIntoView(); 
             // Hover the mouse over the element if required
             if (mouseHover) {
-                await this.element.hover();
+                if (typeof mouseHover === 'string') {
+                    const hoverElement = await this.getElement({
+                        selector: mouseHover,
+                        info: 'mouse hover element',
+                    });
+                    await hoverElement.element.hover();
+                }
+                else {
+                    await this.element.hover();
+                }
                 await utils.delay(delay);
             }
             // Perform the left click on the element

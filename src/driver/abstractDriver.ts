@@ -232,7 +232,7 @@ export abstract class AbstractDriver extends EventEmitter {
      * @param options.timeout Maximum time to wait for the element, in milliseconds.
      * @param options.delay Delay applied after the click, in milliseconds.
      * @param options.navigation If true, waits for a navigation to complete after clicking.
-     * @param options.mouseHover If true, hovers the mouse over the element before clicking.
+     * @param options.mouseHover If true, hovers the mouse over the element before clicking. Default false. Can also be a string representing a selector for the element to hover over.
      * @returns The clicked element, or null if not found and exceptions are disabled.
      */
     abstract leftClick(selector: any, options?: {
@@ -240,7 +240,7 @@ export abstract class AbstractDriver extends EventEmitter {
         timeout?: number,
         delay?: number,
         navigation?: boolean,
-        mouseHover?: boolean,
+        mouseHover?: boolean | string,
     }): Promise<Element | null>;
 
     /**
