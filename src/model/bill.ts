@@ -5,13 +5,12 @@ export class Bill {
     /**
      * Creates an array of Bill instances from an array of plain objects.
      * @param objs An array of plain objects representing bills.
-     * @returns An array of Bill instances.
-     * @throws An error if the input object is null, undefined, or not an array.
+     * @returns An array of Bill instances, empty if the input is not a valid array.
      */
     static fromObjects(objs: any[]): Bill[] {
         // If objs is null or undefined or not an array, return empty array
         if (objs === null || objs === undefined || !Array.isArray(objs)) {
-            throw new Error(`Cannot convert object to Bill array: input is not a valid array: ${JSON.stringify(objs)}`);
+            return [];
         }
         return objs.map(obj => Bill.fromObject(obj));
     }
