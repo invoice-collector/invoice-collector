@@ -100,7 +100,7 @@ export class Element {
      * @param options.useFallbackMethod Whether to use the fallback method for middle click. Default is `false`.
      * @param options.timeout The timeout for the middle click action. Default is {@link AbstractDriver.DEFAULT_TIMEOUT}.
      * @param options.delay The delay after the middle click action. Default is {@link AbstractDriver.DEFAULT_TIMEOUT}.
-     * @param options.mouseHover Whether to hover the mouse over the element before middle clicking. Default is `false`.
+     * @param options.mouseHover Whether to hover the mouse over the element before middle clicking. Default is `false`. Can also be a string representing a selector for the element to hover over.
      * @returns `true` if the fallback method was used, `false` otherwise.
      */
     async middleClick(options: {
