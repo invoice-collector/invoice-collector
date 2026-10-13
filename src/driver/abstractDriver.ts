@@ -230,7 +230,7 @@ export abstract class AbstractDriver extends EventEmitter {
      * @param selector The selector describing the element to click.
      * @param options.raiseException If true, throws when no matching element is found within the timeout.
      * @param options.timeout Maximum time to wait for the element, in milliseconds.
-     * @param options.delay Delay applied around the click, in milliseconds.
+     * @param options.delay Delay applied after the click, in milliseconds.
      * @param options.navigation If true, waits for a navigation to complete after clicking.
      * @param options.mouseHover If true, hovers the mouse over the element before clicking.
      * @returns The clicked element, or null if not found and exceptions are disabled.
