@@ -73,6 +73,7 @@ export class Element {
             mouseHover = false,
         } = options;
 
+        await this.element.scrollIntoView();
         if (mouseHover) {
             await this.element.hover();
             await utils.delay(delay);
@@ -106,6 +107,8 @@ export class Element {
             const numberOfPagesBefore = await this.driver.numberOfPages();
             // Get number of downloaded files before middle click
             const numberOfFilesBefore = (await this.driver.getDownloadedFiles(false)).length;
+            // Scroll the element into view before performing the middle click
+            await this.element.scrollIntoView();
             // Perform middle click
             await this.element.click({ button: 'middle' });
             // Wait for the new tab to open or file to download
@@ -122,6 +125,7 @@ export class Element {
         if(useFallbackMethod) {
             const currentUrl = this.driver.url();
             await this.driver.newPage(currentUrl);
+            await this.element.scrollIntoView(); 
             await this.driver.leftClick({
                 selector: await this.cssSelector(),
                 info: 'middle click',
@@ -161,6 +165,7 @@ export class Element {
             await this.element.hover();
             await utils.delay(delay);
         }
+        await this.element.scrollIntoView(); 
         if (tries > 0) {
             let currentValue = null;
             while (currentValue !== text && tries > 0) {
@@ -197,6 +202,7 @@ export class Element {
             mouseHover = false,
         } = options;
 
+        await this.element.scrollIntoView(); 
         if (mouseHover) {
             await this.element.hover();
             await utils.delay(delay);
