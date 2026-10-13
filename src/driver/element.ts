@@ -56,7 +56,7 @@ export class Element {
      * Left clicks on the element.
      * @param options The left click options.
      * @param options.timeout The timeout for the click action. Default is {@link AbstractDriver.DEFAULT_TIMEOUT}.
-     * @param options.delay The delay before the click action. Default is {@link AbstractDriver.DEFAULT_DELAY}.
+     * @param options.delay The delay after the click action. Default is {@link AbstractDriver.DEFAULT_DELAY}.
      * @param options.navigation Whether to wait for navigation after the click. Default is `true`.
      * @param options.mouseHover Whether to hover the mouse over the element before clicking. Default is `false`.
      */
@@ -90,6 +90,8 @@ export class Element {
      * @param options The middle click options.
      * @param options.useFallbackMethod Whether to use the fallback method for middle click. Default is `false`.
      * @param options.timeout The timeout for the middle click action. Default is {@link AbstractDriver.DEFAULT_TIMEOUT}.
+     * @param options.delay The delay after the middle click action. Default is {@link AbstractDriver.DEFAULT_TIMEOUT}.
+     * @param options.mouseHover Whether to hover the mouse over the element before middle clicking. Default is `false`.
      * @returns `true` if the fallback method was used, `false` otherwise.
      */
     async middleClick(options: {
