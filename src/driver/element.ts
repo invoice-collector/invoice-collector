@@ -95,10 +95,14 @@ export class Element {
     async middleClick(options: {
         useFallbackMethod?: boolean,
         timeout?: number,
+        delay?: number,
+        mouseHover?: boolean,
     } = {}): Promise<boolean> {
         let {
             useFallbackMethod = false,
             timeout = AbstractDriver.DEFAULT_TIMEOUT,
+            delay = AbstractDriver.DEFAULT_TIMEOUT,
+            mouseHover = false,
         } = options;
 
         // If does not open in a new page by default
@@ -109,10 +113,14 @@ export class Element {
             const numberOfFilesBefore = (await this.driver.getDownloadedFiles(false)).length;
             // Scroll the element into view before performing the middle click
             await this.element.scrollIntoView();
+            if (mouseHover) {
+                await this.element.hover();
+                await utils.delay(delay);
+            }
             // Perform middle click
             await this.element.click({ button: 'middle' });
             // Wait for the new tab to open or file to download
-            await utils.delay(timeout);
+            await utils.delay(delay);
             // Get number of opened pages after middle click
             const numberOfPagesAfter = await this.driver.numberOfPages();
             // Get number of downloaded files after middle click
@@ -123,15 +131,26 @@ export class Element {
 
         // If the middle click did not open a new page, use the fallback method
         if(useFallbackMethod) {
+            // Get current URL before opening a new page
             const currentUrl = this.driver.url();
+            // Open a new page with the current URL
             await this.driver.newPage(currentUrl);
+            // Scroll the element into view before performing the left click
             await this.element.scrollIntoView(); 
+            // Hover the mouse over the element if required
+            if (mouseHover) {
+                await this.element.hover();
+                await utils.delay(delay);
+            }
+            // Perform the left click on the element
             await this.driver.leftClick({
                 selector: await this.cssSelector(),
                 info: 'middle click',
             }, {
                 timeout,
             });
+            // Wait for any potential navigation or actions to complete
+            await utils.delay(delay);
         }
         return useFallbackMethod
     }
