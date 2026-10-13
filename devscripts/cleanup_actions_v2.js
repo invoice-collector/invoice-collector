@@ -5,14 +5,22 @@ const { DatabaseFactory } = require('../src/database/databaseFactory');
 const SIX_MONTHS_MS = 6 * 30 * 24 * 60 * 60 * 1000;
 
 async function removeOldActions(db) {
-    const cutoffDate = new Date(Date.now() - SIX_MONTHS_MS);
-
     // Get all collector memories
     const memories = await db.getCollectorMemories();
     console.log(`Removing old actions for ${memories.length} collectors...`);
 
     // For each memory
     for (const memory of memories) {
+        const lastUsedDates = memory.actionsV2
+            .filter(actionV2 => actionV2.lastUsed)
+            .map(actionV2 => new Date(actionV2.lastUsed))
+            .filter(lastUsedDate => !Number.isNaN(lastUsedDate.getTime()));
+        if (lastUsedDates.length === 0) {
+            continue;
+        }
+        const mostRecentLastUsedDate = new Date(Math.max(...lastUsedDates.map(date => date.getTime())));
+        const cutoffDate = new Date(mostRecentLastUsedDate.getTime() - SIX_MONTHS_MS);
+
         let hasBeenUpdated = false;
         // For each action in the memory
         for (const actionV2 of memory.actionsV2) {
