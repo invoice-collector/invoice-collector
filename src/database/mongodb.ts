@@ -435,6 +435,12 @@ export class MongoDB extends AbstractDatabase {
         }
 
         const document = documents[0];
+        for (const user of document.users) {
+            user.id = user._id.toString();
+            for (const credential of user.credentials) {
+                credential.id = credential._id.toString();
+            }
+        }
         return document as AllCustomerData;
     }
 

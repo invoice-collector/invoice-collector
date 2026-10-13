@@ -414,42 +414,51 @@ export class Customer {
         const activeCredentials = new Set<string>();
         const usedCollectors = new Set<string>();
         const activeCollectors = new Set<string>();
+        let users = 0;
         let credentials = 0;
         let invoices = 0;
 
         // For each user in the customer data
         for (const user of allCustomerData.users) {
-            // For each credential of the user
-            for (const credential of user.credentials) {
-                // Get invoices this month
-                const monthInvoices = credential.invoices.filter((invoice) => {
-                    if (invoice.collected_timestamp == null) {
-                        return false;
+            // If the user been created before the end of the month
+            if (new Date(user.createdAt) < monthEnd) {
+                // Increase the total user count
+                users++;
+                // For each credential of the user
+                for (const credential of user.credentials) {
+                    // If the credential has been created before the end of the month
+                    if (new Date(credential.create_timestamp) < monthEnd) {
+                        // Increase the total credentials count
+                        credentials++;
+                        // Get invoices this month
+                        const monthInvoices = credential.invoices.filter((invoice) => {
+                            if (invoice.collected_timestamp == null) {
+                                return false;
+                            }
+                            const collectedDate = new Date(invoice.collected_timestamp);
+                            return monthStart <= collectedDate && collectedDate < monthEnd;
+                        });
+                        // Compute if the credential is active
+                        const isActive = credential.invoices.length > 0;
+                        // Increase the total invoices count
+                        invoices += monthInvoices.length;
+                        // If the credential is active, add its collectors to the active collectors set
+                        if (isActive) {
+                            // Add the user to the active users set
+                            activeUsers.add(user.id);
+                            // Add the credential to the active credentials set
+                            activeCredentials.add(credential.id);
+                            // Add the collector to the active collectors set
+                            activeCollectors.add(credential.collector_id);
+                        }
+                        // Get collector from collector id
+                        const collector = await CollectorLoader.getConfig(credential.collector_id);
+                        // If collector is not planned
+                        if (collector.state !== CollectorState.PLANNED) {
+                            // Add the collector to the used collectors set
+                            usedCollectors.add(credential.collector_id);
+                        }
                     }
-                    const collectedDate = new Date(invoice.collected_timestamp);
-                    return monthStart <= collectedDate && collectedDate < monthEnd;
-                });
-                // Compute if the credential is active
-                const isActive = credential.invoices.length > 0;
-                // Increase the total credentials count
-                credentials++;
-                // Increase the total invoices count
-                invoices += monthInvoices.length;
-                // If the credential is active, add its collectors to the active collectors set
-                if (isActive) {
-                    // Add the user to the active users set
-                    activeUsers.add(user.id);
-                    // Add the credential to the active credentials set
-                    activeCredentials.add(credential.id);
-                    // Add the collector to the active collectors set
-                    activeCollectors.add(credential.collector_id);
-                }
-                // Get collector from collector id
-                const collector = await CollectorLoader.getConfig(credential.collector_id);
-                // If collector is not planned
-                if (collector.state !== CollectorState.PLANNED) {
-                    // Add the collector to the used collectors set
-                    usedCollectors.add(credential.collector_id);
                 }
             }
         }
@@ -461,7 +470,7 @@ export class Customer {
             creationDate,
             dueDate,
             this.plan,
-            allCustomerData.users.length,
+            users,
             activeUsers.size,
             credentials,
             activeCredentials.size,

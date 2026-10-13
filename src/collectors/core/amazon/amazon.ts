@@ -17,7 +17,7 @@ export class AmazonCollector extends LinearWebCollector {
         id: 'amazon',
         name: 'Amazon (.fr)',
         description: 'i18n.collectors.amazon.description',
-        version: '42',
+        version: '43',
         website: 'https://www.amazon.fr',
         logo: 'https://upload.wikimedia.org/wikipedia/commons/4/4a/Amazon_icon.svg',
         type: CollectorType.WEB,
@@ -60,7 +60,7 @@ export class AmazonCollector extends LinearWebCollector {
                 }
             }*/
         },
-        loginUrl: 'https://www.amazon.fr/ap/signin?openid.pape.max_auth_age=0&openid.return_to=https%3A%2F%2Fwww.amazon.fr%2Fgp%2Fcss%2Fyour-account-access%3Fref_%3Dnav_signin&openid.identity=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.assoc_handle=frflex&openid.mode=checkid_setup&openid.claimed_id=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0',
+        loginUrl: 'https://www.amazon.fr/your-orders/orders',
         entryUrl: 'https://www.amazon.fr/your-orders/orders',
         captcha: CollectorCaptcha.NONE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
@@ -79,22 +79,14 @@ export class AmazonCollector extends LinearWebCollector {
      * @inheritdoc
      */
     async needLogin(driver: AbstractDriver): Promise<boolean> {
-        // Select loggedin account if displayed
-        await driver.leftClick(AmazonSelectors.CONTAINER_LOGGEDIN_ACCOUNT, { raiseException: false, timeout: 1000 });
-        // Select personnal account if displayed
-        await driver.leftClick(AmazonSelectors.CONTAINER_PERSONAL_ACCOUNT, { raiseException: false, timeout: 100 });
-
-        // If user is logged in, the URL should be equal to the entry URL
-        return driver.url() !== this.config.entryUrl;
+        // If the current URL includes 'signin' or 'claim', it means the user needs to log in
+        return driver.url().includes('/signin') || driver.url().includes('/claim');
     }
 
     /**
      * @inheritdoc
      */
     async login(driver: AbstractDriver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
-        // Go to login page
-        await driver.goto(this.config.loginUrl);
-
         // Select personnal account if displayed
         await driver.leftClick(AmazonSelectors.CONTAINER_PERSONAL_ACCOUNT, { raiseException: false, timeout: 2000 });
 

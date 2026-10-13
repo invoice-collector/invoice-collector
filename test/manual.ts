@@ -276,6 +276,7 @@ function getHashFromSecret(secret: Secret): string {
 
         // ---------- PART 5 : CHECK INVOICES ----------
         console.log(`===== PART5: Checking ${newInvoicesPart3.length} invoices =====`);
+        const newIdsPart3 = new Set<string>();
 
         for (const invoice of newInvoicesPart3) {
             assert(invoice.id, `Invoice id is not defined`);
@@ -284,6 +285,7 @@ function getHashFromSecret(secret: Secret): string {
             assert(invoice.timestamp >= Date.UTC(2000, 0, 1), `Invoice timestamp ${invoice.timestamp} is before year 2000. Did you forget to set the year in the date format?`);
             assert(invoice.data, `Invoice data is not defined`);
             assert(invoice.mimetype, `Invoice mimetype is not defined`);
+            newIdsPart3.add(invoice.id);
         }
         console.log(`All invoices are valid!`);
 
@@ -310,7 +312,7 @@ function getHashFromSecret(secret: Secret): string {
         // ---------- PART 7 : CHECK INVOICES ----------
         console.log(`===== PART7: Checking ${newInvoicesPart6.length} invoices =====`);
 
-        assert(newInvoicesPart6.length == newInvoicesPart3.length, `Number of invoices should be the same as previous collect, but got ${newInvoicesPart6.length} instead of ${newInvoicesPart3.length}`);
+        assert(newInvoicesPart6.length == newIdsPart3.size, `Number of invoices should be the same as previous collect, but got ${newInvoicesPart6.length} instead of ${newIdsPart3.size}`);
         for (const invoice of newInvoicesPart6) {
             assert(invoice.id, `Invoice id is not defined`);
             assert(invoice.link, `Invoice link is not defined`);
