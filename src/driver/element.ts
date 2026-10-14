@@ -155,28 +155,33 @@ export class Element {
             const currentUrl = this.driver.url();
             // Open a new page with the current URL
             await this.driver.newPage(currentUrl);
+            // Get new element
+            const newElement = await this.driver.getElement({
+                selector: await this.cssSelector(),
+                info: 'new element after opening new page',
+            }, {
+                raiseException: true,
+                timeout: timeout
+            }) as Element;
             // Scroll the element into view before performing the left click
-            await this.element.scrollIntoView(); 
+            await newElement.element.scrollIntoView(); 
             // Hover the mouse over the element if required
             if (mouseHover) {
                 if (typeof mouseHover === 'string') {
-                    const hoverElement = await this.getElement({
+                    const hoverElement = await newElement.getElement({
                         selector: mouseHover,
                         info: 'mouse hover element',
                     });
                     await hoverElement.element.hover();
                 }
                 else {
-                    await this.element.hover();
+                    await newElement.element.hover();
                 }
                 await utils.delay(delay);
             }
             // Perform the left click on the element
-            await this.driver.leftClick({
-                selector: await this.cssSelector(),
-                info: 'middle click',
-            }, {
-                timeout,
+            await newElement.leftClick({
+                timeout: timeout,
             });
             // Wait for any potential navigation or actions to complete
             await utils.delay(delay);
