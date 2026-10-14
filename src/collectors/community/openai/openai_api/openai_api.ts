@@ -11,7 +11,7 @@ export class OpenaiApiCollector extends OpenaiCommonCollector {
         id: 'openai_api',
         name: 'OpenAI (API)',
         description: 'i18n.collectors.openai_api.description',
-        version: '20',
+        version: '21',
         website: 'https://openai.com',
         logo: 'https://upload.wikimedia.org/wikipedia/commons/6/66/OpenAI_logo_2025_(symbol).svg',
         type: CollectorType.WEB,
@@ -33,7 +33,7 @@ export class OpenaiApiCollector extends OpenaiCommonCollector {
         entryUrl: 'https://platform.openai.com/settings/organization/billing/history',
         captcha: CollectorCaptcha.CLOUDFLARE,
         autoLogin: {
-            localStorageKeys: [],
+            localStorageKeys: ['oai'],
         },
         authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.ACTIVE,
