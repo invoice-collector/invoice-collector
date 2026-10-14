@@ -33,7 +33,7 @@ export class OpenaiApiCollector extends OpenaiCommonCollector {
         entryUrl: 'https://platform.openai.com/settings/organization/billing/history',
         captcha: CollectorCaptcha.CLOUDFLARE,
         autoLogin: {
-            localStorageKeys: ['@@auth0spajs@@'],
+            localStorageKeys: [],
         },
         authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.ACTIVE,
