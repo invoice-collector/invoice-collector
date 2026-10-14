@@ -11,7 +11,7 @@ export class OpenaiChatgptCollector extends OpenaiCommonCollector {
         id: 'openai_chatgpt',
         name: 'OpenAI (ChatGPT Plus)',
         description: 'i18n.collectors.openai_chatgpt.description',
-        version: '11',
+        version: '12',
         website: 'https://chatgpt.com',
         logo: 'https://upload.wikimedia.org/wikipedia/commons/6/66/OpenAI_logo_2025_(symbol).svg',
         type: CollectorType.WEB,
@@ -31,7 +31,7 @@ export class OpenaiChatgptCollector extends OpenaiCommonCollector {
         },
         loginUrl: 'https://chatgpt.com/#settings/Account',
         entryUrl: 'https://chatgpt.com/#settings/Account',
-        captcha: CollectorCaptcha.NONE,
+        captcha: CollectorCaptcha.CLOUDFLARE,
         authenticationMethod: CollectorAuthenticationMethod.ALL,
         state: CollectorState.ACTIVE,
     };
