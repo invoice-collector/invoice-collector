@@ -62,63 +62,61 @@ export class Collect {
             // Get customer from user
             customer = await user.getCustomer();
 
+            // Set progress step to preparing
+            credential.state.update(State._1_PREPARING);
+            this.webSocketServer?.sendState(State._1_PREPARING);
+
+            // Get collector from collector_id
+            collector = await CollectorLoader.get(credential.collector_id);
+
             // Get customer callbacks
             callbacksWithAutomaticExport = (await customer.getCallbacks()).filter(cb => cb.automaticExport);
 
             // If customer has at least one callback with automatic export enabled
-            if (callbacksWithAutomaticExport.length > 0) {
-
-                // Set progress step to preparing
-                credential.state.update(State._1_PREPARING);
-                this.webSocketServer?.sendState(State._1_PREPARING);
-
-                // Get secret from secret_manager_id
-                secret = credential.getSecret();
-
-                // Get collector from collector_id
-                collector = await CollectorLoader.get(credential.collector_id);
-
-                // Check if collector not found
-                if(collector === null) {
-                    throw new Error(`No collector with id "${credential.collector_id}" found.`);
-                }
-                console.log(`Using collector ${collector.config.id} version ${collector.config.version}`);
-
-                // Set collector for twofa promise if webSocketServer exists
-                if (this.webSocketServer) {
-                    this.webSocketServer.twofa_promise.collector = collector;
-                }
-
-                // Get the user's email providers, usable by email-based collectors
-                const providers = await user.getProviders();
-
-                // Collect invoices
-                const newInvoices = await collector.collect_new_invoices(
-                    this.state,
-                    this.webSocketServer,
-                    secret,
-                    credential.download_from_timestamp,
-                    credential.invoices,
-                    user.locale,
-                    user.location,
-                    customer.authenticationMethod,
-                    providers,
-                );
-                console.log(`Found ${credential.invoices.length + newInvoices.length} invoices during collect and ${newInvoices.length} new`);
-                console.log(`Invoice collection for credential ${this.credential_id} succeed`);
-
-                await this.processNewInvoices(credential, collector, user, callbacksWithAutomaticExport, newInvoices);
-
-                // Set progress step to done
-                credential.state.update(State._7_DONE);
-                this.webSocketServer?.sendState(State._7_DONE);
-
-                // Log success
-                AnalyticsFactory.getInstance().logSuccess(collector);
+            if (callbacksWithAutomaticExport.length == 0) {
+                throw new AuthenticationError('i18n.collectors.all.callbacks.automatic_export.required', collector);
             }
-            else {
-                console.warn(`Customer ${customer.id} has no callback with automatic export enabled, skipping collect for credential ${this.credential_id} and planning next collect`);
+
+            // Get secret from secret_manager_id
+            secret = credential.getSecret();
+
+            // Check if collector not found
+            if(collector === null) {
+                throw new Error(`No collector with id "${credential.collector_id}" found.`);
             }
+            console.log(`Using collector ${collector.config.id} version ${collector.config.version}`);
+
+            // Set collector for twofa promise if webSocketServer exists
+            if (this.webSocketServer) {
+                this.webSocketServer.twofa_promise.collector = collector;
+            }
+
+            // Get the user's email providers, usable by email-based collectors
+            const providers = await user.getProviders();
+
+            // Collect invoices
+            const newInvoices = await collector.collect_new_invoices(
+                this.state,
+                this.webSocketServer,
+                secret,
+                credential.download_from_timestamp,
+                credential.invoices,
+                user.locale,
+                user.location,
+                customer.authenticationMethod,
+                providers,
+            );
+            console.log(`Found ${credential.invoices.length + newInvoices.length} invoices during collect and ${newInvoices.length} new`);
+            console.log(`Invoice collection for credential ${this.credential_id} succeed`);
+
+            await this.processNewInvoices(credential, collector, user, callbacksWithAutomaticExport, newInvoices);
+
+            // Set progress step to done
+            credential.state.update(State._7_DONE);
+            this.webSocketServer?.sendState(State._7_DONE);
+
+            // Log success
+            AnalyticsFactory.getInstance().logSuccess(collector);
 
             // Update last collect
             credential.last_collect_timestamp = Date.now();
