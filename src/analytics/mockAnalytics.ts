@@ -1,4 +1,4 @@
-import { AbstractAnalytics, OTP, ProbeType } from './abstractAnalytics';
+import { AbstractAnalytics, EmailAttachment, EmailContent, OTP, ProbeType } from './abstractAnalytics';
 import * as utils from '../utils';
 import { AbstractCollector, Config } from '../collectors/abstractCollector';
 import { LoggableError } from '../error';
@@ -65,5 +65,12 @@ export class MockAnalytics extends AbstractAnalytics {
         const resetLink = `${AbstractAnalytics.FRONTEND}/reset-password/${resetToken}`;
         console.warn(`No analytics server endpoint configured. Cannot send reset password email. Your reset link is: ${resetLink}`);
         return resetLink;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    async sendEmail(to: string[], subject: string, content: EmailContent[], attachments?: EmailAttachment[]): Promise<void> {
+        throw new Error('No analytics server endpoint configured. Cannot send email.');
     }
 }

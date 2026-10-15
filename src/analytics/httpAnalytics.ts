@@ -3,7 +3,7 @@ import { fullStackTrace, LoggableError } from '../error';
 import * as utils from '../utils';
 import { TokenManager } from '../tokenManager';
 import { AbstractCollector, Config } from '../collectors/abstractCollector';
-import { AbstractAnalytics, OTP, ProbeType } from './abstractAnalytics';
+import { AbstractAnalytics, EmailAttachment, EmailContent, OTP, ProbeType } from './abstractAnalytics';
 
 export class HttpAnalytics extends AbstractAnalytics {
 
@@ -189,25 +189,19 @@ export class HttpAnalytics extends AbstractAnalytics {
     }
 
     /**
-     * Sends an email with the specified subject and content to the given recipients.
-     * @param to The list of recipient email addresses.
-     * @param subject The subject of the email.
-     * @param content The content of the email, including text, bold, center, and italic formatting.
+     * @inheritdoc
      */
-    private async sendEmail(
+    public async sendEmail(
         to: string[],
         subject: string,
-        content: {
-            text: string | null,
-            bold: boolean,
-            center: boolean,
-            italic: boolean
-        }[],
+        content: EmailContent[],
+        attachments?: EmailAttachment[],
     ): Promise<void> {
         const response = await this.client.post('/email', {
             to,
             subject,
             content,
+            ...(attachments ? { attachments } : {}),
         });
 
         // Check response status
