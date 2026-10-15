@@ -13,6 +13,8 @@ import { EmailIntegration } from './emailIntegration';
 const INTEGRATIONS: {
     [key: string]: IntegrationConfig
 } = {
+    [HttpIntegration.CONFIG.id]:  HttpIntegration.CONFIG,
+    [EmailIntegration.CONFIG.id]: EmailIntegration.CONFIG,
     [SageIntegration.CONFIG.id]: SageIntegration.CONFIG,
     [PennylaneIntegration.CONFIG.id]: PennylaneIntegration.CONFIG,
     [AxonautIntegration.CONFIG.id]: AxonautIntegration.CONFIG,
@@ -20,9 +22,7 @@ const INTEGRATIONS: {
     [ChaintrustIntegration.CONFIG.id]: ChaintrustIntegration.CONFIG,
     [InqomIntegration.CONFIG.id]: InqomIntegration.CONFIG,
     [MegIntegration.CONFIG.id]: MegIntegration.CONFIG,
-    [HttpIntegration.CONFIG.id]:  HttpIntegration.CONFIG,
     [FileSystemIntegration.CONFIG.id]: FileSystemIntegration.CONFIG,
-    [EmailIntegration.CONFIG.id]: EmailIntegration.CONFIG,
 };
 
 export class IntegrationLoader {
