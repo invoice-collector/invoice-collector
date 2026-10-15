@@ -606,6 +606,17 @@ export function checkEmailIsValid(email: string): boolean {
 }
 
 /**
+ * Asserts that the given value is a valid email address.
+ * @param email The value to validate.
+ * @throws Will throw an error if the value is not a valid email address.
+ */
+export function assertEmail(email: unknown): asserts email is string {
+    if (typeof email !== 'string' || !checkEmailIsValid(email)) {
+        throw new Error('Invalid destination email address');
+    }
+}
+
+/**
  * Creates a regular expression string for matching a given URL, with special handling for path segments that look like IDs.
  * @param url The URL to create a regex for.
  * @returns A string representing the regular expression for the URL.

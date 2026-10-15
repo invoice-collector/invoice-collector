@@ -2,6 +2,7 @@ import { AnalyticsFactory } from '../analytics/analyticsFactory';
 import { EmailAttachment } from '../analytics/abstractAnalytics';
 import { CompleteInvoice, Config } from '../collectors/abstractCollector';
 import { Secret } from '../model/secret';
+import * as utils from '../utils';
 import { AbstractIntegration, IntegrationConfig } from './abstractIntegration';
 
 export class EmailIntegration extends AbstractIntegration {
@@ -82,9 +83,7 @@ export class EmailIntegration extends AbstractIntegration {
         const secretParams = await this.secret.getParams();
         await this.checkMandatoryParams(secretParams);
 
-        if (typeof secretParams.email !== 'string' || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(secretParams.email)) {
-            throw new Error('Invalid destination email address');
-        }
+        utils.assertEmail(secretParams.email);
 
         const content = paragraphs.map(text => ({
             text: text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;'),
