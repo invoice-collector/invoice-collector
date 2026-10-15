@@ -8,6 +8,7 @@ import { InqomIntegration } from './inqomIntegration';
 import { MegIntegration } from './megIntegration';
 import { HttpIntegration } from './httpIntegration';
 import { FileSystemIntegration } from './fileSystemIntegration';
+import { EmailIntegration } from './emailIntegration';
 
 const INTEGRATIONS: {
     [key: string]: IntegrationConfig
@@ -21,6 +22,7 @@ const INTEGRATIONS: {
     [MegIntegration.CONFIG.id]: MegIntegration.CONFIG,
     [HttpIntegration.CONFIG.id]:  HttpIntegration.CONFIG,
     [FileSystemIntegration.CONFIG.id]: FileSystemIntegration.CONFIG,
+    [EmailIntegration.CONFIG.id]: EmailIntegration.CONFIG,
 };
 
 export class IntegrationLoader {

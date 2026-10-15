@@ -9,6 +9,7 @@ import { InqomIntegration } from './inqomIntegration';
 import { MegIntegration } from './megIntegration';
 import { HttpIntegration } from './httpIntegration';
 import { FileSystemIntegration } from './fileSystemIntegration';
+import { EmailIntegration } from './emailIntegration';
 
 export class IntegrationFactory {
 
@@ -36,6 +37,8 @@ export class IntegrationFactory {
                 return new MegIntegration(secret);
             case 'http':
                 return new HttpIntegration(secret);
+            case 'email':
+                return new EmailIntegration(secret);
             case 'filesystem':
                 return new FileSystemIntegration(secret);
             default:

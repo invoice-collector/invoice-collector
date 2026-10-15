@@ -12,6 +12,20 @@ export enum ProbeType {
     SESSION_DURATION = 'session_duration'
 }
 
+export type EmailContent = {
+    text: string | null,
+    bold: boolean,
+    center: boolean,
+    italic: boolean,
+}
+
+export type EmailAttachment = {
+    filename: string,
+    content: string,
+    contentType: string,
+    encoding: 'base64',
+}
+
 export abstract class AbstractAnalytics {
 
     static VERSION = 'v1';
@@ -73,4 +87,13 @@ export abstract class AbstractAnalytics {
      * @param resetToken The reset token to be included in the email.
      */
     abstract sendResetPasswordEmail(email: string, resetToken: string): Promise<string>;
+     
+    /**
+     * Sends an email with the specified subject and content to the given recipients.
+     * @param to The list of recipient email addresses.
+     * @param subject The subject of the email.
+     * @param content The content of the email, including text, bold, center, and italic formatting.
+     * @param attachments The optional base64-encoded attachments.
+     */
+    abstract sendEmail(to: string[], subject: string, content: EmailContent[], attachments?: EmailAttachment[]): Promise<void>;
 }
