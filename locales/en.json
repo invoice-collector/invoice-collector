@@ -332,6 +332,7 @@
   "i18n.collectors.all.2fa.instruction": "Enter the 2FA code sent by email or SMS",
   "i18n.collectors.all.2fa.not_enabled": "You need to enable multi-factor authentication in your account settings to use this collector.",
   "i18n.collectors.all.2fa.timeout": "No 2FA code provided within the allotted time. Please try again.",
+  "i18n.collectors.all.callbacks.automatic_export.required": "Please define how we should send you invoices before adding a credential.",
   "i18n.collectors.all.captcha": "Cannot continue because a captcha has been detected. Please reconnect the account.",
   "i18n.collectors.all.contract_access.error": "Unable to access the contract",
   "i18n.collectors.all.credentials.error": "Incorrect login credentials",
