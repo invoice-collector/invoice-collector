@@ -517,7 +517,7 @@ export class ExtractInvoiceDataAction extends Action<ExtractInvoiceDataContext, 
             id = await context.element.getAttribute({selector: this.args.id.cssSelector, info: 'id'}, this.args.id.attribute || 'textContent');
         }
         else if (amount) {
-            id = utils.hash_string(`${date}${amount}`);
+            id = utils.hash_string(`${new Date(timestamp).toISOString()}${amount.trim()}`);
         }
         else {
             throw new Error('Cannot compute invoice id, no id nor amount provided');

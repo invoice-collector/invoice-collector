@@ -312,6 +312,9 @@ function getHashFromSecret(secret: Secret): string {
         // ---------- PART 7 : CHECK INVOICES ----------
         console.log(`===== PART7: Checking ${newInvoicesPart6.length} invoices =====`);
 
+        if(newInvoicesPart6.length != newIdsPart3.size) {
+            console.log(newInvoicesPart6);
+        }
         assert(newInvoicesPart6.length == newIdsPart3.size, `Number of invoices should be the same as previous collect, but got ${newInvoicesPart6.length} instead of ${newIdsPart3.size}`);
         for (const invoice of newInvoicesPart6) {
             assert(invoice.id, `Invoice id is not defined`);
@@ -347,6 +350,9 @@ function getHashFromSecret(secret: Secret): string {
 
         // ---------- PART 9 : CHECK INVOICES ----------
         console.log(`===== PART9: Checking ${newInvoicesPart8.length} invoices =====`);
+        if(newInvoicesPart8.length > 0) {
+            console.log(newInvoicesPart8);
+        }
         assert(newInvoicesPart8.length === 0, `No new invoice should have been collected`);
         console.log(`All invoices are valid! No new invoice collected as expected!`);
         console.log(`===== DONE =====`);
