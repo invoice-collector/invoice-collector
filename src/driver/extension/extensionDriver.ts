@@ -17,6 +17,11 @@ export class ExtensionDriver extends AbstractDriver<ExtensionElement> {
     private browserOpened = false;
     private sessionOptions: Params = {};
 
+    /**
+     * Creates an extension-backed driver.
+     * @param collector The web collector associated with this driver.
+     * @param transport The transport used to communicate with the browser extension.
+     */
     constructor(collector: WebCollector, transport: ExtensionTransport) {
         super(collector);
         this.transport = transport;
@@ -24,6 +29,11 @@ export class ExtensionDriver extends AbstractDriver<ExtensionElement> {
         this.transport.on('pages', (pages: PageList) => this.setPages(pages));
     }
 
+    /**
+     * Handles browser page and screencast events received from the extension.
+     * @param event The event name.
+     * @param data The event payload.
+     */
     private onEvent(event: string, data: Params): void {
         if (event === 'page.updated' && typeof data.pageId === 'string') {
             const previous = this.pageInfo.get(data.pageId);
@@ -57,16 +67,32 @@ export class ExtensionDriver extends AbstractDriver<ExtensionElement> {
         }
     }
 
+    /**
+     * Replaces the cached page list and selects the active page.
+     * @param result The page list and active page identifier received from the extension.
+     */
     private setPages(result: PageList): void {
         this.pageInfo = new Map(result.pages.map(page => [page.pageId, page]));
         this.activePageId = result.activePageId;
         this.activeUrl = result.pages.find(page => page.pageId === result.activePageId)?.url ?? '';
     }
 
+    /**
+     * Adds the active page identifier to request parameters when one is available.
+     * @param params The request parameters.
+     * @returns The parameters with the active page identifier, when available.
+     */
     private pageParams(params: Params = {}): Params {
         return this.activePageId ? { ...params, pageId: this.activePageId } : params;
     }
 
+    /**
+     * Sends a request to the extension and translates protocol errors into collector errors.
+     * @param method The extension protocol method.
+     * @param params The method parameters.
+     * @param timeout The request timeout in milliseconds.
+     * @returns The result returned by the extension.
+     */
     private async request<Result>(method: string, params: Params = {}, timeout?: number): Promise<Result> {
         try {
             return await this.transport.request<Result>(method, params, timeout);
@@ -86,6 +112,10 @@ export class ExtensionDriver extends AbstractDriver<ExtensionElement> {
         }
     }
 
+    /**
+     * Attaches page diagnostics to a loggable error when the extension is connected.
+     * @param error The error to enrich with diagnostics.
+     */
     private async addDiagnostics(error: LoggableError): Promise<void> {
         error.url = this.activeUrl;
         if (!this.transport.connected) { return; }
@@ -97,6 +127,9 @@ export class ExtensionDriver extends AbstractDriver<ExtensionElement> {
         } catch {}
     }
 
+    /**
+     * @inheritdoc
+     */
     async open(locale: string, proxy: Proxy | null = null): Promise<void> {
         await this.transport.waitForConnection();
         this.proxy = proxy;
@@ -119,6 +152,11 @@ export class ExtensionDriver extends AbstractDriver<ExtensionElement> {
         this.browserOpened = true;
     }
 
+    /**
+     * Converts a proxy definition into the extension protocol format.
+     * @param proxy The proxy to convert, or null when no proxy is configured.
+     * @returns The extension proxy configuration, or null.
+     */
     private proxyConfig(proxy: Proxy | null): Params | null {
         if (!proxy) { return null; }
         const parsed = new URL(proxy.uri);
@@ -135,16 +173,25 @@ export class ExtensionDriver extends AbstractDriver<ExtensionElement> {
         };
     }
 
+    /**
+     * @inheritdoc
+     */
     async startScreenCast(): Promise<void> {
         await this.request('screencast.start', this.pageParams(), AbstractDriver.DEFAULT_TIMEOUT);
     }
 
+    /**
+     * @inheritdoc
+     */
     async stopScreenCast(): Promise<void> {
         if (this.transport.connected) {
             await this.request('screencast.stop', {}, AbstractDriver.DEFAULT_TIMEOUT);
         }
     }
 
+    /**
+     * @inheritdoc
+     */
     async update(locale: string, proxy: Proxy | null = null): Promise<void> {
         const result = await this.request<{ url: string; restored: boolean }>(
             'session.update', { locale, proxy: this.proxyConfig(proxy) }, AbstractDriver.DEFAULT_NAVIGATION_TIMEOUT,
@@ -155,6 +202,9 @@ export class ExtensionDriver extends AbstractDriver<ExtensionElement> {
         }
     }
 
+    /**
+     * @inheritdoc
+     */
     async close(): Promise<void> {
         if (this.browserOpened && this.transport.connected) {
             await this.request('session.close', { closeBrowser: false }).catch(() => undefined);
@@ -162,33 +212,51 @@ export class ExtensionDriver extends AbstractDriver<ExtensionElement> {
         }
     }
 
+    /**
+     * @inheritdoc
+     */
     url(): string {
         if (!this.activePageId) { throw new Error('Page is not initialized.'); }
         return this.activeUrl;
     }
 
+    /**
+     * @inheritdoc
+     */
     origin(): string {
         if (!this.activePageId) { throw new Error('Page is not initialized.'); }
         try { return new URL(this.activeUrl).origin; } catch { return 'null'; }
     }
 
+    /**
+     * @inheritdoc
+     */
     async numberOfPages(): Promise<number> {
         const result = await this.request<{ count: number }>('page.count');
         return result.count;
     }
 
+    /**
+     * @inheritdoc
+     */
     async closePage(): Promise<void> {
         const result = await this.request<{ activePageId: string | null }>('page.close', this.pageParams());
         this.activePageId = result.activePageId;
         this.activeUrl = this.activePageId ? this.pageInfo.get(this.activePageId)?.url ?? '' : '';
     }
 
+    /**
+     * @inheritdoc
+     */
     async closeExtraPages(): Promise<void> {
         const result = await this.request<{ activePageId: string | null }>('page.closeExtra');
         this.activePageId = result.activePageId;
         this.activeUrl = this.activePageId ? this.pageInfo.get(this.activePageId)?.url ?? '' : '';
     }
 
+    /**
+     * @inheritdoc
+     */
     async goBack(): Promise<void> {
         const result = await this.request<{ url: string; timedOut: boolean }>(
             'page.goBack', this.pageParams({ timeout: AbstractDriver.DEFAULT_NAVIGATION_TIMEOUT }), AbstractDriver.DEFAULT_NAVIGATION_TIMEOUT,
@@ -196,6 +264,9 @@ export class ExtensionDriver extends AbstractDriver<ExtensionElement> {
         this.activeUrl = result.url;
     }
 
+    /**
+     * @inheritdoc
+     */
     async goto(url: string | undefined, options: { timeout?: number; navigation?: boolean } = {}): Promise<void> {
         if (url === undefined) { throw new Error('URL is undefined.'); }
         if (!this.activePageId) { throw new Error('Page is not initialized.'); }
@@ -209,6 +280,9 @@ export class ExtensionDriver extends AbstractDriver<ExtensionElement> {
         if (!this.activeUrl.startsWith('http')) { throw new Error(`Invalid URL: ${url}`); }
     }
 
+    /**
+     * @inheritdoc
+     */
     async newPage(url: string): Promise<void> {
         if (!this.activePageId) { throw new Error('Page is not initialized.'); }
         const result = await this.request<{ pageId: string; url: string; timedOut: boolean }>('page.new', {
@@ -221,10 +295,16 @@ export class ExtensionDriver extends AbstractDriver<ExtensionElement> {
         if (!this.activeUrl.startsWith('http')) { throw new Error(`Invalid URL: ${url}`); }
     }
 
+    /**
+     * @inheritdoc
+     */
     async waitForNavigation(options: { timeout?: number } = {}): Promise<void> {
         await this.request('page.waitForNavigation', this.pageParams({ timeout: options.timeout ?? AbstractDriver.DEFAULT_TIMEOUT }), options.timeout);
     }
 
+    /**
+     * @inheritdoc
+     */
     async getElement(selector: Selector, options: { raiseException?: boolean; timeout?: number } = {}): Promise<ExtensionElement | null> {
         const result = await this.request<{ element: ElementRef | null }>('dom.getElement', this.pageParams({
             selector,
@@ -234,11 +314,17 @@ export class ExtensionDriver extends AbstractDriver<ExtensionElement> {
         return result.element ? new ExtensionElement(result.element, this) : null;
     }
 
+    /**
+     * @inheritdoc
+     */
     async getElementCoordinates(x: number, y: number): Promise<ExtensionElement | null> {
         const result = await this.request<{ element: ElementRef | null }>('dom.getElementAtPoint', this.pageParams({ x, y }));
         return result.element ? new ExtensionElement(result.element, this) : null;
     }
 
+    /**
+     * @inheritdoc
+     */
     async getElements(selector: Selector, options: { raiseException?: boolean; timeout?: number } = {}): Promise<ExtensionElement[]> {
         const result = await this.request<{ elements: ElementRef[] }>('dom.getElements', this.pageParams({
             selector, raiseException: options.raiseException ?? true,
@@ -247,6 +333,9 @@ export class ExtensionDriver extends AbstractDriver<ExtensionElement> {
         return result.elements.map(ref => new ExtensionElement(ref, this));
     }
 
+    /**
+     * @inheritdoc
+     */
     async getAttribute(selector: Selector, attributeName: string, options: { raiseException?: boolean; timeout?: number } = {}): Promise<string> {
         const result = await this.request<{ value: unknown }>('dom.getAttribute', this.pageParams({
             selector, attributeName, raiseException: options.raiseException ?? true,
@@ -255,6 +344,9 @@ export class ExtensionDriver extends AbstractDriver<ExtensionElement> {
         return result.value === null || result.value === undefined ? '' : String(result.value);
     }
 
+    /**
+     * @inheritdoc
+     */
     async getAttributes(selector: Selector, attributeName: string, options: { raiseException?: boolean; timeout?: number } = {}): Promise<string[]> {
         const result = await this.request<{ values: unknown[] }>('dom.getAttributes', this.pageParams({
             selector, attributeName, raiseException: options.raiseException ?? true,
@@ -263,20 +355,36 @@ export class ExtensionDriver extends AbstractDriver<ExtensionElement> {
         return result.values.map(value => value === null || value === undefined ? '' : String(value));
     }
 
+    /**
+     * @inheritdoc
+     */
     async leftClick(selector: Selector, options: ActionOptions = {}): Promise<ExtensionElement | null> {
         const element = await this.selectorAction('action.leftClick', selector, options);
         return element;
     }
 
+    /**
+     * @inheritdoc
+     */
     async inputText(selector: Selector, text: string | Param, options: ActionOptions = {}): Promise<ExtensionElement | null> {
         const rawText = typeof text === 'string' ? text : text.key;
         return this.selectorAction('action.inputText', selector, { ...options, text: rawText });
     }
 
+    /**
+     * @inheritdoc
+     */
     async dropdownSelect(selector: Selector, value: string, options: ActionOptions = {}): Promise<ExtensionElement | null> {
         return this.selectorAction('action.dropdownSelect', selector, { ...options, value });
     }
 
+    /**
+     * Performs an action on the element matching a selector.
+     * @param method The extension protocol method to invoke.
+     * @param selector The selector of the target element.
+     * @param options The action parameters.
+     * @returns The matched element, or null if the extension returns no element.
+     */
     private async selectorAction(method: string, selector: Selector, options: ActionOptions & { text?: string; value?: string } = {}): Promise<ExtensionElement | null> {
         const timeout = options.timeout ?? AbstractDriver.DEFAULT_TIMEOUT;
         const params: Params = {
@@ -286,38 +394,62 @@ export class ExtensionDriver extends AbstractDriver<ExtensionElement> {
         return result.element ? new ExtensionElement(result.element, this) : null;
     }
 
+    /**
+     * @inheritdoc
+     */
     async click(x: number, y: number, options: { delay?: number } = {}): Promise<void> {
         await this.request('input.click', this.pageParams({ x, y, delay: options.delay ?? AbstractDriver.DEFAULT_DELAY }));
     }
 
+    /**
+     * @inheritdoc
+     */
     async press(key: string, options: { delay?: number } = {}): Promise<void> {
         await this.request('input.press', this.pageParams({ key, delay: options.delay ?? AbstractDriver.DEFAULT_DELAY }));
     }
 
+    /**
+     * @inheritdoc
+     */
     async type(text: string, options: { delay?: number } = {}): Promise<void> {
         await this.request('input.type', this.pageParams({ text, delay: options.delay ?? AbstractDriver.DEFAULT_DELAY }));
     }
 
+    /**
+     * @inheritdoc
+     */
     async pdf(): Promise<string> {
         const result = await this.request<{ data: string }>('page.pdf', this.pageParams({ format: 'A4', scale: 1, printBackground: true }));
         return result.data;
     }
 
+    /**
+     * @inheritdoc
+     */
     async getDownloadedFiles(clean = true): Promise<string[]> {
         const result = await this.request<{ files: FileInfo[] }>('download.list', { clean, includeContent: true }, AbstractDriver.DEFAULT_DOWNLOAD_TIMEOUT);
         return result.files.map(file => file.data ?? '');
     }
 
+    /**
+     * @inheritdoc
+     */
     async sourceCode(base64: boolean, includeIframes: boolean): Promise<string> {
         const result = await this.request<{ source: string; base64: boolean }>('page.sourceCode', this.pageParams({ base64, includeIframes }));
         return result.source;
     }
 
+    /**
+     * @inheritdoc
+     */
     async screenshot(): Promise<Screenshot> {
         const result = await this.request<Screenshot>('page.screenshot', this.pageParams({ format: 'png' }));
         return result;
     }
 
+    /**
+     * @inheritdoc
+     */
     async downloadFile(url: string): Promise<string> {
         await utils.assertPublicHttpsUrl(url);
         const result = await this.request<{ file: FileInfo }>('download.fromUrl', this.pageParams({ url, timeout: AbstractDriver.DEFAULT_DOWNLOAD_TIMEOUT }), AbstractDriver.DEFAULT_DOWNLOAD_TIMEOUT);
@@ -325,6 +457,9 @@ export class ExtensionDriver extends AbstractDriver<ExtensionElement> {
         return result.file.data;
     }
 
+    /**
+     * @inheritdoc
+     */
     async waitForFileToDownload(raiseException = true): Promise<string> {
         try {
             const result = await this.request<{ file: FileInfo | null }>('download.waitForFile', {
@@ -339,39 +474,69 @@ export class ExtensionDriver extends AbstractDriver<ExtensionElement> {
         throw error;
     }
 
+    /**
+     * @inheritdoc
+     */
     async waitForCloudflareTurnstile(): Promise<void> {
         await this.request('captcha.waitForCloudflareTurnstile', this.pageParams({ timeout: AbstractDriver.DEFAULT_TIMEOUT }));
     }
 
+    /**
+     * @inheritdoc
+     */
     async waitForDatadomeCaptcha(): Promise<void> {
         await this.request('captcha.waitForDatadome', this.pageParams({ timeout: 15000, polling: AbstractDriver.DEFAULT_POLLING }), 15000);
     }
 
+    /**
+     * @inheritdoc
+     */
     async getCookies(namesToGet: string[] | undefined): Promise<any> {
         if (namesToGet === undefined) { return []; }
         const result = await this.request<{ cookies: unknown[] }>('cookies.get', { names: namesToGet });
         return result.cookies;
     }
 
+    /**
+     * @inheritdoc
+     */
     async setCookies(cookies: any): Promise<void> {
         await this.request('cookies.set', { cookies: cookies ?? null });
     }
 
+    /**
+     * @inheritdoc
+     */
     async getLocalStorage(keysToGet: string[] | undefined): Promise<any> {
         if (keysToGet === undefined) { return {}; }
         const result = await this.request<{ data: Record<string, string> }>('localStorage.get', this.pageParams({ keys: keysToGet }));
         return result.data;
     }
 
+    /**
+     * @inheritdoc
+     */
     async setLocalStorage(data: any): Promise<void> {
         await this.request('localStorage.set', this.pageParams({ data: data ?? null }));
     }
 
+    /**
+     * Sends a request for an element and includes its identifier in the parameters.
+     * @param method The extension protocol method.
+     * @param ref The referenced element.
+     * @param params Additional method parameters.
+     * @returns The result returned by the extension.
+     */
     async elementRequest<Result>(method: string, ref: ElementRef, params: Params = {}): Promise<Result> {
         return this.request<Result>(method, { ...params, elementId: ref.elementId });
     }
 }
 
+/**
+ * Checks whether a value is a non-array object.
+ * @param value The value to check.
+ * @returns `true` if the value is a record, otherwise `false`.
+ */
 function isRecord(value: unknown): value is Record<string, unknown> {
     return value !== null && typeof value === 'object' && !Array.isArray(value);
 }

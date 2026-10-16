@@ -20,9 +20,7 @@ export class PuppeteerElement extends AbstractElement<PuppeteerDriver> {
     }
 
     /**
-     * Retrieves the associated element.
-     *
-     * @returns The ElementHandle of the associated element, or null if the element is not found.
+     * @inheritdoc
      */
     async getElement(selector: Selector, options?: { raiseException?: true }): Promise<PuppeteerElement>;
     async getElement(selector: Selector, options: { raiseException: false }): Promise<PuppeteerElement | null>;
@@ -44,22 +42,14 @@ export class PuppeteerElement extends AbstractElement<PuppeteerDriver> {
     }
 
     /**
-     * Retrieves the text content of the associated element.
-     *
-     * @param _default A default string value.
-     * @returns The text content of the element, or the default value if the element's text content is null.
+     * @inheritdoc
      */
     async textContent(_default: string): Promise<string> {
         return await this.element.evaluate(el => el.textContent) || _default;
     }
 
     /**
-     * Left clicks on the element.
-     * @param options The left click options.
-     * @param options.timeout The timeout for the click action. Default is {@link PuppeteerDriver.DEFAULT_TIMEOUT}.
-     * @param options.delay The delay after the click action. Default is {@link PuppeteerDriver.DEFAULT_DELAY}.
-     * @param options.navigation Whether to wait for navigation after the click. Default is `true`.
-     * @param options.mouseHover Whether to hover the mouse over the element before clicking. Default is `false`. Can also be a string representing a selector for the element to hover over.
+     * @inheritdoc
      */
     async leftClick(options: {
         timeout?: number,
@@ -96,13 +86,7 @@ export class PuppeteerElement extends AbstractElement<PuppeteerDriver> {
     }
 
     /**
-     * Middle clicks on the element.
-     * @param options The middle click options.
-     * @param options.useFallbackMethod Whether to use the fallback method for middle click. Default is `false`.
-     * @param options.timeout The timeout for the middle click action. Default is {@link PuppeteerDriver.DEFAULT_TIMEOUT}.
-     * @param options.delay The delay after the middle click action. Default is {@link PuppeteerDriver.DEFAULT_TIMEOUT}.
-     * @param options.mouseHover Whether to hover the mouse over the element before middle clicking. Default is `false`. Can also be a string representing a selector for the element to hover over.
-     * @returns `true` if the fallback method was used, `false` otherwise.
+     * @inheritdoc
      */
     async middleClick(options: {
         useFallbackMethod?: boolean,
@@ -191,14 +175,7 @@ export class PuppeteerElement extends AbstractElement<PuppeteerDriver> {
     }
 
     /**
-     * Inputs text into the element, with options for retries, delays, and navigation handling.
-     * @param text The text to input into the element.
-     * @param options The input options.
-     * @param options.tries The number of attempts to input the text. Default is `5`.
-     * @param options.timeout The timeout for each attempt. Default is {@link PuppeteerDriver.DEFAULT_TIMEOUT}.
-     * @param options.delay The delay between each attempt. Default is {@link PuppeteerDriver.DEFAULT_DELAY}.
-     * @param options.navigation Whether to wait for navigation after inputting the text. Default is `false`.
-     * @param options.mouseHover Whether to hover the mouse over the element before inputting the text. Default is `false`.
+     * @inheritdoc
      */
     async inputText(text: string | Param, options: {
         tries?: number,
@@ -242,11 +219,7 @@ export class PuppeteerElement extends AbstractElement<PuppeteerDriver> {
     }
 
     /**
-     * Selects a value from a dropdown element.
-     * @param value The value to select in the dropdown.
-     * @param options The dropdown selection options.
-     * @param options.delay The delay before and after selecting the value. Default is {@link PuppeteerDriver.DEFAULT_DELAY}.
-     * @param options.mouseHover Whether to hover the mouse over the element before selecting the value. Default is `false`.
+     * @inheritdoc
      */
     async dropdownSelect(value: string, options: {
         delay?: number,
@@ -267,26 +240,21 @@ export class PuppeteerElement extends AbstractElement<PuppeteerDriver> {
     }
 
     /**
-     * Gets the value of the specified attribute from the element matching the selector.
-     * @param selector The selector of the element to get the attribute from.
-     * @param attribute The name of the attribute to retrieve.
-     * @returns The value of the specified attribute, or the property value if the attribute is not present.
+     * @inheritdoc
      */
     async getAttribute(selector: Selector, attribute: string): Promise<string> {
         return await this.element.$eval(selector.selector, (element, attr) => element.getAttribute(attr) ?? element[attr], attribute);
     }
 
     /**
-     * Gets the inner HTML content of the element.
-     * @returns The inner HTML content of the element.
+     * @inheritdoc
      */
     async innerHTML(): Promise<string> {
         return this.element.evaluate(el => el.innerHTML);
     }
 
     /**
-     * Gets the CSS selector of the element.
-     * @returns The CSS selector of the element.
+     * @inheritdoc
      */
     async cssSelector(): Promise<string> {
         return await this.element.evaluate(element => {
@@ -325,16 +293,14 @@ export class PuppeteerElement extends AbstractElement<PuppeteerDriver> {
     }
 
     /**
-     * Gets the tag name of the element in lowercase.
-     * @returns The tag name of the element in lowercase.
+     * @inheritdoc
      */
     async tagName(): Promise<string> {
         return await this.element.evaluate(el => el.tagName.toLowerCase());
     }
 
     /**
-     * Checks if the element is clickable.
-     * @returns `true` if the element is clickable, otherwise `false`.
+     * @inheritdoc
      */
     async isClickable(): Promise<boolean> {
         const [isVisible, isDisabled] = await Promise.all([
