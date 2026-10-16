@@ -164,7 +164,7 @@ function getHashFromSecret(secret: Secret): string {
             for(const param_key of Object.keys(collector.config.params)) {
                 const secretParams = await secret.getParams();
                 if(process.argv[argv_index]) {
-                    secretParams[param_key] = process.argv[argv_index]
+                    secretParams[param_key].value = process.argv[argv_index]
                     if(param_key.toLowerCase().includes("password") || param_key.toLowerCase().includes("secret") || param_key.toLowerCase().includes("token")) {
                         console.log(`${param_key}: <hidden>`)
                     }
@@ -174,10 +174,10 @@ function getHashFromSecret(secret: Secret): string {
                 }
                 else {
                     if(param_key.toLowerCase().includes("password") || param_key.toLowerCase().includes("secret") || param_key.toLowerCase().includes("token")) {
-                        secretParams[param_key] = prompt.hide(`${param_key}: `);
+                        secretParams[param_key].value = prompt.hide(`${param_key}: `);
                     }
                     else {
-                        secretParams[param_key] = prompt(`${param_key}: `);
+                        secretParams[param_key].value = prompt(`${param_key}: `);
                     }
                 }
                 argv_index++;
