@@ -1,5 +1,5 @@
 import http from 'http';
-import { randomBytes, randomUUID } from 'crypto';
+import { randomUUID } from 'crypto';
 import { EventEmitter } from 'events';
 import { TLSSocket } from 'tls';
 import { RawData, WebSocket } from 'ws';
@@ -35,7 +35,6 @@ const INCOMPLETE_TRANSFER = Symbol('incomplete transfer');
 export class ExtensionTransport extends EventEmitter {
     public static PATH = '/api/v1/driver/';
 
-    readonly sessionId = randomUUID();
     readonly path: string;
     private readonly extensionOrigin: string;
     readonly allowInsecureTransport: boolean;
@@ -117,18 +116,6 @@ export class ExtensionTransport extends EventEmitter {
         socket.on('message', (data, binary) => this.receive(data, binary));
         socket.on('close', () => this.disconnected(socket));
         socket.on('error', () => socket.terminate());
-        this.send({
-            type: 'ready', sessionId: this.sessionId, serverTime: Date.now(),
-            defaults: {
-                timeout: AbstractDriver.DEFAULT_TIMEOUT,
-                navigationTimeout: AbstractDriver.DEFAULT_NAVIGATION_TIMEOUT,
-                downloadTimeout: AbstractDriver.DEFAULT_DOWNLOAD_TIMEOUT,
-                delay: AbstractDriver.DEFAULT_DELAY,
-                polling: AbstractDriver.DEFAULT_POLLING,
-                viewport: { width: AbstractDriver.VIEWPORT_WIDTH, height: AbstractDriver.VIEWPORT_HEIGHT },
-                maxMessageBytes: MAX_MESSAGE_BYTES,
-            },
-        });
         this.heartbeat = setInterval(() => {
             this.pingId = randomUUID();
             this.send({ type: 'ping', id: this.pingId, ts: Date.now() });

@@ -36,9 +36,23 @@ Every public method of `PuppeteerDriver` has a dedicated message (see [§6 Mappi
 2. **The client notifies.** Any unsolicited state change (new tab, URL change, screencast frame, download) is a client → server `event`.
 3. **Atomic operations stay on the client.** Selector waits, polling, iframe lookups and clicks — anything that would need many round trips — run inside the extension. The server does no network polling.
 4. **Business logic stays on the server.** `LoggableError`, `ElementNotFoundError`, diagnostic capture (url, source, screenshot), `assertPublicHttpsUrl` (SSRF) and the `startsWith('http')` check remain in `ExtensionDriver`.
-5. **No hard-coded defaults.** The `AbstractDriver` constants (`DEFAULT_TIMEOUT`, `DEFAULT_DELAY`, …) are sent to the client in the server's `ready.defaults` message. Every parameter marked `?` is optional and falls back to those defaults.
+5. **Protocol defaults.** Every parameter marked `?` is optional and uses the fixed defaults listed below when omitted.
 6. **JSON only**, in UTF-8 text frames. Binary data (screenshots, PDFs, files) is **base64**, as in the current driver.
 7. **Units**: durations in milliseconds; coordinates in CSS pixels relative to the top-level page viewport.
+
+**Defaults**
+
+```ts
+const defaults = {
+  timeout: 10000,
+  navigationTimeout: 30000,
+  downloadTimeout: 20000,
+  delay: 1000,
+  polling: 1000,
+  viewport: { width: 1920, height: 1080 },
+  maxMessageBytes: 1048576,
+};
+```
 
 ---
 
@@ -51,37 +65,17 @@ Every public method of `PuppeteerDriver` has a dedicated message (see [§6 Mappi
 - `driverWs` is the path itself; it embeds a random per-collect route token. There is no `hello` message or token field in the WebSocket protocol. A wrong token produces an unregistered path, and the server checks the extension `Origin` header before accepting the connection.
 - The server creates `driverWs` when `EXTENSION_ORIGIN` is configured to the exact `chrome-extension://<id>` origin.
 
-### 2.2 Connection ready
+### 2.2 Connection
 
 ```
 Client                                   Server
   │── WebSocket connect ────────────────▶│
-  │◀────────────────────────── ready ────│  (sessionId, defaults)
   │◀──────────────────── request session.open
   │── response ─────────────────────────▶│
   │           … active session …          │
 ```
 
 The server closes a connection with code `4001` when the request Origin is not the configured extension Origin or production TLS requirements are not met.
-
-**`ready`** (server → client)
-
-```ts
-interface Ready {
-  type: 'ready';
-  sessionId: string;
-  serverTime: number;               // epoch ms
-  defaults: {
-    timeout: number;                // AbstractDriver.DEFAULT_TIMEOUT
-    navigationTimeout: number;      // AbstractDriver.DEFAULT_NAVIGATION_TIMEOUT
-    downloadTimeout: number;        // AbstractDriver.DEFAULT_DOWNLOAD_TIMEOUT
-    delay: number;                  // AbstractDriver.DEFAULT_DELAY
-    polling: number;                // AbstractDriver.DEFAULT_POLLING
-    viewport: { width: number; height: number };  // AbstractDriver.VIEWPORT_WIDTH/HEIGHT
-    maxMessageBytes: number;        // above this size, use chunking (§10)
-  };
-}
-```
 
 ### 2.3 Heartbeat
 
@@ -104,7 +98,7 @@ Every message has a `type` field.
 
 ```ts
 type Message =
-  | Ready | Request | Response
+  | Request | Response
   | Event
   | Ping | Pong
   | Cancel
@@ -699,7 +693,6 @@ sequenceDiagram
     participant C as Extension (client)
     participant S as ExtensionDriver (server)
   C->>S: WebSocket connect to driverWs
-  S->>C: ready (sessionId, defaults)
     S->>C: request session.open
     C->>S: response (browser, pages)
     S->>C: request screencast.start
@@ -800,7 +793,7 @@ The protocol fixes a behavior for each of these. It is up to you to decide wheth
 
 **Server → client (requests)**: `session.open`, `session.update`, `session.close`, `screencast.start`, `screencast.stop`, `page.url`, `page.origin`, `page.count`, `page.list`, `page.close`, `page.closeExtra`, `page.goBack`, `page.goto`, `page.new`, `page.waitForNavigation`, `page.sourceCode`, `page.screenshot`, `page.pdf`, `dom.getElement`, `dom.getElementAtPoint`, `dom.getElements`, `dom.getAttribute`, `dom.getAttributes`, `action.leftClick`, `action.inputText`, `action.dropdownSelect`, `input.click`, `input.press`, `input.type`, `download.list`, `download.fromUrl`, `download.waitForFile`, `captcha.waitForCloudflareTurnstile`, `captcha.waitForDatadome`, `cookies.get`, `cookies.set`, `localStorage.get`, `localStorage.set`, `element.leftClick`, `element.inputText`, `element.dropdownSelect`, `element.release`.
 
-**Server → client (control)**: `ready`, `ping`, `pong`, `cancel`, `bye`.
+**Server → client (control)**: `ping`, `pong`, `cancel`, `bye`.
 
 **Client → server (responses and control)**: `response`, `ping`, `pong`, `bye`.
 
