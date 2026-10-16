@@ -1,7 +1,8 @@
 import { EventEmitter } from 'events';
 import { Proxy } from '../proxy/abstractProxy';
 import { WebCollector } from '../collectors/webCollector';
-import { Element } from './element';
+import type { AbstractElement, Selector } from './abstractElement';
+import { Param } from '../model/secret';
 
 export type Screenshot = {
     data: string; // Base64 encoded image data
@@ -9,7 +10,7 @@ export type Screenshot = {
     height: number;
 }
 
-export abstract class AbstractDriver extends EventEmitter {
+export abstract class AbstractDriver<E extends AbstractElement<any> = AbstractElement<any>> extends EventEmitter {
 
     static DEFAULT_NAVIGATION_TIMEOUT = 30000;  // 30 seconds
     static DEFAULT_DOWNLOAD_TIMEOUT = 20000;    // 20 seconds
@@ -140,13 +141,6 @@ export abstract class AbstractDriver extends EventEmitter {
     }): Promise<void>;
 
     /**
-     * Navigates to the given URL and returns the parsed JSON from the body element.
-     * @param url The URL to navigate to.
-     * @returns The parsed JSON object from the body.
-     */
-    abstract goToJson(url: string): Promise<any>;
-
-    /**
      * Opens a new page/tab and navigates it to the given URL.
      * @param url The URL to navigate to.
      */
@@ -171,10 +165,10 @@ export abstract class AbstractDriver extends EventEmitter {
      * @param options.timeout Maximum time to wait for the element, in milliseconds.
      * @returns The matching element, or null if not found and exceptions are disabled.
      */
-    abstract getElement(selector: any, options?: {
+    abstract getElement(selector: Selector, options?: {
         raiseException?: boolean,
         timeout?: number,
-    }): Promise<Element | null>;
+    }): Promise<E | null>;
 
     /**
      * Returns the deepest element (descending through nested iframes and shadow roots) located at the given page coordinates.
@@ -185,7 +179,7 @@ export abstract class AbstractDriver extends EventEmitter {
     abstract getElementCoordinates(
         x: number,
         y: number
-    ): Promise<Element | null>;
+    ): Promise<E | null>;
 
     /**
      * Waits for and returns all elements matching the selector.
@@ -194,10 +188,10 @@ export abstract class AbstractDriver extends EventEmitter {
      * @param options.timeout Maximum time to wait for the first element, in milliseconds.
      * @returns An array of matching elements, which may be empty if none are found and exceptions are disabled.
      */
-    abstract getElements(selector: any, options?: {
+    abstract getElements(selector: Selector, options?: {
         raiseException?: boolean,
         timeout?: number,
-    }): Promise<Element[]>;
+    }): Promise<E[]>;
 
     /**
      * Waits for the first element matching the selector and returns the value of the given attribute (or property fallback).
@@ -207,7 +201,7 @@ export abstract class AbstractDriver extends EventEmitter {
      * @param options.timeout Maximum time to wait for the element, in milliseconds.
      * @returns The attribute value, or empty string if not found and exceptions are disabled.
      */
-    abstract getAttribute(selector: any, attributeName: string, options?: {
+    abstract getAttribute(selector: Selector, attributeName: string, options?: {
         raiseException?: boolean,
         timeout?: number,
     }): Promise<string>;
@@ -220,7 +214,7 @@ export abstract class AbstractDriver extends EventEmitter {
      * @param options.timeout Maximum time to wait for the first element, in milliseconds.
      * @returns An array of attribute values, which may be empty if none are found and exceptions are disabled.
      */
-    abstract getAttributes(selector: any, attributeName: string, options?: {
+    abstract getAttributes(selector: Selector, attributeName: string, options?: {
         raiseException?: boolean,
         timeout?: number,
     }): Promise<string[]>;
@@ -235,13 +229,13 @@ export abstract class AbstractDriver extends EventEmitter {
      * @param options.mouseHover If true, hovers the mouse over the element before clicking. Default false. Can also be a string representing a selector for the element to hover over.
      * @returns The clicked element, or null if not found and exceptions are disabled.
      */
-    abstract leftClick(selector: any, options?: {
+    abstract leftClick(selector: Selector, options?: {
         raiseException?: boolean,
         timeout?: number,
         delay?: number,
         navigation?: boolean,
         mouseHover?: boolean | string,
-    }): Promise<Element | null>;
+    }): Promise<E | null>;
 
     /**
      * Waits for the element matching the selector and types the given text into it.
@@ -255,14 +249,14 @@ export abstract class AbstractDriver extends EventEmitter {
      * @param options.mouseHover If true, hovers the mouse over the element before typing.
      * @returns The element that received the text, or null if not found and exceptions are disabled.
      */
-    abstract inputText(selector: any, text: string, options?: {
+    abstract inputText(selector: Selector, text: string | Param, options?: {
         raiseException?: boolean,
         timeout?: number,
         delay?: number,
         tries?: number,
         navigation?: boolean,
         mouseHover?: boolean,
-    }): Promise<Element | null>;
+    }): Promise<E | null>;
 
     /**
      * Waits for the element matching the selector and selects the given value in it.
@@ -274,12 +268,12 @@ export abstract class AbstractDriver extends EventEmitter {
      * @param options.mouseHover If true, hovers the mouse over the element before selecting.
      * @returns The dropdown element, or null if not found and exceptions are disabled.
      */
-    abstract dropdownSelect(selector: any, value: string, options?: {
+    abstract dropdownSelect(selector: Selector, value: string, options?: {
         raiseException?: boolean,
         timeout?: number,
         delay?: number,
         mouseHover?: boolean,
-    }): Promise<Element | null>;
+    }): Promise<E | null>;
 
     /**
      * Clicks the mouse at the given page coordinates.

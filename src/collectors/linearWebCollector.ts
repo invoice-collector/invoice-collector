@@ -1,11 +1,10 @@
 import { Invoice, CompleteInvoice } from './abstractCollector';
 import { AbstractDriver } from '../driver/abstractDriver';
-import { DriverFactory } from '../driver/driverFactory';
-import { Element } from '../driver/element';
+import { AbstractElement } from '../driver/abstractElement';
 import { AuthenticationError, CollectorError, DisconnectedError, LoggableError, NoInvoiceFoundError, PartialCollectError } from '../error';
 import { ProxyFactory } from '../proxy/proxyFactory';
 import { Location, Proxy } from '../proxy/abstractProxy';
-import { Secret } from '../model/secret';
+import { Params, Secret } from '../model/secret';
 import { TwofaPromise } from '../tasks/collect/twofaPromise';
 import { State } from '../model/state';
 import * as utils from '../utils';
@@ -36,6 +35,7 @@ export abstract class LinearWebCollector extends WebCollector {
         location: Location | null,
         useInteractiveLogin: boolean,
         providers: Credential[],
+        driver: AbstractDriver | undefined,
     ): Promise<CompleteInvoice[]> {
         // Get proxy
         let proxy: Proxy | null = null;
@@ -44,8 +44,9 @@ export abstract class LinearWebCollector extends WebCollector {
         }
 
         // Start browser and page
-        let driver = DriverFactory.getDriver(this);
-        this.driver = driver;
+        if (!driver) {
+            throw new Error('Driver was not provided to the web collector.');
+        }
         await driver.open(locale, proxy);
 
         // Set cookies
@@ -78,16 +79,7 @@ export abstract class LinearWebCollector extends WebCollector {
                         // Get proxy
                         const proxy = await ProxyFactory.getProxy().get(location);
                         // Open new driver with proxy
-                        driver = DriverFactory.getDriver(this);
-                        await driver.open(locale, proxy);
-                        // Transfer cookies, localStorage and url to new driver
-                        await driver.setCookies(await this.driver.getCookies([]));
-                        await driver.setLocalStorage(await this.driver.getLocalStorage([]));
-                        await driver.goto(this.driver.url());
-                        // Close old driver
-                        await this.driver.close();
-                        // Replace driver instance variable with new driver
-                        this.driver = driver;
+                        await driver.update(locale, proxy);
                     }
 
                     console.log('User is not logged in, logging in...');
@@ -153,12 +145,7 @@ export abstract class LinearWebCollector extends WebCollector {
                         // Get proxy
                         const proxy = await ProxyFactory.getProxy().get(location);
                         // Open new driver with proxy
-                        driver = DriverFactory.getDriver(this);
-                        await driver.open(locale, proxy);
-                        // Close old driver
-                        await this.driver.close();
-                        // Replace driver instance variable with new driver
-                        this.driver = driver;
+                        await driver.update(locale, proxy);
                     }
 
                     // Set progress step to logging in
@@ -411,7 +398,7 @@ export abstract class LinearWebCollector extends WebCollector {
      * @param params The parameters required for the login process.
      * @returns Nothing if the login is successful, or a string result if an error is displayed on screen.
      */
-    abstract login(driver: AbstractDriver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string |void>;
+    abstract login(driver: AbstractDriver, params: Params, webSocketServer: WebSocketServer | undefined): Promise<string |void>;
 
     /**
      * Checks whether the collector needs to perform a two-factor authentication (2FA) action.
@@ -430,7 +417,7 @@ export abstract class LinearWebCollector extends WebCollector {
      * @param webSocketServer The WebSocket server instance for real-time communication.
      * @returns Nothing if the 2FA is successful, or a string result if an error is displayed on screen.
      */
-    async twofa(driver: AbstractDriver, params: any, twofa_promise: TwofaPromise, webSocketServer: WebSocketServer): Promise<string | void> {
+    async twofa(driver: AbstractDriver, params: Params, twofa_promise: TwofaPromise, webSocketServer: WebSocketServer): Promise<string | void> {
         // Assume the collector does not implement 2FA
     }
 
@@ -467,7 +454,7 @@ export abstract class LinearWebCollector extends WebCollector {
      * @param driver The driver instance used to perform the retrieval.
      * @returns An array of invoice elements.
      */
-    abstract getInvoices(driver: AbstractDriver): Promise<Element[]>;
+    abstract getInvoices(driver: AbstractDriver): Promise<AbstractElement[]>;
 
     /**
      * Retrieves the data for a specific invoice element.
@@ -475,7 +462,7 @@ export abstract class LinearWebCollector extends WebCollector {
      * @param element The invoice element from which to extract the data.
      * @returns The extracted invoice data, or `null` if the invoice collection must be canceled.
      */
-    abstract data(driver: AbstractDriver, element: Element): Promise<Invoice | null>;
+    abstract data(driver: AbstractDriver, element: AbstractElement): Promise<Invoice | null>;
 
     /**
      * Downloads the files associated with a specific invoice.

@@ -1,12 +1,13 @@
 import { OrangeHelperSelectors } from './selectors';
 import { AbstractDriver } from '../../../../driver/abstractDriver';
-import { Element } from '../../../../driver/element';
+import { AbstractElement } from '../../../../driver/abstractElement';
 import { WebSocketServer } from '../../../../websocket/webSocketServer';
 import { TwofaPromise } from '../../../../tasks/collect/twofaPromise';
 import * as utils from '../../../../utils';
 import { Invoice } from '../../../abstractCollector';
 import { AuthenticationError } from '../../../../error';
 import { WebCollector } from '../../../webCollector';
+import { Params } from '../../../../model/secret';
 
 export class OrangeHelper {
 
@@ -26,7 +27,7 @@ export class OrangeHelper {
      * @param webSocketServer The WebSocket server instance for handling 2FA, if needed.
      * @returns A string containing an error message if login fails, or void if successful.
      */
-    static async login(driver: AbstractDriver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
+    static async login(driver: AbstractDriver, params: Params, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
         // Refuse cookies
         await driver.leftClick(OrangeHelperSelectors.BUTTON_REFUSE_COOKIES, { raiseException: false, timeout: 5000});
 
@@ -98,7 +99,7 @@ export class OrangeHelper {
      * @param webSocketServer The WebSocket server instance for handling 2FA.
      * @returns A string containing an error message if 2FA fails, or void if successful.
      */
-    static async twofa(driver: AbstractDriver, params: any, twofa_promise: TwofaPromise, webSocketServer: WebSocketServer): Promise<string | void> {
+    static async twofa(driver: AbstractDriver, params: Params, twofa_promise: TwofaPromise, webSocketServer: WebSocketServer): Promise<string | void> {
         // Get code from UI
         const code = await Promise.race([twofa_promise.code(), webSocketServer.getTwofa()]);
     }
@@ -150,7 +151,7 @@ export class OrangeHelper {
      * @param driver The driver instance used to perform the retrieval.
      * @returns An array of invoice elements.
      */ 
-    static async getInvoices(driver: AbstractDriver): Promise<Element[]> {
+    static async getInvoices(driver: AbstractDriver): Promise<AbstractElement[]> {
         return await driver.getElements(OrangeHelperSelectors.CONTAINER_INVOICE);
     }
 
@@ -160,7 +161,7 @@ export class OrangeHelper {
      * @param element The invoice element from which to extract the data.
      * @returns The extracted invoice data, or `null` if the invoice collection must be canceled.
      */
-    static async data(driver: AbstractDriver, element: Element): Promise<Invoice | null> {
+    static async data(driver: AbstractDriver, element: AbstractElement): Promise<Invoice | null> {
         // Get url before map
         const link = driver.url();
         const contractId = link.match(/\/facture-paiement\/(\d+)\//)?.[1];

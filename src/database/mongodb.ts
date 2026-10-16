@@ -459,6 +459,7 @@ export class MongoDB extends AbstractDatabase {
                 document.customer_id.toString(),
                 document.remote_id,
                 document.password,
+                document.bearer,
                 document.name,
                 document.cid,
                 document.location,
@@ -486,6 +487,7 @@ export class MongoDB extends AbstractDatabase {
             document.customer_id.toString(),
             document.remote_id,
             document.password,
+            document.bearer,
             document.name,
             document.cid,
             document.location,
@@ -501,6 +503,13 @@ export class MongoDB extends AbstractDatabase {
      */
     async getUser(user_id: string): Promise<User|null> {
         return await this.getUserFromMatcher({ _id: new ObjectId(user_id) });
+    }
+
+    /**
+     * @inheritdoc
+     */
+    async getUserFromBearer(bearer: string): Promise<User|null> {
+        return await this.getUserFromMatcher({ bearer: bearer });
     }
 
     /**
@@ -551,6 +560,7 @@ export class MongoDB extends AbstractDatabase {
             customer_id: new ObjectId(user.customer_id),
             remote_id: user.remote_id,
             password: user.password,
+            bearer: user.bearer,
             name: user.name,
             cid: user.cid,
             location: user.location,
@@ -572,6 +582,7 @@ export class MongoDB extends AbstractDatabase {
                 customer_id: new ObjectId(user.customer_id),
                 remote_id: user.remote_id,
                 password: user.password,
+                bearer: user.bearer,
                 name: user.name,
                 cid: user.cid,
                 location: user.location,
@@ -598,15 +609,25 @@ export class MongoDB extends AbstractDatabase {
     async getCredentialsIdToCollect(): Promise<string[]> {
         const db = await this.ensureConnected();
         const query = {
-            $or: [
-            { last_collect_timestamp: NaN },
-            {
-                $and: [
-                    { $expr: { $lt: [ '$last_collect_timestamp', '$next_collect_timestamp' ] } },
-                    { $expr: { $lt: [ '$next_collect_timestamp', Date.now() ] } },
-                    { 'state.index': { $gte: 0 } },
-                ],
-            },
+            $and: [
+                { 
+                    $or: [
+                        { remote: { $exists: false } },
+                        { remote: false },
+                    ]
+                },
+                {
+                    $or: [
+                        { last_collect_timestamp: NaN },
+                        {
+                            $and: [
+                                { $expr: { $lt: [ '$last_collect_timestamp', '$next_collect_timestamp' ] } },
+                                { $expr: { $lt: [ '$next_collect_timestamp', Date.now() ] } },
+                                { 'state.index': { $gte: 0 } },
+                            ],
+                        },
+                    ],
+                },
             ],
         };
         const documents = await db.collection(MongoDB.CREDENTIAL_COLLECTION).aggregate([
@@ -632,6 +653,7 @@ export class MongoDB extends AbstractDatabase {
                 document.secret_id,
                 document.create_timestamp,
                 document.download_from_timestamp,
+                document.remote,
                 document.last_collect_timestamp,
                 document.next_collect_timestamp,
                 document.firstAuthenticationDate ? new Date(document.firstAuthenticationDate) : null,
@@ -661,6 +683,7 @@ export class MongoDB extends AbstractDatabase {
             document.secret_id,
             document.create_timestamp,
             document.download_from_timestamp,
+            document.remote,
             document.last_collect_timestamp,
             document.next_collect_timestamp,
             document.firstAuthenticationDate ? new Date(document.firstAuthenticationDate) : null,
@@ -683,6 +706,7 @@ export class MongoDB extends AbstractDatabase {
             secret_id: credential.secret_id,
             create_timestamp: credential.create_timestamp,
             download_from_timestamp: credential.download_from_timestamp,
+            remote: credential.remote,
             last_collect_timestamp: credential.last_collect_timestamp,
             next_collect_timestamp: credential.next_collect_timestamp,
             firstAuthenticationDate: credential.firstAuthenticationDate,

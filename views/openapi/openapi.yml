@@ -128,6 +128,12 @@ components:
         collect is in progress.
       nullable: true
       example: /api/v1/ws/30f6a13e919ceab0094e6df042166210fc00177dd392d2d2ae8b751946cbfecdb7f6e3fec3ec2d93db2a27a364dd6997adc88e439a3b96d34fe7d0257b27a616
+    driverWs:
+      type: string
+      nullable: true
+      description: Per-collect ExtensionDriver WebSocket path. Null when
+        EXTENSION_ORIGIN is not configured.
+      example: /api/v1/driver/09c6f6ad318725bd0d8e21a8e20dd863a6fc
     twofaCode:
       type: string
       description: 2FA code to use.
@@ -611,6 +617,10 @@ components:
           type: string
           description: Custom note for this credential.
           example: Regular account
+        remote:
+          type: boolean
+          description: Whether the credential is remote.
+          default: false
         create_timestamp:
           type: number
           description: Creation timestamp.
@@ -654,10 +664,13 @@ components:
           $ref: "#/components/schemas/collectorConfig"
         wsPath:
           $ref: "#/components/schemas/wsPath"
+        driverWs:
+          $ref: "#/components/schemas/driverWs"
       required:
         - id
         - user_id
         - note
+        - remote
         - create_timestamp
         - last_collect_timestamp
         - next_collect_timestamp
@@ -1511,6 +1524,48 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/error"
+  /user/{userId}/bearer:
+    post:
+      tags:
+        - User
+      summary: Generate new user API bearer
+      description: Generates a new API bearer token for the user, replacing the
+        previous one. Use a customer bearer with a user ID, or a user bearer
+        with userId "me".
+      security:
+        - CustomerBearerAuth: []
+        - UserBearerAuth: []
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          schema:
+            $ref: "#/components/schemas/userId"
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/bearerResponse"
+        "400":
+          description: Bad request or user not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/error"
+        "401":
+          description: Authentication error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/error"
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/error"
   /user/{userId}/credentials:
     get:
       tags:
@@ -1582,6 +1637,10 @@ paths:
                   $ref: "#/components/schemas/collectorId"
                 params:
                   $ref: "#/components/schemas/credentialParams"
+                remote:
+                  type: boolean
+                  default: false
+                  description: Whether the credential is remote.
                 download_from_timestamp:
                   allOf:
                     - $ref: "#/components/schemas/downloadFromTimestamp"
@@ -1872,6 +1931,8 @@ paths:
                 properties:
                   wsPath:
                     $ref: "#/components/schemas/wsPath"
+                  driverWs:
+                    $ref: "#/components/schemas/driverWs"
         "400":
           description: Bad request
           content:

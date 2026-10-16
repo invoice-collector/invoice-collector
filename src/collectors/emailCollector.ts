@@ -144,10 +144,4 @@ export abstract class EmailCollector extends V2Collector<EmailCollectorConfig> {
         return completeInvoices;
     }
 
-    /**
-     * @inheritdoc
-     */
-    async _close(): Promise<void> {
-        // The email provider connection is already closed right after each collect.
-    }
 }

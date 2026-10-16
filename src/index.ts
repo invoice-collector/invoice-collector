@@ -1079,6 +1079,63 @@ app.put('/api/v1/user/:userId', async (req, res) => {
 
 /**
  * @openapi
+ * /user/{userId}/bearer:
+ *   post:
+ *     tags: [User]
+ *     summary: Generate new user API bearer
+ *     description: Generates a new API bearer token for the user, replacing the previous one. Use a customer bearer with a user ID, or a user bearer with userId "me".
+ *     security:
+ *       - CustomerBearerAuth: []
+ *       - UserBearerAuth: []
+ *     parameters:
+ *       - name: userId
+ *         in: path
+ *         required: true
+ *         schema:
+ *           $ref: '#/components/schemas/userId'
+ *     responses:
+ *       200:
+ *         description: Success
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/bearerResponse'
+ *       400:
+ *         description: Bad request or user not found
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       401:
+ *         description: Authentication error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ *       500:
+ *         description: Internal server error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/error'
+ */
+app.post('/api/v1/user/:user_id/bearer', async (req, res) => {
+    try {
+        console.log(`POST /user/${req.params.user_id}/bearer`);
+        const response = await server.post_user_bearer(
+            req.headers.authorization,
+            String(req.params.user_id),
+        );
+
+        res.setHeader('Content-Type', 'application/json');
+        res.end(JSON.stringify(response));
+    } catch (e) {
+        handle_error(e, req, res);
+    }
+});
+
+/**
+ * @openapi
  * /user/{userId}:
  *   delete:
  *     tags: [User]
@@ -1250,6 +1307,10 @@ app.get('/api/v1/credentials', async (req, res) => {
  *                 $ref: "#/components/schemas/collectorId"
  *               params:
  *                 $ref: "#/components/schemas/credentialParams"
+ *               remote:
+ *                 type: boolean
+ *                 default: false
+ *                 description: Whether the credential is remote.
  *               download_from_timestamp:
  *                 allOf:
  *                   - $ref: "#/components/schemas/downloadFromTimestamp"
@@ -1304,6 +1365,7 @@ app.post('/api/v1/user/:user_id/credential', creationRateLimiter, async (req, re
             req.body.collector,
             req.body.params,
             req.body.download_from_timestamp,
+            req.body.remote,
         );
 
         // Build response
@@ -1327,6 +1389,7 @@ app.post('/api/v1/credential', creationRateLimiter, async (req, res) => {
             req.body.collector,
             req.body.params,
             req.body.download_from_timestamp,
+            req.body.remote,
         );
 
         // Build response
@@ -1734,6 +1797,8 @@ app.get('/api/v1/oauth2', async (req, res) => {
  *               properties:
  *                 wsPath:
  *                   $ref: '#/components/schemas/wsPath'
+ *                 driverWs:
+ *                   $ref: '#/components/schemas/driverWs'
  *       400:
  *         description: Bad request
  *         content:

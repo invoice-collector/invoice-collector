@@ -14,6 +14,7 @@ import { I18n } from '../src/i18n';
 import { WebSocketServer } from '../src/websocket/webSocketServer';
 import { Secret } from '../src/model/secret';
 import { CustomerAuthenticationMethod } from '../src/model/customer';
+import { DriverFactory } from '../src/driver/driverFactory';
 
 const id = process.argv[4] || null;
 const ONE_MINUTE = 60 * 1000;       // 1 minute in milliseconds
@@ -50,7 +51,7 @@ async function createWebsocketClientAndServer(collector: AbstractCollector<Confi
     });
 
     // Instanciate web socket server
-    const webSocketServer = new WebSocketServer(httpServer, I18n.DEFAULT_LOCALE, collector);
+    const webSocketServer = new WebSocketServer(httpServer, I18n.DEFAULT_LOCALE, collector, 'mock');
     const webSocketPath = webSocketServer.start();
 
     // Connect to web socket server
@@ -99,6 +100,9 @@ for (const collectorConfig of await CollectorLoader.getAll()) {
     if (collectorConfig.type == CollectorType.WEB) {
         // Get collector
         const collector = await CollectorLoader.get(id);
+    
+        // Create driver
+        const driver = DriverFactory.getDriver(collector, undefined);
 
         describe(`${id} tests`, () => {
             it('Login with incorrect email format', async () => {
@@ -120,7 +124,9 @@ for (const collectorConfig of await CollectorLoader.getAll()) {
                     [],
                     LOCALE,
                     null,
-                    CustomerAuthenticationMethod.SECRETS_ONLY
+                    CustomerAuthenticationMethod.SECRETS_ONLY,
+                    [],
+                    driver
                 ))
                     .rejects.toThrow(AuthenticationError);
             }, ONE_MINUTE);
@@ -144,7 +150,9 @@ for (const collectorConfig of await CollectorLoader.getAll()) {
                     [],
                     LOCALE,
                     null,
-                    CustomerAuthenticationMethod.SECRETS_ONLY
+                    CustomerAuthenticationMethod.SECRETS_ONLY,
+                    [],
+                    driver
                 ))
                     .rejects.toThrow(AuthenticationError);
             }, ONE_MINUTE);
@@ -168,7 +176,9 @@ for (const collectorConfig of await CollectorLoader.getAll()) {
                     [],
                     LOCALE,
                     null,
-                    CustomerAuthenticationMethod.SECRETS_ONLY
+                    CustomerAuthenticationMethod.SECRETS_ONLY,
+                    [],
+                    driver
                 ))
                     .rejects.toThrow(AuthenticationError);
             }, ONE_MINUTE);
@@ -196,7 +206,9 @@ for (const collectorConfig of await CollectorLoader.getAll()) {
                     [],
                     LOCALE,
                     null,
-                    CustomerAuthenticationMethod.SECRETS_ONLY
+                    CustomerAuthenticationMethod.SECRETS_ONLY,
+                    [],
+                    driver
                 );
 
                 // Assert cookies are not null
@@ -227,7 +239,9 @@ for (const collectorConfig of await CollectorLoader.getAll()) {
                     [],
                     LOCALE,
                     null,
-                    CustomerAuthenticationMethod.SECRETS_ONLY
+                    CustomerAuthenticationMethod.SECRETS_ONLY,
+                    [],
+                    driver
                 );
             }, TWO_MINUTES);
         });

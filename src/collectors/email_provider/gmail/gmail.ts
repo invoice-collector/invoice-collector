@@ -4,6 +4,7 @@ import { CollectorAuthenticationMethod, CollectorState, CollectorType } from '..
 import { DownloadedEmailInvoice, EmailInvoice, EmailInvoiceWildcards, EmailProvider, EmailProviderConfig } from '../../emailProvider';
 import { WebSocketServer } from '../../../websocket/webSocketServer';
 import * as utils from '../../../utils';
+import { Params } from '../../../model/secret';
 
 type GmailHeader = { name: string, value: string };
 
@@ -52,9 +53,9 @@ export class GmailCollector extends EmailProvider {
     /**
      * @inheritdoc
      */
-    async authenticate(params: any, webSocketServer?: WebSocketServer): Promise<void> {
+    async authenticate(params: Params, webSocketServer?: WebSocketServer): Promise<void> {
         // If param does not contain a refresh token nor an access token, the user has not authenticated yet.
-        if (!params.refresh_token && !params.access_token && webSocketServer) {
+        if (!params.refresh_token.value && !params.access_token.value && webSocketServer) {
             // Build the Oauth2 URL with the state
             const oauth2Url = GmailCollector.OAUTH2_URL.replace('{state}', webSocketServer.oauth2State);
             // Send oauth2 url and wait for code
@@ -62,13 +63,13 @@ export class GmailCollector extends EmailProvider {
             // Exchange the code for tokens
             await this.getAccessToken(params, code);
         }
-        else if (params.refresh_token) {
+        else if (params.refresh_token.value) {
             // Refresh the access token to ensure it is valid and up to date
             await this.refreshAccessToken(params);
         }
 
         // Set the Authorization header for future requests
-        this.instance.defaults.headers.common['Authorization'] = `Bearer ${params.access_token}`;
+        this.instance.defaults.headers.common['Authorization'] = `Bearer ${params.access_token.value}`;
     }
 
     /**
@@ -201,7 +202,7 @@ export class GmailCollector extends EmailProvider {
      * @param params The parameters object containing the necessary information for the token exchange.
      * @param code The authorization code obtained from the user consent redirect.
      */
-    private async getAccessToken(params: any, code: string): Promise<void> {
+    private async getAccessToken(params: Params, code: string): Promise<void> {
         const body = new URLSearchParams({
             grant_type: 'authorization_code',
             client_id: GmailCollector.CLIENT_ID,
@@ -218,20 +219,20 @@ export class GmailCollector extends EmailProvider {
             throw new AuthenticationError('i18n.collectors.gmail.authentication_error', this);
         }
         // Update params with the new tokens for future use
-        params.access_token = data.access_token;
-        params.refresh_token = data.refresh_token;
+        params.access_token.value = data.access_token;
+        params.refresh_token.value = data.refresh_token;
     }
 
     /**
      * Exchanges the refresh token for a new access token.
      * @param params The parameters object containing the refresh token and other necessary information for the token exchange.
      */
-    private async refreshAccessToken(params: any): Promise<void> {
+    private async refreshAccessToken(params: Params): Promise<void> {
         const body = new URLSearchParams({
             grant_type: 'refresh_token',
             client_id: GmailCollector.CLIENT_ID,
             client_secret: GmailCollector.CLIENT_SECRET,
-            refresh_token: params.refresh_token,
+            refresh_token: params.refresh_token.value,
         });
         // Perform request
         const data = await this.request('POST', GmailCollector.TOKEN_URL, {
@@ -242,7 +243,7 @@ export class GmailCollector extends EmailProvider {
             throw new AuthenticationError('i18n.collectors.gmail.authentication_error', this);
         }
         // Update params with the new access token for future use
-        params.access_token = data.access_token;
+        params.access_token.value = data.access_token;
         // The refresh token remains unchanged and never expires
     }
 

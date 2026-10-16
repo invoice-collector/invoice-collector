@@ -1,11 +1,12 @@
 import { LinearWebCollector } from '../../linearWebCollector';
 import { FreeMobileSelectors } from './selectors';
 import { AbstractDriver } from '../../../driver/abstractDriver';
-import { Element } from '../../../driver/element';
+import { AbstractElement } from '../../../driver/abstractElement';
 import { CollectorCaptcha, CollectorType, Invoice, CollectorAuthenticationMethod, CollectorState } from '../../abstractCollector';
 import { TwofaPromise } from '../../../tasks/collect/twofaPromise';
 import * as utils from '../../../utils';
 import { WebSocketServer } from '../../../websocket/webSocketServer';
+import { Params } from '../../../model/secret';
 
 export class FreeMobileCollector extends LinearWebCollector {
 
@@ -55,7 +56,7 @@ export class FreeMobileCollector extends LinearWebCollector {
     /**
      * @inheritdoc
      */
-    async login(driver: AbstractDriver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
+    async login(driver: AbstractDriver, params: Params, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
         // Input id and password
         await driver.inputText(FreeMobileSelectors.FIELD_IDENTIFIER, params.id);
         await driver.inputText(FreeMobileSelectors.FIELD_PASSWORD, params.password);
@@ -84,7 +85,7 @@ export class FreeMobileCollector extends LinearWebCollector {
     /**
      * @inheritdoc
      */
-    async twofa(driver: AbstractDriver, params: any, twofa_promise: TwofaPromise, webSocketServer: WebSocketServer): Promise<string | void> {
+    async twofa(driver: AbstractDriver, params: Params, twofa_promise: TwofaPromise, webSocketServer: WebSocketServer): Promise<string | void> {
         // Check if too much attempts
         const twofa_too_much = await driver.getElement(FreeMobileSelectors.CONTAINER_2FA_ALERT, { raiseException: false, timeout: 1000 });
         if (twofa_too_much) {
@@ -138,14 +139,14 @@ export class FreeMobileCollector extends LinearWebCollector {
     /**
      * @inheritdoc
      */
-    async getInvoices(driver: AbstractDriver): Promise<Element[]> {
+    async getInvoices(driver: AbstractDriver): Promise<AbstractElement[]> {
         return await driver.getElements(FreeMobileSelectors.CONTAINER_INVOICES);
     }
 
     /**
      * @inheritdoc
      */
-    async data(driver: AbstractDriver, element: Element): Promise<Invoice | null>{
+    async data(driver: AbstractDriver, element: AbstractElement): Promise<Invoice | null>{
         const downloadButton = await element.getElement(FreeMobileSelectors.CONTAINER_INVOICE_LINK);
         const link = await element.getAttribute(FreeMobileSelectors.CONTAINER_INVOICE_LINK, 'href');
         const stringDate = await element.getAttribute(FreeMobileSelectors.CONTAINER_INVOICE_DATE, 'textContent');

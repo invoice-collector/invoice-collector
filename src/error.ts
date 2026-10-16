@@ -1,5 +1,6 @@
 import { Config, AbstractCollector, CompleteInvoice } from './collectors/abstractCollector';
 import { Screenshot } from './driver/abstractDriver';
+import type { Selector } from './driver/abstractElement';
 
 /**
  * Returns the full stack trace of the error, including any nested causes.
@@ -217,7 +218,7 @@ export class LoggableError extends CollectorError {
 }
 
 export class ElementNotFoundError extends LoggableError {
-    selector: any;
+    selector: Selector;
 
     /**
      * Constructs a new ElementNotFoundError instance.
@@ -225,7 +226,7 @@ export class ElementNotFoundError extends LoggableError {
      * @param selector The selector that could not be found on the page.
      * @param opts Additional options for the error.
      */
-    constructor(collector: AbstractCollector<Config>, selector: any, opts = {}) {
+    constructor(collector: AbstractCollector<Config>, selector: Selector, opts = {}) {
         super(
             `Could not find selector '${selector.selector}' corresponding to the "${selector.info}" on the page. See the source code and the screenshot to find the issue.`,
             collector,

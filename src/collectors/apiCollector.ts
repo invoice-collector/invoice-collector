@@ -3,7 +3,7 @@ import { Invoice, DownloadedInvoice, CompleteInvoice, CollectorType, CollectorSt
 import { V1Collector } from './v1Collector';
 import { CollectorError, LoggableError, UnfinishedCollectorError } from '../error';
 import { Location } from '../proxy/abstractProxy';
-import { Secret } from '../model/secret';
+import { Params, Secret } from '../model/secret';
 import { State } from '../model/state';
 import * as utils from '../utils';
 import { WebSocketServer } from '../websocket/webSocketServer';
@@ -138,13 +138,6 @@ export abstract class ApiCollector extends V1Collector<ApiConfig> {
         }
     }
 
-    /**
-     * @inheritdoc
-     */
-    async _close(): Promise<void> {
-        // Assume the collector does not need to close anything
-    }
-    
     //NOT IMPLEMENTED
 
     /**
@@ -153,7 +146,7 @@ export abstract class ApiCollector extends V1Collector<ApiConfig> {
      * @param webSocketServer The WebSocket server instance for real-time communication, or undefined if not available.
      * @param params The parameters required for the collection process.
      */
-    abstract collect(instance: AxiosInstance, webSocketServer: WebSocketServer | undefined, params: any): Promise<Invoice[] | void>;
+    abstract collect(instance: AxiosInstance, webSocketServer: WebSocketServer | undefined, params: Params): Promise<Invoice[] | void>;
     
     /**
      * Downloads a specific invoice from the API collector.

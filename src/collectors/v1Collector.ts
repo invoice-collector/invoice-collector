@@ -5,6 +5,7 @@ import { AbstractCollector, CompleteInvoice, Config, Invoice } from './abstractC
 import { WebSocketServer } from '../websocket/webSocketServer';
 import { Credential, ModelInvoice } from '../model/credential';
 import { CustomerAuthenticationMethod } from '../model/customer';
+import { AbstractDriver } from '../driver/abstractDriver';
 
 export abstract class V1Collector<C extends Config> extends AbstractCollector<C> {
 
@@ -29,16 +30,17 @@ export abstract class V1Collector<C extends Config> extends AbstractCollector<C>
         location: Location | null,
         customerAuthenticationMethod: CustomerAuthenticationMethod,
         providers: Credential[],
+        driver: AbstractDriver | undefined,
     ): Promise<CompleteInvoice[]> {
-        // Check if a mandatory field is missing
-        const secretParams = await secret.getParams();
-        for (const [key, value] of Object.entries(this.config.params)) {
-            if (value.mandatory && !secretParams.hasOwnProperty(key)) {
-                throw new Error(`Field "${key}" is missing.`);
-            }
-        }
-
         try {
+            // Check if a mandatory field is missing
+            const secretParams = await secret.getParams();
+            for (const [key, value] of Object.entries(this.config.params)) {
+                if (value.mandatory && !Object.prototype.hasOwnProperty.call(secretParams, key)) {
+                    throw new Error(`Field "${key}" is missing.`);
+                }
+            }
+
             // Get invoices
             const invoices = (await this._collect(state, webSocketServer, secret, location));
 
@@ -98,8 +100,7 @@ export abstract class V1Collector<C extends Config> extends AbstractCollector<C>
             return completeInvoices;
         }
         finally {
-            // Close the collector resources
-            await this._close();
+            await driver?.close();
         }
     }
 
@@ -120,8 +121,4 @@ export abstract class V1Collector<C extends Config> extends AbstractCollector<C>
      */
     abstract _download(invoice: Invoice): Promise<CompleteInvoice>;
 
-    /**
-     * Closes the resources used by the V1 collector.
-     */
-    abstract _close(): Promise<void>;
 }

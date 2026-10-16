@@ -86,7 +86,7 @@ export class HttpIntegration extends AbstractIntegration {
         await this.checkMandatoryParams(secretParams);
 
         await this.sendRequest(
-            secretParams.url,
+            secretParams.url.value,
             {
                 type: 'invoice',
                 collector,
@@ -116,9 +116,9 @@ export class HttpIntegration extends AbstractIntegration {
         // Check if url is defined in secret params
         await this.checkMandatoryParams(secretParams);
 
-        console.log(`Sending disconnected notification to callback ${secretParams.url} for credential ${credential_id}`);
+        console.log(`Sending disconnected notification to callback ${secretParams.url.value} for credential ${credential_id}`);
         await this.sendRequest(
-            secretParams.url,
+            secretParams.url.value,
             {
                 type: 'notification_disconnected',
                 collector,
