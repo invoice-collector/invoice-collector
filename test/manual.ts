@@ -16,11 +16,13 @@ import { State } from '../src/model/state';
 import { I18n } from '../src/i18n';
 import { DatabaseFactory } from '../src/database/databaseFactory';
 import { SecretManagerFactory } from '../src/secret_manager/secretManagerFactory';
-import { WebSocketServer, WebSocketServerManager } from '../src/websocket/webSocketServer';
+import { WebSocketServer } from '../src/websocket/webSocketServer';
+import { WebSocketServerManager } from '../src/websocket/webSocketServerManager';
 import * as utils from '../src/utils';
 import { AbstractCollector, Config } from '../src/collectors/abstractCollector';
 import { Secret } from '../src/model/secret';
 import { CustomerAuthenticationMethod } from '../src/model/customer';
+import { DriverFactory } from '../src/driver/driverFactory';
 
 const PORT = parseInt(utils.getEnvVar('PORT')) + 1;
 const LOCALE = "en";
@@ -198,6 +200,9 @@ function getHashFromSecret(secret: Secret): string {
         webSocketServer = new WebSocketServer(httpServer, I18n.DEFAULT_LOCALE, collector, "mock");
         const webSocketPath = webSocketServer.start();
 
+        // Create driver
+        const driver = DriverFactory.getDriver(collector, undefined);
+
         // Connect to web socket server
         webSocketClient = new WebSocket(`ws://localhost:${PORT}${webSocketPath}`);
         // On connection open
@@ -246,7 +251,8 @@ function getHashFromSecret(secret: Secret): string {
             LOCALE,
             null,
             authenticationMethod,
-            []
+            [],
+            driver
         );
         console.log(`${newInvoicesPart3.length} invoices downloaded`);
 
@@ -306,7 +312,8 @@ function getHashFromSecret(secret: Secret): string {
             LOCALE,
             null,
             authenticationMethod,
-            []
+            [],
+            driver
         );
 
         // ---------- PART 7 : CHECK INVOICES ----------
@@ -345,7 +352,8 @@ function getHashFromSecret(secret: Secret): string {
             LOCALE,
             null,
             authenticationMethod,
-            []
+            [],
+            driver
         );
 
         // ---------- PART 9 : CHECK INVOICES ----------
