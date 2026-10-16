@@ -1,5 +1,6 @@
 import { DatabaseFactory } from '../database/databaseFactory';
-import { StatusError } from '../error';
+import { AuthenticationBearerError, StatusError } from '../error';
+import * as utils from '../utils';
 import { Location } from '../proxy/abstractProxy';
 import { SecretManagerFactory } from '../secret_manager/secretManagerFactory';
 import { Credential } from './credential';
@@ -23,8 +24,23 @@ export interface UserStats {
 export class User {
 
     static DEFAULT_PASSWORD = '';
+    static DEFAULT_BEARER = '';
     static DEFAULT_NAME = '';
     static DEFAULT_CID = '';
+
+    /**
+     * Gets a user from its bearer token.
+     * @param raw_bearer The raw bearer token without the Bearer prefix.
+     * @returns The user associated with the bearer token.
+     */
+    static async fromBearer(raw_bearer: string): Promise<User> {
+        const hashed_bearer = utils.hash_string(raw_bearer);
+        const user = await DatabaseFactory.getDatabase().getUserFromBearer(hashed_bearer);
+        if (!user) {
+            throw new AuthenticationBearerError();
+        }
+        return user;
+    }
 
     /**
      * Gets a user from its ID.
@@ -61,6 +77,7 @@ export class User {
     customer_id: string;
     remote_id: string;
     password: string;
+    bearer: string;
     name: string;
     cid: string;
     location: Location | null;
@@ -72,6 +89,7 @@ export class User {
      * @param customer_id The ID of the customer the user belongs to.
      * @param remote_id The remote ID of the user.
      * @param password The hashed password of the user.
+     * @param bearer The hashed bearer token of the user.
      * @param name The name of the user.
      * @param cid The company ID of the user.
      * @param location The location of the user.
@@ -82,6 +100,7 @@ export class User {
         customer_id: string,
         remote_id: string,
         password: string,
+        bearer: string,
         name: string,
         cid: string,
         location: Location | null,
@@ -92,6 +111,7 @@ export class User {
         this.customer_id = customer_id;
         this.remote_id = remote_id;
         this.password = password;
+        this.bearer = bearer;
         this.name = name;
         this.cid = cid;
         this.location = location;

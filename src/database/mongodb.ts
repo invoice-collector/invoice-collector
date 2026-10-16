@@ -459,6 +459,7 @@ export class MongoDB extends AbstractDatabase {
                 document.customer_id.toString(),
                 document.remote_id,
                 document.password,
+                document.bearer,
                 document.name,
                 document.cid,
                 document.location,
@@ -486,6 +487,7 @@ export class MongoDB extends AbstractDatabase {
             document.customer_id.toString(),
             document.remote_id,
             document.password,
+            document.bearer,
             document.name,
             document.cid,
             document.location,
@@ -501,6 +503,13 @@ export class MongoDB extends AbstractDatabase {
      */
     async getUser(user_id: string): Promise<User|null> {
         return await this.getUserFromMatcher({ _id: new ObjectId(user_id) });
+    }
+
+    /**
+     * @inheritdoc
+     */
+    async getUserFromBearer(bearer: string): Promise<User|null> {
+        return await this.getUserFromMatcher({ bearer: bearer });
     }
 
     /**
@@ -551,6 +560,7 @@ export class MongoDB extends AbstractDatabase {
             customer_id: new ObjectId(user.customer_id),
             remote_id: user.remote_id,
             password: user.password,
+            bearer: user.bearer,
             name: user.name,
             cid: user.cid,
             location: user.location,
@@ -572,6 +582,7 @@ export class MongoDB extends AbstractDatabase {
                 customer_id: new ObjectId(user.customer_id),
                 remote_id: user.remote_id,
                 password: user.password,
+                bearer: user.bearer,
                 name: user.name,
                 cid: user.cid,
                 location: user.location,
