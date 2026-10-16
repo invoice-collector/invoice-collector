@@ -289,24 +289,6 @@ export class PuppeteerDriver extends AbstractDriver {
     /**
      * @inheritdoc
      */
-    async goToJson(url: string): Promise<any> {
-        if (this.page === null) {
-            throw new Error('Page is not initialized.');
-        }
-        await this.page.goto(url, { waitUntil: 'networkidle0', timeout: AbstractDriver.DEFAULT_NAVIGATION_TIMEOUT });
-        const data = await this.page.$eval('body', (element) => {
-            try {
-                return JSON.parse(element.innerText);
-            } catch {
-                return null;
-            }
-        });
-        return data;
-    }
-
-    /**
-     * @inheritdoc
-     */
     async newPage(url: string): Promise<void> {
         if (this.page === null) {
             throw new Error('Page is not initialized.');

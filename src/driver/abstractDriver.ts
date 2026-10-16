@@ -140,13 +140,6 @@ export abstract class AbstractDriver extends EventEmitter {
     }): Promise<void>;
 
     /**
-     * Navigates to the given URL and returns the parsed JSON from the body element.
-     * @param url The URL to navigate to.
-     * @returns The parsed JSON object from the body.
-     */
-    abstract goToJson(url: string): Promise<any>;
-
-    /**
      * Opens a new page/tab and navigates it to the given URL.
      * @param url The URL to navigate to.
      */
