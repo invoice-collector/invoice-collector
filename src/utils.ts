@@ -33,7 +33,8 @@ const MIMETYPE_BASE64_SIGNATURE = {
 export enum BearerType {
     CUSTOMER_SESSION = 'c_sess',
     USER_SESSION = 'u_sess',
-    API = 'api'
+    CUSTOMER_API = 'c_api',
+    USER_API = 'u_api'
 }
 
 /* FUNCTIONS */

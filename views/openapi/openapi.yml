@@ -1524,6 +1524,48 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/error"
+  /user/{userId}/bearer:
+    post:
+      tags:
+        - User
+      summary: Generate new user API bearer
+      description: Generates a new API bearer token for the user, replacing the
+        previous one. Use a customer bearer with a user ID, or a user bearer
+        with userId "me".
+      security:
+        - CustomerBearerAuth: []
+        - UserBearerAuth: []
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          schema:
+            $ref: "#/components/schemas/userId"
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/bearerResponse"
+        "400":
+          description: Bad request or user not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/error"
+        "401":
+          description: Authentication error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/error"
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/error"
   /user/{userId}/credentials:
     get:
       tags:

@@ -627,13 +627,10 @@ export class Server {
         const customer = await this.tokenManager.getCustomerFromBearer(bearer);
 
         // Generate api bearer
-        const newBearer = utils.generate_bearer(utils.BearerType.API);
-
-        // Compute hashed bearer
-        const hashedBearer = utils.hash_string(newBearer);
+        const newBearer = utils.generate_bearer(utils.BearerType.CUSTOMER_API);
 
         // Update customer bearer
-        customer.bearer = hashedBearer;
+        customer.bearer = utils.hash_string(newBearer);;
 
         // Commit changes in database
         await customer.commit();
@@ -992,6 +989,30 @@ export class Server {
         };
     }
 
+    /**
+     * Generates a new API bearer token for the specified user.
+     * @param bearer The current customer or user bearer token.
+     * @param user_id The target user ID, or 'me' for the authenticated user.
+     * @returns The newly generated API bearer token for the user.
+     */
+    public async post_user_bearer(bearer: string | undefined, user_id: string): Promise<{
+        bearer: string
+    }> {
+        // Get user from bearer
+        const user = await this.tokenManager.getUserFromBearerOrToken(bearer, user_id, null);
+
+        // Compute hashed bearer
+        const newBearer = utils.generate_bearer(utils.BearerType.USER_API);
+
+        // Update customer bearer
+        user.bearer = utils.hash_string(newBearer);
+
+        // Commit changes in database
+        await user.commit();
+
+        // Return new bearer token
+        return { bearer: newBearer };
+    }
 
     // BEARER AUTHENTICATION
     /**
