@@ -22,7 +22,7 @@ export class CollectTask {
 
                 // Collect invoices for each credential one by one
                 for (const credential_id of credential_ids) {
-                    const collect = new Collect(credential_id, undefined);
+                    const collect = new Collect(credential_id, undefined, undefined);
 
                     // Register collect in progress
                     if (CollectPool.getInstance().registerCollect(credential_id, collect).registered) {

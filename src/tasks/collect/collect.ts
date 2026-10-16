@@ -10,9 +10,7 @@ import { AnalyticsFactory } from '../../analytics/analyticsFactory';
 import { WebSocketServer } from '../../websocket/webSocketServer';
 import * as utils from '../../utils';
 import { Secret } from '../../model/secret';
-import { WebCollector } from '../../collectors/webCollector';
 import { ExtensionTransport } from '../../driver/extension/extensionTransport';
-import { AbstractDriver } from '../../driver/abstractDriver';
 import { DriverFactory } from '../../driver/driverFactory';
 
 export class Collect {
@@ -74,11 +72,7 @@ export class Collect {
 
             // Get collector from collector_id
             collector = await CollectorLoader.get(credential.collector_id);
-            let driver: AbstractDriver | undefined;
-            if (collector instanceof WebCollector) {
-                collector.driverTransport = this.driverTransport ?? null;
-                driver = DriverFactory.getDriver(collector, this.driverTransport !== undefined);
-            }
+            let driver = DriverFactory.getDriver(collector, this.driverTransport);
 
             // Get customer callbacks
             callbacksWithAutomaticExport = (await customer.getCallbacks()).filter(cb => cb.automaticExport);
