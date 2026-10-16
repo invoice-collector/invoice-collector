@@ -24,12 +24,12 @@ export class Collect {
     /**
      * Constructs an instance of the Collect class.
      * @param credential_id The ID of the credential to collect invoices for.
-     * @param wss The WebSocket server instance for real-time communication, or undefined if not available.
+     * @param webSocketServer The WebSocket server instance for real-time communication, or undefined if not available.
      * @param extensionTransport The extension transport instance for the extension-backed browser driver, or undefined if not available.
      */
-    constructor(credential_id: string, wss: WebSocketServer | undefined, extensionTransport: ExtensionTransport | undefined) {
+    constructor(credential_id: string, webSocketServer: WebSocketServer | undefined, extensionTransport: ExtensionTransport | undefined) {
         this.credential_id = credential_id;
-        this.webSocketServer = wss;
+        this.webSocketServer = webSocketServer;
         this.extensionTransport = extensionTransport;
         this.deleted = false;
     }

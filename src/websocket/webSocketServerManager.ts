@@ -9,7 +9,7 @@ export interface WebSocketConnectionHandler {
 // Singleton WebSocket server manager
 export class WebSocketServerManager {
     private static instance: WebSocketServerManager | null = null;
-    private wss: Server | null = null;
+    private server: Server | null = null;
     private handlers: Map<string, WebSocketConnectionHandler> = new Map();
 
     /**
@@ -33,17 +33,17 @@ export class WebSocketServerManager {
      * @param httpServer The HTTP server to attach the WebSocket server to.
      */
     public initialize(httpServer: http.Server): void {
-        if (this.wss) {
+        if (this.server) {
             return; // Already initialized
         }
 
-        this.wss = new Server({ noServer: true });
+        this.server = new Server({ noServer: true });
 
         // Handle upgrade event manually
         httpServer.on('upgrade', (request, socket, head) => {
             const pathname = request.url;
             if (pathname && this.handlers.has(pathname)) {
-                this.wss!.handleUpgrade(request, socket, head, (ws) => {
+                this.server!.handleUpgrade(request, socket, head, (ws) => {
                     const handler = this.handlers.get(pathname);
                     if (handler) {
                         handler.handleConnection(ws, request);
@@ -78,8 +78,8 @@ export class WebSocketServerManager {
     public close(): void {
         // Clear all handlers
         this.handlers.clear();
-        this.wss?.close();
-        this.wss = null;
+        this.server?.close();
+        this.server = null;
         WebSocketServerManager.instance = null;
     }
 }
