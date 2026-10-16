@@ -10,15 +10,15 @@ export class DriverFactory {
     /**
      * Gets the appropriate driver instance for the given web collector.
      * @param collector The abstract collector instance for which to get the driver.
-     * @param extension Whether to use the extension-backed browser driver.
+     * @param extensionTransport The extension transport instance for the extension-backed browser driver.
      * @returns The appropriate driver instance for the given web collector.
      */
-    static getDriver(collector: AbstractCollector<Config>, driverTransport: ExtensionTransport | undefined): AbstractDriver | undefined {
+    static getDriver(collector: AbstractCollector<Config>, extensionTransport: ExtensionTransport | undefined): AbstractDriver | undefined {
         if (!(collector instanceof WebCollector)) {
             return undefined;
         }
-        if (driverTransport) {
-            return new ExtensionDriver(collector, driverTransport);
+        if (extensionTransport) {
+            return new ExtensionDriver(collector, extensionTransport);
         }
         return new PuppeteerDriver(collector);
     }

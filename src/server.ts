@@ -1236,13 +1236,13 @@ export class Server {
         // Generate oauth2 state from credential
         const oauth2State = this.tokenManager.createCredentialOauth2State(credential.id);
 
-        const driverTransport = credential.remote ? this.createDriverTransport(collector) : undefined;
+        const extensionTransport = credential.remote ? this.createExtensionTransport(collector) : undefined;
         // Start web socket server and get token
         const webSocketServer = new WebSocketServer(this.httpServer, user.locale, collector, oauth2State);
         const wsPath = webSocketServer.start();
 
         // Start collect
-        const collect = new Collect(credential.id, webSocketServer, driverTransport);
+        const collect = new Collect(credential.id, webSocketServer, extensionTransport);
 
         // Register collect in progress
         CollectPool.getInstance().registerCollect(credential.id, collect);
@@ -1257,7 +1257,7 @@ export class Server {
             CollectPool.getInstance().unregisterCollect(credential.id);
             // Close web socket server
             webSocketServer.close();
-            driverTransport?.dispose();
+            extensionTransport?.dispose();
         });
 
         // Return credential
@@ -1274,7 +1274,7 @@ export class Server {
             state: credential.state,
             collector: collector.config,
             wsPath,
-            driverWs: driverTransport?.path ?? null,
+            driverWs: extensionTransport?.path ?? null,
         };
     }
 
@@ -1546,11 +1546,12 @@ export class Server {
 
         // Start web socket server and get token
         const webSocketServer = new WebSocketServer(this.httpServer, user.locale, collector, oauth2State);
-        let driverTransport = credential.remote ? this.createDriverTransport(collector) : undefined;
+        const extensionTransport = credential.remote ? this.createExtensionTransport(collector) : undefined;
         let wsPath: string | null = null;
+        let driverWs: string | null = null;
 
         // Create a new collect
-        const collect = new Collect(credential.id, webSocketServer, driverTransport);
+        const collect = new Collect(credential.id, webSocketServer, extensionTransport);
 
         // Register collect in progress before starting it.
         const registrationResult = CollectPool.getInstance().registerCollect(credential.id, collect);
@@ -1568,24 +1569,24 @@ export class Server {
                 CollectPool.getInstance().unregisterCollect(credential.id);
                 // Close web socket server
                 webSocketServer.close();
-                driverTransport?.dispose();
+                extensionTransport?.dispose();
             });
         }
         else {
             // If collect in progress, return existing wsPath
             webSocketServer.close();
             wsPath = registrationResult.collect.webSocketServer?.path || null;
-            driverTransport?.dispose();
-            driverTransport = registrationResult.collect.driverTransport ?? undefined;
+            extensionTransport?.dispose();
+            driverWs = registrationResult.collect.extensionTransport?.path ?? null;
         }
 
         return {
-            wsPath,
-            driverWs: driverTransport?.path ?? null,
+            wsPath: wsPath,
+            driverWs: driverWs,
         };
     }
 
-    private createDriverTransport(collector: AbstractCollector<Config>): ExtensionTransport | undefined {
+    private createExtensionTransport(collector: AbstractCollector<Config>): ExtensionTransport | undefined {
         if (!(collector instanceof WebCollector)) {
             return undefined;
         }

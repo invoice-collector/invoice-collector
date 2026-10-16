@@ -35,9 +35,9 @@ const INCOMPLETE_TRANSFER = Symbol('incomplete transfer');
 export class ExtensionTransport extends EventEmitter {
     public static PATH = '/api/v1/driver/';
 
-    readonly path: string;
+    public readonly path: string;
     private readonly extensionOrigin: string;
-    readonly allowInsecureTransport: boolean;
+    private readonly allowInsecureTransport: boolean;
     private readonly manager: WebSocketServerManager;
     private socket: WebSocket | null = null;
     private hasConnected = false;

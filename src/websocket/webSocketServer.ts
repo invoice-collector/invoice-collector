@@ -18,13 +18,13 @@ export class WebSocketServer extends EventEmitter {
     public static OAUTH2_TIMEOUT_MS = 1000 * 60 * 5; // 5 minutes
     public static KEEP_ALIVE_INTERVAL = 1000 * 30;  // 30 seconds
 
-    public path: string;
+    public readonly path: string;
     private ws: WebSocket | null = null;
     private locale: string;
     private collector: AbstractCollector<Config>;
     private messageQueue: Map<string, AbstractMessage> = new Map();
-    oauth2State: string;
-    twofa_promise: TwofaPromise;
+    public readonly oauth2State: string;
+    public readonly twofa_promise: TwofaPromise;
 
     public onTwofa: ((event: MessageTwofa) => void) | undefined;
     public onClick: ((event: MessageClick) => void) | undefined;

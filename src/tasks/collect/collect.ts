@@ -18,18 +18,19 @@ export class Collect {
     credential_id: string;
     state: State|undefined;
     webSocketServer: WebSocketServer | undefined;
-    driverTransport: ExtensionTransport | undefined;
+    extensionTransport: ExtensionTransport | undefined;
     deleted: boolean;
 
     /**
      * Constructs an instance of the Collect class.
      * @param credential_id The ID of the credential to collect invoices for.
      * @param wss The WebSocket server instance for real-time communication, or undefined if not available.
+     * @param extensionTransport The extension transport instance for the extension-backed browser driver, or undefined if not available.
      */
-    constructor(credential_id: string, wss: WebSocketServer | undefined, driverTransport: ExtensionTransport | undefined) {
+    constructor(credential_id: string, wss: WebSocketServer | undefined, extensionTransport: ExtensionTransport | undefined) {
         this.credential_id = credential_id;
         this.webSocketServer = wss;
-        this.driverTransport = driverTransport;
+        this.extensionTransport = extensionTransport;
         this.deleted = false;
     }
 
@@ -72,7 +73,7 @@ export class Collect {
 
             // Get collector from collector_id
             collector = await CollectorLoader.get(credential.collector_id);
-            let driver = DriverFactory.getDriver(collector, this.driverTransport);
+            let driver = DriverFactory.getDriver(collector, this.extensionTransport);
 
             // Get customer callbacks
             callbacksWithAutomaticExport = (await customer.getCallbacks()).filter(cb => cb.automaticExport);
