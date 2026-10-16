@@ -28,7 +28,7 @@ export class Collect {
      * @param credential_id The ID of the credential to collect invoices for.
      * @param wss The WebSocket server instance for real-time communication, or undefined if not available.
      */
-    constructor(credential_id: string, wss: WebSocketServer | undefined, driverTransport?: ExtensionTransport) {
+    constructor(credential_id: string, wss: WebSocketServer | undefined, driverTransport: ExtensionTransport | undefined) {
         this.credential_id = credential_id;
         this.webSocketServer = wss;
         this.driverTransport = driverTransport;

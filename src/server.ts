@@ -1236,13 +1236,13 @@ export class Server {
         // Generate oauth2 state from credential
         const oauth2State = this.tokenManager.createCredentialOauth2State(credential.id);
 
-        const driverTransport = this.createDriverTransport(collector);
+        const driverTransport = credential.remote ? this.createDriverTransport(collector) : undefined;
         // Start web socket server and get token
         const webSocketServer = new WebSocketServer(this.httpServer, user.locale, collector, oauth2State);
         const wsPath = webSocketServer.start();
 
         // Start collect
-        const collect = new Collect(credential.id, webSocketServer, driverTransport ?? undefined);
+        const collect = new Collect(credential.id, webSocketServer, driverTransport);
 
         // Register collect in progress
         CollectPool.getInstance().registerCollect(credential.id, collect);
@@ -1546,11 +1546,11 @@ export class Server {
 
         // Start web socket server and get token
         const webSocketServer = new WebSocketServer(this.httpServer, user.locale, collector, oauth2State);
-        let driverTransport = this.createDriverTransport(collector);
+        let driverTransport = credential.remote ? this.createDriverTransport(collector) : undefined;
         let wsPath: string | null = null;
 
         // Create a new collect
-        const collect = new Collect(credential.id, webSocketServer, driverTransport ?? undefined);
+        const collect = new Collect(credential.id, webSocketServer, driverTransport);
 
         // Register collect in progress before starting it.
         const registrationResult = CollectPool.getInstance().registerCollect(credential.id, collect);
@@ -1576,7 +1576,7 @@ export class Server {
             webSocketServer.close();
             wsPath = registrationResult.collect.webSocketServer?.path || null;
             driverTransport?.dispose();
-            driverTransport = registrationResult.collect.driverTransport ?? null;
+            driverTransport = registrationResult.collect.driverTransport ?? undefined;
         }
 
         return {
@@ -1585,9 +1585,9 @@ export class Server {
         };
     }
 
-    private createDriverTransport(collector: AbstractCollector<Config>): ExtensionTransport | null {
+    private createDriverTransport(collector: AbstractCollector<Config>): ExtensionTransport | undefined {
         if (!(collector instanceof WebCollector)) {
-            return null;
+            return undefined;
         }
         if (!this.httpServer) {
             throw new Error('HTTP server must be initialized before starting a manual collection.');
