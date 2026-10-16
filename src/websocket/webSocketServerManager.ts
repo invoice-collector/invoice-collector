@@ -1,13 +1,16 @@
-import { Server } from 'ws';
+import { Server, WebSocket } from 'ws';
 import http from 'http';
-import { WebSocketServer } from './webSocketServer';
+
+export interface WebSocketConnectionHandler {
+    handleConnection(ws: WebSocket, request: http.IncomingMessage): void;
+}
 
 
 // Singleton WebSocket server manager
 export class WebSocketServerManager {
     private static instance: WebSocketServerManager | null = null;
     private wss: Server | null = null;
-    private handlers: Map<string, WebSocketServer> = new Map();
+    private handlers: Map<string, WebSocketConnectionHandler> = new Map();
 
     /**
      * Gets the singleton instance of the WebSocketServerManager.
@@ -43,7 +46,7 @@ export class WebSocketServerManager {
                 this.wss!.handleUpgrade(request, socket, head, (ws) => {
                     const handler = this.handlers.get(pathname);
                     if (handler) {
-                        handler.handleConnection(ws);
+                        handler.handleConnection(ws, request);
                     }
                 });
             } else {
@@ -57,7 +60,7 @@ export class WebSocketServerManager {
      * @param path The path to register the handler for.
      * @param handler The WebSocket server handler to register.
      */
-    public registerHandler(path: string, handler: WebSocketServer): void {
+    public registerHandler(path: string, handler: WebSocketConnectionHandler): void {
         this.handlers.set(path, handler);
     }
 

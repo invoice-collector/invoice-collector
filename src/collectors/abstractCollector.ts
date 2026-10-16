@@ -3,10 +3,11 @@ import { Location } from '../proxy/abstractProxy';
 import { Secret } from '../model/secret';
 import { State } from '../model/state';
 import { WebSocketServer } from '../websocket/webSocketServer';
-import { Element } from '../driver/element';
 import { Credential, ModelInvoice } from '../model/credential';
 import { CustomerAuthenticationMethod } from '../model/customer';
 import * as utils from '../utils';
+import type { AbstractDriver } from '../driver/abstractDriver';
+import { AbstractElement } from '../driver/abstractElement';
 
 export enum CollectorState {
     PLANNED = 'planned',
@@ -72,7 +73,7 @@ export type Invoice = {
     timestamp: number,
     amount?: string,
     link: string,
-    downloadButton: Element,
+    downloadButton: AbstractElement,
     metadata?: Record<string, any>
 }
 
@@ -86,7 +87,7 @@ export type CompleteInvoice = Omit<Invoice, 'downloadButton'> & {
     mimetype: string | null,
     hash: string | null,
     collected_timestamp: number | null,
-    downloadButton: Element | null,
+    downloadButton: AbstractElement | null,
     metadata: Record<string, any>,
 }
 
@@ -207,6 +208,7 @@ export abstract class AbstractCollector<C extends Config> {
      * @param location The location context for the invoice collection.
      * @param customerAuthenticationMethod The authentication method preferred by the customer.
      * @param providers The list of credential providers available for the collection.
+    * @param driver The browser driver created for this collection, if the collector uses a browser.
      */
     abstract collect_new_invoices(
         state: State,
@@ -217,6 +219,7 @@ export abstract class AbstractCollector<C extends Config> {
         locale: string,
         location: Location | null,
         customerAuthenticationMethod: CustomerAuthenticationMethod,
-        providers: Credential[]
+        providers: Credential[],
+        driver: AbstractDriver | undefined
     ): Promise<CompleteInvoice[]>;
 }

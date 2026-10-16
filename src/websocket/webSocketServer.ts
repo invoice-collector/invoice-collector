@@ -146,6 +146,7 @@ export class WebSocketServer extends EventEmitter {
         // Close the WebSocket connection if open
         this.ws?.close();
         this.ws = null;
+        WebSocketServerManager.getInstance().unregisterHandler(this.path);
     }
 
     /**

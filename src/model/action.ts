@@ -1,10 +1,10 @@
 import { AbstractDriver } from '../driver/abstractDriver';
-import { Element } from '../driver/element';
 import { TwofaPromise } from '../tasks/collect/twofaPromise';
 import * as utils from '../utils';
 import { Invoice } from '../collectors/abstractCollector';
 import { AuthenticationError, DisconnectedError, ElementNotFoundError } from '../error';
 import { WebSocketServer } from '../websocket/webSocketServer';
+import { AbstractElement } from '../driver/abstractElement';
 
 export enum ActionEnum  {
     GOAL_REACHED = 'goalReached',
@@ -95,8 +95,8 @@ export abstract class Action<Context, Result> {
      * @param driver The driver used to locate the element.
      * @returns The element corresponding to the action's CSS selector.
      */
-    protected async getElement(driver: AbstractDriver): Promise<Element> {
-        let element: Element | null;
+    protected async getElement(driver: AbstractDriver): Promise<AbstractElement> {
+        let element: AbstractElement | null;
         // If we have cssSelector, use it
         if (this.cssSelector) {
             // Get element from cssSelector
@@ -152,7 +152,7 @@ export abstract class Action<Context, Result> {
 
 export type LeftClickContext = {
     driver: AbstractDriver;
-    element?: Element;
+    element?: AbstractElement;
 }
 
 export class LeftClickAction extends Action<LeftClickContext, void> {
@@ -202,7 +202,7 @@ export class LeftClickAction extends Action<LeftClickContext, void> {
 
 export type MiddleClickContext = {
     driver: AbstractDriver;
-    element?: Element;
+    element?: AbstractElement;
 }
 
 export class MiddleClickAction extends Action<MiddleClickContext, void> {
@@ -222,7 +222,7 @@ export class MiddleClickAction extends Action<MiddleClickContext, void> {
      * @inheritdoc
      */
     async _perform(context: MiddleClickContext): Promise<void> {
-        const element: Element = context.element || await this.getElement(context.driver);
+        const element: AbstractElement = context.element || await this.getElement(context.driver);
         
         try {
             // Perform middle click
@@ -322,7 +322,7 @@ export class GetTextContentAction extends Action<GetTextContentContext, string> 
      * @inheritdoc
      */
     async _perform(context: GetTextContentContext): Promise<string> {
-        const element: Element = await this.getElement(context.driver);
+        const element: AbstractElement = await this.getElement(context.driver);
         return await element.textContent(this.args.default);
     }
 
@@ -364,7 +364,7 @@ export class InputTwofaAction extends Action<InputTwofaContext, void> {
         // Get 2fa code
         const code = await Promise.race([context.twofaPromise.code(), context.webSocketServer.getTwofa()]);
 
-        const element: Element = await this.getElement(context.driver);
+        const element: AbstractElement = await this.getElement(context.driver);
         await element.inputText(code, this.args);
     }
 
@@ -407,7 +407,7 @@ export class GetTwofaInstructionsAction extends Action<GetTwofaInstructionsConte
      */
     async _perform(context: GetTwofaInstructionsContext): Promise<string | void> {
         try {
-            const element: Element = await this.getElement(context.driver);
+            const element: AbstractElement = await this.getElement(context.driver);
             return await element.textContent(this.args.default);
         } catch (e) {
             if (e instanceof ElementNotFoundError) {
@@ -429,7 +429,7 @@ export type GetInvoicesContext = {
     driver: AbstractDriver;
 }
 
-export class GetInvoicesAction extends Action<GetInvoicesContext, Element[]> {
+export class GetInvoicesAction extends Action<GetInvoicesContext, AbstractElement[]> {
 
     /**
      * Constructs a new GetInvoicesAction.
@@ -449,7 +449,7 @@ export class GetInvoicesAction extends Action<GetInvoicesContext, Element[]> {
     /**
      * @inheritdoc
      */
-    async _perform(context: GetInvoicesContext): Promise<Element[]> {
+    async _perform(context: GetInvoicesContext): Promise<AbstractElement[]> {
         return await context.driver.getElements({
             selector: this.cssSelector,
             info: this.description,
@@ -466,7 +466,7 @@ export class GetInvoicesAction extends Action<GetInvoicesContext, Element[]> {
 
 export type ExtractInvoiceDataContext = {
     driver: AbstractDriver;
-    element: Element;
+    element: AbstractElement;
 }
 
 export class ExtractInvoiceDataAction extends Action<ExtractInvoiceDataContext, Invoice> {

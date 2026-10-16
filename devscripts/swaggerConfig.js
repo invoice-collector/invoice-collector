@@ -149,6 +149,12 @@ const SWAGGER_DEFINITION = {
                     nullable: true,
                     example: '/api/v1/ws/30f6a13e919ceab0094e6df042166210fc00177dd392d2d2ae8b751946cbfecdb7f6e3fec3ec2d93db2a27a364dd6997adc88e439a3b96d34fe7d0257b27a616',
                 },
+                driverWs: {
+                    type: 'string',
+                    nullable: true,
+                    description: 'Per-collect ExtensionDriver WebSocket path. Null when EXTENSION_ORIGIN is not configured.',
+                    example: '/api/v1/driver/09c6f6ad318725bd0d8e21a8e20dd863a6fc',
+                },
                 twofaCode: {
                     type: 'string',
                     description: '2FA code to use.',
@@ -418,6 +424,7 @@ const SWAGGER_DEFINITION = {
                         state: { $ref: '#/components/schemas/state' },
                         collector: { $ref: '#/components/schemas/collectorConfig' },
                         wsPath: { $ref: '#/components/schemas/wsPath' },
+                        driverWs: { $ref: '#/components/schemas/driverWs' },
                     },
                     required: ['id', 'user_id', 'note', 'create_timestamp', 'last_collect_timestamp', 'next_collect_timestamp', 'state', 'invoices', 'collector', 'wsPath'],
                 },

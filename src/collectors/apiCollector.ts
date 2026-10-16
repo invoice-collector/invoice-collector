@@ -138,13 +138,6 @@ export abstract class ApiCollector extends V1Collector<ApiConfig> {
         }
     }
 
-    /**
-     * @inheritdoc
-     */
-    async _close(): Promise<void> {
-        // Assume the collector does not need to close anything
-    }
-    
     //NOT IMPLEMENTED
 
     /**

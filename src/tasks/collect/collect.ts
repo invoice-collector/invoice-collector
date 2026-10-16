@@ -10,12 +10,17 @@ import { AnalyticsFactory } from '../../analytics/analyticsFactory';
 import { WebSocketServer } from '../../websocket/webSocketServer';
 import * as utils from '../../utils';
 import { Secret } from '../../model/secret';
+import { WebCollector } from '../../collectors/webCollector';
+import { ExtensionTransport } from '../../driver/extension/extensionTransport';
+import { AbstractDriver } from '../../driver/abstractDriver';
+import { DriverFactory } from '../../driver/driverFactory';
 
 export class Collect {
 
     credential_id: string;
     state: State|undefined;
     webSocketServer: WebSocketServer | undefined;
+    driverTransport: ExtensionTransport | undefined;
     deleted: boolean;
 
     /**
@@ -23,9 +28,10 @@ export class Collect {
      * @param credential_id The ID of the credential to collect invoices for.
      * @param wss The WebSocket server instance for real-time communication, or undefined if not available.
      */
-    constructor(credential_id: string, wss: WebSocketServer | undefined) {
+    constructor(credential_id: string, wss: WebSocketServer | undefined, driverTransport?: ExtensionTransport) {
         this.credential_id = credential_id;
         this.webSocketServer = wss;
+        this.driverTransport = driverTransport;
         this.deleted = false;
     }
 
@@ -68,6 +74,11 @@ export class Collect {
 
             // Get collector from collector_id
             collector = await CollectorLoader.get(credential.collector_id);
+            let driver: AbstractDriver | undefined;
+            if (collector instanceof WebCollector) {
+                collector.driverTransport = this.driverTransport ?? null;
+                driver = DriverFactory.getDriver(collector, this.driverTransport !== undefined);
+            }
 
             // Get customer callbacks
             callbacksWithAutomaticExport = (await customer.getCallbacks()).filter(cb => cb.automaticExport);
@@ -105,6 +116,7 @@ export class Collect {
                 user.location,
                 customer.authenticationMethod,
                 providers,
+                driver,
             );
             console.log(`Found ${credential.invoices.length + newInvoices.length} invoices during collect and ${newInvoices.length} new`);
             console.log(`Invoice collection for credential ${this.credential_id} succeed`);

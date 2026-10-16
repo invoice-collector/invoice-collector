@@ -1,6 +1,5 @@
 import { Invoice, CompleteInvoice } from './abstractCollector';
 import { AbstractDriver } from '../driver/abstractDriver';
-import { DriverFactory } from '../driver/driverFactory';
 import { Element } from '../driver/element';
 import { AuthenticationError, CollectorError, DisconnectedError, LoggableError, NoInvoiceFoundError, PartialCollectError } from '../error';
 import { ProxyFactory } from '../proxy/proxyFactory';
@@ -36,6 +35,7 @@ export abstract class LinearWebCollector extends WebCollector {
         location: Location | null,
         useInteractiveLogin: boolean,
         providers: Credential[],
+        driver: AbstractDriver | undefined,
     ): Promise<CompleteInvoice[]> {
         // Get proxy
         let proxy: Proxy | null = null;
@@ -44,8 +44,9 @@ export abstract class LinearWebCollector extends WebCollector {
         }
 
         // Start browser and page
-        let driver = DriverFactory.getDriver(this);
-        this.driver = driver;
+        if (!driver) {
+            throw new Error('Driver was not provided to the web collector.');
+        }
         await driver.open(locale, proxy);
 
         // Set cookies
@@ -78,16 +79,7 @@ export abstract class LinearWebCollector extends WebCollector {
                         // Get proxy
                         const proxy = await ProxyFactory.getProxy().get(location);
                         // Open new driver with proxy
-                        driver = DriverFactory.getDriver(this);
-                        await driver.open(locale, proxy);
-                        // Transfer cookies, localStorage and url to new driver
-                        await driver.setCookies(await this.driver.getCookies([]));
-                        await driver.setLocalStorage(await this.driver.getLocalStorage([]));
-                        await driver.goto(this.driver.url());
-                        // Close old driver
-                        await this.driver.close();
-                        // Replace driver instance variable with new driver
-                        this.driver = driver;
+                        await driver.update(locale, proxy);
                     }
 
                     console.log('User is not logged in, logging in...');
@@ -153,12 +145,7 @@ export abstract class LinearWebCollector extends WebCollector {
                         // Get proxy
                         const proxy = await ProxyFactory.getProxy().get(location);
                         // Open new driver with proxy
-                        driver = DriverFactory.getDriver(this);
-                        await driver.open(locale, proxy);
-                        // Close old driver
-                        await this.driver.close();
-                        // Replace driver instance variable with new driver
-                        this.driver = driver;
+                        await driver.update(locale, proxy);
                     }
 
                     // Set progress step to logging in

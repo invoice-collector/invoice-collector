@@ -22,6 +22,8 @@ import { Callback } from './model/callback';
 import { IntegrationConfig } from './integration/abstractIntegration';
 import { TokenManager } from './tokenManager';
 import { BillTask } from './tasks/bill/billTask';
+import { ExtensionTransport } from './driver/extension/extensionTransport';
+import { WebCollector } from './collectors/webCollector';
 
 export class Server {
 
@@ -1120,7 +1122,8 @@ export class Server {
         invoices: any[],
         state: State,
         collector: Config,
-        wsPath: string
+        wsPath: string,
+        driverWs: string | null
     }> {
         // Get user from bearer or token
         const user = await this.tokenManager.getUserFromBearerOrToken(bearer, user_id, token);
@@ -1228,12 +1231,13 @@ export class Server {
         // Generate oauth2 state from credential
         const oauth2State = this.tokenManager.createCredentialOauth2State(credential.id);
 
+        const driverTransport = this.createDriverTransport(collector);
         // Start web socket server and get token
         const webSocketServer = new WebSocketServer(this.httpServer, user.locale, collector, oauth2State);
         const wsPath = webSocketServer.start();
 
         // Start collect
-        const collect = new Collect(credential.id, webSocketServer);
+        const collect = new Collect(credential.id, webSocketServer, driverTransport ?? undefined);
 
         // Register collect in progress
         CollectPool.getInstance().registerCollect(credential.id, collect);
@@ -1248,6 +1252,7 @@ export class Server {
             CollectPool.getInstance().unregisterCollect(credential.id);
             // Close web socket server
             webSocketServer.close();
+            driverTransport?.dispose();
         });
 
         // Return credential
@@ -1263,6 +1268,7 @@ export class Server {
             state: credential.state,
             collector: collector.config,
             wsPath,
+            driverWs: driverTransport?.path ?? null,
         };
     }
 
@@ -1499,7 +1505,8 @@ export class Server {
         token: any,
         credential_id: string,
     ): Promise<{
-        wsPath: string | null
+        wsPath: string | null,
+        driverWs: string | null
     }> {
         // Get user from bearer or token
         const user = await this.tokenManager.getUserFromBearerOrToken(bearer, user_id, token);
@@ -1531,16 +1538,18 @@ export class Server {
 
         // Start web socket server and get token
         const webSocketServer = new WebSocketServer(this.httpServer, user.locale, collector, oauth2State);
-        let wsPath: string | null = webSocketServer.start();
+        let driverTransport = this.createDriverTransport(collector);
+        let wsPath: string | null = null;
 
         // Create a new collect
-        const collect = new Collect(credential.id, webSocketServer);
+        const collect = new Collect(credential.id, webSocketServer, driverTransport ?? undefined);
 
         // Register collect in progress before starting it.
         const registrationResult = CollectPool.getInstance().registerCollect(credential.id, collect);
 
         // If the new collect was successfully registered
         if (registrationResult.registered) {
+            wsPath = webSocketServer.start();
             // Start the collect and do not wait for promise to resolve
             collect.start().catch((err) => {
                 console.error(`Collect for credential ${credential.id} has failed`);
@@ -1551,16 +1560,31 @@ export class Server {
                 CollectPool.getInstance().unregisterCollect(credential.id);
                 // Close web socket server
                 webSocketServer.close();
+                driverTransport?.dispose();
             });
         }
         else {
             // If collect in progress, return existing wsPath
+            webSocketServer.close();
             wsPath = registrationResult.collect.webSocketServer?.path || null;
+            driverTransport?.dispose();
+            driverTransport = registrationResult.collect.driverTransport ?? null;
         }
 
         return {
             wsPath,
+            driverWs: driverTransport?.path ?? null,
         };
+    }
+
+    private createDriverTransport(collector: AbstractCollector<Config>): ExtensionTransport | null {
+        if (!(collector instanceof WebCollector)) {
+            return null;
+        }
+        if (!this.httpServer) {
+            throw new Error('HTTP server must be initialized before starting a manual collection.');
+        }
+        return new ExtensionTransport(this.httpServer);
     }
 
     // ---------- COLLECTOR ENDPOINTS ----------

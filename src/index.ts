@@ -1734,6 +1734,8 @@ app.get('/api/v1/oauth2', async (req, res) => {
  *               properties:
  *                 wsPath:
  *                   $ref: '#/components/schemas/wsPath'
+ *                 driverWs:
+ *                   $ref: '#/components/schemas/driverWs'
  *       400:
  *         description: Bad request
  *         content:

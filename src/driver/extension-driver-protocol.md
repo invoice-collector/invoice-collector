@@ -36,7 +36,7 @@ Every public method of `PuppeteerDriver` has a dedicated message (see [§6 Mappi
 2. **The client notifies.** Any unsolicited state change (new tab, URL change, screencast frame, download) is a client → server `event`.
 3. **Atomic operations stay on the client.** Selector waits, polling, iframe lookups and clicks — anything that would need many round trips — run inside the extension. The server does no network polling.
 4. **Business logic stays on the server.** `LoggableError`, `ElementNotFoundError`, diagnostic capture (url, source, screenshot), `assertPublicHttpsUrl` (SSRF) and the `startsWith('http')` check remain in `ExtensionDriver`.
-5. **No hard-coded defaults.** The `AbstractDriver` constants (`DEFAULT_TIMEOUT`, `DEFAULT_DELAY`, …) are sent to the client in `hello_ack.defaults`. Every parameter marked `?` is optional and falls back to those defaults.
+5. **No hard-coded defaults.** The `AbstractDriver` constants (`DEFAULT_TIMEOUT`, `DEFAULT_DELAY`, …) are sent to the client in the server's `ready.defaults` message. Every parameter marked `?` is optional and falls back to those defaults.
 6. **JSON only**, in UTF-8 text frames. Binary data (screenshots, PDFs, files) is **base64**, as in the current driver.
 7. **Units**: durations in milliseconds; coordinates in CSS pixels relative to the top-level page viewport.
 
@@ -46,45 +46,29 @@ Every public method of `PuppeteerDriver` has a dedicated message (see [§6 Mappi
 
 ### 2.1 Connection
 
-- The extension **initiates** the connection (the remote browser is behind a NAT): `wss://<server>/extension`.
+- The extension **initiates** the connection (the remote browser is behind a NAT) using the random per-collect `driverWs` path returned by the credential collection endpoint.
 - `wss://` is mandatory in production.
-- No secret in the URL (it ends up in logs): the token is sent in the first `hello` message.
+- `driverWs` is the path itself; it embeds a random per-collect route token. There is no `hello` message or token field in the WebSocket protocol. A wrong token produces an unregistered path, and the server checks the extension `Origin` header before accepting the connection.
+- The server creates `driverWs` when `EXTENSION_ORIGIN` is configured to the exact `chrome-extension://<id>` origin.
 
-### 2.2 Handshake
+### 2.2 Connection ready
 
 ```
 Client                                   Server
   │── WebSocket connect ────────────────▶│
-  │── hello ────────────────────────────▶│  (token, version, capabilities)
-  │◀──────────────────────── hello_ack ──│  (sessionId, defaults)
+  │◀────────────────────────── ready ────│  (sessionId, defaults)
   │◀──────────────────── request session.open
   │── response ─────────────────────────▶│
   │           … active session …          │
 ```
 
-The server MUST close the connection (code `4001`) if `hello` is not received within 10 s.
+The server closes a connection with code `4001` when the request Origin is not the configured extension Origin or production TLS requirements are not met.
 
-**`hello`** (client → server)
-
-```ts
-interface Hello {
-  type: 'hello';
-  protocolVersion: string;          // "1.0"
-  token: string;                    // authentication token
-  clientId: string;                 // stable identifier of the extension installation
-  extensionVersion: string;
-  browser: BrowserInfo;
-  capabilities: string[];           // list of supported `method` values (§7)
-  resume?: { sessionId: string };   // resume after a disconnection (§2.4)
-}
-```
-
-**`hello_ack`** (server → client)
+**`ready`** (server → client)
 
 ```ts
-interface HelloAck {
-  type: 'hello_ack';
-  protocolVersion: string;
+interface Ready {
+  type: 'ready';
   sessionId: string;
   serverTime: number;               // epoch ms
   defaults: {
@@ -99,8 +83,6 @@ interface HelloAck {
 }
 ```
 
-If the major versions differ, the server sends `bye` with `code: "PROTOCOL_MISMATCH"` and closes the connection.
-
 ### 2.3 Heartbeat
 
 - Each side sends `ping` every **20 s**; the other side answers `pong` with the same `id`.
@@ -109,7 +91,7 @@ If the major versions differ, the server sends `bye` with `code: "PROTOCOL_MISMA
 
 ### 2.4 Reconnection
 
-- On disconnection, the client reconnects with exponential backoff (1 s → 30 s) and sends `hello` with `resume.sessionId`.
+- On disconnection, the client reconnects to the same `driverWs` path with exponential backoff (1 s → 30 s). The server resumes the associated session by path.
 - The server keeps the session for **30 s**. After that, the session is destroyed.
 - Requests in flight at the time of the disconnection are rejected on the server side with the `DISCONNECTED` error. **They are never replayed automatically** (an action is not idempotent).
 - After resuming, the server calls `page.list` to resynchronize its cache (§9).
@@ -122,8 +104,7 @@ Every message has a `type` field.
 
 ```ts
 type Message =
-  | Hello | HelloAck
-  | Request | Response
+  | Ready | Request | Response
   | Event
   | Ping | Pong
   | Cancel
@@ -511,7 +492,7 @@ These three messages combine the element lookup and the action in a single reque
 
 | Event | Comment | Request payload | Response payload |
 |---|---|---|---|
-| `action.leftClick` | Equivalent of `leftClick(selector, opts)`. | `PageScoped & WaitOptions & { selector: Selector; delay?: number; navigation?: boolean; mouseHover?: boolean }` | `{ element: ElementRef \| null }` |
+| `action.leftClick` | Equivalent of `leftClick(selector, opts)`. | `PageScoped & WaitOptions & { selector: Selector; delay?: number; navigation?: boolean; mouseHover?: boolean \| string }` | `{ element: ElementRef \| null }` |
 | `action.inputText` | Equivalent of `inputText(selector, text, opts)`. `text` may contain a secret: do not log it ([§14](#14-security)). | `PageScoped & WaitOptions & { selector: Selector; text: string; delay?: number; tries?: number; navigation?: boolean; mouseHover?: boolean }` | `{ element: ElementRef \| null }` |
 | `action.dropdownSelect` | Equivalent of `dropdownSelect(selector, value, opts)`. Selects an option of a `<select>`. Here `timeout` only applies to the element lookup. | `PageScoped & WaitOptions & { selector: Selector; value: string; delay?: number; mouseHover?: boolean }` | `{ element: ElementRef \| null }` |
 
@@ -597,9 +578,16 @@ These messages correspond to the methods of the `Element` class returned by `get
 
 | Event | Comment | Request payload | Response payload |
 |---|---|---|---|
-| `element.leftClick` | Equivalent of `Element.leftClick(opts)`. | `{ elementId: string; timeout?: number; delay?: number; navigation?: boolean; mouseHover?: boolean }` | `{}` |
+| `element.leftClick` | Equivalent of `Element.leftClick(opts)`. | `{ elementId: string; timeout?: number; delay?: number; navigation?: boolean; mouseHover?: boolean \| string }` | `{}` |
 | `element.inputText` | Equivalent of `Element.inputText(text, opts)`. `text` may contain a secret: do not log it ([§14](#14-security)). | `{ elementId: string; text: string; tries?: number; timeout?: number; delay?: number; navigation?: boolean; mouseHover?: boolean }` | `{}` |
 | `element.dropdownSelect` | Equivalent of `Element.dropdownSelect(value, opts)`. | `{ elementId: string; value: string; delay?: number; mouseHover?: boolean }` | `{}` |
+| `element.middleClick` | Equivalent of `Element.middleClick(opts)`. | `{ elementId: string; useFallbackMethod?: boolean; timeout?: number; delay?: number; mouseHover?: boolean \| string }` | `{ usedFallback: boolean }` |
+| `element.getElement` | Finds a descendant of an existing handle. | `{ elementId: string; selector: Selector; raiseException?: boolean }` | `{ element: ElementRef \| null }` |
+| `element.getAttribute` | Reads an attribute or property from a descendant. | `{ elementId: string; selector: Selector; attributeName: string }` | `{ value: string \| boolean \| number \| null }` |
+| `element.textContent` | Reads text content of the handle. | `{ elementId: string }` | `{ value: string \| null }` |
+| `element.innerHTML` | Reads inner HTML of the handle. | `{ elementId: string }` | `{ value: string }` |
+| `element.cssSelector` | Returns a CSS selector for the handle. | `{ elementId: string }` | `{ selector: string }` |
+| `element.isClickable` | Checks visibility and disabled state. | `{ elementId: string }` | `{ clickable: boolean }` |
 | `element.release` | *Added, not in the driver.* Releases handles. | `{ elementIds: string[] }` | `{ released: number }` |
 
 **Notes**
@@ -710,8 +698,8 @@ Example:
 sequenceDiagram
     participant C as Extension (client)
     participant S as ExtensionDriver (server)
-    C->>S: hello (token, capabilities)
-    S->>C: hello_ack (sessionId, defaults)
+  C->>S: WebSocket connect to driverWs
+  S->>C: ready (sessionId, defaults)
     S->>C: request session.open
     C->>S: response (browser, pages)
     S->>C: request screencast.start
@@ -798,11 +786,11 @@ The protocol fixes a behavior for each of these. It is up to you to decide wheth
 
 ## 14. Security
 
-- **Authentication**: token in `hello`, never in the URL; `wss://` mandatory; short-lived, revocable tokens.
+- **Connection access**: the server checks `wss://` in production and the exact `chrome-extension://<id>` Origin. Each collect gets a path containing a cryptographically random route token; only the authorized API caller should receive it. A wrong token does not match a registered WebSocket path. Treat the path as confidential because it may appear in access logs.
 - **Dedicated profile**: `cookies.get` with `names: []` returns every cookie of the browser. The extension must only be installed in a **dedicated profile**, never in a user's personal browser.
 - **Secrets**: `params.text` of `action.inputText`, `input.type` and `element.inputText`, cookie values and `localStorage` content must appear in **no log** (server, extension, `client.log`).
 - **SSRF**: `download.fromUrl` is validated on the server (`assertPublicHttpsUrl`) and the client refuses any scheme other than `https:`. For `page.goto`, the current driver only checks the result (`startsWith('http')`). The protocol does not change that.
-- **Method allowlist**: the client may refuse a method with `UNSUPPORTED` and does not publish it in `hello.capabilities`. A server must never send a method that is absent from that list.
+- **Method support**: the client may answer `UNSUPPORTED` for methods it does not implement. A server should only send methods defined by this protocol version.
 - **Size**: the client rejects incoming messages above a reasonable limit (`maxMessageBytes` × 2), and the server does the same for incoming messages.
 - **Origin**: the server checks the connection's `Origin` header (`chrome-extension://<id>`).
 
@@ -812,8 +800,8 @@ The protocol fixes a behavior for each of these. It is up to you to decide wheth
 
 **Server → client (requests)**: `session.open`, `session.update`, `session.close`, `screencast.start`, `screencast.stop`, `page.url`, `page.origin`, `page.count`, `page.list`, `page.close`, `page.closeExtra`, `page.goBack`, `page.goto`, `page.new`, `page.waitForNavigation`, `page.sourceCode`, `page.screenshot`, `page.pdf`, `dom.getElement`, `dom.getElementAtPoint`, `dom.getElements`, `dom.getAttribute`, `dom.getAttributes`, `action.leftClick`, `action.inputText`, `action.dropdownSelect`, `input.click`, `input.press`, `input.type`, `download.list`, `download.fromUrl`, `download.waitForFile`, `captcha.waitForCloudflareTurnstile`, `captcha.waitForDatadome`, `cookies.get`, `cookies.set`, `localStorage.get`, `localStorage.set`, `element.leftClick`, `element.inputText`, `element.dropdownSelect`, `element.release`.
 
-**Server → client (control)**: `hello_ack`, `ping`, `pong`, `cancel`, `bye`.
+**Server → client (control)**: `ready`, `ping`, `pong`, `cancel`, `bye`.
 
-**Client → server (responses and control)**: `hello`, `response`, `ping`, `pong`, `bye`.
+**Client → server (responses and control)**: `response`, `ping`, `pong`, `bye`.
 
 **Client → server (events)**: `page.created`, `page.closed`, `page.activated`, `page.updated`, `page.error`, `screencast.frame`, `screencast.error`, `download.started`, `download.completed`, `transfer.chunk`, `client.log`.

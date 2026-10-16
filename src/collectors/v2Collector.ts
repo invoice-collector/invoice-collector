@@ -6,6 +6,7 @@ import { WebSocketServer } from '../websocket/webSocketServer';
 import { AuthenticationError } from '../error';
 import { Credential, ModelInvoice } from '../model/credential';
 import { CustomerAuthenticationMethod } from '../model/customer';
+import { AbstractDriver } from '../driver/abstractDriver';
 
 export abstract class V2Collector<C extends Config> extends AbstractCollector<C> {
 
@@ -30,19 +31,20 @@ export abstract class V2Collector<C extends Config> extends AbstractCollector<C>
         location: Location | null,
         customerAuthenticationMethod: CustomerAuthenticationMethod,
         providers: Credential[],
+        driver: AbstractDriver | undefined,
     ): Promise<CompleteInvoice[]> {
-        // Update collector params based on customerAuthenticationMethod
-        const useInteractiveLogin = AbstractCollector.updateCollectorParams(customerAuthenticationMethod, this.config);
-
-        // Check if a mandatory field is missing
-        const secretParams = await secret.getParams();
-        for (const [key, value] of Object.entries(this.config.params)) {
-            if (value.mandatory && !secretParams.hasOwnProperty(key)) {
-                throw new AuthenticationError('i18n.collectors.all.missing_param', this);
-            }
-        }
-
         try {
+            // Update collector params based on customerAuthenticationMethod
+            const useInteractiveLogin = AbstractCollector.updateCollectorParams(customerAuthenticationMethod, this.config);
+
+            // Check if a mandatory field is missing
+            const secretParams = await secret.getParams();
+            for (const [key, value] of Object.entries(this.config.params)) {
+                if (value.mandatory && !secretParams.hasOwnProperty(key)) {
+                    throw new AuthenticationError('i18n.collectors.all.missing_param', this);
+                }
+            }
+
             // Get invoices
             return await this._collect(
                 state,
@@ -54,11 +56,11 @@ export abstract class V2Collector<C extends Config> extends AbstractCollector<C>
                 location,
                 useInteractiveLogin,
                 providers,
+                driver,
             );
         }
         finally {
-            // Close the collector resources
-            await this._close();
+            await driver?.close();
         }
     }
 
@@ -85,11 +87,8 @@ export abstract class V2Collector<C extends Config> extends AbstractCollector<C>
         locale: string,
         location: Location | null,
         useInteractiveLogin: boolean,
-        providers: Credential[]
+        providers: Credential[],
+        driver: AbstractDriver | undefined
     ): Promise<CompleteInvoice[]>;
 
-    /**
-     * Closes the collector resources and performs any necessary cleanup.
-     */
-    abstract _close(): Promise<void>;
 }

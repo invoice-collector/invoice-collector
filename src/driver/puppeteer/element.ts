@@ -1,21 +1,24 @@
 import { ElementHandle } from 'rebrowser-puppeteer-core';
-import { ElementNotFoundError } from '../error';
-import * as utils from '../utils';
-import { AbstractDriver } from './abstractDriver';
+import { ElementNotFoundError } from '../../error';
+import * as utils from '../../utils';
+import { AbstractElement } from '../abstractElement';
+import { PuppeteerDriver } from './puppeteerDriver';
 
-export class Element {
+//TEMPORARY Alias for AbstractElement as Element
+export { AbstractElement as Element } from '../abstractElement';
+
+export class PuppeteerElement extends AbstractElement<PuppeteerDriver> {
 
     element: ElementHandle;
-    driver: AbstractDriver;
 
     /**
      * Constructs a new instance of the Element class.
      * @param element The ElementHandle associated with this element.
-     * @param driver The AbstractDriver instance associated with this element.
+     * @param driver The PuppeteerDriver instance associated with this element.
      */
-    constructor(element: ElementHandle, driver: AbstractDriver) {
+    constructor(element: ElementHandle, driver: PuppeteerDriver) {
+        super(driver);
         this.element = element;
-        this.driver = driver;
     }
 
     /**
@@ -23,11 +26,11 @@ export class Element {
      *
      * @returns The ElementHandle of the associated element, or null if the element is not found.
      */
-    async getElement(selector: any, options?: { raiseException?: true }): Promise<Element>;
-    async getElement(selector: any, options: { raiseException: false }): Promise<Element | null>;
+    async getElement(selector: any, options?: { raiseException?: true }): Promise<PuppeteerElement>;
+    async getElement(selector: any, options: { raiseException: false }): Promise<PuppeteerElement | null>;
     async getElement(selector: any, {
         raiseException = true,
-    } = {}): Promise<Element | null> {
+    } = {}): Promise<PuppeteerElement | null> {
         const elementHandle = await this.element.$(selector.selector);
         // If element not found and must raise exception
         if (!elementHandle && raiseException) {
@@ -39,7 +42,7 @@ export class Element {
             error.screenshot = await this.driver.screenshot();
             throw error;
         }
-        return elementHandle ? new Element(elementHandle, this.driver) : null;
+        return elementHandle ? new PuppeteerElement(elementHandle, this.driver) : null;
     }
 
     /**
@@ -55,8 +58,8 @@ export class Element {
     /**
      * Left clicks on the element.
      * @param options The left click options.
-     * @param options.timeout The timeout for the click action. Default is {@link AbstractDriver.DEFAULT_TIMEOUT}.
-     * @param options.delay The delay after the click action. Default is {@link AbstractDriver.DEFAULT_DELAY}.
+     * @param options.timeout The timeout for the click action. Default is {@link PuppeteerDriver.DEFAULT_TIMEOUT}.
+     * @param options.delay The delay after the click action. Default is {@link PuppeteerDriver.DEFAULT_DELAY}.
      * @param options.navigation Whether to wait for navigation after the click. Default is `true`.
      * @param options.mouseHover Whether to hover the mouse over the element before clicking. Default is `false`. Can also be a string representing a selector for the element to hover over.
      */
@@ -67,8 +70,8 @@ export class Element {
         mouseHover?: boolean | string,
     } = {}): Promise<void> {
         const {
-            timeout = AbstractDriver.DEFAULT_TIMEOUT,
-            delay = AbstractDriver.DEFAULT_DELAY,
+            timeout = PuppeteerDriver.DEFAULT_TIMEOUT,
+            delay = PuppeteerDriver.DEFAULT_DELAY,
             navigation = true,
             mouseHover = false,
         } = options;
@@ -98,8 +101,8 @@ export class Element {
      * Middle clicks on the element.
      * @param options The middle click options.
      * @param options.useFallbackMethod Whether to use the fallback method for middle click. Default is `false`.
-     * @param options.timeout The timeout for the middle click action. Default is {@link AbstractDriver.DEFAULT_TIMEOUT}.
-     * @param options.delay The delay after the middle click action. Default is {@link AbstractDriver.DEFAULT_TIMEOUT}.
+     * @param options.timeout The timeout for the middle click action. Default is {@link PuppeteerDriver.DEFAULT_TIMEOUT}.
+     * @param options.delay The delay after the middle click action. Default is {@link PuppeteerDriver.DEFAULT_TIMEOUT}.
      * @param options.mouseHover Whether to hover the mouse over the element before middle clicking. Default is `false`. Can also be a string representing a selector for the element to hover over.
      * @returns `true` if the fallback method was used, `false` otherwise.
      */
@@ -111,8 +114,8 @@ export class Element {
     } = {}): Promise<boolean> {
         let {
             useFallbackMethod = false,
-            timeout = AbstractDriver.DEFAULT_TIMEOUT,
-            delay = AbstractDriver.DEFAULT_TIMEOUT,
+            timeout = PuppeteerDriver.DEFAULT_TIMEOUT,
+            delay = PuppeteerDriver.DEFAULT_TIMEOUT,
             mouseHover = false,
         } = options;
 
@@ -162,7 +165,7 @@ export class Element {
             }, {
                 raiseException: true,
                 timeout: timeout
-            }) as Element;
+            }) as PuppeteerElement;
             // Scroll the element into view before performing the left click
             await newElement.element.scrollIntoView(); 
             // Hover the mouse over the element if required
@@ -194,8 +197,8 @@ export class Element {
      * @param text The text to input into the element.
      * @param options The input options.
      * @param options.tries The number of attempts to input the text. Default is `5`.
-     * @param options.timeout The timeout for each attempt. Default is {@link AbstractDriver.DEFAULT_TIMEOUT}.
-     * @param options.delay The delay between each attempt. Default is {@link AbstractDriver.DEFAULT_DELAY}.
+     * @param options.timeout The timeout for each attempt. Default is {@link PuppeteerDriver.DEFAULT_TIMEOUT}.
+     * @param options.delay The delay between each attempt. Default is {@link PuppeteerDriver.DEFAULT_DELAY}.
      * @param options.navigation Whether to wait for navigation after inputting the text. Default is `false`.
      * @param options.mouseHover Whether to hover the mouse over the element before inputting the text. Default is `false`.
      */
@@ -208,8 +211,8 @@ export class Element {
     } = {}): Promise<void> {
         let {
             tries = 5,
-            timeout = AbstractDriver.DEFAULT_TIMEOUT,
-            delay = AbstractDriver.DEFAULT_DELAY,
+            timeout = PuppeteerDriver.DEFAULT_TIMEOUT,
+            delay = PuppeteerDriver.DEFAULT_DELAY,
             navigation = false,
             mouseHover = false,
         } = options;
@@ -224,7 +227,7 @@ export class Element {
             while (currentValue !== text && tries > 0) {
                 await this.element.click({ clickCount: 3 });    // Select all text
                 await this.element.type(text);                  // Replace
-                await utils.delay(AbstractDriver.DEFAULT_DELAY_BETWEEN_RETRIES);
+                await utils.delay(PuppeteerDriver.DEFAULT_DELAY_BETWEEN_RETRIES);
                 currentValue = await this.element.evaluate((el: any) => el.value);
                 tries--;
             }
@@ -243,7 +246,7 @@ export class Element {
      * Selects a value from a dropdown element.
      * @param value The value to select in the dropdown.
      * @param options The dropdown selection options.
-     * @param options.delay The delay before and after selecting the value. Default is {@link AbstractDriver.DEFAULT_DELAY}.
+     * @param options.delay The delay before and after selecting the value. Default is {@link PuppeteerDriver.DEFAULT_DELAY}.
      * @param options.mouseHover Whether to hover the mouse over the element before selecting the value. Default is `false`.
      */
     async dropdownSelect(value: string, options: {
@@ -251,7 +254,7 @@ export class Element {
         mouseHover?: boolean,
     } = {}): Promise<void> {
         const {
-            delay = AbstractDriver.DEFAULT_DELAY,
+            delay = PuppeteerDriver.DEFAULT_DELAY,
             mouseHover = false,
         } = options;
 

@@ -90,4 +90,6 @@ export abstract class EmailProvider extends V2Collector<EmailProviderConfig> {
      * @returns The downloaded email invoice, including the attachment data and mimetype.
      */
     abstract downloadInvoice(invoice: EmailInvoice): Promise<DownloadedEmailInvoice>;
+
+    abstract _close(): Promise<void>;
 }

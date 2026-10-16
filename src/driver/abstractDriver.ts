@@ -1,7 +1,7 @@
 import { EventEmitter } from 'events';
 import { Proxy } from '../proxy/abstractProxy';
 import { WebCollector } from '../collectors/webCollector';
-import { Element } from './element';
+import type { AbstractElement } from './abstractElement';
 
 export type Screenshot = {
     data: string; // Base64 encoded image data
@@ -9,7 +9,7 @@ export type Screenshot = {
     height: number;
 }
 
-export abstract class AbstractDriver extends EventEmitter {
+export abstract class AbstractDriver<E extends AbstractElement<any> = AbstractElement<any>> extends EventEmitter {
 
     static DEFAULT_NAVIGATION_TIMEOUT = 30000;  // 30 seconds
     static DEFAULT_DOWNLOAD_TIMEOUT = 20000;    // 20 seconds
@@ -167,7 +167,7 @@ export abstract class AbstractDriver extends EventEmitter {
     abstract getElement(selector: any, options?: {
         raiseException?: boolean,
         timeout?: number,
-    }): Promise<Element | null>;
+    }): Promise<E | null>;
 
     /**
      * Returns the deepest element (descending through nested iframes and shadow roots) located at the given page coordinates.
@@ -178,7 +178,7 @@ export abstract class AbstractDriver extends EventEmitter {
     abstract getElementCoordinates(
         x: number,
         y: number
-    ): Promise<Element | null>;
+    ): Promise<E | null>;
 
     /**
      * Waits for and returns all elements matching the selector.
@@ -190,7 +190,7 @@ export abstract class AbstractDriver extends EventEmitter {
     abstract getElements(selector: any, options?: {
         raiseException?: boolean,
         timeout?: number,
-    }): Promise<Element[]>;
+    }): Promise<E[]>;
 
     /**
      * Waits for the first element matching the selector and returns the value of the given attribute (or property fallback).
@@ -234,7 +234,7 @@ export abstract class AbstractDriver extends EventEmitter {
         delay?: number,
         navigation?: boolean,
         mouseHover?: boolean | string,
-    }): Promise<Element | null>;
+    }): Promise<E | null>;
 
     /**
      * Waits for the element matching the selector and types the given text into it.
@@ -255,7 +255,7 @@ export abstract class AbstractDriver extends EventEmitter {
         tries?: number,
         navigation?: boolean,
         mouseHover?: boolean,
-    }): Promise<Element | null>;
+    }): Promise<E | null>;
 
     /**
      * Waits for the element matching the selector and selects the given value in it.
@@ -272,7 +272,7 @@ export abstract class AbstractDriver extends EventEmitter {
         timeout?: number,
         delay?: number,
         mouseHover?: boolean,
-    }): Promise<Element | null>;
+    }): Promise<E | null>;
 
     /**
      * Clicks the mouse at the given page coordinates.

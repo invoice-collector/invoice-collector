@@ -4,6 +4,7 @@ import { V2Collector } from './v2Collector';
 import { WebSocketServer } from '../websocket/webSocketServer';
 import { AuthenticationError, DisconnectedError, LoggableError, RemoveError } from '../error';
 import { MessageClick, MessageKeydown, MessageText } from '../websocket/message';
+import type { ExtensionTransport } from '../driver/extension/extensionTransport';
 
 export type WebConfig = Config & {
     loginUrl: string,
@@ -24,7 +25,7 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
 
     static LOGIN_TIMEOUT_MS = 10 * 60 * 1000; // 10 minutes
 
-    driver: AbstractDriver | null;
+    driverTransport: ExtensionTransport | null;
 
     /**
      * Constructs a new WebCollector instance.
@@ -45,16 +46,7 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
             },
             authenticationMethod: config.authenticationMethod || CollectorAuthenticationMethod.ALL,
         });
-        this.driver = null;
-    }
-
-    /**
-     * @inheritdoc */
-    async _close(): Promise<void> {
-        if (this.driver !== null) {
-            // Close the browser
-            await this.driver.close();
-        }
+        this.driverTransport = null;
     }
 
     // DOWNLOAD METHODS
