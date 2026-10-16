@@ -11,6 +11,9 @@ export class ExtensionElement extends AbstractElement<ExtensionDriver> {
         super(driver);
     }
 
+    /**
+     * @inheritdoc
+     */
     async getElement(selector: Selector, options?: { raiseException?: true }): Promise<ExtensionElement>;
     async getElement(selector: Selector, options: { raiseException: false }): Promise<ExtensionElement | null>;
     async getElement(selector: Selector, options: { raiseException?: boolean } = {
@@ -33,6 +36,9 @@ export class ExtensionElement extends AbstractElement<ExtensionDriver> {
         return result.element ? new ExtensionElement(result.element, this.driver) : null;
     }
 
+    /**
+     * @inheritdoc
+     */
     async textContent(defaultValue: string): Promise<string> {
         const result = await this.driver.elementRequest<{ value: string | null }>(
             'element.textContent', this.ref,
@@ -40,6 +46,9 @@ export class ExtensionElement extends AbstractElement<ExtensionDriver> {
         return result.value || defaultValue;
     }
 
+    /**
+     * @inheritdoc
+     */
     async leftClick(options: {
         timeout?: number;
         delay?: number;
@@ -49,6 +58,9 @@ export class ExtensionElement extends AbstractElement<ExtensionDriver> {
         await this.driver.elementRequest('element.leftClick', this.ref, options);
     }
 
+    /**
+     * @inheritdoc
+     */
     async middleClick(options: {
         useFallbackMethod?: boolean;
         timeout?: number;
@@ -58,6 +70,9 @@ export class ExtensionElement extends AbstractElement<ExtensionDriver> {
         return this.driver.elementRequest<boolean>('element.middleClick', this.ref, options);
     }
 
+    /**
+     * @inheritdoc
+     */
     async inputText(text: string, options: {
         tries?: number;
         timeout?: number;
@@ -68,10 +83,16 @@ export class ExtensionElement extends AbstractElement<ExtensionDriver> {
         await this.driver.elementRequest('element.inputText', this.ref, { ...options, text });
     }
 
+    /**
+     * @inheritdoc
+     */
     async dropdownSelect(value: string, options: { delay?: number; mouseHover?: boolean } = {}): Promise<void> {
         await this.driver.elementRequest('element.dropdownSelect', this.ref, { ...options, value });
     }
 
+    /**
+     * @inheritdoc
+     */
     async getAttribute(selector: Selector, attribute: string): Promise<string> {
         const result = await this.driver.elementRequest<{ value: unknown }>(
             'element.getAttribute', this.ref, { selector, attributeName: attribute },
@@ -79,20 +100,32 @@ export class ExtensionElement extends AbstractElement<ExtensionDriver> {
         return result.value === null || result.value === undefined ? '' : String(result.value);
     }
 
+    /**
+     * @inheritdoc
+     */
     async innerHTML(): Promise<string> {
         const result = await this.driver.elementRequest<{ value: string }>('element.innerHTML', this.ref);
         return result.value;
     }
 
+    /**
+     * @inheritdoc
+     */
     async cssSelector(): Promise<string> {
         const result = await this.driver.elementRequest<{ selector: string }>('element.cssSelector', this.ref);
         return result.selector;
     }
 
+    /**
+     * @inheritdoc
+     */
     async tagName(): Promise<string> {
         return this.ref.tagName.toLowerCase();
     }
 
+    /**
+     * @inheritdoc
+     */
     async isClickable(): Promise<boolean> {
         const result = await this.driver.elementRequest<{ clickable: boolean }>('element.isClickable', this.ref);
         return result.clickable;

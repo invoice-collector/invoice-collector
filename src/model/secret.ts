@@ -1,12 +1,20 @@
 import { SecretManagerFactory } from '../secret_manager/secretManagerFactory';
 
 export type Params = Record<string, Param> & {
+    /**
+     * Gets the parameter associated with the specified key.
+     * @param key The key identifying the value to retrieve.
+     */
     get(key: string): Param;
 };
 
 class ParamsObject extends Object {
     [key: string]: any;
 
+    /**
+     * Constructs a new ParamsObject instance.
+     * @param values The initial key-value pairs to populate the ParamsObject with.
+     */
     constructor(values: Record<string, string> = {}) {
         super();
         Object.assign(this, values);
@@ -31,6 +39,11 @@ class ParamsObject extends Object {
         });
     }
 
+    /**
+     * Gets the value associated with the specified key from the secret.
+     * @param key The key identifying the value to retrieve.
+     * @returns The value associated with the specified key.
+     */
     get(key: string): Param {
         if (!Object.prototype.hasOwnProperty.call(this, key)) {
             Object.defineProperty(this, key, {

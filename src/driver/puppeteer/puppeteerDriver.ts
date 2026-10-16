@@ -358,7 +358,7 @@ export class PuppeteerDriver extends AbstractDriver<PuppeteerElement> {
     /**
      * @inheritdoc
      */
-    async getElement(selector, {
+    async getElement(selector: Selector, {
         raiseException = true,
         timeout = AbstractDriver.DEFAULT_TIMEOUT,
     } = {}): Promise<PuppeteerElement | null> {
@@ -464,7 +464,7 @@ export class PuppeteerDriver extends AbstractDriver<PuppeteerElement> {
     /**
      * @inheritdoc
      */
-    async getElements(selector, {
+    async getElements(selector: Selector, {
         raiseException = true,
         timeout = AbstractDriver.DEFAULT_TIMEOUT,
     } = {}): Promise<PuppeteerElement[]> {
@@ -478,7 +478,7 @@ export class PuppeteerDriver extends AbstractDriver<PuppeteerElement> {
     /**
      * @inheritdoc
      */
-    async getAttribute(selector, attributeName, {
+    async getAttribute(selector: Selector, attributeName, {
         raiseException = true,
         timeout = AbstractDriver.DEFAULT_TIMEOUT,
     } = {}): Promise<string> {
@@ -502,7 +502,7 @@ export class PuppeteerDriver extends AbstractDriver<PuppeteerElement> {
     /**
      * @inheritdoc
      */
-    async getAttributes(selector, attributeName, {
+    async getAttributes(selector: Selector, attributeName, {
         raiseException = true,
         timeout = AbstractDriver.DEFAULT_TIMEOUT,
     } = {}): Promise<string[]> {
@@ -518,7 +518,7 @@ export class PuppeteerDriver extends AbstractDriver<PuppeteerElement> {
     /**
      * @inheritdoc
      */
-    async leftClick(selector, {
+    async leftClick(selector: Selector, {
         raiseException = true,
         timeout = AbstractDriver.DEFAULT_TIMEOUT,
         delay = AbstractDriver.DEFAULT_DELAY,
@@ -560,7 +560,7 @@ export class PuppeteerDriver extends AbstractDriver<PuppeteerElement> {
     /**
      * @inheritdoc
      */
-    async dropdownSelect(selector, value: string, {
+    async dropdownSelect(selector: Selector, value: string, {
         raiseException = true,
         timeout = AbstractDriver.DEFAULT_TIMEOUT,
         delay = AbstractDriver.DEFAULT_DELAY,

@@ -2,6 +2,11 @@ import { Server, WebSocket } from 'ws';
 import http from 'http';
 
 export interface WebSocketConnectionHandler {
+    /**
+     * Handles a new WebSocket connection.
+     * @param ws The WebSocket connection.
+     * @param request The HTTP upgrade request that initiated the WebSocket connection.
+     */
     handleConnection(ws: WebSocket, request: http.IncomingMessage): void;
 }
 

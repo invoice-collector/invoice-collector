@@ -8,6 +8,7 @@ import { WebSocketServerManager } from '../../websocket/webSocketServerManager';
 import { ExtensionProtocolError, isPageList, isRecord, Params, PARALLEL_METHODS } from './protocol';
 import * as utils from '../../utils';
 
+/** Tracks one server request until its response or timeout is received. */
 interface PendingRequest {
     id: string;
     method: string;
@@ -20,6 +21,7 @@ interface PendingRequest {
     responded: boolean;
 }
 
+/** Holds bounded chunks for a single large response value. */
 interface Transfer {
     total: number;
     chunks: Map<number, string>;
@@ -32,9 +34,12 @@ const MAX_TRANSFER_BYTES = 64 * 1024 * 1024;
 const MAX_TRANSFERS = 128;
 const INCOMPLETE_TRANSFER = Symbol('incomplete transfer');
 
+/** Routes one collection's WebSocket protocol traffic to its remote browser extension. */
 export class ExtensionTransport extends EventEmitter {
+    /** Prefix for random per-collection extension paths. */
     public static PATH = '/api/v1/driver/';
 
+    /** Random path used to locate this transport in the shared WebSocket manager. */
     public readonly path: string;
     private readonly extensionOrigin: string;
     private readonly allowInsecureTransport: boolean;
@@ -54,6 +59,11 @@ export class ExtensionTransport extends EventEmitter {
     private transfers = new Map<string, Transfer>();
     private transferBytes = 0;
 
+    /**
+     * Registers this transport path and configures the allowed extension origin.
+     * @param server The HTTP server to which the WebSocket manager should be attached.
+      * @throws Error if EXTENSION_ORIGIN is missing or is not a chrome-extension origin.
+     */
     constructor(server: http.Server) {
         super();
         this.path = `${ExtensionTransport.PATH}${utils.generate_token()}`;
@@ -69,14 +79,26 @@ export class ExtensionTransport extends EventEmitter {
         this.manager.registerHandler(this.path, this);
     }
 
+    /**
+     * Whether an accepted extension socket is ready for protocol requests.
+     * @returns True if the extension socket is ready for protocol requests, otherwise false.
+     */
     get connected(): boolean {
         return this.ready && this.socket?.readyState === WebSocket.OPEN;
     }
 
+    /**
+     * Returns the number of times the extension socket has disconnected.
+     * @returns The disconnect generation for this transport.
+     */
     get connectionGeneration(): number {
         return this.generation;
     }
 
+    /**
+     * Waits for the extension to connect and complete any required resynchronization.
+     * @throws ExtensionProtocolError if the transport is disposed or the connection times out.
+     */
     async waitForConnection(): Promise<void> {
         if (this.connected) {
             return;
@@ -104,6 +126,12 @@ export class ExtensionTransport extends EventEmitter {
         });
     }
 
+    /**
+     * Validates the socket's Origin and transport security, then attaches protocol handlers.
+     * @param socket The upgraded extension WebSocket.
+     * @param request The HTTP upgrade request containing Origin and TLS information.
+     * @returns True if the connection was accepted, otherwise false.
+     */
     accept(socket: WebSocket, request: http.IncomingMessage): boolean {
         if (this.disposed || this.socket || request.headers.origin !== this.extensionOrigin ||
             (!this.allowInsecureTransport && !(request.socket as TLSSocket).encrypted &&
@@ -131,6 +159,11 @@ export class ExtensionTransport extends EventEmitter {
         return true;
     }
 
+    /**
+     * Handles a WebSocketServerManager connection targeting this collection's path.
+     * @param socket The upgraded WebSocket.
+     * @param request The HTTP upgrade request.
+     */
     handleConnection(socket: WebSocket, request: http.IncomingMessage): void {
         socket.on('error', () => socket.terminate());
         if (!this.accept(socket, request)) {
@@ -138,6 +171,10 @@ export class ExtensionTransport extends EventEmitter {
         }
     }
 
+    /**
+     * Refreshes the server's page cache after the extension reconnects.
+     * @param socket The reconnecting WebSocket that must remain current during resynchronization.
+     */
     private async resynchronize(socket: WebSocket): Promise<void> {
         try {
             const pages = await this.enqueue('page.list', {}, AbstractDriver.DEFAULT_TIMEOUT, true);
@@ -154,10 +191,27 @@ export class ExtensionTransport extends EventEmitter {
         }
     }
 
+    /**
+     * Sends a protocol request and resolves with its result or rejects with its protocol error.
+     * @param method The protocol method name.
+     * @param params The request parameters, or an empty object when omitted.
+     * @param timeout The fallback request timeout in milliseconds.
+     * @returns A promise containing the decoded response result.
+     * @throws ExtensionProtocolError when disconnected, given invalid parameters, or timed out.
+     */
     request<Result>(method: string, params: Params = {}, timeout = AbstractDriver.DEFAULT_TIMEOUT): Promise<Result> {
         return this.enqueue(method, params, timeout) as Promise<Result>;
     }
 
+    /**
+     * Queues concurrent actions while allowing designated read-only requests to run in parallel.
+     * @param method The protocol method name.
+     * @param params The request parameters.
+     * @param timeout The fallback timeout in milliseconds.
+     * @param internal True for the reconnect resynchronization request.
+     * @returns A promise containing the response result.
+     * @throws ExtensionProtocolError when disconnected or given an invalid timeout.
+     */
     private enqueue(method: string, params: Params, timeout: number, internal = false): Promise<unknown> {
         if ((!this.connected && !internal) || this.socket?.readyState !== WebSocket.OPEN) {
             return Promise.reject(new ExtensionProtocolError('DISCONNECTED', 'Extension is disconnected.'));
@@ -180,6 +234,10 @@ export class ExtensionTransport extends EventEmitter {
         });
     }
 
+    /**
+     * Serializes and sends a request, then schedules its protocol timeout.
+     * @param pending The request entry to dispatch.
+     */
     private dispatch(pending: PendingRequest): void {
         const message = JSON.stringify({ type: 'request', id: pending.id, method: pending.method, params: pending.params });
         if (Buffer.byteLength(message) > MAX_MESSAGE_BYTES * 2) {
@@ -208,12 +266,21 @@ export class ExtensionTransport extends EventEmitter {
         });
     }
 
+    /**
+     * Dispatches the next queued action when no action is currently running.
+     */
     private drain(): void {
         if (this.connected && !this.actionId && this.queue.length) {
             this.dispatch(this.queue.shift()!);
         }
     }
 
+    /**
+     * Clears request bookkeeping and settles the caller's promise.
+     * @param pending The request entry to finish.
+     * @param error The error to reject with, if the request failed.
+     * @param value The successful result value.
+     */
     private finish(pending: PendingRequest, error?: Error, value?: unknown): void {
         clearTimeout(pending.timer);
         this.pending.delete(pending.id);
@@ -228,6 +295,11 @@ export class ExtensionTransport extends EventEmitter {
         this.drain();
     }
 
+    /**
+     * Parses and routes one client message without logging potentially sensitive payloads.
+     * @param raw The WebSocket message payload.
+     * @param binary Whether the payload was sent as a binary frame.
+     */
     private receive(raw: RawData, binary: boolean): void {
         try {
             if (binary || Buffer.byteLength(raw.toString()) > MAX_MESSAGE_BYTES * 2) {
@@ -273,6 +345,11 @@ export class ExtensionTransport extends EventEmitter {
         }
     }
 
+    /**
+     * Matches a client response to its pending request and resolves any transferred values.
+     * @param message The parsed response envelope.
+     * @throws Error if the response envelope is malformed.
+     */
     private respond(message: Params): void {
         if (typeof message.id !== 'string' || typeof message.ok !== 'boolean') {
             throw new Error('Invalid response.');
@@ -301,6 +378,10 @@ export class ExtensionTransport extends EventEmitter {
         this.resolveResult(pending);
     }
 
+    /**
+     * Replaces complete transfer markers in a response and settles the pending request.
+     * @param pending The request whose response may contain transfer markers.
+     */
     private resolveResult(pending: PendingRequest): void {
         const consumed = new Set<string>();
         try {
@@ -316,6 +397,14 @@ export class ExtensionTransport extends EventEmitter {
         }
     }
 
+    /**
+     * Recursively replaces transfer markers with ordered chunk data.
+     * @param value The response value to hydrate.
+     * @param consumed Transfer IDs successfully consumed during hydration.
+     * @param depth Current nesting depth, used to bound recursive results.
+     * @returns The value with complete transfers replaced by joined chunk data.
+     * @throws Error for malformed markers or excessive nesting; throws an internal sentinel for incomplete transfers.
+     */
     private hydrate(value: unknown, consumed: Set<string>, depth: number): unknown {
         if (depth > 64) { throw new Error('Result nesting limit exceeded.'); }
         if (Array.isArray(value)) {
@@ -334,6 +423,11 @@ export class ExtensionTransport extends EventEmitter {
         return Object.fromEntries(Object.entries(value).map(([key, item]) => [key, this.hydrate(item, consumed, depth + 1)]));
     }
 
+    /**
+     * Validates, stores, and accounts for one chunk from a large client response.
+     * @param data The transfer chunk event payload.
+     * @throws Error if the chunk conflicts with existing data or exceeds transfer limits.
+     */
     private chunk(data: Params): void {
         const { transferId, index, total, data: content } = data;
         if (typeof transferId !== 'string' || typeof content !== 'string' || typeof index !== 'number' ||
@@ -361,6 +455,10 @@ export class ExtensionTransport extends EventEmitter {
         }
     }
 
+    /**
+     * Releases chunks and timers associated with a completed or expired transfer.
+     * @param transferId The transfer identifier to remove.
+     */
     private removeTransfer(transferId: string): void {
         const transfer = this.transfers.get(transferId);
         if (transfer) {
@@ -370,12 +468,20 @@ export class ExtensionTransport extends EventEmitter {
         }
     }
 
+    /**
+     * Sends a JSON control message when the WebSocket is open.
+     * @param message The control message to serialize and send.
+     */
     private send(message: Params): void {
         if (this.socket?.readyState === WebSocket.OPEN) {
             this.socket.send(JSON.stringify(message));
         }
     }
 
+    /**
+     * Rejects in-flight work and starts the reconnect grace period for this session.
+     * @param socket The socket whose close event was received.
+     */
     private disconnected(socket: WebSocket): void {
         if (this.socket !== socket) { return; }
         this.socket = null;
@@ -393,6 +499,9 @@ export class ExtensionTransport extends EventEmitter {
         }
     }
 
+    /**
+     * Closes the session, rejects remaining work, and unregisters its path from WebSocketServerManager.
+     */
     dispose(): void {
         if (this.disposed) { return; }
         this.disposed = true;

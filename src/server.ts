@@ -1609,6 +1609,11 @@ export class Server {
         };
     }
 
+    /**
+     * Create an extension transport for the given collector if it is a web collector.
+     * @param collector The collector for which to create the extension transport.
+     * @returns The created extension transport if the collector is a web collector, otherwise undefined.
+     */
     private createExtensionTransport(collector: AbstractCollector<Config>): ExtensionTransport | undefined {
         if (!(collector instanceof WebCollector)) {
             return undefined;

@@ -9,6 +9,10 @@ export interface Selector {
 export abstract class AbstractElement<D extends AbstractDriver<any> = AbstractDriver<any>> {
     driver: D;
 
+    /**
+     * Constructs a new instance of the AbstractElement class.
+     * @param driver The driver instance associated with this element.
+     */
     protected constructor(driver: D) {
         this.driver = driver;
     }
