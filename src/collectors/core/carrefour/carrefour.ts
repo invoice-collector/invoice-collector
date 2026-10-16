@@ -5,6 +5,7 @@ import { AbstractElement } from '../../../driver/abstractElement';
 import { CollectorCaptcha, CollectorType, Invoice, CollectorAuthenticationMethod, CollectorState } from '../../abstractCollector';
 import { TwofaPromise } from '../../../tasks/collect/twofaPromise';
 import { WebSocketServer } from '../../../websocket/webSocketServer';
+import { Params } from '../../../model/secret';
 
 export class CarrefourCollector extends LinearWebCollector {
 
@@ -56,7 +57,7 @@ export class CarrefourCollector extends LinearWebCollector {
     /**
      * @inheritdoc
      */
-    async login(driver: AbstractDriver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
+    async login(driver: AbstractDriver, params: Params, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
         // Wait for captcha to be successful
         await driver.waitForCloudflareTurnstile();
 
@@ -88,7 +89,7 @@ export class CarrefourCollector extends LinearWebCollector {
     /**
      * @inheritdoc
      */
-    async twofa(driver: AbstractDriver, params: any, twofa_promise: TwofaPromise, webSocketServer: WebSocketServer): Promise<string | void> {
+    async twofa(driver: AbstractDriver, params: Params, twofa_promise: TwofaPromise, webSocketServer: WebSocketServer): Promise<string | void> {
         // Check if too much attempts
         const twofa_too_much = await driver.getElement(CarrefourSelectors.CONTAINER_2FA_ALERT, { raiseException: false, timeout: 1000 });
         if (twofa_too_much) {

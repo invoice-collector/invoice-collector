@@ -7,6 +7,8 @@ import { BrowserFactory } from '../browser/browserFactory';
 import { AbstractDriver, Screenshot } from '../abstractDriver';
 import { PuppeteerElement } from './puppeteerElement';
 import { AbstractBrowser } from '../browser/abstractBrowser';
+import { Selector } from '../abstractElement';
+import { Param } from '../../model/secret';
 
 export class PuppeteerDriver extends AbstractDriver<PuppeteerElement> {
 
@@ -537,7 +539,9 @@ export class PuppeteerDriver extends AbstractDriver<PuppeteerElement> {
     /**
      * @inheritdoc
      */
-    async inputText(selector, text, {
+    async inputText(
+        selector: Selector,
+        text: string | Param, {
         raiseException = true,
         timeout = AbstractDriver.DEFAULT_TIMEOUT,
         delay = AbstractDriver.DEFAULT_DELAY,

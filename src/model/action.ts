@@ -5,6 +5,7 @@ import { Invoice } from '../collectors/abstractCollector';
 import { AuthenticationError, DisconnectedError, ElementNotFoundError } from '../error';
 import { WebSocketServer } from '../websocket/webSocketServer';
 import { AbstractElement } from '../driver/abstractElement';
+import { Params } from './secret';
 
 export enum ActionEnum  {
     GOAL_REACHED = 'goalReached',
@@ -244,7 +245,7 @@ export class MiddleClickAction extends Action<MiddleClickContext, void> {
 
 export type InputTextContext = {
     driver: AbstractDriver;
-    params: any;
+    params: Params;
 }
 
 export class InputTextAction extends Action<InputTextContext, void> {

@@ -5,6 +5,7 @@ import { AbstractElement } from '../driver/abstractElement';
 import { WebSocketServer } from '../websocket/webSocketServer';
 import { LinearWebCollector } from './linearWebCollector';
 import { PlannedCollectorError } from '../error';
+import { Params } from '../model/secret';
 
 export type SketchConfig = WebConfig & {
 }
@@ -27,7 +28,7 @@ export abstract class SketchCollector extends LinearWebCollector {
     /**
      * @inheritdoc
      */
-    async login(driver: AbstractDriver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
+    async login(driver: AbstractDriver, params: Params, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
         return;
     }
 

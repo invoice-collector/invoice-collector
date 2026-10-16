@@ -4,7 +4,7 @@ import { AbstractElement } from '../driver/abstractElement';
 import { AuthenticationError, CollectorError, DisconnectedError, LoggableError, NoInvoiceFoundError, PartialCollectError } from '../error';
 import { ProxyFactory } from '../proxy/proxyFactory';
 import { Location, Proxy } from '../proxy/abstractProxy';
-import { Secret } from '../model/secret';
+import { Params, Secret } from '../model/secret';
 import { TwofaPromise } from '../tasks/collect/twofaPromise';
 import { State } from '../model/state';
 import * as utils from '../utils';
@@ -398,7 +398,7 @@ export abstract class LinearWebCollector extends WebCollector {
      * @param params The parameters required for the login process.
      * @returns Nothing if the login is successful, or a string result if an error is displayed on screen.
      */
-    abstract login(driver: AbstractDriver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string |void>;
+    abstract login(driver: AbstractDriver, params: Params, webSocketServer: WebSocketServer | undefined): Promise<string |void>;
 
     /**
      * Checks whether the collector needs to perform a two-factor authentication (2FA) action.
@@ -417,7 +417,7 @@ export abstract class LinearWebCollector extends WebCollector {
      * @param webSocketServer The WebSocket server instance for real-time communication.
      * @returns Nothing if the 2FA is successful, or a string result if an error is displayed on screen.
      */
-    async twofa(driver: AbstractDriver, params: any, twofa_promise: TwofaPromise, webSocketServer: WebSocketServer): Promise<string | void> {
+    async twofa(driver: AbstractDriver, params: Params, twofa_promise: TwofaPromise, webSocketServer: WebSocketServer): Promise<string | void> {
         // Assume the collector does not implement 2FA
     }
 

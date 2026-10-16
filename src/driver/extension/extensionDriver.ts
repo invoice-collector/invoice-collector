@@ -7,6 +7,7 @@ import * as utils from '../../utils';
 import { ExtensionTransport } from './extensionTransport';
 import type { Selector } from '../abstractElement';
 import { ActionOptions, ElementRef, ExtensionProtocolError, FileInfo, PageInfo, PageList, Params } from './protocol';
+import { Param } from '../../model/secret';
 
 export class ExtensionDriver extends AbstractDriver<ExtensionElement> {
     readonly transport: ExtensionTransport;
@@ -267,8 +268,9 @@ export class ExtensionDriver extends AbstractDriver<ExtensionElement> {
         return element;
     }
 
-    async inputText(selector: Selector, text: string, options: ActionOptions = {}): Promise<ExtensionElement | null> {
-        return this.selectorAction('action.inputText', selector, { ...options, text });
+    async inputText(selector: Selector, text: string | Param, options: ActionOptions = {}): Promise<ExtensionElement | null> {
+        const rawText = typeof text === 'string' ? text : text.key;
+        return this.selectorAction('action.inputText', selector, { ...options, text: rawText });
     }
 
     async dropdownSelect(selector: Selector, value: string, options: ActionOptions = {}): Promise<ExtensionElement | null> {

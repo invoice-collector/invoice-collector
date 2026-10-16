@@ -1,5 +1,67 @@
 import { SecretManagerFactory } from '../secret_manager/secretManagerFactory';
 
+export type Params = Record<string, Param> & {
+    get(key: string): Param;
+};
+
+class ParamsObject extends Object {
+    [key: string]: any;
+
+    constructor(values: Record<string, string> = {}) {
+        super();
+        Object.assign(this, values);
+
+        return new Proxy(this, {
+            get(target, key, receiver) {
+                if (key === 'get') {
+                    return target.get.bind(target);
+                }
+
+                if (key === 'toJSON') {
+                    return () => ({ ...target });
+                }
+
+                // Preserve symbol access and avoid Promise thenable detection.
+                if (typeof key !== 'string' || key === 'then') {
+                    return Reflect.get(target, key, receiver);
+                }
+
+                return target.get(key);
+            }
+        });
+    }
+
+    get(key: string): Param {
+        if (!Object.prototype.hasOwnProperty.call(this, key)) {
+            Object.defineProperty(this, key, {
+                value: '',
+                writable: true,
+                enumerable: true,
+                configurable: true,
+            });
+        }
+        const target = this;
+        return {
+            key,
+            get value(): string {
+                return target[key];
+            },
+            set value(value: string) {
+                target[key] = value;
+            },
+        };
+    }
+}
+
+export const Params = ParamsObject as unknown as {
+    new(values?: Record<string, string>): Params;
+};
+
+export interface Param {
+    key: string;
+    value: string;
+}
+
 export class Secret {
     
     static DEFAULT_VALUE: {} = {};
@@ -36,15 +98,19 @@ export class Secret {
      * Gets the 'params' value from the secret.
      * @returns The value associated with the 'params' key.
      */
-    async getParams(): Promise<any> {
-        return this.getValue('params');
+    async getParams(): Promise<Params> {
+        const values = await this.getValue('params');
+        if (!(values instanceof ParamsObject)) {
+            this.value['params'] = new Params(values ?? {});
+        }
+        return this.value['params'];
     }
 
     /**
      * Sets the 'params' value in the secret.
      * @param value The value to associate with the 'params' key.
      */
-    async setParams(value: any) {
+    async setParams(value: Params) {
         this.value['params'] = value;
     }
 

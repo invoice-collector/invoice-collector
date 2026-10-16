@@ -2,6 +2,7 @@ import { EventEmitter } from 'events';
 import { Proxy } from '../proxy/abstractProxy';
 import { WebCollector } from '../collectors/webCollector';
 import type { AbstractElement, Selector } from './abstractElement';
+import { Param } from '../model/secret';
 
 export type Screenshot = {
     data: string; // Base64 encoded image data
@@ -248,7 +249,7 @@ export abstract class AbstractDriver<E extends AbstractElement<any> = AbstractEl
      * @param options.mouseHover If true, hovers the mouse over the element before typing.
      * @returns The element that received the text, or null if not found and exceptions are disabled.
      */
-    abstract inputText(selector: Selector, text: string, options?: {
+    abstract inputText(selector: Selector, text: string | Param, options?: {
         raiseException?: boolean,
         timeout?: number,
         delay?: number,

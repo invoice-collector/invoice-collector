@@ -83,7 +83,7 @@ export class EmailIntegration extends AbstractIntegration {
         const secretParams = await this.secret.getParams();
         await this.checkMandatoryParams(secretParams);
 
-        utils.assertEmail(secretParams.email);
+        utils.assertEmail(secretParams.email.value);
 
         const content = paragraphs.map(text => ({
             text: text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;'),
@@ -92,6 +92,6 @@ export class EmailIntegration extends AbstractIntegration {
             italic: false,
         }));
 
-        await AnalyticsFactory.getInstance().sendEmail([secretParams.email], subject, content, attachments);
+        await AnalyticsFactory.getInstance().sendEmail([secretParams.email.value], subject, content, attachments);
     }
 }

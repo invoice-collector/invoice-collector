@@ -1,3 +1,4 @@
+import { Param } from '../model/secret';
 import type { AbstractDriver } from './abstractDriver';
 
 export interface Selector {
@@ -17,7 +18,7 @@ export abstract class AbstractElement<D extends AbstractDriver<any> = AbstractDr
     abstract textContent(defaultValue: string): Promise<string>;
     abstract leftClick(options?: { timeout?: number; delay?: number; navigation?: boolean; mouseHover?: boolean | string }): Promise<void>;
     abstract middleClick(options?: { useFallbackMethod?: boolean; timeout?: number; delay?: number; mouseHover?: boolean | string }): Promise<boolean>;
-    abstract inputText(text: string, options?: { tries?: number; timeout?: number; delay?: number; navigation?: boolean; mouseHover?: boolean }): Promise<void>;
+    abstract inputText(text: string | Param, options?: { tries?: number; timeout?: number; delay?: number; navigation?: boolean; mouseHover?: boolean }): Promise<void>;
     abstract dropdownSelect(value: string, options?: { delay?: number; mouseHover?: boolean }): Promise<void>;
     abstract getAttribute(selector: Selector, attribute: string): Promise<string>;
     abstract innerHTML(): Promise<string>;

@@ -7,6 +7,7 @@ import * as utils from '../../../../utils';
 import { Invoice } from '../../../abstractCollector';
 import { AuthenticationError } from '../../../../error';
 import { WebCollector } from '../../../webCollector';
+import { Params } from '../../../../model/secret';
 
 export class OrangeHelper {
 
@@ -26,7 +27,7 @@ export class OrangeHelper {
      * @param webSocketServer The WebSocket server instance for handling 2FA, if needed.
      * @returns A string containing an error message if login fails, or void if successful.
      */
-    static async login(driver: AbstractDriver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
+    static async login(driver: AbstractDriver, params: Params, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
         // Refuse cookies
         await driver.leftClick(OrangeHelperSelectors.BUTTON_REFUSE_COOKIES, { raiseException: false, timeout: 5000});
 
@@ -98,7 +99,7 @@ export class OrangeHelper {
      * @param webSocketServer The WebSocket server instance for handling 2FA.
      * @returns A string containing an error message if 2FA fails, or void if successful.
      */
-    static async twofa(driver: AbstractDriver, params: any, twofa_promise: TwofaPromise, webSocketServer: WebSocketServer): Promise<string | void> {
+    static async twofa(driver: AbstractDriver, params: Params, twofa_promise: TwofaPromise, webSocketServer: WebSocketServer): Promise<string | void> {
         // Get code from UI
         const code = await Promise.race([twofa_promise.code(), webSocketServer.getTwofa()]);
     }

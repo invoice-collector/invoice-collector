@@ -20,7 +20,7 @@ import { WebSocketServer } from '../src/websocket/webSocketServer';
 import { WebSocketServerManager } from '../src/websocket/webSocketServerManager';
 import * as utils from '../src/utils';
 import { AbstractCollector, Config } from '../src/collectors/abstractCollector';
-import { Secret } from '../src/model/secret';
+import { Params, Secret } from '../src/model/secret';
 import { CustomerAuthenticationMethod } from '../src/model/customer';
 import { DriverFactory } from '../src/driver/driverFactory';
 
@@ -299,7 +299,7 @@ function getHashFromSecret(secret: Secret): string {
         console.log(`===== PART6: Performing new collect with cookies local storage and download since timestamp =====`);
 
         // Override login method
-        (collector as any).login = async (driver: any, params: any, webSocketServer: WebSocketServer | undefined) => {
+        (collector as any).login = async (driver: any, params: Params, webSocketServer: WebSocketServer | undefined) => {
             throw new Error("Login was triggered, but it should not. Cookies and local storage should be used to login, if needed.");
         };
 

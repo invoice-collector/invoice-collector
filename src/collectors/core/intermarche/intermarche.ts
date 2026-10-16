@@ -5,6 +5,7 @@ import { AbstractElement } from '../../../driver/abstractElement';
 import { CollectorCaptcha, CollectorState, CollectorType, Invoice, CollectorAuthenticationMethod } from '../../abstractCollector';
 import { UnfinishedCollectorError } from '../../../error';
 import { WebSocketServer } from '../../../websocket/webSocketServer';
+import { Params } from '../../../model/secret';
 
 export class IntermarcheCollector extends LinearWebCollector {
 
@@ -47,7 +48,7 @@ export class IntermarcheCollector extends LinearWebCollector {
     /**
      * @inheritdoc
      */
-    async login(driver: AbstractDriver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
+    async login(driver: AbstractDriver, params: Params, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
         // Wait for Datadome captcha
         await driver.waitForDatadomeCaptcha();
 

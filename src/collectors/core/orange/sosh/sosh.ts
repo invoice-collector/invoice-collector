@@ -6,6 +6,7 @@ import { AbstractDriver } from '../../../../driver/abstractDriver';
 import { AbstractElement } from '../../../../driver/abstractElement';
 import { WebSocketServer } from '../../../../websocket/webSocketServer';
 import { SoshSelectors } from './selectors';
+import { Params } from '../../../../model/secret';
 
 export class SoshCollector extends LinearWebCollector {
 
@@ -57,7 +58,7 @@ export class SoshCollector extends LinearWebCollector {
     /**
      * @inheritdoc
      */
-    async login(driver: AbstractDriver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
+    async login(driver: AbstractDriver, params: Params, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
         return await OrangeHelper.login(driver, params, webSocketServer);
     }
 
@@ -71,7 +72,7 @@ export class SoshCollector extends LinearWebCollector {
     /**
      * @inheritdoc
      */
-    async twofa(driver: AbstractDriver, params: any, twofa_promise: TwofaPromise, webSocketServer: WebSocketServer): Promise<string | void> {
+    async twofa(driver: AbstractDriver, params: Params, twofa_promise: TwofaPromise, webSocketServer: WebSocketServer): Promise<string | void> {
         return await OrangeHelper.twofa(driver, params, twofa_promise, webSocketServer);
     }
 

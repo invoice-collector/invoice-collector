@@ -3,6 +3,7 @@ import { ElementNotFoundError } from '../../error';
 import * as utils from '../../utils';
 import { AbstractElement, Selector } from '../abstractElement';
 import { PuppeteerDriver } from './puppeteerDriver';
+import { Param } from '../../model/secret';
 
 export class PuppeteerElement extends AbstractElement<PuppeteerDriver> {
 
@@ -199,7 +200,7 @@ export class PuppeteerElement extends AbstractElement<PuppeteerDriver> {
      * @param options.navigation Whether to wait for navigation after inputting the text. Default is `false`.
      * @param options.mouseHover Whether to hover the mouse over the element before inputting the text. Default is `false`.
      */
-    async inputText(text: string, options: {
+    async inputText(text: string | Param, options: {
         tries?: number,
         timeout?: number,
         delay?: number,
@@ -213,6 +214,7 @@ export class PuppeteerElement extends AbstractElement<PuppeteerDriver> {
             navigation = false,
             mouseHover = false,
         } = options;
+        const rawText = typeof text === 'string' ? text : text.value;
 
         if (mouseHover) {
             await this.element.hover();
@@ -221,9 +223,9 @@ export class PuppeteerElement extends AbstractElement<PuppeteerDriver> {
         await this.element.scrollIntoView(); 
         if (tries > 0) {
             let currentValue = null;
-            while (currentValue !== text && tries > 0) {
+            while (currentValue !== rawText && tries > 0) {
                 await this.element.click({ clickCount: 3 });    // Select all text
-                await this.element.type(text);                  // Replace
+                await this.element.type(rawText);                  // Replace
                 await utils.delay(PuppeteerDriver.DEFAULT_DELAY_BETWEEN_RETRIES);
                 currentValue = await this.element.evaluate((el: any) => el.value);
                 tries--;
@@ -231,7 +233,7 @@ export class PuppeteerElement extends AbstractElement<PuppeteerDriver> {
         }
         else {
             await this.element.click({ clickCount: 3 });    // Select all text
-            await this.element.type(text);                  // Replace
+            await this.element.type(rawText);                  // Replace
         }
         await utils.delay(delay);
         if(navigation === true) {

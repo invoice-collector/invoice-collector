@@ -4,6 +4,7 @@ import { AbstractDriver } from '../../../driver/abstractDriver';
 import { AbstractElement } from '../../../driver/abstractElement';
 import { CollectorCaptcha, CollectorType, Invoice, CollectorAuthenticationMethod, CollectorState } from '../../abstractCollector';
 import { WebSocketServer } from '../../../websocket/webSocketServer';
+import { Params } from '../../../model/secret';
 
 export class FreeCollector extends LinearWebCollector {
 
@@ -46,7 +47,7 @@ export class FreeCollector extends LinearWebCollector {
     /**
      * @inheritdoc
      */
-    async login(driver: AbstractDriver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
+    async login(driver: AbstractDriver, params: Params, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
         await driver.inputText(FreeSelectors.FIELD_USERNAME, params.id);
         await driver.inputText(FreeSelectors.FIELD_PASSWORD, params.password);
         await driver.leftClick(FreeSelectors.BUTTON_SUBMIT);

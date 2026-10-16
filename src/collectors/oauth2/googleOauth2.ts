@@ -1,6 +1,7 @@
 import { TwofaPromise } from '../../tasks/collect/twofaPromise';
 import { AbstractDriver } from '../../driver/abstractDriver';
 import { WebSocketServer } from '../../websocket/webSocketServer';
+import { Params } from '../../model/secret';
 
 export const GoogleOauth2Selectors = {
 
@@ -77,7 +78,7 @@ export class GoogleOauth2 {
      * @param webSocketServer The WebSocket server instance for communication, if any.
      * @returns A string containing an error message if login fails, or void if successful.
      */
-    static async login(driver: AbstractDriver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
+    static async login(driver: AbstractDriver, params: Params, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
         if(GoogleOauth2.check(driver) && driver.url().includes('signin/accountchooser')) {
             // If account chooser is displayed, click on use another account
             await driver.leftClick(GoogleOauth2Selectors.BUTTON_USE_ANOTHER_ACCOUNT, { delay: 3000 });
@@ -150,7 +151,7 @@ export class GoogleOauth2 {
      * @param webSocketServer The WebSocket server instance for communication, if any.
      * @returns String containing an error message if 2FA fails, or void if successful.
      */
-    static async twofa(driver: AbstractDriver, params: any, twofa_promise: TwofaPromise, webSocketServer: WebSocketServer): Promise<string | void> {
+    static async twofa(driver: AbstractDriver, params: Params, twofa_promise: TwofaPromise, webSocketServer: WebSocketServer): Promise<string | void> {
         if(GoogleOauth2.check(driver) && driver.url().includes('signin/challenge')) {
             // Get code from UI
             const code = await Promise.race([twofa_promise.code(), webSocketServer.getTwofa()]);
