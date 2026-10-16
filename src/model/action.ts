@@ -186,7 +186,7 @@ export class LeftClickAction extends Action<LeftClickContext, void> {
         else {
             // Perform left click using driver and cssSelector
             await context.driver.leftClick({
-                selector: this.cssSelector,
+                selector: this.cssSelector!,
                 info: this.description,
             }, this.args);
         }
@@ -279,7 +279,7 @@ export class InputTextAction extends Action<InputTextContext, void> {
         }
 
         await context.driver.inputText({
-                selector: this.cssSelector,
+                selector: this.cssSelector!,
                 info: this.description,
             }, context.params[this.args.text], this.args);
     }
@@ -451,7 +451,7 @@ export class GetInvoicesAction extends Action<GetInvoicesContext, AbstractElemen
      */
     async _perform(context: GetInvoicesContext): Promise<AbstractElement[]> {
         return await context.driver.getElements({
-            selector: this.cssSelector,
+            selector: this.cssSelector!,
             info: this.description,
         });
     }
@@ -571,7 +571,7 @@ export class RaiseErrorIfDisplayed extends Action<RaiseErrorContext, void> {
     async _perform(context: RaiseErrorContext): Promise<void> {
         // Get element from cssSelector
         const element = await context.driver.getElement({
-            selector: this.cssSelector,
+            selector: this.cssSelector!,
             info: this.description,
         }, {
             raiseException: false,

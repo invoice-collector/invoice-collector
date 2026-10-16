@@ -1,7 +1,7 @@
 import { ElementNotFoundError } from '../../error';
-import { AbstractElement } from '../abstractElement';
+import { AbstractElement, Selector } from '../abstractElement';
 import { ExtensionDriver } from './extensionDriver';
-import { ElementRef, Selector } from './protocol';
+import { ElementRef } from './protocol';
 
 export class ExtensionElement extends AbstractElement<ExtensionDriver> {
     constructor(

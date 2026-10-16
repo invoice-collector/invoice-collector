@@ -1,7 +1,7 @@
 import { EventEmitter } from 'events';
 import { Proxy } from '../proxy/abstractProxy';
 import { WebCollector } from '../collectors/webCollector';
-import type { AbstractElement } from './abstractElement';
+import type { AbstractElement, Selector } from './abstractElement';
 
 export type Screenshot = {
     data: string; // Base64 encoded image data
@@ -164,7 +164,7 @@ export abstract class AbstractDriver<E extends AbstractElement<any> = AbstractEl
      * @param options.timeout Maximum time to wait for the element, in milliseconds.
      * @returns The matching element, or null if not found and exceptions are disabled.
      */
-    abstract getElement(selector: any, options?: {
+    abstract getElement(selector: Selector, options?: {
         raiseException?: boolean,
         timeout?: number,
     }): Promise<E | null>;
@@ -187,7 +187,7 @@ export abstract class AbstractDriver<E extends AbstractElement<any> = AbstractEl
      * @param options.timeout Maximum time to wait for the first element, in milliseconds.
      * @returns An array of matching elements, which may be empty if none are found and exceptions are disabled.
      */
-    abstract getElements(selector: any, options?: {
+    abstract getElements(selector: Selector, options?: {
         raiseException?: boolean,
         timeout?: number,
     }): Promise<E[]>;
@@ -200,7 +200,7 @@ export abstract class AbstractDriver<E extends AbstractElement<any> = AbstractEl
      * @param options.timeout Maximum time to wait for the element, in milliseconds.
      * @returns The attribute value, or empty string if not found and exceptions are disabled.
      */
-    abstract getAttribute(selector: any, attributeName: string, options?: {
+    abstract getAttribute(selector: Selector, attributeName: string, options?: {
         raiseException?: boolean,
         timeout?: number,
     }): Promise<string>;
@@ -213,7 +213,7 @@ export abstract class AbstractDriver<E extends AbstractElement<any> = AbstractEl
      * @param options.timeout Maximum time to wait for the first element, in milliseconds.
      * @returns An array of attribute values, which may be empty if none are found and exceptions are disabled.
      */
-    abstract getAttributes(selector: any, attributeName: string, options?: {
+    abstract getAttributes(selector: Selector, attributeName: string, options?: {
         raiseException?: boolean,
         timeout?: number,
     }): Promise<string[]>;
@@ -228,7 +228,7 @@ export abstract class AbstractDriver<E extends AbstractElement<any> = AbstractEl
      * @param options.mouseHover If true, hovers the mouse over the element before clicking. Default false. Can also be a string representing a selector for the element to hover over.
      * @returns The clicked element, or null if not found and exceptions are disabled.
      */
-    abstract leftClick(selector: any, options?: {
+    abstract leftClick(selector: Selector, options?: {
         raiseException?: boolean,
         timeout?: number,
         delay?: number,
@@ -248,7 +248,7 @@ export abstract class AbstractDriver<E extends AbstractElement<any> = AbstractEl
      * @param options.mouseHover If true, hovers the mouse over the element before typing.
      * @returns The element that received the text, or null if not found and exceptions are disabled.
      */
-    abstract inputText(selector: any, text: string, options?: {
+    abstract inputText(selector: Selector, text: string, options?: {
         raiseException?: boolean,
         timeout?: number,
         delay?: number,
@@ -267,7 +267,7 @@ export abstract class AbstractDriver<E extends AbstractElement<any> = AbstractEl
      * @param options.mouseHover If true, hovers the mouse over the element before selecting.
      * @returns The dropdown element, or null if not found and exceptions are disabled.
      */
-    abstract dropdownSelect(selector: any, value: string, options?: {
+    abstract dropdownSelect(selector: Selector, value: string, options?: {
         raiseException?: boolean,
         timeout?: number,
         delay?: number,

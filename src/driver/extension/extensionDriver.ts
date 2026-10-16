@@ -5,7 +5,8 @@ import { Proxy } from '../../proxy/abstractProxy';
 import { WebCollector } from '../../collectors/webCollector';
 import * as utils from '../../utils';
 import { ExtensionTransport } from './extensionTransport';
-import { ActionOptions, ElementRef, ExtensionProtocolError, FileInfo, PageInfo, PageList, Params, Selector } from './protocol';
+import type { Selector } from '../abstractElement';
+import { ActionOptions, ElementRef, ExtensionProtocolError, FileInfo, PageInfo, PageList, Params } from './protocol';
 
 export class ExtensionDriver extends AbstractDriver<ExtensionElement> {
     readonly transport: ExtensionTransport;

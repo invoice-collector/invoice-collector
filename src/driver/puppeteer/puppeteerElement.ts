@@ -1,7 +1,7 @@
 import { ElementHandle } from 'rebrowser-puppeteer-core';
 import { ElementNotFoundError } from '../../error';
 import * as utils from '../../utils';
-import { AbstractElement } from '../abstractElement';
+import { AbstractElement, Selector } from '../abstractElement';
 import { PuppeteerDriver } from './puppeteerDriver';
 
 export class PuppeteerElement extends AbstractElement<PuppeteerDriver> {
@@ -23,9 +23,9 @@ export class PuppeteerElement extends AbstractElement<PuppeteerDriver> {
      *
      * @returns The ElementHandle of the associated element, or null if the element is not found.
      */
-    async getElement(selector: any, options?: { raiseException?: true }): Promise<PuppeteerElement>;
-    async getElement(selector: any, options: { raiseException: false }): Promise<PuppeteerElement | null>;
-    async getElement(selector: any, {
+    async getElement(selector: Selector, options?: { raiseException?: true }): Promise<PuppeteerElement>;
+    async getElement(selector: Selector, options: { raiseException: false }): Promise<PuppeteerElement | null>;
+    async getElement(selector: Selector, {
         raiseException = true,
     } = {}): Promise<PuppeteerElement | null> {
         const elementHandle = await this.element.$(selector.selector);
@@ -270,7 +270,7 @@ export class PuppeteerElement extends AbstractElement<PuppeteerDriver> {
      * @param attribute The name of the attribute to retrieve.
      * @returns The value of the specified attribute, or the property value if the attribute is not present.
      */
-    async getAttribute(selector, attribute: string): Promise<string> {
+    async getAttribute(selector: Selector, attribute: string): Promise<string> {
         return await this.element.$eval(selector.selector, (element, attr) => element.getAttribute(attr) ?? element[attr], attribute);
     }
 

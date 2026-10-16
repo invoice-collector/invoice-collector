@@ -19,11 +19,6 @@ export interface ElementRef {
     tagName: string;
 }
 
-export interface Selector {
-    selector: string;
-    info?: string;
-}
-
 export interface WaitOptions {
     timeout?: number;
     raiseException?: boolean;
