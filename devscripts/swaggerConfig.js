@@ -404,6 +404,7 @@ const SWAGGER_DEFINITION = {
                         id: { type: 'string', description: 'Id of the credential.', example: '6776b5258821de266afbc3f6' },
                         user_id: { type: 'string', description: 'Id of the user.', example: '687108e5dce5050bc8ca53c1' },
                         note: { type: 'string', description: 'Custom note for this credential.', example: 'Regular account' },
+                        remote: { type: 'boolean', description: 'Whether the credential is remote.', default: false },
                         create_timestamp: { type: 'number', description: 'Creation timestamp.', example: 1745229262287 },
                         download_from_timestamp: { $ref: '#/components/schemas/downloadFromTimestamp' },
                         last_collect_timestamp: { type: 'number', description: 'Last collect timestamp.', example: 1745229265118 },
@@ -426,7 +427,7 @@ const SWAGGER_DEFINITION = {
                         wsPath: { $ref: '#/components/schemas/wsPath' },
                         driverWs: { $ref: '#/components/schemas/driverWs' },
                     },
-                    required: ['id', 'user_id', 'note', 'create_timestamp', 'last_collect_timestamp', 'next_collect_timestamp', 'state', 'invoices', 'collector', 'wsPath'],
+                    required: ['id', 'user_id', 'note', 'remote', 'create_timestamp', 'last_collect_timestamp', 'next_collect_timestamp', 'state', 'invoices', 'collector', 'wsPath'],
                 },
                 integration: {
                     type: 'object',

@@ -1039,6 +1039,7 @@ export class Server {
         id: string,
         user_id: string,
         note: string,
+        remote: boolean,
         create_timestamp: number,
         download_from_timestamp: number,
         last_collect_timestamp: number,
@@ -1081,6 +1082,7 @@ export class Server {
                 id: credential.id,
                 user_id: credential.user_id,
                 note: credential.note,
+                remote: credential.remote,
                 create_timestamp: credential.create_timestamp,
                 download_from_timestamp: credential.download_from_timestamp,
                 last_collect_timestamp: credential.last_collect_timestamp,
@@ -1102,6 +1104,7 @@ export class Server {
      * @param collector_id The ID of the collector for which the credential is being created.
      * @param params The parameters required for creating the credential.
      * @param download_from_timestamp The timestamp from which to start downloading invoices.
+     * @param remote Whether the credential is remote. Defaults to false.
      * @returns The details of the newly created credential.
      */
     public async post_credential(
@@ -1111,10 +1114,12 @@ export class Server {
         collector_id: string | undefined,
         params: any | undefined,
         download_from_timestamp: number | undefined,
+        remote: boolean | undefined,
     ): Promise<{
         id: string,
         user_id: string,
         note: string,
+        remote: boolean,
         create_timestamp: number,
         download_from_timestamp: number,
         last_collect_timestamp: number,
@@ -1151,7 +1156,6 @@ export class Server {
         if(download_from_timestamp !== undefined && (typeof download_from_timestamp !== 'number' || download_from_timestamp < 0)) {
             throw new StatusError('The field "download_from_timestamp" must be a positive number.', 400);
         }
-
         // Get collector from id
         const collector = await CollectorLoader.get(collector_id);
 
@@ -1217,6 +1221,7 @@ export class Server {
                 secret.id,
                 now,
                 download_from_timestamp ?? now,
+                remote,
             );
 
             // Compute next collect
@@ -1260,6 +1265,7 @@ export class Server {
             id: credential.id,
             user_id: credential.user_id,
             note: credential.note,
+            remote: credential.remote,
             create_timestamp: credential.create_timestamp,
             download_from_timestamp: credential.download_from_timestamp,
             last_collect_timestamp: credential.last_collect_timestamp,
@@ -1290,6 +1296,7 @@ export class Server {
         id: string,
         user_id: string,
         note: string,
+        remote: boolean,
         create_timestamp: number,
         download_from_timestamp: number,
         last_collect_timestamp: number,
@@ -1341,6 +1348,7 @@ export class Server {
             id: credential.id,
             user_id: credential.user_id,
             note: credential.note,
+            remote: credential.remote,
             create_timestamp: credential.create_timestamp,
             download_from_timestamp: credential.download_from_timestamp,
             last_collect_timestamp: credential.last_collect_timestamp,

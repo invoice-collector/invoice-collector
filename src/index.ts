@@ -1250,6 +1250,10 @@ app.get('/api/v1/credentials', async (req, res) => {
  *                 $ref: "#/components/schemas/collectorId"
  *               params:
  *                 $ref: "#/components/schemas/credentialParams"
+ *               remote:
+ *                 type: boolean
+ *                 default: false
+ *                 description: Whether the credential is remote.
  *               download_from_timestamp:
  *                 allOf:
  *                   - $ref: "#/components/schemas/downloadFromTimestamp"
@@ -1304,6 +1308,7 @@ app.post('/api/v1/user/:user_id/credential', creationRateLimiter, async (req, re
             req.body.collector,
             req.body.params,
             req.body.download_from_timestamp,
+            req.body.remote,
         );
 
         // Build response
@@ -1327,6 +1332,7 @@ app.post('/api/v1/credential', creationRateLimiter, async (req, res) => {
             req.body.collector,
             req.body.params,
             req.body.download_from_timestamp,
+            req.body.remote,
         );
 
         // Build response
