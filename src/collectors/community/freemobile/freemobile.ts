@@ -1,7 +1,7 @@
 import { LinearWebCollector } from '../../linearWebCollector';
 import { FreeMobileSelectors } from './selectors';
 import { AbstractDriver } from '../../../driver/abstractDriver';
-import { Element } from '../../../driver/element';
+import { AbstractElement } from '../../../driver/abstractElement';
 import { CollectorCaptcha, CollectorType, Invoice, CollectorAuthenticationMethod, CollectorState } from '../../abstractCollector';
 import { TwofaPromise } from '../../../tasks/collect/twofaPromise';
 import * as utils from '../../../utils';
@@ -138,14 +138,14 @@ export class FreeMobileCollector extends LinearWebCollector {
     /**
      * @inheritdoc
      */
-    async getInvoices(driver: AbstractDriver): Promise<Element[]> {
+    async getInvoices(driver: AbstractDriver): Promise<AbstractElement[]> {
         return await driver.getElements(FreeMobileSelectors.CONTAINER_INVOICES);
     }
 
     /**
      * @inheritdoc
      */
-    async data(driver: AbstractDriver, element: Element): Promise<Invoice | null>{
+    async data(driver: AbstractDriver, element: AbstractElement): Promise<Invoice | null>{
         const downloadButton = await element.getElement(FreeMobileSelectors.CONTAINER_INVOICE_LINK);
         const link = await element.getAttribute(FreeMobileSelectors.CONTAINER_INVOICE_LINK, 'href');
         const stringDate = await element.getAttribute(FreeMobileSelectors.CONTAINER_INVOICE_DATE, 'textContent');

@@ -1,6 +1,6 @@
 import { Invoice, CompleteInvoice } from './abstractCollector';
 import { AbstractDriver } from '../driver/abstractDriver';
-import { Element } from '../driver/element';
+import { AbstractElement } from '../driver/abstractElement';
 import { AuthenticationError, CollectorError, DisconnectedError, LoggableError, NoInvoiceFoundError, PartialCollectError } from '../error';
 import { ProxyFactory } from '../proxy/proxyFactory';
 import { Location, Proxy } from '../proxy/abstractProxy';
@@ -454,7 +454,7 @@ export abstract class LinearWebCollector extends WebCollector {
      * @param driver The driver instance used to perform the retrieval.
      * @returns An array of invoice elements.
      */
-    abstract getInvoices(driver: AbstractDriver): Promise<Element[]>;
+    abstract getInvoices(driver: AbstractDriver): Promise<AbstractElement[]>;
 
     /**
      * Retrieves the data for a specific invoice element.
@@ -462,7 +462,7 @@ export abstract class LinearWebCollector extends WebCollector {
      * @param element The invoice element from which to extract the data.
      * @returns The extracted invoice data, or `null` if the invoice collection must be canceled.
      */
-    abstract data(driver: AbstractDriver, element: Element): Promise<Invoice | null>;
+    abstract data(driver: AbstractDriver, element: AbstractElement): Promise<Invoice | null>;
 
     /**
      * Downloads the files associated with a specific invoice.

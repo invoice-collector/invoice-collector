@@ -1,5 +1,5 @@
 import { AbstractDriver } from '../../../driver/abstractDriver';
-import { Element } from '../../../driver/element';
+import { AbstractElement } from '../../../driver/abstractElement';
 import { CollectorCaptcha, CollectorType, Invoice, CollectorAuthenticationMethod, CollectorState } from '../../../collectors/abstractCollector';
 import { LinearWebCollector } from '../../../collectors/linearWebCollector';
 import { AmazonSelectors } from './selectors';
@@ -209,7 +209,7 @@ export class AmazonCollector extends LinearWebCollector {
     /**
      * @inheritdoc
      */
-    async getInvoices(driver: AbstractDriver): Promise<Element[]> {
+    async getInvoices(driver: AbstractDriver): Promise<AbstractElement[]> {
         // Get order elements
         return await driver.getElements(AmazonSelectors.CONTAINER_ORDER);
     }
@@ -217,7 +217,7 @@ export class AmazonCollector extends LinearWebCollector {
     /**
      * @inheritdoc
      */
-    async data(driver: AbstractDriver, element: Element): Promise<Invoice | null> {
+    async data(driver: AbstractDriver, element: AbstractElement): Promise<Invoice | null> {
         // Get timestamp
         const date = await element.getAttribute(AmazonSelectors.CONTAINER_ORDER_DATE, 'textContent');
         const timestamp = timestampFromString(date, 'd MMMM yyyy', this.language);

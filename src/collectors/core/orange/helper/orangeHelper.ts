@@ -1,6 +1,6 @@
 import { OrangeHelperSelectors } from './selectors';
 import { AbstractDriver } from '../../../../driver/abstractDriver';
-import { Element } from '../../../../driver/element';
+import { AbstractElement } from '../../../../driver/abstractElement';
 import { WebSocketServer } from '../../../../websocket/webSocketServer';
 import { TwofaPromise } from '../../../../tasks/collect/twofaPromise';
 import * as utils from '../../../../utils';
@@ -150,7 +150,7 @@ export class OrangeHelper {
      * @param driver The driver instance used to perform the retrieval.
      * @returns An array of invoice elements.
      */ 
-    static async getInvoices(driver: AbstractDriver): Promise<Element[]> {
+    static async getInvoices(driver: AbstractDriver): Promise<AbstractElement[]> {
         return await driver.getElements(OrangeHelperSelectors.CONTAINER_INVOICE);
     }
 
@@ -160,7 +160,7 @@ export class OrangeHelper {
      * @param element The invoice element from which to extract the data.
      * @returns The extracted invoice data, or `null` if the invoice collection must be canceled.
      */
-    static async data(driver: AbstractDriver, element: Element): Promise<Invoice | null> {
+    static async data(driver: AbstractDriver, element: AbstractElement): Promise<Invoice | null> {
         // Get url before map
         const link = driver.url();
         const contractId = link.match(/\/facture-paiement\/(\d+)\//)?.[1];

@@ -1,7 +1,7 @@
 import { LinearWebCollector } from '../../linearWebCollector';
 import { LeroyMerlinSelectors } from './selectors';
 import { AbstractDriver } from '../../../driver/abstractDriver';
-import { Element } from '../../../driver/element';
+import { AbstractElement } from '../../../driver/abstractElement';
 import { Invoice, CollectorCaptcha, CollectorType, CollectorAuthenticationMethod, CollectorState } from '../../abstractCollector';
 import * as utils from '../../../utils';
 import { TwofaPromise } from '../../../tasks/collect/twofaPromise';
@@ -136,14 +136,14 @@ export class LeroyMerlinCollector extends LinearWebCollector {
     /**
      * @inheritdoc
      */
-    async getInvoices(driver: AbstractDriver): Promise<Element[]> {
+    async getInvoices(driver: AbstractDriver): Promise<AbstractElement[]> {
         return await driver.getElements(LeroyMerlinSelectors.CONTAINER_ORDER);
     }
 
     /**
      * @inheritdoc
      */
-    async data(driver: AbstractDriver, element: Element): Promise<Invoice | null> {
+    async data(driver: AbstractDriver, element: AbstractElement): Promise<Invoice | null> {
         // Get url before map
         const link = driver.url();
 

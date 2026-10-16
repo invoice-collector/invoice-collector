@@ -1,7 +1,7 @@
 import { LinearWebCollector } from '../../linearWebCollector';
 import { BureauValleeSelectors } from './selectors';
 import { AbstractDriver } from '../../../driver/abstractDriver';
-import { Element } from '../../../driver/element';
+import { AbstractElement } from '../../../driver/abstractElement';
 import { CollectorCaptcha, CollectorType, Invoice, CollectorAuthenticationMethod, CollectorState } from '../../abstractCollector';
 import { WebSocketServer } from '../../../websocket/webSocketServer';
 import * as utils from '../../../utils';
@@ -98,14 +98,14 @@ export class BureauValleeCollector extends LinearWebCollector {
     /**
      * @inheritdoc
      */
-    async getInvoices(driver: AbstractDriver): Promise<Element[]> {
+    async getInvoices(driver: AbstractDriver): Promise<AbstractElement[]> {
         return await driver.getElements(BureauValleeSelectors.CONTAINER_INVOICE);
     }
 
     /**
      * @inheritdoc
      */
-    async data(driver: AbstractDriver, element: Element): Promise<Invoice | null> {
+    async data(driver: AbstractDriver, element: AbstractElement): Promise<Invoice | null> {
         // Get data
         const date = await element.getAttribute(BureauValleeSelectors.CONTAINER_INVOICE_DATE, 'textContent');
         const timestamp = utils.timestampFromString(date, "'Facture du 'dd MMMM yyyy", 'fr');

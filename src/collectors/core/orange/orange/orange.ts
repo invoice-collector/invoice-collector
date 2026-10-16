@@ -1,6 +1,6 @@
 import { OrangeSelectors } from './selectors';
 import { AbstractDriver } from '../../../../driver/abstractDriver';
-import { Element } from '../../../../driver/element';
+import { AbstractElement } from '../../../../driver/abstractElement';
 import { CollectorCaptcha, CollectorType, Invoice, CollectorAuthenticationMethod, CollectorState } from '../../../../collectors/abstractCollector';
 import { AuthenticationError } from '../../../../error';
 import { OrangeHelper } from '../helper/orangeHelper';
@@ -112,14 +112,14 @@ export class OrangeCollector extends LinearWebCollector {
     /**
      * @inheritdoc
      */
-    async getInvoices(driver: AbstractDriver): Promise<Element[]> {
+    async getInvoices(driver: AbstractDriver): Promise<AbstractElement[]> {
         return await OrangeHelper.getInvoices(driver);
     }
 
     /**
      * @inheritdoc
      */
-    async data(driver: AbstractDriver, element: Element): Promise<Invoice | null> {
+    async data(driver: AbstractDriver, element: AbstractElement): Promise<Invoice | null> {
         return await OrangeHelper.data(driver, element);
     }
 

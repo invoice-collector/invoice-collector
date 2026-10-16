@@ -1,7 +1,7 @@
 import { LinearWebCollector } from '../../linearWebCollector';
 import { IntermarcheSelectors } from './selectors';
 import { AbstractDriver } from '../../../driver/abstractDriver';
-import { Element } from '../../../driver/element';
+import { AbstractElement } from '../../../driver/abstractElement';
 import { CollectorCaptcha, CollectorState, CollectorType, Invoice, CollectorAuthenticationMethod } from '../../abstractCollector';
 import { UnfinishedCollectorError } from '../../../error';
 import { WebSocketServer } from '../../../websocket/webSocketServer';
@@ -111,14 +111,14 @@ export class IntermarcheCollector extends LinearWebCollector {
     /**
      * @inheritdoc
      */
-    async getInvoices(driver: AbstractDriver): Promise<Element[]> {
+    async getInvoices(driver: AbstractDriver): Promise<AbstractElement[]> {
         throw new UnfinishedCollectorError(this);
     }
 
     /**
      * @inheritdoc
      */
-    async data(driver: AbstractDriver, element: Element): Promise<Invoice | null> {
+    async data(driver: AbstractDriver, element: AbstractElement): Promise<Invoice | null> {
         throw new UnfinishedCollectorError(this);
     }
 

@@ -4,9 +4,6 @@ import * as utils from '../../utils';
 import { AbstractElement } from '../abstractElement';
 import { PuppeteerDriver } from './puppeteerDriver';
 
-//TEMPORARY Alias for AbstractElement as Element
-export { AbstractElement as Element } from '../abstractElement';
-
 export class PuppeteerElement extends AbstractElement<PuppeteerDriver> {
 
     element: ElementHandle;

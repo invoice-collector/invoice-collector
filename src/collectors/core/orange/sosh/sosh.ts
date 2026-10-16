@@ -3,7 +3,7 @@ import { CollectorCaptcha, CollectorType, Invoice, CollectorAuthenticationMethod
 import { OrangeHelper } from '../helper/orangeHelper';
 import { LinearWebCollector } from '../../../linearWebCollector';
 import { AbstractDriver } from '../../../../driver/abstractDriver';
-import { Element } from '../../../../driver/element';
+import { AbstractElement } from '../../../../driver/abstractElement';
 import { WebSocketServer } from '../../../../websocket/webSocketServer';
 import { SoshSelectors } from './selectors';
 
@@ -100,14 +100,14 @@ export class SoshCollector extends LinearWebCollector {
     /**
      * @inheritdoc
      */
-    async getInvoices(driver: AbstractDriver): Promise<Element[]> {
+    async getInvoices(driver: AbstractDriver): Promise<AbstractElement[]> {
         return await OrangeHelper.getInvoices(driver);
     }
 
     /**
      * @inheritdoc
      */
-    async data(driver: AbstractDriver, element: Element): Promise<Invoice | null> {
+    async data(driver: AbstractDriver, element: AbstractElement): Promise<Invoice | null> {
         return await OrangeHelper.data(driver, element);
     }
 

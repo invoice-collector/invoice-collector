@@ -5,7 +5,7 @@ import * as utils from '../../utils';
 import { WebCollector } from '../../collectors/webCollector';
 import { BrowserFactory } from '../browser/browserFactory';
 import { AbstractDriver, Screenshot } from '../abstractDriver';
-import { PuppeteerElement } from './element';
+import { PuppeteerElement } from './puppeteerElement';
 import { AbstractBrowser } from '../browser/abstractBrowser';
 
 export class PuppeteerDriver extends AbstractDriver<PuppeteerElement> {

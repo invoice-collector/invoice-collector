@@ -1,5 +1,5 @@
 import { AbstractDriver } from '../../../../driver/abstractDriver';
-import { Element } from '../../../../driver/element';
+import { AbstractElement } from '../../../../driver/abstractElement';
 import { CollectorCaptcha, CollectorType, Invoice, CollectorAuthenticationMethod, CollectorState } from '../../../abstractCollector';
 import { OpenaiCommonCollector } from '../openai_common/openaiCommon';
 import { OpenaiSelectors } from './selectors';
@@ -85,14 +85,14 @@ export class OpenaiChatgptCollector extends OpenaiCommonCollector {
     /**
      * @inheritdoc
      */
-    async getInvoices(driver: AbstractDriver): Promise<Element[]> {
+    async getInvoices(driver: AbstractDriver): Promise<AbstractElement[]> {
         return await driver.getElements(OpenaiSelectors.CONTAINER_INVOICES);
     }
 
     /**
      * @inheritdoc
      */
-    async data(driver: AbstractDriver, element: Element): Promise<Invoice | null> {
+    async data(driver: AbstractDriver, element: AbstractElement): Promise<Invoice | null> {
         // Get url before map
         const link = driver.url();
 

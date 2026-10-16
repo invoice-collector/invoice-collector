@@ -1,7 +1,7 @@
 import { CollectorType, CollectorState, Invoice, CollectorAuthenticationMethod } from './abstractCollector';
 import { WebConfig } from './webCollector';
 import { AbstractDriver } from '../driver/abstractDriver';
-import { Element } from '../driver/element';
+import { AbstractElement } from '../driver/abstractElement';
 import { WebSocketServer } from '../websocket/webSocketServer';
 import { LinearWebCollector } from './linearWebCollector';
 import { PlannedCollectorError } from '../error';
@@ -48,14 +48,14 @@ export abstract class SketchCollector extends LinearWebCollector {
     /**
      * @inheritdoc
      */
-    async getInvoices(driver: AbstractDriver): Promise<Element[]> {
+    async getInvoices(driver: AbstractDriver): Promise<AbstractElement[]> {
         return [];
     }
 
     /**
      * @inheritdoc
      */
-    async data(driver: AbstractDriver, element: Element): Promise<Invoice | null> {
+    async data(driver: AbstractDriver, element: AbstractElement): Promise<Invoice | null> {
         throw new Error('Method not implemented.');
     }
 
