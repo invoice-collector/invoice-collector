@@ -598,15 +598,25 @@ export class MongoDB extends AbstractDatabase {
     async getCredentialsIdToCollect(): Promise<string[]> {
         const db = await this.ensureConnected();
         const query = {
-            $or: [
-            { last_collect_timestamp: NaN },
-            {
-                $and: [
-                    { $expr: { $lt: [ '$last_collect_timestamp', '$next_collect_timestamp' ] } },
-                    { $expr: { $lt: [ '$next_collect_timestamp', Date.now() ] } },
-                    { 'state.index': { $gte: 0 } },
-                ],
-            },
+            $and: [
+                { 
+                    $or: [
+                        { remote: { $exists: false } },
+                        { remote: false },
+                    ]
+                },
+                {
+                    $or: [
+                        { last_collect_timestamp: NaN },
+                        {
+                            $and: [
+                                { $expr: { $lt: [ '$last_collect_timestamp', '$next_collect_timestamp' ] } },
+                                { $expr: { $lt: [ '$next_collect_timestamp', Date.now() ] } },
+                                { 'state.index': { $gte: 0 } },
+                            ],
+                        },
+                    ],
+                },
             ],
         };
         const documents = await db.collection(MongoDB.CREDENTIAL_COLLECTION).aggregate([
