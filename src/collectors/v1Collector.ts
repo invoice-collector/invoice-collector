@@ -36,7 +36,7 @@ export abstract class V1Collector<C extends Config> extends AbstractCollector<C>
             // Check if a mandatory field is missing
             const secretParams = await secret.getParams();
             for (const [key, value] of Object.entries(this.config.params)) {
-                if (value.mandatory && !secretParams.hasOwnProperty(key)) {
+                if (value.mandatory && !Object.prototype.hasOwnProperty.call(secretParams, key)) {
                     throw new Error(`Field "${key}" is missing.`);
                 }
             }
