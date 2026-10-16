@@ -4,6 +4,12 @@ import { ExtensionDriver } from './extensionDriver';
 import { ElementRef } from './protocol';
 
 export class ExtensionElement extends AbstractElement<ExtensionDriver> {
+
+    /**
+     * Constructs an extension element instance.
+     * @param ref The reference to the underlying element.
+     * @param driver The extension driver instance.
+     */
     constructor(
         private readonly ref: ElementRef,
         driver: ExtensionDriver,
