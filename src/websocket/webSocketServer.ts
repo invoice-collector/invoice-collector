@@ -251,7 +251,7 @@ export class WebSocketServer extends EventEmitter {
             width,
             height,
         };
-        this.sendMessage(message, false);
+        this.sendMessage(message, true);
     }
 
     /**
