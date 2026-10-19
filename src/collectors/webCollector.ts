@@ -2,8 +2,9 @@ import { CollectorType, CollectorCaptcha, CollectorState, Config, CollectorAuthe
 import { AbstractDriver } from '../driver/abstractDriver';
 import { V2Collector } from './v2Collector';
 import { WebSocketServer } from '../websocket/webSocketServer';
-import { AuthenticationError, DisconnectedError, LoggableError, RemoveError } from '../error';
+import { DisconnectedError, LoggableError, RemoveError } from '../error';
 import { MessageClick, MessageKeydown, MessageText } from '../websocket/message';
+import { Secret } from '../model/secret';
 
 export type WebConfig = Config & {
     loginUrl: string,
@@ -194,6 +195,28 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
                 driver.off('screencast_error', onScreencastError);
             }
             await driver.stopScreenCast();
+        }
+    }
+
+    /**
+     * Update the login URL and entry URL based on the provided secret's parameters.
+     * If the url contains placeholders in the format `{key}`, they will be replaced with the corresponding values from the secret's parameters.
+     * @param secret Secret containing the parameters.
+     */
+    protected async updateUrls(secret: Secret): Promise<void> {
+        // Get params
+        const params = await secret.getParams();
+
+        const replaceParams = (url: string): string => {
+            for (const [key, value] of Object.entries(params || {})) {
+                url = url.replaceAll(`{${key}}`, String(value));
+            }
+            return url;
+        };
+
+        this.config.loginUrl = replaceParams(this.config.loginUrl);
+        if (this.config.entryUrl !== undefined) {
+            this.config.entryUrl = replaceParams(this.config.entryUrl);
         }
     }
 }
