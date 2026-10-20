@@ -61,7 +61,8 @@ export type Config = {
             name: string,
             placeholder: string,
             mandatory: boolean,
-            default?: any
+            default?: any,
+            alwaysAsk?: boolean
         }
     },
     state: CollectorState
@@ -157,10 +158,11 @@ export abstract class AbstractCollector<C extends Config> {
         const resolvedAuthenticationMethod = AbstractCollector.resolveAuthenticationMethod(customerAuthenticationMethod, config);
         // Use interactive login when the resolved method is interactive
         const useInteractiveLogin = resolvedAuthenticationMethod === ResolvedAuthenticationMethod.INTERACTIVE;
-        // If interactive login is used, params are not needed anymore
+        // If interactive login is used, params are not needed anymore, except those always displayed
         if (useInteractiveLogin) {
-            // Remove all params
-            config.params = {};
+            config.params = Object.fromEntries(
+                Object.entries(config.params).filter(([, param]) => param.alwaysAsk === true)
+            );
         }
         return useInteractiveLogin;
     }
