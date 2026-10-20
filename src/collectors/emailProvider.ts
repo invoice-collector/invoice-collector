@@ -56,15 +56,20 @@ export abstract class EmailProvider extends V2Collector<EmailProviderConfig> {
         useInteractiveLogin: boolean,
         providers: Credential[],
     ): Promise<CompleteInvoice[]> {
-        // Set progress step to logging in
-        state.update(State._2_LOGGING_IN);
-        webSocketServer?.sendState(State._2_LOGGING_IN);
-    
-        await this.authenticate(await secret.getParams(), webSocketServer);
+        try {
+            // Set progress step to logging in
+            state.update(State._2_LOGGING_IN);
+            webSocketServer?.sendState(State._2_LOGGING_IN);
 
-        // Set progress step to collecting
-        state.update(State._5_COLLECTING);
-        webSocketServer?.sendState(State._5_COLLECTING);
+            await this.authenticate(await secret.getParams(), webSocketServer);
+
+            // Set progress step to collecting
+            state.update(State._5_COLLECTING);
+            webSocketServer?.sendState(State._5_COLLECTING);
+        }
+        finally {
+            await this._close();
+        }
 
         // Email providers only authenticate the account and do not collect invoices.
         return [];
