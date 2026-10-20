@@ -13,7 +13,7 @@ export class OvhCollector extends ApiCollector {
         name: 'OVH',
         description: 'i18n.collectors.ovh.description',
         instructions: 'i18n.collectors.ovh.instructions',
-        version: '2',
+        version: '3',
         website: 'https://www.ovh.com',
         logo: 'https://upload.wikimedia.org/wikipedia/commons/4/45/Logo_OVH.svg',
         type: CollectorType.API,
@@ -142,15 +142,15 @@ export class OvhCollector extends ApiCollector {
      * @returns The generated signature for the request.
      */
     private signRequest(params: Params, httpMethod: string, url: string, body: string, timestamp: string): string {
-        const s = [
-            params.app_secret,
-            params.consumer_key,
+        const s: string[] = [
+            params.app_secret.value,
+            params.consumer_key.value,
             httpMethod,
             url,
             body || '',
             timestamp,
         ];
 
-        return `$1$${  crypto.createHash('sha1').update(s.join('+')).digest('hex')}`;
+        return `$1$${crypto.createHash('sha1').update(s.join('+')).digest('hex')}`;
     }
 }
