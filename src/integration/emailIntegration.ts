@@ -46,7 +46,7 @@ export class EmailIntegration extends AbstractIntegration {
             });
         }
 
-        await this.sendEmail(
+        const email = await this.sendEmail(
             `Your ${collector.name} invoice from the ${new Date(invoice.timestamp).toISOString().substring(0, 10)}`,
             [
                 `Collector: ${collector.name}`,
@@ -58,19 +58,21 @@ export class EmailIntegration extends AbstractIntegration {
             ],
             attachments,
         );
+        console.log(`Callback ${email} successfully reached, invoice sent`);
     }
 
     /**
      * @inheritdoc
      */
     async sendNotificationDisconnected(collector: Config, credential_id: string, user_id: string, remote_id: string): Promise<void> {
-        await this.sendEmail(
+        const email = await this.sendEmail(
             `Account disconnected: ${collector.name}`,
             [
                 `Your ${collector.name} account has been disconnected. Please reconnect it to resume collecting invoices.`,
                 `Account: ${remote_id}`
             ],
         );
+        console.log(`Callback ${email} successfully reached, disconnected notification sent for credential ${credential_id}`);
     }
 
     /**
@@ -78,8 +80,9 @@ export class EmailIntegration extends AbstractIntegration {
      * @param subject The email subject.
      * @param paragraphs The email body paragraphs.
      * @param attachments The optional invoice attachments.
+     * @returns The email address to which the email was sent.
      */
-    private async sendEmail(subject: string, paragraphs: string[], attachments?: EmailAttachment[]): Promise<void> {
+    private async sendEmail(subject: string, paragraphs: string[], attachments?: EmailAttachment[]): Promise<string> {
         const secretParams = await this.secret.getParams();
         await this.checkMandatoryParams(secretParams);
 
@@ -93,5 +96,7 @@ export class EmailIntegration extends AbstractIntegration {
         }));
 
         await AnalyticsFactory.getInstance().sendEmail([secretParams.email.value], subject, content, attachments);
+
+        return secretParams.email.value;
     }
 }

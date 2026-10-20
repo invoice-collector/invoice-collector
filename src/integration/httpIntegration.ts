@@ -103,7 +103,7 @@ export class HttpIntegration extends AbstractIntegration {
                 },
             },
         );
-        console.log(`Callback ${secretParams.url} successfully reached, invoice sent`);
+        console.log(`Callback ${secretParams.url.value} successfully reached, invoice sent`);
     }
 
     /**
@@ -116,7 +116,6 @@ export class HttpIntegration extends AbstractIntegration {
         // Check if url is defined in secret params
         await this.checkMandatoryParams(secretParams);
 
-        console.log(`Sending disconnected notification to callback ${secretParams.url.value} for credential ${credential_id}`);
         await this.sendRequest(
             secretParams.url.value,
             {
@@ -127,7 +126,7 @@ export class HttpIntegration extends AbstractIntegration {
                 remote_id,
             },
         );
-        console.log(`Callback ${secretParams.url} successfully reached, disconnected notification sent`);
+        console.log(`Callback ${secretParams.url.value} successfully reached, disconnected notification sent for credential ${credential_id}`);
 
     }
 }
