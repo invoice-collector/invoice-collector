@@ -161,7 +161,7 @@ export class WebSocketServer extends EventEmitter {
      */
     public waitForOpen(timeout: number = WebSocketServer.WAIT_FOR_OPEN_TIMEOUT_MS): Promise<void> {
         return new Promise((resolve, reject) => {
-            if (this.ws && this.ws.readyState === WebSocket.OPEN) {
+            if (this.ws) {
                 resolve();
                 return;
             }
