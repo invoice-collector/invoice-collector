@@ -4,7 +4,7 @@ import { Proxy } from '../../proxy/abstractProxy';
 import * as utils from '../../utils';
 import { WebCollector } from '../../collectors/webCollector';
 import { BrowserFactory } from '../browser/browserFactory';
-import { AbstractDriver, Screenshot } from '../abstractDriver';
+import { AbstractDriver, Screenshot, ScrollPageDirection } from '../abstractDriver';
 import { PuppeteerElement } from './puppeteerElement';
 import { AbstractBrowser } from '../browser/abstractBrowser';
 import { Selector } from '../abstractElement';
@@ -592,6 +592,26 @@ export class PuppeteerDriver extends AbstractDriver<PuppeteerElement> {
     } = {}): Promise<void> {
         await this.page?.keyboard.press(key as KeyInput);
         await utils.delay(delay);
+    }
+
+    /**
+     * @inheritdoc
+     */
+    async scrollPage(direction: ScrollPageDirection): Promise<void> {
+        if (direction !== ScrollPageDirection.UP && direction !== ScrollPageDirection.DOWN) {
+            throw new Error('scrollPage requires direction up or down');
+        }
+        if (!this.page) {
+            throw new Error('Page is not initialized.');
+        }
+        await this.page.evaluate((directionMultiplier) => {
+            window.scrollBy({
+                top: window.innerHeight * 0.8 * directionMultiplier,
+                left: 0,
+                behavior: 'instant',
+            });
+        }, direction === ScrollPageDirection.UP ? -1 : 1);
+        await utils.delay(AbstractDriver.DEFAULT_DELAY);
     }
 
     /**

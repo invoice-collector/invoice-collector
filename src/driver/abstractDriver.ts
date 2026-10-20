@@ -4,6 +4,11 @@ import { WebCollector } from '../collectors/webCollector';
 import type { AbstractElement, Selector } from './abstractElement';
 import { Param } from '../model/secret';
 
+export enum ScrollPageDirection {
+    UP = 'up',
+    DOWN = 'down',
+}
+
 export type Screenshot = {
     data: string; // Base64 encoded image data
     width: number;
@@ -293,6 +298,12 @@ export abstract class AbstractDriver<E extends AbstractElement<any> = AbstractEl
     abstract press(key: string, options?: {
         delay?: number,
     }): Promise<void>;
+
+    /**
+     * Scrolls the page vertically by 80% of its current viewport height.
+     * @param direction Whether to scroll up or down.
+     */
+    abstract scrollPage(direction: ScrollPageDirection): Promise<void>;
 
     /**
      * Types the given text using the keyboard, character by character.

@@ -1,5 +1,5 @@
 import { ExtensionElement } from './extensionElement';
-import { AbstractDriver, Screenshot } from '../abstractDriver';
+import { AbstractDriver, Screenshot, ScrollPageDirection } from '../abstractDriver';
 import { ElementNotFoundError, LoggableError } from '../../error';
 import { Proxy } from '../../proxy/abstractProxy';
 import { WebCollector } from '../../collectors/webCollector';
@@ -406,6 +406,22 @@ export class ExtensionDriver extends AbstractDriver<ExtensionElement> {
      */
     async press(key: string, options: { delay?: number } = {}): Promise<void> {
         await this.request('input.press', this.pageParams({ key, delay: options.delay ?? AbstractDriver.DEFAULT_DELAY }));
+    }
+
+    /**
+     * @inheritdoc
+     */
+    async scrollPage(direction: ScrollPageDirection): Promise<void> {
+        if (direction !== ScrollPageDirection.UP && direction !== ScrollPageDirection.DOWN) {
+            throw new Error('scrollPage requires direction up or down');
+        }
+        if (!this.activePageId) {
+            throw new Error('Page is not initialized.');
+        }
+        await this.request('input.scrollPage', this.pageParams({
+            direction,
+            delay: AbstractDriver.DEFAULT_DELAY,
+        }));
     }
 
     /**
