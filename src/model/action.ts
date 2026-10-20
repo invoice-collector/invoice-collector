@@ -275,7 +275,7 @@ export class InputTextAction extends Action<InputTextContext, void> {
      */
     async _perform(context: InputTextContext): Promise<void> {
         // If parameter exists
-        if(!context.params.hasOwnProperty(this.args.text)) {
+        if(!Object.prototype.hasOwnProperty.call(context.params, this.args.text)) {
             throw new Error(`Parameter ${this.args.text} not found in params`);
         }
 
