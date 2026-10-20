@@ -438,7 +438,7 @@ export class TokenManager {
     }
 
     /**
-     * Resolves a customer from a customer session bearer.
+     * Resolves a customer from a customer session bearer or from database.
      * @param bearer The Bearer header value.
      * @returns The resolved customer.
      */
@@ -473,7 +473,7 @@ export class TokenManager {
     }
 
     /**
-     * Resolves a user from a user session bearer.
+     * Resolves a user from a user session bearer or from database.
      * @param bearer The Bearer header value.
      * @returns The resolved user.
      */
@@ -489,13 +489,15 @@ export class TokenManager {
         // Get user id from ui bearers
         const user_id = this.getUserIdFromUiBearer(raw_bearer);
 
-        // If the bearer is not mapped to a user
-        if(user_id === undefined) {
-            throw new AuthenticationBearerError();
+        let user: User | null;
+        if (user_id !== undefined) {
+            // Get user from id
+            user = await User.fromId(user_id);
         }
-
-        // Get user from id
-        const user = await User.fromId(user_id);
+        else {
+            // Get user from bearer
+            user = await User.fromBearer(raw_bearer);
+        }
 
         // Check if user exists
         if (!user) {

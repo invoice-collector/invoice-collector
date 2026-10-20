@@ -1,6 +1,7 @@
 import { TwofaPromise } from '../../tasks/collect/twofaPromise';
 import { AbstractDriver } from '../../driver/abstractDriver';
 import { WebSocketServer } from '../../websocket/webSocketServer';
+import { Params } from '../../model/secret';
 
 export const MicrosoftOauth2Selectors = {
     // LOGIN
@@ -72,7 +73,7 @@ export class MicrosoftOauth2 {
      * @param webSocketServer The WebSocket server instance for communication, if any.
      * @returns A string containing an error message if login fails, or void if successful.
      */
-    static async login(driver: AbstractDriver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
+    static async login(driver: AbstractDriver, params: Params, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
         if(MicrosoftOauth2.check(driver)) {
             // Display other authentication methods if the button is displayed
             await driver.leftClick(MicrosoftOauth2Selectors.BUTTON_OTHER_AUTHENTICATION_METHODS, { timeout: 1000, raiseException: false });
@@ -128,7 +129,7 @@ export class MicrosoftOauth2 {
      * @param webSocketServer The WebSocket server instance for communication, if any.
      * @returns A string containing an error message if 2FA fails, or void if successful.
      */
-    static async twofa(driver: AbstractDriver, params: any, twofa_promise: TwofaPromise, webSocketServer: WebSocketServer): Promise<string | void> {
+    static async twofa(driver: AbstractDriver, params: Params, twofa_promise: TwofaPromise, webSocketServer: WebSocketServer): Promise<string | void> {
         if(MicrosoftOauth2.check(driver)) {
             // Get code from UI
             const code = await Promise.race([twofa_promise.code(), webSocketServer.getTwofa()]);

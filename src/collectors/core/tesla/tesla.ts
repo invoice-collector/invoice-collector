@@ -4,6 +4,7 @@ import { CollectorState, CollectorType, DownloadedInvoice } from '../../abstract
 import { AuthenticationError } from '../../../error';
 import { WebSocketServer } from '../../../websocket/webSocketServer';
 import * as utils from '../../../utils';
+import { Params } from '../../../model/secret';
 
 /**
  * Tesla charging invoices, through the official Fleet API, which exposes the
@@ -52,9 +53,9 @@ export class TeslaCollector extends ApiCollector {
     /**
      * @inheritdoc
      */
-    async collect(instance: AxiosInstance, webSocketServer: WebSocketServer | undefined, params: any): Promise<any[]> {
+    async collect(instance: AxiosInstance, webSocketServer: WebSocketServer | undefined, params: Params): Promise<any[]> {
         // If param does not contain a refresh token nor an access token, the user has not authenticated yet.
-        if (!params.refresh_token && !params.access_token && webSocketServer !== undefined) {
+        if (!params.refresh_token.value && !params.access_token.value && webSocketServer !== undefined) {
             // Build the Oauth2 URL with the state
             const oauth2Url = TeslaCollector.OAUTH2_URL.replace('{state}', webSocketServer.oauth2State);
             // Send oauth2 url and wait for code
@@ -62,13 +63,13 @@ export class TeslaCollector extends ApiCollector {
             // Exchange the code for tokens
             await this.getAccessToken(instance, params, code);
         }
-        else if (params.refresh_token) {
+        else if (params.refresh_token.value) {
             // Refresh the access token to ensure it is valid and up to date
             await this.refreshAccessToken(instance, params);
         }
 
         // Set the Authorization header for future requests
-        instance.defaults.headers.common['Authorization'] = `Bearer ${params.access_token}`;
+        instance.defaults.headers.common['Authorization'] = `Bearer ${params.access_token.value}`;
 
         const invoices: any[] = [];
         for (let page = 1; page <= TeslaCollector.MAX_PAGES; page++) {
@@ -149,7 +150,7 @@ export class TeslaCollector extends ApiCollector {
      * @param params The parameters object to store the obtained tokens.
      * @param code The authorization code obtained from the user consent redirect.
      */
-    private async getAccessToken(instance: AxiosInstance, params: any, code: string): Promise<void> {
+    private async getAccessToken(instance: AxiosInstance, params: Params, code: string): Promise<void> {
         // Get the base URL from the code and update the instance defaults
         const baseUrl = this.baseUrlFromCode(code);
         instance.defaults.baseURL = baseUrl;
@@ -171,8 +172,8 @@ export class TeslaCollector extends ApiCollector {
             throw new AuthenticationError('i18n.collectors.tesla.authentication_error', this);
         }
         // Update params with the new tokens for future use
-        params.access_token = data.access_token;
-        params.refresh_token = data.refresh_token;
+        params.access_token.value = data.access_token;
+        params.refresh_token.value = data.refresh_token;
     }
 
     /**
@@ -180,13 +181,13 @@ export class TeslaCollector extends ApiCollector {
      * @param instance The Axios instance to use for the request.
      * @param params The parameters object containing the refresh token.
      */
-    private async refreshAccessToken(instance: AxiosInstance, params: any): Promise<void> {
+    private async refreshAccessToken(instance: AxiosInstance, params: Params): Promise<void> {
         // Set the base URL from the code and update the instance defaults
-        instance.defaults.baseURL = this.baseUrlFromCode(params.refresh_token);
+        instance.defaults.baseURL = this.baseUrlFromCode(params.refresh_token.value);
         const body = new URLSearchParams({
             grant_type: 'refresh_token',
             client_id: TeslaCollector.CLIENT_ID,
-            refresh_token: params.refresh_token,
+            refresh_token: params.refresh_token.value,
         });
         // Perform request
         const data = await this.request(instance, 'POST', TeslaCollector.TOKEN_URL, {
@@ -197,8 +198,8 @@ export class TeslaCollector extends ApiCollector {
             throw new AuthenticationError('i18n.collectors.tesla.authentication_error', this);
         }
         // Update params with the new tokens for future use
-        params.access_token = data.access_token;
-        params.refresh_token = data.refresh_token;
+        params.access_token.value = data.access_token;
+        params.refresh_token.value = data.refresh_token;
     }
 
     /**

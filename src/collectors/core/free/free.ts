@@ -1,9 +1,10 @@
 import { LinearWebCollector } from '../../linearWebCollector';
 import { FreeSelectors } from './selectors';
 import { AbstractDriver } from '../../../driver/abstractDriver';
-import { Element } from '../../../driver/element';
+import { AbstractElement } from '../../../driver/abstractElement';
 import { CollectorCaptcha, CollectorType, Invoice, CollectorAuthenticationMethod, CollectorState } from '../../abstractCollector';
 import { WebSocketServer } from '../../../websocket/webSocketServer';
+import { Params } from '../../../model/secret';
 
 export class FreeCollector extends LinearWebCollector {
 
@@ -46,7 +47,7 @@ export class FreeCollector extends LinearWebCollector {
     /**
      * @inheritdoc
      */
-    async login(driver: AbstractDriver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
+    async login(driver: AbstractDriver, params: Params, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
         await driver.inputText(FreeSelectors.FIELD_USERNAME, params.id);
         await driver.inputText(FreeSelectors.FIELD_PASSWORD, params.password);
         await driver.leftClick(FreeSelectors.BUTTON_SUBMIT);
@@ -75,14 +76,14 @@ export class FreeCollector extends LinearWebCollector {
     /**
      * @inheritdoc
      */
-    async getInvoices(driver: AbstractDriver): Promise<Element[]> {
+    async getInvoices(driver: AbstractDriver): Promise<AbstractElement[]> {
         return await driver.getElements(FreeSelectors.CONTAINER_INVOICE);
     }
 
     /**
      * @inheritdoc
      */
-    async data(driver: AbstractDriver, element: Element): Promise<Invoice> {
+    async data(driver: AbstractDriver, element: AbstractElement): Promise<Invoice> {
         const downloadButton = await element.getElement(FreeSelectors.BUTTON_DOWNLOAD);
         const link = await driver.origin() + '/' + await element.getAttribute(FreeSelectors.BUTTON_DOWNLOAD, 'href');
         const amount = await element.getAttribute(FreeSelectors.CONTAINER_AMOUNT, 'textContent');

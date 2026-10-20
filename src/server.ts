@@ -22,6 +22,8 @@ import { Callback } from './model/callback';
 import { IntegrationConfig } from './integration/abstractIntegration';
 import { TokenManager } from './tokenManager';
 import { BillTask } from './tasks/bill/billTask';
+import { ExtensionTransport } from './driver/extension/extensionTransport';
+import { WebCollector } from './collectors/webCollector';
 
 export class Server {
 
@@ -307,6 +309,7 @@ export class Server {
                 customer.id,
                 email,
                 User.DEFAULT_PASSWORD,
+                User.DEFAULT_BEARER,
                 name,
                 cid,
                 null,
@@ -624,13 +627,10 @@ export class Server {
         const customer = await this.tokenManager.getCustomerFromBearer(bearer);
 
         // Generate api bearer
-        const newBearer = utils.generate_bearer(utils.BearerType.API);
-
-        // Compute hashed bearer
-        const hashedBearer = utils.hash_string(newBearer);
+        const newBearer = utils.generate_bearer(utils.BearerType.CUSTOMER_API);
 
         // Update customer bearer
-        customer.bearer = hashedBearer;
+        customer.bearer = utils.hash_string(newBearer);;
 
         // Commit changes in database
         await customer.commit();
@@ -787,6 +787,7 @@ export class Server {
                     customer.id,
                     remote_id,
                     User.DEFAULT_PASSWORD,
+                    User.DEFAULT_BEARER,
                     User.DEFAULT_NAME,
                     User.DEFAULT_CID,
                     location,
@@ -988,6 +989,30 @@ export class Server {
         };
     }
 
+    /**
+     * Generates a new API bearer token for the specified user.
+     * @param bearer The current customer or user bearer token.
+     * @param user_id The target user ID, or 'me' for the authenticated user.
+     * @returns The newly generated API bearer token for the user.
+     */
+    public async post_user_bearer(bearer: string | undefined, user_id: string): Promise<{
+        bearer: string
+    }> {
+        // Get user from bearer
+        const user = await this.tokenManager.getUserFromBearerOrToken(bearer, user_id, null);
+
+        // Compute hashed bearer
+        const newBearer = utils.generate_bearer(utils.BearerType.USER_API);
+
+        // Update customer bearer
+        user.bearer = utils.hash_string(newBearer);
+
+        // Commit changes in database
+        await user.commit();
+
+        // Return new bearer token
+        return { bearer: newBearer };
+    }
 
     // BEARER AUTHENTICATION
     /**
@@ -1037,6 +1062,7 @@ export class Server {
         id: string,
         user_id: string,
         note: string,
+        remote: boolean,
         create_timestamp: number,
         download_from_timestamp: number,
         last_collect_timestamp: number,
@@ -1079,6 +1105,7 @@ export class Server {
                 id: credential.id,
                 user_id: credential.user_id,
                 note: credential.note,
+                remote: credential.remote,
                 create_timestamp: credential.create_timestamp,
                 download_from_timestamp: credential.download_from_timestamp,
                 last_collect_timestamp: credential.last_collect_timestamp,
@@ -1100,6 +1127,7 @@ export class Server {
      * @param collector_id The ID of the collector for which the credential is being created.
      * @param params The parameters required for creating the credential.
      * @param download_from_timestamp The timestamp from which to start downloading invoices.
+     * @param remote Whether the credential is remote. Defaults to false.
      * @returns The details of the newly created credential.
      */
     public async post_credential(
@@ -1109,10 +1137,12 @@ export class Server {
         collector_id: string | undefined,
         params: any | undefined,
         download_from_timestamp: number | undefined,
+        remote: boolean | undefined,
     ): Promise<{
         id: string,
         user_id: string,
         note: string,
+        remote: boolean,
         create_timestamp: number,
         download_from_timestamp: number,
         last_collect_timestamp: number,
@@ -1120,7 +1150,8 @@ export class Server {
         invoices: any[],
         state: State,
         collector: Config,
-        wsPath: string
+        wsPath: string,
+        driverWs: string | null
     }> {
         // Get user from bearer or token
         const user = await this.tokenManager.getUserFromBearerOrToken(bearer, user_id, token);
@@ -1148,7 +1179,6 @@ export class Server {
         if(download_from_timestamp !== undefined && (typeof download_from_timestamp !== 'number' || download_from_timestamp < 0)) {
             throw new StatusError('The field "download_from_timestamp" must be a positive number.', 400);
         }
-
         // Get collector from id
         const collector = await CollectorLoader.get(collector_id);
 
@@ -1214,6 +1244,7 @@ export class Server {
                 secret.id,
                 now,
                 download_from_timestamp ?? now,
+                remote,
             );
 
             // Compute next collect
@@ -1228,12 +1259,13 @@ export class Server {
         // Generate oauth2 state from credential
         const oauth2State = this.tokenManager.createCredentialOauth2State(credential.id);
 
+        const extensionTransport = credential.remote ? this.createExtensionTransport(collector) : undefined;
         // Start web socket server and get token
         const webSocketServer = new WebSocketServer(this.httpServer, user.locale, collector, oauth2State);
         const wsPath = webSocketServer.start();
 
         // Start collect
-        const collect = new Collect(credential.id, webSocketServer);
+        const collect = new Collect(credential.id, webSocketServer, extensionTransport);
 
         // Register collect in progress
         CollectPool.getInstance().registerCollect(credential.id, collect);
@@ -1243,11 +1275,12 @@ export class Server {
             console.error(`Collect for credential ${credential.id} has failed`);
             console.error(err);
         })
-        .finally(() => {
+        .finally(async () => {
             // Unregister collect in progress
             CollectPool.getInstance().unregisterCollect(credential.id);
             // Close web socket server
-            webSocketServer.close();
+            await webSocketServer.close();
+            extensionTransport?.dispose();
         });
 
         // Return credential
@@ -1255,6 +1288,7 @@ export class Server {
             id: credential.id,
             user_id: credential.user_id,
             note: credential.note,
+            remote: credential.remote,
             create_timestamp: credential.create_timestamp,
             download_from_timestamp: credential.download_from_timestamp,
             last_collect_timestamp: credential.last_collect_timestamp,
@@ -1263,6 +1297,7 @@ export class Server {
             state: credential.state,
             collector: collector.config,
             wsPath,
+            driverWs: extensionTransport?.path ?? null,
         };
     }
 
@@ -1284,6 +1319,7 @@ export class Server {
         id: string,
         user_id: string,
         note: string,
+        remote: boolean,
         create_timestamp: number,
         download_from_timestamp: number,
         last_collect_timestamp: number,
@@ -1335,6 +1371,7 @@ export class Server {
             id: credential.id,
             user_id: credential.user_id,
             note: credential.note,
+            remote: credential.remote,
             create_timestamp: credential.create_timestamp,
             download_from_timestamp: credential.download_from_timestamp,
             last_collect_timestamp: credential.last_collect_timestamp,
@@ -1499,7 +1536,8 @@ export class Server {
         token: any,
         credential_id: string,
     ): Promise<{
-        wsPath: string | null
+        wsPath: string | null,
+        driverWs: string | null
     }> {
         // Get user from bearer or token
         const user = await this.tokenManager.getUserFromBearerOrToken(bearer, user_id, token);
@@ -1531,36 +1569,59 @@ export class Server {
 
         // Start web socket server and get token
         const webSocketServer = new WebSocketServer(this.httpServer, user.locale, collector, oauth2State);
-        let wsPath: string | null = webSocketServer.start();
+        const extensionTransport = credential.remote ? this.createExtensionTransport(collector) : undefined;
+        let wsPath: string | null = null;
+        let driverWs: string | null = null;
 
         // Create a new collect
-        const collect = new Collect(credential.id, webSocketServer);
+        const collect = new Collect(credential.id, webSocketServer, extensionTransport);
 
         // Register collect in progress before starting it.
         const registrationResult = CollectPool.getInstance().registerCollect(credential.id, collect);
 
         // If the new collect was successfully registered
         if (registrationResult.registered) {
+            wsPath = webSocketServer.start();
             // Start the collect and do not wait for promise to resolve
             collect.start().catch((err) => {
                 console.error(`Collect for credential ${credential.id} has failed`);
                 console.error(err);
             })
-            .finally(() => {
+            .finally(async () => {
                 // Unregister collect in progress
                 CollectPool.getInstance().unregisterCollect(credential.id);
                 // Close web socket server
-                webSocketServer.close();
+                await webSocketServer.close();
+                extensionTransport?.dispose();
             });
         }
         else {
             // If collect in progress, return existing wsPath
+            await webSocketServer.close();
             wsPath = registrationResult.collect.webSocketServer?.path || null;
+            extensionTransport?.dispose();
+            driverWs = registrationResult.collect.extensionTransport?.path ?? null;
         }
 
         return {
-            wsPath,
+            wsPath: wsPath,
+            driverWs: driverWs,
         };
+    }
+
+    /**
+     * Create an extension transport for the given collector if it is a web collector.
+     * @param collector The collector for which to create the extension transport.
+     * @returns The created extension transport if the collector is a web collector, otherwise undefined.
+     */
+    private createExtensionTransport(collector: AbstractCollector<Config>): ExtensionTransport | undefined {
+        if (!(collector instanceof WebCollector)) {
+            return undefined;
+        }
+        if (!this.httpServer) {
+            throw new Error('HTTP server must be initialized before starting a manual collection.');
+        }
+        return new ExtensionTransport(this.httpServer);
     }
 
     // ---------- COLLECTOR ENDPOINTS ----------

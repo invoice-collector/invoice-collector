@@ -33,7 +33,8 @@ const MIMETYPE_BASE64_SIGNATURE = {
 export enum BearerType {
     CUSTOMER_SESSION = 'c_sess',
     USER_SESSION = 'u_sess',
-    API = 'api'
+    CUSTOMER_API = 'c_api',
+    USER_API = 'u_api'
 }
 
 /* FUNCTIONS */
@@ -610,7 +611,7 @@ export function checkEmailIsValid(email: string): boolean {
  * @param email The value to validate.
  * @throws Will throw an error if the value is not a valid email address.
  */
-export function assertEmail(email: unknown): asserts email is string {
+export function assertEmail(email: string): asserts email is string {
     if (typeof email !== 'string' || !checkEmailIsValid(email)) {
         throw new Error('Invalid destination email address');
     }

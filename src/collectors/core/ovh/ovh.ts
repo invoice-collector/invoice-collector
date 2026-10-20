@@ -4,6 +4,7 @@ import { ApiCollector } from '../../apiCollector';
 import { CollectorState, CollectorType, DownloadedInvoice } from '../../abstractCollector';
 import { AuthenticationError } from '../../../error';
 import { WebSocketServer } from '../../../websocket/webSocketServer';
+import { Params } from '../../../model/secret';
 
 export class OvhCollector extends ApiCollector {
 
@@ -12,7 +13,7 @@ export class OvhCollector extends ApiCollector {
         name: 'OVH',
         description: 'i18n.collectors.ovh.description',
         instructions: 'i18n.collectors.ovh.instructions',
-        version: '2',
+        version: '3',
         website: 'https://www.ovh.com',
         logo: 'https://upload.wikimedia.org/wikipedia/commons/4/45/Logo_OVH.svg',
         type: CollectorType.API,
@@ -61,10 +62,10 @@ export class OvhCollector extends ApiCollector {
     /**
      * @inheritdoc
      */
-    async collect(instance: AxiosInstance, webSocketServer: WebSocketServer | undefined, params: any): Promise<any[]> {
+    async collect(instance: AxiosInstance, webSocketServer: WebSocketServer | undefined, params: Params): Promise<any[]> {
         // Set default headers
-        instance.defaults.headers.common['X-Ovh-Application'] = params.app_key;
-        instance.defaults.headers.common['X-Ovh-Consumer'] = params.consumer_key;
+        instance.defaults.headers.common['X-Ovh-Application'] = params.app_key.value;
+        instance.defaults.headers.common['X-Ovh-Consumer'] = params.consumer_key.value;
 
         // Get bill ids
         const bill_ids = await this.request(instance, params, 'GET', '/me/bill');
@@ -101,7 +102,7 @@ export class OvhCollector extends ApiCollector {
      * @param path The API endpoint path.
      * @returns The response data from the OVH API.
      */
-    private async request(instance: AxiosInstance, params: any, method: string, path: string): Promise<any> {
+    private async request(instance: AxiosInstance, params: Params, method: string, path: string): Promise<any> {
         const timestamp: string = await this.getAuthTime(instance);
         const response = await instance.request({
             method,
@@ -140,16 +141,16 @@ export class OvhCollector extends ApiCollector {
      * @param timestamp The current authentication timestamp.
      * @returns The generated signature for the request.
      */
-    private signRequest(params: any, httpMethod: string, url: string, body: string, timestamp: string): string {
-        const s = [
-            params.app_secret,
-            params.consumer_key,
+    private signRequest(params: Params, httpMethod: string, url: string, body: string, timestamp: string): string {
+        const s: string[] = [
+            params.app_secret.value,
+            params.consumer_key.value,
             httpMethod,
             url,
             body || '',
             timestamp,
         ];
 
-        return `$1$${  crypto.createHash('sha1').update(s.join('+')).digest('hex')}`;
+        return `$1$${crypto.createHash('sha1').update(s.join('+')).digest('hex')}`;
     }
 }

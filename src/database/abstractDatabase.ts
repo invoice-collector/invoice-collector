@@ -139,6 +139,13 @@ export abstract class AbstractDatabase {
      * @returns The user associated with the given user ID, or null if not found.
      */
     abstract getUser(user_id: string): Promise<User|null>;
+
+    /**
+     * Gets the user associated with the given hashed bearer token.
+     * @param bearer The hashed bearer token to use for retrieving the user.
+     * @returns The user associated with the bearer token, or null if not found.
+     */
+    abstract getUserFromBearer(bearer: string): Promise<User|null>;
     
     /**
      * Gets the user associated with the given remote ID.

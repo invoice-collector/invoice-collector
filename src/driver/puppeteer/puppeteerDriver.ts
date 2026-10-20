@@ -1,14 +1,16 @@
 import { CDPSession, ElementHandle, Frame, KeyInput, Page } from 'rebrowser-puppeteer-core';
-import { ElementNotFoundError, LoggableError } from '../error';
-import { Proxy } from '../proxy/abstractProxy';
-import * as utils from '../utils';
-import { WebCollector } from '../collectors/webCollector';
-import { BrowserFactory } from './browser/browserFactory';
-import { AbstractDriver, Screenshot } from './abstractDriver';
-import { Element } from './element';
-import { AbstractBrowser } from './browser/abstractBrowser';
+import { ElementNotFoundError, LoggableError } from '../../error';
+import { Proxy } from '../../proxy/abstractProxy';
+import * as utils from '../../utils';
+import { WebCollector } from '../../collectors/webCollector';
+import { BrowserFactory } from '../browser/browserFactory';
+import { AbstractDriver, Screenshot } from '../abstractDriver';
+import { PuppeteerElement } from './puppeteerElement';
+import { AbstractBrowser } from '../browser/abstractBrowser';
+import { Selector } from '../abstractElement';
+import { Param } from '../../model/secret';
 
-export class PuppeteerDriver extends AbstractDriver {
+export class PuppeteerDriver extends AbstractDriver<PuppeteerElement> {
 
     browser: AbstractBrowser | null;
     page: Page | null;
@@ -289,24 +291,6 @@ export class PuppeteerDriver extends AbstractDriver {
     /**
      * @inheritdoc
      */
-    async goToJson(url: string): Promise<any> {
-        if (this.page === null) {
-            throw new Error('Page is not initialized.');
-        }
-        await this.page.goto(url, { waitUntil: 'networkidle0', timeout: AbstractDriver.DEFAULT_NAVIGATION_TIMEOUT });
-        const data = await this.page.$eval('body', (element) => {
-            try {
-                return JSON.parse(element.innerText);
-            } catch {
-                return null;
-            }
-        });
-        return data;
-    }
-
-    /**
-     * @inheritdoc
-     */
     async newPage(url: string): Promise<void> {
         if (this.page === null) {
             throw new Error('Page is not initialized.');
@@ -374,10 +358,10 @@ export class PuppeteerDriver extends AbstractDriver {
     /**
      * @inheritdoc
      */
-    async getElement(selector, {
+    async getElement(selector: Selector, {
         raiseException = true,
         timeout = AbstractDriver.DEFAULT_TIMEOUT,
-    } = {}): Promise<Element | null> {
+    } = {}): Promise<PuppeteerElement | null> {
         if (this.page === null) {
             throw new Error('Page is not initialized.');
         }
@@ -398,13 +382,13 @@ export class PuppeteerDriver extends AbstractDriver {
             throw error;
         }
 
-        return element ? new Element(element, this) : null;
+        return element ? new PuppeteerElement(element, this) : null;
     }
 
     /**
      * @inheritdoc
      */
-    async getElementCoordinates(x: number, y: number): Promise<Element | null> {
+    async getElementCoordinates(x: number, y: number): Promise<PuppeteerElement | null> {
         if (this.page === null) {
             throw new Error('Page is not initialized.');
         }
@@ -412,7 +396,7 @@ export class PuppeteerDriver extends AbstractDriver {
         let context: Page | Frame = this.page;
 
         // Descend into nested iframes until the deepest element at (x, y) is found
-        let result: Element | null = null;
+        let result: PuppeteerElement | null = null;
         let done = false;
         while (!done) {
             const elementHandle = await context.evaluateHandle((x, y) => {
@@ -469,7 +453,7 @@ export class PuppeteerDriver extends AbstractDriver {
 
             // If not an iframe, the element is the final result
             if (!descendedIntoFrame) {
-                result = new Element(elementHandle as ElementHandle, this);
+                result = new PuppeteerElement(elementHandle as ElementHandle, this);
                 done = true;
             }
         }
@@ -480,21 +464,21 @@ export class PuppeteerDriver extends AbstractDriver {
     /**
      * @inheritdoc
      */
-    async getElements(selector, {
+    async getElements(selector: Selector, {
         raiseException = true,
         timeout = AbstractDriver.DEFAULT_TIMEOUT,
-    } = {}): Promise<Element[]> {
+    } = {}): Promise<PuppeteerElement[]> {
         if (this.page === null) {
             throw new Error('Page is not initialized.');
         }
         await this.getElement(selector, { raiseException, timeout });
-        return (await this.page.$$(selector.selector)).map(element => new Element(element, this));
+        return (await this.page.$$(selector.selector)).map(element => new PuppeteerElement(element, this));
     }
 
     /**
      * @inheritdoc
      */
-    async getAttribute(selector, attributeName, {
+    async getAttribute(selector: Selector, attributeName, {
         raiseException = true,
         timeout = AbstractDriver.DEFAULT_TIMEOUT,
     } = {}): Promise<string> {
@@ -518,7 +502,7 @@ export class PuppeteerDriver extends AbstractDriver {
     /**
      * @inheritdoc
      */
-    async getAttributes(selector, attributeName, {
+    async getAttributes(selector: Selector, attributeName, {
         raiseException = true,
         timeout = AbstractDriver.DEFAULT_TIMEOUT,
     } = {}): Promise<string[]> {
@@ -534,13 +518,13 @@ export class PuppeteerDriver extends AbstractDriver {
     /**
      * @inheritdoc
      */
-    async leftClick(selector, {
+    async leftClick(selector: Selector, {
         raiseException = true,
         timeout = AbstractDriver.DEFAULT_TIMEOUT,
         delay = AbstractDriver.DEFAULT_DELAY,
         navigation = true,
         mouseHover = false,
-    } = {}): Promise<Element | null> {
+    } = {}): Promise<PuppeteerElement | null> {
         if (this.page === null) {
             throw new Error('Page is not initialized.');
         }
@@ -555,14 +539,16 @@ export class PuppeteerDriver extends AbstractDriver {
     /**
      * @inheritdoc
      */
-    async inputText(selector, text, {
+    async inputText(
+        selector: Selector,
+        text: string | Param, {
         raiseException = true,
         timeout = AbstractDriver.DEFAULT_TIMEOUT,
         delay = AbstractDriver.DEFAULT_DELAY,
         tries = 5,
         navigation = false,
         mouseHover = false,
-    } = {}): Promise<Element | null> {
+    } = {}): Promise<PuppeteerElement | null> {
         const element = await this.getElement(selector, { raiseException, timeout });
         if(element !== null) {
             await element.inputText(text, { tries, timeout, delay, navigation, mouseHover });
@@ -574,12 +560,12 @@ export class PuppeteerDriver extends AbstractDriver {
     /**
      * @inheritdoc
      */
-    async dropdownSelect(selector, value: string, {
+    async dropdownSelect(selector: Selector, value: string, {
         raiseException = true,
         timeout = AbstractDriver.DEFAULT_TIMEOUT,
         delay = AbstractDriver.DEFAULT_DELAY,
         mouseHover = false,
-    } = {}): Promise<Element | null> {
+    } = {}): Promise<PuppeteerElement | null> {
         const element = await this.getElement(selector, { raiseException, timeout });
         if (element) {
             await element.dropdownSelect(value, { delay, mouseHover });

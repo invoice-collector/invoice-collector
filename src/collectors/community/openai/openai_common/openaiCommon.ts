@@ -6,13 +6,14 @@ import { LinearWebCollector } from '../../../linearWebCollector';
 import { Invoice } from '../../../abstractCollector';
 import { GoogleOauth2 } from '../../../oauth2/googleOauth2';
 import { MicrosoftOauth2 } from '../../../oauth2/microsoftOauth2';
+import { Params } from '../../../../model/secret';
 
 export abstract class OpenaiCommonCollector extends LinearWebCollector {
 
     /**
      * @inheritdoc
      */
-    async login(driver: AbstractDriver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
+    async login(driver: AbstractDriver, params: Params, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
         // Go to login page
         await driver.goto(this.config.loginUrl);
 
@@ -78,7 +79,7 @@ export abstract class OpenaiCommonCollector extends LinearWebCollector {
     /**
      * @inheritdoc
      */
-    async twofa(driver: AbstractDriver, params: any, twofa_promise: TwofaPromise, webSocketServer: WebSocketServer): Promise<string | void> {
+    async twofa(driver: AbstractDriver, params: Params, twofa_promise: TwofaPromise, webSocketServer: WebSocketServer): Promise<string | void> {
         // Perform google oauth2 if needed
         if(GoogleOauth2.check(driver)) {
             return await GoogleOauth2.twofa(driver, params, twofa_promise, webSocketServer);

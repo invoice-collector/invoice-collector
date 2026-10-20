@@ -1,11 +1,12 @@
 import { AbstractDriver } from '../../../driver/abstractDriver';
-import { Element } from '../../../driver/element';
+import { AbstractElement } from '../../../driver/abstractElement';
 import { CollectorCaptcha, CollectorType, Invoice, CollectorAuthenticationMethod, CollectorState } from '../../../collectors/abstractCollector';
 import { LinearWebCollector } from '../../../collectors/linearWebCollector';
 import { AmazonSelectors } from './selectors';
 import { timestampFromString } from '../../../utils';
 import { TwofaPromise } from '../../../tasks/collect/twofaPromise';
 import { WebSocketServer } from '../../../websocket/webSocketServer';
+import { Params } from '../../../model/secret';
 
 export class AmazonCollector extends LinearWebCollector {
 
@@ -86,7 +87,7 @@ export class AmazonCollector extends LinearWebCollector {
     /**
      * @inheritdoc
      */
-    async login(driver: AbstractDriver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
+    async login(driver: AbstractDriver, params: Params, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
         // Select personnal account if displayed
         await driver.leftClick(AmazonSelectors.CONTAINER_PERSONAL_ACCOUNT, { raiseException: false, timeout: 2000 });
 
@@ -147,7 +148,7 @@ export class AmazonCollector extends LinearWebCollector {
     /**
      * @inheritdoc
      */
-    async twofa(driver: AbstractDriver, params: any, twofa_promise: TwofaPromise, webSocketServer: WebSocketServer): Promise<string | void> {
+    async twofa(driver: AbstractDriver, params: Params, twofa_promise: TwofaPromise, webSocketServer: WebSocketServer): Promise<string | void> {
         // Wait for 2fa code from UI
         const twofa_code = await Promise.race([twofa_promise.code(), webSocketServer.getTwofa()]);
 
@@ -209,7 +210,7 @@ export class AmazonCollector extends LinearWebCollector {
     /**
      * @inheritdoc
      */
-    async getInvoices(driver: AbstractDriver): Promise<Element[]> {
+    async getInvoices(driver: AbstractDriver): Promise<AbstractElement[]> {
         // Get order elements
         return await driver.getElements(AmazonSelectors.CONTAINER_ORDER);
     }
@@ -217,7 +218,7 @@ export class AmazonCollector extends LinearWebCollector {
     /**
      * @inheritdoc
      */
-    async data(driver: AbstractDriver, element: Element): Promise<Invoice | null> {
+    async data(driver: AbstractDriver, element: AbstractElement): Promise<Invoice | null> {
         // Get timestamp
         const date = await element.getAttribute(AmazonSelectors.CONTAINER_ORDER_DATE, 'textContent');
         const timestamp = timestampFromString(date, 'd MMMM yyyy', this.language);

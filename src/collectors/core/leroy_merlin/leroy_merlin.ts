@@ -1,11 +1,12 @@
 import { LinearWebCollector } from '../../linearWebCollector';
 import { LeroyMerlinSelectors } from './selectors';
 import { AbstractDriver } from '../../../driver/abstractDriver';
-import { Element } from '../../../driver/element';
+import { AbstractElement } from '../../../driver/abstractElement';
 import { Invoice, CollectorCaptcha, CollectorType, CollectorAuthenticationMethod, CollectorState } from '../../abstractCollector';
 import * as utils from '../../../utils';
 import { TwofaPromise } from '../../../tasks/collect/twofaPromise';
 import { WebSocketServer } from '../../../websocket/webSocketServer';
+import { Params } from '../../../model/secret';
 
 export class LeroyMerlinCollector extends LinearWebCollector {
 
@@ -58,7 +59,7 @@ export class LeroyMerlinCollector extends LinearWebCollector {
     /**
      * @inheritdoc
      */
-    async login(driver: AbstractDriver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
+    async login(driver: AbstractDriver, params: Params, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
         // Refuse cookies
         await driver.leftClick(LeroyMerlinSelectors.BUTTON_REFUSE_COOKIES, { raiseException: false, navigation: false });
 
@@ -101,7 +102,7 @@ export class LeroyMerlinCollector extends LinearWebCollector {
     /**
      * @inheritdoc
      */
-    async twofa(driver: AbstractDriver, params: any, twofa_promise: TwofaPromise, webSocketServer: WebSocketServer): Promise<string | void> {
+    async twofa(driver: AbstractDriver, params: Params, twofa_promise: TwofaPromise, webSocketServer: WebSocketServer): Promise<string | void> {
         // Wait for 2fa code from UI
         const twofa_code = await Promise.race([twofa_promise.code(), webSocketServer.getTwofa()]);
 
@@ -136,14 +137,14 @@ export class LeroyMerlinCollector extends LinearWebCollector {
     /**
      * @inheritdoc
      */
-    async getInvoices(driver: AbstractDriver): Promise<Element[]> {
+    async getInvoices(driver: AbstractDriver): Promise<AbstractElement[]> {
         return await driver.getElements(LeroyMerlinSelectors.CONTAINER_ORDER);
     }
 
     /**
      * @inheritdoc
      */
-    async data(driver: AbstractDriver, element: Element): Promise<Invoice | null> {
+    async data(driver: AbstractDriver, element: AbstractElement): Promise<Invoice | null> {
         // Get url before map
         const link = driver.url();
 

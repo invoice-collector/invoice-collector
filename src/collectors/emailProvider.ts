@@ -1,5 +1,5 @@
 import { Location } from '../proxy/abstractProxy';
-import { Secret } from '../model/secret';
+import { Params, Secret } from '../model/secret';
 import { State } from '../model/state';
 import { CompleteInvoice, CollectorState, CollectorType, Config } from './abstractCollector';
 import { V2Collector } from './v2Collector';
@@ -56,15 +56,20 @@ export abstract class EmailProvider extends V2Collector<EmailProviderConfig> {
         useInteractiveLogin: boolean,
         providers: Credential[],
     ): Promise<CompleteInvoice[]> {
-        // Set progress step to logging in
-        state.update(State._2_LOGGING_IN);
-        webSocketServer?.sendState(State._2_LOGGING_IN);
-    
-        await this.authenticate(await secret.getParams(), webSocketServer);
+        try {
+            // Set progress step to logging in
+            state.update(State._2_LOGGING_IN);
+            webSocketServer?.sendState(State._2_LOGGING_IN);
 
-        // Set progress step to collecting
-        state.update(State._5_COLLECTING);
-        webSocketServer?.sendState(State._5_COLLECTING);
+            await this.authenticate(await secret.getParams(), webSocketServer);
+
+            // Set progress step to collecting
+            state.update(State._5_COLLECTING);
+            webSocketServer?.sendState(State._5_COLLECTING);
+        }
+        finally {
+            await this._close();
+        }
 
         // Email providers only authenticate the account and do not collect invoices.
         return [];
@@ -75,7 +80,7 @@ export abstract class EmailProvider extends V2Collector<EmailProviderConfig> {
      * @param params The authentication parameters required by the email provider.
      * @param webSocketServer The WebSocket server used for interactive authentication, if needed.
      */
-    abstract authenticate(params: any, webSocketServer?: WebSocketServer): Promise<void>;
+    abstract authenticate(params: Params, webSocketServer?: WebSocketServer): Promise<void>;
 
     /**
      * Gets the list of invoices matching the given wildcards.
@@ -90,4 +95,6 @@ export abstract class EmailProvider extends V2Collector<EmailProviderConfig> {
      * @returns The downloaded email invoice, including the attachment data and mimetype.
      */
     abstract downloadInvoice(invoice: EmailInvoice): Promise<DownloadedEmailInvoice>;
+
+    abstract _close(): Promise<void>;
 }

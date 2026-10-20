@@ -1,12 +1,13 @@
 import { OrangeSelectors } from './selectors';
 import { AbstractDriver } from '../../../../driver/abstractDriver';
-import { Element } from '../../../../driver/element';
+import { AbstractElement } from '../../../../driver/abstractElement';
 import { CollectorCaptcha, CollectorType, Invoice, CollectorAuthenticationMethod, CollectorState } from '../../../../collectors/abstractCollector';
 import { AuthenticationError } from '../../../../error';
 import { OrangeHelper } from '../helper/orangeHelper';
 import { WebSocketServer } from '../../../../websocket/webSocketServer';
 import { TwofaPromise } from '../../../../tasks/collect/twofaPromise';
 import { LinearWebCollector } from '../../../linearWebCollector';
+import { Params } from '../../../../model/secret';
 
 export class OrangeCollector extends LinearWebCollector {
 
@@ -58,7 +59,7 @@ export class OrangeCollector extends LinearWebCollector {
     /**
      * @inheritdoc
      */
-    async login(driver: AbstractDriver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
+    async login(driver: AbstractDriver, params: Params, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
         return await OrangeHelper.login(driver, params, webSocketServer);
     }
 
@@ -72,7 +73,7 @@ export class OrangeCollector extends LinearWebCollector {
     /**
      * @inheritdoc
      */
-    async twofa(driver: AbstractDriver, params: any, twofa_promise: TwofaPromise, webSocketServer: WebSocketServer): Promise<string | void> {
+    async twofa(driver: AbstractDriver, params: Params, twofa_promise: TwofaPromise, webSocketServer: WebSocketServer): Promise<string | void> {
         return await OrangeHelper.twofa(driver, params, twofa_promise, webSocketServer);
     }
 
@@ -112,14 +113,14 @@ export class OrangeCollector extends LinearWebCollector {
     /**
      * @inheritdoc
      */
-    async getInvoices(driver: AbstractDriver): Promise<Element[]> {
+    async getInvoices(driver: AbstractDriver): Promise<AbstractElement[]> {
         return await OrangeHelper.getInvoices(driver);
     }
 
     /**
      * @inheritdoc
      */
-    async data(driver: AbstractDriver, element: Element): Promise<Invoice | null> {
+    async data(driver: AbstractDriver, element: AbstractElement): Promise<Invoice | null> {
         return await OrangeHelper.data(driver, element);
     }
 

@@ -76,10 +76,10 @@ export class CustomEmailCollector extends EmailCollector {
         const params = await secret.getParams();
 
         // Replace config wild card with params
-        this.config.wildcards.sender = params.wildcardSender;
-        this.config.wildcards.subject = params.wildcardSubject;
-        this.config.wildcards.body = params.wildcardBody;
-        this.config.wildcards.attachmentName = params.wildcardAttachmentName;
+        this.config.wildcards.sender = params.wildcardSender.value;
+        this.config.wildcards.subject = params.wildcardSubject.value;
+        this.config.wildcards.body = params.wildcardBody.value;
+        this.config.wildcards.attachmentName = params.wildcardAttachmentName.value;
 
         // Call parent method
         return super._collect(

@@ -30,6 +30,8 @@ export class Credential {
         return await DatabaseFactory.getDatabase().getCredential(id);
     }
 
+    static DEFAULT_REMOTE: boolean = false;
+
     /**
      * Gets the IDs of credentials that need to be collected.
      * @returns An array of credential IDs that are ready for collection.
@@ -42,6 +44,7 @@ export class Credential {
     user_id: string;
     collector_id: string;
     note: string;
+    remote: boolean;
     secret_id: string;
     create_timestamp: number;
     download_from_timestamp: number;
@@ -64,6 +67,7 @@ export class Credential {
      * @param firstAuthenticationDate The date of the first successful authentication of the current session.
      * @param invoices The list of invoices associated with the credential.
      * @param state The state of the credential.
+     * @param remote Whether the credential is remote.
      */
     constructor(
         user_id: string,
@@ -72,6 +76,7 @@ export class Credential {
         secret_id: string,
         create_timestamp: number,
         download_from_timestamp: number,
+        remote: boolean = Credential.DEFAULT_REMOTE,
         last_collect_timestamp: number = Number.NaN,
         next_collect_timestamp: number = Number.NaN,
         firstAuthenticationDate: Date|null = null,
@@ -82,6 +87,7 @@ export class Credential {
         this.user_id = user_id;
         this.collector_id = collector_id;
         this.note = note;
+        this.remote = remote;
         this.secret_id = secret_id;
         this.create_timestamp = create_timestamp;
         this.download_from_timestamp = download_from_timestamp;

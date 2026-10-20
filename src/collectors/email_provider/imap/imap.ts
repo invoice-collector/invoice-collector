@@ -4,6 +4,7 @@ import { CollectorAuthenticationMethod, CollectorState, CollectorType } from '..
 import { DownloadedEmailInvoice, EmailInvoice, EmailInvoiceWildcards, EmailProvider, EmailProviderConfig } from '../../emailProvider';
 import * as utils from '../../../utils';
 import { WebSocketServer } from '../../../websocket/webSocketServer';
+import { Params } from '../../../model/secret';
 
 const MAILBOX_TO_IGNORE = [
     'sent',
@@ -75,13 +76,13 @@ export class ImapCollector extends EmailProvider {
     /**
      * @inheritdoc
      */
-    async authenticate(params: any, webSocketServer?: WebSocketServer): Promise<void> {
-        const host = params.host as string;
-        const username = params.username as string;
-        const password = params.password as string;
-        const secure = utils.parseBoolean(params.secure, false);
+    async authenticate(params: Params, webSocketServer?: WebSocketServer): Promise<void> {
+        const host = params.host.value;
+        const username = params.username.value;
+        const password = params.password.value;
+        const secure = utils.parseBoolean(params.secure.value, false);
 
-        const port = Number(params.port);
+        const port = Number(params.port.value);
         if (!Number.isFinite(port) || port <= 0) {
             throw new AuthenticationError('i18n.collectors.imap.invalid_port', this);
         }

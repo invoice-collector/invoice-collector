@@ -25,8 +25,6 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
 
     static LOGIN_TIMEOUT_MS = 10 * 60 * 1000; // 10 minutes
 
-    driver: AbstractDriver | null;
-
     /**
      * Constructs a new WebCollector instance.
      * @param config The configuration object for the WebCollector instance.
@@ -46,16 +44,6 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
             },
             authenticationMethod: config.authenticationMethod || CollectorAuthenticationMethod.ALL,
         });
-        this.driver = null;
-    }
-
-    /**
-     * @inheritdoc */
-    async _close(): Promise<void> {
-        if (this.driver !== null) {
-            // Close the browser
-            await this.driver.close();
-        }
     }
 
     // DOWNLOAD METHODS
