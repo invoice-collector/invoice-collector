@@ -14,9 +14,10 @@ import { WebSocketServerManager } from './webSocketServerManager';
 export class WebSocketServer extends EventEmitter {
 
     public static PATH = '/api/v1/ws/';
-    public static TWOFA_TIMEOUT_MS = 1000 * 60 * 5; // 5 minutes
-    public static OAUTH2_TIMEOUT_MS = 1000 * 60 * 5; // 5 minutes
-    public static KEEP_ALIVE_INTERVAL = 1000 * 30;  // 30 seconds
+    public static TWOFA_TIMEOUT_MS = 1000 * 60 * 5;     // 5 minutes
+    public static OAUTH2_TIMEOUT_MS = 1000 * 60 * 5;    // 5 minutes
+    public static KEEP_ALIVE_INTERVAL = 1000 * 30;      // 30 seconds
+    public static WAIT_FOR_OPEN_TIMEOUT_MS = 1000 * 10; // 10 seconds
 
     public readonly path: string;
     private ws: WebSocket | null = null;
@@ -137,16 +138,46 @@ export class WebSocketServer extends EventEmitter {
             clearInterval(keepAliveInterval);
             console.log(`WebSocket connection closed on ${this.path}`);
         });
+
+        // Emit the 'open' event to notify listeners that the WebSocket connection is open.
+        this.emit('open');
     }
 
     /**
      * Closes the WebSocket connection managed by this server instance.
      */
-    public close() {
+    public async close() {
+        await this.waitForOpen();
         // Close the WebSocket connection if open
         this.ws?.close();
         this.ws = null;
         WebSocketServerManager.getInstance().unregisterHandler(this.path);
+    }
+
+    /**
+     * Waits for the WebSocket connection to be open within the specified timeout.
+     * @param timeout The maximum time to wait for the WebSocket connection to open, in milliseconds. Defaults to {@link WebSocketServer.WAIT_FOR_OPEN_TIMEOUT_MS}.
+     * @returns A promise that resolves when the WebSocket connection is open, or rejects if the timeout is reached.
+     */
+    public waitForOpen(timeout: number = WebSocketServer.WAIT_FOR_OPEN_TIMEOUT_MS): Promise<void> {
+        return new Promise((resolve, reject) => {
+            if (this.ws && this.ws.readyState === WebSocket.OPEN) {
+                resolve();
+                return;
+            }
+
+            const onOpen = () => {
+                clearTimeout(timeoutId);
+                resolve();
+            };
+
+            const timeoutId = setTimeout(() => {
+                this.removeListener('open', onOpen);
+                reject(new Error('WebSocket connection did not open within the specified timeout.'));
+            }, timeout);
+
+            this.once('open', onOpen);
+        });
     }
 
     /**

@@ -1275,11 +1275,11 @@ export class Server {
             console.error(`Collect for credential ${credential.id} has failed`);
             console.error(err);
         })
-        .finally(() => {
+        .finally(async () => {
             // Unregister collect in progress
             CollectPool.getInstance().unregisterCollect(credential.id);
             // Close web socket server
-            webSocketServer.close();
+            await webSocketServer.close();
             extensionTransport?.dispose();
         });
 
@@ -1587,17 +1587,17 @@ export class Server {
                 console.error(`Collect for credential ${credential.id} has failed`);
                 console.error(err);
             })
-            .finally(() => {
+            .finally(async () => {
                 // Unregister collect in progress
                 CollectPool.getInstance().unregisterCollect(credential.id);
                 // Close web socket server
-                webSocketServer.close();
+                await webSocketServer.close();
                 extensionTransport?.dispose();
             });
         }
         else {
             // If collect in progress, return existing wsPath
-            webSocketServer.close();
+            await webSocketServer.close();
             wsPath = registrationResult.collect.webSocketServer?.path || null;
             extensionTransport?.dispose();
             driverWs = registrationResult.collect.extensionTransport?.path ?? null;
