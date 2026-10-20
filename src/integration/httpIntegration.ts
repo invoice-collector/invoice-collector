@@ -127,6 +127,5 @@ export class HttpIntegration extends AbstractIntegration {
             },
         );
         console.log(`Callback ${secretParams.url.value} successfully reached, disconnected notification sent for credential ${credential_id}`);
-
     }
 }
